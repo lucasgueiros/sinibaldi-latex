@@ -1,0 +1,50 @@
+# --- Scans e derivados pesados (80-210 MB; nunca versionar) ---
+vol1.pdf
+vol2.pdf
+vol*_div.pdf
+vol*_div_ocr.pdf
+*_ocr.pdf
+
+# tessdata local (links do sistema + modelos baixados)
+tessdata/
+
+# --- LaTeX ---
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.xdv
+*.nav
+*.snm
+*.vrb
+livro.pdf
+
+# --- Saídas intermediárias de OCR/extração ---
+vol*_pag.txt
+*.tmp
+tmp/
+scratch/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- Sistema/editor ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
