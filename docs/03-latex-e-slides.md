@@ -1,7 +1,8 @@
-# Arquitetura LaTeX (livro → PDF)
+# Arquitetura LaTeX (livro → PDF) e slides
 
-O escopo deste repositório termina no **PDF do livro**. Os slides serão gerados em **PPTX por LLM**,
-a partir do texto já revisado — não há pipeline LaTeX → slides, nem beamer.
+Os slides **não** saem do LaTeX: um script monta a base a partir dos trechos marcados no `.tex`
+(texto do livro literal), um LLM torna a base didática, e `tools/md2pptx.py` gera o `.pptx`. Não
+há beamer. Ver a seção "Slides" no fim e `docs/05-estrutura-por-no.md`.
 
 ## Marca de página impressa
 
@@ -15,6 +16,25 @@ Definida em `tex/preambulo.tex`:
 Os números vêm de `tools/extract_paginado.py` (ver `docs/02-numeracao-de-paginas.md`) — nunca do OCR
 do cabeçalho. Sendo uma macro única, a aparência (margem, sobrescrito, cinza) muda depois sem tocar
 no texto.
+
+## Macros de estrutura do autor
+
+`tex/preambulo.tex` também define (promovidas de um artigo transcrito à mão):
+
+- `\tese{n}{título}` — enunciado de tese numerada correndo com o texto (segue travessão);
+- `\teseB{n}{título}` — idem, em linha própria (quando vêm subdivisões `a)`, `b)`…);
+- `\sub{a}{rubrica}` / `\subp{a}` — subdivisão com / sem rubrica em itálico.
+
+Notas: por omissão saem no pé; com `\def\notascorridas{}` (via `-usepretex`) passam a correr no
+corpo, num bloco recuado que interrompe a leitura.
+
+## Pré-visualizar um nó isolado
+
+`tex/_preview.tex` compila **um** fragmento com o mesmo preâmbulo do livro:
+
+```bash
+latexmk -lualatex -usepretex='\def\fragmento{vol2/02_secao_x/01_cap_y/01_cap_y.tex}' tex/_preview.tex
+```
 
 ## Compilação
 
@@ -44,8 +64,21 @@ quem monta os slides.
 
 ## Fluxo de trabalho da transcrição
 
-1. `python3 tools/extract_paginado.py vol1.txt --from-txt -f A -l B` para pegar a faixa de páginas.
-2. Revisar o OCR contra a imagem (`pdftotext` não substitui olhar a página).
-3. Escrever em `tex/<secção>.tex`, inserindo `\pg{n}` em cada quebra de página do original.
+1. `python3 tools/corta.py <caminho-do-nó> <pág_ini> <pág_fim> --offset N` para recortar a faixa
+   (gera `<stem>.pdf` + `<stem>.txt`; ver `docs/05`).
+2. Revisar o `.txt` contra a imagem (`pdftotext` não substitui olhar a página).
+3. Escrever `<caminho-do-nó>/<stem>.tex` como fragmento `\input`-ável, inserindo `\pg{n}` em cada
+   quebra de página do original.
 
 O seccionamento natural segue os parágrafos numerados do autor (`87.`, `88.`, …), não a paginação.
+
+## Slides
+
+```bash
+python3 tools/gera_slides_base.py <caminho-do-nó>/<stem>.tex     # -> <stem>.slides.base.md
+#   um slide por trecho %%>>> id, com o texto do livro em citação
+# LLM: mantém o texto citado EXATO, acrescenta título/tópicos/explicação, salva <stem>.slides.md
+.venv/bin/python tools/md2pptx.py <caminho-do-nó>/<stem>.slides.md   # -> <stem>.pptx
+```
+
+A fonte a versionar e reeditar é o `.slides.md`; `.slides.base.md` e `.pptx` são reproduzíveis.

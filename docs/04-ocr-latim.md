@@ -21,6 +21,12 @@ export TESSDATA_PREFIX=$PWD/tessdata     # necessário para o tesseract enxergar
 tesseract --list-langs                   # eng lat osd por por_best
 ```
 
+**Armadilha:** com `TESSDATA_PREFIX` apontando para o `tessdata/` local, o `ocrmypdf` quebra logo no
+início com `read_params_file: Can't open hocr` / `TesseractConfigError` — ele chama
+`tesseract … hocr txt`, e `hocr`/`txt` são *arquivos de config* que o tesseract procura em
+`tessdata/configs/`. A pasta local não tinha isso. Solução: linkar do sistema também
+`configs`, `tessconfigs` e `pdf.ttf`, não só os `.traineddata`.
+
 ## Medição (não é achismo)
 
 Amostras: pdf 335 (impressa 320) e pdf 618 (impressa 603), as páginas com mais latim do volume.
@@ -75,7 +81,8 @@ ganha numa (`receptum` vs `veceptum`).
 
 Decisivo: **`w` é legítimo no livro** — `Darwin` (26×), `Newton` (11×), `Wolf` (10×), `Edwards` (9×).
 Um blacklist global destruiria esses nomes. Por isso a correção é pós-processamento com whitelist de
-nomes próprios (`NOMES_COM_W` em `tools/ocr_paginado.py`), não blacklist no OCR.
+nomes próprios (`NOMES_COM_W` em `tools/corrige_w.py`, usado por `ocr_paginado.py` e por
+`extract_paginado.py --corrige-w`), não blacklist no OCR.
 
 Curiosidade útil: a confusão `u`→`w` **já existia** na linha de base — `vol1.txt` tem `wma` (21×),
 `wniversal` (15×), `wm` (12×), `ow` (17×). A correção vale para os dois OCRs.
@@ -105,7 +112,16 @@ A saída já vem etiquetada (`<<<PAG 320 pdf=335>>>`), com a numeração de
 ## Estado dos arquivos de texto
 
 - `vol1.txt` — OCR antigo (`por` fast), **sem** latim. Mantido para comparação.
-- `vol1_lat.txt` — OCR novo (`por_best+lat`, etiquetado, `w→u`). **Usar este** para transcrever.
+- `vol1_lat.txt` — **nunca foi gerado.** O único artigo do vol. 1 transcrito até agora
+  (`Artigo III.tex`) saiu de um OCR ad-hoc por artigo, não deste pipeline.
+
+## Vol. 2
+
+O PDF pesquisável do vol. 2 já foi feito com `ocrmypdf -l por_best+lat` (o modelo de latim desde o
+início), então `tools/ocr_paginado.py` passa a ser o recurso **sob demanda** para páginas em que o
+latim ainda sair ruim. A correção `w→u` no texto do volume inteiro vem de
+`extract_paginado.py --corrige-w`. O `tessdata/` (links do sistema + `lat` best + `por_best`) foi
+reconstruído; é git-ignored.
 
 ## Limites
 

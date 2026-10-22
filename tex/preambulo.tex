@@ -1,6 +1,34 @@
-% Preâmbulo comum ao livro e aos slides.
+% Preâmbulo comum ao livro e à pré-visualização de fragmentos (tex/_preview.tex).
 % Marca da página impressa do original: \pg{286} imprime [286] no fluxo do texto.
 \newcommand{\pg}[1]{\,{\footnotesize\textbf{[#1]}}\,}
 
 % Citações latinas de S. Tomás (o OCR erra muito aqui: sempre conferir na imagem).
 \newenvironment{latim}{\begin{quote}\itshape}{\end{quote}}
+
+% --- Estrutura do autor (promovido de "Artigo III.tex") -----------------------
+% enunciado de tese numerada que corre com o texto (segue-se travessão)
+\newcommand{\tese}[2]{\bigskip\noindent\textbf{#1.\quad #2}\;\textemdash\;}
+% enunciado de tese numerada em linha própria (seguem-se as subdivisões a), b)...)
+\newcommand{\teseB}[2]{\bigskip\noindent\textbf{#1.\quad #2}\par}
+% subdivisão a), b), c)... com rubrica em itálico
+\newcommand{\sub}[2]{\medskip\noindent#1)\quad\emph{#2},\;\textemdash\;}
+% subdivisão a), b), c)... sem rubrica
+\newcommand{\subp}[1]{\medskip\noindent#1)\quad}
+
+% --- Notas: no pé (padrão) ou correndo no corpo do texto ---------------------
+% Passar  \def\notascorridas{}  no -usepretex faz cada nota correr no corpo, em
+% corpo menor, num bloco recuado que interrompe a leitura até acabar.  Ex.:
+%   latexmk -lualatex -usepretex='\def\fragmento{vol2/.../01_cap_y.tex}\def\notascorridas{}' tex/_preview.tex
+\newif\ifnotascorridas
+\ifdefined\notascorridas \notascorridastrue \fi
+\ifnotascorridas
+  \renewcommand\footnote[1]{%
+    \stepcounter{footnote}\textsuperscript{\thefootnote}% marca no ponto do texto
+    \par
+    {\footnotesize
+     \leftskip=2em \rightskip=2em \parindent=1em
+     \addvspace{\medskipamount}%
+     \noindent\textit{Nota \thefootnote.}\enspace #1\par
+     \addvspace{\medskipamount}}%
+  }
+\fi

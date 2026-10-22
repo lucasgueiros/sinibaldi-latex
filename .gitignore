@@ -30,9 +30,19 @@ livro.pdf
 
 # --- Saídas intermediárias de OCR/extração ---
 vol*_pag.txt
+vol*/vol*.txt
+ocr_tmp/
 *.tmp
 tmp/
 scratch/
+
+# --- Árvore por nó (volN/.../): versionar só .tex, .slides.md e estrutura.tsv ---
+# o resto é reproduzível: ocr.pdf via tools/corta.py, .txt via extract_paginado,
+# .slides.base.md via gera_slides_base, .pptx via md2pptx.
+vol*/**/*.pdf
+vol*/**/*.txt
+vol*/**/*.slides.base.md
+vol*/**/*.pptx
 
 # --- Python ---
 __pycache__/

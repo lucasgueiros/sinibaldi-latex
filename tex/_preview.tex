@@ -1,0 +1,16 @@
+% Pré-visualização de UM fragmento isolado (um nó da árvore volN/), com o mesmo
+% preâmbulo do livro.  O fragmento é escolhido na linha de comando:
+%
+%   latexmk -lualatex -usepretex='\def\fragmento{vol2/02_secao_x/01_cap_y/01_cap_y.tex}' tex/_preview.tex
+%
+% Notas correndo no corpo: acrescentar  \def\notascorridas{}  ao -usepretex.
+% Sem -usepretex, cai no exemplo de ontologia (fumaça de que o preâmbulo compila).
+\documentclass[11pt,a5paper]{book}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{portuguese}
+\input{tex/preambulo}
+\providecommand{\fragmento}{tex/exemplo-ontologia}
+\begin{document}
+\input{\fragmento}
+\end{document}

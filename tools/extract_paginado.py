@@ -13,6 +13,9 @@ Uso:
 """
 import argparse, re, subprocess, sys
 
+from corrige_w import corrige_w  # w -> u fora de nomes proprios (ver docs/04)
+
+
 def romano(n: int) -> str:
     vals = ((1000,"M"),(900,"CM"),(500,"D"),(400,"CD"),(100,"C"),(90,"XC"),
             (50,"L"),(40,"XL"),(10,"X"),(9,"IX"),(5,"V"),(4,"IV"),(1,"I"))
@@ -64,6 +67,8 @@ def main() -> int:
     ap.add_argument("-l", "--last", type=int, default=0, help="ultima pagina do PDF")
     ap.add_argument("--check", action="store_true",
                     help="so relata divergencia entre numero calculado e OCR")
+    ap.add_argument("--corrige-w", action="store_true",
+                    help="aplica w->u fora de nomes proprios (OCR com modelo lat)")
     a = ap.parse_args()
 
     blocos = paginas(a.src, a.from_txt)
@@ -84,7 +89,7 @@ def main() -> int:
                 print(f"pdf {i:>3}  calculado {rot:>4}  ocr leu {lido:>4}")
             continue
         print(f"<<<PAG {rot} pdf={i}>>>")
-        print(bloco.rstrip("\n"))
+        print(corrige_w(bloco.rstrip("\n")) if a.corrige_w else bloco.rstrip("\n"))
 
     if a.check:
         print(f"\n{div}/{tot} cabecalhos divergem do calculado "

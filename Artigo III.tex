@@ -1,0 +1,1108 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{microtype}
+\geometry{top=3cm, bottom=3cm, left=3.5cm, right=3cm}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.4ex}
+
+% [ 302 ] marca a quebra de página do original
+\newcommand{\pg}[1]{\thinspace\textup{[\,#1\,]}\thinspace}
+% enunciado de tese numerada que corre com o texto (segue-se travessão)
+\newcommand{\tese}[2]{\bigskip\noindent\textbf{#1.\quad #2}\;\textemdash\;}
+% enunciado de tese numerada em linha própria (seguem-se as subdivisões a), b)...)
+\newcommand{\teseB}[2]{\bigskip\noindent\textbf{#1.\quad #2}\par}
+% subdivisão a), b), c)... com rubrica em itálico
+\newcommand{\sub}[2]{\medskip\noindent#1)\quad\emph{#2},\;\textemdash\;}
+% subdivisão a), b), c)... sem rubrica
+\newcommand{\subp}[1]{\medskip\noindent#1)\quad}
+
+% ---------------------------------------------------------------------------
+% Notas: por omissão saem no pé da página (\footnote normal).
+% Com  \def\notascorridas{}  passado na linha de comando, cada nota passa a
+% correr no corpo do texto, em corpo menor, num bloco recuado que interrompe
+% o texto: a leitura só continua depois de a nota acabar.
+%   latexmk -pdf "Artigo III.tex"                                  -> notas no pé
+%   latexmk -pdf -jobname="Artigo III - notas no corpo" \
+%           -pretex='\def\notascorridas{}' -usepretex "Artigo III.tex"  -> notas no corpo
+% ---------------------------------------------------------------------------
+\newif\ifnotascorridas
+\ifdefined\notascorridas \notascorridastrue \fi
+\ifnotascorridas
+  \renewcommand\footnote[1]{%
+    \stepcounter{footnote}\textsuperscript{\thefootnote}% marca no ponto do texto
+    \par
+    {\footnotesize
+     \leftskip=2em \rightskip=2em \parindent=1em
+     \addvspace{\medskipamount}%
+     \noindent\textit{Nota \thefootnote.}\enspace #1\par
+     \addvspace{\medskipamount}}%
+  }
+\fi
+
+\begin{document}
+
+\begin{center}
+  {\large\textbf{Artigo III}}\\[0.4em]
+  {\large\textbf{Essência e Existência}}
+\end{center}
+
+\vspace{1.5em}
+
+\pg{302}
+
+\tese{29}{Essência e existência} O \emph{ente}, como dissemos, denota uma coisa
+que \emph{existe} ou pode \emph{existir}. Por isso o ente compõe-se de
+\emph{essência} e de \emph{existência}, como de \emph{potência} e de
+\emph{ato}. \textemdash{} Tendo declarado a ideia de \emph{ente} e a ideia de
+\emph{potência} e de \emph{ato}, devemos agora tratar da \emph{essência} e da
+\emph{existência}.\footnote{O assunto de que nos ocupamos neste artigo é de uma
+importância suprema em toda a filosofia. Pedimos, pois, toda a atenção dos
+nossos pacientes leitores.}
+
+\tese{30}{Essência} \emph{Essência} é a coisa pela qual um \emph{ente} é
+\emph{o que é}; ou, mais desenvolvidamente, é a coisa que constitui um
+\emph{ente} numa certa \emph{espécie}, ou num certo \emph{gênero}, \pg{303} e o
+distingue dos \emph{entes} das outras \emph{espécies}, ou dos outros
+\emph{gêneros}. Assim a \emph{essência} de \emph{Pedro} é a \emph{humanidade},
+porque é por \emph{ela} que \emph{Pedro} é \emph{homem} e não é outra coisa
+\textemdash{} ou porque é \emph{ela} que constitui \emph{Pedro} na \emph{espécie
+humana} e o distingue dos \emph{animais irracionais}.\footnote{São muitas e
+várias as \emph{explicações} que se dão da \emph{essência}. Assim se diz também
+que a \emph{essência} \textemdash{} é a coisa cujo \emph{ato} é \emph{o ser}, ou
+a \emph{existência}; \textemdash{} é o que primeiramente se concebe num
+\emph{ente}; \textemdash{} é o que faz conhecer a coisa como é em si mesma;
+\textemdash{} é o que distingue uma coisa de todas as outras; \textemdash{} é a
+raiz e o sujeito de todas as propriedades e operações de um \emph{ente}, etc.
+Todavia, embora sejam muitas e várias as \emph{explicações} que se dão da
+\emph{essência}, contudo todas exprimem uma coisa concebida como o \emph{fundo}
+que constitui um ente numa certa categoria ou espécie e de que brotam, como do
+seu princípio radical, todas as propriedades e operações do ente.
+
+  Apresentamos \emph{explicações} da \emph{essência}, e não \emph{definições}.
+  Porquanto a \emph{essência}, embora seja menos abstrata que o \emph{ente},
+  contudo, pela sua simplicidade, não é suscetível de uma \emph{definição
+  rigorosa} sem que se cometa uma \emph{petição de princípio}. Com efeito,
+  devendo a \emph{definição rigorosa} explicar \emph{o que uma coisa é}, isto é,
+  devendo explicar a \emph{essência} de uma coisa, não é possível formar uma
+  \emph{definição rigorosa} sem que primeiramente se possua uma noção geral da
+  própria \emph{essência}. A \emph{essência}, pois, é uma das noções primitivas
+  e imediatamente evidentes, que não precisa de demonstração nem pode ser
+  demonstrada.
+
+  A \emph{essência} chama-se também \emph{quididade}, \emph{forma},
+  \emph{natureza}; mas esses vocábulos denotam sempre uma e a mesma coisa,
+  embora sob diferentes aspectos. \textemdash{} Chama-se \emph{quididade},
+  porque a essência, constituindo as coisas no próprio gênero ou na própria
+  espécie, é denotada pela definição, com a qual respondemos à pergunta:
+  \emph{o que é isto \textemdash{} quid est res}? \textemdash{} Chama-se
+  \emph{forma}, porque, assim como a forma é \emph{ato} e \emph{perfeição} da
+  \emph{matéria}, porque a tira da indiferença e a constitui num determinado
+  grau de ser, assim a essência é \emph{ato} e \emph{perfeição} do \emph{ente},
+  que pode considerar-se como um sujeito constituído pela própria essência num
+  determinado grau de ser. \textemdash{} Chama-se \emph{natureza} enquanto é o
+  primeiro princípio da operação própria, porque nenhuma coisa é destituída da
+  sua operação. \textemdash{} Notamos que a \emph{essência} se chama
+  \emph{essência} enquanto é \emph{nela} e \emph{por ela} que uma coisa tem o
+  \emph{ser} (\emph{esse}). Uma coisa tem o \emph{ser} (\emph{esse})
+  \emph{na essência}, porque a essência é a \emph{potência} em que o \emph{ser}
+  é recebido. Uma coisa tem o \emph{ser} (\emph{esse}) \emph{pela essência},
+  porque é por causa da \emph{essência} que uma coisa tem o \emph{ser} pelo qual
+  é constituída numa certa espécie ou gênero, e porque nenhuma coisa poderia
+  receber o ser se não tivesse a capacidade ou a potência para isso, e a
+  essência é essa capacidade. \pg{304} \textemdash{} Diz S. Tomás
+  (\emph{De Ente et Essentia}, c.~1): «\textit{Illud per quod res constituitur
+  in proprio genere vel specie, est quod significamus per definitionem
+  indicantem quid est res; inde est quod nomen essentiae a philosophis in nomen
+  quidditatis mutatur\dots{} Dicitur etiam forma, secundum quod per formam
+  significatur perfectio vel certitudo uniuscuiusque rei\dots{} Nomen autem
+  naturae videtur significare essentiam rei, secundum quod habet ordinem vel
+  ordinationem ad propriam operationem rei, cum nulla res propria destituatur
+  operatione\dots{} Sed essentia dicitur secundum quod per eam et in ea res
+  habet esse}».
+
+  Como se vê, a ideia de essência sucede imediatamente à de ente; porque, tendo
+  conhecido um objeto sob a ideia indeterminada de ente, a primeira pergunta
+  que fazemos acerca do mesmo objeto é a seguinte: o que é isto? \textemdash{}
+  A resposta exprime a essência.}
+
+\tese{31}{Divisão da essência} A \emph{essência} é \textemdash{} a)~\emph{possível}
+e \emph{atual}; \textemdash{} b)~\emph{substancial} e \emph{acidental};
+\textemdash{} c)~\emph{física} e \emph{metafísica}.
+
+\sub{a}{Essência possível e atual} \emph{Possível} é a que presentemente não
+existe, mas pode existir na ordem real. \textemdash{} \emph{Atual} é a que
+presentemente existe na realidade. \textemdash{} Neste artigo tratamos da
+essência \emph{atual}.
+
+\sub{b}{Essência substancial e acidental} A \emph{substancial} é a que se
+encontra na \emph{substância}; tal é a essência do \emph{homem}. \textemdash{} A
+\emph{acidental} é a que se encontra no \emph{acidente}; tal é a essência da
+\emph{sabedoria}. \textemdash{} A essência existe na \emph{substância} por um
+modo \emph{absoluto}, no \emph{acidente} por um modo \emph{relativo}.
+
+\sub{c}{Essência física e metafísica} É \emph{física} quando os seus elementos
+são \emph{concretos}, \emph{reais} e \emph{realmente distintos}; assim a
+essência \emph{física} do \emph{homem} é constituída pela \emph{alma racional} e
+pelo \emph{corpo orgânico}. \textemdash{} É \emph{metafísica} quando os seus
+elementos são \emph{abstratos}, \emph{lógicos} e \emph{logicamente distintos},
+denotando o \emph{gênero} e a \emph{diferença}; assim a essência
+\emph{metafísica} do \emph{homem} é constituída pela \emph{animalidade} e pela
+\emph{racionalidade}.\footnote{A essência física é \emph{artificial} ou
+\emph{natural}. É \emph{artificial} se a sua constituição depende do artista;
+tal é a essência de um relógio. É \emph{natural} quando a sua constituição é
+obra da natureza; tal é a essência de uma planta. \textemdash{} A essência
+metafísica é apenas o conceito abstrato da própria essência física, dividido em
+dois outros conceitos, que são o \emph{gênero} e a \emph{diferença}. Como
+dissemos na Lógica, o gênero não exprime uma parte física ou realmente distinta
+das outras, mas exprime a essência completa, ainda que de um modo
+indeterminado. Assim, na definição do homem, o gênero \emph{animal} não denota
+exclusivamente o corpo, mas denota o corpo e a alma, enquanto à perfeição e às
+forças da vida vegetativa e sensitiva, abstraindo da perfeição e das forças da
+vida intelectual, contidas no conceito de \emph{racional}, que exerce o múnus de
+\emph{diferença} (cf.\ \emph{De Ente et Essentia}, c.~VI). \textemdash{} Mas as
+partes, quer sejam físicas, quer sejam metafísicas, sempre se referem à
+essência real; pois a essência física e a metafísica são uma e a mesma essência
+real, considerada sob um duplo aspecto \textemdash{} nas coisas e na
+inteligência.}
+
+\teseB{32}{A essência é uma coisa real e objetiva}
+
+\subp{a} A \emph{essência} é o que constitui o \emph{ente} na própria
+\emph{espécie}, ou no próprio \emph{gênero}, e o distingue dos \emph{entes} das
+outras \emph{espécies}, ou dos outros \emph{gêneros}. Ora o que constitui o
+ente na própria \pg{305} espécie, ou no próprio gênero, e o distingue dos entes
+das outras espécies, ou dos outros gêneros, não é um mero \emph{produto da
+nossa fantasia}, mas é uma coisa \emph{real e objetiva}, porque as coisas são o
+que são independentemente dos nossos \emph{atos}. Logo a \emph{essência} é uma
+coisa \emph{real e objetiva}.
+
+\subp{b} Toda a \emph{essência} é \emph{física} ou \emph{metafísica}. Se é
+\emph{física}, é certamente \emph{real e objetiva}; assim o \emph{corpo
+orgânico} e a \emph{alma racional} são coisas \emph{reais e objetivas}, e por
+isso \emph{real e objetiva} deve ser a essência que é constituída por esses dois
+elementos. \textemdash{} Se é \emph{metafísica}, é também \emph{real e
+objetiva}; porque a essência \emph{metafísica}, sendo a noção \emph{abstrata} da
+essência \emph{física}, é uma coisa que \textemdash{} ou existe na realidade,
+embora por um modo diferente do modo por que existe na inteligência,
+\textemdash{} ou na realidade tem o seu fundamento, e por isso é sempre uma
+coisa \emph{real e objetiva}. Logo a \emph{essência} é uma coisa \emph{real e
+objetiva}.\footnote{Veja-se o que dissemos na Lógica com relação à
+objetividade das ideias universais. \textemdash{} São os \emph{sensualistas} e
+os \emph{positivistas} que reduzem a essência das coisas à mera ficção da nossa
+fantasia, a nomes ou conceitos exclusivamente subjetivos, aos quais nenhuma
+realidade corresponde.}
+
+\tese{33}{A essência encontra-se não só na substância, mas também no acidente}
+A \emph{essência} é a coisa pela qual o \emph{ente} é \emph{o que é},
+\textemdash{} ou que constitui o \emph{ente} numa certa \emph{espécie}, ou num
+certo \emph{gênero}, e o distingue dos \emph{entes} das outras \emph{espécies},
+ou dos outros \emph{gêneros}. Ora não só a \emph{substância}, mas também o
+\emph{acidente} é o que é, pertence a uma certa \emph{espécie}, ou a um certo
+\emph{gênero}, e distingue-se dos \emph{entes} das outras \emph{espécies}, ou
+dos outros \emph{gêneros}. Logo a \emph{essência} encontra-se não só na
+\emph{substância}, mas também no \emph{acidente}.\footnote{A conclusão é certa.
+A \emph{essência} responde à pergunta: \emph{o que é isto}? Ora esta pergunta
+pode fazer-se não só com relação à \emph{substância}, mas também com relação ao
+\emph{acidente}. Porquanto, não só a \emph{substância}, p.~ex., o homem, é o
+que é e distingue-se das plantas, das pedras, etc., mas também o
+\emph{acidente}, p.~ex., a alvura, é o que é e distingue-se das outras cores, da
+sabedoria, do poder, etc. \pg{306} \textemdash{} Todavia, a \emph{essência}
+compete primeiramente à \emph{substância} e secundariamente ao \emph{acidente}.
+Na verdade, a essência deriva do \emph{ser} (\emph{esse}), que existe nela e por
+ela. Ora o ser primeiramente compete à \emph{substância} e secundariamente ao
+\emph{acidente}, visto que o ser do \emph{acidente} supõe o ser da
+\emph{substância} e neste se funda, isto é, o \emph{ser acidental} supõe o
+\emph{ser substancial} e neste se apoia. Por isso, a \emph{essência
+substancial} é uma forma pela qual um ente é constituído no seu \emph{ser
+primeiro}, que é o substancial, e existe independentemente de toda e qualquer
+forma anterior; tal é a \emph{humanidade}. Ao passo que a \emph{essência
+acidental} é uma forma pela qual um ente, já constituído no seu primeiro ser, é
+diversamente modificado no seu \emph{ser secundário}, que é o acidental; tal é
+a beleza, a sabedoria, a bondade, etc. \textemdash{} Esta é a doutrina de
+S. Tomás. Diz o Santo que a essência se deve atribuir à \emph{substância} e ao
+\emph{acidente} como se atribui o \emph{ente}. Ora o ente atribui-se primeira e
+absolutamente à \emph{substância}, e secundária e relativamente ao
+\emph{acidente}. Logo também a essência deve atribuir-se primeira e
+absolutamente à \emph{substância}, e secundária e relativamente ao
+\emph{acidente} (cf.\ \emph{De Ente et Essentia}, c.~III).}
+
+\teseB{34}{A essência substancial não é uma simples coleção de qualidades}
+
+\subp{a} A \emph{essência substancial} denota a realidade que constitui o
+\emph{ente} no seu \emph{ser primeiro} e o faz subsistir em si mesmo; ao passo
+que a \emph{qualidade}, como todo e qualquer \emph{acidente}, denota uma coisa
+que não constitui o ente no seu ser primeiro, mas sobrevém ao ente já
+constituído e subsistente em si mesmo. Ora o que se une a um ente já
+constituído no ser primeiro não pode entrar, como elemento, nessa primeira
+constituição. Logo a \emph{essência substancial} não é uma simples coleção de
+\emph{qualidades}.
+
+\subp{b} Se a \emph{essência substancial} fosse apenas uma coleção de
+\emph{qualidades}, quando a substância se muda nas suas \emph{qualidades}
+deveria mudar-se também na sua \emph{essência}. Ora isto não sucede; porque,
+enquanto as \emph{qualidades} mudam, aparecem e desaparecem, a \emph{essência}
+permanece sempre a mesma; assim o homem de bom torna-se mau, mas é sempre
+homem. Logo a \emph{essência substancial} não é uma simples coleção de
+\emph{qualidades}.\footnote{A verdade da proposição resulta da própria
+inspeção dos termos. A \emph{substância} subsiste em si e por isso, para
+existir, não precisa de sujeito a que adira; ao passo que a \emph{qualidade},
+por ser \emph{acidente}, não subsiste em si e por isso, para existir, precisa
+de um sujeito a que adira. Não pode, pois, afirmar-se, sem contradição, que a
+\emph{essência substancial} é apenas uma coleção de \emph{qualidades}.
+\textemdash{} Nem se diga que, se uma \emph{qualidade} não pode subsistir em si
+mesma, pode subsistir a coleção das \emph{qualidades}; porque a
+\emph{não-subsistência} é o caráter essencial das \emph{qualidades}, e por
+isso, se a \emph{subsistência} não se encontra numa \emph{qualidade}, nem se
+encontra na coleção de \emph{qualidades}. Se um cego não vê, nem podem ver mil
+cegos.
+
+  Foi \emph{Locke}, seguido pelos \emph{materialistas}, quem ensinou
+  \textemdash{} que a \emph{substância}, ou \emph{essência substancial}, não é
+  uma coisa distinta das \emph{qualidades sensíveis}, \textemdash{} e que, por
+  isso, uma \emph{substância} concebida como um princípio ou sujeito de que
+  resultam ou a que aderem as \emph{qualidades} é uma ficção gratuita da nossa
+  inteligência. \textemdash{} O erro de \emph{Locke} é uma consequência do seu
+  \emph{sistema}, que admite a \emph{sensação} como única fonte de todos os
+  conhecimentos humanos. \textemdash{} É falsa a afirmação de \emph{Locke},
+  dizendo que, quando concebemos a \emph{essência substancial}, concebemo-la
+  como um \emph{cúmulo} ou uma coleção de \emph{qualidades}; porque a nossa
+  inteligência, quando, advertida pelos sentidos, percebe as \emph{qualidades},
+  \pg{307} não pára aí, mas, através das \emph{qualidades} e por meio delas,
+  chega até ao fundo do \emph{objeto} e descobre a \emph{essência} de que
+  resultam e a que aderem as \emph{qualidades}.}
+
+\tese{35}{Nem todas as essências nos são desconhecidas} A experiência atesta
+que possuímos uma ideia clara e distinta de muitos seres; porque não só não
+confundimos um com o outro, mas também indicamos os elementos que os constituem
+numa certa e determinada \emph{espécie}. Ora não poderíamos extremar um ser de
+outro, nem indicar os seus elementos constitutivos, se a \emph{essência} deles
+nos fosse desconhecida; pois é pela \emph{essência} que um ser é o que é e se
+distingue dos outros seres. Logo nem todas as \emph{essências} nos são
+desconhecidas.\footnote{Dizemos que nem todas as \emph{essências} nos são
+desconhecidas, porque concedemos que muitas escapam ao nosso alcance.
+Acrescentamos que mesmo a noção que temos de algumas delas, embora seja clara e
+distinta, é contudo inadequada e imperfeita; visto que a \emph{essência}, sendo
+o que de mais íntimo se encontra nos entes, escapa a uma intuição direta e
+imediata, e só é percebida pelo raciocínio, que, baseando-se no princípio de
+\emph{causalidade}, sobe das propriedades e dos fenômenos que nos são
+manifestos para o princípio de que derivam e que é a \emph{essência}.
+\textemdash{} Mas, ainda que imperfeito, o conhecimento da essência é
+\emph{científico}; porque o \emph{método} é científico quando se levanta, pela
+indução, dos efeitos para a causa, das ações para a natureza do agente, dos
+fenômenos para a essência.
+
+  \emph{Locke}, \emph{Bonnet}, \emph{Condillac} dizem que o homem, se pode
+  conhecer as \emph{essências nominais}, não pode conhecer as \emph{essências
+  reais}. \textemdash{} \emph{Essências reais} são as que física e
+  intrinsecamente constituem os entes, e por isso existem independentemente do
+  nosso pensamento; enquanto as \emph{essências nominais} são as que a
+  inteligência compõe por meio das ideias de gênero e de diferença específica,
+  e por isso são meros produtos da imaginação, destituídos de todo o fundamento
+  real.
+
+  Esta opinião é falsa, não só porque sustenta que não podemos conhecer, de
+  modo algum, nenhuma \emph{essência real}, mas também porque afirma que as
+  \emph{essências nominais}, por serem compostas de gênero e de diferença
+  específica, são meros produtos da nossa imaginação, sem fundamento real. O
+  \emph{gênero} e a \emph{diferença} não são uma ficção inútil da nossa
+  inteligência, mas são noções universais e abstratas, representativas de uma
+  coisa que é real, ou que tem fundamento na realidade, como suficientemente
+  explicamos. \pg{308}}
+
+\tese{36}{A essência das substâncias corpóreas é composta} As \emph{substâncias
+corpóreas}, de que é constituído o mundo, convêm entre si enquanto são
+\emph{substâncias}, mas diferem enquanto uma \emph{substância} pertence a uma
+\emph{espécie} e outra a outra \emph{espécie}. Ora esta \emph{semelhança} e esta
+\emph{diferença} demonstram claramente que a \emph{essência} delas é
+\emph{composta} de dois elementos: um \emph{comum}, de que deriva a
+\emph{semelhança} e que é o \emph{gênero}; outro \emph{próprio}, de que deriva a
+\emph{diferença} e que é a \emph{diferença específica}. Logo a \emph{essência}
+das \emph{substâncias corpóreas} é \emph{composta}.\footnote{As
+\emph{substâncias criadas} são \emph{corpóreas} e \emph{incorpóreas}. A
+\emph{essência} das \emph{substâncias corpóreas} \textemdash{} enquanto existe
+na realidade, é \emph{composta} de dois \emph{princípios}, ou de duas
+\emph{causas intrínsecas}: uma \emph{material} e outra \emph{formal}, que
+constituem um \emph{composto real}; \textemdash{} e, enquanto é conhecida e
+definida pela nossa inteligência, resulta de dois \emph{conceitos}, um dos quais
+é o \emph{conceito do gênero} e outro é o \emph{conceito de diferença
+específica}, que constituem um \emph{composto intencional}. O \emph{gênero}
+funda-se no \emph{princípio material}; a \emph{diferença}, no \emph{princípio
+formal}. \textemdash{} A \emph{essência} das \emph{substâncias incorpóreas}
+\textemdash{} enquanto existe fora da nossa inteligência, é uma \emph{forma
+inteiramente simples}; \textemdash{} mas, enquanto é conhecida e definida por
+nós, está sujeita a uma \emph{composição}. Porquanto a nossa inteligência, pela
+sua imperfeição natural, apreende as coisas simples e espirituais pelo mesmo
+modo por que apreende as \emph{essências materiais} e \emph{compostas}, e por
+isso define as \emph{formas subsistentes} pelo \emph{gênero} e pela
+\emph{diferença}, como define as \emph{essências materiais}. O \emph{gênero}
+funda-se na \emph{potência}, a \emph{diferença} funda-se no \emph{ato}; porque
+as \emph{substâncias simples}, embora não sejam \emph{compostas} quanto à
+\emph{essência}, contudo são realmente \emph{compostas} de \emph{potência} e de
+\emph{ato}, isto é, de \emph{essência} e de \emph{existência}.}
+
+\tese{37}{Dotes das essências criadas} As \emph{essências criadas} são
+\emph{necessárias}, \emph{indivisíveis} e \emph{eternas}.
+
+\sub{a}{São necessárias, ou imutáveis} não com relação à \emph{existência}
+(porque, neste sentido, são \emph{contingentes} e \emph{mutáveis}),
+\textemdash{} mas com relação aos \emph{elementos específicos} que as
+constituem; porque uma \emph{essência} não pode ser nem entender-se sem os
+elementos de que é \emph{composta}. Assim a \emph{essência} do \emph{homem} é
+\emph{necessária}, ou \emph{imutável}, com relação à \emph{animalidade} e à
+\emph{racionalidade}; pois não pode conceber-se um \emph{homem} que não seja
+\emph{animal} e \emph{racional}. Logo as \emph{essências criadas} são
+\emph{necessárias}.\footnote{Toda a \emph{essência} pode considerar-se
+\textemdash{} ou nos seus \emph{elementos específicos} e \emph{abstratos},
+\textemdash{} ou nos seus \emph{elementos reais} e \emph{concretos}, conforme é
+\emph{metafísica} ou \emph{física}. \textemdash{} Se a \emph{essência} se
+considera nos seus \emph{elementos específicos}, isto é, na sua \emph{realidade
+quiditativa}, \emph{abstraída} das condições que a individualizam ou determinam
+neste ou naquele \emph{indivíduo}, importa no seu conceito uma coisa
+\emph{absolutamente necessária e imutável}; porque reproduz em si mesma o
+\emph{exemplar} que existe na inteligência de Deus e que é \emph{necessário} e
+\emph{imutável}. \textemdash{} Se, porém, a \emph{essência} se considera nos
+\emph{elementos reais} de que é \emph{composta} nos \emph{indivíduos
+singulares}, nesse sentido não é \emph{necessária} nem \emph{imutável}, porque
+pode ser alterada e corrompida pela \emph{ação dos agentes naturais}. Assim a
+\emph{essência real} ou \emph{física} do \emph{homem} acaba com a morte, quando
+a alma se separa do corpo. \textemdash{} Mas, quando a nossa inteligência
+considera a \emph{essência abstraída} dos \emph{princípios individuais},
+percebe unicamente a \emph{realidade quiditativa}, os \emph{elementos
+específicos}.
+
+  Como se vê, a \emph{necessidade} que atribuímos à \emph{essência metafísica}
+  das \emph{criaturas} \textemdash{} não é \emph{absoluta}, porque Deus podia
+  formar outros \emph{modelos} ou \pg{309} \emph{exemplares} que fossem
+  reproduzidos na \emph{criação}, \textemdash{} mas é \emph{hipotética},
+  enquanto, suposta a \emph{criação}, Deus não muda o seu plano, mas tudo
+  executa em conformidade com a sua infinita \emph{Sabedoria}.}
+
+\sub{b}{São indivisíveis} enquanto não podem receber ou perder um
+\emph{elemento} sem que fiquem \emph{destruídas}. Tal \emph{indivisibilidade}
+das \emph{essências} é uma consequência da sua \emph{necessidade}. De fato, se
+a uma \emph{essência} se acrescentar ou tirar um \emph{elemento}, já não
+permanece a mesma, deixa de ser o que é; assim, se à \emph{substância viva e
+sensitiva}, que é o \emph{bruto}, se acrescenta \emph{racional}, não temos o
+\emph{bruto}, mas \emph{homem}; e se à mesma \emph{substância} se tira o
+\emph{elemento sensitivo}, não temos o \emph{bruto}, mas a \emph{planta}. Logo
+as \emph{essências criadas}, embora \emph{compostas}, são
+\emph{indivisíveis}.\footnote{As \emph{essências criadas}, tanto \emph{físicas}
+como \emph{metafísicas}, por serem \emph{compostas}, são \emph{divisíveis} nas
+partes respectivas. As \emph{essências físicas} das \emph{substâncias
+corpóreas} são \emph{divisíveis} na \emph{matéria} e na \emph{forma
+substancial}; e as \emph{essências metafísicas} são \emph{divisíveis}, pela
+\emph{análise da razão}, nas partes da definição, que são o \emph{gênero} e a
+\emph{diferença específica}. Não é, pois, neste sentido que as \emph{essências
+criadas} são \emph{indivisíveis}. Portanto, as \emph{essências} podem
+dizer-se \emph{indivisíveis} enquanto não admitem o \emph{mais} nem o
+\emph{menos}, enquanto os seus elementos não são suscetíveis de \emph{adição}
+ou de \emph{diminuição} sem que uma \emph{essência} deixe de ser o que é. Por
+isso as \emph{essências} foram comparadas aos \emph{números}; porque, assim
+como um \emph{número} muda de \emph{espécie} pela \emph{adição} ou
+\emph{subtração} de uma \emph{unidade}, assim também as \emph{essências} mudam
+de \emph{espécie} pela \emph{adição} ou \emph{subtração} de um \emph{elemento}
+(\emph{Sum. Th.}, 1-2, q.~52, a.~1).}
+
+\sub{c}{São eternas} não enquanto existem \emph{realmente} desde a
+\emph{eternidade} (pois que, neste sentido, só Deus é \emph{eterno}),
+\textemdash{} mas enquanto, consideradas \emph{em si} e \emph{em abstrato},
+prescindem de toda e qualquer \emph{diferença de tempo}, e também enquanto
+existem, desde a \emph{eternidade}, nas \emph{ideias arquétipas} do
+\emph{Criador}. Assim foi, é e será sempre verdade que um \emph{triângulo} tem
+\emph{três ângulos}. Logo as \emph{essências criadas} são
+\emph{eternas}.\footnote{As \emph{essências criadas} podem considerar-se
+\emph{em si mesmas} e na \emph{Inteligência divina}. \textemdash{} Consideradas
+\emph{em si mesmas}, as \emph{essências} prescindem de toda a \emph{limitação}
+do \emph{tempo} e do \emph{lugar}. É uma \emph{eternidade negativa}.
+\textemdash{} Consideradas na \emph{Inteligência divina}, as \emph{essências
+criadas} são dotadas de todos os atributos próprios da \emph{Divindade};
+porque, nesta \emph{hipótese}, as \emph{essências criadas} não se distinguem
+realmente da \emph{Inteligência divina}, nem, por isso, da \emph{Essência
+divina}, mas são a própria \emph{Essência infinita}, enquanto pode ser
+diversamente \emph{imitada} e \emph{participada} pelas \emph{criaturas}. As
+\emph{essências criadas}, pois, são outras tantas \emph{participações}, ainda
+que \emph{inadequadas}, da única e simplicíssima \emph{Essência infinita}. Esta
+\emph{participação} não se faz por \emph{emanação}, mas por \emph{semelhança},
+enquanto o \emph{efeito} é semelhante à sua \emph{causa}.}
+
+\tese{38}{Existência} \emph{Existência} é o \emph{ato}, ou a \emph{realização}
+da \emph{essência}; ou, mais claramente, é a \emph{perfeição} que tira a
+\emph{essência}, em que é recebida, do \emph{estado de possibilidade},
+\pg{310} colocando-a no \emph{estado de atualidade}. \textemdash{} Por isso, o
+\emph{ente real} ou \emph{atual} é um \emph{composto de essência e de
+existência}.\footnote{A \emph{existência}, como a \emph{essência}, é uma
+\emph{noção simplicíssima} e por si evidente, e, à semelhança das outras noções
+simples e evidentes, não é capaz nem precisa de uma \emph{definição rigorosa}.
+Por isso a nossa não é senão uma \emph{explicação}. \textemdash{} A
+\emph{existência} é e diz-se \emph{ato da essência}. O \emph{ato}, que
+\textemdash{} no sentido vulgar significa \emph{operação}, \textemdash{} no
+sentido rigoroso significa uma coisa que \emph{determina} ou \emph{aperfeiçoa}.
+Ora a \emph{essência} é por si \emph{indiferente} quanto à \emph{existência},
+pode recebê-la, e por isso é um sujeito \emph{indeterminado} e
+\emph{determinável}, \emph{imperfeito} e \emph{perfectível}; e é a
+\emph{existência} que, recebida nela, a tira da \emph{indiferença} ou
+\emph{indeterminação}, dando-lhe o \emph{complemento} que lhe falta na linha de
+\emph{ente} ou da \emph{atualidade}, e assim faz com que a \emph{essência}
+subsista em si mesma, na realidade, e de \emph{possível} se torne
+\emph{existente}. Antes de receber a \emph{existência}, a \emph{essência} era
+\emph{possível}; recebida a \emph{existência}, a \emph{essência} é uma coisa
+\emph{real} ou \emph{atual}, e opõe-se à \emph{essência possível}.
+
+  A \emph{existência}, ou o \emph{ato de ser}, é o \emph{ato}, ou a
+  \emph{atualidade} de todos os outros \emph{atos}, e por isso é a
+  \emph{perfeição de todas as perfeições}. E nada mais exato. Porquanto todo o
+  \emph{ato}, e por isso toda a \emph{perfeição} (que é ato), se é ato
+  considerado em si mesmo, é contudo \emph{potência} considerado em relação ao
+  \emph{ato de ser}; porque, nos \emph{entes finitos}, nenhum \emph{ato}, e por
+  isso nenhuma \emph{perfeição}, encerra na sua \emph{essência} a
+  \emph{existência}, ou o \emph{ser}, isto é, o ato pode existir, mas não existe
+  \emph{essencialmente}. E, como o ato denota \emph{atualidade} e
+  \emph{perfeição}, podemos e devemos dizer que o \emph{ato de ser}, ou a
+  \emph{existência}, é a \emph{atualidade} de todos os outros \emph{atos}, e por
+  isso é a \emph{perfeição de todas as perfeições}. \textemdash{} Ao \emph{ser}
+  nada pode acrescentar-se que seja mais \emph{formal}, mais \emph{atual}, e que
+  o aperfeiçoe e determine, como o \emph{ato} determina a \emph{potência}. Por
+  isso o \emph{ser} não é determinado por outra coisa, como a \emph{potência} é
+  determinada pelo \emph{ato}; mas só pode ser e é determinado pela
+  \emph{potência}. E assim um \emph{ser} distingue-se de outro \emph{ser}
+  enquanto um é recebido numa \emph{essência} ou \emph{natureza} e outro
+  noutra (o \emph{ato} é determinado ou limitado pela \emph{potência} em que é
+  recebido). Eis as palavras do S. Doutor: «\textit{Hoc quod dico esse est
+  actualitas omnium actuum, et propter hoc est perfectio omnium perfectionum.
+  Nec intelligendum est quod ei quod dico esse aliquid addatur quod sit eo
+  formalius, ipsum determinans, sicut actus potentiam. Unde non sic
+  determinatur esse per aliud, sicut potentia per actum, sed magis sicut actus
+  per potentiam\dots{} Et per hunc modum hoc esse ab illo esse distinguitur, in
+  quantum est talis vel talis naturae}» (\emph{De potentia}, q.~7, a.~2 ad~9;
+  cf.\ \emph{Sum. Th.}, p.~1, q.~4, a.~1 ad~3). \textemdash{} Sendo a
+  \emph{existência} o que de mais \emph{atual} se encontra nas coisas, retamente
+  os \emph{escolásticos} definiram a \emph{existência}: \emph{a última
+  atualidade de uma coisa}; porque uma coisa recebe a última \emph{atualidade},
+  isto é, a última \emph{perfeição}, o último \emph{complemento}, quando recebe
+  a \emph{existência}. \textemdash{} Por isso, se a \emph{essência} é boa, é boa
+  não \emph{por si}, mas pelo \emph{ser}. O \emph{ser} é o fundamento e a razão
+  de todo o bem, ou de toda a \emph{perfeição}, que se encontra nas coisas. Diz
+  S. Tomás: «\textit{Omnis nobilitas cuiuscumque rei est sibi secundum suum
+  esse; nulla enim nobilitas ex sua sapientia (id est, ex ipsa essentia
+  sapientiae), nisi per eam sapiens esset, et sic de aliis. Sic ergo secundum
+  modum quo res habent esse, est suus modus in nobilitate}» (\emph{C. Gent.},
+  1, 98; cf.\ \emph{De Ver.}, q.~21, a.~1 ad~4; a.~5 ad~5; \emph{Sum. Th.},
+  p.~1, q.~62, a.~3 ad~2 et~3). \pg{311}
+
+  Como se vê, a \emph{ideia de existência} sucede imediatamente à de
+  \emph{essência}; porque, depois de termos concebido o que uma coisa é
+  (\emph{quid est}), logo em seguida perguntamos se ela existe (\emph{an est}).
+  \textemdash{} Todavia, do fato de a \emph{existência} ser uma coisa distinta
+  da \emph{essência}, não se segue que a \emph{existência} e a \emph{essência}
+  sejam dois \emph{entes}. A \emph{essência}, distinta da \emph{existência}, não
+  é; nem é a \emph{existência}, distinta da \emph{essência}; mas é o \emph{ente
+  composto de essência e de existência}. \textemdash{} Mas não devemos imaginar
+  que o composto de \emph{essência} e de \emph{existência} seja uma terceira
+  coisa, resultante desses dois elementos e diversa de cada um deles, como o
+  \emph{homem}, composto de \emph{alma} e de \emph{corpo}, é uma terceira coisa
+  distinta de cada um desses dois elementos. Quando dizemos que a \emph{essência
+  é}, o verbo \emph{é} denota a \emph{atualidade} da \emph{essência}, e a
+  \emph{essência} é o sujeito dessa \emph{atualidade}, e assim temos a
+  \emph{essência existente}, que não é uma terceira coisa distinta da
+  \emph{existência} e da \emph{essência}, mas é a mesma \emph{essência} enquanto
+  \emph{atuada} pelo \emph{ser} ou pela \emph{existência} (S. Tomás,
+  \emph{Quodl.} III, a.~3 ad~1).
+
+  Notamos que o \emph{ser} e a \emph{existência}, embora se empreguem como
+  termos equivalentes, contudo não significam uma e a mesma coisa. Porquanto o
+  \emph{ser} significa tudo o que um ente é e possui, modelado e vazado no
+  molde da \emph{essência}, e por isso significa toda a \emph{perfeição} de que
+  o ente é dotado, incluída a \emph{existência}; ao passo que a \emph{existência}
+  por si indica apenas a \emph{posição do ente fora das suas causas}, e não tudo
+  o que o ente possui.}
+
+\tese{39}{A existência encontra-se na substância e no acidente} A
+\emph{existência} é a \emph{última atualidade} de todo o \emph{ente real}. Ora
+todo o \emph{ente real} que existe no mundo é \emph{substância} ou
+\emph{acidente}. Logo a \emph{existência} encontra-se na \emph{substância} e no
+\emph{acidente}. \textemdash{} Por isso, assim como há uma \emph{essência
+substancial} e uma \emph{essência acidental}, assim também há uma
+\emph{existência substancial} e uma \emph{existência acidental}. \textemdash{}
+Todavia, a \emph{existência} principalmente convém à \emph{substância}, e
+secundariamente ao \emph{acidente}.\footnote{A conclusão é evidente. No mesmo
+indivíduo humano, uma coisa é a \emph{existência} ou o \emph{ser de homem}, e
+outra coisa é a \emph{existência} ou o \emph{ser de sábio}, de bom, etc.
+\textemdash{} A \emph{existência}, como a \emph{essência}, primeiramente compete
+à \emph{substância} e secundariamente ao \emph{acidente}; porque o
+\emph{acidente} tem o seu \emph{ser} ou a sua \emph{existência} no \emph{ser}
+ou na \emph{existência} da \emph{substância}. \textemdash{} Em cada
+\emph{substância} não pode haver senão um único \emph{ser substancial}, porque
+não pode haver nela senão uma única \emph{forma substancial}, da qual deriva o
+\emph{ser substancial}; mas pode haver vários \emph{seres acidentais}, porque
+pode haver nela várias \emph{formas acidentais}, de cada uma das quais deriva um
+\emph{ser acidental}. Assim \emph{Pedro} \textemdash{} que, em virtude da sua
+única \emph{forma substancial}, isto é, da única \emph{alma racional}, possui o
+\emph{ser substancial} pelo qual subsiste enquanto homem, \textemdash{} em
+virtude de várias \emph{formas acidentais} possui vários \emph{seres
+acidentais}, pelos quais é \emph{branco}, é \emph{virtuoso}, é \emph{sábio},
+etc. (cf.\ Cajet., \emph{Com. in Op. De Ente et Essentia}, c.~7, q.~16).
+\textemdash{} Advertimos que, nos entes compostos de \emph{matéria} e
+\emph{forma}, o \emph{ser}, ou a \emph{existência}, se diz derivar da
+\emph{forma} para o mesmo composto enquanto a \emph{forma}, aperfeiçoando e
+completando a \emph{essência material} na linha da \emph{essência}, \pg{312} dá
+à mesma \emph{essência} a \emph{última disposição}, necessária e suficiente para
+a recepção da \emph{existência}, isto é, torna a mesma \emph{essência}
+proximamente capaz de receber a \emph{existência}. Isto vale,
+proporcionalmente, tanto para a \emph{forma substancial} quanto para a
+\emph{forma acidental}. Da \emph{forma substancial}, que atua a \emph{matéria
+prima}, deriva para o sujeito o \emph{ser substancial}; da \emph{forma
+acidental}, que atua o sujeito já constituído no seu \emph{ser substancial}, que
+é o \emph{primeiro ser}, deriva para ele o \emph{ser acidental}, que é o
+\emph{segundo ser}.}
+
+\tese{40}{Nos entes finitos, a existência refere-se à essência como o ato à
+potência} Quando há duas coisas, uma das quais \emph{aperfeiçoa} e
+\emph{completa} a outra, a primeira refere-se à segunda como o \emph{ato} se
+refere à \emph{potência}; porque \emph{ato} é e diz-se a coisa que
+\emph{aperfeiçoa} e \emph{completa}, e \emph{potência} é e diz-se a coisa que
+recebe a \emph{perfeição} e o \emph{complemento}. Ora, nos \emph{entes finitos},
+a \emph{existência} \emph{aperfeiçoa} e \emph{completa} a \emph{essência},
+porque a faz subsistir na \emph{atualidade}. Logo, nos \emph{entes finitos}, a
+\emph{existência} refere-se à \emph{essência} como o \emph{ato} à
+\emph{potência}.\footnote{É o argumento de S. Tomás, que estabelece o seguinte
+princípio: «\textit{In quocumque inveniuntur aliqua duo quorum unum est
+complementum alterius, proportio unius ad alterum est sicut proportio potentiae
+ad actum; nihil enim completur nisi per proprium actum}» (\emph{C. Gent.},
+l.~II, c.~53). \textemdash{} E noutro lugar: «\textit{Quidditas est sicut
+potentia, et suum esse acquisitum est sicut actus}» (\emph{In II Sent.},
+dist.~3, q.~1, a.~1). \textemdash{} Sendo a \emph{existência} para a
+\emph{essência} o que o \emph{ato} é para a \emph{potência}, tudo o que
+dissemos com relação ao \emph{ato} e à \emph{potência} deve aplicar-se à
+\emph{existência} e à \emph{essência}. \textemdash{} Donde se segue que a
+\emph{existência} é \emph{simplesmente mais perfeita} do que a \emph{essência}.
+Com efeito, a \emph{existência}, sendo a \emph{última atualidade} da
+\emph{essência}, enquanto a faz passar do estado de \emph{ente em potência}
+para o estado de \emph{ente em ato}, é para ela um princípio de
+\emph{complemento} e de \emph{perfeição}. Ora o \emph{ente} que aperfeiçoa é
+\emph{simplesmente} mais perfeito do que o \emph{ente} que é aperfeiçoado.
+
+  Dissemos: \emph{simplesmente}, porque, sob um certo aspecto, a \emph{essência}
+  é mais perfeita que a \emph{existência}. De fato, a \emph{essência}, por
+  \emph{limitar} e \emph{determinar} a \emph{existência}, refere-se à própria
+  \emph{existência} como o que limita e determina se refere ao que é limitado e
+  determinado. Ora o \emph{determinante} é mais perfeito que o
+  \emph{determinável}. \textemdash{} Além disso, o \emph{ser}, ou a
+  \emph{existência}, embora não possa dizer-se \emph{simplesmente}
+  aperfeiçoado pela \emph{essência} (a \emph{essência} é aperfeiçoada pela
+  \emph{existência}, da qual recebe a \emph{última atualidade}), contudo,
+  quando é recebido na \emph{essência}, é por esta de algum modo aperfeiçoado,
+  enquanto se diz que a \emph{existência}, ou que o \emph{ser}, é mais ou menos
+  nobre e perfeito conforme é mais ou menos nobre e perfeita a \emph{essência}
+  em que é recebido; assim o \emph{ser da planta} é mais perfeito que o \emph{da
+  pedra}, o \emph{ser do homem} é mais perfeito que o \emph{do animal}.
+  \textemdash{} A razão disso é porque o \emph{primeiro Agente} produz o
+  \emph{ser}, não como subsistente em si mesmo, mas em ordem a uma certa
+  \emph{essência}, proporcionado a uma \emph{essência} (pois deve haver
+  proporção entre a coisa recebida e o recipiente); e por isso o \emph{ser},
+  embora receba de Deus, e não da \emph{essência}, a própria \emph{perfeição},
+  contudo recebe-a de Deus \pg{313} em ordem à \emph{essência}; e Deus produz
+  um \emph{ser} mais ou menos perfeito conforme a qualidade da \emph{essência}
+  na qual o \emph{ser} é recebido como numa \emph{forma} ou \emph{molde}.
+  Assim, a \emph{nobreza} e a \emph{perfeição} da \emph{essência} é o
+  \emph{critério}, o \emph{sinal} da \emph{nobreza} e da \emph{perfeição} do
+  \emph{ser}.}
+
+\tese{41}{A existência reduz-se à categoria da essência} Tudo o que se refere a
+uma \emph{essência}, como \emph{ato} à \emph{potência}, reduz-se à
+\emph{categoria} em que se encontra a própria \emph{essência}; porque o
+\emph{ente} coloca-se na \emph{categoria} em virtude da sua \emph{essência}, e a
+\emph{potência} e o \emph{ato} pertencem ao mesmo \emph{gênero}, ou à mesma
+\emph{categoria}. Ora a \emph{existência} refere-se à respectiva \emph{essência}
+como \emph{ato} à \emph{potência}; porque a \emph{existência}, como dissemos, é
+a \emph{última atualidade}, que completa a \emph{essência} e a coloca na
+\emph{ordem real}. Logo a \emph{existência} reduz-se à \emph{categoria} da
+\emph{essência}. \textemdash{} Por isso, a \emph{existência} da \emph{substância}
+reduz-se à \emph{categoria} da mesma \emph{substância}, e é uma \emph{coisa
+substancial}; e a \emph{existência} do \emph{acidente} reduz-se à
+\emph{categoria} em que se encontra o mesmo \emph{acidente}, e é uma \emph{coisa
+acidental}.\footnote{Referindo-se a \emph{existência} à \emph{essência} como o
+\emph{ato} à \emph{potência}, poderia perguntar-se: a \emph{existência} será
+apenas um \emph{acidente} da \emph{substância}, ou será uma \emph{parte
+substancial}? \textemdash{} A esta pergunta damos a seguinte resposta, indicada
+no texto. A \emph{existência} não é nem pode dizer-se \emph{acidente} da
+\emph{substância}, se o \emph{acidente} se toma no sentido rigoroso, enquanto
+significa uma coisa que, para existir, precisa de um sujeito a que adira. Na
+verdade, a \emph{existência} dá a \emph{última atualidade} à \emph{substância},
+colocando-a na \emph{ordem real}. Ora é absolutamente impossível que a
+\emph{substância} receba do \emph{acidente} a \emph{última atualidade}.
+\textemdash{} Mas, se o \emph{acidente} não se toma em sentido rigoroso, se por
+\emph{acidente} se entende tudo o que não constitui a \emph{essência} de uma
+coisa, neste sentido pode dizer-se que a \emph{existência} é \emph{acidente} da
+\emph{substância}. Porquanto a \emph{existência} não entra na \emph{essência} de
+uma coisa, não é um \emph{elemento constitutivo} da \emph{essência} (finita),
+mas é a \emph{perfeição} que dá a \emph{última atualidade} à \emph{essência} já
+constituída e completa na própria linha ou ordem da \emph{essência}, fazendo
+com que a mesma \emph{essência} exista na \emph{ordem real}. Portanto devemos
+dizer que a \emph{existência} é \emph{parte substancial} da \emph{substância},
+ou é \emph{ato substancial} \textemdash{} não enquanto é um \emph{elemento
+constitutivo} da própria \emph{substância}, ou da \emph{essência substancial},
+\textemdash{} mas enquanto dá à \emph{substância} a \emph{última atualidade}, o
+\emph{último complemento} na linha da realidade. Por isso, a \emph{existência}
+não se reduz à \emph{categoria de substância} como a \emph{forma substancial}
+se reduz à \emph{categoria do composto}, \textemdash{} mas como o \emph{ato} se
+reduz à \emph{categoria da potência} (cf.\ \emph{De Pot.}, q.~5, a.~4 ad~3).
+
+  Agora uma advertência muito importante. Dizemos que a \emph{existência}, sendo
+  o \emph{complemento}, a \emph{última atualidade} da \emph{substância} e do
+  \emph{acidente}, se reduz ao \emph{gênero de substância} ou de
+  \emph{acidente}. Todavia, propriamente falando, a \emph{existência} não é nem
+  \emph{substância} nem \emph{acidente categórico}; mas é uma coisa que
+  \emph{transcende} toda a \emph{substância} e todo o \emph{acidente}, porque é
+  \emph{ato do ente}, que não é \emph{gênero} e transcende todas as
+  \emph{categorias}.} \pg{314}
+
+\teseB{42}{O ente finito é composto de essência real e de existência real}
+
+\subp{a} A \emph{essência} do \emph{ente finito}, considerada \emph{em si
+mesma}, é \emph{necessária} e \emph{eterna}; e, todavia, considerada no mesmo
+\emph{ente}, é \emph{contingente} e \emph{temporânea}. Ora a \emph{essência} do
+\emph{ente finito} não é \emph{contingente} e \emph{temporânea} senão pela
+\emph{existência}. Logo o \emph{ente finito} é \emph{composto de essência real e
+de existência real}.
+
+\subp{b} O \emph{ser} (ou a \emph{existência}), considerado \emph{em si mesmo},
+é \emph{uno}, \emph{indiviso}, \emph{ilimitado}, \emph{não-causado}; e todavia,
+considerado nos \emph{entes finitos}, é \emph{múltiplo}, \emph{diviso},
+\emph{limitado}, \emph{causado}. Ora essa \emph{modificação} que o \emph{ser}
+recebe nos \emph{entes finitos} só pode derivar da \emph{essência}, a qual,
+sendo por si \emph{determinada}, é \emph{princípio de determinação}, e por isso
+de \emph{divisão}, de \emph{multiplicidade}, de \emph{limitação} e de
+\emph{dependência}. Logo o \emph{ente finito} é \emph{composto de existência
+real e de essência real}.\footnote{O \emph{ser} é, por si, \emph{infinito} e
+\emph{ilimitado}; porque a \emph{limitação} é o \emph{não-ser}. Portanto, a
+\emph{limitação} de que o \emph{ser} se acha cercado nos \emph{entes finitos}
+deriva da \emph{essência}, a qual, por ser \emph{determinada} e \emph{limitada}
+em si mesma, \emph{determina} e \emph{limita} o \emph{ser} que ela recebe.
+Assim, quando digo: \emph{o ser do homem}, não falo do \emph{ser em si}, do
+\emph{ser puro}, que é só \emph{ser}, mas falo do \emph{ser próprio deste
+ente}, e por isso de um \emph{ser limitado} e \emph{determinado}. \textemdash{}
+Como também, o \emph{ser} é, por si, \emph{uno} e \emph{indiviso}. Se, pois, se
+acha \emph{diviso} e \emph{multiplicado} nas \emph{criaturas}, essa
+\emph{divisão} e \emph{multiplicação} deriva de outro \emph{princípio}, que é a
+\emph{essência} (\emph{C. Gent.}, II, 52). Porquanto a \emph{multiplicação}
+supõe a \emph{divisão}, e a \emph{divisão} importa uma \emph{oposição}. Ora tal
+\emph{oposição} não pode dar-se da parte do próprio \emph{ser}, mas só da parte
+das \emph{essências}, que, sendo por si \emph{determinadas}, são
+\emph{distintas}, \emph{opostas}, \emph{múltiplas}, conforme \emph{imitam},
+mais ou menos, a \emph{infinita e perfeitíssima Essência divina}. Diz S. Tomás:
+«\textit{Determinatio est pluralitatis principium primum}» (\emph{Quodl.} VI,
+a.~6). \textemdash{} Finalmente, o \emph{ser} das \emph{criaturas} deriva de
+uma \emph{causa extrínseca}. Ora o \emph{ser} não é produzido \emph{por si},
+enquanto é \emph{ser}. Diz S. Tomás: «\textit{Esse ab alio causatum non
+competit enti inquantum est ens; alias omne ens esset ab alio causatum, et sic
+oporteret procedere in infinitum in causis, quod est impossibile}» (l.~c.).
+Logo, se o \emph{ser} das \emph{criaturas} não é produzido \emph{por si}, é
+produzido por causa da \emph{essência} em que é recebido. \textemdash{} Logo o
+\emph{ente finito} é \emph{composto} de um \emph{duplo princípio real}, ou
+\emph{atual}, que é a \emph{essência} e a \emph{existência} (ou o \emph{ser}).
+
+  Quando se diz que o \emph{ente finito} é \emph{composto} de \emph{essência
+  real} e de \emph{existência} ou de \emph{ser real}, não deve entender-se que a
+  \emph{realidade da essência} seja uma coisa distinta da \emph{realidade do
+  ser}, de modo que o \emph{ente} resulte de \emph{duas realidades}. No
+  \emph{ente finito} composto de \emph{essência} e de \emph{ser} há uma \emph{só
+  realidade}. Esta \emph{única realidade} é própria do \emph{ser}, pertence ao
+  \emph{ser}, e pelo \emph{ser} é comunicada à \emph{essência}; por forma que o
+  \emph{ser} é \emph{real por si}, e a \emph{essência} se torna e é \emph{real}
+  pela \emph{realidade do ser}, assim como a \emph{potência} se torna e é
+  \emph{atual} pelo \emph{ato}, enquanto recebe em si o \emph{ato}.} \pg{315}
+
+\tese{43}{No ente finito, a existência distingue-se logicamente da essência}
+Uma coisa distingue-se \emph{logicamente} de outra quando o \emph{conceito} da
+primeira é diverso do \emph{conceito} da segunda. Ora o \emph{conceito} da
+\emph{existência} é diverso do \emph{conceito} da \emph{essência}; porque
+\textemdash{} a \emph{essência} significa a coisa que constitui o \emph{ente}
+numa determinada \emph{espécie}, ao passo que a \emph{existência} significa a
+coisa que faz existir a mesma \emph{essência} na realidade; \textemdash{} a
+\emph{essência} é capaz de \emph{existir}, mas é por si \emph{indeterminada}
+quanto à sua presença na \emph{ordem real}, e por isso tem \emph{razão de
+potência}, ao passo que a \emph{existência} tira da \emph{indeterminação} a
+\emph{essência}, preenche aquela \emph{capacidade}, e por isso tem \emph{razão
+de ato}. Logo, no \emph{ente finito}, a \emph{existência} distingue-se
+\emph{logicamente} da \emph{essência}.\footnote{Que, em todo o \emph{ente
+finito}, a \emph{existência} seja \emph{logicamente distinta} da \emph{essência},
+é verdade admitida por todos os que sabem o que é \emph{distinção lógica} e o
+que significam os termos \textemdash{} \emph{existência} e \emph{essência}.
+\textemdash{} Como se vê, falamos da \emph{essência real}, ou \emph{atual}, de
+que todas as \emph{criaturas} existentes são intrinsecamente \emph{compostas},
+e não da \emph{essência possível}, que pode existir mas que atualmente não
+existe na realidade.}
+
+\teseB{44}{No ente finito, a existência distingue-se realmente da essência}
+
+\subp{a} Como o nosso \emph{conhecimento} é uma \emph{reprodução ideal} das
+coisas, se, no \emph{ente finito}, a \emph{existência} e a \emph{essência} não
+se distinguissem \emph{realmente}, mas fossem uma e a mesma coisa, a
+\emph{espécie} ou \emph{imagem inteligível} que nos representa a \emph{essência}
+da coisa entendida deveria representar-nos também a sua \emph{existência},
+porque uma coisa não pode separar-se de si mesma. Ora a \emph{experiência}
+atesta que uma \emph{espécie} ou \emph{imagem inteligível} pode representar e
+efetivamente representa a \emph{essência} das coisas, prescindindo contudo da
+sua \emph{existência}. Logo, no \emph{ente finito}, a \emph{existência}
+distingue-se \emph{realmente} da \emph{essência}.\footnote{É evidente. Se a
+\emph{existência} fosse um \emph{elemento constitutivo} da \emph{essência}, toda
+a \emph{definição} da \emph{essência} de um \emph{ente} deveria exprimir também
+a sua \emph{existência}; visto que a \emph{definição} não pode deixar de
+exprimir \emph{todos} os elementos que constituem a \emph{essência} do
+\emph{ente} definido. Ora a \emph{definição} da \emph{essência} de um \emph{ente}
+prescinde completamente da \emph{existência} ou da \emph{não-existência} do
+mesmo \emph{ente}; porque podemos entender \emph{o que é o homem} e todavia
+\emph{ignorar se existe na realidade}. Logo a \emph{existência}, no \emph{ente
+finito}, não é um \emph{elemento constitutivo} da \emph{essência}, mas uma
+distingue-se \emph{realmente} da outra. \textemdash{} Por outras palavras, se o
+\emph{ser} da \emph{criatura} está \emph{fora da essência} quanto à
+\emph{inteligência}, deve estar também \emph{fora da essência} quanto à
+\emph{realidade}. \textemdash{} Diz S. Tomás: «\textit{Quidquid non est de
+intellectu essentiae vel quidditatis, hoc est adveniens extra et faciens
+compositionem cum essentia; quia \pg{316} nulla essentia sine his quae sunt
+partes essentiae intelligi potest. Omnis autem essentia vel quidditas intelligi
+potest sine hoc quod aliquid intelligatur de esse suo facto; possum enim
+intelligere quid est homo vel phoenix, et tamen ignorare an esse habeant in
+natura. Ergo patet quod esse est aliud ab essentia vel quidditate}» (\emph{De
+Ente et Essentia}, c.~V). \textemdash{} Como se vê, S. Tomás fala claramente da
+\emph{essência atual}, e não da \emph{possível}. Porquanto ensina ele que \emph{a
+existência forma um composto com a essência}; ora a \emph{existência}, sendo
+\emph{coisa real}, não pode formar o \emph{composto} com uma coisa que não
+existe na realidade, como é a \emph{essência possível}.}
+
+\subp{b} A \emph{existência} distinguir-se-á \emph{realmente} da \emph{essência}
+se aquela não for um \emph{elemento constitutivo} desta, e por isso se a
+\emph{essência} existir em virtude de uma outra \emph{realidade} ou
+\emph{perfeição}; porque \emph{duas coisas são realmente distintas entre si
+quando uma não é outra}. Ora, no \emph{ente finito}, a \emph{existência} não é
+um \emph{elemento constitutivo} da \emph{essência}; porque, se o fosse, a
+\emph{criatura} existiria em virtude da própria \emph{essência}, isto é, seria
+\emph{essencialmente existente}, e por isso não seria \emph{contingente}, mas
+\emph{necessária}, e assim deixaria de ser \emph{criatura}. Logo, no \emph{ente
+finito}, a \emph{existência} distingue-se \emph{realmente} da
+\emph{essência}.\footnote{Este argumento pode propor-se por este outro modo: se,
+no \emph{ente finito}, a \emph{existência} não se distinguisse \emph{realmente}
+da \emph{essência}, a \emph{existência} das \emph{criaturas} seria
+\emph{necessária}, porque os elementos das \emph{essências} são
+\emph{necessários}; e por isso, assim como o \emph{homem} é
+\emph{necessariamente racional} (porque \emph{racional} é um \emph{elemento
+constitutivo} da \emph{essência humana}), a \emph{criatura} seria
+\emph{necessariamente existente}. Ora a \emph{existência} das \emph{criaturas}
+não é \emph{necessária}, mas \emph{contingente}, porque podiam deixar de
+existir. Logo a \emph{existência} não é um \emph{elemento constitutivo} da
+\emph{essência} das \emph{criaturas}, e por isso, no \emph{ente finito}, a
+\emph{existência} distingue-se \emph{realmente} da \emph{essência}.
+
+  Pode objetar-se: \emph{uma coisa atualmente existente é-o necessariamente}.
+  Logo não repugna que a \emph{essência atual} das \emph{criaturas} se diga e
+  seja \emph{essencial} ou \emph{necessariamente existente}. Logo, no \emph{ente
+  finito}, a \emph{existência} não se distingue \emph{realmente} da
+  \emph{essência}.
+
+  \emph{Resposta.} A \emph{necessidade na existência} pode referir-se ao
+  \emph{fato} ou à \emph{exigência}. \textemdash{} Referida ao \emph{fato}, a
+  \emph{necessidade na existência} é uma coisa \emph{hipotética}, e pode
+  perfeitamente conciliar-se com a \emph{contingência} do \emph{ente}: de modo
+  que um \emph{ente contingente}, enquanto existe, não pode deixar de existir,
+  existe \emph{necessariamente}, e todavia não deixa de ser \emph{contingente},
+  porque a \emph{existência} não lhe era \emph{necessária}, isto é, porque não
+  existe por assim o exigir a sua \emph{essência}. \textemdash{} Referida à
+  \emph{exigência}, a \emph{necessidade na existência} é uma coisa
+  \emph{absoluta}, constitui a própria \emph{essência dos entes}, e por isso não
+  pode conciliar-se com a \emph{contingência} dos próprios \emph{entes}: assim
+  Deus, como veremos, existe por assim o exigir a sua \emph{essência}, e por
+  isso é o \emph{ser absolutamente necessário}. \textemdash{} Ora a
+  \emph{necessidade na existência} que se atribui aos \emph{entes finitos} ou
+  \emph{criados} não é uma \emph{necessidade da exigência}, mas é uma
+  \emph{necessidade de fato}; visto que os \emph{entes finitos} existem, não
+  porque o exige a sua \emph{essência}, mas só porque Deus livremente os criou.
+  Se os \emph{entes finitos} existem, não porque \pg{317} assim o exige a sua
+  \emph{essência}, é claro que a sua \emph{necessidade na existência} não é um
+  \emph{elemento constitutivo} da mesma \emph{essência}. Se, nos \emph{entes
+  finitos}, a \emph{necessidade da existência} não é um \emph{elemento
+  constitutivo} da \emph{essência}, a \emph{existência} distingue-se
+  \emph{realmente} da \emph{essência}. \textemdash{} Nem pode dizer-se que a
+  \emph{necessidade na existência} se torna um \emph{elemento constitutivo} da
+  \emph{essência} dos \emph{entes finitos} pelo fato de estes existirem
+  atualmente; porque, se assim fosse, as \emph{essências} não seriam
+  \emph{imutáveis}, as \emph{criaturas} existiriam em virtude da sua
+  \emph{essência} e deixariam de ser \emph{contingentes}: o que é
+  \emph{absurdo}. Logo a \emph{essência} dos \emph{seres finitos} recebe ou tem
+  a \emph{existência}, mas não é a \emph{existência}.}
+
+\subp{c} Todo o \emph{ato} que é recebido numa \emph{potência} distingue-se
+\emph{realmente} da \emph{potência} em que é recebido; porque repugna que uma
+coisa seja recebida em si mesma. Ora, no \emph{ente finito}, a \emph{existência}
+é recebida na \emph{essência} como o \emph{ato} na \emph{potência}; porquanto,
+se a \emph{existência} não fosse recebida na \emph{essência} como o \emph{ato}
+na \emph{potência}, a \emph{existência} dos \emph{entes finitos} seria um
+\emph{ato puro}, \emph{subsistente}, e por isso seria \emph{infinito} e
+\emph{único}: o que repugna. Logo, no \emph{ente finito}, a \emph{existência}
+distingue-se \emph{realmente} da \emph{essência}.\footnote{Depois do que
+deixamos dito neste e no precedente artigo, não é necessário insistir muito na
+verdade \textemdash{} que o \emph{ser} (ou a \emph{existência}) dos \emph{entes
+finitos}, se não fosse recebido na \emph{essência} como \emph{ato} na
+\emph{potência}, seria um \emph{ato puro}, \emph{subsistente}, e por isso
+\emph{infinito} e \emph{único}. Porquanto todo o \emph{ato} é \emph{limitado} e
+\emph{multiplicado} pela \emph{potência} que o recebe; e por isso um \emph{ato}
+que não é recebido na \emph{potência} não pode ser \emph{limitado} nem
+\emph{multiplicado}, mas é necessariamente \emph{infinito} e \emph{único}. Ora
+o \emph{ser}, ou a \emph{existência}, dos \emph{entes finitos} é um \emph{ato
+essencialmente finito}, \emph{multiplicável} e \emph{multiplicado}.
+\textemdash{} Nem se diga que o \emph{ato} não recebido na \emph{essência} pode
+ser \emph{limitado} ou \emph{multiplicado} por uma \emph{causa extrínseca};
+porque nenhuma coisa pode ser \emph{limitada} ou \emph{multiplicada} por uma
+\emph{causa extrínseca} se é intrinsecamente \emph{ilimitada} e \emph{única}, e
+o \emph{ato subsistente} não tem em si mesmo um \emph{princípio} que o possa
+limitar ou multiplicar. Diz o \emph{Angélico} S. Tomás: «\textit{Esse
+subsistens oportet esse infinitum, quia non terminatur aliquo recipiente\dots{}
+Impossibile est quod sit duplex esse omnino infinitum. Esse enim quod est
+infinitum omnem perfectionem essendi comprehendit; et sic, si duobus talis
+adesset infinitas, non inveniretur quo unum ab altero differret}» (\emph{C.
+Gent.}, l.~II, 52). \textemdash{} Este argumento pode resumir-se assim: no
+\emph{ente finito}, a \emph{existência} refere-se à \emph{essência} como o
+\emph{ato} à \emph{potência}. Ora o \emph{ato} distingue-se \emph{realmente} da
+\emph{potência}. Logo, no \emph{ente finito}, a \emph{existência} distingue-se
+\emph{realmente} da \emph{essência}.
+
+  Em poucas palavras: \emph{não podem realmente identificar-se duas coisas que
+  são opostas entre si}; aliás o \emph{ente} e o \emph{não-ente} seriam uma e a
+  mesma coisa na realidade. Ora a \emph{essência} e o \emph{ser}, nas
+  \emph{criaturas}, \emph{opõem-se por muitos modos}, como se opõem o
+  \emph{necessário} e o \emph{contingente}, o \emph{eterno} e o
+  \emph{temporâneo}, o \emph{limitante} e o \emph{limitado}, o \emph{divisor} e
+  o \emph{diviso}, o \emph{não-causado} e o \emph{causado}. Logo, nas
+  \emph{criaturas}, a \emph{essência} e o \emph{ser} distinguem-se
+  \emph{realmente}.
+
+  Nas obras do S. Doutor encontram-se muitos outros argumentos que provam a
+  \emph{distinção real} entre a \emph{existência} e a \emph{essência} nos
+  \emph{entes finitos} (cf.\ \emph{C. Gent.}, II, 52; \emph{Sum. Th.}, p.~1,
+  q.~3, a.~4; q.~50, a.~2 ad~3; q.~75, a.~5 ad~4; q.~88, a.~2 ad~4; \emph{De
+  Pot.}, q.~7, a.~2 ad~9; \emph{De Ver.}, q.~27, a.~1 ad~8; \emph{Com. in lib.
+  De Hebd.}, l.~2). \textemdash{} Não insistimos, porque os argumentos aduzidos
+  são suficientes para a \emph{demonstração da tese}.} \pg{318}
+
+\medskip
+\noindent Para a exata compreensão da nossa \emph{tese} e para a \emph{refutação
+das dificuldades}, fazemos as seguintes considerações:
+
+\medskip
+\noindent\textbf{I.}\quad É certo que uma \emph{essência atual}, por isso mesmo
+que é \emph{atual}, \emph{existe}. Mas a questão consiste em saber se a
+\emph{atualidade} compete a essa \emph{essência} \emph{por si mesma}, enquanto
+é \emph{essência}, ou em virtude de uma outra \emph{realidade}, \emph{realmente
+distinta} dela, que é a \emph{existência}. Porquanto uma coisa é e diz-se
+\emph{atual} ou porque é \emph{ato}, ou porque \emph{recebe o ato}. Ora a
+\emph{essência atual} não é \emph{atual por si mesma}, como se ela fosse
+\emph{ato}, ou se identificasse com o \emph{ato}, \textemdash{} mas é
+\emph{atual} enquanto \emph{recebe o ato} que a completa na linha da realidade
+e que é a \emph{existência}. Sendo \emph{atual} pelo fato de \emph{receber o
+ato}, a \emph{essência} conserva sempre a \emph{razão} ou a \emph{natureza de
+potência}, e por isso distingue-se \emph{realmente} da \emph{existência}, porque
+o \emph{ato} e a \emph{potência} são \emph{coisas realmente distintas}.
+\textemdash{} Se, às vezes, dizemos que a \emph{essência atual} é \emph{atual
+por si mesma}, comparamos a \emph{essência atual} com a \emph{essência
+possível}, e não com a \emph{existência}; porque, efetivamente, a \emph{essência
+atual} refere-se à \emph{essência possível} como o \emph{ato} se refere à
+\emph{potência}.
+
+\medskip
+\noindent\textbf{II.}\quad A \emph{essência atual}, ou \emph{física}, é dotada
+de \emph{entidade própria}, e tem a sua \emph{última atualidade} na própria
+linha \textemdash{} na \emph{linha da essência}, enquanto nada lhe falta do que
+é denotado pela sua \emph{definição}. Mas esta \emph{última atualidade na linha
+da essência} não é suficiente para explicar a sua \emph{presença na realidade}.
+Diz S. Tomás: «\textit{Natura considerata praeter suum esse est secundum
+acceptionem rationis tantum}» (\emph{In I Sent.}, dist.~14, q.~1, a.~3). Se,
+pois, a \emph{essência} existe na realidade, existe em virtude de uma outra
+\emph{atualidade} \textemdash{} da \emph{atualidade de uma ordem diversa}, que
+é o \emph{ato da existência}. \pg{319} \textemdash{} A \emph{existência}, nos
+\emph{entes finitos}, não é nem pode ser um \emph{elemento constitutivo} da
+\emph{essência}; e por isso, quando se une com a \emph{essência}, não a
+\emph{altera}, não a \emph{transforma}, deixa-a ficar o que era; limita-se a
+\emph{completá-la na ordem da existência}, colocando-a e conservando-a colocada
+na realidade.
+
+\medskip
+\noindent\textbf{III.}\quad A \emph{existência da criatura}, por isso mesmo que
+é \emph{existência}, não é \emph{indiferente para o oposto}, isto é, para a
+\emph{não-existência}; aliás uma coisa seria e deixaria de ser ao mesmo tempo e
+sob o mesmo aspecto. Por isso, se uma coisa é \emph{indiferente} para a
+\emph{existência} e para a \emph{não-existência}, esta \emph{indiferença} não
+deriva da própria \emph{existência}, mas deriva do \emph{sujeito} em que a
+\emph{existência} é recebida e que pode \emph{existir} e \emph{deixar de
+existir}. \textemdash{} Como também, se a \emph{existência} acaba, não acaba
+porque é \emph{existência}, mas porque acaba o seu \emph{sujeito}. A razão é
+porque um \emph{ato misto}, como é a \emph{existência das criaturas}, segue a
+sorte do \emph{sujeito} de que é \emph{ato}.
+
+\medskip
+\noindent\textbf{IV.}\quad O \emph{termo adequado da produção} não é só a
+\emph{essência}, nem é só a \emph{existência}, mas é o \emph{composto de uma e
+de outra}. Na verdade, a \emph{causa eficiente}, quando produz a \emph{essência}
+e a \emph{existência}, não as produz como \emph{duas coisas}, mas como \emph{uma
+coisa só}, composta de \emph{dois princípios}, um dos quais se refere ao outro
+como a \emph{potência} ao \emph{ato}. \textemdash{} Por isso, nem a
+\emph{existência} precede, na ordem do tempo, a \emph{essência}, nem a
+\emph{essência} precede a \emph{existência}; mas, pelo fato mesmo de dar a
+\emph{existência} à \emph{essência}, o \emph{agente} produz não só a
+\emph{existência}, mas também a \emph{essência}. Diz S. Tomás: «\textit{Ex hoc
+ipso quod quidditati esse tribuitur, non solum esse sed ipsa quidditas creari
+dicitur; quia antequam esse habeat, nihil est, nisi forte in intellectu
+creantis, ubi non est creatura, sed creatrix essentia}» (\emph{De Pot.}, q.~3,
+a.~5 ad~2).
+
+\medskip
+\noindent\textbf{V.}\quad Donde se segue que a \emph{existência} e a
+\emph{essência}, embora sejam \emph{coisas realmente distintas}, contudo não se
+podem separar uma da outra sem que uma e outra imediatamente acabem. Porquanto
+o \emph{efeito} que de um \emph{ato} deriva para um \emph{sujeito} não permanece
+e não pode permanecer se acabar o próprio \emph{ato}. Ora \emph{existir} é o
+\emph{efeito próprio da existência}, e esse \emph{efeito} não pode ser produzido
+nem executado senão na \emph{essência}. Repugna, pois, que a \emph{essência}
+dure sem a \emph{existência}; como repugna que a \emph{existência} subsista sem
+a \emph{essência}, para a qual tem uma \emph{relação necessária}. \textemdash{}
+Nunca devemos esquecer que o \emph{ente existente} é o \emph{composto}, e que a
+\emph{existência} e a \emph{essência} não são \emph{duas realidades
+subsistentes}, mas são os \emph{princípios intrínsecos} \textemdash{}
+\emph{atual} e \emph{potencial} \textemdash{} pelos quais o \emph{composto}
+existe.
+
+\teseB{45}{No Ente infinito, a existência não se distingue realmente da
+essência}
+
+\subp{a} Uma coisa não se distingue \emph{realmente} de outra quando entre elas
+há \emph{perfeita identidade}. Ora, no \emph{Ente infinito}, há \emph{perfeita
+identidade} entre a \emph{existência} e a \emph{essência}; porque Deus existe em
+virtude ou pela \emph{exigência} da sua \emph{essência}, e por isso a
+\emph{existência} constitui a sua \emph{essência}. Logo, no \emph{Ente
+infinito}, a \emph{existência} não se distingue \emph{realmente} da
+\emph{essência}.
+
+\subp{b} Se, no \emph{Ente infinito}, a \emph{existência} se distinguisse
+\emph{realmente} da \emph{essência}, a \emph{existência} seria recebida na
+\emph{essência}, seria \emph{ato misto}, \emph{não-subsistente}, e por isso
+\emph{limitado}, e \emph{multiplicado} pela mesma \emph{essência} em que é
+recebido. Ora a \emph{existência}, ou o \emph{ser de Deus}, é \emph{ato
+puríssimo}, \emph{subsistente}, e por isso \emph{infinito} e \emph{único na sua
+ordem}. Logo, no \emph{Ente infinito}, a \emph{existência} não se distingue
+\emph{realmente} da \emph{essência}.\footnote{Deus, e só Ele, é o \emph{ente
+necessário} que existe em virtude da sua \emph{essência}, isto é, por assim o
+exigir a sua \emph{essência}; e por isso em Deus, e só nEle, a \emph{existência}
+não se distingue \emph{realmente} da \emph{essência}, mas identifica-se com
+esta. De fato, todos dizem \textemdash{} que Deus, e só Ele, é, \textemdash{}
+que Deus é o \emph{próprio Ser}, a \emph{própria Existência}, \textemdash{} que
+todos os \emph{seres finitos} não são o \emph{ser}, mas receberam o \emph{ser},
+ou a \emph{existência}.
+
+  Donde se vê que a \emph{essência} pode \emph{atuar-se} ou \emph{realizar-se}
+  por dois modos: \emph{por si mesma}, ou \emph{pela ação de uma causa
+  extrínseca}. \emph{Realiza-se por si mesma} quando é \emph{necessária}, quando
+  existe na realidade por \emph{virtude própria}, por assim ela o exigir; assim
+  existe a \emph{Essência de Deus}. \emph{Realiza-se pela ação de uma causa
+  extrínseca} quando é \emph{contingente}, isto é, \emph{indiferente para a
+  existência e para a não-existência}, e por isso deve ser determinada por uma
+  \emph{causa extrínseca}; assim existe a \emph{essência do ente finito}.
+  \textemdash{} Quando a \emph{essência} se \emph{realiza por si mesma}, a
+  \emph{existência} é um \emph{ato constitutivo} da mesma \emph{essência}, isto
+  é, a \emph{essência} não só \emph{existe}, mas \emph{é a sua existência}, o
+  \emph{seu ser}. \pg{320} Quando a \emph{essência} é determinada para a
+  \emph{existência} pela \emph{ação de uma causa extrínseca}, a \emph{existência}
+  não é um \emph{elemento constitutivo} da \emph{essência}, mas é uma
+  \emph{perfeição} que se lhe une, como o \emph{ato} se une com a
+  \emph{potência}, e que lhe dá o \emph{último complemento}, a \emph{última
+  atualidade} na linha da realidade.
+
+  Tal é a \emph{doutrina de S. Tomás}. O S. Doutor não se cansa de repetir
+  \textemdash{} que em Deus o \emph{ser} e a \emph{essência} são \emph{uma e a
+  mesma coisa}, \textemdash{} que Deus é \emph{ato subsistente}, \emph{forma
+  puríssima}, \emph{não recebida em nenhuma potência}, \textemdash{} e que por
+  isso Deus é \emph{infinito na sua perfeição} e \emph{único na sua ordem}, ao
+  passo que, nas \emph{criaturas}, o \emph{ser} é uma \emph{coisa diversa da
+  essência}, o \emph{ser} é \emph{recebido na essência}, e por isso as
+  \emph{criaturas} são \emph{finitas} e \emph{muitas}. Eis as suas palavras:
+  «\textit{Esse est actualitas omnis formae vel naturae; non enim bonitas vel
+  humanitas significatur in actu, nisi prout significamus eam esse. Oportet
+  igitur quod ipsum esse comparetur ad essentiam, quae est aliud ab ipso, sicut
+  actus ad potentiam. Cum igitur in Deo nihil sit potentiale, sequitur quod non
+  sit aliud in eo essentia quam suum esse. Sua igitur essentia est suum esse}»
+  (\emph{Sum. Theol.}, p.~1, q.~3, a.~4). \textemdash{} Mais adiante:
+  «\textit{Infinitum quod se tenet ex parte formae, non determinata per
+  materiam, habet rationem perfecti\dots{} Illud autem quod est maxime formale
+  omnium est ipsum esse. Cum igitur esse divinum non sit esse receptum in
+  aliquo, sed ipse sit suum esse subsistens, manifestum est quod ipse Deus sit
+  infinitus et perfectus}» (\emph{Sum. Th.}, p.~1, q.~7, a.~1). \textemdash{}
+  Noutro lugar diz: «\textit{Talis res, quae sit suum esse, non potest esse
+  nisi una; unde oportet quod in qualibet alia re, praeter eam, sit aliud suum
+  esse et aliud quidditas}» (\emph{De Ente et Essentia}, c.~V). \textemdash{}
+  «\textit{Huiusmodi formae (Angeli) non terminantur neque contrahuntur per
+  aliquam materiam. Sed quia forma creata sic subsistens habet esse, et non est
+  suum esse, necesse est quod ipsum eius esse sit receptum et contractum ad
+  terminatam naturam. Unde non potest esse infinitum simpliciter}» (\emph{Sum.
+  Th.}, p.~1, q.~7, a.~2). \textemdash{} «\textit{Esse hominis terminatum est ad
+  hominis speciem, quia est receptum in natura speciei humanae. Esse autem Dei,
+  cum non sit in aliquo receptum, sed sit esse purum, non limitatur ad aliquem
+  modum perfectionis}» (\emph{De Pot.}, q.~1, a.~2; cf.\ \emph{De spirit.
+  creat.}, a.~1). \textemdash{} Nos citados trechos, que se referem aos
+  \emph{entes finitos} ou \emph{criados}, trata-se de uma \emph{distinção real}
+  entre a \emph{essência} e a \emph{existência}; porque, se se tratasse apenas
+  de uma \emph{distinção lógica}, não seria legítima a argumentação do S.
+  Doutor, visto que também em Deus há uma \emph{distinção lógica} entre a
+  \emph{essência} e a \emph{existência}. \textemdash{} Mas, deixando outras
+  citações (cf.\ \emph{I Sent.}, dist.~19, q.~2, a.~2; \emph{C. Gentes}, l.~II,
+  c.~52), o trecho seguinte torna a coisa evidente. No \emph{Comm.} ao livro de
+  Boécio \emph{De Hebdomad.} escreve: «\textit{Est ergo considerandum quod
+  sicut esse et quod est differunt in simplicibus secundum intentionem, ita in
+  compositis differunt realiter}» (Lect.~2). O que se entende por \emph{ente
+  simples} é dito com as seguintes palavras: «\textit{Hoc autem simplex unum et
+  sublime est ipse Deus}». Poderia ser mais claro? Em Deus, que é o \emph{único
+  ente simplicíssimo}, a \emph{essência} e a \emph{existência} diferem
+  \emph{logicamente}; em todas as \emph{criaturas}, que são \emph{entes
+  compostos}, \pg{321} a \emph{essência} e a \emph{existência} diferem
+  \emph{realmente} (cf.\ \emph{De Verit.}, q.~27, a.~1 ad~8).
+
+  A \emph{distinção real}, pois, entre a \emph{essência} e a \emph{existência},
+  nas \emph{criaturas}, é doutrina certamente propugnada pelo \emph{Angélico
+  Mestre} e é um dos \emph{pontos capitais e fundamentais} de toda a sua
+  \emph{metafísica}, como afirmam, entre outros, o \emph{Card.\ Pallavicino}
+  (\emph{De Deo}, c.~III) e \emph{Silvestre Mauro} (\emph{Quaest. phil.},
+  vol.~II, q.~7). \textemdash{} Poderá impugnar-se esta doutrina; mas não pode,
+  sem grande \emph{temeridade}, afirmar-se que é falso ou incerto que ela tenha
+  sido ensinada por S. Tomás. \emph{Tifano}, que todavia não segue o
+  \emph{Angélico Mestre} neste ponto, escreve: «\textit{Quod existentiam in
+  creaturis re distinguat (S. Thomas) ab essentia, id vel negare, vel in dubium
+  revocare, est hominis impudentis, vel in eius doctrina peregrini}» (\emph{De
+  hypostasi}, c.~6).}
+
+\tese{46}{Importância da doutrina exposta} A \emph{doutrina exposta} tem uma
+grande \emph{importância}, porque serve para estabelecer uma \emph{harmonia
+perfeitíssima} entre todos os seres. A \emph{simplicidade} é \emph{sinal de
+perfeição}, como a \emph{composição} é \emph{sinal de limitação ou imperfeição}.
+Deus é \emph{ato simplicíssimo}, \emph{puríssimo}; a sua \emph{existência}
+identifica-se com a \emph{essência}; por isso é \emph{infinito na perfeição}.
+\textemdash{} As \emph{inteligências separadas}, que são os \emph{Anjos}, são
+compostas de \emph{essência} e de \emph{existência}; por isso são \emph{limitadas
+na perfeição}, infinitamente inferiores a Deus, mas superiores a todas as outras
+\emph{criaturas}. \textemdash{} As \emph{criaturas visíveis} são compostas de
+\emph{essência} e de \emph{existência}, e também de \emph{matéria} e de
+\emph{forma}; por isso são ainda mais \emph{limitadas}, e \emph{ínfimo} é o seu
+grau de perfeição.\footnote{Nem essa é a única vantagem. A questão acerca da
+\emph{distinção real} entre a \emph{existência} e a \emph{essência}, nas
+\emph{criaturas}, liga-se intimamente com as outras duas importantes questões
+acerca da \emph{distinção real} entre a \emph{substância} e os \emph{acidentes},
+e entre a \emph{matéria} e a \emph{forma}. Estas três questões refletem, pela
+sua vez, muita luz sobre alguns \emph{dogmas da Fé}. Na verdade, a \emph{teoria
+da distinção real} entre a \emph{essência} e a \emph{existência} explica, de
+algum modo, como é que, em N.~S. Jesus Cristo, podem \emph{duas naturezas} ou
+\emph{essências} subsistir numa só \emph{existência}, ou \emph{pessoa divina};
+\textemdash{} a \emph{teoria da distinção real} entre a \emph{substância} e os
+\emph{acidentes} serve para conhecer, de algum modo, o \emph{mistério da
+Eucaristia}; \textemdash{} a \emph{teoria da matéria e da forma} explica a
+\emph{união da alma com o corpo} em harmonia com as \emph{definições da Igreja}.}
+
+\end{document}
