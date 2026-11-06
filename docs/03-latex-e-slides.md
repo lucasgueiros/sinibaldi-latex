@@ -36,6 +36,22 @@ corpo, num bloco recuado que interrompe a leitura.
 latexmk -lualatex -usepretex='\def\fragmento{vol2/02_secao_x/01_cap_y/01_cap_y.tex}' tex/_preview.tex
 ```
 
+### Compilar o fragmento avulso
+
+Cada fragmento começa com um guarda que, se o arquivo for o documento principal (botão do editor,
+`lualatex <stem>.tex` de dentro da pasta do nó), carrega `tex/avulso.tex` (classe + preâmbulo) e
+fecha o documento no `\csname fimavulso\endcsname` final; dentro do livro/`_preview` não faz nada:
+
+```latex
+% !TEX program = lualatex
+\ifdefined\pg\else\IfFileExists{tex/avulso.tex}{\input{tex/avulso}}{\input{../../tex/avulso}}\fi
+...
+\csname fimavulso\endcsname
+```
+
+Use **lualatex**. Com pdflatex o avulso também compila (preâmbulo alternativo inputenc/babel), mas só
+para conferência. Livro inteiro: `latexmk -lualatex livro.tex`, com um `\input` por fragmento.
+
 ## Compilação
 
 `lualatex` (Unicode + `fontspec`/`polyglossia`), via `latexmk`:

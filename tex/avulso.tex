@@ -1,0 +1,30 @@
+% Compilação AVULSA de um fragmento (volN/.../<stem>.tex) — p. ex. pelo botão do editor,
+% de dentro da pasta do nó.  O fragmento começa com
+%
+%   \ifdefined\pg\else\IfFileExists{tex/avulso.tex}{\input{tex/avulso}}{\input{../../tex/avulso}}\fi
+%
+% e termina com  \csname fimavulso\endcsname .  Dentro do livro ou do _preview, \pg já existe
+% e nada disto roda; \fimavulso fica indefinido e o \csname vira \relax.
+%
+% Motor: o projeto é lualatex (fontspec/polyglossia).  Se o editor chamar pdflatex, cai
+% num preâmbulo equivalente com inputenc/babel — serve para conferir, não para o PDF final.
+\documentclass[11pt,a5paper]{book}
+\ifdefined\directlua
+  \usepackage{fontspec}
+  \usepackage{polyglossia}
+  \setmainlanguage{portuguese}
+\else\ifdefined\XeTeXrevision
+  \usepackage{fontspec}
+  \usepackage{polyglossia}
+  \setmainlanguage{portuguese}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+  \usepackage[portuguese]{babel}
+  \DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\fi\fi
+% raiz do repo: compilado da raiz ou de volN/<parte>/ (dois níveis abaixo)
+\IfFileExists{tex/preambulo.tex}{\input{tex/preambulo}}{\input{../../tex/preambulo}}
+\def\fimavulso{\end{document}}
+\begin{document}

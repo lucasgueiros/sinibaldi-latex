@@ -1,4 +1,11 @@
 % Preâmbulo comum ao livro e à pré-visualização de fragmentos (tex/_preview.tex).
+
+% Títulos de secção sem justificar (evita linhas estouradas em \Large bold, p. ex.
+% «Demonstrabilidade») e um pouco de folga para enunciados de tese em negrito.
+\usepackage{sectsty}
+\allsectionsfont{\raggedright}
+\setlength{\emergencystretch}{1.5em}
+
 % Marca da página impressa do original: \pg{286} imprime [286] no fluxo do texto.
 \newcommand{\pg}[1]{\,{\footnotesize\textbf{[#1]}}\,}
 
