@@ -38,7 +38,7 @@ vol2/
     0421.hocr                    # saída bruta do tesseract com coordenadas (git-ignored)
     0421.json                    # página estruturada: cabeçalho / corpo / notas / conf. por palavra
     0421.txt                     # texto limpo da página (VERSIONADO: pequeno, dá para dar diff)
-  estrutura.tsv                  # árvore de nós ← reconstruída do índice (F4)
+  estrutura.tsv                  # um título por linha ← proposto por titulos.py (F4), revisado; fonte da estrutura
   02_parte_theodicea/01_cap_….orig.tex   # transcrição FIEL (grafia de 1916), revisada
   02_parte_theodicea/01_cap_….tex        # edição RENOVADA (grafia atual) ← texto-mestre editável
 ```
@@ -70,8 +70,10 @@ e retomável página a página; (c) a revisão LLM é naturalmente "uma imagem +
 A partir das coordenadas do hOCR (é aqui que ele paga a complexidade que `docs/02` adiou):
 - **cabeçalho corrente**: 1.ª linha no topo → removido do corpo, guardado no JSON (o texto dele,
   `SECÇÃO II — CAPITULO III`, alimenta F4);
-- **notas de rodapé**: linhas com altura de letra menor, abaixo do corpo → separadas, numeradas
-  `(1)`, `(2)`, e ligadas à chamada `(n)` do corpo;
+- **notas de rodapé**: separadas do corpo pela entrelinha (corpo ~52 px, nota ~43 px), pelo vão
+  e pelo filete; unidas entre páginas como **um fluxo próprio**, em que uma área de notas que
+  começa sem `(n)` continua a última nota aberta. Detalhes, medições e validações em
+  **[`notas-de-rodape.md`](notas-de-rodape.md)**;
 - hifenização de fim de linha desfeita (`mo-\nvimentos` → `movimentos`), inclusive na virada de
   página (guardando o ponto exato da quebra para o `\pg`);
 - parágrafos (recuo da 1.ª linha), teses `NN.` (sequência numérica conferida: o número esperado
@@ -86,19 +88,20 @@ confiança perto de uma forma frequente (distância de edição 1–2) = prováv
 por regra. É um corretor ortográfico **com o léxico de 1916 do próprio livro**, sem dicionário
 moderno que "corrija" `philosophia`.
 
-### F4 — Reconstruir o índice e as divisões (`tools/indice.py`)
-1. Re-OCR das páginas do índice (fim do volume) com mais cuidado (`--psm 4/6`, 400 ppi); parsear
-   linhas `Capitulo II. — Título .......... 245` → árvore com página inicial.
-2. **Validar em três fontes independentes**: o índice; a mudança do cabeçalho corrente página a
-   página (F2); os títulos detectados no corpo (`CAPITULO`, `ARTIGO`, `SECÇÃO` centralizados,
-   em versal). As páginas devem ser monotônicas e as três fontes devem concordar; divergência vira
-   lista para revisão humana.
-3. Gerar `estrutura.tsv` (formato atual de `docs/05`), revisado à mão — é pequeno (dezenas de
-   linhas) e é a única etapa onde a decisão humana é estrutural.
+### F4 — `tools/titulos.py`: títulos → `estrutura.tsv` (o TSV manda)
+O script detecta os títulos (centrado, escala, versal, negrito medido na imagem, vocabulário
+`CAPITULO`/`ARTIGO`/`N.`) e **propõe** o `estrutura.tsv`, com uma linha por título (pág, âncora,
+nível, rótulo, título, id). Depois de revisado, o TSV é a **única fonte da estrutura**: os arquivos
+dos nós, as macros de título no LaTeX/HTML e o sumário saem dele. Corrigir uma divisão = mudar uma
+linha e regenerar. O índice impresso, o cabeçalho corrente e a sequência das teses servem de
+conferência cruzada, não de fonte. Detalhes em
+**[`titulos-e-estrutura.md`](titulos-e-estrutura.md)**.
 
 ### F5 — `tools/pagina2tex.py`: LaTeX mecânico por nó
-Para cada nó do `estrutura.tsv`, concatena as páginas e gera `<stem>.ocr.tex` (bruto, git-ignored):
-`\pg{n}` no ponto exato de cada virada (no meio da frase, se for o caso), `\footnote{}` na chamada,
+Para cada nó do `estrutura.tsv`, concatena as páginas, troca as linhas que o TSV declara título
+pela macro do nível correspondente, e gera `<stem>.ocr.tex` (bruto, git-ignored):
+`\pg{n}` no ponto exato de cada virada (no meio da frase, se for o caso), `\footnote{}` inteiro na
+chamada (com `\pgn{n}` onde a nota vira a página),
 `\tese`/`\teseB`/`\sub`, `\chapter*`/`\section*` dos títulos, latim em
 `\foreignlanguage{latin}{…}` (o hOCR indica a língua de cada parágrafo/palavra; é o que depois
 protege o latim da modernização). Mesmo guarda de fragmento avulso dos `.tex` atuais.
@@ -124,11 +127,16 @@ Só escalar se F6 chegar perto do ouro; senão ajustar prompt/modelo e repetir n
 Resultado: `<stem>.orig.tex` — a **transcrição diplomática**, versionada e congelada.
 
 ### F7 — Atualização ortográfica (por vocábulo, não por página)
+Norma: **Acordo Ortográfico de 1990**, o mais recente, que vigora no Brasil desde 2016. A referência
+de forma é o **VOLP da ABL** (variante brasileira, que se distingue da europeia em `fato`/`facto`,
+`econômico`/`económico`).
+
 A maior parte da modernização é **função da palavra**, não do contexto: `philosophia → filosofia`,
 `immutavel → imutável`, `sciencia → ciência`, `acto → ato`, `elle → ele`, `d'este → deste`.
 Então:
 1. Do vocabulário de `*.orig.tex` (fora do latim e de nomes próprios), gerar candidatos por regra
-   (`ph→f`, `th→t`, `y→i`, consoantes dobradas e mudas, acentuação do AO 1990) — `tools/moderniza.py`.
+   (`ph→f`, `th→t`, `y→i`, consoantes dobradas e mudas, acentuação do AO 1990), e cada candidato é
+   conferido contra a lista de formas do VOLP: forma que não está no VOLP volta para a LLM — `tools/moderniza.py`.
 2. A LLM revisa **a lista de tipos uma vez** (dezenas de milhares de formas, não 1700 páginas) →
    `ortografia/mapa.tsv`, versionado e revisável por humano.
 3. Aplicação determinística do mapa → `<stem>.tex`. Os casos que **dependem do contexto**
@@ -148,6 +156,29 @@ Resultado: `<stem>.tex` em grafia atual, **com os mesmos `\pg{n}`**, compilando 
   confundem com o texto de Sinibaldi e a versão "sem intervenções" continua compilável.
 - `livro.tex` com chave para compilar a edição renovada ou a diplomática.
 
+## Formato de saída: LaTeX ou HTML
+
+**Recomendação: LaTeX como fonte única, com um vocabulário pequeno de macros com significado
+próprio, e o HTML gerado a partir dele.** Não há duas fontes a manter.
+
+- O texto-mestre só usa macros com sentido (`\pg`, `\pgn`, `\tese`, `\capitulo`, `\artigo`,
+  `\footnote`, `\emph`, `\textsc`, `\foreignlanguage{latin}`, `\ned`, `\ref`) e **nenhuma**
+  formatação visual solta (`\vspace`, `\large`, fontes). Isso é verificado por script.
+- Com o vocabulário fechado, um conversor próprio (`tools/tex2html.py`, poucas centenas de linhas)
+  é confiável. Não depende de `make4ht`/LaTeXML para LaTeX arbitrário, que é onde esses
+  conversores falham.
+- O site ganha o que o PDF não tem: `[421]` vira link para a **imagem da página do scan** (a
+  conferência fica a um clique); "cf. n. 6" vira link para a tese; notas em popup ou na margem;
+  busca; a mesma passagem nas grafias original e atual lado a lado (`.orig.tex` ↔ `.tex`).
+- O PDF continua com a tipografia do LaTeX, que é melhor para leitura e impressão.
+- **"Edição via sistema"**: no começo, o sistema é o próprio git. A edição é feita pela interface
+  web do GitHub ou por pull requests, com histórico, revisão e autoria de cada mudança, e o site é
+  publicado automaticamente a cada commit (GitHub Pages). Um editor web próprio pode vir depois,
+  escrevendo nos mesmos fragmentos `.tex` pela API, sem mudar a fonte.
+- Quando reavaliar: se a edição for feita por muitas pessoas sem familiaridade com LaTeX, ou se
+  for preciso aparato crítico formal para intercâmbio acadêmico, vale migrar a fonte para **TEI
+  XML**, o padrão das edições digitais. Com macros semânticas, essa migração é mecânica.
+
 ## Sequência de execução
 
 1. F0 + F1 + F2 no vol. 2 inteiro (o scan está aqui; ~30 min de máquina).
@@ -158,11 +189,18 @@ Resultado: `<stem>.tex` em grafia atual, **com os mesmos `\pg{n}`**, compilando 
 6. Atualizar `docs/` (nova nota `06-edicao-renovada.md`; `docs/02`, `04`, `05` e `CLAUDE.md`, que
    hoje diz "não modernizar a grafia" — passa a valer só para `*.orig.tex`).
 
-## Decisões (assumi o padrão entre parênteses; trocar se discordar)
+## Decisões
 
-1. **Norma da grafia atual** (AO 1990, variante brasileira: `ato`, `fato`, `ação`).
-2. **Latim** (intocado na edição renovada; tradução, se houver, em nota do editor).
-3. **Duas camadas** `orig`/moderna (sim — a diplomática é o que permite conferir e refazer a
-   modernização; editar só a moderna).
-4. **Modelo para F6** (decidir pelo portão de qualidade no piloto, não de antemão).
-5. **Vol. 1**: onde está o `vol1.pdf`?
+Fechadas:
+1. **Grafia**: AO 1990 (o mais recente), variante brasileira, referência VOLP/ABL.
+2. **Estrutura**: `estrutura.tsv` é a fonte; corrigir uma divisão = mudar uma linha.
+3. **Formato**: LaTeX semântico como fonte, PDF + site HTML gerados (recomendado; confirmar).
+
+Assumidas (trocar se discordar):
+4. **Latim** intocado na edição renovada; tradução, se houver, em nota do editor.
+5. **Duas camadas** `orig`/moderna; edita-se só a moderna.
+6. **Viradas de página dentro das notas** marcadas (`\pgn`), ocultáveis por chave.
+7. **Modelo para F6** escolhido pelo portão de qualidade no piloto, não de antemão.
+
+Em aberto:
+8. **Vol. 1**: onde está o `vol1.pdf`?
