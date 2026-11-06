@@ -85,3 +85,11 @@ achar uma página com cabeçalho legível e subtrair.
   cabeçalhos/rodapés virar gargalo na revisão; hoje é complexidade desnecessária.
 - **Confiar no número OCR** com correção por vizinhança (interpolar a partir das páginas legíveis):
   reinventa, com risco, o que a aritmética já dá de graça.
+
+## Vol. 2 (ed. 1916): mapeamento na folha 2-up
+
+Sem OCR ainda, mas pelos cabeçalhos legíveis das folhas 200, 210, 220, 221 e 250 de `vol2.pdf`
+(413 folhas, `/Rotate` — duas páginas por folha): **impressa = 2·folha** (metade esquerda) e
+**2·folha + 1** (metade direita). Ex.: folha 210 = págs. 420|421 (início da Theodicea, cap. I).
+Depois do `mutool poster -y 2`, a pág. do `vol2_div.pdf` deve ser 2·folha−1 / 2·folha, logo
+`OFFSET = −1` — conferir com `extract_paginado.py --check` quando houver OCR.
