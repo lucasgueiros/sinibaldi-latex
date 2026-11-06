@@ -39,3 +39,11 @@
      \addvspace{\medskipamount}}%
   }
 \fi
+
+% --- Sem notas: \def\semnotas{} no -usepretex suprime todas as notas ---------
+% (nem a chamada no texto nem o conteúdo).  Usado por  ./compila.sh --sem-notas .
+\ifdefined\semnotas
+  \renewcommand\footnote[2][]{}%
+  \renewcommand\footnotemark[1][]{}%
+  \renewcommand\footnotetext[2][]{}%
+\fi

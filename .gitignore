@@ -27,6 +27,7 @@ tessdata/
 *.snm
 *.vrb
 livro.pdf
+build/
 
 # --- Saídas intermediárias de OCR/extração ---
 vol*_pag.txt

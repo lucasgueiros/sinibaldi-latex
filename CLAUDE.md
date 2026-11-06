@@ -90,7 +90,8 @@ python3 tools/extract_paginado.py vol2/vol2_div_ocr.pdf --offset N -f 300 -l 305
 ## LaTeX
 
 O escopo vai até o **PDF do livro**: `livro.tex` + fragmentos por nó (`vol2/…/<stem>.tex`, `\input`),
-compilado com `latexmk -lualatex`. `\pg{286}` imprime `[286]`, marcando a quebra de página do
+compilado com `latexmk -lualatex`. Um capítulo isolado, da raiz: `./compila.sh <capitulo>
+[--sem-notas | --notas-corpo]` → `build/` (comandos no topo do `README.md`). `\pg{286}` imprime `[286]`, marcando a quebra de página do
 original; `\tese`/`\teseB`/`\sub`/`\subp` marcam a estrutura do autor. `tex/_preview.tex` compila um
 nó isolado. Slides: `gera_slides_base.py` → LLM torna didático → `md2pptx.py` (não há beamer/Marp).
 Ver `docs/03-latex-e-slides.md` e `docs/05-estrutura-por-no.md`.

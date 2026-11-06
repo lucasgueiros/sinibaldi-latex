@@ -26,11 +26,14 @@ no texto.
 - `\sub{a}{rubrica}` / `\subp{a}` — subdivisão com / sem rubrica em itálico.
 
 Notas: por omissão saem no pé; com `\def\notascorridas{}` (via `-usepretex`) passam a correr no
-corpo, num bloco recuado que interrompe a leitura.
+corpo, num bloco recuado que interrompe a leitura; com `\def\semnotas{}` são suprimidas por
+inteiro (chamada e conteúdo).
 
 ## Pré-visualizar um nó isolado
 
-`tex/_preview.tex` compila **um** fragmento com o mesmo preâmbulo do livro:
+Atalho da raiz: `./compila.sh <capitulo> [--sem-notas | --notas-corpo]` → `build/<stem>[-…].pdf`
+(ver `README.md`). Por baixo, `tex/_preview.tex` compila **um** fragmento com o mesmo preâmbulo do
+livro:
 
 ```bash
 latexmk -lualatex -usepretex='\def\fragmento{vol2/02_secao_x/01_cap_y/01_cap_y.tex}' tex/_preview.tex
