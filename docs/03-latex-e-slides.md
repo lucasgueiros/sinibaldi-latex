@@ -168,8 +168,22 @@ troca forma aceita por dicionário (hunspell pt_PT/fr, pré-computado em `tools/
 por `.venv/bin/python tools/lexico.py gera`, que precisa de `spylls`), nem forma recorrente
 (≥ 10×) que difere só no acento (`fórma`, `áquella`, `tém`: decide a F6) ou em 2 letras.
 
+Regras adicionadas depois (todas passaram pelo portão; cada uma, retirada, piora o WER): `deus`
+só respeita o dicionário **pt** (`drus` é francês e bloqueava 655 `Drus`); `w` (w→u fora do
+latim e dos nomes de `corrige_w`, só se a forma nova é válida ou tem ≥ 30 ocorrências);
+`i-inicial` (`éntelligencia`, `zncredulos`: i itálico lido como ó/é/z/t); `acento-i` (tira o í/ú
+que a grafia do livro não tem — `possível`, `espírito` — se a forma sem acento é ≥ 3× mais
+frequente; í em hiato fica); `cedilha` (c→ç, mesmo sobre palavra válida como `forca`, se `força`
+é ≥ 10× mais frequente); `enclitico` (`Provamolo` → `Provamol-o`); `of` (`Of.` → `Cf.`);
+`romano` (`IIT`→`III`, `1I`→`II`); `junta` (palavra partida `in ferior`, só se a soma existe no
+corpus e uma parte é fragmento; `n o` → `não`). No léxico, palavra curta e frequente (`eausa`, 59×)
+cede a candidato ≥ 20× mais frequente, e forma longa aceita candidato de 10 ocorrências.
+**3,97% → 3,45%** (corpo 5,04%; notas 3,10%). Fica para a F6: `a`/`á`, `E'`, `e`/`o` isolados,
+`3`/`8`, nomes próprios (`Kent`), letras faltantes (`r dicionalismo`), `Zntrinseca` (maiúscula
+ambígua).
+
 Portão: `python3 tools/mede_wer.py --corrige [--sem REGRA]` — nenhuma regra entra se piora o WER.
-Resultado nas pp. 421–442: **5,93% → 3,97%** (corpo 8,7% → 5,8%; notas 5,3% → 3,6%), 205 palavras
+Resultado nas pp. 421–442 (1.ª versão): **5,93% → 3,97%** (corpo 8,7% → 5,8%; notas 5,3% → 3,6%), 205 palavras
 corrigidas, 1 regressão (`opéram`). Cada regra, retirada sozinha, piora o WER. Vol. 2: 8 247
 trocas; vol. 1: 15 769 (OCR `por` rápido, sem padrão-ouro: amostra de 40 trocas do léxico, ~37
 certas). Chamadas de nota: o OCR do vol. 1 lê `(1)` como `(*)`/`(?)`; o estruturador pareia

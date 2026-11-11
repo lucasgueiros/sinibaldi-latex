@@ -13,7 +13,10 @@ regra (--sem REGRA).  Três mecanismos, em ordem:
 1. REGRAS de sequências impossíveis na grafia de 1916 (baratas, auditáveis, pegam o grosso):
    ao (-ào/-áo -> -ão), cao (-cáo -> -ção), oe (-óe -> -õe, só se a forma nova existe),
    a-grave (à -> á, às -> ás, À -> A), digito (6 -> é, 4 -> á entre palavras), deus
-   (D??s -> Deus: versalete; a marcação sc vem de tools/formatacao.py), h-italico (pAysica -> physica).
+   (D??s -> Deus: versalete; a marcação sc vem de tools/formatacao.py), h-italico (pAysica -> physica),
+   w (nowmeno -> noumeno), i-inicial (éntelligencia), acento-i (possível -> possivel), cedilha
+   (forca -> força), enclitico (Provamolo -> Provamol-o), of (Of. -> Cf.), romano (IIT -> III),
+   junta (in ferior -> inferior).
 2. LEXICO: frequência do corpus (≈910 mil palavras, sem o padrão-ouro) + tabela de confusões
    genérica (c/e/o, acentos, u/n, i/t/í, s/z, A->h, w->u).  Troca quando o candidato é >= 10x mais
    frequente.  Nunca troca forma aceita pelo dicionário (pt_PT, fr: tools/dados/validas.tsv),
@@ -37,11 +40,14 @@ from lxml import etree
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import lexico  # noqa: E402
+from corrige_w import NOMES_COM_W  # noqa: E402
 
 TEI = "{http://www.tei-c.org/ns/1.0}"
 XML = "{http://www.w3.org/XML/1998/namespace}"
 TOKEN = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ]+|\d+")
-REGRAS = ("ao", "cao", "oe", "a-grave", "digito", "deus", "h-italico", "lexico", "marca")
+REGRAS = ("ao", "cao", "oe", "a-grave", "digito", "deus", "h-italico", "w", "i-inicial", "acento-i",
+          "cedilha", "enclitico", "of", "romano", "junta", "lexico", "marca")
+VOGAIS = "aeiouáéíóúâêôãõàè"
 
 # confusoes do OCR (letra lida -> letras possiveis); genericas, nao aprendidas do padrao-ouro
 CONF = {"à": "áâãa", "á": "àãâa", "a": "áàãâ", "ã": "áàa", "ä": "ãá", "è": "éêe", "é": "eêèi",
@@ -120,6 +126,39 @@ class Corretor:
             n = re.sub(r"(?<=[a-z])A(?=[a-z])", "h", w)
             if self.existe(n):
                 w, feitas = n, feitas + ["h-italico"]
+        if "w" in a and len(w) > 1 and "w" in w.lower() and not any(n.lower() in w.lower() for n in NOMES_COM_W):
+            n = w.replace("w", "u").replace("W", "U")     # fora do latim: nowmeno, swbjectivos
+            if lexico.valida(n) or self.freq[n.lower()] >= 30:   # ewtrinseca é extrinseca, não eutrinseca
+                w, feitas = n, feitas + ["w"]
+        if "i-inicial" in a and len(w) >= 5 and not lexico.valida(w):
+            # i inicial em itálico lido como ó/é/z/t...: ómmanentismo, zncredulos, éimperfeitas
+            lw = w.lower()
+            for n in (("i" + w[1:]) if lw[0] in "óéúzítl" else None,
+                      w[1:] if lw[0] in "óéz" and lw[1] == "i" else None):
+                if n and self.freq[n.lower()] >= 5 and self.freq[n.lower()] >= 10 * max(self.freq[lw], 1):
+                    w, feitas = (n[:1].upper() + n[1:]) if w[:1].isupper() else n, feitas + ["i-inicial"]
+                    break
+        if "acento-i" in a and re.search("[íú]", w):
+            # í/ú que a grafia de 1916 não tem (possível, explícito, sabía): só se a forma sem acento
+            # domina o corpus; í em hiato (país, saída) fica
+            n = w.replace("í", "i").replace("ú", "u")
+            lw = w.lower()
+            hiato = re.search(f"[{VOGAIS}][íú]", lw) and not re.search("ía(s|m)?$", lw)
+            if not hiato and self.freq[n.lower()] >= 10 and self.freq[n.lower()] >= 3 * max(self.freq[lw], 1):
+                w, feitas = n, feitas + ["acento-i"]
+        if "cedilha" in a and re.search("(?<=.)c[aou]", w):
+            # c por ç (forca, mudanca, maconica): ç nunca é inicial; vale mesmo se a forma lida é
+            # palavra (forca = patíbulo) quando a forma com ç é >= 10x mais frequente
+            lw = w.lower()
+            melhor = max((w[:m.start()] + "ç" + w[m.start() + 1:]
+                          for m in re.finditer("(?<=.)c(?=[aou])", w)),
+                         key=lambda c: self.freq[c.lower()], default=None)
+            if melhor and self.freq[melhor.lower()] >= 30 \
+                    and self.freq[melhor.lower()] >= 10 * max(self.freq[lw], 1):
+                w, feitas = melhor, feitas + ["cedilha"]
+        if "enclitico" in a and re.fullmatch(r"[A-Za-zà-ÿ]+[aeio]mol[oa]s?", w) \
+                and not lexico.valida(w) and self.freq[w.lower()] < 3:
+            w, feitas = re.sub(r"(mol)([oa]s?)$", r"\1-\2", w), feitas + ["enclitico"]    # Provamol-o
         return w, feitas
 
     # --- 2. lexico
@@ -137,13 +176,16 @@ class Corretor:
         r = w
         lw = w.lower()
         c0 = self.freq[lw]
-        if len(w) >= 3 and lw not in PROT and not lexico.valida(w) and not (c0 >= 40 and len(w) < 8) \
-                and not (w.isupper() and len(w) > 1):
+        if len(w) >= 3 and lw not in PROT and not lexico.valida(w) and not (w.isupper() and len(w) > 1):
+            # palavra curta e frequente (eausa, 59x) só cede a candidato >= 20x mais frequente; forma
+            # longa aceita candidato de 10 ocorrências (verifiear -> verificar)
+            razao = 20 if (c0 >= 40 and len(w) < 8) else 10
+            piso = 10 if len(w) >= 8 else 30
             # menos trocas primeiro: so passa a 2 trocas se nenhuma de 1 serve (ontro -> outro, nao entre)
             best = None
             for grupo in self.candidatos(w):
                 b = max(grupo, key=lambda c: (self.freq[c.lower()], c), default=None)
-                if b and self.freq[b.lower()] >= 30 and self.freq[b.lower()] >= 10 * max(c0, 1):
+                if b and self.freq[b.lower()] >= piso and self.freq[b.lower()] >= razao * max(c0, 1):
                     best = b
                     break
             difs = sum(x != y for x, y in zip(w, best)) if best else 0
@@ -153,7 +195,7 @@ class Corretor:
                 # forma recorrente que difere so no acento (fórma/forma, áquella/aquella, tém/têm:
                 # distincao da grafia antiga, decide a F6) ou em 2 letras (ceu -> con): nao troca
                 best = None
-            if best and self.freq[best.lower()] >= 30 and self.freq[best.lower()] >= 10 * max(c0, 1):
+            if best and self.freq[best.lower()] >= piso and self.freq[best.lower()] >= razao * max(c0, 1):
                 r = best                     # os candidatos herdam a caixa da forma lida
                 if w[:1].isupper() and not r[:1].isupper():
                     r = r[:1].upper() + r[1:]
@@ -161,9 +203,39 @@ class Corretor:
         return r
 
     # --- texto
+    def fragmento(self, x):
+        return not lexico.valida(x) and self.freq[x.lower()] < 20
+
+    def pre(self, s, registra):
+        """regras sobre o texto, antes das palavras: Of. -> Cf., romanos (IIT, 1I), palavra partida."""
+        a = self.ativas
+        if "of" in a:
+            s = re.sub(r"\bOf\.", lambda m: (registra("Of.", "Cf.", "of"), "Cf.")[1], s)
+        if "romano" in a:
+            def romano(m):
+                n = m.group(1) + "I" if m.group(1) else "I" + m.group(2)
+                registra(m.group(), n, "romano")
+                return n
+            s = re.sub(r"(?<![\w.])([IVX]+I)T(?![\w])|(?<![\w.])1(I+)(?![\w])", romano, s)
+        if "junta" in a:
+            def junta(m):
+                x, y = m.group(1), m.group(2)
+                if x == "n" and y == "o":
+                    n = "não"
+                elif (self.fragmento(x) or self.fragmento(y)) and len(x) + len(y) >= 6 \
+                        and self.freq[(x + y).lower()] >= 10:
+                    n = x + y
+                else:
+                    return m.group()
+                registra(m.group(), n, "junta")
+                return n
+            s = re.sub(r"(?<![A-Za-zÀ-ÿ])([A-Za-zÀ-ÿ]+) ([A-Za-zÀ-ÿ]+)(?![A-Za-zÀ-ÿ])", junta, s)
+        return s
+
     def corrige(self, s, registra, baixa=frozenset(), antes="", depois=""):
         """antes/depois: texto vizinho em outros nós da mesma corrida (fronteira de <hi>), só
         como contexto: entra na janela do latim/francês e na regra digito, não é corrigido."""
+        s = self.pre(s, registra)
         ext, d = antes + s + depois, len(antes)
         tx = list(TOKEN.finditer(ext))
         fora_x = estrangeiros([m.group() for m in tx])
