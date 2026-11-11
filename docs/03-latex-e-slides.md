@@ -117,3 +117,19 @@ Tudo que a heurística não fecha vai para `<saida>.alertas.tsv` (revisão F6).
 compila avulso (`tex/avulso.tex`). Limitações conhecidas do estruturador: página com corpo
 retomado depois de nota (alerta `vao-nas-notas`), tese cujo número o OCR leu mal (alerta
 `tese-fora-de-sequencia`; a tese vira `<p>`), itálico/latim ainda não marcados (fase F6).
+
+### Calibração por volume (resultado)
+
+| | vol. 1 (1897) | vol. 2 (1916) |
+|---|---|---|
+| entrelinha corpo / nota | 51 / 39 px | 53 / 43 px |
+| largura por caractere: limiar corpo × corpo menor | 18,3 (≈19,5 × ≈16,3) | 19,7 (≈21,5 × ≈17,5) |
+| teses reconhecidas (numeração contínua) | 162 de ~243 | 221 de ~250 |
+| notas / palavras em notas | 688 / 47% | 727 / ~70% |
+
+O limiar de tamanho é calculado sozinho (k-means no volume), então um terceiro volume não pede
+ajuste manual. Chamadas de nota: o OCR do vol. 1 lê `(1)` como `(*)`/`(?)`; o estruturador pareia
+chamadas e notas por ordem quando a contagem fecha. Teses: número lido é confiado se estiver à
+frente da última (janela de 30); se voltar atrás ou estourar a janela, é corrigido apenas quando
+difere do esperado em um dígito (905→205); tudo vai para os alertas `tese-fora-de-sequencia` e
+`numero-corrigido`. Sem o OCR dos dígitos de volta, o que falta é revisão (F6), não calibração.

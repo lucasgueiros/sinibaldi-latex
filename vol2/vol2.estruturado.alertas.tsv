@@ -98,7 +98,7 @@ pagina	tipo	mensagem
 502	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 509	continuacao-duvidosa	nota n508-2 parecia terminada, mas continua
 510	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
-510	nota-sem-chamada	n510-2 sem chamada; anexada ao fim do último parágrafo
+510	numero-diverge	chamada (1) ligada à nota (2)
 512	continuacao-duvidosa	nota n511-1 parecia terminada, mas continua
 513	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 513	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
@@ -182,7 +182,7 @@ pagina	tipo	mensagem
 768	continuacao-duvidosa	nota n767-1 parecia terminada, mas continua
 770	continuacao-duvidosa	nota n769-1 parecia terminada, mas continua
 780	chamadas-x-notas	3 chamada(s) no corpo, 2 nota(s) iniciada(s)
-780	nota-sem-chamada	n780-8 sem chamada; anexada ao fim do último parágrafo
+780	numero-diverge	chamada (2) ligada à nota (8)
 781	numero-diverge	chamada (3) ligada à nota (8)
 782	numero-diverge	chamada (3) ligada à nota (8)
 784	numero-diverge	chamada (3) ligada à nota (8)
@@ -194,20 +194,47 @@ pagina	tipo	mensagem
 800	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 802	continuacao-duvidosa	nota n801-3 parecia terminada, mas continua
 803	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-34	tese-fora-de-sequencia	tese 27 depois da 24
-37	tese-fora-de-sequencia	tese 32 depois da 29
-45	tese-fora-de-sequencia	tese 37 depois da 34
-60	tese-fora-de-sequencia	tese 43 depois da 41
-84	tese-fora-de-sequencia	tese 54 depois da 51
-99	tese-fora-de-sequencia	tese 65 depois da 61
-106	tese-fora-de-sequencia	tese 70 depois da 66
-111	tese-fora-de-sequencia	tese 76 depois da 74
+33	numero-corrigido	tese lida como 95, esperado 25: assumido 25
+37	tese-fora-de-sequencia	tese 31 depois da 29
+44	tese-fora-de-sequencia	tese 36 depois da 34
+48	tese-fora-de-sequencia	tese 49 depois da 41
+75	tese-fora-de-sequencia	tese 49 repetida
+80	numero-corrigido	tese lida como 59, esperado 52: assumido 52
+95	tese-fora-de-sequencia	tese 69 depois da 61
+105	tese-fora-de-sequencia	tese 69 repetida
+110	numero-corrigido	tese lida como 15, esperado 75: assumido 75
 147	tese-fora-de-sequencia	tese 112 depois da 110
 161	tese-fora-de-sequencia	tese 118 depois da 116
-167	tese-fora-de-sequencia	tese 122 depois da 120
-183	tese-fora-de-sequencia	tese 125 depois da 122
-692	tese-fora-de-sequencia	tese 134 depois da 134
-752	tese-fora-de-sequencia	tese 173 depois da 171
-766	tese-fora-de-sequencia	tese 179 depois da 179
-770	tese-fora-de-sequencia	tese 181 depois da 179
+165	numero-corrigido	tese lida como 191, esperado 121: assumido 121
+174	numero-corrigido	tese lida como 193, esperado 123: assumido 123
+179	numero-corrigido	tese lida como 194, esperado 124: assumido 124
+207	tese-fora-de-sequencia	tese 136 depois da 134
+233	tese-fora-de-sequencia	tese 148 depois da 146
+235	tese-fora-de-sequencia	tese 150 depois da 148
+283	tese-fora-de-sequencia	tese 170 depois da 168
+292	tese-fora-de-sequencia	tese 189 depois da 181
+312	tese-fora-de-sequencia	tese 199 depois da 191
+323	tese-fora-de-sequencia	tese 199 repetida
+343	tese-fora-de-sequencia	tese 219 depois da 210
+356	tese-fora-de-sequencia	tese 219 repetida
+367	tese-fora-de-sequencia	tese 224 depois da 221
+378	tese-fora-de-sequencia	tese 228 depois da 225
+387	tese-fora-de-sequencia	tese 233 depois da 231
+387	tese-fora-de-sequencia	tese 240 depois da 238
+393	tese-fora-de-sequencia	tese 249 depois da 240
+402	tese-fora-de-sequencia	tese 249 repetida
+745	numero-corrigido	tese lida como 161, esperado 261: assumido 261
+746	numero-corrigido	tese lida como 162, esperado 262: assumido 262
+746	numero-corrigido	tese lida como 163, esperado 263: assumido 263
+746	numero-corrigido	tese lida como 164, esperado 264: assumido 264
+747	numero-corrigido	tese lida como 165, esperado 265: assumido 265
+748	numero-corrigido	tese lida como 166, esperado 266: assumido 266
+749	numero-corrigido	tese lida como 167, esperado 267: assumido 267
+749	numero-corrigido	tese lida como 168, esperado 268: assumido 268
+750	numero-corrigido	tese lida como 169, esperado 269: assumido 269
+750	numero-corrigido	tese lida como 170, esperado 270: assumido 270
+750	numero-corrigido	tese lida como 171, esperado 271: assumido 271
+799	numero-corrigido	tese lida como 202, esperado 272: assumido 272
+803	numero-corrigido	tese lida como 203, esperado 273: assumido 273
+803	numero-corrigido	tese lida como 204, esperado 274: assumido 274
 827	pb-fora-de-ordem	<pb> 827 onde o manifesto manda 826

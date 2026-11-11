@@ -49,7 +49,8 @@ from lxml import etree
 TEI = "http://www.tei-c.org/ns/1.0"
 XML = "http://www.w3.org/XML/1998/namespace"
 CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f￾￿]")
-CHAMADA = re.compile(r"\(\s*(\d{1,2}|[lI|])\s*\)")
+# chamada de nota no corpo: o OCR le "(1)" como "(l)", "(|)", "(!)" e, no vol. 1, "(*)" / "(?)"
+CHAMADA = re.compile(r"\(\s*(\d{1,2}|[lI|!*?])\s*\)")
 NOTA = re.compile(r"^\(\s*(\d{1,2}|[lI|])\s*\)\s*")
 FIM_FRASE = re.compile(r"[.!?:;»”]\s*$")
 ORDINAIS = {"PRIMEIRO", "PRIMEIRA", "SEGUNDO", "SEGUNDA", "TERCEIRO", "TERCEIRA", "QUARTO",
@@ -57,6 +58,13 @@ ORDINAIS = {"PRIMEIRO", "PRIMEIRA", "SEGUNDO", "SEGUNDA", "TERCEIRO", "TERCEIRA"
             "OITAVA", "NONO", "NONA", "DECIMO", "DECIMA", "UNICO", "UNICA", "PRELIMINAR"}
 ROMANO = re.compile(r"^[IVXLC1l|]{1,6}$")
 NIVEL = {"parte": 1, "seccao": 2, "capitulo": 3, "artigo": 4}
+
+
+def num_chamada(g):
+    """numero que o glifo representa: digitos, "l I | !" = 1, "* ?" = desconhecido (None)."""
+    if g.isdigit():
+        return g
+    return "1" if g in "lI|!" else None
 
 
 def T(n):
@@ -357,20 +365,26 @@ def liga_notas(pars, novas, pag, alerta):
                     chamadas.append((p, i, m))
     if len(chamadas) != len(novas):
         alerta(pag, "chamadas-x-notas", f"{len(chamadas)} chamada(s) no corpo, {len(novas)} nota(s) iniciada(s)")
-    pares = list(zip(chamadas, novas))
-    if len(chamadas) != len(novas):                      # tenta por numero impresso
+    if len(chamadas) == len(novas):
+        pares = list(zip(chamadas, novas))              # por ordem; o numero impresso so confirma
+    else:                                               # por numero impresso, quando legivel
         por_num = {}
         for c in chamadas:
-            n = c[2].group(1)
-            por_num.setdefault("1" if n in "lI|" else n, c)
+            k = num_chamada(c[2].group(1))
+            if k is not None:
+                por_num.setdefault(k, c)
         pares = [(por_num[n.num], n) for n in novas if n.num in por_num]
+        feitos = {id(c[0]) * 1000 + c[2].start() for c, _ in pares}
+        # glifos ilegiveis ("(*)"): casa por ordem as chamadas e notas que sobraram
+        sobra_c = [c for c in chamadas if id(c[0]) * 1000 + c[2].start() not in feitos]
+        sobra_n = [n for n in novas if n not in [x[1] for x in pares]]
+        pares += list(zip(sobra_c, sobra_n))
     usados = set()
-    # aplica de tras para frente em cada peca, para nao deslocar indices
     por_peca = {}
     for (p, i, m), nt in pares:
-        n = m.group(1)
-        if ("1" if n in "lI|" else n) != nt.num:
-            alerta(pag, "numero-diverge", f"chamada ({n}) ligada à nota ({nt.num})")
+        k = num_chamada(m.group(1))
+        if k is not None and k != nt.num:
+            alerta(pag, "numero-diverge", f"chamada ({m.group(1)}) ligada à nota ({nt.num})")
         por_peca.setdefault((id(p), i), (p, i, []))[2].append((m, nt))
         usados.add(nt.id)
         nt.chamada = True
@@ -592,8 +606,9 @@ class Construtor:
         m = TESE.match(texto) or TESE_TITULO.match(texto)
         m = m if len(p.pecas) >= 1 and isinstance(p.pecas[0], str) else None
         so_titulo = m is not None and m.re is TESE_TITULO
-        if m and (not so_titulo or int(m.group(1)) == self.ultima_tese + 1) and self.tese_ok(int(m.group(1))):
-            self.nova_tese(int(m.group(1)), p, m)
+        n = self.resolve_numero(int(m.group(1)), m.group(2).strip(), so_titulo) if m else None
+        if n is not None:
+            self.nova_tese(n, p, m)
             return
         alvo = self.atual()
         el = etree.SubElement(alvo, T("p"))
@@ -618,16 +633,25 @@ class Construtor:
             h.text = resto
             self.ultimo_titulo = None
 
-    def tese_ok(self, n):
+    def resolve_numero(self, n, titulo, so_titulo):
+        """numero da tese (corrigido se o OCR trocou 1 digito) ou None se nao parece a proxima tese."""
         e = self.ultima_tese + 1
-        if n == e:
-            return True
-        if self.ultima_tese == 0:                       # 1a tese do trecho: qualquer numero
-            return True
-        if e < n <= e + 3 or n == self.ultima_tese:      # salto pequeno: dígito mal lido ou tese perdida
+        if n == e or self.ultima_tese == 0:             # 1a tese do trecho: qualquer numero
+            return n
+        if n == self.ultima_tese:
+            self.alerta(self.pag, "tese-fora-de-sequencia", f"tese {n} repetida")
+            return n
+        # o OCR perde teses inteiras: salto para frente em janela curta e confiavel (forma estrita)
+        if e < n <= e + (3 if so_titulo else 30) and titulo[:1].isupper():
             self.alerta(self.pag, "tese-fora-de-sequencia", f"tese {n} depois da {self.ultima_tese}")
-            return True
-        return False
+            return n
+        # nao e a proxima nem cabe na janela (voltaria atras / salto enorme): so serve se for a
+        # proxima com UM digito trocado pelo OCR (905 por 205, 13 por 73)
+        a, b = str(n), str(e)
+        if len(a) == len(b) and sum(x != y for x, y in zip(a, b)) == 1 and titulo[:1].isupper():
+            self.alerta(self.pag, "numero-corrigido", f"tese lida como {n}, esperado {e}: assumido {e}")
+            return e
+        return None
 
     def nova_tese(self, n, p, m):
         # reparte as pecas no 1o " — " apos o enunciado
