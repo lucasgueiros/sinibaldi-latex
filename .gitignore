@@ -1,12 +1,11 @@
-# --- Scans e derivados pesados (80-210 MB; nunca versionar) ---
-vol1.pdf
-vol2.pdf
+# --- Scans ORIGINAIS (vol1.pdf, vol2/vol2.pdf) sao versionados (ver exceção abaixo);
+# derivados pesados nunca ---
 vol*_div.pdf
 vol*_div_ocr.pdf
 *_ocr.pdf
 
 # tessdata local (links do sistema + modelos baixados)
-tessdata/
+tessdata
 
 # --- LaTeX ---
 *.aux
@@ -41,9 +40,18 @@ scratch/
 # o resto é reproduzível: ocr.pdf via tools/corta.py, .txt via extract_paginado,
 # .slides.base.md via gera_slides_base, .pptx via md2pptx.
 vol*/**/*.pdf
+!vol2/vol2.pdf
 vol*/**/*.txt
 vol*/**/*.slides.base.md
 vol*/**/*.pptx
+
+# --- Fase 1 (tools/fase1.sh): volN/paginas/ ---
+# versionar: manifesto.tsv, paginas.tsv, <id>.txt e o TEI bruto volN/volN.xml;
+# ignorar: imagens e saida bruta do tesseract (regeneraveis).
+vol*/paginas/*.png
+vol*/paginas/*.hocr
+vol*/paginas/[0-9f]*.tsv
+!vol*/paginas/*.txt
 
 # --- Python ---
 __pycache__/

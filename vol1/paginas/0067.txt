@@ -1,0 +1,55 @@
+CAPITULO TERC EtRO—, -RAGIOGHUO-S-A ROUEN EN TA ção. — Bs
+
+. SyHlogismo abreviado. — A's vezes, por. brevidade, oa
+para maior força da argumentação, omilte- -se uma das premis-
+sas, que facilmente se subentende. Neste caso o syllogismo
+diz-se abreviado, ou, simplesmente, enthymeme,- ex.:
+
+Todo o ser creado é limitado,
+Logo o homem é limitado (1).
+
+sario. No segundo caso, o predicado da conclusão exprime uma. propriedade,
+aMiribuida ao termo medio pela experiencia, e então o nexo entre o predicado
+da conclusão € o Lermo medo é necessario hypotheticamente, isto €, suppostas
+certas condições. Mas, em ambos os casos, à propriedade, que necessaria-
+mente convem ao lermo medio, attribue-se à todos os sujeitos particulares,
+contidos na extensão do termo sedio, que é o sujeito universal.
+Dependendo do termo medio o resultado da comparação entre o sujeito
+e o predicado, emquanto o termo medio é 3. razão por que um predicado
+convem ou repugoa a um sujeilo, vé-se claramente i necessidade de encon-
+irar esse medio para se poder formar o syllogismo. Os antigos philosophos
+deram muitas regras para à invenção do medio, Limitamo nos a apresentar
+duas d'essas regras; — uma serve, quando à conclusão é uma proposição
+universal-affirmativa, e por isso vale tambem quando a conclusão é uma
+particular-afirmativa ; — à outra serve, quando à conclusão é uma proposição
+universal-negativa, e por isso vale tambem para à particular negativa. —
+1.º) Quando a conclusão é uma proposição unéversal-affirmativa, procure-se
+um medio, que esteja. contido no predicado, mas contenha o sujeito. Com ef-
+feito, no syllogismo, cuja conclusão é uma proposição unzversal-affirmativa,
+o medio É sujeito do predicado na maior € é predicado do sujeito na menor.
+Mas o medio, — se é sujeito do predicado, deve ser contido no proprio predi-
+cado, porque o predicado é mais universal que o sujeito, — e, se é predicado
+do sujeifo, deve conter o proprio sujeito, pela mesua razão. Assim, que-
+rendo concluir o syllogismo por esta proposição universal-affirmativa : logo
+toda a. flor é vivente, pergunto 2 mim mesmo: porque toda & flor deve ser
+vivente? E percebo que toda a flor deve ser vivente, porque é planta. Mas
+É planta, para que possa ser medio, deve achar-se contida no predicado
+vivente, e deve, pela sua vez, conter o sujeito foda «a flor. E realmente a
+planta está contida no vivente c conlem foda a flor. Logo a planta € 0 medio.
+Para maior clareza completamos o syllogismo : toda a planta é vivente; ora
+
+toda a flor é planta: logo tod« a flor é vivente. — 2.º) Quando a conclusão
+€ uma proposição universal-negativa, procure-se um inedio — ou que esteja
+excluido da extensão do predicado, mas inclua 0 sujeito, — OU que esteja
+
+incluido na extensão do predicado, mas exclua o sujeito. À razão d'esta
+regra é manifesta. No syllogismo, que tem por conclusão uma proposição
+universal-negativa, uma das premissas deve ser e é negativa; e é negativa,
+porque o merlio — ou repugna ao predicado, e convem ao sujeito, — ou convem :
+40 predicado, mas, repugna zo sujeilo. — De reslo, na invenção do medio, :
+Oo uso e a reflexão valem mais do que as regras.
+
+(1) Para se conhecer qual das duas premissas foi ométzda, se a maior
+OU à menor, 6 necessario examinar a qne ficou. Se à premissa «ue ficou
+contém o extremo menor, enlào foi omitlida a premissa maior, que devia
+

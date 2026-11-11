@@ -1,8 +1,10 @@
 # Plano — edição renovada do Sinibaldi (grafia atualizada, editável)
 
-**Objetivo.** Uma edição nova dos *Elementos de Philosophia* (não um scan): texto em LaTeX,
-**grafia atualizada**, editável para melhorias acadêmicas, com a **paginação original** marcada
-(`\pg{n}` → `[n]`) e a estrutura do autor (partes, capítulos, artigos, teses numeradas, notas).
+**Objetivo.** Reconstruir a edição **"Sinibaldi 1916"** dos *Elementos de Philosophia* em
+**TEI XML** (não um scan), com a **paginação original** (`<pb n="421"/>` → `[421]`), a estrutura do
+autor (partes, capítulos, artigos, teses numeradas, notas) e saída em **grafia atualizada**
+(AO 1990). Sobre ela se constrói uma **obra nova**, separada e ligada a ela trecho a trecho, com o
+autor de cada trecho registrado. PDF (via LaTeX) e site (HTML) são gerados das duas.
 
 **Princípio de custo.** Todo o trabalho mecânico (OCR, limpeza, estrutura, geração do LaTeX,
 grande parte da modernização) é feito por script; a LLM entra no fim, **por página e com a
@@ -38,9 +40,13 @@ vol2/
     0421.hocr                    # saída bruta do tesseract com coordenadas (git-ignored)
     0421.json                    # página estruturada: cabeçalho / corpo / notas / conf. por palavra
     0421.txt                     # texto limpo da página (VERSIONADO: pequeno, dá para dar diff)
-  estrutura.tsv                  # árvore de nós ← reconstruída do índice (F4)
-  02_parte_theodicea/01_cap_….orig.tex   # transcrição FIEL (grafia de 1916), revisada
-  02_parte_theodicea/01_cap_….tex        # edição RENOVADA (grafia atual) ← texto-mestre editável
+  estrutura.tsv                  # um título por linha ← proposto por titulos.py (F4), revisado; fonte da estrutura
+sinibaldi1916/                   # EDIÇÃO-BASE em TEI (grafia de 1916), congelada após revisão
+  vol2.xml                       # volume: teiHeader + XInclude dos capítulos
+  vol2/02_theodicea/01_existencia-de-deus.xml
+ortografia/mapa.tsv              # 1916 → AO 1990, aplicado na SAÍDA (não altera a base)
+obra-nova/                       # OBRA NOVA em TEI, ligada à base por ids (F8)
+schema/sinibaldi.odd  .rng       # TEI restrito do projeto
 ```
 
 Por que por página: (a) a numeração original é trivial — o nome do arquivo **é** a página
@@ -70,8 +76,10 @@ e retomável página a página; (c) a revisão LLM é naturalmente "uma imagem +
 A partir das coordenadas do hOCR (é aqui que ele paga a complexidade que `docs/02` adiou):
 - **cabeçalho corrente**: 1.ª linha no topo → removido do corpo, guardado no JSON (o texto dele,
   `SECÇÃO II — CAPITULO III`, alimenta F4);
-- **notas de rodapé**: linhas com altura de letra menor, abaixo do corpo → separadas, numeradas
-  `(1)`, `(2)`, e ligadas à chamada `(n)` do corpo;
+- **notas de rodapé**: separadas do corpo pela entrelinha (corpo ~52 px, nota ~43 px), pelo vão
+  e pelo filete; unidas entre páginas como **um fluxo próprio**, em que uma área de notas que
+  começa sem `(n)` continua a última nota aberta. Detalhes, medições e validações em
+  **[`notas-de-rodape.md`](notas-de-rodape.md)**;
 - hifenização de fim de linha desfeita (`mo-\nvimentos` → `movimentos`), inclusive na virada de
   página (guardando o ponto exato da quebra para o `\pg`);
 - parágrafos (recuo da 1.ª linha), teses `NN.` (sequência numérica conferida: o número esperado
@@ -86,31 +94,31 @@ confiança perto de uma forma frequente (distância de edição 1–2) = prováv
 por regra. É um corretor ortográfico **com o léxico de 1916 do próprio livro**, sem dicionário
 moderno que "corrija" `philosophia`.
 
-### F4 — Reconstruir o índice e as divisões (`tools/indice.py`)
-1. Re-OCR das páginas do índice (fim do volume) com mais cuidado (`--psm 4/6`, 400 ppi); parsear
-   linhas `Capitulo II. — Título .......... 245` → árvore com página inicial.
-2. **Validar em três fontes independentes**: o índice; a mudança do cabeçalho corrente página a
-   página (F2); os títulos detectados no corpo (`CAPITULO`, `ARTIGO`, `SECÇÃO` centralizados,
-   em versal). As páginas devem ser monotônicas e as três fontes devem concordar; divergência vira
-   lista para revisão humana.
-3. Gerar `estrutura.tsv` (formato atual de `docs/05`), revisado à mão — é pequeno (dezenas de
-   linhas) e é a única etapa onde a decisão humana é estrutural.
+### F4 — `tools/titulos.py`: títulos → `estrutura.tsv` (o TSV manda)
+O script detecta os títulos (centrado, escala, versal, negrito medido na imagem, vocabulário
+`CAPITULO`/`ARTIGO`/`N.`) e **propõe** o `estrutura.tsv`, com uma linha por título (pág, âncora,
+nível, rótulo, título, id). Depois de revisado, o TSV é a **única fonte da estrutura**: os arquivos
+dos nós, as macros de título no LaTeX/HTML e o sumário saem dele. Corrigir uma divisão = mudar uma
+linha e regenerar. O índice impresso, o cabeçalho corrente e a sequência das teses servem de
+conferência cruzada, não de fonte. Detalhes em
+**[`titulos-e-estrutura.md`](titulos-e-estrutura.md)**.
 
-### F5 — `tools/pagina2tex.py`: LaTeX mecânico por nó
-Para cada nó do `estrutura.tsv`, concatena as páginas e gera `<stem>.ocr.tex` (bruto, git-ignored):
-`\pg{n}` no ponto exato de cada virada (no meio da frase, se for o caso), `\footnote{}` na chamada,
-`\tese`/`\teseB`/`\sub`, `\chapter*`/`\section*` dos títulos, latim em
-`\foreignlanguage{latin}{…}` (o hOCR indica a língua de cada parágrafo/palavra; é o que depois
-protege o latim da modernização). Mesmo guarda de fragmento avulso dos `.tex` atuais.
+### F5 — `tools/pagina2tei.py`: TEI mecânico por capítulo
+Para cada divisão do `estrutura.tsv`, concatena as páginas e gera o TEI bruto do capítulo: `<div>`
+e `<head>` vindos do TSV; `<pb n facs>` no ponto exato de cada virada, no corpo e dentro das notas;
+`<note place="foot">` inteiro na chamada; `<label>` das teses; `xml:lang="la"` no latim (o hOCR
+indica a língua de cada parágrafo, e é o que protege o latim da modernização). Os ids são
+provisórios nesta fase e só ficam definitivos no congelamento (F7). O XML é validado pelo schema
+do projeto já na geração.
 
 ### F6 — Revisão LLM fiel (a etapa cara; por página, com a imagem)
-Entrada por página: a **imagem** + o trecho de `<stem>.ocr.tex` dessa página + palavras de baixa
+Entrada por página: a **imagem** + o trecho do TEI bruto dessa página (entre dois `<pb>`) + palavras de baixa
 confiança. Pedido: corrigir para ficar **idêntico ao impresso, grafia de 1916**, marcando
-itálico (`\emph`) e versalete — que o OCR não detecta e só a imagem mostra (o livro usa muito
+itálico e versalete (`<hi rend="it">`, `<hi rend="sc">`) — que o OCR não detecta e só a imagem mostra (o livro usa muito
 itálico, por isso a imagem é necessária em todas as páginas). Saída: o trecho corrigido.
 
-Salvaguardas automáticas, antes de aceitar: `\pg` intactos e em ordem; variação de nº de palavras
-< ~3% (detecta omissão/alucinação); latim não "traduzido"; o fragmento compila. Página que falha
+Salvaguardas automáticas, antes de aceitar: XML válido no schema; `<pb>` intactos e em ordem; variação de nº de palavras
+< ~3% (detecta omissão/alucinação); latim não "traduzido"; marcação não inventada. Página que falha
 volta para fila de revisão humana.
 
 **Ordem de grandeza** (conferir preço vigente antes de rodar): ~5 k tokens/página (imagem ≈1,5–2 k
@@ -118,51 +126,90 @@ volta para fila de revisão humana.
 preço, sem pressa) e cache do prompt de instruções.
 
 **Portão de qualidade antes do volume inteiro:** rodar F1–F6 nas pp. 421–442 e comparar com o
-`.tex` feito à mão (taxa de erro por caractere, sem LaTeX): OCR cru vs. após F2/F3 vs. após F6.
+`.tex` feito à mão (taxa de erro por caractere, só o texto): OCR cru vs. após F2/F3 vs. após F6.
 Só escalar se F6 chegar perto do ouro; senão ajustar prompt/modelo e repetir no mesmo trecho.
 
-Resultado: `<stem>.orig.tex` — a **transcrição diplomática**, versionada e congelada.
+Resultado: o TEI revisado do capítulo, em grafia de 1916.
 
-### F7 — Atualização ortográfica (por vocábulo, não por página)
-A maior parte da modernização é **função da palavra**, não do contexto: `philosophia → filosofia`,
-`immutavel → imutável`, `sciencia → ciência`, `acto → ato`, `elle → ele`, `d'este → deste`.
-Então:
-1. Do vocabulário de `*.orig.tex` (fora do latim e de nomes próprios), gerar candidatos por regra
-   (`ph→f`, `th→t`, `y→i`, consoantes dobradas e mudas, acentuação do AO 1990) — `tools/moderniza.py`.
-2. A LLM revisa **a lista de tipos uma vez** (dezenas de milhares de formas, não 1700 páginas) →
-   `ortografia/mapa.tsv`, versionado e revisável por humano.
-3. Aplicação determinística do mapa → `<stem>.tex`. Os casos que **dependem do contexto**
-   (`póde` → `pode`/`pôde`, `E'` → `É`, `para`/`pára`, `a`/`á`/`à`, `está`/`esta`) ficam marcados
-   no mapa como ambíguos e só esses trechos vão à LLM, com a frase em volta.
-4. Latim, títulos de obras citadas e nomes próprios não são tocados (`\foreignlanguage{latin}`,
-   lista de nomes como em `corrige_w`). Citações de autores em português antigo: decisão abaixo.
+### F7 — Grafia AO 1990 (na saída) e congelamento da base
+Norma: **Acordo Ortográfico de 1990**, o mais recente, que vigora no Brasil desde 2016, na variante
+brasileira, com referência no **VOLP da ABL**.
 
-Resultado: `<stem>.tex` em grafia atual, **com os mesmos `\pg{n}`**, compilando em `livro.tex`.
+A base guarda a **grafia de 1916**, e a atual é uma **transformação na saída**. A maior parte da
+modernização é função da palavra, não do contexto (`philosophia → filosofia`, `acto → ato`), então:
+1. `tools/moderniza.py` gera candidatos por regra (`ph→f`, `th→t`, `y→i`, consoantes dobradas e
+   mudas, acentuação) para o vocabulário da base, fora do latim e dos nomes próprios, e confere
+   cada um contra as formas do VOLP.
+2. A LLM revisa **a lista de tipos uma vez**, e não as páginas → `ortografia/mapa.tsv`, versionado
+   e revisável por humano.
+3. Os casos que dependem do contexto (`póde` → pode/pôde, `E'` → É, `para`/`pára`) são resolvidos
+   no texto, um por ocorrência: `<choice><orig>póde</orig><reg>pode</reg></choice>`, com a LLM
+   vendo a frase.
+4. `tei2latex`/`tei2html` aplicam o mapa ao gerar a saída. A base continua fiel e as duas grafias
+   saem da mesma fonte.
 
-### F8 — Edição acadêmica (contínua)
-- O texto-mestre editável passa a ser `<stem>.tex` (moderno). `<stem>.orig.tex` fica congelado
-  como referência fiel ao impresso (para citação, conferência e para refazer F7 se o mapa mudar).
-- Separar autor de editor no LaTeX: notas do editor com macro própria (`\ned{…}`, numeração ou
-  marca distinta das notas do autor), intervenções no texto marcáveis (`\add{}`, `\del{}` simples,
-  ou `reledmac` se se quiser aparato crítico de verdade). Assim as melhorias acadêmicas nunca se
-  confundem com o texto de Sinibaldi e a versão "sem intervenções" continua compilável.
-- `livro.tex` com chave para compilar a edição renovada ou a diplomática.
+**Congelamento**: `tools/congela.py` atribui os ids definitivos (`cap-…`, `art-…`, `t6`, `t6.p1`,
+`t6.p1.s1`, `n421-2`). A partir daí, os ids nunca mudam, e melhorias na base só entram como
+`<sic>/<corr>`, `<reg>` ou nota do editor, com `@resp` e `@change`.
+
+### F8 — Obra nova (contínua), em TEI ligado à base
+As mudanças drásticas (dados científicos, ordem da exposição, posições filosóficas, problemas
+teológicos posteriores, capítulos, citações, referências, notas) vão para uma obra separada, também
+em TEI, ligada à base pelos ids: `copyOf` para trecho de Sinibaldi sem cópia (com a página
+calculada pelo `<pb>`), `corresp` + `resp` para adaptado ou substituído, `@resp` obrigatório em todo
+o resto, `<change>` com data, autor e motivo, e marco de supressão para o que sai. A cobertura, a
+tabela de correspondência e o registro de mudanças saem de `tools/procedencia.py`. Detalhes em
+**[`tei-base-e-obra-nova.md`](tei-base-e-obra-nova.md)**.
+
+## Formato: TEI como fonte, LaTeX e HTML como saída
+
+- **Fonte**: TEI XML restrito por uma ODD do projeto, nas duas obras (decisão do usuário para a
+  base; recomendação para a obra nova, em `tei-base-e-obra-nova.md`).
+- **PDF**: `tools/tei2latex.py` → `.tex` com o preâmbulo atual (`\pg`, `\tese`, notas,
+  `compila.sh`) → `latexmk -lualatex`. O LaTeX passa a ser **gerado**, não editado.
+- **Site**: `tools/tei2html.py`. `[421]` abre a imagem do scan, "cf. n. 6" vira link, as notas
+  aparecem em popup, as grafias 1916 e atual podem ser comutadas, e na obra nova um trecho
+  adaptado mostra o original ao lado.
+- **Extração de trechos**: qualquer id → texto + página + capítulo. Substitui `trecho.py`/`%%>>>`,
+  e os slides passam a sair daí.
+- **Edição via sistema**: git + editor XML com validação pelo schema (VS Code + extensão XML,
+  gratuito; ou FairCopy/Oxygen). Site publicado a cada commit. Um editor web próprio pode vir
+  depois, sobre os mesmos arquivos.
+- **Transcrição existente**: o capítulo I da Theodicea, hoje em `.tex` feito à mão, é convertido
+  uma vez para TEI. Ele continua sendo o padrão-ouro do portão de qualidade da F6.
 
 ## Sequência de execução
 
 1. F0 + F1 + F2 no vol. 2 inteiro (o scan está aqui; ~30 min de máquina).
-2. Piloto completo F3→F7 na Theodicea cap. I (pp. 421–442) com o portão de qualidade de F6.
-3. F4 no vol. 2 → `estrutura.tsv` completo, revisado.
-4. F5–F6 no vol. 2 inteiro (batch), depois F7.
-5. Vol. 1 assim que o PDF estiver disponível (mesmo pipeline, `offset` 15, corte vertical).
-6. Atualizar `docs/` (nova nota `06-edicao-renovada.md`; `docs/02`, `04`, `05` e `CLAUDE.md`, que
-   hoje diz "não modernizar a grafia" — passa a valer só para `*.orig.tex`).
+2. ODD/schema do projeto e conversão do cap. I da Theodicea (`.tex` à mão) para TEI: fixa o
+   formato e dá o padrão-ouro.
+3. Piloto completo F3→F7 na Theodicea cap. I (pp. 421–442) com o portão de qualidade de F6;
+   `tei2latex` compilando o capítulo pelo `compila.sh`.
+4. F4 no vol. 2 → `estrutura.tsv` completo, revisado.
+5. F5–F6 no vol. 2 inteiro (batch), depois F7.
+6. Vol. 1 assim que o PDF estiver disponível (mesmo pipeline, `offset` 15, corte vertical).
+7. Piloto da obra nova (um capítulo) para validar `copyOf`/`corresp`/`resp`, `procedencia.py` e
+   a apresentação da procedência.
+8. Atualizar `docs/` (nova nota `06-tei.md`; `docs/03`, `05` e `CLAUDE.md`, que hoje diz "não
+   modernizar a grafia": continua valendo para a base, e a grafia atual sai na conversão).
 
-## Decisões (assumi o padrão entre parênteses; trocar se discordar)
+## Decisões
 
-1. **Norma da grafia atual** (AO 1990, variante brasileira: `ato`, `fato`, `ação`).
-2. **Latim** (intocado na edição renovada; tradução, se houver, em nota do editor).
-3. **Duas camadas** `orig`/moderna (sim — a diplomática é o que permite conferir e refazer a
-   modernização; editar só a moderna).
-4. **Modelo para F6** (decidir pelo portão de qualidade no piloto, não de antemão).
-5. **Vol. 1**: onde está o `vol1.pdf`?
+Fechadas:
+1. **Grafia**: AO 1990 (o mais recente), variante brasileira, referência VOLP/ABL.
+2. **Estrutura**: `estrutura.tsv` é a fonte; corrigir uma divisão = mudar uma linha.
+3. **Base "Sinibaldi 1916" em TEI XML** (decisão do usuário); LaTeX e HTML são saídas geradas.
+4. **Obra nova separada, em XML**, ligada à base, com autor de cada trecho e referências às páginas
+   originais.
+
+Recomendadas (confirmar):
+5. **Obra nova também em TEI**, restrito pela mesma ODD.
+6. **Base em grafia de 1916**, com AO 1990 aplicado na saída; `<choice>` só nos casos ambíguos.
+7. **Ids até o nível da frase** (`t6.p1.s1`), definitivos no congelamento.
+
+Assumidas (trocar se discordar):
+8. **Latim** intocado; tradução, se houver, em nota do editor.
+9. **Modelo para F6** escolhido pelo portão de qualidade no piloto, não de antemão.
+
+Em aberto:
+10. **Vol. 1**: onde está o `vol1.pdf`?

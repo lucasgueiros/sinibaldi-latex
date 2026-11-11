@@ -1,0 +1,59 @@
+1
+;
+[
+
+ECCAO PRIMEIRA , —
+96. Divisão do syllogismo composto. — Se as premissas
+
+contém alguma proposicào composta, o syllogismo composto pode
+ser copulativo, causal, condicional, disjunctivo e adversalivo. --
+
+coisas : — 1.5) qual é o modo perfeito, ao qual deve reduzir-se um modo
+imperfeilo; — 2%) quaes as proposições, que se hão de sujeitar à conversão,
+e por que forma; — 3.º) quando deve Ler logar à transposição das premissas,
+Ora estas Lres coisas são indicadus pelus consoantes das palavras, que expri-
+mem os modos, — Às lettras B, C, D, F.'por que começam as palavras,
+significam que um determinado modo imperfeito se deve reduzir áquelle dos
+quatro modos perfeitos. que comeca pela mesma letra, Assim JBaralip re-
+duzse à Barbara, Cesare à Colarent, Delepti 4 Darii, Festino à Kerio. —
+As leitras S. e P., que se acham no meio das palavras, indicam as propo-
+sições, que devem converter-se, e n forma da conversão, Assim, a lettra S
+diz que a. proposição, signifieada. pela vogal antecedente. deve estar sujeila
+
+à conversio simples, islo é, madando o predicado em sujeito, mas conser-.
+
+vàndo a quantidade A letra P sisnilica que à proposição, indicada pela
+vogal anlecente, deve estar sujeita à conversão per accidens, ou accidental,
+mudando o predicado em sujeito, e alterando a quantidade. A lettra M,
+seja qual for o seu logar, indica a transposição .das premissas, de modo
+que à menor se torne maior, e vice-versa. O que levamos dito vê-se no se-
+guinte syllogismo em Camestres : — todo o homem é racional: ora. nenhum cão
+é racional ; logo nenTaun. cão é homem, A letira C, que é inicial em Camestres,
+indica que este modo imperfeito se deve reduzir ao modo períeito, que comeca.
+pela mesma letlra C e que é Celarent. A lettra. M. que na palavra Camestres
+segue a primeira vogal, indica que as premissas se devem mudar. A lettra
+5, que vem depois da segunda e terceira vogal, significa que a premissa
+menor e à conclusão se devem sujeitar 4 conversão simples. Se tudo isto £c
+fizer, aquelle syllogismo imperfeito em  Camestres reduz-se ao seguinte per-
+feilo em Celarent: — nenhum racional é cão; ora todo o homem é racional;
+logo nenhuns homen. é cáo. — Feita à redneção, vê-se claramente a necessi-
+dade da conclusão. — Esta Teduccáo é possivel em fodos os modos imper-
+feitos, á excepção de dois — de Baroco e Bocardo.
+
+A dedlucção «o. impossivel consiste em obrigar o adversario, que nega a
+consequencia, depois de ter acceitado as premissas, a admittir o impossivel
+e o absurdo — a verdade de duas contradictorias. Faz-se a deduccio do modo
+Seguinte. Toma-se à contradictoria da conclusão negada, compara-se com
+uma das premissas, e forma-se um syliogismo perfeito, cuja conclusão é con-
+tradicloria da outra premissa admitt'da. Assim o adversario deve admittir
+à verdade de duas contradictorias. Seja o seguinte syllogismo em Bocardo
+— algum animal não é racional; ora todo o animal é sensítivo ; logo algum
+sensitivo não é racional. Se alguem concede as premissas mas nega à con-
+elusão, admitte que é verdadeira a seguinte proposição, contradictoria da
+conclusáo negada, — todo o seusitico é racional. Forma-se, então, o seguinte
+syllogismo: todo o sensitivo é racional; ora todo o animal é sensitivo; logo
+todo o animal é racional. Portanto. quem concede as premissas do primeiro
+syllogismo mas nega a conclusão, deve admiltir a verdade d'estas duas
+contradictorias — algun animal mio é racional; iodo o animal é racional.
+— Esta prova de legitimidade vale para todos os modos imperfeitos, sem
+

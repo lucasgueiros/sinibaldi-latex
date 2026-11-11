@@ -101,3 +101,35 @@ python3 tools/gera_slides_base.py <caminho-do-nó>/<stem>.tex     # -> <stem>.sl
 ```
 
 A fonte a versionar e reeditar é o `.slides.md`; `.slides.base.md` e `.pptx` são reproduzíveis.
+
+## TEI → LaTeX (dois passos)
+
+`tools/estruturar_tei.py <volN>/paginas -o <volN>/<volN>.estruturado.xml [-f P -l P]` lê o
+`manifesto.tsv` e o `.tsv` do tesseract de cada página (geometria) e produz o TEI estruturado:
+`div` parte/seccao/capitulo/artigo/tese, `head`, `argument`, `label`, `hi rend="bold"`, `fw`,
+`pb` e notas `<note>` **no ponto da chamada** (com `<pb/>` interno quando atravessam páginas).
+Separação corpo × notas por geometria, não por texto: tamanho da letra (largura por caractere, k-means por volume) + marcador `(n)` + continuação após o filete. Notas chegam a 18 páginas (vol. 2, nota 580-1); ~70% das palavras do vol. 2 estão em notas, como no trecho transcrito à mão (421–442: 8847 palavras em notas contra 8921 geradas).
+Tudo que a heurística não fecha vai para `<saida>.alertas.tsv` (revisão F6).
+
+`tools/tei2latex.py <xml> [-f P -l P] [-o x.tex] [--puro] [--grafia original|atual]` converte o TEI
+(estruturado, ou o bruto de `paginas2tei.py`) no dialeto de `tex/preambulo.tex`:
+`\pg`, `\pgn`, `\tese`, `\footnote`, `\chapter*`/`\section*`, `latim`. Sem `--puro`, o `.tex`
+compila avulso (`tex/avulso.tex`). Limitações conhecidas do estruturador: página com corpo
+retomado depois de nota (alerta `vao-nas-notas`), tese cujo número o OCR leu mal (alerta
+`tese-fora-de-sequencia`; a tese vira `<p>`), itálico/latim ainda não marcados (fase F6).
+
+### Calibração por volume (resultado)
+
+| | vol. 1 (1897) | vol. 2 (1916) |
+|---|---|---|
+| entrelinha corpo / nota | 51 / 39 px | 53 / 43 px |
+| largura por caractere: limiar corpo × corpo menor | 18,3 (≈19,5 × ≈16,3) | 19,7 (≈21,5 × ≈17,5) |
+| teses reconhecidas (numeração contínua) | 162 de ~243 | 221 de ~250 |
+| notas / palavras em notas | 688 / 47% | 727 / ~70% |
+
+O limiar de tamanho é calculado sozinho (k-means no volume), então um terceiro volume não pede
+ajuste manual. Chamadas de nota: o OCR do vol. 1 lê `(1)` como `(*)`/`(?)`; o estruturador pareia
+chamadas e notas por ordem quando a contagem fecha. Teses: número lido é confiado se estiver à
+frente da última (janela de 30); se voltar atrás ou estourar a janela, é corrigido apenas quando
+difere do esperado em um dígito (905→205); tudo vai para os alertas `tese-fora-de-sequencia` e
+`numero-corrigido`. Sem o OCR dos dígitos de volta, o que falta é revisão (F6), não calibração.

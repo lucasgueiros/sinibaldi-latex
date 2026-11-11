@@ -1,0 +1,52 @@
+GabiTULO TERCEIRO = hácIOCINtO E ARGUNENTAÇÃO 9"
+
+b) À maior seja unicersal. Um termo, que é, ao mesmo
+tempo. predicado na conclusão e sujeito na maior, nào pode ser
+menos extenso na maior do que na conclusão (Regra 11 do Syl.).
+Mas, na conclusão, esse lermo é universal, porque predicado de
+uma proposição negativa. Logo deve ser tambem universal na
+maior. Ora o sujeito universal torna universal a proposição.
+Logo a maior deve ser universal. Por isso é falso « o seguinte:
+
+Algum vivente é homem:
+
+Ora nenhuma planta é homem;
+. Lomo nenhuma planta é vivente.
+
+Lei Vl. — A menor seja affirinatioa; a conclusão particular.
+
+a) A menor seje affirmativa. Se a menor é negativa, iam-
+bem a conclusão ha de ser negativa, e o predicado da mesma
+conclusão é universal. Sendo universal na conclusão, o predicado
+ha de ser universal tambem na premissa maior. Se o predicado
+é universal na maior, esta é negativa, porque só na proposição
+negativa o predicado é tomado universalmente. Mas de duas
+premissas negativas não pode deduzir-se a conclusão. Logo a
+premissa menor deve ser affirmativa. É falso, pois, o seguinte:
+
+Todo o animal é substancia ;
+Ora nenhum animal é planta;
+Logo nenhuma planta é substancia.
+
+b) À conclusão seja particular. Se a conclusão fosse uni-
+versal, o seu sujeito havia de ser universal. Mas como o sujeito
+da conclusão é tambem o predicado da menor, o predicado da.
+menor devia ser universal. Ora o predicado da menor nào pode'
+ser universal, porque é predicado de uma proposição a/ffirma-
+liva, mas deve ser particular. Portanto a conclusio deve ser
+particular. É, falso, pois, o seguinte:
+
+Nenhum bruto é planta ;
+Ora todo o bruto é vivente;
+Logo todo o vivente nào é planta.
+
+$2. Modo. — Modo é a diversa disposição das premissas
+consideradas na sua quantidade e qualidade.
+93. Numero dos modos. — Sendo o modo a diversa dispo-
+
+.sicào das premissas consideradas na sua quantidade e qualidade,
+.6 claro que serão tantos os modos, quantas forem as possiveis
+
+disposições das premissas, assim consideradas. Ora as premissas,
+consideradas na sua quantidade e qualidade, podem ter, em cada
+

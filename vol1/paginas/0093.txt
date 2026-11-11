@@ -1,0 +1,57 @@
+CAPITULO TERCEIRO = RACIOCINho E-ARGUNENTAÇÃO — 957
+
+tação está em que o syllogismo conclue do universal ou do
+geral para o particular. ou do todo para a parte, emquanto a
+inducção incompleta conclne do particular para o geral, ou da
+parte para o todo. — | | o. ol
+a) No syllogisino, pois, o sujeito da conclusão é uma parte
+e o termo medio é um todo. — Na inducção o sujeito da con-
+
+Án
+
+clusão é um todo e o termo medio é o complexo das partes,
+que formam aquelle todo.
+
+b) No syllogismo, a premissa maior affirma que o predicado
+da conclusão convem ao termo medio; à premissa menor, que o
+sujeito está contido no termo medio; a conclusão que ao sujeito
+convem o predicado, que foi attribuido ao termo medio. — Na
+inducção, a premissa maior aflirma que o predicado da conclusão
+convem ás parles, que formam o termo medio; a premissa menor,
+que o complexo das partes constitue o (odo; a conclusão, que
+ao todo convem o predicado attribuído. ás .partes.. . o
+
+D'ahi se deduz: — a) o termo, que. no. syllogismo é. medio,
+na inducção é extremo menor; e vice-versa: — b) a proposição,
+
+A
+
+que no syllogismo é conclusão, na induccüo é premissa maior;
+e viceversa. | |
+O que levamos dito, melhor se vê nos seguintes exemplos:
+
+(Fx. do syllogismo). — Todos os brutos são sensitivos 3
+Ora o cão, o cordeiro, o leão... são brutos:
+Logo o cão, o cordeiro, o leão... são sensitivos.
+(Ex. da induccio)y. — O cão, o cordeiro, o leão... são sensitivos:
+Ora o cão, o cordeiro, o leão... são brulos;
+Logo todos os brutos são sensilivos (1).
+
+o curso da natureza é uniforme — é já um resultado da indução incompleta,
+e suppõe um outro principio, de que recebeu a generalizução. Este outro
+principio, em ultima analyse, não póde ser por sua vez um juizo synthketico,
+porque reappareceria à diificuldade, mas deve ser um juizo aualytico.
+
+. Em summa, o principio da inducção deve ser necessariamente um juizo
+analytico. Os positivistas ou admitlem os juizos analgticos, ou não, Se os
+admittem, contradizem-se, porque o seu systema só reconhece juizos sya-
+theticos. Se os não admittem, então tiram toda a força e legitimidade 3
+inducção: pois à reduzem a um sophisma, qual é a passagem do particular
+para o: geral, sem um principio que a justifique.
+
+(1) I5 necessario accenLuar as differengas entre o syllogisino e à énducgao.
+
+O syllogismo desce do universal para o particular. do todo para à parte.
+das leis, para os factos e pluenomenos, da causa para os effeitos, do necessario
+pira o contingente, ele: A inducção, pelo contrario, sote do particular para
+
