@@ -302,7 +302,8 @@ def decide(ws, gab):
             cs, cr = gab
             v = d["vec"]
             d["vsc"] = float(-np.sum((v - cs) ** 2) + np.sum((v - cr) ** 2))
-            if d["vsc"] > P["vsc_limiar"] and rend != "bold":
+            inclinada = d["ang_r"] == d["ang_r"] and d["ang_r"] >= 8      # *Dei Filius*: italico
+            if d["vsc"] > P["vsc_limiar"] and rend != "bold" and not inclinada:
                 rend = "sc"
         elif d.get("baixas") is not None and d["baixas"] <= 0.82 and rend == "":
             d["vsc"] = 1.0 - d["baixas"]

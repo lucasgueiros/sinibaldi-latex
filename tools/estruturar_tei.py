@@ -100,7 +100,12 @@ def sem_marcas(s):
 
 def marca_palavra(t, rend):
     """envolve o nucleo (1a a ultima letra) da palavra; pontuacao e chamada "(n)" ficam fora."""
-    m = NUCLEO_PAL.search(t) if rend in ABRE else None
+    if rend not in ABRE:
+        return t
+    c = CHAMADA.search(t)                 # "mesma.(I)": a chamada (lida como letra) fica fora
+    if c:
+        return marca_palavra(t[:c.start()], rend) + c.group() + marca_palavra(t[c.end():], rend)
+    m = NUCLEO_PAL.search(t)
     if not m:
         return t
     return t[:m.start()] + ABRE[rend] + m.group() + FECHA[rend] + t[m.end():]

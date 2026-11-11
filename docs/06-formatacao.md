@@ -58,7 +58,11 @@ vice-versa): F1 97,9% e 95,4%. Antes da logística (limiares fixos em `ang`), F1
 negrito "perdido" é quase todo enunciado de tese e título (marcados pela estrutura, onde as marcas
 são descartadas de propósito); o ouro rotula títulos de secção como romano.
 
-Volume inteiro: vol. 2, 47 393 palavras em itálico, 2 294 em versalete, 2 274 em negrito.
+Volume inteiro: vol. 2, 47 393 palavras em itálico, 2 294 em versalete, 2 274 em negrito;
+vol. 1, 58 459 / 523 / 1 841 (palavras do OCR; no TEI, corridas vizinhas viram um só `<hi>`).
+O vol. 1 (scan mais sujo, sem ouro) foi conferido por amostra (p. 212): itálico longo e latim
+certos; erram mais as palavras curtas (`isto`, `no`, `se` marcadas entre itálicos). Palavra com
+inclinação ≥ 8° não vira versalete (*Dei Filius* é itálico).
 
 ## Como a marca atravessa o estruturador
 
@@ -66,7 +70,8 @@ A estrutura (corpo × notas, parágrafos, teses, títulos) é decidida no texto 
 (`Linha.texto`), como antes. O texto com marcas (`Linha.marc`: caracteres de uso privado
 U+E010–E012 abre, U+E020–E022 fecha, só em volta do núcleo da palavra — pontuação e chamada
 `(n)` ficam fora) é o que entra nos parágrafos; `hifen()` decide sobre o texto limpo e devolve o
-marcado. Um passe final (`aplica_marcas`) funde corridas vizinhas do mesmo estilo, estende a
+marcado. A chamada de nota nunca entra no núcleo (`mesma.(I)`: o vol. 1 lê `(1)` como
+`(I)`, e com o `I` dentro do itálico o pareador de notas perdia a chamada). Um passe final (`aplica_marcas`) funde corridas vizinhas do mesmo estilo, estende a
 palavra inteira um estilo que começa ou termina no meio dela (`ultraphe-` itálico + `nomenico`
 lido como romano) e troca as marcas por `<hi>`; uma corrida aberta atravessa `<pb/>` e `<note>`
 do mesmo elemento. Em `<fw>`, `<label>`, `<head>` e no enunciado da tese as marcas só somem.
