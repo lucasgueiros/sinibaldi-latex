@@ -3,41 +3,41 @@ pagina	tipo	mensagem
 -9	nota-sem-chamada	n-9-1 sem chamada; anexada ao fim do último parágrafo
 -6	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 -6	nota-sem-chamada	n-6-1 sem chamada; anexada ao fim do último parágrafo
+-4	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 1	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+2	nota-recuperada	continuação ligada à chamada (*) da p. 1, que ficou sem nota: o começo de n1-1 deve estar no corpo da p. 1
 5	numero-diverge	chamada (5) ligada à nota (1)
 6	numero-diverge	chamada (5) ligada à nota (2)
 8	numero-diverge	chamada (7) ligada à nota (2)
 9	numero-diverge	chamada (7) ligada à nota (1)
-11	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+11	numero-diverge	chamada (5) ligada à nota (1)
 12	numero-diverge	chamada (0) ligada à nota (1)
 14	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 14	nota-sem-chamada	n14-1 sem chamada; anexada ao fim do último parágrafo
 14	nota-sem-chamada	n14-2 sem chamada; anexada ao fim do último parágrafo
 15	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-18	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+16	nota-recuperada	continuação ligada à chamada (!) da p. 15, que ficou sem nota: o começo de n15-1 deve estar no corpo da p. 15
 18	numero-diverge	chamada (5) ligada à nota (3)
 20	numero-diverge	chamada (5) ligada à nota (2)
 21	chamadas-x-notas	3 chamada(s) no corpo, 2 nota(s) iniciada(s)
-22	continuacao-duvidosa	nota n21-3 parecia terminada, mas continua
 22	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-24	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+23	nota-recuperada	continuação ligada à chamada (*) da p. 22, que ficou sem nota: o começo de n22-1 deve estar no corpo da p. 22
+24	numero-diverge	chamada (3) ligada à nota (1)
 26	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 26	nota-sem-chamada	n26-1 sem chamada; anexada ao fim do último parágrafo
 27	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 27	nota-sem-chamada	n27-9 sem chamada; anexada ao fim do último parágrafo
 28	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 28	nota-sem-chamada	n28-2 sem chamada; anexada ao fim do último parágrafo
-29	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 29	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 29	nota-sem-chamada	n29-1 sem chamada; anexada ao fim do último parágrafo
-30	continuacao-duvidosa	nota n29-1 parecia terminada, mas continua
+30	corte-incerto	notas a partir da linha 45, escore 3.5 (continua+1.5 vao+2)
 30	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-32	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+31	nota-recuperada	continuação ligada à chamada (!) da p. 30, que ficou sem nota: o começo de n30-1 deve estar no corpo da p. 30
 32	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 32	nota-sem-chamada	n32-1 sem chamada; anexada ao fim do último parágrafo
 33	chamadas-x-notas	3 chamada(s) no corpo, 0 nota(s) iniciada(s)
-34	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-38	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+34	corte-incerto	notas a partir da linha 10, escore 3.5 ((n)+2 vao+1 entrelinha+1.5 letra+1 letra-no-corte-2.5 letra-corpo+0.5)
 39	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 39	nota-sem-chamada	n39-2 sem chamada; anexada ao fim do último parágrafo
 41	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
@@ -46,19 +46,20 @@ pagina	tipo	mensagem
 41	nota-sem-chamada	n41-3 sem chamada; anexada ao fim do último parágrafo
 43	continuacao-duvidosa	nota n42-2 parecia terminada, mas continua
 44	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
+45	corte-incerto	notas a partir da linha 46, escore 3.5 (continua+1.5 vao-1 entrelinha+1.5 letra+1 letra-no-corte+0.5)
+45	nota-recuperada	continuação ligada à chamada (?) da p. 44, que ficou sem nota: o começo de n44-1-2 deve estar no corpo da p. 44
 45	numero-diverge	chamada (5) ligada à nota (1)
 46	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 46	numero-diverge	chamada (5) ligada à nota (8)
+47	nota-recuperada	continuação ligada à chamada (3) da p. 46, que ficou sem nota: o começo de n46-3 deve estar no corpo da p. 46
 49	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 49	nota-sem-chamada	n49-8 sem chamada; anexada ao fim do último parágrafo
-50	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 50	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 50	numero-diverge	chamada (7) ligada à nota (1)
 50	nota-sem-chamada	n50-3 sem chamada; anexada ao fim do último parágrafo
 51	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 51	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 51	nota-sem-chamada	n51-2 sem chamada; anexada ao fim do último parágrafo
-52	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 53	numero-diverge	chamada (7) ligada à nota (2)
 54	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
 54	nota-sem-chamada	n54-3 sem chamada; anexada ao fim do último parágrafo
@@ -68,7 +69,6 @@ pagina	tipo	mensagem
 58	nota-sem-chamada	n58-2 sem chamada; anexada ao fim do último parágrafo
 58	nota-sem-chamada	n58-3 sem chamada; anexada ao fim do último parágrafo
 61	numero-diverge	chamada (7) ligada à nota (1)
-62	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 62	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 62	nota-sem-chamada	n62-1 sem chamada; anexada ao fim do último parágrafo
 64	numero-diverge	chamada (7) ligada à nota (2)
@@ -78,61 +78,69 @@ pagina	tipo	mensagem
 66	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 66	nota-sem-chamada	n66-1 sem chamada; anexada ao fim do último parágrafo
 68	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+70	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 74	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+75	nota-recuperada	continuação ligada à chamada (1) da p. 74, que ficou sem nota: o começo de n74-1 deve estar no corpo da p. 74
 80	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 80	nota-sem-chamada	n80-1 sem chamada; anexada ao fim do último parágrafo
 80	nota-sem-chamada	n80-4 sem chamada; anexada ao fim do último parágrafo
-81	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-82	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 84	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 84	nota-sem-chamada	n84-1 sem chamada; anexada ao fim do último parágrafo
 84	nota-sem-chamada	n84-2 sem chamada; anexada ao fim do último parágrafo
 86	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 86	nota-sem-chamada	n86-1 sem chamada; anexada ao fim do último parágrafo
 87	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-89	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+88	nota-recuperada	continuação ligada à chamada (1) da p. 87, que ficou sem nota: o começo de n87-1 deve estar no corpo da p. 87
+90	corte-incerto	notas a partir da linha 50, escore 3.5 (continua+1.5 vao+2)
+90	continuacao-duvidosa	nota n89-1 parecia terminada, mas continua
 90	chamadas-x-notas	4 chamada(s) no corpo, 0 nota(s) iniciada(s)
+91	nota-recuperada	continuação ligada à chamada (!) da p. 90, que ficou sem nota: o começo de n90-1 deve estar no corpo da p. 90
 95	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 100	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 103	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 104	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 104	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 104	nota-sem-chamada	n104-1 sem chamada; anexada ao fim do último parágrafo
+107	continuacao-duvidosa	nota n104-1 parecia terminada, mas continua
 110	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 112	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 112	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-113	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+113	nota-recuperada	continuação ligada à chamada (*) da p. 112, que ficou sem nota: o começo de n112-1 deve estar no corpo da p. 112
 113	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-114	continuacao-duvidosa	nota n110-1 parecia terminada, mas continua
+114	nota-recuperada	continuação ligada à chamada (*) da p. 113, que ficou sem nota: o começo de n113-1 deve estar no corpo da p. 113
 116	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 116	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 116	nota-sem-chamada	n116-1 sem chamada; anexada ao fim do último parágrafo
+117	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+118	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 120	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 120	nota-sem-chamada	n120-29 sem chamada; anexada ao fim do último parágrafo
-121	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-123	chamadas-x-notas	3 chamada(s) no corpo, 2 nota(s) iniciada(s)
+123	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
+123	nota-sem-chamada	n123-3 sem chamada; anexada ao fim do último parágrafo
 124	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 124	nota-sem-chamada	n124-1 sem chamada; anexada ao fim do último parágrafo
 124	nota-sem-chamada	n124-2 sem chamada; anexada ao fim do último parágrafo
-125	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+125	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+125	nota-sem-chamada	n125-1 sem chamada; anexada ao fim do último parágrafo
 126	chamadas-x-notas	3 chamada(s) no corpo, 2 nota(s) iniciada(s)
+127	nota-recuperada	continuação ligada à chamada (7) da p. 126, que ficou sem nota: o começo de n126-7 deve estar no corpo da p. 126
 128	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 128	nota-sem-chamada	n128-2 sem chamada; anexada ao fim do último parágrafo
-133	chamadas-x-notas	4 chamada(s) no corpo, 0 nota(s) iniciada(s)
+133	corte-por-chamada	notas a partir da linha 35 só pela chamada no corpo (escore 1.3: (n)+2 vao-1 entrelinha+1.5 cauda-grande-0.7 letra-1 letra-corpo+0.5)
+133	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+133	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
 134	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 134	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 134	numero-diverge	chamada (3) ligada à nota (1)
 134	nota-sem-chamada	n134-2 sem chamada; anexada ao fim do último parágrafo
 135	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 135	numero-diverge	chamada (7) ligada à nota (3)
-137	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-140	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-141	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-142	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-144	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+137	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+138	corte-incerto	notas a partir da linha 49, escore 3.5 (continua+1.5 vao+2)
 145	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 145	nota-sem-chamada	n145-1 sem chamada; anexada ao fim do último parágrafo
-152	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+149	corte-incerto	notas a partir da linha 42, escore 3.5 (continua+1.5 vao-1 entrelinha+1.5 letra+1 letra-no-corte+0.5)
+150	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 153	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 154	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 156	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
@@ -140,40 +148,42 @@ pagina	tipo	mensagem
 159	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 159	nota-sem-chamada	n159-1 sem chamada; anexada ao fim do último parágrafo
 162	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-164	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+163	nota-recuperada	continuação ligada à chamada (1) da p. 162, que ficou sem nota: o começo de n162-1 deve estar no corpo da p. 162
 164	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 164	nota-sem-chamada	n164-1 sem chamada; anexada ao fim do último parágrafo
 165	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+166	nota-recuperada	continuação ligada à chamada (!) da p. 165, que ficou sem nota: o começo de n165-1 deve estar no corpo da p. 165
 168	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 168	nota-sem-chamada	n168-1 sem chamada; anexada ao fim do último parágrafo
-173	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 174	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+176	corte-incerto	notas a partir da linha 19, escore 3.9 ((n)+2 vao-1 entrelinha+1.5 cauda-grande-0.6 letra+1 letra-no-corte+0.5 letra-corpo+0.5)
 176	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 176	nota-sem-chamada	n176-9 sem chamada; anexada ao fim do último parágrafo
 178	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 178	nota-sem-chamada	n178-3 sem chamada; anexada ao fim do último parágrafo
-181	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+181	corte-por-chamada	notas a partir da linha 38 só pela chamada no corpo (escore 2: (n)+2 vao-1 entrelinha+1.5 letra-1 letra-corpo+0.5)
+181	numero-diverge	chamada (1) ligada à nota (3)
 182	numero-diverge	chamada (4) ligada à nota (1)
 183	numero-diverge	chamada (7) ligada à nota (1)
 184	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 187	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 187	nota-sem-chamada	n187-1 sem chamada; anexada ao fim do último parágrafo
-190	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 190	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 190	nota-sem-chamada	n190-1 sem chamada; anexada ao fim do último parágrafo
 191	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 191	numero-diverge	chamada (3) ligada à nota (1)
 195	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-196	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 199	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 199	nota-sem-chamada	n199-3 sem chamada; anexada ao fim do último parágrafo
-200	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-201	chamadas-x-notas	4 chamada(s) no corpo, 2 nota(s) iniciada(s)
 203	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 203	nota-sem-chamada	n203-1 sem chamada; anexada ao fim do último parágrafo
 204	numero-diverge	chamada (5) ligada à nota (1)
 206	numero-diverge	chamada (!) ligada à nota (2)
+207	corte-incerto	notas a partir da linha 27, escore 3.5 (continua+1.5 vao-1 entrelinha+1.5 letra+1 letra-no-corte+0.5)
+207	continuacao-duvidosa	nota n206-2 parecia terminada, mas continua
 207	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+208	nota-recuperada	continuação ligada à chamada (*) da p. 207, que ficou sem nota: o começo de n207-1 deve estar no corpo da p. 207
+209	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 213	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 213	nota-sem-chamada	n213-1 sem chamada; anexada ao fim do último parágrafo
 218	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
@@ -181,8 +191,7 @@ pagina	tipo	mensagem
 233	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 235	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 235	nota-sem-chamada	n235-2 sem chamada; anexada ao fim do último parágrafo
-239	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-240	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+238	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 241	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 241	nota-sem-chamada	n241-1 sem chamada; anexada ao fim do último parágrafo
 245	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
@@ -190,13 +199,14 @@ pagina	tipo	mensagem
 245	nota-sem-chamada	n245-9 sem chamada; anexada ao fim do último parágrafo
 248	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 248	nota-sem-chamada	n248-1 sem chamada; anexada ao fim do último parágrafo
-252	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 252	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 252	nota-sem-chamada	n252-8 sem chamada; anexada ao fim do último parágrafo
+254	corte-incerto	notas a partir da linha 49, escore 3.5 (continua+1.5 vao+2)
 254	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 255	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
 255	nota-sem-chamada	n255-3 sem chamada; anexada ao fim do último parágrafo
-257	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+257	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+257	nota-sem-chamada	n257-1 sem chamada; anexada ao fim do último parágrafo
 261	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
 261	numero-diverge	chamada (7) ligada à nota (2)
 261	nota-sem-chamada	n261-3 sem chamada; anexada ao fim do último parágrafo
@@ -204,29 +214,34 @@ pagina	tipo	mensagem
 262	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 262	numero-diverge	chamada (5) ligada à nota (2)
 263	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+264	nota-recuperada	continuação ligada à chamada (7) da p. 263, que ficou sem nota: o começo de n263-7 deve estar no corpo da p. 263
 264	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+265	nota-recuperada	continuação ligada à chamada (3) da p. 264, que ficou sem nota: o começo de n264-3 deve estar no corpo da p. 264
 266	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 267	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 267	nota-sem-chamada	n267-1 sem chamada; anexada ao fim do último parágrafo
-268	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 269	chamadas-x-notas	3 chamada(s) no corpo, 0 nota(s) iniciada(s)
+270	nota-recuperada	continuação ligada à chamada (5) da p. 269, que ficou sem nota: o começo de n269-5 deve estar no corpo da p. 269
 270	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 270	nota-sem-chamada	n270-2 sem chamada; anexada ao fim do último parágrafo
 271	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 271	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+272	nota-recuperada	continuação ligada à chamada (*) da p. 271, que ficou sem nota: o começo de n271-1 deve estar no corpo da p. 271
 273	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-274	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 276	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-279	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-281	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-282	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+277	nota-recuperada	continuação ligada à chamada (!) da p. 276, que ficou sem nota: o começo de n276-1 deve estar no corpo da p. 276
+280	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+281	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+281	nota-sem-chamada	n281-1 sem chamada; anexada ao fim do último parágrafo
 285	numero-diverge	chamada (7) ligada à nota (1)
-289	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+289	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+289	nota-sem-chamada	n289-1 sem chamada; anexada ao fim do último parágrafo
 290	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 290	numero-diverge	chamada (!) ligada à nota (2)
 291	numero-diverge	chamada (7) ligada à nota (2)
 292	continuacao-duvidosa	nota n291-3 parecia terminada, mas continua
-293	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+293	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+293	nota-sem-chamada	n293-1 sem chamada; anexada ao fim do último parágrafo
 298	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 299	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 299	nota-sem-chamada	n299-1 sem chamada; anexada ao fim do último parágrafo
@@ -239,26 +254,19 @@ pagina	tipo	mensagem
 307	nota-sem-chamada	n307-1 sem chamada; anexada ao fim do último parágrafo
 308	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 308	nota-sem-chamada	n308-2 sem chamada; anexada ao fim do último parágrafo
-309	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 310	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 310	nota-sem-chamada	n310-1 sem chamada; anexada ao fim do último parágrafo
+311	continuacao-duvidosa	nota n310-1 parecia terminada, mas continua
 312	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 312	nota-sem-chamada	n312-1 sem chamada; anexada ao fim do último parágrafo
 313	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-313	continuacao-duvidosa	nota n312-1 parecia terminada, mas continua
-316	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-317	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 320	continuacao-duvidosa	nota n319-1 parecia terminada, mas continua
-324	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-325	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
-326	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-327	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-330	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+328	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 330	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 330	nota-sem-chamada	n330-1 sem chamada; anexada ao fim do último parágrafo
-331	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 331	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 331	nota-sem-chamada	n331-1 sem chamada; anexada ao fim do último parágrafo
+334	corte-incerto	notas a partir da linha 20, escore 3.5 ((n)+2 vao-1 entrelinha+1.5 cauda-grande-1 letra+1 letra-no-corte+0.5 letra-corpo+0.5)
 334	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
 334	numero-diverge	chamada (2) ligada à nota (8)
 334	nota-sem-chamada	n334-3 sem chamada; anexada ao fim do último parágrafo
@@ -268,11 +276,10 @@ pagina	tipo	mensagem
 337	nota-sem-chamada	n337-2 sem chamada; anexada ao fim do último parágrafo
 338	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 338	nota-sem-chamada	n338-2 sem chamada; anexada ao fim do último parágrafo
-339	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-340	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 340	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 340	numero-diverge	chamada (7) ligada à nota (1)
 340	nota-sem-chamada	n340-8 sem chamada; anexada ao fim do último parágrafo
+341	continuacao-duvidosa	nota n340-8 parecia terminada, mas continua
 341	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 341	nota-sem-chamada	n341-1 sem chamada; anexada ao fim do último parágrafo
 343	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
@@ -281,11 +288,11 @@ pagina	tipo	mensagem
 346	nota-sem-chamada	n346-2 sem chamada; anexada ao fim do último parágrafo
 348	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 348	nota-sem-chamada	n348-2 sem chamada; anexada ao fim do último parágrafo
+353	continuacao-duvidosa	nota n352-3 parecia terminada, mas continua
 353	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 353	nota-sem-chamada	n353-2 sem chamada; anexada ao fim do último parágrafo
 354	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
 354	nota-sem-chamada	n354-2 sem chamada; anexada ao fim do último parágrafo
-356	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 356	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 356	nota-sem-chamada	n356-2 sem chamada; anexada ao fim do último parágrafo
 357	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
@@ -293,7 +300,7 @@ pagina	tipo	mensagem
 359	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 359	numero-diverge	chamada (3) ligada à nota (1)
 359	nota-sem-chamada	n359-2 sem chamada; anexada ao fim do último parágrafo
-360	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+361	continuacao-duvidosa	nota n360-2 parecia terminada, mas continua
 362	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 362	nota-sem-chamada	n362-1 sem chamada; anexada ao fim do último parágrafo
 363	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
@@ -304,110 +311,114 @@ pagina	tipo	mensagem
 368	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 368	nota-sem-chamada	n368-2 sem chamada; anexada ao fim do último parágrafo
 370	chamadas-x-notas	3 chamada(s) no corpo, 2 nota(s) iniciada(s)
+371	nota-recuperada	continuação ligada à chamada (*) da p. 370, que ficou sem nota: o começo de n370-1-2 deve estar no corpo da p. 370
+373	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 375	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 375	nota-sem-chamada	n375-1 sem chamada; anexada ao fim do último parágrafo
 376	continuacao-duvidosa	nota n375-1 parecia terminada, mas continua
 377	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 377	nota-sem-chamada	n377-1 sem chamada; anexada ao fim do último parágrafo
 379	numero-diverge	chamada (7) ligada à nota (9)
-381	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+381	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 383	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 383	nota-sem-chamada	n383-1 sem chamada; anexada ao fim do último parágrafo
-388	continuacao-duvidosa	nota n387-1 parecia terminada, mas continua
-388	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-390	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-391	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-393	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+391	continuacao-duvidosa	nota n389-1 parecia terminada, mas continua
 395	continuacao-duvidosa	nota n394-1 parecia terminada, mas continua
 395	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 396	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-397	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-399	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-400	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-401	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+396	nota-recuperada	continuação ligada à chamada (*) da p. 395, que ficou sem nota: o começo de n395-1 deve estar no corpo da p. 395
+401	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 402	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-408	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+408	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+409	nota-recuperada	continuação ligada à chamada (*) da p. 408, que ficou sem nota: o começo de n408-1 deve estar no corpo da p. 408
 411	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 411	nota-sem-chamada	n411-2 sem chamada; anexada ao fim do último parágrafo
-413	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+414	corte-incerto	notas a partir da linha 43, escore 3.5 (continua+1.5 vao+2)
 414	chamadas-x-notas	3 chamada(s) no corpo, 0 nota(s) iniciada(s)
-416	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+415	nota-recuperada	continuação ligada à chamada (7) da p. 414, que ficou sem nota: o começo de n414-7 deve estar no corpo da p. 414
+418	corte-incerto	notas a partir da linha 48, escore 3.5 (continua+1.5 vao+2)
 418	chamadas-x-notas	3 chamada(s) no corpo, 0 nota(s) iniciada(s)
+419	nota-recuperada	continuação ligada à chamada (*) da p. 418, que ficou sem nota: o começo de n418-1 deve estar no corpo da p. 418
+420	corte-incerto	notas a partir da linha 27, escore 3.5 (continua+1.5 vao-1 entrelinha+1.5 letra+1 letra-no-corte+0.5)
+420	continuacao-duvidosa	nota n419-1 parecia terminada, mas continua
 420	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-421	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+421	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+421	nota-recuperada	continuação ligada à chamada (*) da p. 420, que ficou sem nota: o começo de n420-1 deve estar no corpo da p. 420
 422	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-424	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 426	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+427	nota-recuperada	continuação ligada à chamada (1) da p. 426, que ficou sem nota: o começo de n426-1 deve estar no corpo da p. 426
+428	continuacao-duvidosa	nota n427-1 parecia terminada, mas continua
 429	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 429	nota-sem-chamada	n429-1 sem chamada; anexada ao fim do último parágrafo
 431	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+432	nota-recuperada	continuação ligada à chamada (!) da p. 431, que ficou sem nota: o começo de n431-1 deve estar no corpo da p. 431
 433	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 435	continuacao-duvidosa	nota n432-1 parecia terminada, mas continua
 436	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 436	nota-sem-chamada	n436-1 sem chamada; anexada ao fim do último parágrafo
 437	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-438	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-443	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-446	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+438	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
+438	nota-sem-chamada	n438-1 sem chamada; anexada ao fim do último parágrafo
+439	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+439	continuacao-duvidosa	nota n438-2 parecia terminada, mas continua
 452	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 452	nota-sem-chamada	n452-1 sem chamada; anexada ao fim do último parágrafo
-453	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 454	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-458	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+455	nota-recuperada	continuação ligada à chamada (1) da p. 454, que ficou sem nota: o começo de n454-1 deve estar no corpo da p. 454
+460	continuacao-duvidosa	nota n458-1 parecia terminada, mas continua
 460	numero-diverge	chamada (5) ligada à nota (2)
-461	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+461	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+461	nota-sem-chamada	n461-1 sem chamada; anexada ao fim do último parágrafo
 462	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 462	nota-sem-chamada	n462-1 sem chamada; anexada ao fim do último parágrafo
 463	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 463	nota-sem-chamada	n463-2 sem chamada; anexada ao fim do último parágrafo
-465	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-467	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-469	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-471	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+466	continuacao-duvidosa	nota n465-1 parecia terminada, mas continua
+469	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+469	nota-sem-chamada	n469-1 sem chamada; anexada ao fim do último parágrafo
+471	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+471	nota-sem-chamada	n471-8 sem chamada; anexada ao fim do último parágrafo
+473	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 474	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-475	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+476	continuacao-duvidosa	nota n475-1 parecia terminada, mas continua
 476	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 476	nota-sem-chamada	n476-1 sem chamada; anexada ao fim do último parágrafo
 476	nota-sem-chamada	n476-2 sem chamada; anexada ao fim do último parágrafo
-477	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+478	continuacao-duvidosa	nota n477-1 parecia terminada, mas continua
 478	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 478	nota-sem-chamada	n478-3 sem chamada; anexada ao fim do último parágrafo
 479	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 479	nota-sem-chamada	n479-1 sem chamada; anexada ao fim do último parágrafo
-483	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-483	numero-diverge	chamada (1) ligada à nota (2)
-483	numero-diverge	chamada (1) ligada à nota (3)
-484	continuacao-duvidosa	nota n483-3 parecia terminada, mas continua
-485	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+483	chamadas-x-notas	1 chamada(s) no corpo, 3 nota(s) iniciada(s)
+483	nota-sem-chamada	n483-2 sem chamada; anexada ao fim do último parágrafo
+483	nota-sem-chamada	n483-3 sem chamada; anexada ao fim do último parágrafo
+485	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+485	nota-sem-chamada	n485-1 sem chamada; anexada ao fim do último parágrafo
 487	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+488	nota-recuperada	continuação ligada à chamada (*) da p. 487, que ficou sem nota: o começo de n487-1 deve estar no corpo da p. 487
 488	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 488	nota-sem-chamada	n488-1 sem chamada; anexada ao fim do último parágrafo
-489	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-491	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 492	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 492	nota-sem-chamada	n492-1 sem chamada; anexada ao fim do último parágrafo
-493	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 493	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-495	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+494	nota-recuperada	continuação ligada à chamada (*) da p. 493, que ficou sem nota: o começo de n493-1 deve estar no corpo da p. 493
 496	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 496	numero-diverge	chamada (5) ligada à nota (1)
-497	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 498	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 498	nota-sem-chamada	n498-1 sem chamada; anexada ao fim do último parágrafo
-499	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 499	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 499	nota-sem-chamada	n499-1 sem chamada; anexada ao fim do último parágrafo
 506	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
 506	nota-sem-chamada	n506-3 sem chamada; anexada ao fim do último parágrafo
 508	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 508	numero-diverge	chamada (5) ligada à nota (1)
-509	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 510	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 510	nota-sem-chamada	n510-2 sem chamada; anexada ao fim do último parágrafo
-511	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-518	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
-519	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+512	continuacao-duvidosa	nota n510-2 parecia terminada, mas continua
+513	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+514	corte-incerto	notas a partir da linha 1, escore 3.5 (continua+1.5 vao-1 entrelinha+1.5 letra+1 letra-no-corte+0.5)
 521	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+522	nota-recuperada	continuação ligada à chamada (!) da p. 521, que ficou sem nota: o começo de n521-1 deve estar no corpo da p. 521
 522	numero-diverge	chamada (4) ligada à nota (1)
 525	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 525	nota-sem-chamada	n525-1 sem chamada; anexada ao fim do último parágrafo
@@ -416,36 +427,36 @@ pagina	tipo	mensagem
 528	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 528	nota-sem-chamada	n528-1 sem chamada; anexada ao fim do último parágrafo
 528	nota-sem-chamada	n528-3 sem chamada; anexada ao fim do último parágrafo
-529	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 533	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 533	nota-sem-chamada	n533-8 sem chamada; anexada ao fim do último parágrafo
-534	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 536	chamadas-x-notas	3 chamada(s) no corpo, 2 nota(s) iniciada(s)
+537	nota-recuperada	continuação ligada à chamada (*) da p. 536, que ficou sem nota: o começo de n536-1-2 deve estar no corpo da p. 536
+538	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+538	continuacao-duvidosa	nota n536-1-2 parecia terminada, mas continua
 542	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 542	nota-sem-chamada	n542-1 sem chamada; anexada ao fim do último parágrafo
 543	chamadas-x-notas	1 chamada(s) no corpo, 3 nota(s) iniciada(s)
 543	nota-sem-chamada	n543-2 sem chamada; anexada ao fim do último parágrafo
 543	nota-sem-chamada	n543-3 sem chamada; anexada ao fim do último parágrafo
-544	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 544	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 544	nota-sem-chamada	n544-2 sem chamada; anexada ao fim do último parágrafo
-545	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 546	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 546	nota-sem-chamada	n546-1 sem chamada; anexada ao fim do último parágrafo
-549	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+549	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
+549	nota-sem-chamada	n549-1 sem chamada; anexada ao fim do último parágrafo
+549	nota-sem-chamada	n549-2 sem chamada; anexada ao fim do último parágrafo
 550	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 550	nota-sem-chamada	n550-1 sem chamada; anexada ao fim do último parágrafo
 550	nota-sem-chamada	n550-2 sem chamada; anexada ao fim do último parágrafo
 552	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 552	numero-diverge	chamada (2) ligada à nota (1)
 552	nota-sem-chamada	n552-3 sem chamada; anexada ao fim do último parágrafo
-553	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 554	numero-diverge	chamada (4) ligada à nota (1)
 556	numero-diverge	chamada (7) ligada à nota (8)
-557	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 557	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 557	numero-diverge	chamada (7) ligada à nota (1)
 557	nota-sem-chamada	n557-9 sem chamada; anexada ao fim do último parágrafo
+559	continuacao-duvidosa	nota n557-9 parecia terminada, mas continua
 560	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 560	numero-diverge	chamada (7) ligada à nota (1)
 560	nota-sem-chamada	n560-2 sem chamada; anexada ao fim do último parágrafo
@@ -458,42 +469,46 @@ pagina	tipo	mensagem
 577	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 577	numero-diverge	chamada (5) ligada à nota (1)
 577	nota-sem-chamada	n577-2 sem chamada; anexada ao fim do último parágrafo
-579	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
 580	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-583	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+581	nota-recuperada	continuação ligada à chamada (!) da p. 580, que ficou sem nota: o começo de n580-1 deve estar no corpo da p. 580
+582	corte-incerto	notas a partir da linha 45, escore 3.5 (continua+1.5 vao+2)
+582	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+583	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 586	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 587	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 587	nota-sem-chamada	n587-2 sem chamada; anexada ao fim do último parágrafo
 589	continuacao-duvidosa	nota n588-1 parecia terminada, mas continua
 590	numero-diverge	chamada (2) ligada à nota (3)
-591	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 592	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 594	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-595	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+595	nota-recuperada	continuação ligada à chamada (*) da p. 594, que ficou sem nota: o começo de n594-1 deve estar no corpo da p. 594
 595	numero-diverge	chamada (7) ligada à nota (2)
-596	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+597	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+597	continuacao-duvidosa	nota n596-2 parecia terminada, mas continua
 598	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-600	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+599	nota-recuperada	continuação ligada à chamada (!) da p. 598, que ficou sem nota: o começo de n598-1 deve estar no corpo da p. 598
 601	numero-diverge	chamada (7) ligada à nota (1)
 602	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 602	nota-sem-chamada	n602-1 sem chamada; anexada ao fim do último parágrafo
 603	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 603	nota-sem-chamada	n603-1 sem chamada; anexada ao fim do último parágrafo
 603	nota-sem-chamada	n603-2 sem chamada; anexada ao fim do último parágrafo
-605	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-606	continuacao-duvidosa	nota n603-2 parecia terminada, mas continua
 606	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 606	nota-sem-chamada	n606-1 sem chamada; anexada ao fim do último parágrafo
 607	numero-diverge	chamada (4) ligada à nota (1)
-608	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 608	numero-diverge	chamada (2) ligada à nota (3)
+609	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 610	numero-diverge	chamada (9) ligada à nota (1)
-612	chamadas-x-notas	3 chamada(s) no corpo, 0 nota(s) iniciada(s)
+612	corte-incerto	notas a partir da linha 31, escore 3.5 ((n)+1.5 vao-1 entrelinha+1.5 letra+1 letra-no-corte+0.5)
+612	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 613	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+614	nota-recuperada	continuação ligada à chamada (1) da p. 613, que ficou sem nota: o começo de n613-1 deve estar no corpo da p. 613
 615	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 615	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 615	numero-diverge	chamada (5) ligada à nota (1)
 615	nota-sem-chamada	n615-2 sem chamada; anexada ao fim do último parágrafo
+620	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+620	continuacao-duvidosa	nota n615-2 parecia terminada, mas continua
 622	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 622	nota-sem-chamada	n622-1 sem chamada; anexada ao fim do último parágrafo
 622	nota-sem-chamada	n622-3 sem chamada; anexada ao fim do último parágrafo
@@ -501,23 +516,27 @@ pagina	tipo	mensagem
 624	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 625	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 626	continuacao-duvidosa	nota n625-1 parecia terminada, mas continua
-627	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 627	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 627	nota-sem-chamada	n627-1 sem chamada; anexada ao fim do último parágrafo
-631	chamadas-x-notas	4 chamada(s) no corpo, 0 nota(s) iniciada(s)
-637	chamadas-x-notas	3 chamada(s) no corpo, 0 nota(s) iniciada(s)
+629	corte-incerto	notas a partir da linha 3, escore 3.5 (continua+1.5 vao-1 entrelinha+1.5 letra+1 letra-corpo+0.5)
+631	numero-diverge	chamada (7) ligada à nota (2)
+632	continuacao-duvidosa	nota n631-2 parecia terminada, mas continua
+634	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+637	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
+637	nota-sem-chamada	n637-8 sem chamada; anexada ao fim do último parágrafo
 640	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 640	nota-sem-chamada	n640-1 sem chamada; anexada ao fim do último parágrafo
-643	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 643	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+644	nota-recuperada	continuação ligada à chamada (1) da p. 643, que ficou sem nota: o começo de n643-1 deve estar no corpo da p. 643
 644	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 644	nota-sem-chamada	n644-2 sem chamada; anexada ao fim do último parágrafo
-648	continuacao-duvidosa	nota n647-1 parecia terminada, mas continua
-648	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+648	corte-incerto	notas a partir da linha 27, escore 3.8 ((n)+2 vao-1 entrelinha+1.5 cauda-grande-0.7 letra+1 letra-no-corte+0.5 letra-corpo+0.5)
+648	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
+648	nota-sem-chamada	n648-2 sem chamada; anexada ao fim do último parágrafo
 649	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 649	nota-sem-chamada	n649-1 sem chamada; anexada ao fim do último parágrafo
-651	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 652	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+653	nota-recuperada	continuação ligada à chamada (5) da p. 652, que ficou sem nota: o começo de n652-5 deve estar no corpo da p. 652
 654	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 654	nota-sem-chamada	n654-1 sem chamada; anexada ao fim do último parágrafo
 655	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
@@ -526,72 +545,77 @@ pagina	tipo	mensagem
 659	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 659	nota-sem-chamada	n659-4 sem chamada; anexada ao fim do último parágrafo
 660	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-661	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-662	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+661	nota-recuperada	continuação ligada à chamada (?) da p. 660, que ficou sem nota: o começo de n660-1 deve estar no corpo da p. 660
+662	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+663	nota-recuperada	continuação ligada à chamada (!) da p. 662, que ficou sem nota: o começo de n662-1 deve estar no corpo da p. 662
 664	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 664	nota-sem-chamada	n664-2 sem chamada; anexada ao fim do último parágrafo
 665	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 665	nota-sem-chamada	n665-1 sem chamada; anexada ao fim do último parágrafo
 665	nota-sem-chamada	n665-3 sem chamada; anexada ao fim do último parágrafo
-667	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
-667	numero-diverge	chamada (!) ligada à nota (8)
 668	numero-diverge	chamada (5) ligada à nota (29)
-669	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+669	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
+669	nota-sem-chamada	n669-1 sem chamada; anexada ao fim do último parágrafo
+669	nota-sem-chamada	n669-2 sem chamada; anexada ao fim do último parágrafo
 670	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+671	nota-recuperada	continuação ligada à chamada (*) da p. 670, que ficou sem nota: o começo de n670-1 deve estar no corpo da p. 670
 671	numero-diverge	chamada (5) ligada à nota (2)
-672	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-673	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+672	corte-por-chamada	notas a partir da linha 36 só pela chamada no corpo (escore 2.5: (n)+2 vao-1 entrelinha+1.5)
 674	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 674	nota-sem-chamada	n674-1 sem chamada; anexada ao fim do último parágrafo
 675	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 675	continuacao-duvidosa	nota n674-1 parecia terminada, mas continua
-679	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
-679	numero-diverge	chamada (!) ligada à nota (2)
+681	continuacao-duvidosa	nota n679-2 parecia terminada, mas continua
 681	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-682	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 685	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 685	nota-sem-chamada	n685-2 sem chamada; anexada ao fim do último parágrafo
 687	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+688	nota-recuperada	continuação ligada à chamada (!) da p. 687, que ficou sem nota: o começo de n687-1 deve estar no corpo da p. 687
+689	continuacao-duvidosa	nota n687-1 parecia terminada, mas continua
 695	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 695	nota-sem-chamada	n695-2 sem chamada; anexada ao fim do último parágrafo
-697	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-697	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
-697	nota-sem-chamada	n697-1 sem chamada; anexada ao fim do último parágrafo
-698	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+698	corte-incerto	notas a partir da linha 4, escore 3.3 ((n)+2 vao-1 entrelinha+1.5 cauda-grande-0.7 letra+1 letra-corpo+0.5)
 698	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 698	nota-sem-chamada	n698-1 sem chamada; anexada ao fim do último parágrafo
-700	continuacao-duvidosa	nota n699-1 parecia terminada, mas continua
-700	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-701	numero-diverge	chamada (1) ligada à nota (2)
+701	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
+701	nota-sem-chamada	n701-1 sem chamada; anexada ao fim do último parágrafo
+701	nota-sem-chamada	n701-2 sem chamada; anexada ao fim do último parágrafo
 704	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 704	nota-sem-chamada	n704-2 sem chamada; anexada ao fim do último parágrafo
 706	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+707	nota-recuperada	continuação ligada à chamada (*) da p. 706, que ficou sem nota: o começo de n706-1 deve estar no corpo da p. 706
 708	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-709	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 709	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 709	nota-sem-chamada	n709-2 sem chamada; anexada ao fim do último parágrafo
 711	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 711	nota-sem-chamada	n711-2 sem chamada; anexada ao fim do último parágrafo
 712	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-715	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+713	nota-recuperada	continuação ligada à chamada (4) da p. 712, que ficou sem nota: o começo de n712-4 deve estar no corpo da p. 712
+714	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+714	nota-sem-chamada	n714-1 sem chamada; anexada ao fim do último parágrafo
 715	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 715	numero-diverge	chamada (7) ligada à nota (1)
 715	nota-sem-chamada	n715-2 sem chamada; anexada ao fim do último parágrafo
 716	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-717	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+717	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+717	nota-recuperada	continuação ligada à chamada (*) da p. 716, que ficou sem nota: o começo de n716-1 deve estar no corpo da p. 716
+717	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
+717	nota-sem-chamada	n717-1 sem chamada; anexada ao fim do último parágrafo
+717	nota-sem-chamada	n717-2 sem chamada; anexada ao fim do último parágrafo
 718	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 718	nota-sem-chamada	n718-1 sem chamada; anexada ao fim do último parágrafo
 720	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 722	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+723	nota-recuperada	continuação ligada à chamada (1) da p. 722, que ficou sem nota: o começo de n722-1 deve estar no corpo da p. 722
 723	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 723	nota-sem-chamada	n723-1 sem chamada; anexada ao fim do último parágrafo
 724	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-725	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 725	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 725	nota-sem-chamada	n725-2 sem chamada; anexada ao fim do último parágrafo
 726	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 726	nota-sem-chamada	n726-1 sem chamada; anexada ao fim do último parágrafo
-727	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+727	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+728	corte-por-chamada	notas a partir da linha 40 só pela chamada no corpo (escore 1: (n)+2 vao-1)
 732	continuacao-duvidosa	nota n731-1 parecia terminada, mas continua
 732	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 732	nota-sem-chamada	n732-1 sem chamada; anexada ao fim do último parágrafo
@@ -604,54 +628,56 @@ pagina	tipo	mensagem
 742	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 745	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 745	nota-sem-chamada	n745-1 sem chamada; anexada ao fim do último parágrafo
-746	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 746	numero-diverge	chamada (7) ligada à nota (8)
 747	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-747	continuacao-duvidosa	nota n746-8 parecia terminada, mas continua
-748	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 748	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-749	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+749	nota-recuperada	continuação ligada à chamada (7) da p. 748, que ficou sem nota: o começo de n748-7 deve estar no corpo da p. 748
+749	numero-diverge	chamada (5) ligada à nota (1)
 751	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 751	nota-sem-chamada	n751-2 sem chamada; anexada ao fim do último parágrafo
 755	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-764	chamadas-x-notas	4 chamada(s) no corpo, 0 nota(s) iniciada(s)
+764	numero-diverge	chamada (!) ligada à nota (2)
 766	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+767	nota-recuperada	continuação ligada à chamada (!) da p. 766, que ficou sem nota: o começo de n766-1 deve estar no corpo da p. 766
+770	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 771	numero-diverge	chamada (9) ligada à nota (1)
 772	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 772	nota-sem-chamada	n772-3 sem chamada; anexada ao fim do último parágrafo
-775	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 775	numero-diverge	chamada (7) ligada à nota (2)
 777	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 777	nota-sem-chamada	n777-1 sem chamada; anexada ao fim do último parágrafo
 777	nota-sem-chamada	n777-8 sem chamada; anexada ao fim do último parágrafo
 778	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-782	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+779	nota-recuperada	continuação ligada à chamada (!) da p. 778, que ficou sem nota: o começo de n778-1 deve estar no corpo da p. 778
+780	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 782	numero-diverge	chamada (5) ligada à nota (2)
-783	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 787	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 787	nota-sem-chamada	n787-1 sem chamada; anexada ao fim do último parágrafo
-788	chamadas-x-notas	3 chamada(s) no corpo, 2 nota(s) iniciada(s)
+788	chamadas-x-notas	2 chamada(s) no corpo, 3 nota(s) iniciada(s)
+788	nota-sem-chamada	n788-3 sem chamada; anexada ao fim do último parágrafo
 789	continuacao-duvidosa	nota n788-3 parecia terminada, mas continua
 789	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+790	nota-recuperada	continuação ligada à chamada (*) da p. 789, que ficou sem nota: o começo de n789-1 deve estar no corpo da p. 789
 790	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
 791	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-792	continuacao-duvidosa	nota n789-2 parecia terminada, mas continua
+791	nota-recuperada	continuação ligada à chamada (!) da p. 790, que ficou sem nota: o começo de n790-1 deve estar no corpo da p. 790
+792	continuacao-duvidosa	nota n790-1 parecia terminada, mas continua
 792	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 792	nota-sem-chamada	n792-8 sem chamada; anexada ao fim do último parágrafo
 793	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 793	nota-sem-chamada	n793-1 sem chamada; anexada ao fim do último parágrafo
-800	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-801	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+800	corte-por-chamada	notas a partir da linha 44 só pela chamada no corpo (escore 2.5: (n)+2 vao-1 entrelinha+1.5)
 802	numero-diverge	chamada (2) ligada à nota (1)
 803	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 803	nota-sem-chamada	n803-2 sem chamada; anexada ao fim do último parágrafo
-804	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+804	corte-por-chamada	notas a partir da linha 46 só pela chamada no corpo (escore 1: (n)+2 vao-1)
+806	corte-incerto	notas a partir da linha 42, escore 3.5 (continua+1.5 vao+2)
 806	continuacao-duvidosa	nota n805-2 parecia terminada, mas continua
 806	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+807	nota-recuperada	continuação ligada à chamada (!) da p. 806, que ficou sem nota: o começo de n806-1 deve estar no corpo da p. 806
 807	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 807	nota-sem-chamada	n807-1 sem chamada; anexada ao fim do último parágrafo
 807	nota-sem-chamada	n807-2 sem chamada; anexada ao fim do último parágrafo
-810	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 810	numero-diverge	chamada (5) ligada à nota (1)
 811	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 811	numero-diverge	chamada (5) ligada à nota (1)
@@ -659,13 +685,12 @@ pagina	tipo	mensagem
 813	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 813	numero-diverge	chamada (!) ligada à nota (2)
 816	numero-diverge	chamada (3) ligada à nota (2)
-817	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
+818	continuacao-duvidosa	nota n817-1 parecia terminada, mas continua
+821	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 823	continuacao-duvidosa	nota n822-1 parecia terminada, mas continua
 824	continuacao-duvidosa	nota n822-1 parecia terminada, mas continua
-825	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 825	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 825	nota-sem-chamada	n825-2 sem chamada; anexada ao fim do último parágrafo
-826	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 827	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 827	nota-sem-chamada	n827-1 sem chamada; anexada ao fim do último parágrafo
 828	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
@@ -677,60 +702,59 @@ pagina	tipo	mensagem
 837	nota-sem-chamada	n837-2 sem chamada; anexada ao fim do último parágrafo
 838	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 838	nota-sem-chamada	n838-1 sem chamada; anexada ao fim do último parágrafo
-839	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+839	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
+839	nota-sem-chamada	n839-2 sem chamada; anexada ao fim do último parágrafo
 843	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 845	chamadas-x-notas	0 chamada(s) no corpo, 3 nota(s) iniciada(s)
 845	nota-sem-chamada	n845-1 sem chamada; anexada ao fim do último parágrafo
 845	nota-sem-chamada	n845-2 sem chamada; anexada ao fim do último parágrafo
 845	nota-sem-chamada	n845-3 sem chamada; anexada ao fim do último parágrafo
-846	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 846	chamadas-x-notas	0 chamada(s) no corpo, 2 nota(s) iniciada(s)
 846	nota-sem-chamada	n846-1 sem chamada; anexada ao fim do último parágrafo
 846	nota-sem-chamada	n846-2 sem chamada; anexada ao fim do último parágrafo
 847	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 847	nota-sem-chamada	n847-1 sem chamada; anexada ao fim do último parágrafo
-848	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 853	continuacao-duvidosa	nota n851-1 parecia terminada, mas continua
 855	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 855	nota-sem-chamada	n855-1 sem chamada; anexada ao fim do último parágrafo
-856	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-856	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
-856	nota-sem-chamada	n856-1 sem chamada; anexada ao fim do último parágrafo
 859	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 859	nota-sem-chamada	n859-1 sem chamada; anexada ao fim do último parágrafo
-860	chamadas-x-notas	4 chamada(s) no corpo, 0 nota(s) iniciada(s)
+860	corte-incerto	notas a partir da linha 21, escore 3 ((n)+2 vao-1 entrelinha+1.5 letra-corpo+0.5)
+860	numero-diverge	chamada (7) ligada à nota (2)
 861	numero-diverge	chamada (9) ligada à nota (1)
 863	numero-diverge	chamada (9) ligada à nota (1)
 864	numero-diverge	chamada (7) ligada à nota (2)
-865	chamadas-x-notas	3 chamada(s) no corpo, 0 nota(s) iniciada(s)
+865	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+866	nota-recuperada	continuação ligada à chamada (?) da p. 865, que ficou sem nota: o começo de n865-1-2 deve estar no corpo da p. 865
 867	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 867	continuacao-duvidosa	nota n866-3 parecia terminada, mas continua
 867	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 867	nota-sem-chamada	n867-1 sem chamada; anexada ao fim do último parágrafo
-869	chamadas-x-notas	4 chamada(s) no corpo, 0 nota(s) iniciada(s)
-870	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 873	chamadas-x-notas	1 chamada(s) no corpo, 3 nota(s) iniciada(s)
 873	nota-sem-chamada	n873-2 sem chamada; anexada ao fim do último parágrafo
 873	nota-sem-chamada	n873-3 sem chamada; anexada ao fim do último parágrafo
 874	numero-diverge	chamada (5) ligada à nota (3)
 875	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-878	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+876	nota-recuperada	continuação ligada à chamada (?) da p. 875, que ficou sem nota: o começo de n875-1-2 deve estar no corpo da p. 875
+878	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
+878	nota-sem-chamada	n878-2 sem chamada; anexada ao fim do último parágrafo
 879	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
 879	numero-diverge	chamada (!) ligada à nota (2)
 880	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
-880	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
+880	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
+880	nota-sem-chamada	n880-2 sem chamada; anexada ao fim do último parágrafo
 881	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-882	chamadas-x-notas	3 chamada(s) no corpo, 1 nota(s) iniciada(s)
-882	numero-diverge	chamada (!) ligada à nota (2)
 883	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 883	nota-sem-chamada	n883-1 sem chamada; anexada ao fim do último parágrafo
-884	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
-885	chamadas-x-notas	4 chamada(s) no corpo, 0 nota(s) iniciada(s)
-886	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+884	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+884	nota-sem-chamada	n884-1 sem chamada; anexada ao fim do último parágrafo
+885	numero-diverge	chamada (2) ligada à nota (8)
 886	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 886	numero-diverge	chamada (7) ligada à nota (1)
 886	nota-sem-chamada	n886-2 sem chamada; anexada ao fim do último parágrafo
-887	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
+887	corte-incerto	notas a partir da linha 3, escore 3 (continua+1.5 vao+1 entrelinha+1.5 letra+1 letra-no-corte-2.5 letra-corpo+0.5)
+887	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
+887	continuacao-duvidosa	nota n886-2 parecia terminada, mas continua
 889	chamadas-x-notas	1 chamada(s) no corpo, 3 nota(s) iniciada(s)
 889	nota-sem-chamada	n889-2 sem chamada; anexada ao fim do último parágrafo
 889	nota-sem-chamada	n889-3 sem chamada; anexada ao fim do último parágrafo
@@ -741,7 +765,6 @@ pagina	tipo	mensagem
 893	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 893	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 893	nota-sem-chamada	n893-2 sem chamada; anexada ao fim do último parágrafo
-4	tese-fora-de-sequencia	tese 4 depois da 2
 14	tese-fora-de-sequencia	tese 13 depois da 10
 17	tese-fora-de-sequencia	tese 18 depois da 14
 18	tese-fora-de-sequencia	tese 20 depois da 18
@@ -758,7 +781,7 @@ pagina	tipo	mensagem
 68	tese-fora-de-sequencia	tese 89 depois da 80
 79	tese-fora-de-sequencia	tese 93 depois da 91
 81	tese-fora-de-sequencia	tese 95 depois da 93
-90	tese-fora-de-sequencia	tese 108 depois da 106
+89	tese-fora-de-sequencia	tese 108 depois da 106
 95	tese-fora-de-sequencia	tese 112 depois da 110
 98	tese-fora-de-sequencia	tese 117 depois da 115
 103	numero-corrigido	tese lida como 190, esperado 120: assumido 120
@@ -766,24 +789,24 @@ pagina	tipo	mensagem
 114	numero-corrigido	tese lida como 193, esperado 123: assumido 123
 117	numero-corrigido	tese lida como 194, esperado 124: assumido 124
 129	tese-fora-de-sequencia	tese 132 depois da 124
-134	tese-fora-de-sequencia	tese 136 depois da 134
+133	tese-fora-de-sequencia	tese 136 depois da 134
 143	tese-fora-de-sequencia	tese 141 depois da 139
 156	tese-fora-de-sequencia	tese 148 depois da 146
 163	tese-fora-de-sequencia	tese 150 depois da 148
-173	tese-fora-de-sequencia	tese 156 depois da 151
-176	tese-fora-de-sequencia	tese 159 depois da 156
+176	tese-fora-de-sequencia	tese 159 depois da 151
 179	tese-fora-de-sequencia	tese 163 depois da 160
-181	tese-fora-de-sequencia	tese 170 depois da 168
+182	tese-fora-de-sequencia	tese 170 depois da 168
 194	tese-fora-de-sequencia	tese 177 depois da 171
 213	tese-fora-de-sequencia	tese 187 depois da 185
 234	tese-fora-de-sequencia	tese 191 depois da 188
-242	tese-fora-de-sequencia	tese 197 depois da 192
+236	tese-fora-de-sequencia	tese 194 depois da 192
+242	tese-fora-de-sequencia	tese 197 depois da 194
 244	tese-fora-de-sequencia	tese 199 depois da 197
 244	numero-corrigido	tese lida como 901, esperado 201: assumido 201
 246	tese-fora-de-sequencia	tese 203 depois da 201
 249	numero-corrigido	tese lida como 904, esperado 204: assumido 204
 251	numero-corrigido	tese lida como 905, esperado 205: assumido 205
-550	numero-corrigido	tese lida como 201, esperado 207: assumido 207
+549	numero-corrigido	tese lida como 201, esperado 207: assumido 207
 553	numero-corrigido	tese lida como 204, esperado 208: assumido 208
 556	numero-corrigido	tese lida como 206, esperado 209: assumido 209
 560	tese-fora-de-sequencia	tese 209 repetida
@@ -793,8 +816,9 @@ pagina	tipo	mensagem
 742	numero-corrigido	tese lida como 118, esperado 218: assumido 218
 747	numero-corrigido	tese lida como 119, esperado 219: assumido 219
 860	numero-corrigido	tese lida como 200, esperado 220: assumido 220
+874	tese-fora-de-sequencia	tese 220 repetida
 876	tese-fora-de-sequencia	tese 225 depois da 222
 880	tese-fora-de-sequencia	tese 229 depois da 225
-881	tese-fora-de-sequencia	tese 232 depois da 229
-881	tese-fora-de-sequencia	tese 234 depois da 232
+880	tese-fora-de-sequencia	tese 232 depois da 229
+880	tese-fora-de-sequencia	tese 234 depois da 232
 892	tese-fora-de-sequencia	tese 243 depois da 234

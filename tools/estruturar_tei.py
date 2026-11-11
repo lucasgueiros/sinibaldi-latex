@@ -51,7 +51,8 @@ XML = "http://www.w3.org/XML/1998/namespace"
 CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f￾￿]")
 # chamada de nota no corpo: o OCR le "(1)" como "(l)", "(|)", "(!)" e, no vol. 1, "(*)" / "(?)"
 CHAMADA = re.compile(r"\(\s*(\d{1,2}|[lI|!*?])\s*\)")
-NOTA = re.compile(r"^\(\s*(\d{1,2}|[lI|])\s*\)\s*")
+# inicio de nota; ate 3 caracteres de sujeira antes (o OCR le ". (1)", "| (2)", "' (1)")
+NOTA = re.compile(r"^[.,:;'‘’|!\s]{0,3}\(\s*(\d{1,2}|[lI|])\s*\)\s*")
 FIM_FRASE = re.compile(r"[.!?:;»”]\s*$")
 ORDINAIS = {"PRIMEIRO", "PRIMEIRA", "SEGUNDO", "SEGUNDA", "TERCEIRO", "TERCEIRA", "QUARTO",
             "QUARTA", "QUINTO", "QUINTA", "SEXTO", "SEXTA", "SETIMO", "SETIMA", "OITAVO",
@@ -73,10 +74,10 @@ def T(n):
 
 # ------------------------------------------------------------------ leitura do .tsv
 class Linha:
-    __slots__ = ("x0", "y0", "x1", "y1", "texto", "h")
+    __slots__ = ("x0", "y0", "x1", "y1", "texto", "h", "conf")
 
-    def __init__(self, x0, y0, x1, y1, texto, h=None):
-        self.x0, self.y0, self.x1, self.y1, self.texto, self.h = x0, y0, x1, y1, texto, h
+    def __init__(self, x0, y0, x1, y1, texto, h=None, conf=100.0):
+        self.x0, self.y0, self.x1, self.y1, self.texto, self.h, self.conf = x0, y0, x1, y1, texto, h, conf
 
 
 def le_linhas(tsv):
@@ -95,19 +96,63 @@ def le_linhas(tsv):
                 t = CTRL.sub("", r["text"]).strip()
                 if t and float(r["conf"]) >= 0:
                     linhas[k][4].append(t)
-                    if sum(c.isalpha() for c in t) >= 4:        # palavras longas: altura confiavel
-                        linhas[k][5].append(int(r["height"]))
-    out = [Linha(x0, y0, x1, y1, " ".join(ws)) for x0, y0, x1, y1, ws, hs in linhas.values() if ws]
-    # tamanho da letra = largura por caractere, so em linhas "cheias" (justificadas): corpo ~21.5 px,
-    # corpo menor/notas ~17.5 px a 300 ppi.  A altura da palavra foi descartada: oscila demais.
-    if out:
-        ws_ = sorted(l.x1 - l.x0 for l in out)
-        coluna = ws_[int(len(ws_) * 0.9)]
-        for l in out:
-            if (l.x1 - l.x0) >= 0.93 * coluna and len(l.texto) > 25:
-                l.h = (l.x1 - l.x0) / len(l.texto)
+                    linhas[k][5].append(float(r["conf"]) * len(t))
+    out = []
+    for x0, y0, x1, y1, ws, cs in linhas.values():
+        if ws:
+            l = Linha(x0, y0, x1, y1, " ".join(ws))
+            l.conf = sum(cs) / max(1, sum(len(w) for w in ws))    # confianca media por caractere
+            out.append(l)
+    out = limpa_ruido(out)
+    mede_tamanho(out)
     out.sort(key=lambda l: (l.y0, l.x0))
     return out, largura
+
+
+def coluna(out):
+    """(esquerda, direita) da coluna de texto, pelas linhas longas; None se a pagina tem poucas."""
+    longas = [l for l in out if len(l.texto) > 25]
+    if len(longas) < 3:
+        return None
+    direita = Counter(l.x1 // 10 for l in longas)
+    # a moda e as faixas vizinhas (a justificacao oscila poucos px)
+    faixa = max(direita, key=lambda b: direita[b] + direita[b - 1] + direita[b + 1])
+    x0s = sorted(l.x0 for l in longas)
+    return x0s[len(x0s) // 4], faixa * 10 + 5
+
+
+def limpa_ruido(out):
+    """descarta (1) ruido de margem: linha que fica toda fora da coluna (sujeira da borda do scan,
+    da pagina vizinha: "o —" em x0 = 1752 na p. 6 do vol. 2 quebrava o paragrafo); (2) ornamento:
+    linhas de confianca media < 60 ACIMA da 1a linha de texto confiavel (vinheta do inicio de
+    parte, lida como "tel ole Sub").  Texto ruim no meio da pagina (grego, latim) fica."""
+    col = coluna(out)
+    if col:
+        esq, dir_ = col
+        out = [l for l in out if l.x1 > esq + 30 and l.x0 < dir_ - 30]
+    out.sort(key=lambda l: (l.y0, l.x0))
+    # so linhas curtas e sem numero: o enunciado de tese em negrito tambem tem confianca baixa
+    i = next((i for i, l in enumerate(out)
+              if l.conf >= 75 and sum(c.isalpha() for c in l.texto) >= 6), 0)
+    return [l for j, l in enumerate(out)
+            if j >= i or l.conf >= 60 or len(l.texto) >= 20 or re.match(r"\W*\d", l.texto)]
+
+
+def mede_tamanho(out):
+    """tamanho da letra = largura por caractere, so em linhas "cheias" (justificadas): corpo ~21.5 px,
+    corpo menor/notas ~17.5 px a 300 ppi.  A altura da palavra foi descartada: oscila demais.
+
+    Linha cheia = termina na margem direita da coluna (moda dos x1, em faixas de 10 px) e comeca na
+    margem esquerda ou num recuo de paragrafo.  A margem direita nao e o maior x1: o OCR cola ruido
+    da margem do scan ao fim de algumas linhas (x1 ate a borda), e essas linhas dariam medida falsa;
+    medir pela largura maxima (como antes) deixava sem medida quase todas as linhas da pagina."""
+    col = coluna(out)
+    if not col:
+        return
+    esq, xd = col
+    for l in out:
+        if len(l.texto) > 25 and abs(l.x1 - xd) <= 25 and -25 <= l.x0 - esq <= 140:
+            l.h = (l.x1 - l.x0) / len(l.texto)
 
 
 def calibra_entrelinhas(todas):
@@ -157,34 +202,123 @@ def calibra_tamanho(todas):
     return (lo + hi) / 2 if hi - lo >= 2 else None
 
 
-def inicio_notas(linhas, corpo, limiar_h, aberta, margem=0, limiar_recuo=40):
+LIMIAR_CORTE = 3.0          # escore minimo para aceitar uma area de notas
+LIMIAR_REPARO = 0.5         # idem, quando o corpo tem chamada "(n)" sem nota (reparo por chamadas)
+
+
+def escore_corte(linhas, k, corpo, nota, limiar_h, aberta, margem, limiar_recuo):
+    """(escore, motivos) de "a area de notas comeca na linha k" (0 < k < n).
+
+    Soma de votos, nenhum com poder de veto: o tamanho da letra e fragil (falta em linhas curtas,
+    o OCR cola ruido no fim da linha), a entrelinha falha em notas de 1-2 linhas, o vao falha
+    quando o filete fica perto do texto.  Juntos, um compensa o outro."""
+    l, n = linhas[k], len(linhas)
+    e, por = 0.0, []
+
+    def voto(v, motivo):
+        nonlocal e
+        e += v
+        if v:
+            por.append(f"{motivo}{v:+g}")
+
+    # 1. marcador: "(n)" (recuado, de preferencia) ou continuacao de nota aberta sem recuo
+    recuo = l.x0 - margem
+    marca = NOTA.match(l.texto) is not None
+    if marca:
+        voto(2.0 if recuo >= limiar_recuo / 2 else 1.5, "(n)")
+    elif aberta and recuo < limiar_recuo:
+        voto(1.5, "continua")
+        if CHAMADA.search(l.texto):
+            voto(-2.0, "chamada-na-linha")         # linha com chamada "(n)" e de corpo
+    else:
+        return None, []                    # sem marcador nao ha onde comecar nota
+    # 2. vao antes (o filete fica ali).  Linhas minusculas logo antes ("m", "R55") sao o proprio
+    # filete lido pelo OCR: o vao conta a partir da linha de texto anterior a elas.
+    j = k - 1
+    while j > 0 and len(linhas[j].texto) <= 4:
+        j -= 1
+    vao = (l.y0 - linhas[j].y0) / corpo
+    # sem vao, a continuacao (sem marcador) fica quase vetada; com "(n)" e so um voto contra:
+    # no vol. 1 a nota segue um escolio em corpo menor com pouco espaco antes do filete
+    falta = -1.0 if marca else -3.0
+    voto(2.0 if vao >= 1.9 else 1.0 if vao >= 1.3 else -1.0 if vao >= 1.1 else falta, "vao")
+    # 3. entrelinha da cauda: a das notas (calibrada) contra a do corpo
+    difs = [b.y0 - a.y0 for a, b in zip(linhas[k:], linhas[k + 1:])]
+    difs_norm = [d for d in difs if d < 1.25 * corpo]           # vaos de paragrafo nao contam
+    if nota and len(difs_norm) >= 2:
+        med = statistics.median(difs_norm)
+        meio = (corpo + nota) / 2
+        voto(1.5 if med < meio - 2 else -1.5 if med > meio + 2 else 0, "entrelinha")
+        # linhas de corpo no meio da cauda: o corte esta cedo demais (a mediana sozinha nao ve
+        # 10 linhas de corpo seguidas de 30 de nota)
+        grandes = sum(d > meio + 3 for d in difs_norm) / len(difs_norm)
+        if grandes > 0.12:
+            voto(round(-5.0 * grandes, 1), "cauda-grande")
+    # 4. tamanho da letra, quando medido: voto, nao veto
+    if limiar_h:
+        cauda = [x.h for x in linhas[k:] if x.h]
+        if cauda:
+            m = statistics.median(cauda)
+            voto(1.0 if m < limiar_h - 0.5 else -1.0 if m > limiar_h + 0.5 else 0, "letra")
+            fg = sum(h > limiar_h + 0.5 for h in cauda) / len(cauda)
+            if len(cauda) >= 4 and fg > 0.2:
+                voto(round(-3.0 * fg, 1), "letra-grande-na-cauda")
+            # a fronteira e local: as 1as linhas medidas logo apos o corte tem de ser pequenas
+            # (a mediana da cauda inteira nao ve 5 linhas de corpo antes de 30 de nota)
+            ini = [x.h for x in linhas[k:k + 4] if x.h][:2]
+            if ini:
+                voto(-2.5 if max(ini) > limiar_h + 0.5 else 0.5 if max(ini) < limiar_h - 0.5 else 0,
+                     "letra-no-corte")
+        cabeca = [x.h for x in linhas[max(0, k - 6):k] if x.h]
+        if cabeca and cauda:
+            mc = statistics.median(cabeca)
+            voto(0.5 if mc > limiar_h + 0.5 else 0, "letra-corpo")
+    return e, por
+
+
+def inicio_notas(linhas, corpo, limiar_h, aberta, margem=0, limiar_recuo=40, nota=None,
+                 detalhe=None):
     """indice da 1a linha da area de notas, ou len(linhas) se a pagina nao tem notas.
 
-    Notas = o que fica em corpo menor DEPOIS da ultima linha em corpo grande.  Dentro dessa cauda:
-      * se a pagina anterior tinha area de notas ("aberta") e ha um vao de ruler antes de uma
-        cauda cuja 1a linha NAO e recuada, a cauda comeca por continuacao da nota (a pontuacao
-        final nao serve: abreviacoes como "art. V)." a enganam);
-      * senao a area comeca na 1a linha "(n)"; o que vier antes dela e corpo menor (escolio).
-    Sem "(n)" e sem nota aberta, nao ha notas: a cauda e corpo menor."""
-    if not limiar_h or len(linhas) < 2:
-        return len(linhas)
-    # tamanho por linha (largura/caractere) falta nas linhas curtas e oscila: mediana de janela 5
-    hs, ult = [], limiar_h + 1
-    for l in linhas:
-        ult = l.h or ult                                   # sem medida: herda da linha anterior
-        hs.append(ult)
-    pequeno = [statistics.median(hs[max(0, i - 2):i + 3]) < limiar_h for i in range(len(hs))]
+    Uma pagina tem no maximo UMA fronteira corpo->notas: avalia cada corte k (ver escore_corte) e
+    fica com o de maior escore, se passar de LIMIAR_CORTE; senao, "sem notas".  Reparo por
+    chamadas: se o corpo antes do corte tem chamada "(n)" e o vencedor e "sem notas", aceita o
+    melhor corte que comece em "(n)" com escore >= LIMIAR_REPARO (o caso da p. 5 do vol. 2).
+    `detalhe` (lista) recebe (k, escore, motivos) do vencedor, para os alertas."""
     n = len(linhas)
-    pequena_ate_o_fim = [sum(pequeno[i:]) / (n - i) for i in range(n)]   # fracao de linhas pequenas de i ao pe
-    f = next((i for i in range(1, n) if pequeno[i] and NOTA.match(linhas[i].texto)
-              and pequena_ate_o_fim[i] >= 0.8), None)
-    if aberta:                                             # resto de nota da pagina anterior, apos vao de ruler
-        j = next((i for i in range(1, n) if linhas[i].y0 - linhas[i - 1].y0 >= 1.3 * corpo
-                  and pequena_ate_o_fim[i] >= 0.85 and pequeno[i]
-                  and linhas[i].x0 - margem < limiar_recuo and not NOTA.match(linhas[i].texto)), None)
-        if j is not None and (f is None or j <= f):
-            return j
-    return f if f is not None else n
+    if n < 2:
+        return n
+    cands = []
+    for k in range(1, n):
+        e, por = escore_corte(linhas, k, corpo, nota, limiar_h, aberta, margem, limiar_recuo)
+        if e is not None:
+            cands.append((e, -k, k, por))
+    if not cands:
+        return n
+    # continuacao (sem "(n)") so pode abrir a area de notas: depois de um "(n)" aceitavel, nao
+    primeiro_n = min((c[2] for c in cands if c[0] >= LIMIAR_CORTE and NOTA.match(linhas[c[2]].texto)),
+                     default=n)
+    passam = [c for c in cands if c[0] >= LIMIAR_CORTE
+              and (c[2] <= primeiro_n or NOTA.match(linhas[c[2]].texto))]
+    if passam:
+        # entre "(n)": quase-empate fica com o mais cedo (a 2a nota da pagina repete os sinais da
+        # 1a, com cauda mais limpa).  Continuacao so ganha se superar o melhor "(n)".
+        nn = [c for c in passam if NOTA.match(linhas[c[2]].texto)]
+        cc = [c for c in passam if not NOTA.match(linhas[c[2]].texto)]
+        pn = min((c for c in nn if c[0] >= max(x[0] for x in nn) - 1.0), key=lambda c: c[2]) if nn else None
+        pc = max(cc) if cc else None
+        e, _, k, por = pc if pc and (pn is None or pc[0] > pn[0]) else pn
+        escolhido = (k, e, por)
+    else:
+        rep = [c for c in cands if NOTA.match(linhas[c[2]].texto) and c[0] >= LIMIAR_REPARO
+               and any(CHAMADA.search(x.texto) for x in linhas[:c[2]])]
+        if not rep:
+            return n
+        e, _, k, por = max(rep)
+        escolhido = (k, e, por + ["reparo-chamada"])
+    if detalhe is not None:
+        detalhe.append(escolhido)
+    return escolhido[0]
 
 
 class Par:
@@ -260,6 +394,7 @@ def processa_paginas(pasta, de, ate, alerta):
     nota_aberta = None               # ultima Nota (pode atravessar varias paginas)
     paginas = []
     pag_anterior_com_notas = False
+    pendentes = []                   # chamadas da pagina anterior que ficaram sem nota: (Par, glifo, pag)
     for pid, imp in mani:
         if (de and imp < de) or (ate and imp > ate):
             continue
@@ -272,15 +407,27 @@ def processa_paginas(pasta, de, ate, alerta):
         x0s = sorted(l.x0 for l in linhas)
         margem = x0s[len(x0s) // 4]
 
-        # 1. cabecalho
+        # 1. cabecalho (um fragmento de 1-3 caracteres acima dele, sujeira do scan, e descartado)
+        if len(linhas) >= 2 and len(linhas[0].texto) <= 3 and eh_cabecalho(linhas[1].texto) \
+                and not eh_cabecalho(linhas[0].texto):
+            linhas = linhas[1:]
         if eh_cabecalho(linhas[0].texto) and (len(linhas) < 2 or linhas[1].y0 - linhas[0].y0 < 3 * corpo):
             fluxo.append(("fw", linhas[0].texto))
             linhas = linhas[1:]
             if not linhas:
                 continue
         # 2. corpo x notas
-        aberta = nota_aberta is not None and pag_anterior_com_notas
-        k = inicio_notas(linhas, corpo, limiar_h, aberta, margem, limiar)
+        # nota aberta: a pagina anterior teve area de notas, OU deixou chamada sem nota (o corte
+        # dela falhou: a continuacao aqui e a nota daquela chamada)
+        aberta = (nota_aberta is not None and pag_anterior_com_notas) or bool(pendentes)
+        det = []
+        k = inicio_notas(linhas, corpo, limiar_h, aberta, margem, limiar, nota, det)
+        if det and "reparo-chamada" in det[0][2]:
+            alerta(imp, "corte-por-chamada", f"notas a partir da linha {k} só pela chamada no corpo "
+                   f"(escore {det[0][1]:g}: {' '.join(det[0][2][:-1])})")
+        elif det and det[0][1] < LIMIAR_CORTE + 1:
+            alerta(imp, "corte-incerto", f"notas a partir da linha {k}, escore {det[0][1]:g} "
+                   f"({' '.join(det[0][2])})")
         l_corpo, l_notas = linhas[:k], linhas[k:]
         pars = agrupa(l_corpo, corpo, margem, limiar, 1.4)
         for p in pars:
@@ -310,9 +457,25 @@ def processa_paginas(pasta, de, ate, alerta):
                     atual.pars.append(p)
                 else:
                     atual.pars[-1].anexa(t)
-        if cont:
+        recuperada, orfa = None, None
+        if cont and pendentes:
+            # a pagina anterior deixou chamada sem nota: esta continuacao e a nota dela (o comeco
+            # da nota ficou no corpo da pagina anterior: conferir)
+            par_c, glifo, pag_c = pendentes.pop(0)
+            recuperada = nt = Nota(num_chamada(glifo) or "1", pag_c, cont)
+            cont[0].pecas.insert(0, ("pb", imp))
+            if insere_chamada(par_c, glifo, nt):
+                alerta(imp, "nota-recuperada", f"continuação ligada à chamada ({glifo}) da p. {pag_c}, "
+                       f"que ficou sem nota: o começo de {nt.id} deve estar no corpo da p. {pag_c}")
+            else:
+                par_c.pecas.append(("nota", nt))
+                alerta(imp, "nota-recuperada", f"continuação sem chamada localizável: {nt.id} no fim do parágrafo")
+        elif cont:
             if nota_aberta is None:
-                alerta(imp, "continuacao-sem-nota", "área de notas começa sem “(n)” e não há nota aberta")
+                # o texto nao pode sumir: vira nota sem numero no fim do ultimo paragrafo
+                alerta(imp, "continuacao-sem-nota", "área de notas começa sem “(n)” e não há nota aberta; "
+                       "anexada como nota “?” ao último parágrafo")
+                recuperada = orfa = Nota("?", imp, cont)
             else:
                 if FIM_FRASE.search(nota_aberta.pars[-1].texto()):
                     alerta(imp, "continuacao-duvidosa", f"nota {nota_aberta.id} parecia terminada, mas continua")
@@ -325,6 +488,8 @@ def processa_paginas(pasta, de, ate, alerta):
                 nota_aberta.pars.extend(cont[1:])
         if novas:
             nota_aberta = novas[-1]
+        elif recuperada is not None:
+            nota_aberta = recuperada
         pag_anterior_com_notas = bool(novas or cont)
 
         # 4. continuacao de paragrafo do corpo
@@ -336,7 +501,12 @@ def processa_paginas(pasta, de, ate, alerta):
             lig = []
         # 5. liga notas as chamadas (por ordem; o numero confirma)
         corpo_pars = lig + pars
-        liga_notas(corpo_pars, novas, imp, alerta)
+        pendentes = [(p_, g_, imp) for p_, g_ in liga_notas(corpo_pars, novas, imp, alerta)]
+        if orfa is not None:
+            destino = ultima_par if ultima_par is not None else (corpo_pars[-1] if corpo_pars else None)
+            if destino is not None:
+                destino.pecas.append(("nota", orfa))
+                orfa.chamada = True
         if lig:
             u = ultima_par
             c0 = lig[0].pecas
@@ -345,9 +515,13 @@ def processa_paginas(pasta, de, ate, alerta):
             elif isinstance(c0[0], str):
                 c0[0] = " " + c0[0]
             u.pecas.append(("pb", imp))
-            u.pecas.extend(c0)
-            # o <pb> desta pagina passa a ficar DENTRO do paragrafo (nao no fluxo)
+            # o <pb> desta pagina passa a ficar DENTRO do paragrafo (nao no fluxo), e o <fw> da
+            # pagina vai junto dele (antes ficava solto depois do </p>)
+            i_pb = fluxo.index(("pb", imp, pid))
+            if i_pb + 1 < len(fluxo) and fluxo[i_pb + 1][0] == "fw":
+                u.pecas.append(fluxo.pop(i_pb + 1))
             fluxo.remove(("pb", imp, pid))
+            u.pecas.extend(c0)
         for p in pars:
             fluxo.append(("p", p))
         if pars:
@@ -405,6 +579,20 @@ def liga_notas(pars, novas, pag, alerta):
             nt.chamada = True
     if novas and not pars:
         alerta(pag, "nota-sem-corpo", "página só com notas; chamadas estão na página anterior")
+    feitas = {id(c[2]) for c, _ in pares}
+    return [(p, m.group(1)) for p, i, m in chamadas if id(m) not in feitas]
+
+
+def insere_chamada(par, glifo, nt):
+    """troca a 1a chamada "(glifo)" ainda em texto do paragrafo pela nota nt; False se nao achou."""
+    for i, pc in enumerate(par.pecas):
+        if isinstance(pc, str):
+            for m in CHAMADA.finditer(pc):
+                if m.group(1) == glifo:
+                    par.pecas[i:i + 1] = [x for x in (pc[:m.start()], ("nota", nt), pc[m.end():]) if x != ""]
+                    nt.chamada = True
+                    return True
+    return False
 
 
 # ------------------------------------------------------------------ pecas -> XML
@@ -421,6 +609,8 @@ def render_pecas(el, pecas, facs):
             poe_texto(el, pc)
         elif pc[0] == "pb":
             etree.SubElement(el, T("pb"), n=str(pc[1]), facs=facs(pc[1]))
+        elif pc[0] == "fw":
+            etree.SubElement(el, T("fw"), type="header").text = pc[1]
         elif pc[0] == "nota":
             render_nota(el, pc[1], facs)
 
