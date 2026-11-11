@@ -77,8 +77,12 @@ lido como romano) e troca as marcas por `<hi>`; uma corrida aberta atravessa `<p
 do mesmo elemento. Em `<fw>`, `<label>`, `<head>` e no enunciado da tese as marcas só somem.
 
 Portões de regressão: sem `.fmt.tsv`, a saída é byte a byte a do estruturador anterior; com a
-formatação, o texto é o mesmo (WER do ouro igual, 0 tokens diferentes). `corrige_ocr.py` corre
-dentro dos `<hi>` (`<hi rend="sc">Dzvs</hi>` → `<hi rend="sc">Deus</hi>`).
+formatação, estrutura, texto e alertas são os mesmos nos dois volumes. `corrige_ocr.py` corre
+dentro dos `<hi>` (`<hi rend="sc">Dzvs</hi>` → `<hi rend="sc">Deus</hi>`) e enxerga, como
+contexto, o texto dos nós vizinhos ligados só por fronteira de `<hi>` (`corridas()`): sem isso o
+latim em itálico, isolado num nó curto, escapava ao detector de latim (`lege` → `logo`) e a regra
+`digito` perdia o vizinho. Com isso, as trocas do vol. 2 são idênticas às sem formatação
+(WER do ouro 3,97% nos dois casos).
 
 ## Limites
 

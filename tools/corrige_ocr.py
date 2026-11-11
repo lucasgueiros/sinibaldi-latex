@@ -160,9 +160,18 @@ class Corretor:
         return r
 
     # --- texto
-    def corrige(self, s, registra, baixa=frozenset()):
-        toks = list(TOKEN.finditer(s))
-        fora = estrangeiros([m.group() for m in toks])
+    def corrige(self, s, registra, baixa=frozenset(), antes="", depois=""):
+        """antes/depois: texto vizinho em outros nós da mesma corrida (fronteira de <hi>), só
+        como contexto: entra na janela do latim/francês e na regra digito, não é corrigido."""
+        ext, d = antes + s + depois, len(antes)
+        tx = list(TOKEN.finditer(ext))
+        fora_x = estrangeiros([m.group() for m in tx])
+        toks, fora = [], set()
+        for j, m in enumerate(tx):
+            if d <= m.start() and m.end() <= d + len(s):
+                if j in fora_x:
+                    fora.add(len(toks))
+                toks.append(re.compile(re.escape(m.group())).match(s, m.start() - d))
         partes, pos = [], 0
         for i, m in enumerate(toks):
             w = m.group()
@@ -171,8 +180,8 @@ class Corretor:
                 pass
             elif w.isdigit():
                 if "digito" in self.ativas and w in ("6", "4") \
-                        and re.search(r"[a-zà-ÿ,] $", s[max(0, m.start() - 2):m.start()]) \
-                        and re.match(r" [a-zà-ÿ]", s[m.end():m.end() + 2]):
+                        and re.search(r"[a-zà-ÿ,] $", ext[max(0, d + m.start() - 2):d + m.start()]) \
+                        and re.match(r" [a-zà-ÿ]", ext[d + m.end():d + m.end() + 2]):
                     novo, regras = {"6": "é", "4": "á"}[w], ["digito"]
             else:
                 novo, regras = self.regras(w)
@@ -205,6 +214,44 @@ def baixa_confianca(tsv, limiar=60):
     return out
 
 
+def corridas(bloco, n=80):
+    """{(no, "text"|"tail"): (antes, depois)} dos segmentos de texto de `bloco` ligados só por
+    fronteiras de <hi> (formatação): o texto de um <hi> e o que o cerca são uma frase só.  Qualquer
+    outro filho (<pb>, <note>, <fw>, <label>...) corta a corrida, como antes da formatação."""
+    runs, atual = [], []
+
+    def dentro(e):                      # e e um <hi>: seu texto, seus <hi> filhos e as caudas
+        atual.append((e, "text"))
+        for c in e:
+            if c.tag == TEI + "hi":
+                dentro(c)
+            else:
+                corta()
+            atual.append((c, "tail"))
+
+    def corta():
+        nonlocal atual
+        if atual:
+            runs.append(atual)
+        atual = []
+    atual.append((bloco, "text"))
+    for c in bloco:
+        if isinstance(c.tag, str) and c.tag == TEI + "hi":
+            dentro(c)
+        else:
+            corta()
+        atual.append((c, "tail"))
+    corta()
+    out = {}
+    for run in runs:
+        if len(run) < 2:
+            continue
+        txt = [(getattr(e, campo) or "") for e, campo in run]
+        for i, (e, campo) in enumerate(run):
+            out[(e, campo)] = ("".join(txt[:i])[-n:], "".join(txt[i + 1:])[:n])
+    return out
+
+
 def corrige_arquivo(xml, saida, tsv_saida, quieto=False, ativas=REGRAS, excluir_teste=True):
     arv = etree.parse(str(xml))
     raiz = arv.getroot()
@@ -226,13 +273,20 @@ def corrige_arquivo(xml, saida, tsv_saida, quieto=False, ativas=REGRAS, excluir_
 
         def reg(a, d, r):
             linhas.append((estado["pag"], ident, a, d, r))
+
+        if tag != TEI + "hi":
+            contexto.update(corridas(el))
+
+        def ctx(e, campo):
+            return contexto.get((e, campo), ("", ""))
         if el.text and not pula:
-            el.text = cor.corrige(el.text, reg, estado["baixa"])
+            el.text = cor.corrige(el.text, reg, estado["baixa"], *ctx(el, "text"))
         for c in el:
             walk(c, pula, ident)
             if c.tail and not pula:
-                c.tail = cor.corrige(c.tail, reg, estado["baixa"])
+                c.tail = cor.corrige(c.tail, reg, estado["baixa"], *ctx(c, "tail"))
 
+    contexto = {}
     walk(raiz, False, None)
     rev = raiz.find(f"{TEI}teiHeader/{TEI}revisionDesc")
     if rev is not None:
