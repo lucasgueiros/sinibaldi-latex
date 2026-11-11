@@ -101,3 +101,19 @@ python3 tools/gera_slides_base.py <caminho-do-nó>/<stem>.tex     # -> <stem>.sl
 ```
 
 A fonte a versionar e reeditar é o `.slides.md`; `.slides.base.md` e `.pptx` são reproduzíveis.
+
+## TEI → LaTeX (dois passos)
+
+`tools/estruturar_tei.py <volN>/paginas -o <volN>/<volN>.estruturado.xml [-f P -l P]` lê o
+`manifesto.tsv` e o `.tsv` do tesseract de cada página (geometria) e produz o TEI estruturado:
+`div` parte/seccao/capitulo/artigo/tese, `head`, `argument`, `label`, `hi rend="bold"`, `fw`,
+`pb` e notas `<note>` **no ponto da chamada** (com `<pb/>` interno quando atravessam páginas).
+Separação corpo × notas por geometria (entrelinha calibrada por volume), não por texto.
+Tudo que a heurística não fecha vai para `<saida>.alertas.tsv` (revisão F6).
+
+`tools/tei2latex.py <xml> [-f P -l P] [-o x.tex] [--puro] [--grafia original|atual]` converte o TEI
+(estruturado, ou o bruto de `paginas2tei.py`) no dialeto de `tex/preambulo.tex`:
+`\pg`, `\pgn`, `\tese`, `\footnote`, `\chapter*`/`\section*`, `latim`. Sem `--puro`, o `.tex`
+compila avulso (`tex/avulso.tex`). Limitações conhecidas do estruturador: página com corpo
+retomado depois de nota (alerta `vao-nas-notas`), tese cujo número o OCR leu mal (alerta
+`tese-fora-de-sequencia`; a tese vira `<p>`), itálico/latim ainda não marcados (fase F6).
