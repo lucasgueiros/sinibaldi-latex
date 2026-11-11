@@ -93,7 +93,9 @@ linha seguinte. Assim, corrigir uma linha nunca deixa outra inconsistente.
   (padrão: `capitulo`, e `prologo` como capítulo). Pastas `NN_slug/` e o recorte das páginas
   (`corta.py`) saem do TSV. O `estrutura.tsv` atual de `docs/05` (`caminho pág_ini pág_fim`) passa
   a ser **derivado** deste, e `corta.py` lê o novo formato.
-- **Formatação**: cada `nível` corresponde a **uma macro** do preâmbulo, e a aparência fica em
+- **Formatação** (atualizado: a fonte agora é TEI, ver `tei-base-e-obra-nova.md`): cada `nível`
+  vira `<div type="…" xml:id n>` + `<head>` no TEI, e `tei2latex`/`tei2html` mapeiam cada tipo para
+  **uma macro** do preâmbulo / uma tag HTML, e a aparência fica em
   um só lugar:
 
   | nível | LaTeX gerado | HTML gerado |
@@ -105,8 +107,8 @@ linha seguinte. Assim, corrigir uma linha nunca deixa outra inconsistente.
   | `tese` | `\tese{6}{A existencia …}` (já existe) | `<p id="t6"><strong>6. …` |
   | `prologo` | `\capitulo{Prologo}{}` | `<h2>` |
 
-- Na geração (`pagina2tex.py`, F5), as linhas que o TSV declara título são **retiradas do fluxo**
-  do corpo e trocadas pela macro, com o `\pg{n}` mantido no lugar. O que o TSV não declara
+- Na geração (`pagina2tei.py`, F5), as linhas que o TSV declara título são **retiradas do fluxo**
+  do corpo e viram `<div>`/`<head>`, com o `<pb>` mantido no lugar. O que o TSV não declara
   continua sendo corpo.
 - Sumário/índice do livro (`\tableofcontents`) e índice do site saem das próprias macros, ou seja,
   do TSV.
