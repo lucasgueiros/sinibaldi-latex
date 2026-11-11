@@ -112,8 +112,9 @@ class Corretor:
                 w, feitas = n, feitas + ["oe"]
         if "a-grave" in a and w in ("à", "às", "À"):
             w, feitas = {"à": "á", "às": "ás", "À": "A"}[w], feitas + ["a-grave"]
+        # so o dicionario pt protege: "drus" (pl. de "dru") e valido em fr e bloqueava 655 Drus no vol. 2
         if "deus" in a and re.fullmatch(r"D[A-Za-z]{2}[sS]", w) and w not in ("Deus", "Deos") \
-                and not lexico.valida(w.lower()):
+                and "pt" not in lexico.validas().get(w.lower(), ""):
             w, feitas = "Deus", feitas + ["deus"]
         if "h-italico" in a and re.search(r"(?<=[a-z])A(?=[a-z])", w):
             n = re.sub(r"(?<=[a-z])A(?=[a-z])", "h", w)
