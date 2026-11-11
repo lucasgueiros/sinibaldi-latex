@@ -46,11 +46,11 @@ vol*/**/*.slides.base.md
 vol*/**/*.pptx
 
 # --- Fase 1 (tools/fase1.sh): volN/paginas/ ---
-# versionar: manifesto.tsv, paginas.tsv, <id>.txt e o TEI bruto volN/volN.xml;
-# ignorar: imagens e saida bruta do tesseract (regeneraveis).
+# versionar: manifesto.tsv, paginas.tsv, <id>.txt, <id>.tsv (linhas/palavras com caixas: e a
+# entrada de tools/estruturar_tei.py, e refazer custa ~25 min de OCR) e o TEI volN/volN.xml;
+# ignorar: imagens e hOCR bruto do tesseract (regeneraveis).
 vol*/paginas/*.png
 vol*/paginas/*.hocr
-vol*/paginas/[0-9f]*.tsv
 !vol*/paginas/*.txt
 
 # --- Python ---
