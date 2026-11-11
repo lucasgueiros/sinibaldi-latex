@@ -15,9 +15,12 @@ tools/tei2latex.py converte:
 
 Como separa o que o .txt misturava (ver .claude/plans/edicao-renovada/notas-de-rodape.md):
   1. cabecalho corrente = 1a linha da pagina se parecer cabecalho;
-  2. fronteira corpo/notas = 1o vao grande (>= 1,4 entrelinha do corpo) depois do qual todas as
-     entrelinhas sao as do corpo menor ate o pe da pagina.  As duas entrelinhas (corpo ~52 px,
-     notas ~43 px a 300 ppi) sao calibradas por volume pelo histograma de entrelinhas;
+  2. fronteira corpo/notas: notas = corpo menor no pe da pagina, que comeca numa linha "(n)" ou,
+     havendo area de notas na pagina anterior, numa linha NAO recuada apos um vao de filete
+     (continuacao).  O livro usa corpo menor tambem fora das notas (escolios), entao a entrelinha
+     nao basta: o tamanho da letra (largura por caractere em linhas justificadas, ~21,5 px no corpo
+     e ~17,5 nas notas, limiar por k-means no volume) e que separa corpo de corpo menor.  Notas
+     longas existem: no vol. 2 chegam a 18 paginas (nota 580-1), com 2 linhas de corpo por pagina;
   3. paragrafo novo = linha recuada (>= ~2,5% da largura alem da margem) ou vao grande;
   4. nota nova = linha com "(n)"; linha sem "(n)" no inicio da area de notas = continuacao da
      nota aberta da pagina anterior (a nota ganha um <pb/> interno);
@@ -62,10 +65,10 @@ def T(n):
 
 # ------------------------------------------------------------------ leitura do .tsv
 class Linha:
-    __slots__ = ("x0", "y0", "x1", "y1", "texto")
+    __slots__ = ("x0", "y0", "x1", "y1", "texto", "h")
 
-    def __init__(self, x0, y0, x1, y1, texto):
-        self.x0, self.y0, self.x1, self.y1, self.texto = x0, y0, x1, y1, texto
+    def __init__(self, x0, y0, x1, y1, texto, h=None):
+        self.x0, self.y0, self.x1, self.y1, self.texto, self.h = x0, y0, x1, y1, texto, h
 
 
 def le_linhas(tsv):
@@ -79,12 +82,22 @@ def le_linhas(tsv):
             k = (r["block_num"], r["par_num"], r["line_num"])
             if lv == 4:
                 x, y, w, h = (int(r[c]) for c in ("left", "top", "width", "height"))
-                linhas[k] = [x, y, x + w, y + h, []]
+                linhas[k] = [x, y, x + w, y + h, [], []]
             elif lv == 5 and k in linhas:
                 t = CTRL.sub("", r["text"]).strip()
                 if t and float(r["conf"]) >= 0:
                     linhas[k][4].append(t)
-    out = [Linha(x0, y0, x1, y1, " ".join(ws)) for x0, y0, x1, y1, ws in linhas.values() if ws]
+                    if sum(c.isalpha() for c in t) >= 4:        # palavras longas: altura confiavel
+                        linhas[k][5].append(int(r["height"]))
+    out = [Linha(x0, y0, x1, y1, " ".join(ws)) for x0, y0, x1, y1, ws, hs in linhas.values() if ws]
+    # tamanho da letra = largura por caractere, so em linhas "cheias" (justificadas): corpo ~21.5 px,
+    # corpo menor/notas ~17.5 px a 300 ppi.  A altura da palavra foi descartada: oscila demais.
+    if out:
+        ws_ = sorted(l.x1 - l.x0 for l in out)
+        coluna = ws_[int(len(ws_) * 0.9)]
+        for l in out:
+            if (l.x1 - l.x0) >= 0.93 * coluna and len(l.texto) > 25:
+                l.h = (l.x1 - l.x0) / len(l.texto)
     out.sort(key=lambda l: (l.y0, l.x0))
     return out, largura
 
@@ -118,35 +131,52 @@ def eh_cabecalho(t):
     return len(letras) >= 6 and sum(c.isupper() for c in letras) / len(letras) > 0.7
 
 
-def fronteira_notas(linhas, corpo, nota):
-    """indice da 1a linha da area de notas, ou len(linhas)."""
-    if not nota or len(linhas) < 2:
-        return len(linhas)
-    meio = (corpo + nota) / 2
-    pitch = [linhas[i + 1].y0 - linhas[i].y0 for i in range(len(linhas) - 1)]  # pitch[i]: i -> i+1
-    # a area de notas comeca no 1o vao grande depois do qual NAO ha mais entrelinha de corpo
-    # (so a de nota, ou outro vao).  Nao vale "o ultimo vao": uma nota pode ser seguida de
-    # corpo (p. 438, separado por asterisco) — isso fica na area de notas, com alerta.
-    cand = [k for k in range(1, len(linhas)) if pitch[k - 1] >= 1.4 * corpo]
-    def corpo_adiante(resto):
-        """ha >= 2 entrelinhas de corpo seguidas (um 50 isolado e ruido da caixa do OCR)?"""
-        corrida = 0
-        for d in resto:
-            corrida = corrida + 1 if meio + 2 <= d < 1.4 * corpo else 0
-            if corrida >= 2:
-                return True
-        return False
+def calibra_tamanho(todas):
+    """limiar de largura/caractere entre corpo grande e corpo menor (k-means 1D, 2 grupos).
 
-    for k in cand:
-        resto = pitch[k:]
-        if corpo_adiante(resto):
-            continue
-        if resto:
-            if statistics.median([d for d in resto if d < 1.4 * corpo] or [corpo]) < meio:
-                return k
-        elif NOTA.match(linhas[k].texto):                # nota de uma linha so, no pe
-            return k
-    return len(linhas)
+    O livro usa corpo menor tambem FORA das notas (escolios, "Pergunta/Resposta", citacoes);
+    so a entrelinha nao separa notas de corpo menor, mas o tamanho da letra separa corpo
+    de corpo menor (largura/caractere ~21.5 contra ~17.5 px a 300 ppi)."""
+    hs = sorted(l.h for linhas in todas for l in linhas if l.h)
+    if len(hs) < 50:
+        return None
+    lo, hi = hs[len(hs) // 4], hs[3 * len(hs) // 4]
+    for _ in range(20):
+        meio = (lo + hi) / 2
+        a = [h for h in hs if h < meio] or [lo]
+        b = [h for h in hs if h >= meio] or [hi]
+        lo, hi = statistics.mean(a), statistics.mean(b)
+    return (lo + hi) / 2 if hi - lo >= 2 else None
+
+
+def inicio_notas(linhas, corpo, limiar_h, aberta, margem=0, limiar_recuo=40):
+    """indice da 1a linha da area de notas, ou len(linhas) se a pagina nao tem notas.
+
+    Notas = o que fica em corpo menor DEPOIS da ultima linha em corpo grande.  Dentro dessa cauda:
+      * se a pagina anterior tinha area de notas ("aberta") e ha um vao de ruler antes de uma
+        cauda cuja 1a linha NAO e recuada, a cauda comeca por continuacao da nota (a pontuacao
+        final nao serve: abreviacoes como "art. V)." a enganam);
+      * senao a area comeca na 1a linha "(n)"; o que vier antes dela e corpo menor (escolio).
+    Sem "(n)" e sem nota aberta, nao ha notas: a cauda e corpo menor."""
+    if not limiar_h or len(linhas) < 2:
+        return len(linhas)
+    # tamanho por linha (largura/caractere) falta nas linhas curtas e oscila: mediana de janela 5
+    hs, ult = [], limiar_h + 1
+    for l in linhas:
+        ult = l.h or ult                                   # sem medida: herda da linha anterior
+        hs.append(ult)
+    pequeno = [statistics.median(hs[max(0, i - 2):i + 3]) < limiar_h for i in range(len(hs))]
+    n = len(linhas)
+    pequena_ate_o_fim = [sum(pequeno[i:]) / (n - i) for i in range(n)]   # fracao de linhas pequenas de i ao pe
+    f = next((i for i in range(1, n) if pequeno[i] and NOTA.match(linhas[i].texto)
+              and pequena_ate_o_fim[i] >= 0.8), None)
+    if aberta:                                             # resto de nota da pagina anterior, apos vao de ruler
+        j = next((i for i in range(1, n) if linhas[i].y0 - linhas[i - 1].y0 >= 1.3 * corpo
+                  and pequena_ate_o_fim[i] >= 0.85 and pequeno[i]
+                  and linhas[i].x0 - margem < limiar_recuo and not NOTA.match(linhas[i].texto)), None)
+        if j is not None and (f is None or j <= f):
+            return j
+    return f if f is not None else n
 
 
 class Par:
@@ -213,12 +243,15 @@ def processa_paginas(pasta, de, ate, alerta):
     corpo, nota = calibra_entrelinhas([d[0] for d in dados.values()])
     if not corpo:
         sys.exit("não consegui calibrar a entrelinha (tsv vazios?)")
-    print(f"entrelinha calibrada: corpo ≈ {corpo} px, notas ≈ {nota} px", file=sys.stderr)
+    limiar_h = calibra_tamanho([d[0] for d in dados.values()])
+    print(f"entrelinha calibrada: corpo ≈ {corpo} px, notas ≈ {nota} px; "
+          f"limiar de largura por caractere: {limiar_h and round(limiar_h, 1)}", file=sys.stderr)
 
     fluxo = []                       # itens: ('pb', n, pid) | ('fw', texto) | ('p', Par)
     ultima_par = None                # ultimo Par de corpo emitido (para continuacao)
     nota_aberta = None               # ultima Nota (pode atravessar varias paginas)
     paginas = []
+    pag_anterior_com_notas = False
     for pid, imp in mani:
         if (de and imp < de) or (ate and imp > ate):
             continue
@@ -238,7 +271,8 @@ def processa_paginas(pasta, de, ate, alerta):
             if not linhas:
                 continue
         # 2. corpo x notas
-        k = fronteira_notas(linhas, corpo, nota)
+        aberta = nota_aberta is not None and pag_anterior_com_notas
+        k = inicio_notas(linhas, corpo, limiar_h, aberta, margem, limiar)
         l_corpo, l_notas = linhas[:k], linhas[k:]
         pars = agrupa(l_corpo, corpo, margem, limiar, 1.4)
         for p in pars:
@@ -283,6 +317,7 @@ def processa_paginas(pasta, de, ate, alerta):
                 nota_aberta.pars.extend(cont[1:])
         if novas:
             nota_aberta = novas[-1]
+        pag_anterior_com_notas = bool(novas or cont)
 
         # 4. continuacao de paragrafo do corpo
         if pars and ultima_par is not None and not pars[0].recuado and \

@@ -108,7 +108,7 @@ A fonte a versionar e reeditar é o `.slides.md`; `.slides.base.md` e `.pptx` s�
 `manifesto.tsv` e o `.tsv` do tesseract de cada página (geometria) e produz o TEI estruturado:
 `div` parte/seccao/capitulo/artigo/tese, `head`, `argument`, `label`, `hi rend="bold"`, `fw`,
 `pb` e notas `<note>` **no ponto da chamada** (com `<pb/>` interno quando atravessam páginas).
-Separação corpo × notas por geometria (entrelinha calibrada por volume), não por texto.
+Separação corpo × notas por geometria, não por texto: tamanho da letra (largura por caractere, k-means por volume) + marcador `(n)` + continuação após o filete. Notas chegam a 18 páginas (vol. 2, nota 580-1); ~70% das palavras do vol. 2 estão em notas, como no trecho transcrito à mão (421–442: 8847 palavras em notas contra 8921 geradas).
 Tudo que a heurística não fecha vai para `<saida>.alertas.tsv` (revisão F6).
 
 `tools/tei2latex.py <xml> [-f P -l P] [-o x.tex] [--puro] [--grafia original|atual]` converte o TEI
