@@ -36,7 +36,9 @@ derived files under new names.
 padrões-ouro — vol. 2 pp. 421–442, vol. 1 `vol1/ouro/` (`--vol vol1`), `docs/07` — o portão de qualquer mudança no texto), `lexico.py` (léxico do corpus +
 `tools/dados/validas.tsv`), `formatacao.py` (itálico/versalete/negrito medidos na imagem →
 `<id>.fmt.tsv` → `<hi rend>`; `mede_formatacao.py` mede no ouro; `docs/06`), `gera_volume.sh`
-(cadeia inteira de um volume: formatação → TEI → correção → LaTeX → `build/volN.pdf`). Ver `docs/03`.
+(cadeia inteira de um volume: formatação → TEI → correção → LaTeX → `build/volN.pdf`), `titulos.py`
+(detecta títulos/teses → `volN/estrutura.proposta.tsv` + alertas), `trecho.py` (seletor por id, tese
+ou página → txt/tei/tex/pdf/scan/slides; `--lista`, `--onde`; `docs/08`). Ver `docs/03`.
 
 ## Pipeline
 

@@ -107,6 +107,10 @@ dos nós, as macros de título no LaTeX/HTML e o sumário saem dele. Corrigir um
 linha e regenerar. O índice impresso, o cabeçalho corrente e a sequência das teses servem de
 conferência cruzada, não de fonte. Detalhes em
 **[`titulos-e-estrutura.md`](titulos-e-estrutura.md)**.
+**v2 (2026-11-11):** a detecção já existe embutida em `estruturar_tei.py` e foi medida (capítulos
+perdidos quando o rótulo é a 1.ª linha da página, aparato final lido como corpo, ids sequenciais);
+o plano revisto tira a detecção para `titulos.py`, usa o cabeçalho corrente como conferência forte
+e acrescenta `trecho.py` (seletor por id/tese/página → TEI, txt, tex, pdf, scan, slides).
 
 ### F5 — `tools/pagina2tei.py`: TEI mecânico por capítulo
 Para cada divisão do `estrutura.tsv`, concatena as páginas e gera o TEI bruto do capítulo: `<div>`
@@ -178,7 +182,7 @@ tabela de correspondência e o registro de mudanças saem de `tools/procedencia.
   aparecem em popup, as grafias 1916 e atual podem ser comutadas, e na obra nova um trecho
   adaptado mostra o original ao lado.
 - **Extração de trechos**: qualquer id → texto + página + capítulo. Substitui `trecho.py`/`%%>>>`,
-  e os slides passam a sair daí.
+  e os slides passam a sair daí. Desenho em `titulos-e-estrutura.md` § Trechos.
 - **Edição via sistema**: git + editor XML com validação pelo schema (VS Code + extensão XML,
   gratuito; ou FairCopy/Oxygen). Site publicado a cada commit. Um editor web próprio pode vir
   depois, sobre os mesmos arquivos.

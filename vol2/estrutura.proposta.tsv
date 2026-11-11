@@ -1,0 +1,598 @@
+# pag	ancora	nivel	rotulo	titulo	id	fonte
+5	PARTE TERCEIRA	parte	Parte Terceira	ANTHROPOL OGIA	anthropol-ogia	auto
+5	1. Anthropologia. — Anthropolo	tese	1	Anthropologia.	t1	auto
+5	2. Objecto da Anthropologia. —	tese	2	Objecto da Anthropologia.	t2	auto
+7	3. Excellencia da Anthropologi	tese	3	Excellencia da Anthropologia.	t3	auto
+7	4. Methodo da Anthropologia. —	tese	4	Methodo da Anthropologia.	t4	auto
+9	5. Divisão da Anthropologia. —	tese	5	Divisão da Anthropologia.	t5	auto
+10	SECÇÃO PRIMEIRA	seccao	Secção Primeira	ESSENCIA DO HOMEM	anthropol-ogia.essencia-do-homem	auto
+10	6. Divisão da secção primeira.	tese	6	Divisão da secção primeira.	t6	auto
+10	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	CORPO HUMANO	anthropol-ogia.essencia-do-homem.corpo-humano	auto
+10	ARTIGO I	artigo	Artigo I	Descripção do corpo humano.	anthropol-ogia.essencia-do-homem.corpo-humano.a1	auto
+10	7. Principaes regiões do corpo	tese	7	Principaes regiões do corpo humano.	t7	auto
+10	8. Cabeça. — A cabeça, que é a	tese	8	Cabeça.	t8	auto
+11	9. Thorax. — Thorax é uma cavi	tese	9	Thorax.	t9	auto
+11	10. Abdomen. — Abdomen é uma c	tese	10	Abdomen.	t10	auto
+11	11. Membros. — Os membros são 	tese	11	Membros.	t11	auto
+11	ARTIGO II	artigo	Artigo II	Orgãos da vida vegetativa.	anthropol-ogia.essencia-do-homem.corpo-humano.a2	auto
+11	12. Orgãos da vida vegetativa.	tese	12	Orgãos da vida vegetativa.	t12	auto
+12	13. Orgãos do apparelho digest	tese	13	Orgãos do apparelho digestivo.	t13	auto
+14	14. Orgãos do apparelho circul	tese	14	Orgãos do apparelho circulatorio.	t14	auto
+18	15. Orgãos do apparelho respir	tese	15	Orgãos do apparelho respiratorio.	t15	auto
+20	ARTIGO III	artigo	Artigo III	Orgãos da sensibilidade externa,	anthropol-ogia.essencia-do-homem.corpo-humano.a3	auto
+20	16. Orgãos da sensibilidade ex	tese	16	Orgãos da sensibilidade externa.	t16	auto
+21	17. Orgãos do apparelho visual	tese	17	Orgãos do apparelho visual.	t17	auto
+23	18. Orgãos do apparelho auditi	tese	18	Orgãos do apparelho auditivo.	t18	auto
+25	19. Orgãos do apparelho olfact	tese	19	Orgãos do apparelho olfactivo.	t19	auto
+25	20. Orgãos do apparelho gustat	tese	20	Orgãos do apparelho gustativo.	t20	auto
+26	21. Orgãos do apparelho do tac	tese	21	Orgãos do apparelho do tacto.	t21	auto
+26	ARTIGO IV	artigo	Artigo IV	-	anthropol-ogia.essencia-do-homem.corpo-humano.a4	auto
+26	22. Orgãos da sensibilidade in	tese	22	Orgãos da sensibilidade interna.	t22	auto
+31	23. Orgãos da locomoção. — Os 	tese	23	Orgãos da locomoção.	t23	auto
+32	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	ALMA HUMANA	anthropol-ogia.essencia-do-homem.alma-humana	auto
+32	ARTIGO I	artigo	Artigo I	Alma humana, sua existencia e substancialidade.	anthropol-ogia.essencia-do-homem.alma-humana.a1	auto
+32	24. Alma humana. — Alma humana	tese	24	Alma humana.	t24	auto
+33	95. À alma humana é ente real.	tese	25	À alma humana é ente real.	t25	auto
+33	26. A alma humana é substancia	tese	26	A alma humana é substancia.	t26	auto
+34	27. À alma humana é substancia	tese	27	À alma humana é substancia incompleta.	t27	auto
+34	28. A alma humana é distincta 	tese	28	A alma humana é distincta do corpo.	t28	auto
+35	ARTIGO II	artigo	Artigo II	Simplicidade da alma humana.	anthropol-ogia.essencia-do-homem.alma-humana.a2	auto
+35	29. Simplicidade da alma human	tese	29	Simplicidade da alma humana.	t29	auto
+38	ARTIGO III	artigo	Artigo III	Espiritualidade da alma humana.	anthropol-ogia.essencia-do-homem.alma-humana.a3	auto
+38	32. Espirituálidade da alma hu	tese	32	Espirituálidade da alma humana.	t32	auto
+39	33. Dilferenga entre simplicid	tese	33	Dilferenga entre simplicidade e espiritualidade.	t33	auto
+40	34. Methodo a seguir na demons	tese	34	Methodo a seguir na demonstração da espiritualidade da alma humana.	t34	auto
+45	ARTIGO IV.	artigo	Artigo IV	A espiritualidade da alma humana e o materialismo.	anthropol-ogia.essencia-do-homem.alma-humana.a4	auto
+45	37. Doutrina do materialismo. 	tese	37	Doutrina do materialismo.	t37	auto
+45	38. Repugna que o pensamento s	tese	38	Repugna que o pensamento seja um producto da materia.	t38	auto
+45	39. O pensamento não à uma sec	tese	39	O pensamento não à uma secreção do cerebro.	t39	auto
+47	41. O pensamento não é uma fun	tese	41	O pensamento não é uma funcção do cerebro.	t41	auto
+48	49. Gonsequencias do materiali	tese	42	Gonsequencias do materialismo.	t42	auto
+60	CAPITULO TERCEIRO	capitulo	Capitulo Terceiro	UNIÃO DA ALMA COM O CORPO	anthropol-ogia.essencia-do-homem.uniao-da-alma-com-o	auto
+60	ARTIGO I	artigo	Artigo I	União da alma com o corpo e suas consequencias.	anthropol-ogia.essencia-do-homem.uniao-da-alma-com-o.a1	auto
+60	43. A alma e o corp» constitue	tese	43	A alma e o corp» constituem, pela sua união, uma só pessoa.	t43	auto
+61	44. A alma e o corpo constitue	tese	44	A alma e o corpo constituem, pela sua união, uma sô natu- reza.	t44	auto
+62	45. À união da alma com o corp	tese	45	À união da alma com o corpo é substancial. A união póde ser substancial ou accidental.	t45	auto
+69	47. Entre a alma e o corpo dá-	tese	47	Entre a alma e o corpo dá-se um mutuo influxo.	t47	auto
+75	48. Consequencias da união da 	tese	48	Consequencias da união da alma com o corpo.	t48	auto
+75	ARTIGO II	artigo	Artigo II	Unidade da alma humana.	anthropol-ogia.essencia-do-homem.uniao-da-alma-com-o.a2	auto
+75	49. Estado da questão. — O hom	tese	49	Estado da questão.	t49	auto
+76	50. O homem tem uma só alma.	tese	50	O homem tem uma só alma.	t50	auto
+79	51. A unica alma do homem 6 a 	tese	51	A unica alma do homem 6 a intellectual.	t51	auto
+84	54. Corollario. — Das theorias	tese	54	Corollario.	t54	auto
+87	ARTIGO III.	artigo	Artigo III	Séde da alma humana.	anthropol-ogia.essencia-do-homem.uniao-da-alma-com-o.a3	auto
+87	55. Estado da questão. — A alm	tese	55	Estado da questão.	t55	auto
+92	57. A alma, quanto à essencia,	tese	57	A alma, quanto à essencia, está toda em -todo o corpo e toda em cada parte d'elle.	t57	auto
+92	58. A alma, quanto à energia, 	tese	58	A alma, quanto à energia, não esta toda em todo o corpo nem toda em cada parte d'elle.	t58	auto
+94	SECCAO SEGUNDA	seccao	Secção Segunda	FACULDADES DO HOMEM	anthropol-ogia.faculdades-do-homem	auto
+94	59. Divisão da secção segunda.	tese	59	Divisão da secção segunda.	t59	auto
+94	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	FACULDADES HUMANAS EM GERAL	anthropol-ogia.faculdades-do-homem.faculdades-humanas-em-geral	auto
+94	ARTIGO I.	artigo	Artigo I	As faculdades consideradas em si mesmas.	anthropol-ogia.faculdades-do-homem.faculdades-humanas-em-geral.a1	auto
+94	60. Faculdade. — Faculdade, em	tese	60	Faculdade.	t60	auto
+95	61. As faculdades humanas são 	tese	61	As faculdades humanas são muitas e diversas.	t61	auto
+95	69. Divisão das faculdades hum	tese	62	Divisão das faculdades humanas.	t62	auto
+97	63. As faculdades conhecem-se 	tese	63	As faculdades conhecem-se pelas operações e pelos objectos. a) As faculdades conhecem-se pelas operações.	t63	auto
+97	64. As faculdades especificam-	tese	64	As faculdades especificam-se pelas operações e pelos objectos. a) As faculdades especificam-se pelas suas operações.	t64	auto
+99	65. Ordem nas faculdades human	tese	65	Ordem nas faculdades humanas.	t65	auto
+101	ARTIGO II.	artigo	Artigo II	-	anthropol-ogia.faculdades-do-homem.faculdades-humanas-em-geral.a2	auto
+101	66. A alma é o principio de to	tese	66	A alma é o principio de todas as faculdades humanas.	t66	auto
+102	68. As faculdades distinguem-s	tese	68	As faculdades distinguem-se realmente da essencia da alma.	t68	auto
+105	ARTIGO III.	artigo	Artigo III	As faculdades consideradas em relação às operações.	anthropol-ogia.faculdades-do-homem.faculdades-humanas-em-geral.a3	auto
+105	69. As faculdades distinguem-s	tese	69	As faculdades distinguem-se realmente das suas operações.	t69	auto
+106	70. As faculdades têm uma tend	tese	70	As faculdades têm uma tendencia natural para as suas operações.	t70	auto
+106	71. As faculdades e o habito. 	tese	71	As faculdades e o habito.	t71	auto
+108	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	FACULDADES SENSITIVAS DO HOMEM	anthropol-ogia.faculdades-do-homem.faculdades-sensitivas-do-homem	auto
+108	ARTIGO I.	artigo	Artigo I	Sentidos externos.	anthropol-ogia.faculdades-do-homem.faculdades-sensitivas-do-homem.a1	auto
+108	72. Faculdades sensitivas do h	tese	72	Faculdades sensitivas do homem.	t72	auto
+109	73. Todas as faculdades sensit	tese	73	Todas as faculdades sensitivas são materiaes.	t73	auto
+110	74. Especies das faculdades se	tese	74	Especies das faculdades sensitivas do homem.	t74	auto
+110	15. Sentidos externos. — Senti	tese	75	Sentidos externos.	t75	auto
+111	76. Numero dos sentidos extern	tese	76	Numero dos sentidos externos.	t76	auto
+112	77. Os sentidos externos não s	tese	77	Os sentidos externos não são mais que os cinco enumerados.	t77	auto
+113	78. Comparação dos sentidos ex	tese	78	Comparação dos sentidos externos.	t78	auto
+114	ARTIGO II.	artigo	Artigo II	Sentidos internos.	anthropol-ogia.faculdades-do-homem.faculdades-sensitivas-do-homem.a2	auto
+114	79. Sentidos internos. — Senti	tese	79	Sentidos internos.	t79	auto
+114	80. Numero dos sentidos intern	tese	80	Numero dos sentidos internos.	t80	auto
+115	81. Sentido commum. — Sentido 	tese	81	Sentido commum.	t81	auto
+116	82. Objecto do sentido commum.	tese	82	Objecto do sentido commum.	t82	auto
+117	83. O sentido commum é uma fac	tese	83	O sentido commum é uma faculdade sensitiva.	t83	auto
+119	84. O sentido commum é faculda	tese	84	O sentido commum é faculdade distincta dos sentidos externos.	t84	auto
+120	85. Orgão do sentido commum. —	tese	85	Orgão do sentido commum.	t85	auto
+121	86. Imaginação. — Imaginação é	tese	86	Imaginação.	t86	auto
+121	87. Objecto da imaginação. — O	tese	87	Objecto da imaginação.	t87	auto
+123	88. A imaginação é uma faculda	tese	88	A imaginação é uma faculdade sensitiva.	t88	auto
+124	89. A imaginação no homem e no	tese	89	A imaginação no homem e no animal.	t89	auto
+125	90. Orgão da imaginação. — A i	tese	90	Orgão da imaginação.	t90	auto
+126	91. Estimativa. — Estimativa é	tese	91	Estimativa.	t91	auto
+126	92. Objecto da estimativa. — O	tese	92	Objecto da estimativa.	t92	auto
+127	93. A estimativa é uma faculda	tese	93	A estimativa é uma faculdade sensitiva.	t93	auto
+128	94. A estimativa no homem e no	tese	94	A estimativa no homem e no animal.	t94	auto
+129	95. Orgão da estimativa. — A e	tese	95	Orgão da estimativa.	t95	auto
+130	96. Memoria sensitiva. — Memor	tese	96	Memoria sensitiva.	t96	auto
+130	97. Objecto da memoria sensiti	tese	97	Objecto da memoria sensitiva.	t97	auto
+131	98. A memoria sensitiva é uma 	tese	98	A memoria sensitiva é uma faculdade material.	t98	auto
+133	99. A memoria sensitiva no hom	tese	99	A memoria sensitiva no homem e no animal.	t99	auto
+134	100. Orgão da memoria sensitiv	tese	100	Orgão da memoria sensitiva.	t100	auto
+135	ARTIGO III.	artigo	Artigo III	Appetite sensitivo, faculdade locomotiva e vocal.	anthropol-ogia.faculdades-do-homem.faculdades-sensitivas-do-homem.a3	auto
+135	101. Appetite sensitivo. — App	tese	101	Appetite sensitivo.	t101	auto
+136	102. Objecto do appetite sensi	tese	102	Objecto do appetite sensitivo.	t102	auto
+137	103. Divisão do appetite sensi	tese	103	Divisão do appetite sensitivo.	t103	auto
+138	104. O appetite concupiscivel 	tese	104	O appetite concupiscivel e o irascivel são duas faculdades distinctas.	t104	auto
+139	105. O appetite sensitivo é um	tese	105	O appetite sensitivo é uma faculdade material.	t105	auto
+140	106. O appetite sensitivo no h	tese	106	O appetite sensitivo no homem e no animal.	t106	auto
+141	107. Orgão do appetite sensiti	tese	107	Orgão do appetite sensitivo.	t107	auto
+143	108. Faculdade locomotiva. — F	tese	108	Faculdade locomotiva.	t108	auto
+145	109. A faculdade locomotiva é 	tese	109	A faculdade locomotiva é distincta do appetite sensitivo.	t109	auto
+145	110. A faculdade locomotiva no	tese	110	A faculdade locomotiva no homem e no animal.	t110	auto
+147	112. A faculdade vocal no home	tese	112	A faculdade vocal no homem e no animal.	t112	auto
+148	CAPITULO TERCEIRO	capitulo	Capitulo Terceiro	FACULDADES INTELLECTUAES DO HOMEM	anthropol-ogia.faculdades-do-homem.faculdades-intellectuaes-do-homem	auto
+148	113. Intelligencia. — Zntellig	tese	113	Intelligencia.	t113	auto
+149	114. Objecto da intelligencia.	tese	114	Objecto da intelligencia.	t114	auto
+153	115. A intelligencia é uma fac	tese	115	A intelligencia é uma faculdade espiritual. à) Prova-se com o seguinte argumento, deduzido da natu- reza da alma.	t115	auto
+161	118. A intelligencia humana é 	tese	118	A intelligencia humana é uma faculdade potencial.	t118	auto
+161	119. A intelligencia humana de	tese	119	A intelligencia humana deve ser determinada pela especie intelligivel.	t119	auto
+163	120. A intelligencia humana, n	tese	120	A intelligencia humana, no seu exercicio, precisa de uma força abstractiva.	t120	auto
+165	191. Varios nomes da intellige	tese	121	Varios nomes da intelligencia.	t121	auto
+167	122. Razão. — Razão é a propri	tese	122	Razão.	t122	auto
+174	193. Consciencia. — Conscienci	tese	123	Consciencia.	t123	auto
+179	194. Memoria intellectual. — M	tese	124	Memoria intellectual.	t124	auto
+183	ARTIGO II.	artigo	Artigo II	Vontade, sua natureza e liberdade.	anthropol-ogia.faculdades-do-homem.faculdades-intellectuaes-do-homem.a2	auto
+183	125. Vontade. — Vontade, ou ap	tese	125	Vontade.	t125	auto
+183	126. Objecto da vontade. — Obj	tese	126	Objecto da vontade.	t126	auto
+184	127. Divisão do objecto da von	tese	127	Divisão do objecto da vontade.	t127	auto
+185	128. A vontade é uma faculdade	tese	128	A vontade é uma faculdade espiritual.	t128	auto
+186	129. A vontade e a liberdade. 	tese	129	A vontade e a liberdade.	t129	auto
+187	130. A vontade não é livre na 	tese	130	A vontade não é livre na sua tendencia para o bem universal.	t130	auto
+189	131. À vontade é livre na sua 	tese	131	À vontade é livre na sua tendencia para os bens particulares.	t131	auto
+203	ARTIGO III.	artigo	Artigo III	A liberdade da vontade humana e o determinismo.	anthropol-ogia.faculdades-do-homem.faculdades-intellectuaes-do-homem.a3	auto
+203	133. Determinismo. — Determini	tese	133	Determinismo.	t133	auto
+205	134. Especies de determinismo.	tese	134	Especies de determinismo.	t134	auto
+207	136. O determinismo psychologi	tese	136	O determinismo psychologico é falso.	t136	auto
+210	137. O determinismo mechanico 	tese	137	O determinismo mechanico é faiso.	t137	auto
+212	138. O determinismo physiologi	tese	138	O determinismo physiologico é falso.	t138	auto
+214	139. 0 determinismo theologico	tese	139	0 determinismo theologico é falso.	t139	auto
+215	140. Consequencias da negação 	tese	140	Consequencias da negação da liberdade humana.	t140	auto
+216	ARTIGO IV.	artigo	Artigo IV	Relações entre a intelligencia e a vontade.	anthropol-ogia.faculdades-do-homem.faculdades-intellectuaes-do-homem.a4	auto
+216	141. A intelligencia move a vo	tese	141	A intelligencia move a vontade.	t141	auto
+218	142. À vontade move a inteilig	tese	142	À vontade move a inteiligencia.	t142	auto
+221	143. A intelligenocia é mais n	tese	143	A intelligenocia é mais nobre que a vontade.	t143	auto
+230	SECCAO TERCEIRA	seccao	Secção Terceira	OPERAÇÕES DO HOMEM	anthropol-ogia.operaces-do-homem	auto
+230	144. Divisão da secção terceir	tese	144	Divisão da secção terceira.	t144	auto
+231	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	OPERAÇÕES SENSITIVAS DO HOMEM	anthropol-ogia.operaces-do-homem.operaces-sensitivas-do-homem	auto
+231	ARTIGO I.	artigo	Artigo I	Percepção sensitiva, seu objecto e divisão.	anthropol-ogia.operaces-do-homem.operaces-sensitivas-do-homem.a1	auto
+231	145. Operações sensitivas do h	tese	145	Operações sensitivas do homem.	t145	auto
+231	146. Percepção sensitiva. — Pe	tese	146	Percepção sensitiva.	t146	auto
+233	148. Divisão do objecto da per	tese	148	Divisão do objecto da percepção sensitiva.	t148	auto
+237	150. A percepção sensitiva é v	tese	150	A percepção sensitiva é verdadeiro conhecimento.	t150	auto
+240	151. Divisão da percepção sens	tese	151	Divisão da percepção sensitiva.	t151	auto
+241	ARTIGO II.	artigo	Artigo II	Percepção sensitiva externa.	anthropol-ogia.operaces-do-homem.operaces-sensitivas-do-homem.a2	auto
+241	152. Percepção sensitiva exter	tese	152	Percepção sensitiva externa.	t152	auto
+241	153. Objecto da percepção sens	tese	153	Objecto da percepção sensitiva externa.	t153	auto
+242	154. A percepção sensitiva ext	tese	154	A percepção sensitiva externa exige a unido do objecto com a faculdade.	t154	auto
+242	155. O objecto deve unir-se co	tese	155	O objecto deve unir-se com a faculdade por uma sua imagem.	t155	auto
+243	156. À imagem do objecto deter	tese	156	À imagem do objecto determina a faculdade á percepção.	t156	auto
+251	158. A percepção dos objectos 	tese	158	A percepção dos objectos externos é directa ou immediata.	t158	auto
+271	160. Séde da percepção sensiti	tese	160	Séde da percepção sensitiva externa.	t160	auto
+273	161. Corollario. — Se a séde d	tese	161	Corollario.	t161	auto
+276	ARTIGO III.	artigo	Artigo III	Percepção sensitiva interna.	anthropol-ogia.operaces-do-homem.operaces-sensitivas-do-homem.a3	auto
+276	162. Percepção sensitiva inter	tese	162	Percepção sensitiva interna.	t162	auto
+276	163. Objecto da percepção sens	tese	163	Objecto da percepção sensitiva interna.	t163	auto
+276	164. Os sentidos internos prec	tese	164	Os sentidos internos precisam de uma imagem para o seu acto.	t164	auto
+277	165. Essa imagem é produzida p	tese	165	Essa imagem é produzida pela sensação externa.	t165	auto
+278	166. Os sentidos internos, inf	tese	166	Os sentidos internos, informados pela imagem, percebem o objecto.	t166	auto
+279	167. A percepção sensitiva int	tese	167	A percepção sensitiva interna é mais elevada que a externa.	t167	auto
+280	168. Séde da percepção sensiti	tese	168	Séde da percepção sensitiva interna.	t168	auto
+282	ARTIGO IV.	artigo	Artigo IV	Appetite sensitivo, sua divisão e paixões.	anthropol-ogia.operaces-do-homem.operaces-sensitivas-do-homem.a4	auto
+283	170. Divisão do appetite sensi	tese	170	Divisão do appetite sensitivo.	t170	auto
+283	171. Paixões. — As operações d	tese	171	Paixões.	t171	auto
+284	172. Numero das paixões. —^As 	tese	172	Numero das paixões.	t172	auto
+285	173. Paixões do appetite concu	tese	173	Paixões do appetite concupiscivel.	t173	auto
+286	174. Paixões do appetite irasc	tese	174	Paixões do appetite irascivel.	t174	auto
+288	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	OPERAÇÕES INTELLECTUAES DO HOMEM	anthropol-ogia.operaces-do-homem.operaces-intellectuaes-do-homem	auto
+288	ARTIGO I.	artigo	Artigo I	-	anthropol-ogia.operaces-do-homem.operaces-intellectuaes-do-homem.a1	auto
+288	175. Operações intellectuaes d	tese	175	Operações intellectuaes do homem.	t175	auto
+288	176. Conhecimento intellectual	tese	176	Conhecimento intellectual.	t176	auto
+288	177. Objecto do conhecimento i	tese	177	Objecto do conhecimento intellectual.	t177	auto
+289	178. Origem do conhecimento in	tese	178	Origem do conhecimento intellectual.	t178	auto
+289	179. Systemas ácerca da origem	tese	179	Systemas ácerca da origem do conhecimento intellectual.	t179	auto
+290	180. Innatismo. — O innatismo 	tese	180	Innatismo.	t180	auto
+290	181. O innatismo é falso.	tese	181	O innatismo é falso.	t181	auto
+292	189. Tradicionalismo. — O trad	tese	182	Tradicionalismo.	t182	auto
+292	183. O tradicionalismo é falso	tese	183	O tradicionalismo é falso.	t183	auto
+294	184. Ontologismo. — O ontologi	tese	184	Ontologismo.	t184	auto
+295	185. O ontologismo é falso.	tese	185	O ontologismo é falso.	t185	auto
+298	186. Sensualismo. — O sensuali	tese	186	Sensualismo.	t186	auto
+300	187. O sensualismo é falso.	tese	187	O sensualismo é falso.	t187	auto
+303	188. Idealismo. — O idealismo 	tese	188	Idealismo.	t188	auto
+309	190. Psychologismo racional. —	tese	190	Psychologismo racional.	t190	auto
+310	191. O psychologismo racional 	tese	191	O psychologismo racional é verdadeiro.	t191	auto
+312	ARTIGO II.	artigo	Artigo II	Modo por que se produz o conhecimento intellectual.	anthropol-ogia.operaces-do-homem.operaces-intellectuaes-do-homem.a2	auto
+312	199. Estado da questão. — No a	tese	193	Estado da questão.	t193	auto
+313	194. A imaginação forma a espe	tese	194	A imaginação forma a especie sensivel do objecto.	t194	auto
+313	195. A intelligencia agente to	tese	195	A intelligencia agente torna a especie sensivel capaz de ope- rar na intelligencia possivel.	t195	auto
+314	196. A intelligencia possivel,	tese	196	A intelligencia possivel, determinada pela especie intelligivel, produz o verbo mental.	t196	auto
+315	197. À intelligencia possivel 	tese	197	À intelligencia possivel conhece no verbo a essencia das coisas.	t197	auto
+321	ARTIGO III.	artigo	Artigo III	Modo por que se desenvolve o conhecimento intellectual.	anthropol-ogia.operaces-do-homem.operaces-intellectuaes-do-homem.a3	auto
+321	198. Desenvolvimento objectivo	tese	198	Desenvolvimento objectivo do conhecimento.	t198	auto
+330	202. A nossa intelligencia con	tese	202	A nossa intelligencia conhece Deus por um modo indirecto. a) Conhece Dzvs. E' verdade tão evidente, que não pre- cisa de ser demonstrada.	t202	auto
+332	ARTIGO IV.	artigo	Artigo IV	Modo por que se exprime o conhecimento intellectual.	anthropol-ogia.operaces-do-homem.operaces-intellectuaes-do-homem.a4	auto
+332	203. Linguagem. — Linguagem é 	tese	203	Linguagem.	t203	auto
+336	205. A linguagem suppõe as idé	tese	205	A linguagem suppõe as idéas.	t205	auto
+341	ARTIGO V.	artigo	Artigo V	Volições, seu objecto e divisão.	anthropol-ogia.operaces-do-homem.operaces-intellectuaes-do-homem.a5	auto
+341	208. Volições. — Volições são 	tese	208	Volições.	t208	auto
+341	209. Objecto das volições. — O	tese	209	Objecto das volições.	t209	auto
+342	210. Divisão das voligües. — A	tese	210	Divisão das voligües.	t210	auto
+343	219. Divisão dos sentimentos. 	tese	212	Divisão dos sentimentos.	t212	auto
+344	SECÇÃO QUARTA	seccao	Secção Quarta	ORIGEM E DESTINO DO HOMEM	anthropol-ogia.origem-e-destino-do-homem	auto
+344	213. Divisão da secção quarta.	tese	213	Divisão da secção quarta.	t213	auto
+344	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	ORIGEM DO HOMEM	anthropol-ogia.origem-e-destino-do-homem.origem-do-homem	auto
+344	ARTIGO I.	artigo	Artigo I	Origem do corpo humano.	anthropol-ogia.origem-e-destino-do-homem.origem-do-homem.a1	auto
+344	214. O corpo humano teve uma o	tese	214	O corpo humano teve uma origem.	t214	auto
+344	215. O corpo humano não derivo	tese	215	O corpo humano não derivou do concurso de causas fortui- tas.	t215	auto
+356	ARTIGO II.	artigo	Artigo II	Origem da alma Irunaaaana,.	anthropol-ogia.origem-e-destino-do-homem.origem-do-homem.a2	auto
+356	219. A alma humana tem uma ori	tese	219	A alma humana tem uma origem.	t219	auto
+358	221. À alma humana não é produ	tese	221	À alma humana não é produzida por geração.	t221	auto
+367	224. A alma é creada no moment	tese	224	A alma é creada no momento da sua união com o corpo.	t224	auto
+369	ARTIGO III.	artigo	Artigo III	Origem do composto humano.	anthropol-ogia.origem-e-destino-do-homem.origem-do-homem.a3	auto
+369	225. O composto humano tem uma	tese	225	O composto humano tem uma origem.	t225	auto
+377	297. O composto humano nào der	tese	227	O composto humano nào deriva da evolução de uma especie inferior.	t227	auto
+378	228. O "primeiro composto huma	tese	228	O "primeiro composto humano foi formado immediatamente por Deus.	t228	auto
+379	230. Todos os homens pertencem	tese	230	Todos os homens pertencem á mesma especie.	t230	auto
+384	231. Todos os homens poderam d	tese	231	Todos os homens poderam derivar da mesma familia ou do mesmo par.	t231	auto
+387	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	DESTINO DO HOMEM	anthropol-ogia.origem-e-destino-do-homem.destino-do-homem	auto
+387	ARTIGO I.	artigo	Artigo I	Fim do homem.	anthropol-ogia.origem-e-destino-do-homem.destino-do-homem.a1	auto
+387	233. O homem foi creado para u	tese	233	O homem foi creado para um fim.	t233	auto
+387	234. 0 fim do homem é a felici	tese	234	0 fim do homem é a felicidade.	t234	auto
+388	235. A felicidade encontra-se 	tese	235	A felicidade encontra-se no bem.	t235	auto
+388	236. O bem, em que se encontra	tese	236	O bem, em que se encontra a felicidade, deve ser universal.	t236	auto
+388	237. À felicidade não se encon	tese	237	À felicidade não se encontra nos bens finitos.	t237	auto
+389	238. A felicidade encontra-se 	tese	238	A felicidade encontra-se unicamente no bem infinito, que é Deus.	t238	auto
+392	240. Na vida presente a felici	tese	240	Na vida presente a felicidade do homem não é perfeita.	t240	auto
+393	ARTIGO II.	artigo	Artigo II	Immortalidade da alma humana.	anthropol-ogia.origem-e-destino-do-homem.destino-do-homem.a2	auto
+393	249. Immortalidade. — Immortal	tese	242	Immortalidade.	t242	auto
+393	243. Immortalidade intrinseca 	tese	243	Immortalidade intrinseca e extrinseca.	t243	auto
+393	244. A alma humana é immortal.	tese	244	A alma humana é immortal.	t244	auto
+394	245. A alma humana é intrinsec	tese	245	A alma humana é intrinsecamente immortal.	t245	auto
+396	246. A alma humana é extrinsec	tese	246	A alma humana é extrinsecamente immortal.	t246	auto
+399	247. A immortalidade da alma h	tese	247	A immortalidade da alma humana e o consenso da humani- dade.	t247	auto
+401	ARTIGO III.	artigo	Artigo III	Condicáo e operações da alma separada.	anthropol-ogia.origem-e-destino-do-homem.destino-do-homem.a3	auto
+401	248. A alma separada é sempre 	tese	248	A alma separada é sempre individua.	t248	auto
+402	249. O estado de separação é c	tese	249	O estado de separação é connatural á alma.	t249	auto
+403	250. A alma separada conserva 	tese	250	A alma separada conserva um desejo innato de se reunir ao corpo.	t250	auto
+404	251. A alma, separada do corpo	tese	251	A alma, separada do corpo, produz algumas operações.	t251	auto
+405	252. A alma, separada do corpo	tese	252	A alma, separada do corpo, não produz as operações orga- nicas.	t252	auto
+405	253. A alma, separada do corpo	tese	253	A alma, separada do corpo, produz as operações intellectuaes.	t253	auto
+406	254. A alma, separada do corpo	tese	254	A alma, separada do corpo, conhece por meio das especies intelligiveis.	t254	auto
+408	255. A alma, separada do corpo	tese	255	A alma, separada do corpo, conhece as causas immateriaes do mundo corporeo.	t255	auto
+410	256. A alma, separada do corpo	tese	256	A alma, separada do corpo, conhece os objectos materiaes na sua singularidade.	t256	auto
+411	257. À alma, separada do corpo	tese	257	À alma, separada do corpo, conhece as substancias espiri- tuaes.	t257	auto
+412	258. À alma separada é immutav	tese	258	À alma separada é immutavel na vontade.	t258	auto
+416	259. À alma separada é dotada 	tese	259	À alma separada é dotada de livre arbitrio.	t259	auto
+417	260. Corollario pratico. — À n	tese	260	Corollario pratico.	t260	auto
+419	PARTE QUARTA	parte	Parte Quarta	THEODICEA	theodicea	auto
+419	1. Theodicea. — Theodicea é a 	tese	1	Theodicea.	t1	auto
+419	2. Objecto da Theodicea. — O o	tese	2	Objecto da Theodicea.	t2	auto
+419	3. Excellencia da Theodicea. —	tese	3	Excellencia da Theodicea.	t3	auto
+420	4. Utilidade da Theodicea. — O	tese	4	Utilidade da Theodicea.	t4	auto
+421	5. Divisão da Theodicea. — Div	tese	5	Divisão da Theodicea.	t5	auto
+421	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	EXISTENCIA DE DEUS	theodicea.existencia-de-deus	auto
+421	ARTIGO I.	artigo	Artigo I	Demonstrabilidade da existencia de Deus.	theodicea.existencia-de-deus.a1	auto
+421	6. A existencia de Deus póde s	tese	6	A existencia de Deus póde ser demonstrada pela razão humana.	t6	auto
+422	7. À existencia de Deus deve s	tese	7	À existencia de Deus deve ser demonstrada.	t7	auto
+424	8. A existencia de Deus nào se	tese	8	A existencia de Deus nào se demonstra a-priori.	t8	auto
+425	9. A existencia de Deus não se	tese	9	A existencia de Deus não se demonstra a-simultaneo.	t9	auto
+425	10. A existencia de Deus demon	tese	10	A existencia de Deus demonstra-se a-posteriori.	t10	auto
+427	ARTIGO II.	artigo	Artigo II	Demonstração da existencia de Deus.	theodicea.existencia-de-deus.a2	auto
+427	11. Especies de argumentos par	tese	11	Especies de argumentos para a demonstracáo da existencia de Deus.	t11	auto
+436	13. Argumentos physicos. — Os 	tese	13	Argumentos physicos.	t13	auto
+437	14. Argumentos moraes. — Os ar	tese	14	Argumentos moraes.	t14	auto
+439	ARTIGO III.	artigo	Artigo III	A. existencia de Deus e o atheismo.	theodicea.existencia-de-deus.a3	auto
+439	15. Atheismo. — Atheismo 6 o e	tese	15	Atheismo.	t15	auto
+439	16. Divisão do atheismo. — O a	tese	16	Divisão do atheismo.	t16	auto
+439	17. Divisão do atheismo theore	tese	17	Divisão do atheismo theoretico.	t17	auto
+440	18. O atheismo pratico é possi	tese	18	O atheismo pratico é possivel.	t18	auto
+440	19. O atheismo theoretico-nega	tese	19	O atheismo theoretico-negativo não é possivel nos homens adultos.	t19	auto
+441	20. O atheismo theoretico-posi	tese	20	O atheismo theoretico-positivo é impossivel.	t20	auto
+441	21. Consequencias do atheismo.	tese	21	Consequencias do atheismo.	t21	auto
+443	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	ESSENCIA E ATTRIBUTOS DE DEUS	theodicea.essencia-e-attributos-de-deus	auto
+443	ARTIGO I.	artigo	Artigo I	-	theodicea.essencia-e-attributos-de-deus.a1	auto
+443	22. Essencia de Deus. — HEssen	tese	22	Essencia de Deus.	t22	auto
+443	23. Essencia physica e metaphy	tese	23	Essencia physica e metaphysica de Deus.	t23	auto
+446	25. A essencia metaphysica de 	tese	25	A essencia metaphysica de Deus consiste na subsistencia do proprio ser.	t25	auto
+448	26. Especies -de attributos di	tese	26	Especies -de attributos divinos, derivados da essencia.	t26	auto
+451	ARTIGO II.	artigo	Artigo II	Attributos de Deus negativos.	theodicea.essencia-e-attributos-de-deus.a2	auto
+451	27. Attributos de Deus negativ	tese	27	Attributos de Deus negativos.	t27	auto
+451	28. Simplicidade de Deus. — A 	tese	28	Simplicidade de Deus.	t28	auto
+452	29. Deus é simplicissimo.	tese	29	Deus é simplicissimo.	t29	auto
+453	30. Immutabilidade de Deus. — 	tese	30	Immutabilidade de Deus.	t30	auto
+455	31. Deus é immultavel.	tese	31	Deus é immultavel.	t31	auto
+457	82. Eternidade de Deus. — A et	tese	32	Eternidade de Deus.	t32	auto
+458	33. Deus é eterno. — Um ente e	tese	33	Deus é eterno.	t33	auto
+458	34. Immensidade de Deus. — Zmm	tese	34	Immensidade de Deus.	t34	auto
+458	35. Deus é immenso. — Dxus ser	tese	35	Deus é immenso.	t35	auto
+460	36. Unidade de Deus. — Unidade	tese	36	Unidade de Deus.	t36	auto
+460	37. Deus é uno.	tese	37	Deus é uno.	t37	auto
+462	ARTIGO III.	artigo	Artigo III	Attributos de Deus positivos,	theodicea.essencia-e-attributos-de-deus.a3	auto
+462	38. Attributos de Deus positiv	tese	38	Attributos de Deus positivos.	t38	auto
+462	39. Verdade de Deus. — Verdade	tese	39	Verdade de Deus.	t39	auto
+462	40. Deus é verdadeiro. — Um en	tese	40	Deus é verdadeiro.	t40	auto
+463	41. Deus é a verdade. — Consis	tese	41	Deus é a verdade.	t41	auto
+464	43. A verdade ontologica de De	tese	43	A verdade ontologica de Deus é a causa efficiente da verdade ontologica das creaturas.	t43	auto
+464	44. A verdade logica de Deus é	tese	44	A verdade logica de Deus é a causa exemplar da verdade logica da inteligencia humana.	t44	auto
+465	45. À verdade divina é a causa	tese	45	À verdade divina é a causa final de toda a verdade creada.	t45	auto
+465	46. Bondade de Deus. — Bondade	tese	46	Bondade de Deus.	t46	auto
+465	47. Deus é bom. — Um ente é e 	tese	47	Deus é bom.	t47	auto
+466	48. Deus é a bondade. — A 2ond	tese	48	Deus é a bondade.	t48	auto
+466	49. A bondade divina é a causa	tese	49	A bondade divina é a causa efficiente de toda a bondade crea- da.	t49	auto
+467	50. A bondade divina é a causa	tese	50	A bondade divina é a causa exemplar da bondade creada.	t50	auto
+467	51. A bondade divina é a causa	tese	51	A bondade divina é a causa final da bondade creada.	t51	auto
+468	52. Belleza de Deus. — Belleza	tese	52	Belleza de Deus.	t52	auto
+468	53. Deus é bello. — Consistind	tese	53	Deus é bello.	t53	auto
+469	54. Deus é a sua belleza. — To	tese	54	Deus é a sua belleza.	t54	auto
+469	55. A belleza divina é a causa	tese	55	A belleza divina é a causa efficiente de toda a belleza creada.	t55	auto
+470	56. A heileza divina é a causa	tese	56	A heileza divina é a causa exemplar de toda a belleza creada.	t56	auto
+470	57. A belleza divina é a causa	tese	57	A belleza divina é a causa final da belleza creada.	t57	auto
+471	CAPITULO TERCEIRO	capitulo	Capitulo Terceiro	FACULDADES E OPERAÇÕES IMMANENTES DE DEUS	theodicea.faculdades-e-operaces-immanentes-de	auto
+471	58. Faculdades de Deus. — Facu	tese	58	Faculdades de Deus.	t58	auto
+471	59. Intelligencia de Deus. — I	tese	59	Intelligencia de Deus.	t59	auto
+471	60. Deus é dotado de inteligen	tese	60	Deus é dotado de inteligencia.	t60	auto
+473	61. A intelligencia de Deus id	tese	61	A intelligencia de Deus identifica-se com a sua essencia, e é acto purissimo e infinito. a) Tdentifica-se com a sua essencia.	t61	auto
+473	62. Deus conhece tudo pela sua	tese	62	Deus conhece tudo pela sua essencia.	t62	auto
+475	63. Deus conhece perfeitamente	tese	63	Deus conhece perfeitamente o proprio ser.	t63	auto
+477	64. Deus conhece todas as outr	tese	64	Deus conhece todas as outras coisas, existentes e possiveis.	t64	auto
+488	66. A sciencia divina é causa 	tese	66	A sciencia divina é causa das coisas creadas.	t66	auto
+490	67. Propriedades da sciencia d	tese	67	Propriedades da sciencia divina.	t67	auto
+492	68. Termo immanente da scienci	tese	68	Termo immanente da sciencia diviva.	t68	auto
+493	ARTIGO II.	artigo	Artigo II	Facullade e operação volitiva immanente.	theodicea.faculdades-e-operaces-immanentes-de.a2	auto
+493	69. Vontade de Deus. — Vontade	tese	69	Vontade de Deus.	t69	auto
+494	70. Deus é dotado de vontade.	tese	70	Deus é dotado de vontade.	t70	auto
+496	12. Deus quer ou ama tudo pela	tese	72	Deus quer ou ama tudo pela sua bondade.	t72	auto
+497	73. Deus quer ou ama o proprio	tese	73	Deus quer ou ama o proprio ser como fim.	t73	auto
+497	74. Deus quer ou ama as outras	tese	74	Deus quer ou ama as outras coisas como meios. a) Deus quer ou ama as outras coisas.	t74	auto
+502	16. A vontade divina é causa d	tese	76	A vontade divina é causa das coisas creadas.	t76	auto
+506	77. Propriedades do amor divin	tese	77	Propriedades do amor divino.	t77	auto
+508	78. Termo immanente do amor di	tese	78	Termo immanente do amor divino.	t78	auto
+509	ARTIGO III.	artigo	Artigo III	Vida divina, sua existencia e natureza.	theodicea.faculdades-e-operaces-immanentes-de.a3	auto
+509	79. Vida divina. — Vida divina	tese	79	Vida divina.	t79	auto
+510	81. Deus é a sua vida.	tese	81	Deus é a sua vida.	t81	auto
+510	82. A vida de Deus é perfeitis	tese	82	A vida de Deus é perfeitissima.	t82	auto
+512	83. A vida de Deus é sempitern	tese	83	A vida de Deus é sempiterna.	t83	auto
+512	84. Todas as coisas creadas sã	tese	84	Todas as coisas creadas são vida em Deus.	t84	auto
+513	CAPITULO QUARTO	capitulo	Capitulo Quarto	OPERAÇÕES TRANSEUNTES DE DEUS	theodicea.operaces-transeuntes-de-deus	auto
+513	ARTIGO I.	artigo	Artigo I	Creação, sua natureza, principio e fim.	theodicea.operaces-transeuntes-de-deus.a1	auto
+513	85. Creação. — Creação é o act	tese	85	Creação.	t85	auto
+514	86. A creação é o acto proprio	tese	86	A creação é o acto proprio de Deus.	t86	auto
+515	87. Deus creou todas as coisas	tese	87	Deus creou todas as coisas.	t87	auto
+518	88. Deus foi livre na creação 	tese	88	Deus foi livre na creação do mundo.	t88	auto
+519	89. Deus creou o mundo para a 	tese	89	Deus creou o mundo para a sua gloria.	t89	auto
+519	ARTIGO II.	artigo	Artigo II	Conservação, sua divisão e necessidade.	theodicea.operaces-transeuntes-de-deus.a2	auto
+519	90. Conservação. — Conservação	tese	90	Conservação.	t90	auto
+519	91. Conservação positiva e neg	tese	91	Conservação positiva e negativa.	t91	auto
+522	93. Deus conserva todas as coi	tese	93	Deus conserva todas as coisas pela continuação do acto crea- dor.	t93	auto
+523	94. Deus não anniquila alguma 	tese	94	Deus não anniquila alguma coisa creada.	t94	auto
+524	ARTIGO III.	artigo	Artigo III	Concurso, sua natureza e extensão.	theodicea.operaces-transeuntes-de-deus.a3	auto
+524	95. Concurso. — Concurso é o a	tese	95	Concurso.	t95	auto
+524	96. Especies do concurso. — O 	tese	96	Especies do concurso.	t96	auto
+533	100. O concurso previo de Deus	tese	100	O concurso previo de Deus deixa intacta a liberdade da von- tade humana.	t100	auto
+539	ARTIGO IV.	artigo	Artigo IV	Providencia, sua existencia, extensão e propriedades.	theodicea.operaces-transeuntes-de-deus.a4	auto
+539	101. Providencia. — Providenci	tese	101	Providencia.	t101	auto
+541	102. Deus ordena todas as cois	tese	102	Deus ordena todas as coisas para um fim.	t102	auto
+542	103. Deus dirige todas as cois	tese	103	Deus dirige todas as coisas para o fim.	t103	auto
+544	106. Propriedades da Providenc	tese	106	Propriedades da Providencia divina.	t106	auto
+549	107. A Providencia de Deus nào	tese	107	A Providencia de Deus nào exclue a cooperação do homem.	t107	auto
+550	108. Corollario. — Creador e C	tese	108	Corollario.	t108	auto
+556	PARTE PRIMEIRA	parte	Parte Primeira	-	parte1	auto
+556	6. Ethica. — Etica é a parte d	tese	6	Ethica.	t6	auto
+556	7. Objecto da Ethica. — O obje	tese	7	Objecto da Ethica.	t7	auto
+556	8. Divisão da Ethica. — A Hthi	tese	8	Divisão da Ethica.	t8	auto
+557	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	FIM DOS ACTOS HUMANOS	parte1.fim-dos-actos-humanos	auto
+557	ARTIGO I.	artigo	Artigo I	Existencia do fim ultimo dos actos humanos.	parte1.fim-dos-actos-humanos.a1	auto
+557	9. Os actos humanos tendem sem	tese	9	Os actos humanos tendem sempre para um fim.	t9	auto
+557	10. 0 fim dos actos humanos é 	tese	10	0 fim dos actos humanos é ultimo ou proximo.	t10	auto
+558	11. Os actos humanos tendem se	tese	11	Os actos humanos tendem sempre para um fim ultimo.	t11	auto
+558	12. 0 fim ultimo dos actos hum	tese	12	0 fim ultimo dos actos humanos é o mesmo para todos os homens.	t12	auto
+559	18. O fim ultimo dos actos hum	tese	13	O fim ultimo dos actos humanos existe realmente.	t13	auto
+559	ARTIGO II.	artigo	Artigo II	Natureza do fim ultimo dos actos humanos.	parte1.fim-dos-actos-humanos.a2	auto
+559	14. O fim ultimo dos actos hum	tese	14	O fim ultimo dos actos humanos é o bem universal.	t14	auto
+560	15. O fim ultimo dos actos hum	tese	15	O fim ultimo dos actos humanos não póde ser um bem creado.	t15	auto
+561	16. O fim ultimo dos actos hum	tese	16	O fim ultimo dos actos humanos é Deus.	t16	auto
+565	ARTIGO III.	artigo	Artigo III	Fim proximo dos actos humanos.	parte1.fim-dos-actos-humanos.a3	auto
+565	19. O fim proximo dos actos hu	tese	19	O fim proximo dos actos humanos existe realmente.	t19	auto
+566	29. A consecução do fim proxim	tese	22	A consecução do fim proximo dos actos humanos produz uma felicidade imperfeita.	t22	auto
+567	23. Corollarios. — Das doutrin	tese	23	Corollarios.	t23	auto
+568	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	ESSENCIA DOS ACTOS HUMANOS	parte1.essencia-dos-actos-humanos	auto
+568	ARTIGO I.	artigo	Artigo I	Elementos e divisão dos actos humanos.	parte1.essencia-dos-actos-humanos.a1	auto
+568	24. Elementos do acto humano. 	tese	24	Elementos do acto humano.	t24	auto
+569	27. O acto humano exige a libe	tese	27	O acto humano exige a liberdade.	t27	auto
+572	ARTIGO II.	artigo	Artigo II	Diversas especies do acto elicito.	parte1.essencia-dos-actos-humanos.a2	auto
+572	29. Diversas especies do acto 	tese	29	Diversas especies do acto elicito.	t29	auto
+572	30. Amor. — Amor é o acto pelo	tese	30	Amor.	t30	auto
+572	31. Intenção. — Intenção é o a	tese	31	Intenção.	t31	auto
+572	32. Gozo. — Gozo é o acto pelo	tese	32	Gozo.	t32	auto
+573	33. Consentimento. — Consentim	tese	33	Consentimento.	t33	auto
+573	34. Eleição. — Hleição é o act	tese	34	Eleição.	t34	auto
+573	35. Uso. — Uso é a determinaçã	tese	35	Uso.	t35	auto
+574	ARTIGO III.	artigo	Artigo III	Impedimentos da voluntariedade dos actos humanos.	parte1.essencia-dos-actos-humanos.a3	auto
+574	36. Impedimentos da voluntarie	tese	36	Impedimentos da voluntariedade dos actos humanos.	t36	auto
+574	37. lgnorancia. — Ignorancia é	tese	37	lgnorancia.	t37	auto
+575	39. Concupiscencia. — Concupis	tese	39	Concupiscencia.	t39	auto
+576	40. A concupiscencia anteceden	tese	40	A concupiscencia antecedente póde impedir, e póde augmentar a voluntariedade do acto humano. a) Póde impedir.	t40	auto
+576	41. Medo. — Medo é uma trepida	tese	41	Medo.	t41	auto
+576	49. O medo, embora grave, nào 	tese	42	O medo, embora grave, nào impede, ordinariamente, a volun- lariedade do acto humano.	t42	auto
+577	43. Violencia. — Violencia é à	tese	43	Violencia.	t43	auto
+578	CAPITULO TERCEIRO	capitulo	Capitulo Terceiro	MORALIDADE DOS ACTOS HUMANOS	parte1.moralidade-dos-actos-humanos	auto
+578	ARTIGO I.	artigo	Artigo I	Moralidade, sua existencia e fundamento.	parte1.moralidade-dos-actos-humanos.a1	auto
+578	45. Moralidade. — Moralidade 6	tese	45	Moralidade.	t45	auto
+579	46. Divisão da moralidade. — A	tese	46	Divisão da moralidade.	t46	auto
+579	48. A moralidade extrinseca ex	tese	48	A moralidade extrinseca existe.	t48	auto
+580	49. A moralidade intrinseca ex	tese	49	A moralidade intrinseca existe.	t49	auto
+599	51. A moralidade intrinseca fu	tese	51	A moralidade intrinseca funda-se remotamente na conveniencia ou não-conveniencia do acto humano com a natureza divina.	t51	auto
+600	52. Corollario. — Das doutrina	tese	52	Corollario.	t52	auto
+608	ARTIGO II.	artigo	Artigo II	Fontes da moralidade dos actos humanos.	parte1.moralidade-dos-actos-humanos.a2	auto
+608	58. Fontes da moralidade dos a	tese	54	Fontes da moralidade dos actos humanos.	t54	auto
+609	55. Divisão do objecto do acto	tese	55	Divisão do objecto do acto humano.	t55	auto
+609	56. O acto humano tira do obje	tese	56	O acto humano tira do objecto formal a sua moralidade espe- cifica.	t56	auto
+610	57. Fim do acto humano. — Fim 	tese	57	Fim do acto humano.	t57	auto
+610	58. Divisão do fim do acto hum	tese	58	Divisão do fim do acto humano.	t58	auto
+610	59. O acto humano tira do fim 	tese	59	O acto humano tira do fim a sua moralidade.	t59	auto
+611	60. Circumstancias do acto hum	tese	60	Circumstancias do acto humano.	t60	auto
+611	61. Especies das circumstancia	tese	61	Especies das circumstancias do acto humano.	t61	auto
+611	62. O acto humano tira das cir	tese	62	O acto humano tira das circumstaneias a sua moralidade.	t62	auto
+612	63. Corollario. — O acto human	tese	63	Corollario.	t63	auto
+613	ARTIGO III.	artigo	Artigo III	Consequencias da moralidade dos actos humanos.	parte1.moralidade-dos-actos-humanos.a3	auto
+613	64. Consequencias da moralidad	tese	64	Consequencias da moralidade dos actos humanos.	t64	auto
+613	65. Imputabilidade. — Imputabi	tese	65	Imputabilidade.	t65	auto
+613	66. O acto moral deve ser impu	tese	66	O acto moral deve ser imputado ao agente racional e livre.	t66	auto
+614	67. Merito e demerito. — Merit	tese	67	Merito e demerito.	t67	auto
+616	69. Premio e castigo. — Premio	tese	69	Premio e castigo.	t69	auto
+617	ARTIGO IV.	artigo	Artigo IV	-	parte1.moralidade-dos-actos-humanos.a4	auto
+617	71. Habito. — Zabito é a quali	tese	71	Habito.	t71	auto
+618	72. Especies do habito. — O Aa	tese	72	Especies do habito.	t72	auto
+618	73. Virtude. — Virtude é, pois	tese	73	Virtude.	t73	auto
+619	74. Especies de virtude. — À v	tese	74	Especies de virtude.	t74	auto
+619	75. Numero das virtudes moraes	tese	75	Numero das virtudes moraes.	t75	auto
+623	76. As virtudes moraes são nec	tese	76	As virtudes moraes são necessarias para o homem operar perfeitamente em materia de honestidade.	t76	auto
+623	77. As virtudes moraes augment	tese	77	As virtudes moraes augmentam a bondade dos actos honostos.	t77	auto
+624	78. Vicio. — Vicio é o habito 	tese	78	Vicio.	t78	auto
+624	79. Vicios capitaes. — Os vici	tese	79	Vicios capitaes.	t79	auto
+625	80. Os vicios augmentam a mali	tese	80	Os vicios augmentam a malicia dos actos humanos.	t80	auto
+626	CAPITULO QUARTO	capitulo	Capitulo Quarto	REGRAS DOS ACTOS HUMANOS	parte1.regras-dos-actos-humanos	auto
+626	ARTIGO I.	artigo	Artigo I	Lei moral, sua divisão e existencia,	parte1.regras-dos-actos-humanos.a1	auto
+626	81. Regras dos actos humanos. 	tese	81	Regras dos actos humanos.	t81	auto
+626	82. Lei moral. — Let moral é u	tese	82	Lei moral.	t82	auto
+627	83. Especies da lei moral. — A	tese	83	Especies da lei moral.	t83	auto
+628	84. Lei eterna. — Lei eterna é	tese	84	Lei eterna.	t84	auto
+629	85. À lei eterna existe.	tese	85	À lei eterna existe.	t85	auto
+630	86. Lei natural. — Let natural	tese	86	Lei natural.	t86	auto
+630	87. Objecto da lei natural. — 	tese	87	Objecto da lei natural.	t87	auto
+631	88. A lei natural existe.	tese	88	A lei natural existe.	t88	auto
+632	89. Propriedades da lei natura	tese	89	Propriedades da lei natural.	t89	auto
+635	90. Primeiro principio da lei 	tese	90	Primeiro principio da lei natural.	t90	auto
+636	91. Sancção da lei natural. — 	tese	91	Sancção da lei natural.	t91	auto
+636	92. A lei natural deve ter uma	tese	92	A lei natural deve ter uma sanccáo.	t92	auto
+638	94. A lei natural deve ter uma	tese	94	A lei natural deve ter uma sancção sufficiente na vida futura.	t94	auto
+641	96. Lei positiva. — Lei positi	tese	96	Lei positiva.	t96	auto
+644	97. A lei positivo-divina é ne	tese	97	A lei positivo-divina é necessaria.	t97	auto
+645	98. A lei positivo-humana é ne	tese	98	A lei positivo-humana é necessaria.	t98	auto
+646	100. Requisitos da lei positiv	tese	100	Requisitos da lei positivo-humana.	t100	auto
+647	ARTIGO II.	artigo	Artigo II	Consciencia moral, sua divisão e direcção.	parte1.regras-dos-actos-humanos.a2	auto
+647	101. Consciencia moral. — Cons	tese	101	Consciencia moral.	t101	auto
+647	102. Divisão da consciencia mo	tese	102	Divisão da consciencia moral.	t102	auto
+650	104. O homem não póde desobede	tese	104	O homem não póde desobedecer, nem obedecer á consciencia vencivelmente erronea.	t104	auto
+652	106. Corollario. — Sendo a con	tese	106	Corollario.	t106	auto
+653	PARTE SEGUNDA	parte	Parte Segunda	DIREITO NATURAL	direito-natural	auto
+653	107. Direito natural. — Direit	tese	107	Direito natural.	t107	auto
+653	108. Dever. — Dever é a necess	tese	108	Dever.	t108	auto
+654	109. Divisão do dever. — O dev	tese	109	Divisão do dever.	t109	auto
+656	110. Todo o dever, immediata o	tese	110	Todo o dever, immediata ou mediatamente, deriva de Dxvs.	t110	auto
+656	111. Direito. — Direito é um p	tese	111	Direito.	t111	auto
+658	112. Divisão de direito. — O d	tese	112	Divisão de direito.	t112	auto
+659	113. Propriedades do direito, 	tese	113	Propriedades do direito, — As propriedades do direito são tres, a Saber: coacção, collisao e limitação. a) Coacção.	t113	auto
+660	114. Todo o direito deriva, im	tese	114	Todo o direito deriva, immediata ou mediatamente, de Deus.	t114	auto
+661	115. À ordem juridica existe.	tese	115	À ordem juridica existe.	t115	auto
+664	117. Divisão do Direito natura	tese	117	Divisão do Direito natural.	t117	auto
+675	SECÇÃO PRIMEIRA	seccao	Secção Primeira	DIREITO INDIVIDUAL	direito-natural.direito-individual	auto
+675	118. Divisão do Direito indivi	tese	118	Divisão do Direito individual.	t118	auto
+675	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	DEVERES DO HOMEM PARA COM DEUS	direito-natural.direito-individual.deveres-do-homem-para-com	auto
+675	ARTIGO I.	artigo	Artigo I	Deveres theoricos do homem para com Deus.	direito-natural.direito-individual.deveres-do-homem-para-com.a1	auto
+675	119. Deveres do homem para com	tese	119	Deveres do homem para com Deus.	t119	auto
+676	120. Divisão dos deveres do ho	tese	120	Divisão dos deveres do homem para com Deus.	t120	auto
+677	121. Deveres theoricos do home	tese	121	Deveres theoricos do homem para com Deus.	t121	auto
+681	194. Corollario. — Das precede	tese	124	Corollario.	t124	auto
+684	ARTIGO II.	artigo	Artigo II	Deveres praticos do homem para com Heus.	direito-natural.direito-individual.deveres-do-homem-para-com.a2	auto
+684	125. Deveres praticos do homem	tese	125	Deveres praticos do homem para com Deus.	t125	auto
+684	126. 0 homem deve prestar a De	tese	126	0 homem deve prestar a Deus o culto interno.	t126	auto
+685	127. Principaes actos do culto	tese	127	Principaes actos do culto interno.	t127	auto
+687	128. O homem deve prestar a De	tese	128	O homem deve prestar a Deus o culto externo.	t128	auto
+688	129. Principaes actos do culto	tese	129	Principaes actos do culto externo.	t129	auto
+689	130. O homem deve prestar a De	tese	130	O homem deve prestar a Deus não só o culto que foi imposto pela natureza, mas tambem o que póde ser determinado pela Revelação.	t130	auto
+690	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	DEVERES DO HOMEM PARA COMSIGO	direito-natural.direito-individual.deveres-do-homem-para-comsigo	auto
+690	ARTIGO I.	artigo	Artigo I	Deveres do homem relativos à sua alma.	direito-natural.direito-individual.deveres-do-homem-para-comsigo.a1	auto
+690	131. Deveres do homem para com	tese	131	Deveres do homem para comsigo.	t131	auto
+692	132. Divisão dos deveres do ho	tese	132	Divisão dos deveres do homem para comsigo.	t132	auto
+692	133. Deveres do homem relativo	tese	133	Deveres do homem relativos á sua alma.	t133	auto
+692	134. O homem tem o dever de ap	tese	134	O homem tem o dever de aperfeiçoar a sua intelligencia.	t134	auto
+693	135. O homem tem o dever de ap	tese	135	O homem tem o dever de aperfeiçoar a sua vontade.	t135	auto
+693	136. 0 homem tem o dever de em	tese	136	0 homem tem o dever de empregar os meios proporcionados para o aperfeiçoamento da sua intelligencia e da sua vontade.	t136	auto
+694	137. Corollario. — Do que deix	tese	137	Corollario.	t137	auto
+695	ARTIGO II.	artigo	Artigo II	Deveres do homem relativos ao seu corpo.	direito-natural.direito-individual.deveres-do-homem-para-comsigo.a2	auto
+695	138. Deveres do homem relativo	tese	138	Deveres do homem relativos ao seu corpo.	t138	auto
+697	140. O homem póde, por um moti	tese	140	O homem póde, por um motivo justo, procurar indirectamente a propria morte.	t140	auto
+698	141. O homem deve procurar pos	tese	141	O homem deve procurar positivamente a conservação da sua vida e da sua saude.	t141	auto
+698	142. Ao dever da conservação d	tese	142	Ao dever da conservação da vida e da saude não se oppóe a moderada mortificacdo do corpo.	t142	auto
+699	CAPITULO TERCEIRO	capitulo	Capitulo Terceiro	DIREITOS E DEVERES DO HOMEM PARA COM O PROXIMO	direito-natural.direito-individual.direitos-e-deveres-do-homem	auto
+699	ARTIGO I.	artigo	Artigo I	Direitos do homem para com o proximo.	direito-natural.direito-individual.direitos-e-deveres-do-homem.a1	auto
+699	143. Direitos do homem para co	tese	143	Direitos do homem para com o proximo.	t143	auto
+699	144. Direitos juridicos do hom	tese	144	Direitos juridicos do homem para com o proximo.	t144	auto
+722	145. Direitos moraes do homem 	tese	145	Direitos moraes do homem para com o proximo.	t145	auto
+723	ARTIGO II.	artigo	Artigo II	Deveres do homem para com o proximo.	direito-natural.direito-individual.direitos-e-deveres-do-homem.a2	auto
+723	146. Deveres do homem para com	tese	146	Deveres do homem para com o proximo.	t146	auto
+723	147. Deveres juridicos do home	tese	147	Deveres juridicos do homem para com o proximo.	t147	auto
+726	148. Deveres moraes do homem p	tese	148	Deveres moraes do homem para com o proximo.	t148	auto
+728	SECÇÃO SEGUNDA	seccao	Secção Segunda	DIREITO SOCIAL	direito-natural.direito-social	auto
+728	149. Sociedade. — Sociedade é 	tese	149	Sociedade.	t149	auto
+729	150. Elementos da sociedade. —	tese	150	Elementos da sociedade.	t150	auto
+730	151. Divisão da sociedade. — A	tese	151	Divisão da sociedade.	t151	auto
+733	152. O homem é naturalmente so	tese	152	O homem é naturalmente sociavel.	t152	auto
+735	153. O homem é determinado pel	tese	153	O homem é determinado pela natureza a ser membro da sociedade domestica, civil e religiosa.	t153	auto
+736	154. Divisão do Direito social	tese	154	Divisão do Direito social.	t154	auto
+739	CAPITULO PRIMEIRO	capitulo	Capitulo Primeiro	DEVERES E DIREITOS DOMESTICOS	direito-natural.direito-social.deveres-e-direitos-domesticos	auto
+739	ARTIGO I.	artigo	Artigo I	Deveres e direitos na sociedade conjugal.	direito-natural.direito-social.deveres-e-direitos-domesticos.a1	auto
+739	155. Sociedade domestica. — So	tese	155	Sociedade domestica.	t155	auto
+739	156. Partes da sociedade domes	tese	156	Partes da sociedade domestica.	t156	auto
+740	157. Sociedade conjugal. — Soc	tese	157	Sociedade conjugal.	t157	auto
+741	158. Fim da sociedade conjugal	tese	158	Fim da sociedade conjugal.	t158	auto
+742	159. Propriedades da sociedade	tese	159	Propriedades da sociedade conjugal.	t159	auto
+744	160. Deveres e direitos dos co	tese	160	Deveres e direitos dos conjuges.	t160	auto
+745	ARTIGO II.	artigo	Artigo II	Deveres e direitos na sociedade parental.	direito-natural.direito-social.deveres-e-direitos-domesticos.a2	auto
+745	161. Sociedade parental. — Soc	tese	161	Sociedade parental.	t161	auto
+746	162. Fim da sociedade parental	tese	162	Fim da sociedade parental.	t162	auto
+746	163. A sociedade parental é ne	tese	163	A sociedade parental é necessaria.	t163	auto
+746	164. A sociedade parental deve	tese	164	A sociedade parental deve subministrar aos filhos a educação physica, intellectual e moral.	t164	auto
+747	165. Deveres e direitos dos pa	tese	165	Deveres e direitos dos paes.	t165	auto
+748	166. Deveres e direitos dos fi	tese	166	Deveres e direitos dos filhos.	t166	auto
+749	ARTIGO III.	artigo	Artigo III	Deveres e direitos na sociedade heril.	direito-natural.direito-social.deveres-e-direitos-domesticos.a3	auto
+749	167. Sociedade heril. — Socied	tese	167	Sociedade heril.	t167	auto
+749	168. Fim da sociedade heril. —	tese	168	Fim da sociedade heril.	t168	auto
+750	169. A sociedade heril não rep	tese	169	A sociedade heril não repugna á lei natural.	t169	auto
+750	170. Deveres e direitos dos am	tese	170	Deveres e direitos dos amos.	t170	auto
+750	171. Deveres e direitos dos cr	tese	171	Deveres e direitos dos criados.	t171	auto
+752	CAPITULO SEGUNDO	capitulo	Capitulo Segundo	DEVERES E DIREITOS CIVIS	direito-natural.direito-social.deveres-e-direitos-civis	auto
+752	ARTIGO I.	artigo	Artigo I	-	direito-natural.direito-social.deveres-e-direitos-civis.a1	auto
+752	172. Sociedade civil. — Socied	tese	172	Sociedade civil.	t172	auto
+754	173. Fim da sociedade civil. —	tese	173	Fim da sociedade civil.	t173	auto
+756	174. Propriedades da sociedade	tese	174	Propriedades da sociedade civil.	t174	auto
+760	175. Elementos da sociedade ci	tese	175	Elementos da sociedade civil.	t175	auto
+761	176. Auctoridade civil. — Auct	tese	176	Auctoridade civil.	t176	auto
+762	177. Fim da auctoridade civil.	tese	177	Fim da auctoridade civil.	t177	auto
+763	178. Origem da auctoridade civ	tese	178	Origem da auctoridade civil.	t178	auto
+764	179. Sujeito da auctoridade ci	tese	179	Sujeito da auctoridade civil.	t179	auto
+771	ARTIGO II.	artigo	Artigo II	Deveres e direitos dos soberanos.	direito-natural.direito-social.deveres-e-direitos-civis.a2	auto
+771	181. Origem dos deveres e dos 	tese	181	Origem dos deveres e dos direitos dos soberanos.	t181	auto
+771	182. Especies de deveres dos s	tese	182	Especies de deveres dos soberanos.	t182	auto
+779	183. Especies de direitos dos 	tese	183	Especies de direitos dos soberanos.	t183	auto
+780	ARTIGO III.	artigo	Artigo III	Deveres e direitos dos subditos.	direito-natural.direito-social.deveres-e-direitos-civis.a3	auto
+780	184. Origem dos deveres e dos 	tese	184	Origem dos deveres e dos direitos dos subditos.	t184	auto
+780	185. Especies de deveres dos s	tese	185	Especies de deveres dos subditos.	t185	auto
+781	186. Especies de direitos dos 	tese	186	Especies de direitos dos subditos.	t186	auto
+782	CAPITULO TERCEIRO	capitulo	Capitulo Terceiro	DIREITOS E DEVERES INTERNACIONAES	direito-natural.direito-social.direitos-e-deveres-internacionaes	auto
+782	ARTIGO I.	artigo	Artigo I	-	direito-natural.direito-social.direitos-e-deveres-internacionaes.a1	auto
+782	187. Direito internacional. — 	tese	187	Direito internacional.	t187	auto
+783	188. Sujeito dos direitos e de	tese	188	Sujeito dos direitos e deveres internacionaes.	t188	auto
+784	189. Especies de direitos mutu	tese	189	Especies de direitos mutuos das sociedades civis.	t189	auto
+784	190. Direitos juridico-innatos	tese	190	Direitos juridico-innatos das sociedades civis.	t190	auto
+786	191. Direitos juridico-adquiri	tese	191	Direitos juridico-adquiridos das sociedades civis.	t191	auto
+787	192. Direitos moraes das socie	tese	192	Direitos moraes das sociedades civis.	t192	auto
+790	193. Especies de deveres mutuo	tese	193	Especies de deveres mutuos das sociedades civis.	t193	auto
+791	194. Deveres jurídicos das soc	tese	194	Deveres jurídicos das sociedades civis.	t194	auto
+792	195. Deveres moraes das socied	tese	195	Deveres moraes das sociedades civis.	t195	auto
+793	ARTIGO II.	artigo	Artigo II	-	direito-natural.direito-social.direitos-e-deveres-internacionaes.a2	auto
+793	196. Egreja. — Egreja é a soci	tese	196	Egreja.	t196	auto
+794	197. Fim da Egreja. — O fim da	tese	197	Fim da Egreja.	t197	auto
+794	198. Propriedades da Egreja. —	tese	198	Propriedades da Egreja.	t198	auto
+796	199. Constituição da Egreja. —	tese	199	Constituição da Egreja.	t199	auto
+797	200. Poderes da Egreja. — A ju	tese	200	Poderes da Egreja.	t200	auto
+799	201. Especies de direitos da E	tese	201	Especies de direitos da Egreja.	t201	auto
+800	202. Direitos internos da Egre	tese	202	Direitos internos da Egreja.	t202	auto
+803	203. Direitos externos da Egre	tese	203	Direitos externos da Egreja.	t203	auto
+806	204. Deveres da sociedade civi	tese	204	Deveres da sociedade civil para com a Egreja.	t204	auto
