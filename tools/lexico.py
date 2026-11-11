@@ -25,6 +25,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 VALIDAS = Path(__file__).resolve().parent / "dados" / "validas.tsv"
 PALAVRA = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ]+")
+COMPOSTA = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ]+(?:-[A-Za-zÀ-ÖØ-öø-ÿ]+)*")   # refere-se, reduzem-se
 # padrões-ouro: fora do léxico.  vol. 1: blocos de vol1/ouro/ mais a página seguinte, onde
 # acabam as notas transcritas no ouro (tools/mede_wer.py).
 TESTE = {"vol2": [(421, 442)], "vol1": [(62, 66), (331, 335), (577, 581)]}
@@ -44,6 +45,40 @@ def frequencias(excluir_teste=True):
     for f in paginas_txt(TESTE if excluir_teste else {}):
         c.update(w.lower() for w in PALAVRA.findall(f.read_text(encoding="utf-8")))
     return c
+
+
+@lru_cache(maxsize=None)
+def regentes_crase(minimo=2, razao=0.25):
+    """palavras que regem crase (relação á, egual á, sujeito á): seguidas de á/à em >= `minimo`
+    ocorrências e >= `razao` x as vezes em que vêm antes de "a".  Aprendidas só do vol. 2 (fora do
+    padrão-ouro), cujo OCR põe acento em "a" na taxa normal da crase (12%); o do vol. 1 inventa
+    acento (27%) e por isso é o que a regra "crase" de corrige_ocr.py corrige."""
+    return _crase(minimo, razao)[0]
+
+
+@lru_cache(maxsize=None)
+def locucoes_crase(minimo=3, razao=1.0):
+    """palavras que vêm depois de á/à pelo menos tanto quanto depois de "a" (á excepção, á medida):
+    locuções em que a crase é a regra.  Mesmo corpus de regentes_crase."""
+    return _crase(minimo, razao)[1]
+
+
+@lru_cache(maxsize=None)
+def _crase(minimo, razao):
+    c, d = {}, {}
+    excl = TESTE.get("vol2", ())
+    for f in sorted((RAIZ / "vol2" / "paginas").glob("*.txt")):
+        if f.stem.isdigit() and any(de <= int(f.stem) <= ate for de, ate in excl):
+            continue
+        toks = [w.lower() for w in COMPOSTA.findall(f.read_text(encoding="utf-8"))]
+        for p, w in zip(toks, toks[1:]):
+            if w in ("a", "á", "à"):
+                n = c.setdefault(p, [0, 0])
+                n[w != "a"] += 1
+            if p in ("a", "á", "à"):
+                n = d.setdefault(w, [0, 0])
+                n[p != "a"] += 1
+    return tuple(frozenset(p for p, (a, cr) in x.items() if cr >= minimo and cr >= razao * a) for x in (c, d))
 
 
 @lru_cache(maxsize=None)

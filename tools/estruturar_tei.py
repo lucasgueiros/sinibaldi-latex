@@ -57,8 +57,8 @@ XML = "http://www.w3.org/XML/1998/namespace"
 CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f￾￿]")
 # chamada de nota no corpo: o OCR le "(1)" como "(l)", "(|)", "(!)" e, no vol. 1, "(*)" / "(?)"
 CHAMADA = re.compile(r"\(\s*(\d{1,2}|[lI|!*?])\s*\)")
-# inicio de nota; ate 3 caracteres de sujeira antes (o OCR le ". (1)", "| (2)", "' (1)")
-NOTA = re.compile(r"^[.,:;'‘’|!\s]{0,3}\(\s*(\d{1,2}|[lI|])\s*\)\s*")
+# inicio de nota; ate 3 caracteres de sujeira antes (o OCR le ". (1)", "| (2)", "' (1)"; no vol. 1 o filete vira "- (1)")
+NOTA = re.compile(r"^[.,:;'‘’|!\s\-–—]{0,3}\(\s*(\d{1,2}|[lI|])\s*\)\s*")
 # marcas de formatacao no texto (uso privado): abre / fecha, por estilo
 ABRE = {"it": "\ue010", "sc": "\ue011", "bold": "\ue012"}
 FECHA = {"it": "\ue020", "sc": "\ue021", "bold": "\ue022"}
@@ -440,6 +440,12 @@ def enclise(a, b):
     return False
 
 
+def fim_palavra(s):
+    """fim da 1a palavra de s (com marcas de formatacao e hifen de enclise): ate o 1o espaco ou
+    pontuacao."""
+    return re.match(r"\S*?(?=[\s.,;:!?)»]|$)", s).end()
+
+
 def hifen(u, texto):
     """`u` termina em "-" (fim de linha): devolve o que vem DEPOIS de u[:-1] para juntar `texto`,
     ou None para juntar com espaco (sem dehifenizar).
@@ -473,11 +479,20 @@ class Par:
     def texto(self):
         return "".join(p for p in self.pecas if isinstance(p, str))
 
-    def anexa(self, texto):
-        """junta linha seguinte, desfazendo hifenizacao de fim de linha."""
+    def anexa(self, texto, pb=None):
+        """junta linha seguinte, desfazendo hifenizacao de fim de linha.  Com `pb` (a linha e a 1a
+        da pagina seguinte), o <pb> fica entre as duas, depois da palavra hifenizada inteira."""
         u = self.pecas[-1] if self.pecas and isinstance(self.pecas[-1], str) else None
         h = hifen(u, texto) if u is not None else None
-        if h is not None:
+        if pb is not None:
+            k = fim_palavra(h) if h is not None else 0
+            if h is not None:
+                self.pecas[-1] = u[:-1] + h[:k]
+            self.pecas.append(pb)
+            resto = h[k:] if h is not None else texto
+            if resto:
+                self.pecas.append(resto)
+        elif h is not None:
             self.pecas[-1] = u[:-1] + h
         elif u is not None:
             self.pecas[-1] = u + " " + texto
@@ -623,12 +638,12 @@ def processa_paginas(pasta, de, ate, alerta):
             else:
                 if FIM_FRASE.search(sem_marcas(nota_aberta.pars[-1].texto())):
                     alerta(imp, "continuacao-duvidosa", f"nota {nota_aberta.id} parecia terminada, mas continua")
-                nota_aberta.pars[-1].pecas.append(("pb", imp))
                 primeiro = cont[0]
                 if primeiro.recuado:
+                    nota_aberta.pars[-1].pecas.append(("pb", imp))
                     nota_aberta.pars.append(primeiro)
                 else:
-                    nota_aberta.pars[-1].anexa(primeiro.texto())
+                    nota_aberta.pars[-1].anexa(primeiro.texto(), ("pb", imp))
                 nota_aberta.pars.extend(cont[1:])
         if novas:
             nota_aberta = novas[-1]
@@ -654,12 +669,21 @@ def processa_paginas(pasta, de, ate, alerta):
         if lig:
             u = ultima_par
             c0 = lig[0].pecas
+            # notas sem chamada anexadas ao fim do paragrafo (ver liga_notas) depois de um hifen de
+            # fim de pagina sairiam no meio da palavra ("desconve-<nota/>niencia"): saem da frente
+            # do hifen e voltam depois da palavra completa
+            soltas = []
+            while len(u.pecas) > 1 and isinstance(u.pecas[-1], tuple) and u.pecas[-1][0] == "nota" \
+                    and any(isinstance(x, str) for x in u.pecas[:-1]):
+                soltas.insert(0, u.pecas.pop())
             h = hifen(u.pecas[-1], c0[0]) if isinstance(u.pecas[-1], str) and isinstance(c0[0], str) else None
             if h is not None:                                # hifen de fim de pagina
-                u.pecas[-1] = u.pecas[-1][:-1] + h[:len(h) - len(c0[0])]
-                c0[0] = h[len(h) - len(c0[0]):]
+                k = fim_palavra(h)                           # palavra inteira antes do <pb>
+                u.pecas[-1] = u.pecas[-1][:-1] + h[:k]
+                c0[0] = h[k:]
             elif isinstance(c0[0], str):
                 c0[0] = " " + c0[0]
+            u.pecas.extend(soltas)
             u.pecas.append(("pb", imp))
             # o <pb> desta pagina passa a ficar DENTRO do paragrafo (nao no fluxo), e o <fw> da
             # pagina vai junto dele (antes ficava solto depois do </p>)
@@ -667,7 +691,7 @@ def processa_paginas(pasta, de, ate, alerta):
             if i_pb + 1 < len(fluxo) and fluxo[i_pb + 1][0] == "fw":
                 u.pecas.append(fluxo.pop(i_pb + 1))
             fluxo.remove(("pb", imp, pid))
-            u.pecas.extend(c0)
+            u.pecas.extend(x for x in c0 if x != "")
         for p in pars:
             fluxo.append(("p", p))
         if pars:

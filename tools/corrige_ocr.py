@@ -46,8 +46,23 @@ TEI = "{http://www.tei-c.org/ns/1.0}"
 XML = "{http://www.w3.org/XML/1998/namespace}"
 TOKEN = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ]+|\d+")
 REGRAS = ("ao", "cao", "oe", "a-grave", "digito", "deus", "h-italico", "w", "i-inicial", "acento-i",
-          "cedilha", "enclitico", "of", "romano", "junta", "lexico", "marca")
+          "cedilha", "enclitico", "of", "romano", "junta", "lexico", "crase", "e-agudo", "marca")
 VOGAIS = "aeiouáéíóúâêôãõàè"
+
+# crase impossivel: depois de preposicao, antes de pronome/artigo indefinido/masculino/infinitivo
+SEM_CRASE_ANTES = set("para por com sem sobre desde entre contra de em pelo pela pelos pelas perante "
+                      "ante do da dos das no na nos nas num numa".split())
+SEM_CRASE_DEPOIS = set("um uma uns umas o os este estes esse esses aquelle aquelles isto isso aquillo "
+                       "elle elles ella ellas cada mim ti si nós vós quem deus todo todos tudo nenhum "
+                       "algum qualquer".split())
+FEM_R = set("mulher mulheres colher colheres".split())
+# taxa de "a" isolado lido com acento acima da qual o OCR inventa acento (vol. 1: 27%; vol. 2: 12%,
+# a taxa normal da crase): então "á" só fica depois de palavra que rege crase (lexico.regentes_crase)
+CRASE_SUSPEITA = 0.2
+# "É" no início de frase antes de predicativo (o OCR do vol. 2 perde o apóstrofo de "E'")
+PREDICATIVO = set("certo certa falso falsa absurdo absurda verdade claro clara facil util inutil "
+                  "manifesto manifesta licito licita justo justa natural logico logica".split())
+PREDICATIVO_FIM = re.compile(r"(vel|nte|ario|aria|orio|oria|oso|osa|ivo|iva)$")
 
 # confusoes do OCR (letra lida -> letras possiveis); genericas, nao aprendidas do padrao-ouro
 CONF = {"à": "áâãa", "á": "àãâa", "a": "áàãâ", "ã": "áàa", "ä": "ãá", "è": "éêe", "é": "eêèi",
@@ -90,6 +105,28 @@ class Corretor:
         self.ativas = set(ativas)
         self.freq = lexico.frequencias(excluir_teste)
         self.cache = {}
+        self.crase_suspeita = False     # por documento: ver configura()
+        self.e_agudo = "É"
+
+    def configura(self, texto):
+        """decisões que dependem do documento inteiro: o OCR deste volume inventa acento em "a"?
+        o volume grafa o É maiúsculo como "E'" (vol. 2) ou "É" (vol. 1)?"""
+        a = re.findall(r"(?<![\wÀ-ÿ])([aáà])(?![\wÀ-ÿ'’])", texto)
+        taxa = sum(x != "a" for x in a) / max(len(a), 1)
+        self.crase_suspeita = taxa > CRASE_SUSPEITA
+        self.e_agudo = "E'" if len(re.findall(r"\bE['’]\s", texto)) > len(re.findall(r"\bÉ\s", texto)) else "É"
+        return taxa
+
+    def crase(self, prv, nxt):
+        """"á" isolado deve ser "a"?  prv/nxt: palavras vizinhas (minúsculas, "" se não há)."""
+        if prv in SEM_CRASE_ANTES or nxt in SEM_CRASE_DEPOIS:
+            return True
+        if len(nxt) > 3 and re.search(r"(ar|er|ir)$", nxt) and nxt not in FEM_R:
+            return True                                     # infinitivo ou masculino em -r
+        if len(nxt) > 2 and re.search(r"[^ã]os?$", nxt):
+            return True                                     # masculino em -o
+        return self.crase_suspeita and prv != "até" and prv not in lexico.regentes_crase() \
+            and nxt not in lexico.locucoes_crase()
 
     def existe(self, w, minimo=5):
         return lexico.valida(w) or self.freq[w.lower()] >= minimo
@@ -161,6 +198,9 @@ class Corretor:
             w, feitas = re.sub(r"(mol)([oa]s?)$", r"\1-\2", w), feitas + ["enclitico"]    # Provamol-o
         return w, feitas
 
+    def predicativo(self, w):
+        return w in PREDICATIVO or (len(w) > 4 and PREDICATIVO_FIM.search(w) is not None)
+
     # --- 2. lexico
     def candidatos(self, w):
         """[candidatos a 1 troca, candidatos a 2 trocas] pela tabela de confusões."""
@@ -211,6 +251,14 @@ class Corretor:
         a = self.ativas
         if "of" in a:
             s = re.sub(r"\bOf\.", lambda m: (registra("Of.", "Cf.", "of"), "Cf.")[1], s)
+        if "e-agudo" in a and self.e_agudo == "E'":
+            # apóstrofo de "E'" lido como lixo colado (E? E! E" E^ E/ E ' ): "E?" não é pergunta aqui
+            def agudo(m):
+                if m.group() == "E'":
+                    return m.group()
+                registra(m.group(), "E'", "e-agudo")
+                return "E'"
+            s = re.sub(r"(?<![\wÀ-ÿ'’])E(?:[?!\"^/'’`*]+| ['’\"][?!\"^/'’`*]*)(?= )", agudo, s)
         if "romano" in a:
             def romano(m):
                 n = m.group(1) + "I" if m.group(1) else "I" + m.group(2)
@@ -239,12 +287,22 @@ class Corretor:
         ext, d = antes + s + depois, len(antes)
         tx = list(TOKEN.finditer(ext))
         fora_x = estrangeiros([m.group() for m in tx])
-        toks, fora = [], set()
+        toks, fora, jx = [], set(), []
         for j, m in enumerate(tx):
             if d <= m.start() and m.end() <= d + len(s):
                 if j in fora_x:
                     fora.add(len(toks))
                 toks.append(re.compile(re.escape(m.group())).match(s, m.start() - d))
+                jx.append(j)
+
+        def anterior(i):                # palavra anterior inteira, com hífen: "refere-se á"
+            m = re.search(r"([A-Za-zÀ-ÖØ-öø-ÿ]+(?:-[A-Za-zÀ-ÖØ-öø-ÿ]+)*)[^A-Za-zÀ-ÖØ-öø-ÿ]*$",
+                          ext[:d + toks[i].start()])
+            return m.group(1).lower() if m else ""
+
+        def vizinha(i, k):
+            j = jx[i] + k
+            return tx[j].group().lower() if 0 <= j < len(tx) else ""
         partes, pos = [], 0
         for i, m in enumerate(toks):
             w = m.group()
@@ -262,6 +320,13 @@ class Corretor:
                     n2 = self.lexico(novo)
                     if n2 != novo:
                         novo, regras = n2, regras + ["lexico"]
+                if "crase" in self.ativas and novo == "á" and self.crase(anterior(i), vizinha(i, 1)):
+                    novo, regras = "a", regras + ["crase"]
+                if "e-agudo" in self.ativas and w == "E" and self.e_agudo != "E" \
+                        and not re.match(r"['’]", ext[d + m.end():d + m.end() + 1]) \
+                        and re.search(r"(^|[.?!:])$", ext[:d + m.start()].rstrip()) \
+                        and self.predicativo(vizinha(i, 1)):
+                    novo, regras = self.e_agudo, regras + ["e-agudo"]
                 if not regras and "marca" in self.ativas and w in baixa and not self.existe(w, 3):
                     registra(w, w, "marca")
             if regras:
@@ -329,6 +394,11 @@ def corrige_arquivo(xml, saida, tsv_saida, quieto=False, ativas=REGRAS, excluir_
     arv = etree.parse(str(xml))
     raiz = arv.getroot()
     cor = Corretor(ativas, excluir_teste)
+    taxa = cor.configura(" ".join(raiz.itertext()))
+    if not quieto:
+        print(f"{xml}: \"a\" isolado com acento {100 * taxa:.1f}% "
+              f"({'OCR inventa acento: crase só depois de regente' if cor.crase_suspeita else 'normal'}); "
+              f"É maiúsculo grafado {cor.e_agudo}", file=sys.stderr)
     linhas, estado = [], {"pag": None, "baixa": frozenset()}
     base = Path(xml).resolve().parent
 
