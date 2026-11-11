@@ -1,0 +1,2 @@
+vol1.pdf filter=lfs diff=lfs merge=lfs -text
+vol2/vol2.pdf filter=lfs diff=lfs merge=lfs -text
