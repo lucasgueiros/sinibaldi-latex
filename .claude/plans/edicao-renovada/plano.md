@@ -147,14 +147,14 @@ Então:
 
 Resultado: `<stem>.tex` em grafia atual, **com os mesmos `\pg{n}`**, compilando em `livro.tex`.
 
-### F8 — Edição acadêmica (contínua)
-- O texto-mestre editável passa a ser `<stem>.tex` (moderno). `<stem>.orig.tex` fica congelado
-  como referência fiel ao impresso (para citação, conferência e para refazer F7 se o mapa mudar).
-- Separar autor de editor no LaTeX: notas do editor com macro própria (`\ned{…}`, numeração ou
-  marca distinta das notas do autor), intervenções no texto marcáveis (`\add{}`, `\del{}` simples,
-  ou `reledmac` se se quiser aparato crítico de verdade). Assim as melhorias acadêmicas nunca se
-  confundem com o texto de Sinibaldi e a versão "sem intervenções" continua compilável.
-- `livro.tex` com chave para compilar a edição renovada ou a diplomática.
+### F8 — Edição revista (contínua): procedência por bloco
+A base (Sinibaldi 1916, grafia atual) é **congelada** com ids estáveis por tese/parágrafo/nota. As
+mudanças drásticas (dados científicos, ordem da exposição, posições filosóficas, problemas
+teológicos posteriores) vão para uma **obra derivada**, escrita por referência à base:
+`\trecho{t6}` (integral, transcluído), `adaptado`/`novo`/`suprimido` com `resp`, `data` e `motivo`
+no próprio texto. O *que* mudou é calculado (diff contra a base); a cobertura, a tabela de
+correspondência e o registro de mudanças saem de `tools/procedencia.py`. Detalhes em
+**[`edicao-revista.md`](edicao-revista.md)**.
 
 ## Formato de saída: LaTeX ou HTML
 
@@ -194,13 +194,16 @@ próprio, e o HTML gerado a partir dele.** Não há duas fontes a manter.
 Fechadas:
 1. **Grafia**: AO 1990 (o mais recente), variante brasileira, referência VOLP/ABL.
 2. **Estrutura**: `estrutura.tsv` é a fonte; corrigir uma divisão = mudar uma linha.
-3. **Formato**: LaTeX semântico como fonte, PDF + site HTML gerados (recomendado; confirmar).
+3. **Formato**: LaTeX semântico como fonte (base e revista), PDF + site HTML gerados; TEI só como
+   exportação. Considerado TEI como fonte e descartado: as marcas de linha dele servem para
+   intervenções pontuais, não para reordenar e reescrever (ver `edicao-revista.md`).
+4. **Duas obras**: base congelada + revista derivada com procedência por bloco.
 
 Assumidas (trocar se discordar):
-4. **Latim** intocado na edição renovada; tradução, se houver, em nota do editor.
-5. **Duas camadas** `orig`/moderna; edita-se só a moderna.
-6. **Viradas de página dentro das notas** marcadas (`\pgn`), ocultáveis por chave.
-7. **Modelo para F6** escolhido pelo portão de qualidade no piloto, não de antemão.
+5. **Latim** intocado na edição renovada; tradução, se houver, em nota do editor.
+6. **Grafia na base**: `.orig.tex` (1916) e `.tex` (AO 1990), ambos congelados depois da revisão.
+7. **Viradas de página dentro das notas** marcadas (`\pgn`), ocultáveis por chave.
+8. **Modelo para F6** escolhido pelo portão de qualidade no piloto, não de antemão.
 
 Em aberto:
-8. **Vol. 1**: onde está o `vol1.pdf`?
+9. **Vol. 1**: onde está o `vol1.pdf`?
