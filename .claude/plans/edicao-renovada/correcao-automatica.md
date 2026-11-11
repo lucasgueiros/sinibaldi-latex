@@ -16,22 +16,34 @@ racional — parece indicar…") também ficou no corpo. Só a nota (1) da p. 6 
 
 **Causa medida** (geometria do `.tsv`):
 
-| sinal | p. 5, antes/na nota | veredito |
-|---|---|---|
-| vão antes de `(1)` | 159 px (corpo: 53) | inequívoco |
-| entrelinha depois de `(1)` | 41–44 px até o pé | inequívoco (nota ≈ 43) |
-| linha começa com `(1)` recuado | sim | inequívoco |
-| largura/caractere (o critério que decide) | quase todas as linhas sem medida; as medidas dão 21,1 / 21,7 / **28,9** / 22,2 | **falso "corpo"** (limiar 19,7) |
+O `inicio_notas()` combina vários critérios, mas todos ligados por **E** a dois que derivam só
+da largura por caractere: `pequeno[i]` e a fração de linhas pequenas até o pé.
 
-O `inicio_notas()` exige `pequeno[i]`, que vem só do tamanho da letra. Na p. 5 essa medida falha
-(linhas não "cheias" para o critério de 93% da coluna, valores espúrios), e ela veta os três sinais
-que acertavam. **Cascata:** como a p. 5 ficou "sem notas", a p. 6 não tem `aberta=True`, e a
-continuação, com vão de 141 px e letra de 17–18 px, não é aceita como nota.
+- **nota nova** = `(n)` E `pequeno[i]` E fração ≥ 0,8;
+- **continuação** (só com `aberta`) = vão ≥ 1,3× a entrelinha do corpo E sem recuo E sem `(n)` E
+  `pequeno[i]` E fração ≥ 0,85;
+- a entrelinha de nota (~43 px) é calibrada, mas não entra por linha: só a do corpo é usada, no vão.
+
+Medido na linha `(1)` da p. 5 (i = 12):
+
+| critério | valor | resultado |
+|---|---|---|
+| `(n)` no início | sim | ✔ |
+| vão antes | 159 px (corpo 53) | ✔ (não é exigido para nota nova) |
+| entrelinha depois | 41–44 px até o pé | não usada |
+| `pequeno[i]` | False (larguras/caractere 21,1 / 21,7 / **28,9** / 22,2; limiar 19,7; a maioria das linhas sem medida) | ✘ veta |
+| fração pequena até o pé | 0,26 (mesma medida) | ✘ veta |
+
+Resultado: corte em 39/39, sem notas. **Cascata:** na p. 6 a continuação (i = 13: vão 141,
+`pequeno` = True, fração 1,00) satisfaz todos os critérios, e com `aberta=True` o código atual
+corta certo em 13. Ela só se perde porque a p. 5 não deixou nota aberta.
 
 ### Correção proposta: escolher o ponto de corte por escore, não por veto
 
-Uma página tem no máximo uma fronteira corpo→notas. Avaliar **cada** corte `k ∈ [1..n]`, mais
-"sem notas", e ficar com o de maior escore somado:
+Os critérios atuais ficam. O que muda é a forma de combiná-los: trocar a conjunção, em que um
+sinal frágil veta todos os outros, por uma soma ponderada, e acrescentar a entrelinha de nota,
+que já é calibrada. Uma página tem no máximo uma fronteira corpo→notas. Avaliar **cada** corte
+`k ∈ [1..n]`, mais "sem notas", e ficar com o de maior escore somado:
 
 - `+` vão antes de `k` ≥ ~2× a entrelinha do corpo (o filete está ali);
 - `+` mediana das entrelinhas em `k..n` próxima de 43 e distante de 53;
@@ -45,9 +57,9 @@ Uma página tem no máximo uma fronteira corpo→notas. Avaliar **cada** corte `
 **Restrição chamadas × notas como reparo, não só como alerta.** Se o corpo tem chamada `(n)` e o
 corte vencedor é "sem notas", tomar o melhor corte que comece em `(n)`. A p. 5 passa só por isso.
 
-**Nota aberta** = há uma chamada cuja nota terminou sem pontuação final, ou a última nota da página
-anterior terminou sem pontuação final. Não basta que "a página anterior teve área de notas". Isso
-desfaz a cascata da p. 6.
+**Nota aberta**: hoje é `nota_aberta and pag_anterior_com_notas`. Acrescentar: a página anterior
+tem chamada sem nota correspondente (o caso da p. 5). Isso desfaz a cascata da p. 6 mesmo quando o
+corte da página anterior falha.
 
 **Teste de regressão:** pp. 5–6 (este caso) + pp. 421–442 (o padrão-ouro tem as notas no lugar),
 e o número de alertas em `vol2.estruturado.alertas.tsv` (hoje 239). A meta é que só sobrem alertas
