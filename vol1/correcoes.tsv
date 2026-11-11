@@ -48,6 +48,7 @@ pagina	xml:id	antes	depois	regra
 -6	n-6-1	à	á	a-grave
 -6	n-6-1	à	á	a-grave
 -6	n-6-1	exlrahida	exlrahida	marca
+-6	n-6-1	eseriptores	escriptores	lexico
 -6	n-6-1	eslá	está	lexico
 -6	n-6-1	Auclor	Auctor	lexico
 -5	n-6-1	hbõôas	hbõôas	marca
@@ -297,7 +298,7 @@ pagina	xml:id	antes	depois	regra
 5	n5-1	Grafry	Grafry	marca
 5	n5-1	à	á	a-grave
 5	n5-1	exislencia	existencia	lexico
-5	n5-1	eseríptores	eseriptores	acento-i
+5	n5-1	eseríptores	escriptores	acento-i+lexico
 5	n5-1	à	á	a-grave
 5	n5-1	nào	não	ao
 5	n5-1	à	á	a-grave
@@ -311,7 +312,7 @@ pagina	xml:id	antes	depois	regra
 5	n5-1	à	á	a-grave
 5	n5-1	à	á	a-grave
 5	n5-1	virlule	virlule	marca
-5	t5.p1	scienetas	scieneias	lexico
+5	t5.p1	scienetas	sciencias	lexico
 5	t5.p2	snas	suas	lexico
 5	t5.p2	emquanlo	emquanto	lexico
 5	t5.p2	remolas	remol-as	enclitico
@@ -2150,7 +2151,7 @@ pagina	xml:id	antes	depois	regra
 65	n65-1	homenus	homenus	marca
 65	n65-1	fiomens	fiomens	marca
 65	n65-1	sáo	são	ao
-65	n65-1	lereeira	lerceira	lexico
+65	n65-1	lereeira	terceira	lexico
 65	n65-1	à	á	a-grave
 65	n65-1	iscrepancia	iscrepancia	marca
 65	n65-1	csle	este	lexico
@@ -2174,6 +2175,7 @@ pagina	xml:id	antes	depois	regra
 66	n65-2	nào	não	ao
 66	n65-2	loda	toda	lexico
 66	t79.p3	SECCROFPRIMEIRÀ	SECCROFPRIMEIRÀ	marca
+66	t80.p4	Loro	Loro	marca
 66	t80.p4	parlicular	particular	lexico
 66	t80.p5	À	A	a-grave
 66	t80.p5	constiluida	constituida	lexico
@@ -2439,6 +2441,7 @@ pagina	xml:id	antes	depois	regra
 75	n74-1	moeios	moeios	marca
 75	cap-6	nma	uma	lexico
 75	cap-6	iermo	lermo	lexico
+75	cap-6	eseriptores	escriptores	lexico
 75	cap-6	à	á	a-grave
 75	cap-6	à	á	a-grave
 75	cap-6	às	ás	a-grave
@@ -2823,6 +2826,7 @@ pagina	xml:id	antes	depois	regra
 90	t108.p1	à	á	a-grave
 90	t108.p1	4	á	digito
 90	t108.p1	imducção	imducção	marca
+90	t108.p1	eseriptores	escriptores	lexico
 90	t108.p1	exiqnso	exiqnso	marca
 90	t108.p1	notte	notte	marca
 90	t108.p1	nào	não	ao
@@ -2919,7 +2923,6 @@ pagina	xml:id	antes	depois	regra
 93	n92-1	à	á	a-grave
 93	n92-1	aualytico	analytico	lexico
 93	n92-1	à	á	a-grave
-93	t110.p1	conclne	conclue	lexico
 93	t110.p5	à	á	a-grave
 93	t110.p5	attribuído	attribuido	lexico
 93	t110.p7	induccüo	inducção	lexico
@@ -3514,7 +3517,7 @@ pagina	xml:id	antes	depois	regra
 116	t123.p5	poderà	poderá	lexico
 116	t123.p5	à	á	a-grave
 116	t123.p5	iriangulo	triangulo	lexico
-116	t123.p5	mathematicás	mathematicas	lexico
+116	t123.p5	mathematicás	mathematicás	marca
 116	t123.p5	axiomà	axioma	lexico
 116	t123.p5	hecessaria	hecessaria	marca
 116	t123.p5	equaes	equaes	marca
@@ -3620,6 +3623,7 @@ pagina	xml:id	antes	depois	regra
 120	n120-29	àcerca	ácerca	lexico
 120	n120-29	lgnoraneia	ignorancia	lexico
 120	n120-29	Tgrnorancia	Tgrnorancia	marca
+121	n120-29	fotal	total	lexico
 121	n120-29	À	A	a-grave
 121	n120-29	iste	isto	lexico
 121	n120-29	copuosciveis	copuosciveis	marca
@@ -4023,6 +4027,7 @@ pagina	xml:id	antes	depois	regra
 138	t139.p14	adhesáo	adhesão	ao
 138	t139.p14	à	á	a-grave
 138	t139.p14	à	á	a-grave
+138	t139.p14	fotal	total	lexico
 139	t139.p14	nào	não	ao
 139	t139.p14	ouiro	outro	lexico
 139	t139.p14	à	á	a-grave
@@ -4741,7 +4746,6 @@ pagina	xml:id	antes	depois	regra
 169	t151.p27	à	á	a-grave
 169	t151.p27	Kani	Kant	lexico
 169	t151.p27	admille	admitte	lexico
-169	t151.p27	mathemalicas	mathematicas	lexico
 170	t151.p29	Locicao	Locicao	marca
 170	t151.p30	essenciá	essencia	lexico
 170	t151.p32	inducções	inducções	marca
@@ -6261,7 +6265,6 @@ pagina	xml:id	antes	depois	regra
 233	t188.p98	à	á	a-grave
 233	t188.p98	à	á	a-grave
 233	t188.p98	à	á	a-grave
-233	t188.p98	admiltido	admittido	lexico
 233	t188.p98	escriplor	escriptor	lexico
 233	t188.p98	énfuipzo	énfuipzo	marca
 233	t188.p98	espeeie	especie	lexico
@@ -6365,7 +6368,7 @@ pagina	xml:id	antes	depois	regra
 237	n235-2	à	á	a-grave
 237	n235-2	palywras	palywras	marca
 237	n235-2	wniversal	universal	w
-237	n235-2	invesligacóes	investigações	cao+lexico
+237	n235-2	invesligacóes	invesligações	cao
 237	n235-2	testemuuho	testemunho	lexico
 237	n235-2	eunganar	eunganar	marca
 238	n235-2	sém	sem	lexico
@@ -6917,7 +6920,7 @@ pagina	xml:id	antes	depois	regra
 261	t206.p31	swpremas	supremas	w
 261	n261-1	naturezà	natureza	lexico
 261	t206.p32	Metaphysiea	Metaphysica	lexico
-261	t206.p32	naíwraes	naiuraes	lexico
+261	t206.p32	naíwraes	naíwraes	marca
 261	t206.p33	à	á	a-grave
 261	t206.p33	sciencía	sciencia	acento-i
 261	n261-2	à	á	a-grave
@@ -6943,6 +6946,7 @@ pagina	xml:id	antes	depois	regra
 262	n261-3	à	á	a-grave
 262	n261-3	ouxvas	ouxvas	marca
 262	n261-3	impossível	impossivel	acento-i
+262	n261-3	inuumeraveis	innumeraveis	lexico
 262	n261-3	Droduzir	Droduzir	marca
 262	n261-3	princípio	principio	acento-i
 262	n261-3	salisfaz	satisfaz	lexico
@@ -7047,7 +7051,6 @@ pagina	xml:id	antes	depois	regra
 266	n265-1	às	ás	a-grave
 266	n265-1	escripior	escriptor	lexico
 266	n265-1	sujeitó	sujeito	lexico
-266	n265-1	mafhematicas	mathematicas	lexico
 266	n265-1	naüfhematica	naüfhematica	marca
 266	n265-1	nmunero	nmunero	marca
 266	n265-1	contínua	continua	acento-i
@@ -7218,6 +7221,7 @@ pagina	xml:id	antes	depois	regra
 273	n273-1	À	A	a-grave
 273	n273-1	à	á	a-grave
 273	n273-1	precistua	precistua	marca
+273	n273-1	fotal	total	lexico
 273	n273-1	relativamenle	relativamente	lexico
 273	n273-1	à	á	a-grave
 273	n273-1	nolas	notas	lexico
@@ -8419,7 +8423,6 @@ pagina	xml:id	antes	depois	regra
 322	n322-1	intrínseca	intrinseca	acento-i
 322	n322-1	inluição	intuição	lexico
 322	n322-1	à	á	a-grave
-322	n322-1	couciue	conclue	lexico
 322	n322-1	nào	não	ao
 322	n322-1	intrínseca	intrinseca	acento-i
 322	n322-1	à	á	a-grave
@@ -8622,9 +8625,11 @@ pagina	xml:id	antes	depois	regra
 330	n330-1	represenla	representa	lexico
 330	n330-1	adcquadamente	adequadamente	lexico
 330	n330-1	prutolypo	prutolypo	marca
+331	n330-1	inereada	increada	lexico
 331	n330-1	infinila	infinita	lexico
 331	n330-1	erenturas	erenturas	marca
 331	n330-1	inadequadu	inadequadu	marca
+331	n330-1	inuumeraveis	innumeraveis	lexico
 331	cap-10	SuxMARIO	SuxMARIO	marca
 331	cap-10	enle	ente	lexico
 331	cap-10	Eute	Ente	lexico
@@ -8634,7 +8639,9 @@ pagina	xml:id	antes	depois	regra
 331	n331-1	fotul	fotul	marca
 331	n331-1	infeiramente	inteiramente	lexico
 331	n331-1	à	á	a-grave
+331	n331-1	fotal	total	lexico
 331	n331-1	oppüe	oppüe	marca
+331	n331-1	fotal	total	lexico
 331	n331-1	À	A	a-grave
 331	n331-1	conjuneto	conjuncto	lexico
 331	n331-1	perfeicóes	perfeições	cao
@@ -8705,6 +8712,7 @@ pagina	xml:id	antes	depois	regra
 333	n333-1	oulra	outra	lexico
 333	n333-1	à	á	a-grave
 333	n333-1	intelligeneia	intelligencia	lexico
+333	n333-1	intuilivo	intuitivo	lexico
 333	n333-1	Enle	Ente	lexico
 334	art-12	nào	não	ao
 334	art-12	sería	seria	acento-i
@@ -8726,7 +8734,7 @@ pagina	xml:id	antes	depois	regra
 335	art-12	istincta	istincta	marca
 335	art-12	acio	acto	lexico
 335	n335-1	eal	eal	marca
-335	n335-1	muitiplicar	muitiplicar	marca
+335	n335-1	muitiplicar	multiplicar	lexico
 335	n335-1	indefinitàmente	indefinitàmente	marca
 335	art-12	nào	não	ao
 335	art-12	prineipios	principios	lexico
@@ -8836,6 +8844,7 @@ pagina	xml:id	antes	depois	regra
 341	art-13	infinilo	infinito	lexico
 341	art-13	esie	este	lexico
 341	art-13	intelligenóia	intelligencia	lexico
+341	n341-1	iptelligencia	iptelligencia	marca
 341	n341-1	fmteligencia	fmteligencia	marca
 341	n341-1	nào	não	ao
 341	n341-1	inlelligencia	intelligencia	lexico
@@ -8986,6 +8995,7 @@ pagina	xml:id	antes	depois	regra
 349	art-13	abstracgào	abstracgão	ao
 349	art-13	sáo	são	ao
 349	art-13	meftaphysicas	meftaphysicas	marca
+349	art-13	dilferença	dilferença	marca
 349	art-13	nào	não	ao
 349	art-13	nào	não	ao
 349	art-13	nào	não	ao
@@ -10361,7 +10371,7 @@ pagina	xml:id	antes	depois	regra
 403	n403-1	cognoscitionm	cognoscitionm	marca
 403	n403-1	sáo	são	ao
 403	n403-1	visla	vista	lexico
-403	n403-1	aitribue	altribue	lexico
+403	n403-1	aitribue	attribue	lexico
 403	n403-1	JBeauwmgarten	JBeauwmgarten	marca
 403	n403-1	radavel	radavel	marca
 403	n403-1	uecessario	necessario	lexico
@@ -10916,6 +10926,7 @@ pagina	xml:id	antes	depois	regra
 429	n429-1	substancià	substancia	lexico
 429	n429-1	nào	não	ao
 429	n429-1	sentito	sentito	marca
+429	n429-1	obvio	obvio	marca
 429	n429-1	substaucial	substancial	lexico
 429	n429-1	conbideracío	conbideracío	marca
 429	n429-1	à	á	a-grave
@@ -12608,6 +12619,7 @@ pagina	xml:id	antes	depois	regra
 496	n496-1	à	á	a-grave
 496	n496-1	mutis	mutis	marca
 496	n496-1	à	á	a-grave
+496	n496-1	mulua	mutua	lexico
 496	n496-1	relacáo	relação	cao
 497	n496-1	mútua	mutua	acento-i
 497	n496-1	intrínseca	intrinseca	acento-i
@@ -13184,6 +13196,7 @@ pagina	xml:id	antes	depois	regra
 521	n520-1	niuguem	ninguem	lexico
 521	n520-1	successo	successo	marca
 521	n520-1	prodwziw	produziu	w
+521	n520-1	muitiplicar	multiplicar	lexico
 521	n520-1	inierno	interno	lexico
 521	n520-1	exierna	externa	lexico
 521	n520-1	modificacóes	modificações	cao
@@ -13481,6 +13494,7 @@ pagina	xml:id	antes	depois	regra
 533	art-14	eada	cada	lexico
 533	art-14	eausa	causa	lexico
 533	art-14	lectivamente	lectivamente	marca
+533	art-14	fotal	total	lexico
 533	art-14	remola	remol-a	enclitico
 533	n533-1	Dens	Deus	deus
 533	n533-1	Dens	Deus	deus
@@ -13842,6 +13856,7 @@ pagina	xml:id	antes	depois	regra
 547	n546-2	conslituem	constituem	lexico
 547	n546-2	rinsecamente	rinsecamente	marca
 547	n546-2	nào	não	ao
+547	n546-2	mulua	mutua	lexico
 547	n546-2	nmuteria	nmuteria	marca
 547	n546-2	mufwa	mutua	lexico
 547	n546-2	à	á	a-grave
@@ -14393,7 +14408,7 @@ pagina	xml:id	antes	depois	regra
 574	n569-1	distinela	distineta	lexico
 574	n569-1	efernidade	eternidade	lexico
 574	n569-1	à	á	a-grave
-574	n569-1	aitribue	altribue	lexico
+574	n569-1	aitribue	attribue	lexico
 574	n569-1	Zempo	Zempo	marca
 574	n569-1	nào	não	ao
 574	n569-1	illusào	illusão	ao
@@ -14452,6 +14467,7 @@ pagina	xml:id	antes	depois	regra
 577	parte-1	swpremas	supremas	w
 577	parte-1	à	á	a-grave
 577	parte-1	nào	não	ao
+577	n577-2	eseriptores	escriptores	lexico
 577	n577-2	nào	não	ao
 577	n577-2	uesta	nesta	lexico
 577	n577-2	à	á	a-grave
@@ -14483,6 +14499,7 @@ pagina	xml:id	antes	depois	regra
 578	n578-1	eslas	estas	lexico
 578	n578-1	à	á	a-grave
 578	n578-1	LFhilosophia	LFhilosophia	marca
+578	n578-1	mulua	mutua	lexico
 578	n578-1	nào	não	ao
 578	n578-1	naiuraes	naturaes	lexico
 578	n578-1	descoberlas	descobertas	lexico
@@ -14514,6 +14531,7 @@ pagina	xml:id	antes	depois	regra
 580	art-16	représepnta	représepnta	marca
 580	art-16	nào	não	ao
 580	art-16	méra	mera	lexico
+580	art-16	iptelligencia	iptelligencia	marca
 580	art-16	intelligeneia	intelligencia	lexico
 580	art-16	à	á	a-grave
 580	art-16	inlellectuaes	intellectuaes	lexico
@@ -14552,6 +14570,7 @@ pagina	xml:id	antes	depois	regra
 583	n581-1	sysiemas	systemas	lexico
 583	n581-1	mnifaiem	mnifaiem	marca
 583	n581-1	wa	ua	w
+582	art-16	inuumeraveis	innumeraveis	lexico
 582	art-16	à	á	a-grave
 582	art-16	aitesta	attesta	lexico
 582	art-16	4	á	digito
@@ -14920,6 +14939,7 @@ pagina	xml:id	antes	depois	regra
 597	n596-2	à	á	a-grave
 597	n596-2	repugn	repugn	marca
 597	n596-2	linilueio	linilueio	marca
+597	art-17	eseriptores	escriptores	lexico
 599	n598-1	ew	eu	w
 599	n598-1	pxre	pxre	marca
 599	n598-1	oppóem	oppõem	oe
@@ -15380,7 +15400,7 @@ pagina	xml:id	antes	depois	regra
 615	art-18	conclusóes	conclusões	oe
 615	art-18	entáo	então	ao
 615	art-18	nào	não	ao
-615	art-18	scioneias	scieneias	lexico
+615	art-18	scioneias	sciencias	lexico
 615	art-18	nào	não	ao
 615	art-18	clerno	eterno	lexico
 615	art-18	náo	não	ao
@@ -15964,7 +15984,6 @@ pagina	xml:id	antes	depois	regra
 639	art-19	cónhecimento	conhecimento	lexico
 639	n639-1	à	á	a-grave
 639	n639-1	maw	mau	w
-639	n639-1	admillido	admittido	lexico
 640	n639-1	Scopenhamwer	Scopenhamwer	marca
 640	n639-1	outrós	outros	lexico
 640	n639-1	coisás	coisas	lexico
@@ -16085,6 +16104,7 @@ pagina	xml:id	antes	depois	regra
 645	art-19	laes	taes	lexico
 646	art-19	duegào	duegão	ao
 646	art-19	effieientes	efficientes	lexico
+646	art-19	mulua	mutua	lexico
 646	art-19	enire	entre	lexico
 646	art-19	celéstes	celestes	lexico
 646	art-19	aitractiva	aitractiva	marca
@@ -16773,6 +16793,7 @@ pagina	xml:id	antes	depois	regra
 681	n679-2	wniversaes	universaes	w
 681	n679-2	pAysica	physica	h-italico
 681	n679-2	pnaturaes	pnaturaes	marca
+680	art-20	cosMOLÓGIA	cosMOLÓGIA	marca
 680	art-20	à	á	a-grave
 680	art-20	produccáo	producção	cao
 680	art-20	nào	não	ao
@@ -17765,7 +17786,7 @@ pagina	xml:id	antes	depois	regra
 733	n732-1	à	á	a-grave
 733	n732-1	demonsirasse	demonsirasse	marca
 733	n732-1	nào	não	ao
-733	n732-1	admitlido	admittido	lexico
+733	n732-1	admitlido	admitlido	marca
 733	n732-1	À	A	a-grave
 733	n732-1	forinal	forinal	marca
 733	n732-1	6	é	digito
@@ -18275,6 +18296,7 @@ pagina	xml:id	antes	depois	regra
 753	t219.p10	nào	não	ao
 753	t219.p10	acio	acto	lexico
 754	n754-1	À	A	a-grave
+754	n754-1	mulua	mutua	lexico
 754	n754-1	porqué	porque	lexico
 754	n754-1	à	á	a-grave
 754	n754-1	à	á	a-grave
@@ -19183,6 +19205,7 @@ pagina	xml:id	antes	depois	regra
 792	n792-1	lerceira	terceira	lexico
 792	art-23	objeetivas	objectivas	lexico
 792	art-23	realidadé	realidade	lexico
+792	art-23	intuilivo	intuitivo	lexico
 792	art-23	sensíveis	sensiveis	acento-i
 792	art-23	sensíveis	sensiveis	acento-i
 792	art-23	supposiqáo	supposiqão	ao
@@ -19255,6 +19278,7 @@ pagina	xml:id	antes	depois	regra
 795	n795-1	à	á	a-grave
 795	n795-1	à	á	a-grave
 795	n795-1	resullà	resulta	lexico
+795	n795-1	mulua	mutua	lexico
 795	n795-1	destiluidos	destituidos	lexico
 795	n795-1	nào	não	ao
 795	n795-1	à	á	a-grave
@@ -21081,6 +21105,7 @@ pagina	xml:id	antes	depois	regra
 897	sec-5	à	á	a-grave
 897	sec-5	énfelligenca	énfelligenca	marca
 897	sec-5	MzTHopo	MzTHopo	marca
+897	sec-5	intelligencio	intelligencio	marca
 897	sec-5	acquisigzo	acquisigzo	marca
 897	sec-5	nào	não	ao
 897	sec-5	reiativos	relativos	lexico

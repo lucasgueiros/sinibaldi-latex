@@ -1955,6 +1955,7 @@ pagina	xml:id	antes	depois	regra
 175	n175-1	oppóe	oppõe	oe
 175	n175-1	intelligeneia	intelligencia	lexico
 175	n175-1	à	á	a-grave
+175	n175-1	eseriptores	escriptores	lexico
 176	n175-1	sensacóes	sensações	cao
 176	n175-1	nào	não	ao
 176	n175-1	nào	não	ao
@@ -1968,6 +1969,7 @@ pagina	xml:id	antes	depois	regra
 177	n177-1	à	á	a-grave
 177	t123.p4	À	A	a-grave
 177	t123.p4	Conseiencia	Consciencia	lexico
+177	n177-2	eseriptores	escriptores	lexico
 177	n177-2	à	á	a-grave
 177	n177-2	actwal	actual	w
 177	n177-2	à	á	a-grave
@@ -2714,6 +2716,7 @@ pagina	xml:id	antes	depois	regra
 238	n237-1	nào	não	ao
 238	n237-1	à	á	a-grave
 238	n237-1	suppóem	suppõem	oe
+238	n237-1	eseriptores	escriptores	lexico
 238	n237-1	À	A	a-grave
 238	n237-1	mãs	mas	lexico
 238	n237-1	nào	não	ao
@@ -2896,7 +2899,6 @@ pagina	xml:id	antes	depois	regra
 253	n250-1	nào	não	ao
 253	n250-1	6	é	digito
 253	n250-1	nào	não	ao
-253	n250-1	mathematieas	mathematicas	lexico
 253	n250-1	À	A	a-grave
 253	n250-1	nào	não	ao
 253	n250-1	interferencia	interferencia	marca
@@ -3279,6 +3281,7 @@ pagina	xml:id	antes	depois	regra
 286	n286-1	varía	varia	acento-i
 286	n286-1	disposicóes	disposições	cao
 286	n286-1	Alóm	Alem	lexico
+286	n286-1	eseriptores	escriptores	lexico
 286	n286-1	às	ás	a-grave
 286	n286-1	às	ás	a-grave
 286	n286-1	nào	não	ao
@@ -3406,6 +3409,7 @@ pagina	xml:id	antes	depois	regra
 297	n297-1	nào	não	ao
 297	n297-1	nào	não	ao
 297	n297-1	à	á	a-grave
+297	n297-1	inereada	increada	lexico
 297	n297-1	semelhanca	semelhança	cedilha
 297	n297-1	à	á	a-grave
 297	n297-1	à	á	a-grave
@@ -3545,6 +3549,7 @@ pagina	xml:id	antes	depois	regra
 306	n302-1	à	á	a-grave
 306	n302-1	nào	não	ao
 306	n302-1	volicóes	volições	cao
+306	n302-1	eseriptores	escriptores	lexico
 306	n302-1	Aabito	Habito	lexico
 306	n302-1	inveneivel	invencivel	lexico
 306	n302-1	rasüo	rasão	lexico
@@ -3855,6 +3860,7 @@ pagina	xml:id	antes	depois	regra
 333	n331-1	commwm	commum	w
 333	n331-1	generalisacüo	generalisacüo	marca
 333	n331-1	6	é	digito
+333	n331-1	eseriptores	escriptores	lexico
 333	n331-1	generalisagdo	generalisagdo	marca
 333	n331-1	À	A	a-grave
 333	n331-1	atlenção	attenção	lexico
@@ -3862,6 +3868,7 @@ pagina	xml:id	antes	depois	regra
 333	n331-1	juiso	juizo	lexico
 333	n331-1	apprehensáo	apprehensão	ao
 333	n331-1	tratàmos	tratamos	lexico
+333	n331-1	eseriptores	escriptores	lexico
 334	n331-1	jwiso	juizo	lexico
 334	n331-1	juiso	juizo	lexico
 334	n331-1	6	é	digito
@@ -4005,7 +4012,6 @@ pagina	xml:id	antes	depois	regra
 346	n346-1	Riviére	Riviére	marca
 346	n346-1	nào	não	ao
 346	n346-1	approximacáo	approximação	cao
-346	n346-1	conelue	conclue	lexico
 347	n346-1	àcerca	ácerca	lexico
 347	n346-1	à	á	a-grave
 347	n346-1	caraoterisam	caraoterisam	marca
@@ -4039,7 +4045,6 @@ pagina	xml:id	antes	depois	regra
 350	n348-1	à	á	a-grave
 350	n348-1	antliropomorphos	antliropomorphos	marca
 350	n348-1	mamnmiferos	mamnmiferos	marca
-350	n348-1	conelue	conclue	lexico
 350	n348-1	wma	uma	w
 350	n348-1	À	A	a-grave
 351	n348-1	approximacáo	approximação	cao
@@ -5118,6 +5123,7 @@ pagina	xml:id	antes	depois	regra
 428	art-37	Drus	Deus	deus
 429	art-37	Zrraciomaes	Zrraciomaes	marca
 429	n429-1	Dzus	Deus	deus
+429	n429-1	ontologicas	ontologicas	marca
 429	n429-1	Drus	Deus	deus
 429	n429-1	distinecáo	distineção	cao
 429	n429-1	nào	não	ao
@@ -5161,7 +5167,7 @@ pagina	xml:id	antes	depois	regra
 432	n430-1	À	A	a-grave
 432	n430-1	nào	não	ao
 432	n430-1	nào	não	ao
-432	n430-1	coneluo	conclue	lexico
+432	n430-1	coneluo	coneluo	marca
 432	n430-1	à	á	a-grave
 432	n430-1	nào	não	ao
 432	n430-1	nào	não	ao
@@ -7162,6 +7168,7 @@ pagina	xml:id	antes	depois	regra
 559	n559-8	nào	não	ao
 559	n559-8	Zmmortalidade	Immortalidade	i-inicial
 560	n560-1	eowtrinsecos	eowtrinsecos	marca
+560	n560-1	eseriptores	escriptores	lexico
 560	n560-1	Arausistas	Arausistas	marca
 560	n560-1	Aantistas	Aantistas	marca
 560	n560-1	à	á	a-grave
@@ -9953,6 +9960,7 @@ pagina	xml:id	antes	depois	regra
 770	n769-1	à	á	a-grave
 770	n769-1	collisáo	collisão	ao
 770	n769-1	6	é	digito
+770	n769-1	eseriptores	escriptores	lexico
 770	n769-1	à	á	a-grave
 770	n769-1	6	é	digito
 770	n769-1	à	á	a-grave
