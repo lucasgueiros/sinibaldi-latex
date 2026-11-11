@@ -14,8 +14,9 @@ Seletor:  [volN:]  id-do-no | trecho-do-id | /titulo/ | ESCOPO/tN..tM | PP-QQ | 
           (volN: e opcional quando so um volume casa; faixa de paginas exige o volume)
 Formatos (-F, repetivel; padrao txt): txt | tei | tex | pdf | scan | slides
 Fonte: volN/estrutura.tsv (revisado) ou, se nao existe, volN/estrutura.proposta.tsv (tools/titulos.py);
-conteudo: volN/volN.corrigido.xml.  O recorte e por PAGINA IMPRESSA: um no que comeca no meio de
-uma pagina traz a pagina inteira (os nos vizinhos dividem a pagina de fronteira).
+conteudo: volN/volN.corrigido.xml.  O recorte e POR TITULO: comeca no bloco do titulo do no (casado
+pela ancora do TSV) e termina antes do titulo seguinte, mesmo no meio de uma pagina.  So a faixa
+PP-QQ e o formato scan (imagens) cortam por pagina.
 
 Legado: --marcador FONTE.tex ID extrai o trecho %%>>> ID / %%<<< ID de um .tex (livro e slides manuais).
 """
@@ -50,6 +51,7 @@ class No:
         self.vol, self.pag, self.ancora, self.nivel = vol, int(pag), ancora, nivel
         self.rotulo, self.titulo, self.id, self.fonte = rotulo, titulo, ident, fonte
         self.fim = self.pag
+        self.prox = None           # primeiro titulo DEPOIS deste no (fronteira do recorte)
         self.numero = int(rotulo) if nivel == "tese" and rotulo.isdigit() else None
 
     def __str__(self):
@@ -82,6 +84,7 @@ def le_estrutura(vol):
     for i, n in enumerate(nos):
         seg = next((m for m in nos[i + 1:] if RANK[m.nivel] <= RANK[n.nivel]), None)
         n.fim = max(n.pag, seg.pag if seg else ult)
+        n.prox = seg
     return nos
 
 
@@ -100,12 +103,12 @@ def resolve(sel, estruturas):
             sys.exit(f"faixa de páginas exige o volume: vol1:{sel} ou vol2:{sel}")
         a = int(m.group(1))
         b = int(m.group(2) or a)
-        return cand[0], a, b, f"{cand[0]}-p{a}" + (f"-{b}" if b != a else "")
+        return cand[0], a, b, f"{cand[0]}-p{a}" + (f"-{b}" if b != a else ""), None, None
 
     escopo = None
     if "/" in sel and not sel.startswith("/") and re.search(r"/t\d+(\.\.t?\d+)?$", sel):
         esc, sel = sel.rsplit("/", 1)
-        pv, pi, pf, _ = resolve((vol + ":" if vol else "") + esc, estruturas)
+        pv, pi, pf, *_ = resolve((vol + ":" if vol else "") + esc, estruturas)
         cand, escopo = [pv], (pi, pf)
     m = re.fullmatch(r"t(\d+)(?:\.\.t?(\d+))?", sel)
     if m:
@@ -128,7 +131,10 @@ def resolve(sel, estruturas):
                 print(f"  {v} p. {i.pag}  parte {dono[-1].id if dono else '?'}", file=sys.stderr)
             sys.exit(2)
         v, i, f = pares[0]
-        return v, i.pag, f.fim, f"{v}-t{a}" + (f"-t{b}" if b != a else "")
+        lst = estruturas(v)
+        k = lst.index(f)
+        prox = lst[k + 1] if k + 1 < len(lst) else None
+        return v, i.pag, f.fim, f"{v}-t{a}" + (f"-t{b}" if b != a else ""), i, prox
 
     alvo = norm(sel.strip("/"))
     casos = []
@@ -155,7 +161,7 @@ def resolve(sel, estruturas):
             print(f"  {n}  — {n.rotulo} {n.titulo}  (pp. {n.pag}–{n.fim})", file=sys.stderr)
         sys.exit(2)
     n = casos[0]
-    return n.vol, n.pag, n.fim, f"{n.vol}-{n.id}"
+    return n.vol, n.pag, n.fim, f"{n.vol}-{n.id}", n, n.prox
 
 
 # ------------------------------------------------------------------ conteudo (TEI)
@@ -234,15 +240,60 @@ def inline(el, notas, pg):
     return s
 
 
-def formata_txt(arv, p0, p1):
+def texto_bloco(el):
+    return re.sub(r"\s+", " ", inline(el, [], False)).strip()
+
+
+def acha(todos, no, desde, janela=1):
+    """indice do bloco que e o TITULO `no`, entre os blocos das paginas pag-janela .. pag+janela, a
+    partir de `desde`.  Tenta a ancora (inicio da linha do titulo no OCR) e, se o TEI nao tem aquela
+    linha (rotulo perdido pela deteccao antiga), o texto do titulo."""
+    chaves = [norm(no.ancora)]
+    if no.titulo and no.titulo != "-":
+        chaves.append(norm(no.titulo))
+    melhor, ib = 0.0, None
+    for alvo in filter(None, chaves):
+        for k in range(desde, len(todos)):
+            el, ini, fim = todos[k]
+            if ini > no.pag + janela:
+                break
+            if fim < no.pag - janela:
+                continue
+            t = norm(texto_bloco(el))[:len(alvo) + 2]
+            r = difflib.SequenceMatcher(None, alvo, t).ratio()
+            if r >= 0.85:
+                return k                      # o primeiro que casa bem, em ordem do livro
+            if r > melhor:
+                melhor, ib = r, k
+    return ib if melhor >= 0.6 else None
+
+
+def seleciona(raiz, p0, p1, ini, prox):
+    """(todos, escolhidos): blocos do trecho.  Com `ini`, o recorte e POR TITULO: do bloco que e o
+    titulo de `ini` ate antes do titulo `prox`.  Sem `ini` (faixa de paginas), por pagina."""
+    todos = marca_blocos(raiz, 0, 10 ** 6)
+    if ini is None:
+        return todos, [b for b in todos if b[1] <= p1 and b[2] >= p0]
+    i0 = acha(todos, ini, 0)
+    if i0 is None:
+        sys.exit(f"título não localizado no TEI: p. {ini.pag} “{ini.ancora}” ({ini.id}); "
+                 f"corrija a âncora no estrutura.tsv")
+    i1 = acha(todos, prox, i0 + 1) if prox else len(todos)
+    if i1 is None:
+        print(f"aviso: o título seguinte (p. {prox.pag} “{prox.ancora}”) não foi localizado; "
+              f"recorte vai até o fim da p. {p1}", file=sys.stderr)
+        i1 = next((k for k in range(i0 + 1, len(todos)) if todos[k][1] > p1), len(todos))
+    return todos, todos[i0:i1]
+
+
+def formata_txt(arv, p0, p1, ini=None, prox=None):
     saida = []
-    for el, ini, fim in marca_blocos(arv.getroot(), p0, p1):
+    for el, _, _ in seleciona(arv.getroot(), p0, p1, ini, prox)[1]:
         notas = []
         t = re.sub(r"[ \t]+", " ", inline(el, notas, True)).strip()
         if not t:
             continue
-        ln = el.tag.replace(TEI, "")
-        if ln == "head":
+        if el.tag.replace(TEI, "") == "head":
             t = "\n## " + t
         saida.append(t)
         for k, n in enumerate(notas, 1):
@@ -251,12 +302,25 @@ def formata_txt(arv, p0, p1):
     return "\n\n".join(saida).replace("\n\n    (", "\n    (") + "\n"
 
 
-def formata_tei(arv, p0, p1, nome):
+def formata_tei(arv, p0, p1, nome, ini=None, prox=None):
     novo = copy.deepcopy(arv.getroot())
-    marca_blocos(novo, p0, p1, remove=True)
+    todos, ficam = seleciona(novo, p0, p1, ini, prox)
+    manter = {id(b[0]) for b in ficam}
+    for el, _, _ in todos:
+        if id(el) not in manter and el.getparent() is not None:
+            el.getparent().remove(el)
+    pa, pb_ = (ficam[0][1], ficam[-1][2]) if ficam else (p0, p1)
+    for e in list(novo.iter(TEI + "fw")):
+        e.getparent().remove(e)
+    for e in list(novo.iter(TEI + "pb")):
+        if not (pa <= int(e.get("n")) <= pb_) and e.getparent() is not None:
+            e.getparent().remove(e)
+    for d in reversed(list(novo.iter(TEI + "div"))):
+        if d.getparent() is not None and not any(isinstance(x.tag, str) and x.tag != TEI + "pb" for x in d):
+            d.getparent().remove(d)
     t = novo.find(f".//{TEI}teiHeader//{TEI}title")
     if t is not None:
-        t.text = f"{t.text or ''} — trecho {nome} (pp. {p0}–{p1})"
+        t.text = f"{t.text or ''} — trecho {nome} (pp. {pa}–{pb_})"
     return etree.tostring(novo, encoding="UTF-8", xml_declaration=True, pretty_print=False)
 
 
@@ -268,13 +332,19 @@ def sh(cmd, **kw):
     return r
 
 
-def faz_tex(vol, p0, p1, destino, grafia):
-    sh([sys.executable, "tools/tei2latex.py", f"{vol}/{vol}.corrigido.xml", "--puro", "-f", str(p0), "-l", str(p1),
-        "--grafia", grafia, "-o", str(destino)])
+def faz_tex(vol, p0, p1, destino, grafia, nome="", ini=None, prox=None):
+    """LaTeX do trecho: do TEI ja recortado por titulo (ou, em faixa de paginas, por -f/-l)."""
+    if ini is None:
+        sh([sys.executable, "tools/tei2latex.py", f"{vol}/{vol}.corrigido.xml", "--puro", "-f", str(p0),
+            "-l", str(p1), "--grafia", grafia, "-o", str(destino)])
+        return
+    xml = Path(str(destino)[:-4] + ".xml")
+    xml.write_bytes(formata_tei(carrega(vol), p0, p1, nome, ini, prox))
+    sh([sys.executable, "tools/tei2latex.py", str(xml), "--puro", "--grafia", grafia, "-o", str(destino)])
 
 
 def faz_pdf(destino_tex):
-    stem = destino_tex.with_suffix("")
+    stem = destino_tex.parent / destino_tex.name[:-4]      # o id tem pontos: nada de with_suffix
     rel = stem.relative_to(RAIZ).as_posix() if stem.is_absolute() else stem.as_posix()
     r = subprocess.run(["latexmk", "-lualatex", "-interaction=nonstopmode", "-halt-on-error",
                         f"-outdir={stem.parent}", f"-jobname={stem.name}",
@@ -282,7 +352,7 @@ def faz_pdf(destino_tex):
                        cwd=RAIZ, capture_output=True, text=True)
     if r.returncode:
         sys.exit("latexmk falhou:\n" + (r.stdout or r.stderr)[-1500:])
-    return stem.with_suffix(".pdf")
+    return stem.parent / (stem.name + ".pdf")
 
 
 def faz_scan(vol, p0, p1, destino):
@@ -302,9 +372,9 @@ def faz_scan(vol, p0, p1, destino):
 
 
 def faz_slides(tex, nome):
-    marcado = tex.with_name(tex.stem + ".marcado.tex")
+    marcado = tex.parent / (tex.name[:-4] + ".marcado.tex")
     marcado.write_text(f"%%>>> {nome}\n{tex.read_text(encoding='utf-8')}\n%%<<< {nome}\n", encoding="utf-8")
-    saida = tex.with_suffix(".slides.base.md")
+    saida = tex.parent / (tex.name[:-4] + ".slides.base.md")
     sh([sys.executable, "tools/gera_slides_base.py", str(marcado), "-o", str(saida)])
     marcado.unlink()
     return saida
@@ -388,7 +458,7 @@ def main():
     if not a.seletor:
         ap.error("informe um seletor (ou --lista, --onde)")
 
-    vol, p0, p1, nome = resolve(a.seletor, estruturas)
+    vol, p0, p1, nome, ini, prox = resolve(a.seletor, estruturas)
     formatos = a.formato or ["txt"]
     if a.saida and len(formatos) > 1:
         ap.error("-o só com um formato")
@@ -400,14 +470,14 @@ def main():
     for fm in formatos:
         destino = Path(a.saida) if a.saida else pasta / f"{nome}.{ {'txt': 'txt', 'tei': 'xml', 'tex': 'tex', 'pdf': 'pdf', 'scan': 'scan.pdf', 'slides': 'md'}[fm] }"
         if fm == "txt":
-            txt = formata_txt(carrega(vol), p0, p1)
+            txt = formata_txt(carrega(vol), p0, p1, ini, prox)
             if a.saida or len(formatos) > 1:
                 destino.write_text(txt, encoding="utf-8")
                 print(destino)
             else:
                 sys.stdout.write(txt)
         elif fm == "tei":
-            dados = formata_tei(carrega(vol), p0, p1, nome)
+            dados = formata_tei(carrega(vol), p0, p1, nome, ini, prox)
             if a.saida or len(formatos) > 1:
                 destino.write_bytes(dados)
                 print(destino)
@@ -416,7 +486,7 @@ def main():
         elif fm in ("tex", "pdf", "slides"):
             tex = pasta / f"{nome}.tex"
             if not tex.exists() or fm != "pdf":
-                faz_tex(vol, p0, p1, tex, a.grafia)
+                faz_tex(vol, p0, p1, tex, a.grafia, nome, ini, prox)
             if fm == "tex":
                 if a.saida:
                     Path(a.saida).write_text(tex.read_text(encoding="utf-8"), encoding="utf-8")

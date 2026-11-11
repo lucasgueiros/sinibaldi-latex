@@ -142,7 +142,7 @@ Igual à v1, com duas mudanças: o `id` é **semântico**, e entra a coluna `fon
 
 - A página final é **derivada**: um nó vai até a página anterior ao próximo nó de nível igual
   ou superior. A página em que o próximo começa também pertence a ele quando a virada é no meio da
-  página. Nos trechos, o corte exato é pela **âncora**, não pela página.
+  página. Nos trechos, o corte é pelo **título** (âncora), não pela página.
 - `âncora` é o início do texto da linha na página, casado com tolerância (normalizado, distância de
   edição). Nunca número de linha, que muda a cada re-OCR.
 - `id`: `parte.capitulo-slug[.aN]` a partir do título **revisado**, e `tN` para teses. Depois que
@@ -231,8 +231,8 @@ subsequência monótona por parte, teses por parte) e `trecho.py` novo (etapa 7,
 documentados em `docs/07`. **Desvios do plano:** (a) em vez de extrair `estrutura_comum.py`
 (etapa 1), `titulos.py` importa de `estruturar_tei.py`, para não arriscar o XML gerado; (b) a
 numeração das teses recomeça em cada **parte**, e a de partes não é sequencial (Metaphysica 3, 4;
-Ethica 1, 2): a v2 supunha teses contínuas no volume; (c) o recorte de `trecho.py` é por página, não
-por âncora. Pendente: etapas 4 (índice), 5 (revisão do piloto), 6 (`estruturar_tei --estrutura`), 8–9.
+Ethica 1, 2): a v2 supunha teses contínuas no volume; (c) o recorte de `trecho.py` é **por título** (âncora → título seguinte, no bloco), e não por página;
+só `PP-QQ` e `scan` cortam por página. Pendente: etapas 4 (índice), 5 (revisão do piloto), 6 (`estruturar_tei --estrutura`), 8–9.
 
 ## Etapas (cada uma um commit)
 

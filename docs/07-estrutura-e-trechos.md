@@ -52,9 +52,13 @@ python3 tools/trecho.py --onde 'ente necessario' vol1     # em que nó, tese e p
 Seletor: id do nó (ou sufixo/prefixo), `/trecho do título/`, `ESCOPO/tN..tM`, `PP-QQ`. Se mais de um
 nó casar, lista e para. Saídas em `build/trechos/` (git-ignored) quando há mais de um formato.
 
-**Recorte por página impressa**, não por âncora: um nó que começa no meio de uma página traz a
-página inteira, e os vizinhos dividem a página de fronteira. O legado `%%>>>` continua em
-`trecho.py --marcador FONTE.tex ID`.
+**Recorte por título.** Um nó começa no bloco do próprio título (casado pela `âncora` do TSV; se o
+TEI não tem aquela linha, pelo texto do título) e termina **antes do título seguinte**, mesmo no
+meio de uma página: um capítulo não traz as teses que o precedem, e `t6..t8` vai do início da 6 ao
+início da 9. Só a faixa `PP-QQ` e o formato `scan` (imagens) cortam por página. A granularidade é o
+bloco (parágrafo/`<head>`). Se o título seguinte não é localizado, avisa e corta no fim da página.
+Título que o TEI atual perdeu (rótulo `CAPITULO …` de abertura) só começa a existir lá depois de
+`estruturar_tei.py --estrutura`. O legado `%%>>>` continua em `trecho.py --marcador FONTE.tex ID`.
 
 ## Pendente (do plano)
 
