@@ -224,6 +224,16 @@ Não existe padrão-ouro de estrutura. Ele é construído no próprio piloto:
    estrutura não pode alterar o texto do corpo.
 4. Depois disso, o vol. 2 inteiro e então o vol. 1, cada um com a revisão dirigida pelos alertas.
 
+## Andamento (2026-11-11)
+
+Feito: `titulos.py` (etapas 2–3: candidatos, regras, votação do cabeçalho por execuções com
+subsequência monótona por parte, teses por parte) e `trecho.py` novo (etapa 7, exceto `--materializa`),
+documentados em `docs/07`. **Desvios do plano:** (a) em vez de extrair `estrutura_comum.py`
+(etapa 1), `titulos.py` importa de `estruturar_tei.py`, para não arriscar o XML gerado; (b) a
+numeração das teses recomeça em cada **parte**, e a de partes não é sequencial (Metaphysica 3, 4;
+Ethica 1, 2): a v2 supunha teses contínuas no volume; (c) o recorte de `trecho.py` é por página, não
+por âncora. Pendente: etapas 4 (índice), 5 (revisão do piloto), 6 (`estruturar_tei --estrutura`), 8–9.
+
 ## Etapas (cada uma um commit)
 
 1. `tools/estrutura_comum.py`: extrair `reconhece_titulo`, `eh_cabecalho_corrente`, normalização e

@@ -6,3 +6,4 @@
 - [04-ocr-latim.md](04-ocr-latim.md) — reOCR com modelo de latim: medições, armadilha do `w`, `tools/corrige_w.py`.
 - [05-estrutura-por-no.md](05-estrutura-por-no.md) — árvore por nó (`volN/…/`), `tools/corta.py`, fluxo faixa → LaTeX → slides.
 - [06-formatacao.md](06-formatacao.md) — itálico, versalete e negrito medidos na imagem (`tools/formatacao.py`), precisão no padrão-ouro, `tools/gera_volume.sh`.
+- [07-estrutura-e-trechos.md](07-estrutura-e-trechos.md) — `tools/titulos.py` (proposta de `estrutura.tsv` + alertas) e `tools/trecho.py` (trechos por id, tese ou página).

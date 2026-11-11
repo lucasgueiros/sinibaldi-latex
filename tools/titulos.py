@@ -458,7 +458,7 @@ def grava(caminho, linhas, cabeca=True):
 
 
 def chave(l):
-    return (l[0], l[2], l[3])
+    return (str(l[0]), l[2], l[3])
 
 
 def mede(prop, ouro):
