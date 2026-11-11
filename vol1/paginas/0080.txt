@@ -1,0 +1,67 @@
+8 c LOGICA = SECÇÃO PRIMEIRA.
+figura, 16 diversas disposições ; e, como as figuras sàó quatro,
+segue-se que todos os modos do syllogismo se reduzem a 64.
+
+9£, Numero dos modos legitimos. — Nem todos os 64
+modos s&o legitimos, Por quanto, se excluirmos os que são
+abertamente contrarios ás Regras VI e VII do Syllogismo, licam
+apenas 36, 9 em cada figura. E se estes 36 modos se consi-
+derarem em ordem á conclusão, que deve ser deduzida em
+conformidade nào só das regras communs do Syllog gismo, mas
+tambem das leis proprias de cada figura, veremos que os modos
+legitimos se reduzem a 19 OC).
+
+(1) Apresentamos o schema. (a) das diversas disposições das premissas,
+«pnsideradas na sua quantidade e qualidade, recordando que za letlra A
+
+exprime à premissa «niversal-affirmativa, E à uneocersal-negatioa, X à par-
+
+ticular-affirmativa, O a particular-negativa,
+(a) AA EA . lA OA
+t AE ER. IE | OK
+Al ^ El Jl 'OI
+
+| AO- EO 10. 00.
+
+' Cada figura, pois, tem 16 modos. E, como as figuras são quatró todos
+os modos são 64. — Mas nem todos estes modos são lerritimos ; pois alguns
+— EE, EO, 17, 10. OE, OI, OO — pecc am conira à regra V.* on'a V]IIL*
+
+E assim ficam 9 modos uteis em cada figura, que são os seguinles
+
+(b) AA EA [A OA
+AE | — E | —
+AL ^ EL — —
+AO  — — — '
+
+Mas estes 9 modos ficam ainda.mais reduzidos, ge se avaliarem não só
+pelas régras communs à todos os syliogismos, mas tambem pelas leis pro-
+prias de cada figura. Assim ::
+
+Na 1.º Figura, os modos — AE, AO, IA, IE, OA — nào concluem legi-
+timamente, porque peccam contra, a lei d'essu figura, que é: 4 menor seja
+effiriativa; à maior, universal. Por i 1sso temos gratro modos uteis, que são:
+
+(c) AA cuja conclusão é A
+AI + 1
+
+“EA » E
+
+ER. C » [5
+
+* Na 2.º Figura, os modos — Al, AO. IE, OA — s&oillegitimos : porque
+OS dois primeiros peccam contra a lei: Se a maior é affirmativa, a menor deve
+ser universal, e os outros dois peccam contra a lei : Se a conclusão é negativa,
+« maior deve ser miversal. Assim ficam cinco modos legitimos, que são:
+
+(4) AA cuja conclusio é I
+
+: AE » E
+EA » o
+
+El » [9]
+
+IA » 1
+
+Na 3,º Figura, 08 modos — AA, AT, TA, IE, OA — são legitimos, porque
+

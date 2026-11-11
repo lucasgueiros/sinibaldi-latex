@@ -69,12 +69,16 @@ def pagina_xml(pid, imp, txt):
             partes.append(f'<fw type="header">{escape(linhas0[0].strip())}</fw>')
             resto = "\n".join(linhas0[1:])
             bs = ([resto] if resto.strip() else []) + bs[1:]
-    notas = []
+    notas, usados = [], set()
     for b in bs:
         corpo = desfaz_hifen(b.splitlines())
         m = NOTA.match(corpo)
         if m:
-            notas.append(f'<note place="foot" n="{m.group(1)}" xml:id="n{imp}-{m.group(1)}">{escape(corpo[m.end():])}</note>')
+            nid = f"n{imp}-{m.group(1)}"
+            while nid in usados:  # OCR repete o numero: sufixo a, b, ...
+                nid += "x"
+            usados.add(nid)
+            notas.append(f'<note place="foot" n="{m.group(1)}" xml:id="{nid}">{escape(corpo[m.end():])}</note>')
         else:
             partes.append(f"<p>{escape(corpo)}</p>")
     return "\n".join(partes + notas)

@@ -1,0 +1,58 @@
+CAPITULO TERCEIRO - RACIOCINIO E ARGUMENTAÇÃO $5
+
+100. Syllogismo disjunetivo. — Syllogismo disjunctivo é
+aquelle, em que a premissa maior é uma proposição disjuncliva.
+— Conclue de dois modos: — 1." affirmando uma parle da
+
+disjunecào na menor e negando todas os outras na conclusão,
+ex.: « Esle corpo vivo é ou homem, ou bruto, ou planta; ora à
+homem ; logo não é bruto nem planta: — 2º) negando na menor
+todas as partes, menos uma, que se affirma na conclusão, ex.:
+« Este corpo vivo é ou homem, ou bruto, ou planta; ora não é
+bruto nem planta; logo é homem (*).
+
+101, Syllogismo adversativo. — Syllogismo adversativo é
+o que contém alguma proposição adversativa. — Ex.
+
+Todo o bruto é sensitivo, mas não é racional;
+
+Ora o cordeiro é bruto:
+Logo o cordeiro é sensitivo, mas não é racional.
+
+Tambem este syllogismo se avalia pelas regras communs (*).
+102. Dilemma. — Dilemma é um syllogismo; cuja premissa .
+maior 6 uma proposição disjunctiva, composta: de duas partes,
+ordenadas de forma que, admittida qualquer d'ellas. se conclue
+sempre contra o adversario. — É celebre o dilémma de Tertul-
+proposição menor e à conclusão do syllogismo condicional uma. proposição
+
+maior, que tenha por sujeito o predicado da condição, tomado universalmente,
+e por predicado o predicado do condicionado. Assim este svilogismo condi-
+
+cional: — se Pedro é homem, Pedro é racional ; ora Pedro é homem ; logo
+Pedro é racional, — reduz-se ao seguinte simples: — todo o homem é racio-
+
+nal: ora Pedro é homem ; logo Pedro é racional.
+
+(1) Para que a conclusão seja legítima, à premissa deve conter uma ver-
+dadeira disjuncção, isto é, as partes da premissa devem excluir-se mutua-
+mente, de modo que, se uma é verdadeira, a outra deve ser falsa, e vice-versa,
+Assim não seria legitimo este syllogismo: Lucas ou é escriptor, ou é pintor;
+mas é eseriptor ; loyo não é pintor; porque a qualidade de escriptor e a de
+
+|. pintor não se excluem mutuamente.
+
+(2) Ao syllogismo composto pertencem o syllogismo relativo e O expo-
+nivel. — É relativo, quando a premissa maior 6. uma proposição relativa;
+como: — a nossa alma vale tanto, quanto vale Deus; ora Deus vale infinila-
+mente: logo a nossa alma vale infinitamente. Os termos d' este syllogismo
+Bão sempre fres, como se vê ua seguinle resolução: — o valor da alma
+humana é o mesmo valor de Deus; ora o valor de Deus é infinito; ; logo o
+valor da alma humana é infinito. — É exponivel, quando uma ou ambas as
+premissas são proposições exponioeis, como: — o bruto só possue a vida
+sensitiva; ora o homem possue tambem a. vida intellectual: lozo o homem
+nào é bruto. Para se contiecer à legitimidade da conclusão, resolve-se a
+proposição expouicel, e forma-se o seguinte syllogismo: — o bruto possue
+& vida sensitiva, mas não x intellectual: ora o homem possue tambem a
+vida intellectual ; logo o homem não é bruto.
+

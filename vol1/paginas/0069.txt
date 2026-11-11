@@ -1,0 +1,58 @@
+7
+
+CAPITULO TERCEIRO — RACIOCIN:O E ARGUMENTAÇÃO 69
+
+S4. Divisão do syllogismo. —. O syllogismo é é simples ou
+composto. — Q simples só consta. de proposições simples. — O
+composto contém proposições compostas, ou consta de syllogismos
+simples. — Agora tratamos do simples; depois, do composto.
+
+depende da verdade já conhecida da mesma conclusão. Assim neste syllo-
+
+gismo — todos os homens são moriges; ora Pedro é homem; logo Pedro 6
+mortal — conclue-se que este individuo é mortal, por serem mortaes todos
+os homens, quando é cerlo que se estabelece a premissa maior — todos os
+homens são moríaes, por se saber que é mortal cada um dos homens.
+
+Poucas palavras em resposta. À premissa maior do syllogismo — ou é um
+juizo analytico, — ou é um juizo synthetico, — Se é um juizo analifyco, à sua
+verdade não se funda na verdade da conclusão, mas na propria essencia do
+. sujeito e do predicado: assim neste syllogismo — todo o ser finito é contin-
+gente; ora o mundo é ser finito; logo o mundo é contingente — affirma-se
+que todo o ser finito é contingente, não por ser contingente o mundo, isto
+é, não pelo conhecimento da propria conclusão, mas pela analyse das duas
+ideas — finito e contingente. — Sc a premissa maior é un juizo synthketico,
+baseado na observação e no raciocinio, como acontece no seguinte syllogismo
+— todos os homens são mortaes; ora Pedro é homem; logo Pedro é mortal,
+— tambem neste caso a verdade-d' aquella premissa não- depende da ver-
+dade da conclusão. Com effeito, a esta proposição universal — todos os ho-
+mens são moríaes — não chega a nossa intelligencia pelo conhecimento do
+particular ; vorque o perticalar, por nós conhecido, refere-se ao passado, e
+nào ao futuro, ao passo que aquella proposição universal prescinde de todo
+o lempo, e abrange todos os homens, passados e futuros, e, onde se encon-
+tra o homem, ahi deve encontrar-se a morte, se as leis da natureza não
+soffrerem uma suspensão. O equivoco dos adversarios consiste em verem na
+proposição — foros os homens são mortaes -- apenas uma referencia à col-
+lecção de individuos, quando 6 certo que essi proposição exprime à natureza
+dos homens, pois reduz-se à esta: lodo o fiomem d mortal. Logo a premissa
+maior não recebe da conclusão à sua força. — Tambem é falso que a conclusão
+seja conhecida antes da premissa maior; puis, embora aquella esteja conlida
+nesta, todavia nós não o conhecemos émarediafaiente, c por isso é neces-
+sario recorrer à umu outra verdade. D'onde se vê que o syllogismo é um
+meio para descobrir e conhecer distinctamente novas verdades.
+
+Alem d' isso, é sabido que muilas vezes os sabios parlem dos mesmos
+principios universaes, admittidos por todos e chegam à; concfusoes inteira-
+mente-oppostus. Ora isto não poderia acontecer: se antecedentemente se
+conhecessem todus as verdades particulares, contidas no principio universal,
+E se acontece, isto significa apenas que as conclusões oppostas têm um
+fundamento diverso. isto é, que os medios empregados no raciocinio foram
+diversos. Portanto, à verdade do principio maéeersal nào deriva da verdade
+das proposições particulares, signilicadas pelas conclusões, mas a propria
+verdade da conclusão é o Iructo do meio fermo. e por isso é uma coisa nova.
+— Notamos que o argumento de Sfacrt Mill se encontra em Bacon e con-
+slilue uma objeecáo. que os velhos escholasticos faziam contra à legitimi-
+dade do syllogismo e a que respondiam Ltriumphantemente.
+
+O mesmo Start Mil diz que a inducção fornece as premissas maiores
+

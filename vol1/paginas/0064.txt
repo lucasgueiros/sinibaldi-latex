@@ -1,0 +1,54 @@
+él | LOGICA — SECÇÃO PRIMEIRA MEM
+
+As tres ideas comparadas entre si constituem tres jitizos, —
+um formado pela comparação do predicado e da idea media, e
+chama-se premissa maior; — outro, pela comparação do sujeito
+
+e da idea media, e chama-se premissa menor; — o terceiro, pela
+comparação do sujeito e do predicado, e diz-se conclusão. — Às
+
+premissas formam o antecedente; a conclusão é o consequente.
+b) À forma do raciocínio é a disposição das ideas e dos
+juizos, pela qual, admittido o antecedente, deve necessariamente
+admitlir-se o consequente. — O nexo, que em virtude da forma
+existe entre o antecedente e o consequente, chama-se consegquen-
+cia. — Não são, pois, uma e a. mesma coisa o consequente e à
+consequencia : e raciocinios ha, em que à conseguencia é verda-
+deira e o consequente é falso, — ou em que a consequencia é
+falsa e o consequente é verdadeiro, como nestes dois exemplos:
+
+' (consequencia verdadeira — ^ Todo o homem é racional;
+e consequente falso) Ora a planta é homem;
+^ UT ' Logo a planta é racional;
+! XxX
+(consequenciu. falsa Todo o animal é sensitivo;
+e consequente verdadeiro) Ora o cão é animal;
+
+Logo o homem é livre (1).
+
+76. Divisào do raciocinio. — O raciocinio é affiinetivo, ou
+negativo. — É affirmativo se atfirma a conveniencia do sujeito
+com o predicado, porque ambos convém com a idea media. —
+É negativo, se affirma a desconveniencia do sujeilo com o pre-
+dicado, porque um d'elies nào convem com a idea media (7).
+
+que a do sujeito, — O Lermo de comparação diz-se medio; não só porque é
+o meio pelo qual julgamos da conteniencia, ou da desconveniencia, do sujeito
+com o predieado, mas tambem porque a sua extensão é. geralmente, media"
+entre a extensão do sujeito e a do predicado.
+
+(1) O nexo entre o antecedente e O consequente & tão estreilo, «que, ad-
+miltindo-se aquelle, deve admittir-se tambem este. Com etffeito, quando jul-
+samos ser verdadeiro um principio universal, implicitamente julyamos: ser
+lambem verdadeira uma conelusão, contida naquelle principio. Quando, pois,
+se deduz à conclusão, deve ella explicitamente allicmar ou negar o que im-
+plicitamente foi aflirmado ou .vegado no principio; aliás uma e à mesma
+coisa seria e deixaria de ser 20 mesmo tempo e sol: o mesmo aspecto. —
+O juizo ácerea da verdade da consequencia perlence à Logica: mas o juizo
+acerca da verdade do conseguente pode pertencer à oulras sciencias.
+
+(2) Já demos exemples do syllogismo afirmativo. Um exemplo do syi-
+logismo negativo é o seguinte : todo o homem é racional; o cão não é konrem;
+logo o cão não é racional. À conclusio diz que o predicado racional nào com-
+pete au sujeilo cão, porque esle vão convem com à ideu media, que é homen.
+

@@ -1,0 +1,61 @@
+CAPITULO TERCEIRO — RACIOCINIO E ARGUMENTAÇÃO 7
+
+86. Regras do syllogismo simples. .—: São oo estas re-
+gras: quatro relativas aos termos, e quatro ás proposições.
+I "Terminus esto triplex, maior mediusque minorque,
+II. Latius hos, quam praemissae, conclusio non vult.
+IH. Nequaquam aedium capiat conclusio oportet.
+JV. Aut semel, aut iterum enedius generaliter esto.
+V. Utraque si praemissa neget, nil inde sequetur.
+VJ. Ambae affirmantes nequeunt generare negantem.
+VIT. Pejorem sequitur semper concluso partem.
+VIIL Nil sequitur geminis ex particularibus unquam (1).
+
+HBecna L — Os fermos decem ser tres: maior, menor e me-
+dio. — Se forem mais ou menos que res, nào pode ter logar
+a comparação do sujeito e do predicado com o medio. — Falla
+
+lambem a esta regra quem emprega um termo equivoco, Como:
+Todo o cão ladra:
+Ora uma ceonstellacáo é cão;
+Logo uma constellação ladra.
+
+Rucra 11. — Nenhum termo deve ler na conclusão uma ex-
+
+tensão maior que nas premissas. — Um termo, que é particular
+
+nas premissas e universal na conclusão, equivale a dois termos
+eo syllogismo tem quatro termos; como no seguinte, em que o
+termo «vivo» 6 particular na maior e universal na conclusão :
+
+Todo o homem é vivo:
+Ora o bruto não é bomem;
+
+Logo o bruto não é vivo (2).
+
+é reconhecida por sabios nolaveis e insuspeitos. Leibnitz esereve ( N. Ensaios,
+LIV, e. 16): «Sustento que a descoberta do syHogismo 6 uma das mais
+
+bellas e importantes do espirilo humano; o syllogismo é uma especie de -
+
+mathematica universal, cuja imporlancia é desconbecida, más que encerra
+uma arte de infalli bilidade». — Claudio Bernard | Introd. ao estudo da me-
+dicinm exp): « O espirito humano funcciona sempre por meio do «yllogismo ..
+Poderia demonstrar à minha proposição com argumentos physiologicos ».
+
+(1) A necessidade da conclusão no syllogismo depende exclusivamente
+do seu nexo com as premissas. Para que exista tal nexo, € necessario que
+uma das premissas contenha du conclusão, e a outra declare que tal conti-
+nencia exisle; porque então, postas as premissus, deve necessariamente
+deduzir-se à conclusão. Mas, para que as premissas contenham e Geclarem
+contida a conclusão, é necessario observar as citadas oito segras.
+
+(2) Alem.d' isso, a conclusão, derivando das premissas, deve estar con-
+Lida nellas, como a. parte no todo. Ora, se um termo lem na conclusão umi
+extensão superior à que tem nas premissas, já não pode estar contido nel-
+las, porque o uaís não eslà contido no menos. —- Finalmente, na conclusão
+do syllogismo unimos ou separamos dois termos, porque foram comparados
+nas premissas com o medio. Ora se um lermo fosse mais extenso na con-
+clusão do que nas premissas. feria sido comparado com o medio só numa
+parte da sua exteusão, e assim pereceria loda a estructura do syllogismo.
+

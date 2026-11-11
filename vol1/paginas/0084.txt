@@ -1,0 +1,62 @@
+Sh is ee LOGICA=—— SECÇÃO PRIMEIRA
+
+98. Syllogismo causal. — Syllogismo causal, chamado tam-
+bem, epicherema. é o que tem alguma proposição causal. — Ex.
+
+Todo o espirito é immortal :
+
+Ora. a alma humana é espirito, porque é independente da materia;
+
+Logo a alma humana é immortal. .
+
+Na apreciação d'este syllogismo, a razão adduzida avalia-se
+
+.Separadamente das proposições (').
+
+99. SyMogismo condicional. — Syllogismo condicional é
+aquelle em que a premissa inaior é uma proposição condicional.
+— Conclue de dois modos: — 1») affirmando a condição na
+menor e o condicionado na conclusão; ex. «Se é homem, é ani-
+mal; ora é homem; logo é animal»; — 2") negando o condicio-
+nado na menor, c à condição na conclusão; ex. « Se é homem, é
+
+animal; ora não é animal: logo não é homem» O.
+
+(1) A parte causal não se refere propriamente á forma do syllogismo,
+mas apenas á proposição. E pode baver syllogismos legitimos na forma eg
+verdadeiros na materia, que tenham uma razão falsa, como no seguinte
+exemplo: — todo o expirito é inunmortal: ora a alma humana é espirito, porque
+é simples ; logo « alma. humana é inmortal. A razão, por que à nossa alma
+é espirito, não é a sua simplicidade (tambem a. alma dos brutos é simples), |
+mas é à sua independencia da materia.
+
+(2) Dizemos que o syllogismo condicional conclue de dois modos, Na
+verdade, a/firimando à condição na menor, podemos affirmar 0 condicionado
+na conclusão; porque, estando o condicionado contido na condição, é claro
+que, admitida esta, deve sdmittir-se aquelle. Como tambem, negando 0 con-
+dicionado na menor, devemos negar a. condição na conclusão; pois, eslando o
+condicionado coutido nu, condição, é evidente que, não se verificando aquelle,
+deve concluir-se que se não verificou esta,
+
+Mas o syllogismo seria illegitimo — 1.º) se, affirmando o condicionado,
+affirmasse: tambem a condição, pois o condicionado não contem à condição ;
+assim seria falso o seguinte syllogismo: — se é homem, é animal; mas é
+
+, animal; logo é homem; visto que O animal não contem o hRonem, e por isso
+
+um ente pode ser animal, sem ser homem: — 2.º) se, negando ux condicio
+Dà menor, negasse O condicionado na. conclusão; pois o condicionado pode
+ser verdadeiro, independentemente da condição; por isso € falso o seguinte
+Syllogismo*: se é homem, é animal; mas não é komen z logo não é animal.
+
+Todavia, se prescindirmos d:t forua logica do syllogismo condicional, e
+só considerarmos à mraferia, podemos ás vezes deduzir da affirmação do
+condicionado à affirmaczo da condicao, e da negação da condição à negação
+da condicionado, Isto acontece — ou quando a condição se identifica com o
+condicionado, como neste exemplo: se é homem, d animal racional; mas é
+animal racional; logo é homem: — ou quando a condição é à razão unica e
+exelusivà do condicionado, como reste exemplo: se é homem, tem a facul-
+dade de rir; ora não é homem; foto não lem a. faculdade de vir.
+
+O syllogismo condicional reduz-se facilmente ao simples, prepondo à
+

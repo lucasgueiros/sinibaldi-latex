@@ -1,0 +1,66 @@
+206. Objecto da sciencia. — Objecto da sciencia é tudo aquillo,
+de que a sciencia se occupa. — Divide-se em material e formal.
+
+nio quanto à forma, mas quanto à materia; porque as outras especies pre-
+scindem d'aquella cerieza nas suas premissas.
+
+' Advertimos que demonstração, em geral, é o raciocinio pelo qual o
+espirito: progride de uma verdade conhecida para outra desconhecida. —
+Divide-se em apodictica, dialectica € sophistica, conforme parte de premissas
+certas, provaveis, ou falsas. A apodictica produz a ceríeza: a dialectica, à
+opinião; a sophistica, O erro. — Só un apodictica é strictamente demonsiracáo.
+
+v) Elementos da demonstração. — Os elementos da demonstração São qua-
+tro, & Saber: these, principio. meio e conclusão. — À these é a verdade, que
+deve ser demonstrada; — o principio é à proposição maior, em que se funda
+a conclusão; — o meio é & proposição menor, exprimindo que u conchesão
+
+; está contida no principio; — a conclusão é a propria these, emquanto dedu-
+zida das premissas, em que estava contida. Ex.
+
+(These) À alma humana é immortal
+(Principio) O espírito é immortal ;
+(Meio) . Ora a alma humana é espirito;
+
+CÀPITULO TERCEIRO — METHODO 253
+
+(Conclusão) Logo a alma humana é immortal.
+Digamos alguma coisa ácerca dos quatro elementos da demonstração, -
+a) A these deve ser uma verdade, que deva e possa ser demonstrada;
+aliás à demonstração será inutil ou impossível. !
+
+b) O principio, em que se baséa a conclusão, deve ser immediatamente
+evidente, ou deve fundar-se nos primeiros principios.
+
+c) O meio deve indicar a causa proxima e “a, por que o predi-
+ado convém ao sujeito. !
+
+d) A conclusão não 6 sempre da mesma natureza. Quando à proposição
+maior é um axioma e à menor é uma verdade de fucto ou de experiencia,
+3 conclusão é necessaria e absolutamente verdadeira; como neste exemplo;
+Todo o effeito tem a sua causa; ora o mundo é effeito; logo o mundo tem a
+sua causa. — Quando a maior é uma verdade de facto e à menor É uma
+proposição singular, à conclusão não é necessariamente verdadeira, como:
+Os mortos não resuscitam ; ora Lazaro é morto; logo Lazaro não resuscita.
+
+c) Terminologia da demonstração. — Na demonstração, sobretudo mathema-
+tica, empregam-se palavras, que precisam de explicação, — São as seguintes :
+
+a) Definição. D' esta já tratámos na Logica formal.
+
+b) Proposição theoretica e pratéca. — A theoretica allirma o que uma
+coisa é; ex. «o triangulo é uma figura». À pratica declara o que se póde
+ou deve fazer; ex. « devemos amar à patria».
+
+c) Axioma é uma proposição theoretica e indemonstravel, porque a sua
+verdade se torna evidente pela simples inspecção dos lermos. |
+
+d) Postulado é uma proposição pratica e immediatamente evidente pela
+simples explicação dos termos; ex. «de um ponto podemos tirar uma linha
+í alé ao outro ponto ». ;
+€) Theorema é uma proposição theorelica, que se deve demonstrar,
+
+i P Problema é uma proposição pratica, que se deve ou póde resolver.
+í 9g) Lemma é uma proposição, que uma sciencia presi a outra para lhe
+servir de base nas demonstrações,
+

@@ -1,0 +1,56 @@
+3700
+P
+
+66 | OG
+
+GA — SECCROFPRIMEIRÀ
+
+80. Syllogismo. — Syllogismo é a argumentação, pela qual
+se conclue que o predicado de um sujeito universal convem a
+um sujeito particular. pelo facto d' este se achar contido na-
+quelle sujeito «universal, Assim no seguinte syllogismo :
+Todo o ser creado é limitado ;
+Ora o homem é um ser creando ;
+Loro o homem é limitado —
+
+o predicado «limitado» convem ao sujeito parlicular «homem »
+por este se achar contido no sujeito universal « ser creado ».
+SL. Elementos do syllogismo. — O syllogismo consta de dois
+elementos, que são a materia e a forma, — À materia é constiluida
+por tres fermos (materia remota) e por tres proposições (materia
+
+Án
+
+proxima). À forma é a conveniente disposição dos iermos e
+das proposições em ordem á conclusão. — Os termos e as pro-
+posições tomam os nomes, que demos às ires ideas e aos tres
+juizos, que constituem a materia do raciocinio. — À proposição
+maior indica que ao sujeito universal compete necessariamente
+um cerlo predicado; : menor, que o sujeito particular está
+conlido na. extensão do sujeito «:iversal; a conclusão, que ao
+sujeito particular deve altribuir-se'o predicado do sujeito uni-
+versal, — Por isso, a verdade particular, expressa pela conclhu-
+são, recebe toda a sua força da verdade necessaria e universal,
+significada pela premissa maior ().
+
+potenciaes, como é, por ex., à nossa alma composta das faculdades de enten-
+der. querer, etc., — mas é o todo universal, composto de partes subjectivas,
+como é, por ex. o animal, cujas partes subjectivas são o animal racional
+e o animal irracional. Na verdade. atiribuindo-se, na argumentação, a uma
+parte 0 predicado, que convem ao fodo, é necessario que essa parte contenha
+em si o todo. Ora isto nào se verifica relativamente ao lodo integral, porque
+uma parte integrante nào é o todo integral (assim o fecto não é à casa), —
+nem ao todo potencial, pois uma parte potencial nào equivale ao todo poten-
+cial (assim o entendimento não é loda a alma) — mas verifica-se relativa-
+mente ao todo universal, pois que as partes subjectivas contem o todo uni
+versal (assim dizemos que o homem é animal).
+
+(1) A força, de que é dotada à conclusão, não depende propriamente da
+universalidade da premissa maior, mas sim da sua necessidade; à univer-
+salidade é uma consequencia da necessidade. — À proposição necessaria, que
+é a base do syllogismo, pode ser necessaria absolutamente ou hypotetica-
+mente, conforme a necessidade é independente, ou não, de toda e qualquer
+condição. No primeiro vaso, o predicado da conclusão exprime a essencia
+(Lotal ou parcial) do termo nuedío, ou uma propriedade essencial, e então o
+nexo entre o predicado da conclusão & 0 lermo inedio é absolutamente neces-
+

@@ -1,0 +1,55 @@
+à
+
+ondas nos seguintes versos:
+
+CAPITULO "TERCEIRO — RACIOCINIO E ARGUMENTAÇÃO 477
+
+sujeitos, subordinados à um genero, pertencem tambem a outro
+genero, estes dois generos lém em comunan alguns sujeitos (*).
+91. Leis das figuras. — Cada figura lem as suas leis pro-
+prias, que são dilferentes applicacóes das oito regras do syllo-
+gismb simples e que, por isso, nào se podem violar, sem que
+ao mesmo tempo sejam violadas essas regras. — As leis das
+figuras são seis: umu para a primeira figura, tres para a se-
+qunde, uma para a lerceira e uma para a quarta. São signifi-
+
+Para à [2 fy — 1 Sit minor affirmans, maior vero generalis.
+| ll. Maior ubi affirmat, generalis tum minor esto.
+HAE. Si iniuor affirmat, conchisio sit specialis.
+
+Para o 2º fig.
+| IV. Si uegat hace, maior generalis postulat esse,
+
+Para « 2* fig. — V. Una negans eslo, nec maior Sit specialis.
+Para a 4 fig. — VL. Sit minor affirmans, conclusio particularis (2).
+Lei I. — A menor seja affirmativa; a maior, universal.
+
+a) A menor sejt affirmativa. Por quanto, se a premissa
+menor é negativa, lambem negativa ha de ser à conclusão (Re-
+gra VII do Syl). Se a conclusão é negativa, o seu predicado é
+universal. Se o predicado 6 universal na conclusão, deve ser
+universal tambem na premissa maior (Regra ]l do Syl.). Seo
+predicado da premissa maior é universal, a propria premissa é
+negalioa. Se a premissa maior 6 tambem negativa, nào pode
+haver conclusão (Regra V do SyL). Logo a premissa menor deve
+ser affirmativa. Assim é falso o seguinte syllogismo :
+| Todo o homem é vivente:
+
+Ora nenhuma planta é homem;
+Logo nenhuma planta é vivente.
+
+b) À maior seja universal, Na verdade, se a premissa maior
+fosse particular, o termo medio seria particular — tanto na
+maior, porque sujeito de uma proposição particular, — como na
+menor, porque. predicado de uma proposição affirmaliva; o. que
+se oppõe é Regra IV do Syllogismo. Assim é falso o seguinte:
+
+(1) Mas reconhece-se facilmente que os principios, ou axiomas, que
+regem a ferceira e à quarta figura, são apenas diversos aspectos dos prin-
+cipios, em que se fundam a primeira e a segunda loura,
+
+(2) Advertimos que, neslas leis, a »uttior e à menor são tomadas em
+senlido rigoroso, e assim a premissa maior é à que contém o extremo
+maior, isto é, o predicado (da conclusão), e à premissa menor é a que contem
+o extremo menor, islo é, o sujeito (da. conclusão).
+

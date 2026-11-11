@@ -1,0 +1,52 @@
+» ' — LOGICA — SECÇÃO PRIMEIRA
+
+a) Se as premissas particulares são ambas affirmativas, nada
+se conclue. Porque o termo snedio deve ser universal, polo
+menos numa das premissas, como manda a Regra IV; ora em
+duas premissas particulares-affirmativas nào ha algum termo
+universal, pois os sujeitos e os predicados são lodos particulares.
+Por isso é falso o seguinte syllogismo :
+
+Alguns homens são sabios;
+Alguns homens são ignorantes;
+Logo alguns ignorantes são sabios.
+
+b) Se as premissas particulares são ambas negativas, lam-
+bem nào ha conclusão; porque o prohibe a Zegra V.
+
+c) Se de duas premissas particulares - uma é affirinative €
+outra é negativa, não pode tirar-se nenhuma conclusão — nem
+aflirmativa, nem negativa. Não pode tirar-se uma conclusão
+affirmativa; porque o prohibe a Regra VII. Nem pode tirar-se
+uma conclusão negativa; porque, para tirarmos uma conclusão
+negativa, deveria haver nas premissas dois termos universaes,
+oceupados pelo predicado da conclusão e pelo termo medio
+(Regras lie IV); ora nas premissas ha um só termo univer-
+sal, que é o predicado da premissa negativa. Assim é falso
+este syllogismo:
+
+Alyuns homens são maus;
+
+Alguns homens nào são maus;
+Logo alguns maus não são maus (1).
+
+(f) Esta regra soffre excepção, quando o sy/logismo contem lermos sin-
+gulares, ou ternios particulares equivalentes aos. sinyulares; pois esses ler-
+mos, tendo nma e a mesma significação ou extensão, correspondem aos uri-
+versaes. Assim é legitimo o seguinte syllogismo: S. Pedro é Galileu; ora
+S. Pedro é o Principe dos Apostolos ; logo o Principe dos Apostolos é Caldeu.
+Neste exemplo, os extremos são comparados com um e o mesmo iermo
+medio, e assim salva-se o principio de conveniencic.
+
+Alguns eseriptores affirmam que todas as leis do syllogismo podem re-
+duzir-se a uma só, que é a seguinte: O syllogismo simples é legitino, quando
+uma das premissas inche «à conclusão, e a outra esprime essa inclusão. —
+Respondemos que essa Jei, à qual exige o nexo entre às premissas e à com
+clusão, não só não exclue as oito regras do syllogismo, mas exige-as: por-
+que são ellas que ensinam o que se ha de fazer ou evitar para que exista
+O nexo entre o antecedente e o consequente.
+
+Outros dizem que, para a legitimidade do sylozmismo, bastum os dois
+principios fundamentues de eomreniencia ou de desconveniencia. Mas elles
+não reflectem que us oilo regras propostas servem para a. recla, applicação
+
