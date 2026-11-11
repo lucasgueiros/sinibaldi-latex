@@ -82,6 +82,36 @@ Formatação (`mede_formatacao.py --vol vol1`, 3 804 palavras rotuladas, acerto 
 P 83% / R 80% (vol. 2: 98% / 97%); negrito **R 1,4%** — os enunciados de tese em negrito do
 vol. 1 quase não são detectados; versalete só 2 ocorrências no ouro (`Regra`), sem medida útil.
 
+## Medições depois da união dos branches (2026-11-11)
+
+Branches `deus-versalete-fr`, `ouro-vol1` e `plano-titulos-trechos` unidos; cadeia inteira
+(`tools/gera_volume.sh vol1|vol2`) refeita. WER sem → com `corrige_ocr`:
+
+| | antes (tabela acima) | só a união | + melhorias abaixo |
+|---|---|---|---|
+| vol. 1, soma | 19,8% → 17,1% | 19,8% → 16,75% | **12,3% → 8,4%** |
+| 62–65 | 16,5% → 13,5% | → 13,1% | 16,4% → 12,3% |
+| 331–334 | 8,7% → 5,9% | → 5,6% | 8,6% → 4,9% |
+| 577–580 | 37,4% → 35,1% | → 34,7% | 12,9% → **9,1%** |
+| vol. 2 (421–442) | 5,9% → 3,9% | 5,9% → 3,41% | 5,9% → **3,26%** |
+
+Melhorias (cada uma medida isoladamente no portão):
+
+- `estruturar_tei`: o filete lido como traço (`- (1)`, `— (2)`, `-(1)`) impedia o início da
+  nota: 7 notas do vol. 1 ficavam no corpo, entre elas a da p. 580 (vol. 1: 16,1% → 8,5%).
+- `estruturar_tei`: palavra hifenizada na virada de página fica inteira antes do `<pb>` (corpo e
+  notas; antes `desconve<pb/>niencia` imprimia `desconve [63] niencia`, e nas notas o hífen nem
+  saía: `neces-<pb/>sario`); nota sem chamada não cai no meio da palavra.
+- `corrige_ocr`: regras `crase` (vol. 1: −0,67 ponto) e `e-agudo` (vol. 2: os 15 `E'` do ouro;
+  −0,15 ponto). Ver `docs/03`.
+- Ouro do vol. 2: 3 hífens de fim de linha esquecidos na transcrição (`pre-`/`missas`,
+  `imper-`/`feito`, `essen-`/`cial`) juntados; o total passou de 10 849 para 10 846 palavras.
+
+Ficou de fora por não valer a pena: negrito do vol. 1. A espessura não o separa nesse scan
+(`swr` mediana do negrito 1,14 contra p90 do romano 1,12; no vol. 2, 1,38 contra 1,09), então
+mexer no limiar só troca revocação por falsos positivos. Erros que ainda restam no vol. 1 são
+de leitura (`l`/`t`: `lambem`, `Lerceira`; `á` depois de `e`/`é`/`que`), coisa da F6.
+
 ## Mudanças nas ferramentas junto com este ouro
 
 - `mede_wer.py`: `--vol vol1` lê os blocos de `vol1/ouro/<de>-<ate>_<nome>.tex`; o corte em

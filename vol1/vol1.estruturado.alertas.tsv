@@ -179,10 +179,6 @@ pagina	tipo	mensagem
 203	nota-sem-chamada	n203-1 sem chamada; anexada ao fim do último parágrafo
 204	numero-diverge	chamada (5) ligada à nota (1)
 206	numero-diverge	chamada (!) ligada à nota (2)
-207	corte-incerto	notas a partir da linha 27, escore 3.5 (continua+1.5 vao-1 entrelinha+1.5 letra+1 letra-no-corte+0.5)
-207	continuacao-duvidosa	nota n206-2 parecia terminada, mas continua
-207	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-208	nota-recuperada	continuação ligada à chamada (*) da p. 207, que ficou sem nota: o começo de n207-1 deve estar no corpo da p. 207
 209	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 213	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 213	nota-sem-chamada	n213-1 sem chamada; anexada ao fim do último parágrafo
@@ -354,6 +350,8 @@ pagina	tipo	mensagem
 432	nota-recuperada	continuação ligada à chamada (!) da p. 431, que ficou sem nota: o começo de n431-1 deve estar no corpo da p. 431
 433	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 435	continuacao-duvidosa	nota n432-1 parecia terminada, mas continua
+435	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
+435	nota-sem-chamada	n435-1 sem chamada; anexada ao fim do último parágrafo
 436	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 436	nota-sem-chamada	n436-1 sem chamada; anexada ao fim do último parágrafo
 437	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
@@ -469,8 +467,6 @@ pagina	tipo	mensagem
 577	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
 577	numero-diverge	chamada (5) ligada à nota (1)
 577	nota-sem-chamada	n577-2 sem chamada; anexada ao fim do último parágrafo
-580	chamadas-x-notas	2 chamada(s) no corpo, 0 nota(s) iniciada(s)
-581	nota-recuperada	continuação ligada à chamada (!) da p. 580, que ficou sem nota: o começo de n580-1 deve estar no corpo da p. 580
 582	corte-incerto	notas a partir da linha 45, escore 3.5 (continua+1.5 vao+2)
 582	vao-nas-notas	vão grande dentro da área de notas: corpo retomado depois de nota? (conferir na imagem)
 583	chamadas-x-notas	1 chamada(s) no corpo, 0 nota(s) iniciada(s)
@@ -526,8 +522,9 @@ pagina	tipo	mensagem
 637	nota-sem-chamada	n637-8 sem chamada; anexada ao fim do último parágrafo
 640	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 640	nota-sem-chamada	n640-1 sem chamada; anexada ao fim do último parágrafo
-643	chamadas-x-notas	2 chamada(s) no corpo, 1 nota(s) iniciada(s)
-644	nota-recuperada	continuação ligada à chamada (1) da p. 643, que ficou sem nota: o começo de n643-1 deve estar no corpo da p. 643
+643	chamadas-x-notas	1 chamada(s) no corpo, 2 nota(s) iniciada(s)
+643	nota-sem-chamada	n643-1 sem chamada; anexada ao fim do último parágrafo
+644	continuacao-duvidosa	nota n643-2 parecia terminada, mas continua
 644	chamadas-x-notas	0 chamada(s) no corpo, 1 nota(s) iniciada(s)
 644	nota-sem-chamada	n644-2 sem chamada; anexada ao fim do último parágrafo
 648	corte-incerto	notas a partir da linha 27, escore 3.8 ((n)+2 vao-1 entrelinha+1.5 cauda-grande-0.7 letra+1 letra-no-corte+0.5 letra-corpo+0.5)

@@ -178,7 +178,18 @@ frequente; í em hiato fica); `cedilha` (c→ç, mesmo sobre palavra válida com
 `romano` (`IIT`→`III`, `1I`→`II`); `junta` (palavra partida `in ferior`, só se a soma existe no
 corpus e uma parte é fragmento; `n o` → `não`). No léxico, palavra curta e frequente (`eausa`, 59×)
 cede a candidato ≥ 20× mais frequente, e forma longa aceita candidato de 10 ocorrências.
-**3,97% → 3,45%** (corpo 5,04%; notas 3,10%). Fica para a F6: `a`/`á`, `E'`, `e`/`o` isolados,
+**3,97% → 3,45%** (corpo 5,04%; notas 3,10%).
+
+Depois da união dos branches (2026-11-11, medições em `docs/07`): `crase` — o OCR nunca tira o
+acento de `á` verdadeiro, só inventa: `á` → `a` onde a crase é impossível (depois de preposição;
+antes de pronome, artigo indefinido, masculino em `-o`, infinitivo/masculino em `-r`); e, se o
+documento tem `a` isolado com acento acima de 20% (vol. 1: 26,6%; vol. 2: 11,8%, a taxa normal),
+`á` só fica depois de regente (`relação á`, `egual á`, `refere-se á`) ou antes de locução
+(`á excepção`), aprendidos por `lexico.regentes_crase()`/`locucoes_crase()` do texto do vol. 2
+fora do ouro (vol. 1: 47 dos 64 `á` do ouro eram `a`). `e-agudo` — o apóstrofo de `E'` (= É, vol.
+2) lido como lixo colado (`E?`, `E!`, `E"`, `E^`, `E '`) → `E'`; e `E` + predicativo no início de
+frase (`E certo`, `E impossivel`) → a grafia do volume (`E'` ou `É`, decidida pela contagem no
+próprio documento). Fica para a F6: `a`/`á` depois de `e`/`é`/`que` no vol. 2, `e`/`o` isolados,
 `3`/`8`, nomes próprios (`Kent`), letras faltantes (`r dicionalismo`), `Zntrinseca` (maiúscula
 ambígua).
 
