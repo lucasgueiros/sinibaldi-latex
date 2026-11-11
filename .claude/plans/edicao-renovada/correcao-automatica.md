@@ -157,3 +157,38 @@ adivinhar, o corretor registra cada troca.
 4. Hunspell `pt_PT` + proteção por idioma; dehifenização com léxico.
 5. Só então: piloto da F6 nas pp. 421–442 sobre o texto corrigido (comparar com a F6 sobre o
    texto cru: o ganho da correção automática é medido também em custo/erros da LLM).
+
+## Estado (2026-11-11): passos 1–4 feitos
+
+Detalhes e uso em `docs/03-latex-e-slides.md` ("Corte corpo × notas por escore" e "Correção
+automática do OCR"). O protótipo (`prototipo-correcao/`) fica como registro; a medição oficial é
+`tools/mede_wer.py`, que separa corpo e notas e começa no `<pb n="421">` do corpo (o protótipo
+começava no 1.º `<pb n="421"`, às vezes dentro de nota da p. 420: daí 7,5% lá contra 6,6% aqui no
+mesmo TEI).
+
+| | antes | depois |
+|---|---|---|
+| WER pp. 421–442 (total / corpo / notas) | 6,60 / 11,71 / 5,35% | 3,97 / 5,79 / 3,56% |
+| — só a estrutura (sem correção de palavras) | 6,60% | 5,93% |
+| notas vol. 2 / vol. 1 | 727 / 688 | 753 / 812 |
+| alertas vol. 2 (`chamadas-x-notas`) | 239 (26) | 224 (5) |
+| alertas vol. 1 (`chamadas-x-notas`, `vao-nas-notas`) | 799 (317, 133) | 823 (271, 76) |
+
+pp. 5–6 do vol. 2: a nota (1) da p. 5 e a continuação na p. 6 ficam em `n5-1`; "Phy-siologia"
+não é mais quebrada pelo `o —` da margem. O vol. 1 tem mais alertas no total porque surgiram tipos
+novos (`nota-recuperada` 55, `corte-incerto` 22) e porque, com mais notas achadas, sobem as
+`nota-sem-chamada` (a chamada `(*)` do OCR rápido).
+
+Conferido na imagem (amostra de ~30 páginas do vol. 1 onde o corte mudou): os erros que
+sobram são OCR com linhas fora de ordem (p. 475) e continuação sem vão no topo (p. 149).
+
+Regras do léxico acrescentadas depois do protótipo, todas pelo portão: dicionário pt_PT/fr
+(`tools/dados/validas.tsv`), trecho latino/francês ignorado, forma recorrente que só difere no
+acento não é trocada (`fórma`, `áquella`, `tém`), 2 trocas só para forma rara, menos trocas
+primeiro, `l→t` na tabela; `cao` antes de `ao` (`pretencáo` → `pretenção`, não `pretencão`).
+
+Pendente:
+- 2.º padrão-ouro curto (5 pp. do vol. 1, à mão) — o vol. 1 hoje só tem a amostra de 40 trocas;
+- `inielligencia → inlelligencia` (o candidato frequente é ele mesmo erro do OCR do vol. 1) e
+  `tóm/tém → tem` (devia ser `têm`): ficam para a F6;
+- passo 5 (piloto da F6 sobre `vol2/vol2.corrigido.xml`).

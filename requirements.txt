@@ -1,2 +1,3 @@
 git+https://github.com/ocrmypdf/OCRmyPDF.git
 python-pptx
+spylls  # só para tools/lexico.py gera (dicionário hunspell pt_PT/fr)

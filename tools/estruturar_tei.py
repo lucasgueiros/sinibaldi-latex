@@ -321,6 +321,68 @@ def inicio_notas(linhas, corpo, limiar_h, aberta, margem=0, limiar_recuo=40, not
     return escolhido[0]
 
 
+PALAVRA_FIM = re.compile(r"([A-Za-zÀ-ÖØ-öø-ÿ]+)-$")
+PALAVRA_INI = re.compile(r"^([A-Za-zÀ-ÖØ-öø-ÿ]+)")
+
+
+def _lexico():
+    try:
+        import lexico
+        return lexico
+    except ImportError:
+        return None
+
+
+def conhecida(w):
+    lx = _lexico()
+    return lx is not None and (lx.valida(w) or lx.frequencias()[w.lower()] >= 3)
+
+
+def enclise(a, b):
+    """"a-" + "b" no fim de linha e verbo + pronome encliticos (chamam-se, dizê-lo, dei-o)?
+    A frequencia do corpus conta fragmentos de hifenizacao (supre-, repu-) e o pt_PT aceita alguns
+    como prefixo: por isso a forma do verbo tem de casar com o pronome."""
+    lx = _lexico()
+    if lx is None or len(a) < 3:
+        return False
+    f = lx.frequencias()[a.lower()]
+    verbo = (a.endswith("r") and f >= 5) or (a.endswith("ndo") and f >= 3) or \
+        (lx.valida(a) and f >= 15) or f >= 50
+    b = b.lower()
+    vogal = a[-1].lower() in "aeiouáéíóúâêô"
+    if b in ("se", "lhe", "lhes", "nos", "vos", "me", "te", "hia", "hiam", "ha", "hei", "hão", "emos", "ia", "iam"):
+        return verbo
+    if b in ("lo", "la", "los", "las"):
+        return verbo and vogal
+    if b in ("o", "a", "os", "as"):
+        return verbo and vogal and f >= 30
+    if b in ("no", "na", "nas"):
+        return verbo and (a.endswith("m") or a.endswith("ão") or a.endswith("õe"))
+    return False
+
+
+def hifen(u, texto):
+    """`u` termina em "-" (fim de linha): devolve o que vem DEPOIS de u[:-1] para juntar `texto`,
+    ou None para juntar com espaco (sem dehifenizar).
+
+      * enclise ("chamam-" + "se", ver enclise()): mantem o hifen ("chamam-se"), salvo se a juncao
+        e palavra conhecida ("es-" + "se" = "esse");
+      * 2a parte maiuscula por erro do OCR ("redu-" + "Zir-se"): junta em minuscula se a juncao e
+        conhecida ("reduzir-se");
+      * senao, 2a parte minuscula: junta (hifenizacao silabica, o caso comum)."""
+    if not u.endswith("-") or not texto:
+        return None
+    ma, mb = PALAVRA_FIM.search(u), PALAVRA_INI.match(texto)
+    if not ma or not mb:
+        return texto if texto[:1].islower() else None
+    a, b = ma.group(1), mb.group(1)
+    if b.islower() and enclise(a, b) and not conhecida(a + b):
+        return "-" + texto        # enclise: mantem o hifen
+    if b[:1].isupper() and not b.isupper() and conhecida(a + b.lower()):
+        return texto[:1].lower() + texto[1:]
+    return texto if texto[:1].islower() else None
+
+
 class Par:
     """paragrafo/nota em construcao: pecas = str | ('pb', n) | ('nota', Nota)."""
 
@@ -333,8 +395,9 @@ class Par:
     def anexa(self, texto):
         """junta linha seguinte, desfazendo hifenizacao de fim de linha."""
         u = self.pecas[-1] if self.pecas and isinstance(self.pecas[-1], str) else None
-        if u is not None and u.endswith("-") and texto[:1].islower():
-            self.pecas[-1] = u[:-1] + texto
+        h = hifen(u, texto) if u is not None else None
+        if h is not None:
+            self.pecas[-1] = u[:-1] + h
         elif u is not None:
             self.pecas[-1] = u + " " + texto
         else:
@@ -510,8 +573,10 @@ def processa_paginas(pasta, de, ate, alerta):
         if lig:
             u = ultima_par
             c0 = lig[0].pecas
-            if isinstance(u.pecas[-1], str) and u.pecas[-1].endswith("-") and c0[0][:1].islower():
-                u.pecas[-1] = u.pecas[-1][:-1]               # hifen de fim de pagina
+            h = hifen(u.pecas[-1], c0[0]) if isinstance(u.pecas[-1], str) and isinstance(c0[0], str) else None
+            if h is not None:                                # hifen de fim de pagina
+                u.pecas[-1] = u.pecas[-1][:-1] + h[:len(h) - len(c0[0])]
+                c0[0] = h[len(h) - len(c0[0]):]
             elif isinstance(c0[0], str):
                 c0[0] = " " + c0[0]
             u.pecas.append(("pb", imp))

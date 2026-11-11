@@ -104,6 +104,7 @@ def main():
     ap.add_argument("-f", "--de", type=int, default=421)
     ap.add_argument("-l", "--ate", type=int, default=442)
     ap.add_argument("--corrige", action="store_true", help="aplica tools/corrige_ocr.py ao TEI antes de medir")
+    ap.add_argument("--sem", default="", help="com --corrige: regras a desligar (vírgula)")
     ap.add_argument("--lista", type=int, default=0, help="mostra as N primeiras trocas (texto inteiro)")
     a = ap.parse_args()
     xml = a.xml
@@ -112,7 +113,9 @@ def main():
         import corrige_ocr
         import tempfile
         tmp = Path(tempfile.mkdtemp()) / "corrigido.xml"
-        corrige_ocr.corrige_arquivo(Path(xml), tmp, None, quieto=True)
+        sem = set(filter(None, a.sem.split(",")))
+        corrige_ocr.corrige_arquivo(Path(xml), tmp, None, quieto=True,
+                                    ativas=[r for r in corrige_ocr.REGRAS if r not in sem])
         xml = tmp
     ouro, tei = le_ouro(a.ouro), le_tei(xml, a.de, a.ate)
     for nome, g, o in zip(("total", "corpo", "notas"), ouro, tei):

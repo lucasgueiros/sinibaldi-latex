@@ -96,7 +96,8 @@ moderno que "corrija" `philosophia`.
 **Medido em 2026-11-11** ([`correcao-automatica.md`](correcao-automatica.md)): o léxico do OCR está
 contaminado pelos erros sistemáticos (`nào` 3 361×), então vêm primeiro as regras determinísticas,
 depois o léxico por razão de frequência e um dicionário de formas válidas contra as regressões. O
-protótipo leva o WER de 7,5% a 5,5% nas pp. 421–442.
+protótipo leva o WER de 7,5% a 5,5% nas pp. 421–442. **Implementado** (`tools/corrige_ocr.py`,
+`docs/03`): 5,93% → 3,97% na medição nova, com 1 regressão.
 
 ### F4 — `tools/titulos.py`: títulos → `estrutura.tsv` (o TSV manda)
 O script detecta os títulos (centrado, escala, versal, negrito medido na imagem, vocabulário

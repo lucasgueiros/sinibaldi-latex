@@ -124,11 +124,54 @@ retomado depois de nota (alerta `vao-nas-notas`), tese cujo número o OCR leu ma
 |---|---|---|
 | entrelinha corpo / nota | 51 / 39 px | 53 / 43 px |
 | largura por caractere: limiar corpo × corpo menor | 18,3 (≈19,5 × ≈16,3) | 19,7 (≈21,5 × ≈17,5) |
-| teses reconhecidas (numeração contínua) | 162 de ~243 | 221 de ~250 |
-| notas / palavras em notas | 688 / 47% | 727 / ~70% |
+| teses reconhecidas (numeração contínua) | 162 de ~243 | 231 de ~250 |
+| notas / palavras em notas | 812 / 68% | 753 / 81% (padrão-ouro: 80%) |
+| alertas | 823 | 224 |
+
+(Até 2026-11-11 eram 688 / 727 notas: o corte corpo × notas exigia a conjunção de todos os
+critérios e o tamanho da letra, mal medido, vetava notas inteiras. Hoje é por escore — abaixo.)
 
 O limiar de tamanho é calculado sozinho (k-means no volume), então um terceiro volume não pede
-ajuste manual. Chamadas de nota: o OCR do vol. 1 lê `(1)` como `(*)`/`(?)`; o estruturador pareia
+ajuste manual. O tamanho de cada linha é medido só em linhas que terminam na margem direita (moda
+dos x1): o OCR cola ruído da borda no fim de algumas linhas.
+
+**Corte corpo × notas por escore** (`inicio_notas`/`escore_corte`): cada linha `k` que começa com
+`(n)`, ou sem recuo havendo nota aberta, é um candidato; votos somados, nenhum veta: vão antes
+(filete; linhas de 1–4 caracteres logo antes são o próprio filete lido pelo OCR), entrelinha da
+cauda (nota ≈ 43 contra corpo ≈ 53), tamanho da letra na cauda e nas 2 primeiras linhas medidas
+depois do corte, linhas de corpo no meio da cauda. Aceita com escore ≥ 3. Entre `(n)` quase
+empatados fica o mais cedo; continuação só abre a área de notas e só ganha se superar o melhor
+`(n)`. **Reparo por chamada**: se o corpo tem chamada e nenhum corte passou, aceita o melhor `(n)`
+com escore ≥ 0,5 (alerta `corte-por-chamada`). **Nota aberta** também quando a página anterior
+deixou chamada sem nota: a continuação vira a nota daquela chamada (alerta `nota-recuperada`).
+Antes, uma continuação sem nota aberta era descartada; hoje vira nota `?` (alerta
+`continuacao-sem-nota`). Decisões apertadas: alerta `corte-incerto`. Também: ruído de margem
+(linha toda fora da coluna) e ornamento (linha curta de confiança < 60 acima do 1.º texto) são
+descartados; o `<fw>` de página que continua parágrafo vai para dentro do `<p>`, junto do `<pb>`;
+dehifenização de fim de linha consulta o léxico (`chamam-se` mantém o hífen se for ênclise,
+`redu- Zir-se` → `reduzir-se`).
+
+Medição: `tools/mede_wer.py` (padrão-ouro pp. 421–442, corpo e notas em separado). Nota no
+lugar errado aparece como inserção no corpo e omissão nas notas.
+
+## Correção automática do OCR (antes da F6)
+
+`tools/corrige_ocr.py vol2/vol2.estruturado.xml -o vol2/vol2.corrigido.xml` → TEI corrigido +
+`vol2/correcoes.tsv` (`pagina, xml:id, antes, depois, regra`): cada troca é auditável e reversível
+por regra (`--sem lexico,a-grave`). Fora de `<fw>`, `<label>`, `xml:lang="la"|"fr"` e de trechos
+com cara de latim/francês. Em ordem: regras de sequências impossíveis na grafia antiga (`ao`,
+`cao`, `oe`, `a-grave`, `digito`, `deus`, `h-italico`) → léxico do corpus (frequência nos
+`paginas/*.txt` dos dois volumes, **sem** o padrão-ouro) com tabela de confusões genérica, menos
+trocas primeiro → `marca` (palavra de confiança < 60 sem correção: dica para a F6). O léxico nunca
+troca forma aceita por dicionário (hunspell pt_PT/fr, pré-computado em `tools/dados/validas.tsv`
+por `.venv/bin/python tools/lexico.py gera`, que precisa de `spylls`), nem forma recorrente
+(≥ 10×) que difere só no acento (`fórma`, `áquella`, `tém`: decide a F6) ou em 2 letras.
+
+Portão: `python3 tools/mede_wer.py --corrige [--sem REGRA]` — nenhuma regra entra se piora o WER.
+Resultado nas pp. 421–442: **5,93% → 3,97%** (corpo 8,7% → 5,8%; notas 5,3% → 3,6%), 205 palavras
+corrigidas, 1 regressão (`opéram`). Cada regra, retirada sozinha, piora o WER. Vol. 2: 8 247
+trocas; vol. 1: 15 769 (OCR `por` rápido, sem padrão-ouro: amostra de 40 trocas do léxico, ~37
+certas). Chamadas de nota: o OCR do vol. 1 lê `(1)` como `(*)`/`(?)`; o estruturador pareia
 chamadas e notas por ordem quando a contagem fecha. Teses: número lido é confiado se estiver à
 frente da última (janela de 30); se voltar atrás ou estourar a janela, é corrigido apenas quando
 difere do esperado em um dígito (905→205); tudo vai para os alertas `tese-fora-de-sequencia` e

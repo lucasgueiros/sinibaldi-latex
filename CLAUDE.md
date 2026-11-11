@@ -30,7 +30,11 @@ derived files under new names.
 `tools/`: `extract_paginado.py` (texto etiquetado por página impressa; `--corrige-w` para `w→u`),
 `ocr_paginado.py` (re-OCR `por_best+lat` sob demanda), `corrige_w.py` (whitelist `w→u`),
 `corta.py` (recorta um nó → `<stem>.pdf` + `<stem>.txt`), `trecho.py` (extrai `%%>>> id`),
-`gera_slides_base.py` (`.tex` → `.slides.base.md`), `md2pptx.py` (`.slides.md` → `.pptx`).
+`gera_slides_base.py` (`.tex` → `.slides.base.md`), `md2pptx.py` (`.slides.md` → `.pptx`),
+`estruturar_tei.py` (`paginas/*.tsv` → `volN.estruturado.xml` + alertas), `corrige_ocr.py`
+(TEI estruturado → `volN.corrigido.xml` + `volN/correcoes.tsv`), `mede_wer.py` (WER contra o
+padrão-ouro pp. 421–442: o portão de qualquer mudança no texto), `lexico.py` (léxico do corpus +
+`tools/dados/validas.tsv`). Ver `docs/03`.
 
 ## Pipeline
 
