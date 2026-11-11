@@ -93,6 +93,10 @@ Lista de todas as formas (`tipo → frequência, páginas`) do volume. Forma rar
 confiança perto de uma forma frequente (distância de edição 1–2) = provável erro de OCR, corrigível
 por regra. É um corretor ortográfico **com o léxico de 1916 do próprio livro**, sem dicionário
 moderno que "corrija" `philosophia`.
+**Medido em 2026-11-11** ([`correcao-automatica.md`](correcao-automatica.md)): o léxico do OCR está
+contaminado pelos erros sistemáticos (`nào` 3 361×), então vêm primeiro as regras determinísticas,
+depois o léxico por razão de frequência e um dicionário de formas válidas contra as regressões. O
+protótipo leva o WER de 7,5% a 5,5% nas pp. 421–442.
 
 ### F4 — `tools/titulos.py`: títulos → `estrutura.tsv` (o TSV manda)
 O script detecta os títulos (centrado, escala, versal, negrito medido na imagem, vocabulário
