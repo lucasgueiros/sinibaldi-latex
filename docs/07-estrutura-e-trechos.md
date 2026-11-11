@@ -64,6 +64,6 @@ Título que o TEI atual perdeu (rótulo `CAPITULO …` de abertura) só começa 
 
 - `estruturar_tei.py --estrutura`: ler o TSV revisado (ids estáveis, âncora) em vez da heurística
   própria. Até lá, os ids do TSV (`parte.capitulo.aN`) e os `xml:id` do TEI (`cap-6`) são
-  independentes, e `trecho.py` usa só páginas.
+  independentes: `trecho.py` casa o título pela âncora/texto, não pelo `xml:id`.
 - Índice impresso como conferência (`estrutura.indice.tsv`), `--materializa`, medição no ouro
   revisado (piloto: Anthropologia).
