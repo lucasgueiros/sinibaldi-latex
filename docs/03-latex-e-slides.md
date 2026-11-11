@@ -116,7 +116,8 @@ Tudo que a heurística não fecha vai para `<saida>.alertas.tsv` (revisão F6).
 `\pg`, `\pgn`, `\tese`, `\footnote`, `\chapter*`/`\section*`, `latim`. Sem `--puro`, o `.tex`
 compila avulso (`tex/avulso.tex`). Limitações conhecidas do estruturador: página com corpo
 retomado depois de nota (alerta `vao-nas-notas`), tese cujo número o OCR leu mal (alerta
-`tese-fora-de-sequencia`; a tese vira `<p>`), itálico/latim ainda não marcados (fase F6).
+`tese-fora-de-sequencia`; a tese vira `<p>`), latim ainda não marcado com `xml:lang`. Itálico,
+versalete e negrito vêm de `tools/formatacao.py` (`<id>.fmt.tsv` → `<hi rend>`; ver `docs/06`).
 
 ### Calibração por volume (resultado)
 

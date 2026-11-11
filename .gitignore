@@ -67,3 +67,6 @@ Thumbs.db
 *~
 .idea/
 .vscode/
+
+# medições de tools/formatacao.py (cache, regenerável)
+vol*/paginas/*.medidas.pkl

@@ -6,6 +6,7 @@
 ./compila.sh existencia-de-deus --sem-notas       # capítulo SEM notas de rodapé  -> build/<stem>-sem-notas.pdf
 ./compila.sh existencia-de-deus --notas-corpo     # notas correndo no corpo       -> build/<stem>-notas-corpo.pdf
 latexmk -lualatex livro.tex                       # livro inteiro                 -> livro.pdf
+tools/gera_volume.sh vol2                         # volume inteiro do OCR, com itálico/versalete -> build/vol2.pdf
 ./compila.sh --limpa                              # apaga auxiliares de build/ (mantém PDFs)
 ```
 

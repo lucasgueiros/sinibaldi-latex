@@ -13,7 +13,7 @@ regra (--sem REGRA).  Três mecanismos, em ordem:
 1. REGRAS de sequências impossíveis na grafia de 1916 (baratas, auditáveis, pegam o grosso):
    ao (-ào/-áo -> -ão), cao (-cáo -> -ção), oe (-óe -> -õe, só se a forma nova existe),
    a-grave (à -> á, às -> ás, À -> A), digito (6 -> é, 4 -> á entre palavras), deus
-   (D??s -> Deus: versalete; a marcação sc fica para a F6), h-italico (pAysica -> physica).
+   (D??s -> Deus: versalete; a marcação sc vem de tools/formatacao.py), h-italico (pAysica -> physica).
 2. LEXICO: frequência do corpus (≈910 mil palavras, sem o padrão-ouro) + tabela de confusões
    genérica (c/e/o, acentos, u/n, i/t/í, s/z, A->h, w->u).  Troca quando o candidato é >= 10x mais
    frequente.  Nunca troca forma aceita pelo dicionário (pt_PT, fr: tools/dados/validas.tsv),
@@ -22,7 +22,7 @@ regra (--sem REGRA).  Três mecanismos, em ordem:
    vai para correcoes.tsv com regra "marca" (dica para a F6).
 
 O que fica deliberadamente para a F6 (precisa da imagem): a/á, E/E', e/o isolados, dígitos,
-versalete e itálico.
+versalete e itálico duvidosos (a marcação automática vem de tools/formatacao.py, ver docs/06).
 """
 import argparse
 import csv

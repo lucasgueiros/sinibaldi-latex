@@ -5,3 +5,4 @@
 - [03-latex-e-slides.md](03-latex-e-slides.md) — macros do preâmbulo, trechos nomeados, `tex/_preview.tex`, slides.
 - [04-ocr-latim.md](04-ocr-latim.md) — reOCR com modelo de latim: medições, armadilha do `w`, `tools/corrige_w.py`.
 - [05-estrutura-por-no.md](05-estrutura-por-no.md) — árvore por nó (`volN/…/`), `tools/corta.py`, fluxo faixa → LaTeX → slides.
+- [06-formatacao.md](06-formatacao.md) — itálico, versalete e negrito medidos na imagem (`tools/formatacao.py`), precisão no padrão-ouro, `tools/gera_volume.sh`.

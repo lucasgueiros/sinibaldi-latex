@@ -121,6 +121,8 @@ Entrada por página: a **imagem** + o trecho do TEI bruto dessa página (entre d
 confiança. Pedido: corrigir para ficar **idêntico ao impresso, grafia de 1916**, marcando
 itálico e versalete (`<hi rend="it">`, `<hi rend="sc">`) — que o OCR não detecta e só a imagem mostra (o livro usa muito
 itálico, por isso a imagem é necessária em todas as páginas). Saída: o trecho corrigido.
+**Atualização 2026-11-11:** itálico e versalete já chegam marcados por `tools/formatacao.py`
+(F1 97,5% no ouro, `docs/06`); a F6 só confere e corrige a marcação, não precisa criá-la.
 
 Salvaguardas automáticas, antes de aceitar: XML válido no schema; `<pb>` intactos e em ordem; variação de nº de palavras
 < ~3% (detecta omissão/alucinação); latim não "traduzido"; marcação não inventada. Página que falha

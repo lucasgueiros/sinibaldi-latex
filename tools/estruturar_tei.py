@@ -33,6 +33,12 @@ Estrutura: titulos PARTE / SECÇÃO / CAPITULO / ARTIGO (OCR tolerante), Summari
 "N. Titulo. — texto" (numeracao conferida em sequencia).  Tudo o que a heuristica nao fecha vira
 alerta em <saida>.alertas.tsv (pagina, tipo, mensagem) — e o que a revisao (F6) deve olhar.
 O texto fica em grafia de 1916, sem correcao de OCR.
+
+Formatacao: se existe <id>.fmt.tsv ao lado do <id>.tsv (tools/formatacao.py: italico, versalete e
+negrito medidos na imagem), cada palavra marcada vira <hi rend="it|sc|bold">.  A marca viaja como
+caractere de uso privado (ABRE/FECHA) so no texto dos paragrafos (Linha.marc); as heuristicas de
+estrutura continuam lendo o texto limpo (Linha.texto) e um passe final (aplica_marcas) troca os
+marcadores por elementos.  Titulos, <fw>, <label> e enunciado da tese ficam sem marca.
 """
 import argparse
 import csv
@@ -53,6 +59,13 @@ CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f￾￿]")
 CHAMADA = re.compile(r"\(\s*(\d{1,2}|[lI|!*?])\s*\)")
 # inicio de nota; ate 3 caracteres de sujeira antes (o OCR le ". (1)", "| (2)", "' (1)")
 NOTA = re.compile(r"^[.,:;'‘’|!\s]{0,3}\(\s*(\d{1,2}|[lI|])\s*\)\s*")
+# marcas de formatacao no texto (uso privado): abre / fecha, por estilo
+ABRE = {"it": "\ue010", "sc": "\ue011", "bold": "\ue012"}
+FECHA = {"it": "\ue020", "sc": "\ue021", "bold": "\ue022"}
+REND = {**{v: k for k, v in ABRE.items()}, **{v: k for k, v in FECHA.items()}}
+MARCA = re.compile("[\ue010-\ue012\ue020-\ue022]")
+M_ = "[\ue010-\ue012\ue020-\ue022]*"            # marcas opcionais num regex
+NUCLEO_PAL = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ](?:.*[A-Za-zÀ-ÖØ-öø-ÿ])?")
 FIM_FRASE = re.compile(r"[.!?:;»”]\s*$")
 ORDINAIS = {"PRIMEIRO", "PRIMEIRA", "SEGUNDO", "SEGUNDA", "TERCEIRO", "TERCEIRA", "QUARTO",
             "QUARTA", "QUINTO", "QUINTA", "SEXTO", "SEXTA", "SETIMO", "SETIMA", "OITAVO",
@@ -74,14 +87,74 @@ def T(n):
 
 # ------------------------------------------------------------------ leitura do .tsv
 class Linha:
-    __slots__ = ("x0", "y0", "x1", "y1", "texto", "h", "conf")
+    __slots__ = ("x0", "y0", "x1", "y1", "texto", "h", "conf", "marc")
 
-    def __init__(self, x0, y0, x1, y1, texto, h=None, conf=100.0):
+    def __init__(self, x0, y0, x1, y1, texto, h=None, conf=100.0, marc=None):
         self.x0, self.y0, self.x1, self.y1, self.texto, self.h, self.conf = x0, y0, x1, y1, texto, h, conf
+        self.marc = texto if marc is None else marc     # texto com marcas de formatacao
 
 
-def le_linhas(tsv):
+def sem_marcas(s):
+    return MARCA.sub("", s) if s else s
+
+
+def marca_palavra(t, rend):
+    """envolve o nucleo (1a a ultima letra) da palavra; pontuacao e chamada "(n)" ficam fora."""
+    m = NUCLEO_PAL.search(t) if rend in ABRE else None
+    if not m:
+        return t
+    return t[:m.start()] + ABRE[rend] + m.group() + FECHA[rend] + t[m.end():]
+
+
+_L = "A-Za-zÀ-ÖØ-öø-ÿ"
+_FECHA_NO_MEIO = re.compile(f"(?<=[{_L}])([-])([{_L}]+)")
+_ABRE_NO_MEIO = re.compile(f"([{_L}]+)([-])(?=[{_L}])")
+
+
+def junta_marcas(s):
+    """funde corridas vizinhas do mesmo estilo: FECHA_x [espacos] ABRE_x -> [espacos]; e estende
+    ate a palavra inteira um estilo que comeca/acaba no meio dela (dehifenizacao de "ultraphe-" em
+    italico + "nomenico" lido como romano)."""
+    for r in ABRE:
+        s = re.sub(FECHA[r] + r"(\s*)" + ABRE[r], r"\1", s)
+    if MARCA.search(s):
+        s = _FECHA_NO_MEIO.sub(r"\2\1", s)
+        s = _ABRE_NO_MEIO.sub(r"\2\1", s)
+        for r in ABRE:
+            s = re.sub(FECHA[r] + r"(\s*)" + ABRE[r], r"\1", s)
+    return s
+
+
+def pos_marcada(s, k):
+    """indice em `s` (com marcas) do k-esimo caractere do texto limpo (marcas antes dele incluidas)."""
+    n = 0
+    for i, c in enumerate(s):
+        if MARCA.match(c):
+            continue
+        if n == k:
+            j = i
+            while j > 0 and MARCA.match(s[j - 1]) and s[j - 1] in ABRE.values():
+                j -= 1
+            return j
+        n += 1
+    return len(s)
+
+
+def le_fmt(tsv):
+    """{(block, par, line, word): rend} do <id>.fmt.tsv ao lado do <id>.tsv (vazio se nao ha)."""
+    f = Path(tsv).with_suffix(".fmt.tsv")
+    out = {}
+    if f.exists():
+        with open(f, encoding="utf-8", newline="") as fh:
+            for r in csv.DictReader(fh, delimiter="\t", quoting=csv.QUOTE_NONE):
+                if r["rend"]:
+                    out[(r["block"], r["par"], r["line"], r["word"])] = r["rend"]
+    return out
+
+
+def le_linhas(tsv, fmt=None):
     """linhas nao vazias de uma pagina, em ordem de leitura; (linhas, largura_da_pagina)."""
+    fmt = le_fmt(tsv) if fmt is None else fmt
     linhas, largura = {}, 0
     with open(tsv, encoding="utf-8", newline="") as f:
         for r in csv.DictReader(f, delimiter="\t", quoting=csv.QUOTE_NONE):
@@ -91,16 +164,17 @@ def le_linhas(tsv):
             k = (r["block_num"], r["par_num"], r["line_num"])
             if lv == 4:
                 x, y, w, h = (int(r[c]) for c in ("left", "top", "width", "height"))
-                linhas[k] = [x, y, x + w, y + h, [], []]
+                linhas[k] = [x, y, x + w, y + h, [], [], []]
             elif lv == 5 and k in linhas:
                 t = CTRL.sub("", r["text"]).strip()
                 if t and float(r["conf"]) >= 0:
                     linhas[k][4].append(t)
                     linhas[k][5].append(float(r["conf"]) * len(t))
+                    linhas[k][6].append(marca_palavra(t, fmt.get((*k, r["word_num"]))))
     out = []
-    for x0, y0, x1, y1, ws, cs in linhas.values():
+    for x0, y0, x1, y1, ws, cs, ms in linhas.values():
         if ws:
-            l = Linha(x0, y0, x1, y1, " ".join(ws))
+            l = Linha(x0, y0, x1, y1, " ".join(ws), marc=junta_marcas(" ".join(ms)))
             l.conf = sum(cs) / max(1, sum(len(w) for w in ws))    # confianca media por caractere
             out.append(l)
     out = limpa_ruido(out)
@@ -370,17 +444,19 @@ def hifen(u, texto):
       * 2a parte maiuscula por erro do OCR ("redu-" + "Zir-se"): junta em minuscula se a juncao e
         conhecida ("reduzir-se");
       * senao, 2a parte minuscula: junta (hifenizacao silabica, o caso comum)."""
-    if not u.endswith("-") or not texto:
+    us, ts = sem_marcas(u), sem_marcas(texto)     # decide no texto limpo; devolve o marcado
+    if not u.endswith("-") or not ts:
         return None
-    ma, mb = PALAVRA_FIM.search(u), PALAVRA_INI.match(texto)
+    ma, mb = PALAVRA_FIM.search(us), PALAVRA_INI.match(ts)
     if not ma or not mb:
-        return texto if texto[:1].islower() else None
+        return texto if ts[:1].islower() else None
     a, b = ma.group(1), mb.group(1)
     if b.islower() and enclise(a, b) and not conhecida(a + b):
         return "-" + texto        # enclise: mantem o hifen
     if b[:1].isupper() and not b.isupper() and conhecida(a + b.lower()):
-        return texto[:1].lower() + texto[1:]
-    return texto if texto[:1].islower() else None
+        i = next(j for j, c in enumerate(texto) if not MARCA.match(c))
+        return texto[:i] + texto[i].lower() + texto[i + 1:]
+    return texto if ts[:1].islower() else None
 
 
 class Par:
@@ -411,9 +487,9 @@ def agrupa(linhas, passo, margem, limiar, vao):
         recuado = l.x0 - margem >= limiar
         novo = ant is None or recuado or (l.y0 - ant.y0) > vao * passo
         if novo:
-            pars.append(Par(l.texto, None, recuado))
+            pars.append(Par(l.marc, None, recuado))
         else:
-            pars[-1].anexa(l.texto)
+            pars[-1].anexa(l.marc)
         ant = l
     return pars
 
@@ -540,7 +616,7 @@ def processa_paginas(pasta, de, ate, alerta):
                        "anexada como nota “?” ao último parágrafo")
                 recuperada = orfa = Nota("?", imp, cont)
             else:
-                if FIM_FRASE.search(nota_aberta.pars[-1].texto()):
+                if FIM_FRASE.search(sem_marcas(nota_aberta.pars[-1].texto())):
                     alerta(imp, "continuacao-duvidosa", f"nota {nota_aberta.id} parecia terminada, mas continua")
                 nota_aberta.pars[-1].pecas.append(("pb", imp))
                 primeiro = cont[0]
@@ -557,7 +633,7 @@ def processa_paginas(pasta, de, ate, alerta):
 
         # 4. continuacao de paragrafo do corpo
         if pars and ultima_par is not None and not pars[0].recuado and \
-                not FIM_FRASE.search(ultima_par.texto()) and not re.match(r"^\d{1,3}\.\s", pars[0].texto()):
+                not FIM_FRASE.search(sem_marcas(ultima_par.texto())) and not re.match(r"^\d{1,3}\.\s", sem_marcas(pars[0].texto())):
             cabeca = pars.pop(0)
             lig = [cabeca]
         else:
@@ -733,7 +809,7 @@ def reconhece_titulo(texto):
 
 TESE = re.compile(r"^(\d{1,3})\s*[.,]\s+(.{2,140}?[.!?])\s*[—–-]+\s*(.*)$", re.S)
 TESE_TITULO = re.compile(r"^(\d{1,3})\s*[.,]\s+(?P<t>[^.!?—–]{2,100}[.!?])\s*$")  # tese so com enunciado (p. ex. "12. Argumentos metaphysicos.")
-SUMARIO = re.compile(r"^\s*summ?ario\s*[:.]?", re.I)
+SUMARIO = re.compile(r"^\s*" + M_ + r"summ?ario" + M_ + r"\s*[:.]?", re.I)
 
 
 class Construtor:
@@ -806,13 +882,13 @@ class Construtor:
 
     def par(self, p):
         texto = p.texto().strip()
-        t1 = texto
+        t1 = sem_marcas(texto)             # titulos, cabecalhos e rotulos: sem formatacao
         if eh_cabecalho_corrente(t1):
             self.fw(t1)
             return
         # Summario (+ "ARTIGO I" colado no fim)
         if SUMARIO.match(texto):
-            m = re.search(r"\s+(ARTIGO\s+[IVXL1l|]{1,5}\.?)\s*$", texto)
+            m = re.search(r"\s+" + M_ + r"(ARTIGO\s+[IVXL1l|]{1,5}\.?)" + M_ + r"\s*$", texto)
             tit = None
             if m:
                 tit = reconhece_titulo(m.group(1))
@@ -830,10 +906,10 @@ class Construtor:
             if tit:
                 self.titulo_reconhecido(tit)
             return
-        if self.sumario is not None and not reconhece_titulo(texto) and not TESE.match(texto):
+        if self.sumario is not None and not reconhece_titulo(t1) and not TESE.match(t1):
             ap, ult = self.sumario
             if not FIM_FRASE.search("".join(ap.itertext())):     # Summario com recuo suspenso: continua
-                m2 = re.search(r"\s+(ARTIGO\s+[IVXL1l|]{1,5}\.?)\s*$", texto)
+                m2 = re.search(r"\s+" + M_ + r"(ARTIGO\s+[IVXL1l|]{1,5}\.?)" + M_ + r"\s*$", texto)
                 tit2 = reconhece_titulo(m2.group(1)) if m2 else None
                 resto_s = texto[:m2.start()] if m2 else texto
                 poe_texto(ap, " " + resto_s.strip())
@@ -842,7 +918,7 @@ class Construtor:
                     self.titulo_reconhecido(tit2)
                 return
         self.sumario = None
-        tit = reconhece_titulo(texto) if all(isinstance(x, str) for x in p.pecas) else None
+        tit = reconhece_titulo(t1) if all(isinstance(x, str) for x in p.pecas) else None
         if tit and len(p.pecas) == 1:
             self.titulo_reconhecido(tit)
             return
@@ -850,18 +926,18 @@ class Construtor:
         if self.ultimo_titulo is not None:
             d = self.ultimo_titulo
             heads = d.findall(T("head"))
-            if len(heads) == 1 and all(isinstance(x, str) for x in p.pecas) and not TESE.match(texto) and len(texto) <= 110 \
-                    and (texto.isupper() or (d.get("type") == "artigo" and texto.endswith("."))):
+            if len(heads) == 1 and all(isinstance(x, str) for x in p.pecas) and not TESE.match(t1) and len(t1) <= 110 \
+                    and (t1.isupper() or (d.get("type") == "artigo" and t1.endswith("."))):
                 h = etree.SubElement(d, T("head"))
-                h.text = texto
+                h.text = t1
                 self.flush_pb_antes(h) if self.pb_pend else None
                 self.ultimo_titulo = None
                 return
             self.ultimo_titulo = None
-        m = TESE.match(texto) or TESE_TITULO.match(texto)
+        m = TESE.match(t1) or TESE_TITULO.match(t1)       # no texto limpo (marcas contam caracteres)
         m = m if len(p.pecas) >= 1 and isinstance(p.pecas[0], str) else None
         so_titulo = m is not None and m.re is TESE_TITULO
-        n = self.resolve_numero(int(m.group(1)), m.group(2).strip(), so_titulo) if m else None
+        n = self.resolve_numero(int(m.group(1)), sem_marcas(m.group(2)).strip(), so_titulo) if m else None
         if n is not None:
             self.nova_tese(n, p, m)
             return
@@ -882,6 +958,7 @@ class Construtor:
 
     def titulo_reconhecido(self, tit):
         nivel, rot, resto = tit
+        rot, resto = sem_marcas(rot), sem_marcas(resto)
         d = self.abre(nivel, rot)
         if resto:
             h = etree.SubElement(d, T("head"))
@@ -912,7 +989,7 @@ class Construtor:
         # reparte as pecas no 1o " — " apos o enunciado
         s0 = p.pecas[0]
         so_titulo = m.re is TESE_TITULO
-        enun, resto0 = m.group(2).strip(), ("" if so_titulo else s0[m.start(3):])
+        enun, resto0 = m.group(2).strip(), ("" if so_titulo else s0[pos_marcada(s0, m.start(3)):])
         pai = self.pilha[-1][1]
         d = etree.SubElement(pai, T("div"), type="tese", n=str(n))
         d.set(f"{{{XML}}}id", self.id_unico(f"t{n}"))
@@ -968,6 +1045,70 @@ def monta_xml(fluxo, facs, alerta, titulo, autor, ano):
     return tei, c
 
 
+def _corridas(s):
+    """[(texto, rend|None)] de um segmento com marcas, tolerante a marca sem par."""
+    out, atual, buf = [], None, []
+    for c in s:
+        r = REND.get(c)
+        if r is None:
+            buf.append(c)
+            continue
+        if buf:
+            out.append(("".join(buf), atual))
+            buf = []
+        atual = r if c == ABRE[r] else (None if atual == r else atual)
+    if buf:
+        out.append(("".join(buf), atual))
+    return out, atual
+
+
+def aplica_marcas(raiz):
+    """troca os marcadores de formatacao por <hi rend>.  Uma corrida aberta atravessa os <pb/>,
+    <fw> e <note> do mesmo elemento (fecha antes e reabre depois).  Em <fw>, <label>, <head> e
+    no enunciado em negrito da tese as marcas so somem."""
+    so_limpa = {T("fw"), T("label"), T("head")}
+    for el in list(raiz.iter()):
+        if not isinstance(el.tag, str):
+            continue
+        if el.tag in so_limpa:
+            for c in el.iter():
+                c.text = sem_marcas(c.text)
+                if c is not el:
+                    c.tail = sem_marcas(c.tail)
+            continue
+        if el.tag == T("hi"):            # <hi> ja existente (enunciado da tese): sem marcas dentro
+            el.text = sem_marcas(el.text)
+            continue
+        em_bold = any(a.tag == T("hi") and a.get("rend") == "bold" for a in el.iterancestors())
+        estado = None
+        for dono in [None] + list(el):
+            s = el.text if dono is None else dono.tail
+            if not s or (estado is None and not MARCA.search(s)):
+                continue
+            s = junta_marcas((ABRE[estado] if estado else "") + s)
+            pecas, estado = _corridas(s)
+            texto0, novos = "", []
+            for txt, rend in pecas:
+                if rend is None or (em_bold and rend == "bold"):
+                    if novos:
+                        novos[-1].tail = (novos[-1].tail or "") + txt
+                    else:
+                        texto0 += txt
+                else:
+                    h = etree.Element(T("hi"), rend=rend)
+                    h.text = txt
+                    novos.append(h)
+            if dono is None:
+                el.text = texto0
+                pos = 0
+            else:
+                dono.tail = texto0
+                pos = el.index(dono) + 1
+            for i, h in enumerate(novos):
+                el.insert(pos + i, h)
+    return raiz
+
+
 def valida(tei, paginas, alerta):
     # so os <pb> do corpo: os de dentro de <note> marcam a nota que atravessa paginas
     pbs = [int(pb.get("n")) for pb in tei.iter(T("pb")) if not any(a.tag == T("note") for a in pb.iterancestors())]
@@ -1004,6 +1145,8 @@ def main():
     if not paginas:
         sys.exit("nenhuma página na faixa")
     tei, c = monta_xml(fluxo, facs, alerta, a.titulo, a.autor, a.ano)
+    aplica_marcas(tei)
+    alerta[:] = [(pg, tp, sem_marcas(msg)) for pg, tp, msg in alerta]
     valida(tei, paginas, alerta)
 
     saida.parent.mkdir(parents=True, exist_ok=True)
@@ -1017,6 +1160,8 @@ def main():
     tipos = Counter(t for _, t, _ in alerta)
     print(f"{saida}: {len(paginas)} páginas; " + ", ".join(
         f"{cont[k]} {k}" for k in ("div", "head", "p", "note", "fw", "pb")), file=sys.stderr)
+    rends = Counter(h.get("rend") for h in tei.iter(T("hi")))
+    print("formatação (<hi rend>):", dict(rends), file=sys.stderr)
     div = Counter(d.get("type") for d in tei.iter(T("div")))
     print("divisões:", dict(div), file=sys.stderr)
     print(f"{len(alerta)} alertas ({dict(tipos)}) → {alt}", file=sys.stderr)
