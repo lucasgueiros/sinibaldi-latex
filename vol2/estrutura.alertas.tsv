@@ -1,0 +1,90 @@
+pagina	tipo	mensagem
+33	numero-corrigido	tese “95. À alma humana é ente real. — O homem”: lida 95, esperada 25
+38	tese-pulada	faltam as teses 30–31 antes da 32
+45	tese-pulada	faltam as teses 35–36 antes da 37
+47	tese-pulada	faltam as teses 40–40 antes da 41
+48	numero-corrigido	tese “49. Gonsequencias do materialismo. — O m”: lida 49, esperada 42
+69	tese-pulada	faltam as teses 46–46 antes da 47
+84	tese-pulada	faltam as teses 52–53 antes da 54
+92	tese-pulada	faltam as teses 56–56 antes da 57
+95	numero-corrigido	tese “69. Divisão das faculdades humanas. — As”: lida 69, esperada 62
+102	tese-pulada	faltam as teses 67–67 antes da 68
+110	numero-corrigido	tese “15. Sentidos externos. — Sentidos extern”: lida 15, esperada 75
+147	tese-pulada	faltam as teses 111–111 antes da 112
+161	tese-pulada	faltam as teses 116–117 antes da 118
+165	numero-corrigido	tese “191. Varios nomes da intelligencia. — A ”: lida 191, esperada 121
+174	numero-corrigido	tese “193. Consciencia. — Consciencia é a prop”: lida 193, esperada 123
+179	numero-corrigido	tese “194. Memoria intellectual. — Memoria int”: lida 194, esperada 124
+183	artigo-pulado	“ARTIGO II.”: esperado 1, lido 2 (faltou um?)
+203	tese-pulada	faltam as teses 132–132 antes da 133
+207	tese-pulada	faltam as teses 135–135 antes da 136
+233	tese-pulada	faltam as teses 147–147 antes da 148
+237	tese-pulada	faltam as teses 149–149 antes da 150
+251	tese-pulada	faltam as teses 157–157 antes da 158
+271	tese-pulada	faltam as teses 159–159 antes da 160
+283	tese-pulada	faltam as teses 169–169 antes da 170
+292	numero-corrigido	tese “189. Tradicionalismo. — O tradicionalism”: lida 189, esperada 182
+309	tese-pulada	faltam as teses 189–189 antes da 190
+312	numero-corrigido	tese “199. Estado da questão. — No artigo ante”: lida 199, esperada 193
+312	tese-pulada	faltam as teses 192–192 antes da 193
+330	tese-pulada	faltam as teses 199–201 antes da 202
+336	tese-pulada	faltam as teses 204–204 antes da 205
+341	tese-pulada	faltam as teses 206–207 antes da 208
+343	numero-corrigido	tese “219. Divisão dos sentimentos. — Os senti”: lida 219, esperada 212
+343	tese-pulada	faltam as teses 211–211 antes da 212
+356	tese-pulada	faltam as teses 216–218 antes da 219
+358	tese-pulada	faltam as teses 220–220 antes da 221
+367	tese-pulada	faltam as teses 222–223 antes da 224
+373	tese-descartada	“996. O composto humano nào deriva do con”: 996 fora da sequência (225…228)
+377	numero-corrigido	tese “297. O composto humano nào deriva da evo”: lida 297, esperada 227
+377	tese-pulada	faltam as teses 226–226 antes da 227
+379	tese-pulada	faltam as teses 229–229 antes da 230
+385	tese-descartada	“939. Os homens constituem um reino espec”: 939 fora da sequência (231…233)
+387	tese-pulada	faltam as teses 232–232 antes da 233
+392	tese-pulada	faltam as teses 239–239 antes da 240
+393	numero-corrigido	tese “249. Immortalidade. — Immortalidade é a ”: lida 249, esperada 242
+393	tese-pulada	faltam as teses 241–241 antes da 242
+436	tese-pulada	faltam as teses 12–12 antes da 13
+446	tese-pulada	faltam as teses 24–24 antes da 25
+457	numero-corrigido	tese “82. Eternidade de Deus. — A eternidade é”: lida 82, esperada 32
+464	tese-pulada	faltam as teses 42–42 antes da 43
+488	tese-pulada	faltam as teses 65–65 antes da 66
+493	artigo-pulado	“ARTIGO II.”: esperado 1, lido 2 (faltou um?)
+496	numero-corrigido	tese “12. Deus quer ou ama tudo pela sua bonda”: lida 12, esperada 72
+496	tese-pulada	faltam as teses 71–71 antes da 72
+502	numero-corrigido	tese “16. A vontade divina é causa das coisas ”: lida 16, esperada 76
+502	tese-pulada	faltam as teses 75–75 antes da 76
+510	tese-pulada	faltam as teses 80–80 antes da 81
+522	tese-pulada	faltam as teses 92–92 antes da 93
+533	tese-pulada	faltam as teses 97–99 antes da 100
+544	tese-pulada	faltam as teses 104–105 antes da 106
+552	tese-descartada	“2. Objecto da Moral. — O objecto da Mora”: 2 fora da sequência (108…1000000)
+553	tese-descartada	“3. Excellencia da Moral. — A Moral não s”: 3 fora da sequência (108…1000000)
+555	tese-descartada	“5. Divisão da Moral. — A Moral divide-se”: 5 fora da sequência (108…1000000)
+556	sem-titulo	Parte Primeira: bloco de título não encontrado
+559	numero-corrigido	tese “18. O fim ultimo dos actos humanos exist”: lida 18, esperada 13
+565	tese-pulada	faltam as teses 17–18 antes da 19
+566	numero-corrigido	tese “29. A consecução do fim proximo dos acto”: lida 29, esperada 22
+566	tese-pulada	faltam as teses 20–21 antes da 22
+569	tese-pulada	faltam as teses 25–26 antes da 27
+572	tese-pulada	faltam as teses 28–28 antes da 29
+575	tese-pulada	faltam as teses 38–38 antes da 39
+576	numero-corrigido	tese “49. O medo, embora grave, nào impede, or”: lida 49, esperada 42
+578	tese-pulada	faltam as teses 44–44 antes da 45
+579	tese-pulada	faltam as teses 47–47 antes da 48
+599	tese-pulada	faltam as teses 50–50 antes da 51
+608	numero-corrigido	tese “58. Fontes da moralidade dos actos human”: lida 58, esperada 54
+608	tese-pulada	faltam as teses 53–53 antes da 54
+616	tese-pulada	faltam as teses 68–68 antes da 69
+617	tese-pulada	faltam as teses 70–70 antes da 71
+638	tese-pulada	faltam as teses 93–93 antes da 94
+641	tese-pulada	faltam as teses 95–95 antes da 96
+646	tese-pulada	faltam as teses 99–99 antes da 100
+650	tese-pulada	faltam as teses 103–103 antes da 104
+652	tese-pulada	faltam as teses 105–105 antes da 106
+664	tese-pulada	faltam as teses 116–116 antes da 117
+681	numero-corrigido	tese “194. Corollario. — Das precedentes consi”: lida 194, esperada 124
+681	tese-pulada	faltam as teses 122–123 antes da 124
+697	tese-pulada	faltam as teses 139–139 antes da 140
+766	tese-descartada	“179. Funcções da auctoridade civil. — As”: 179 fora da sequência (179…181)
+771	tese-pulada	faltam as teses 180–180 antes da 181

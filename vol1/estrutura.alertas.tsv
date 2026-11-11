@@ -1,0 +1,133 @@
+pagina	tipo	mensagem
+4	tese-pulada	faltam as teses 3–3 antes da 4
+14	tese-pulada	faltam as teses 11–12 antes da 13
+16	tese-pulada	faltam as teses 15–16 antes da 17
+18	tese-pulada	faltam as teses 19–19 antes da 20
+19	numero-corrigido	tese “92. Divisio geral da idea. — A ideu pode”: lida 92, esperada 22
+28	numero-corrigido	tese “77. Genero. — Genero é uma idea. univers”: lida 77, esperada 27
+28	tese-pulada	faltam as teses 25–25 antes da 26
+29	numero-corrigido	tese “98, Differenca. — Differença é.uma idea ”: lida 98, esperada 28
+33	tese-pulada	faltam as teses 32–32 antes da 33
+34	numero-corrigido	tese “26. Modo de considerar as categorias. — ”: lida 26, esperada 36
+42	numero-corrigido	tese “12. Propriedades do termo. — As principa”: lida 12, esperada 42
+44	numero-corrigido	“ÁRrTIGO VI”: artigo lido 6, esperado 1
+48	tese-pulada	faltam as teses 47–47 antes da 48
+49	capitulo-fantasma	Capitulo Segundo “-”: o cabeçalho corrente não muda aqui
+49	sem-titulo	Capitulo Segundo: bloco de título não encontrado
+51	numero-corrigido	tese “59. Proposição. — Proposição é a express”: lida 59, esperada 52
+53	artigo-pulado	“ÁrTIGO Il”: esperado 1, lido 2 (faltou um?)
+56	tese-pulada	faltam as teses 59–59 antes da 60
+57	tese-pulada	faltam as teses 63–63 antes da 64
+62	capitulo-fantasma	Capitulo Terceiro “RACIOCINIO E ARGUMENTAÇÃO”: o cabeçalho corrente não muda aqui
+62	numero-corrigido	tese “13. Regras da eqnivalencia.”: lida 13, esperada 73
+68	numero-corrigido	tese “89. Principios do syllogismo. — O syllog”: lida 89, esperada 84
+68	tese-pulada	faltam as teses 81–83 antes da 84
+75	artigo-pulado	“ArTIGO IV”: esperado 3, lido 4 (faltou um?)
+76	tese-pulada	faltam as teses 88–89 antes da 90
+79	tese-pulada	faltam as teses 92–92 antes da 93
+81	tese-pulada	faltam as teses 94–94 antes da 95
+84	tese-pulada	faltam as teses 97–97 antes da 98
+90	tese-pulada	faltam as teses 107–107 antes da 108
+95	tese-pulada	faltam as teses 111–111 antes da 112
+98	capitulo-fantasma	Capitulo IV “VERDADE”: o cabeçalho corrente não muda aqui
+98	numero-corrigido	“CAPITULO PRIMEIRO”: capitulo lido 1, esperado 4
+98	tese-pulada	faltam as teses 116–116 antes da 117
+103	numero-corrigido	tese “190. A verdade logica encontra-se perfei”: lida 190, esperada 120
+105	numero-corrigido	tese “191. A verdade logica encontra-se imperf”: lida 191, esperada 121
+114	numero-corrigido	tese “193. A verdade logica € immnutavel. — A ”: lida 193, esperada 123
+117	numero-corrigido	tese “194, A verdade logiea é unica e multipli”: lida 194, esperada 124
+121	numero-corrigido	tese “196. Certeza. — Certeza 6 a firme adhesã”: lida 196, esperada 126
+121	tese-pulada	faltam as teses 125–125 antes da 126
+122	numero-corrigido	tese “197. Especies de certeza. — À certeza po”: lida 197, esperada 127
+131	tese-pulada	faltam as teses 129–131 antes da 132
+134	tese-pulada	faltam as teses 134–135 antes da 136
+143	tese-pulada	faltam as teses 139–140 antes da 141
+150	numero-corrigido	“ARTIGO V.”: artigo lido 5, esperado 1
+156	tese-pulada	faltam as teses 147–147 antes da 148
+163	capitulo-fantasma	Capitulo V “MEIOS PARA A ACQUISIÇÃO DA VERDADE”: o cabeçalho corrente não muda aqui
+163	numero-corrigido	“CAPITULO SEGUNDO”: capitulo lido 2, esperado 5
+163	tese-pulada	faltam as teses 149–149 antes da 150
+173	tese-pulada	faltam as teses 152–155 antes da 156
+176	artigo-pulado	“AnrIGO l1”: esperado 1, lido 2 (faltou um?)
+176	tese-pulada	faltam as teses 157–158 antes da 159
+179	tese-pulada	faltam as teses 161–162 antes da 163
+181	tese-pulada	faltam as teses 165–165 antes da 166
+183	tese-pulada	faltam as teses 169–169 antes da 170
+191	tese-pulada	faltam as teses 173–174 antes da 175
+194	tese-pulada	faltam as teses 176–176 antes da 177
+204	artigo-pulado	“ArTIGO IV”: esperado 3, lido 4 (faltou um?)
+234	tese-pulada	faltam as teses 190–190 antes da 191
+246	tese-descartada	“203. Indole do methodo das diversas scie”: 203 fora da sequência (194…195)
+266	capitulo-fantasma	Capitulo VI “ENTE”: o cabeçalho corrente não muda aqui
+266	numero-corrigido	“CAPITULO PRIMEIRO”: capitulo lido 1, esperado 6
+268	tese-descartada	“4, O ente, emquanto nome, é predicado es”: 4 fora da sequência (194…195)
+285	artigo-pulado	“AnTIGO ll”: esperado 1, lido 2 (faltou um?)
+331	numero-corrigido	“CAPITULO SEGUNDO”: capitulo lido 2, esperado 7
+332	tese-descartada	“55. Ente necessario e ente contingente. ”: 55 fora da sequência (194…195)
+347	tese-descartada	“69. O ente finito é contingente; o ente ”: 69 fora da sequência (194…195)
+352	tese-descartada	“78. O ente composto depende de uma causa”: 78 fora da sequência (194…195)
+354	artigo-pulado	“ÁrTIGO IV”: esperado 3, lido 4 (faltou um?)
+358	tese-descartada	“89. O ente mutavel suppóe o ente immutav”: 89 fora da sequência (194…195)
+360	numero-corrigido	“CAPITULO TERCEIRO”: capitulo lido 3, esperado 8
+362	tese-descartada	“95. A unidade importa uma perfeição. — A”: 95 fora da sequência (194…195)
+363	tese-descartada	“95. Especies de unidade. — A unidade pod”: 95 fora da sequência (194…195)
+376	tese-descartada	“104. Todo o ente é verdadeiro.”: 104 fora da sequência (194…195)
+390	tese-descartada	“111. Todo o ente é bom. — .”: 111 fora da sequência (194…195)
+404	tese-descartada	“117. Faculdade perceptiva da belleza imm”: 117 fora da sequência (194…195)
+419	tese-pulada	faltam as teses 197–197 antes da 198
+431	capitulo-esperado	o cabeçalho passa a (secção None, cap. 4) “ATTRIBUTOS GENRICOS DO ENTE” entre as pp. 391–431 e o TSV não tem capítulo aí
+467	artigo-pulado	“ArTIGO ÍV.”: esperado 3, lido 4 (faltou um?)
+511	tese-descartada	“180. A acção e' a paixão constituem duas”: 180 fora da sequência (198…199)
+523	tese-descartada	“188. O principio de causalidade é analyt”: 188 fora da sequência (198…199)
+549	numero-corrigido	tese “900. Especies da cansa final. — A causa ”: lida 900, esperada 200
+553	numero-corrigido	tese “903. À causalidade do fim consiste em ex”: lida 903, esperada 203
+553	tese-pulada	faltam as teses 202–202 antes da 203
+556	numero-corrigido	tese “905. Axiomas relativos à causa final. — ”: lida 905, esperada 205
+557	artigo-pulado	“ArTIGO VII”: esperado 5, lido 7 (faltou um?)
+557	numero-corrigido	tese “907. Localisacào. — Localisação é o acci”: lida 907, esperada 207
+562	tese-pulada	faltam as teses 210–210 antes da 211
+569	numero-corrigido	tese “913. Extensão da categoria do quando. — ”: lida 913, esperada 213
+581	tese-descartada	“8. O mundo existe realmente.”: 8 fora da sequência (216…218)
+583	tese-descartada	“11. O mundo é mutavel.”: 11 fora da sequência (216…218)
+584	tese-descartada	“12. O mundo é contingente.”: 12 fora da sequência (216…218)
+585	artigo-pulado	“ArtTIGO III”: esperado 2, lido 3 (faltou um?)
+586	tese-descartada	“16. A materia não é por si eterna.”: 16 fora da sequência (216…218)
+589	numero-corrigido	tese “17. A força da materia não é por Si eter”: lida 17, esperada 217
+602	tese-descartada	“23. O pantheismo transeunte é absurdo.”: 23 fora da sequência (216…218)
+603	tese-descartada	“94, O pautheismo immanente é absurdo.”: 94 fora da sequência (216…218)
+632	tese-descartada	“39. O mundo continua a existir por um ac”: 39 fora da sequência (216…218)
+666	numero-corrigido	“ArTIGO V”: artigo lido 5, esperado 2
+668	tese-descartada	“77. No. mundo: existem leis physicas uni”: 77 fora da sequência (216…218)
+696	numero-corrigido	“ArTIGO I -”: artigo lido 1, esperado 3
+699	tese-descartada	“95. Muitos corpos são dotados de naturez”: 95 fora da sequência (216…218)
+702	tese-descartada	“98. Nas mudanças substanciaes, os corpos”: 98 fora da sequência (216…218)
+705	tese-descartada	“101. Os corpos simples permanecem no mis”: 101 fora da sequência (216…218)
+729	capitulo-esperado	o cabeçalho passa a (secção 1, cap. 3) “VIDA EM GERAL” entre as pp. 665–729 e o TSV não tem capítulo aí
+777	tese-descartada	“133. O corpo physico nào é divisivel até”: 133 fora da sequência (216…218)
+779	tese-descartada	“136. Impenetrabilidade. — - Impenetrabil”: 136 fora da sequência (216…218)
+807	numero-corrigido	“AnTIGO I”: artigo lido 1, esperado 6
+813	numero-corrigido	“ArtTIGO IL.”: artigo lido 2, esperado 7
+816	capitulo-fantasma	Capitulo III “VIDA EM GERAL”: o cabeçalho corrente não muda aqui
+816	numero-corrigido	“CAPITULO SEGUNDO”: capitulo lido 2, esperado 3
+816	tese-descartada	“166. O mineral, considerado independente”: 166 fora da sequência (216…218)
+821	capitulo-esperado	o cabeçalho passa a (secção 2, cap. 2) “VIDA EM GERAL” entre as pp. 819–821 e o TSV não tem capítulo aí
+840	tese-descartada	“186. Especies da alma. — As especies da ”: 186 fora da sequência (216…218)
+856	numero-corrigido	“ArTIGO 1”: artigo lido 1, esperado 4
+864	numero-corrigido	“ArTIGO III”: artigo lido 3, esperado 5
+865	capitulo-esperado	o cabeçalho passa a (secção 2, cap. 3) “PLANTAS” entre as pp. 863–865 e o TSV não tem capítulo aí
+878	tese-pulada	faltam as teses 223–225 antes da 226
+879	numero-corrigido	tese “927. À alma do animal no acaba por aniqu”: lida 927, esperada 227
+880	artigo-pulado	“ArTIGO. III”: esperado 2, lido 3 (faltou um?)
+880	tese-pulada	faltam as teses 228–228 antes da 229
+881	numero-corrigido	tese “931. Faculdades perceptivas do animal. —”: lida 931, esperada 231
+881	tese-pulada	faltam as teses 230–230 antes da 231
+882	tese-pulada	faltam as teses 233–233 antes da 234
+887	numero-corrigido	tese “936. Faculdade locomotiva e vocal.”: lida 936, esperada 236
+887	tese-pulada	faltam as teses 235–235 antes da 236
+889	numero-corrigido	tese “938, Percepção. — Percepção é a operação”: lida 938, esperada 238
+889	tese-pulada	faltam as teses 237–237 antes da 238
+890	tese-descartada	“989. Modo por que se realisa a percepção”: 989 fora da sequência (234…243)
+891	numero-corrigido	tese “940. Modo por que se realisa a percepção”: lida 940, esperada 240
+891	tese-pulada	faltam as teses 239–239 antes da 240
+892	numero-corrigido	tese “941, Appetite. — Appetite é a operação, ”: lida 941, esperada 241
+892	tese-pulada	faltam as teses 242–242 antes da 243
