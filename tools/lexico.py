@@ -5,8 +5,9 @@
 
 Usado por tools/corrige_ocr.py e tools/estruturar_tei.py (dehifenização).
 
-Frequência: contagem das formas (minúsculas) em vol*/paginas/*.txt, com uma faixa de páginas
-EXCLUÍDA por padrão — o padrão-ouro (vol. 2, pp. 421-442): ele é só teste, nada é aprendido dele.
+Frequência: contagem das formas (minúsculas) em vol*/paginas/*.txt, EXCLUÍDAS por padrão as
+páginas dos padrões-ouro (TESTE: vol. 2, pp. 421-442; vol. 1, três blocos):
+elas são só teste, nada é aprendido delas.
 
 Dicionário: hunspell pt_PT e fr (pacotes hunspell-pt-pt e hunspell-fr do sistema), consultados
 por spylls só no `gera`.  O resultado (as formas do corpus que algum dicionário aceita) fica
@@ -24,13 +25,15 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 VALIDAS = Path(__file__).resolve().parent / "dados" / "validas.tsv"
 PALAVRA = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ]+")
-TESTE = {"vol2": (421, 442)}          # padrão-ouro: fora do léxico
+# padrões-ouro: fora do léxico.  vol. 1: blocos de vol1/ouro/ mais a página seguinte, onde
+# acabam as notas transcritas no ouro (tools/mede_wer.py).
+TESTE = {"vol2": [(421, 442)], "vol1": [(62, 66), (331, 335), (577, 581)]}
 
 
 def paginas_txt(excluir=TESTE):
     for vol in ("vol1", "vol2"):
         for f in sorted((RAIZ / vol / "paginas").glob("*.txt")):
-            if vol in excluir and f.stem.isdigit() and excluir[vol][0] <= int(f.stem) <= excluir[vol][1]:
+            if f.stem.isdigit() and any(de <= int(f.stem) <= ate for de, ate in excluir.get(vol, ())):
                 continue
             yield f
 

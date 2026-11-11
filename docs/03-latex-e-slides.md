@@ -171,8 +171,8 @@ por `.venv/bin/python tools/lexico.py gera`, que precisa de `spylls`), nem forma
 Portão: `python3 tools/mede_wer.py --corrige [--sem REGRA]` — nenhuma regra entra se piora o WER.
 Resultado nas pp. 421–442: **5,93% → 3,97%** (corpo 8,7% → 5,8%; notas 5,3% → 3,6%), 205 palavras
 corrigidas, 1 regressão (`opéram`). Cada regra, retirada sozinha, piora o WER. Vol. 2: 8 247
-trocas; vol. 1: 15 769 (OCR `por` rápido, sem padrão-ouro: amostra de 40 trocas do léxico, ~37
-certas). Chamadas de nota: o OCR do vol. 1 lê `(1)` como `(*)`/`(?)`; o estruturador pareia
+trocas; vol. 1: 15 769 (OCR `por` rápido; amostra de 40 trocas do léxico, ~37
+certas; no ouro do vol. 1, `docs/07`: WER 19,8% → 17,1%). Chamadas de nota: o OCR do vol. 1 lê `(1)` como `(*)`/`(?)`; o estruturador pareia
 chamadas e notas por ordem quando a contagem fecha. Teses: número lido é confiado se estiver à
 frente da última (janela de 30); se voltar atrás ou estourar a janela, é corrigido apenas quando
 difere do esperado em um dígito (905→205); tudo vai para os alertas `tese-fora-de-sequencia` e

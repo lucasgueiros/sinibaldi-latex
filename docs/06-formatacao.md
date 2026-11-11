@@ -60,7 +60,7 @@ são descartadas de propósito); o ouro rotula títulos de secção como romano.
 
 Volume inteiro: vol. 2, 47 393 palavras em itálico, 2 294 em versalete, 2 274 em negrito;
 vol. 1, 58 459 / 523 / 1 841 (palavras do OCR; no TEI, corridas vizinhas viram um só `<hi>`).
-O vol. 1 (scan mais sujo, sem ouro) foi conferido por amostra (p. 212): itálico longo e latim
+O vol. 1 (scan mais sujo) foi conferido por amostra (p. 212) e depois medido no ouro do vol. 1 (`docs/07`: itálico F1 81%, negrito quase não detectado): itálico longo e latim
 certos; erram mais as palavras curtas (`isto`, `no`, `se` marcadas entre itálicos). Palavra com
 inclinação ≥ 8° não vira versalete (*Dei Filius* é itálico).
 
@@ -90,4 +90,4 @@ latim em itálico, isolado num nó curto, escapava ao detector de latim (`lege` 
   vizinhos, e em geral os vizinhos são romanos.
 - Versalete fora de *Deus* e de leituras em maiúsculas não é detectada (é rara no livro).
 - Espacejado e corpo menor não são marcados aqui (o corpo menor já separa notas no estruturador).
-- O ouro é um só trecho do vol. 2; o vol. 1 (outra edição) não tem ouro — conferir por amostra.
+- O vol. 1 (outra edição) tem ouro próprio desde 2026-11-11 (`docs/07`, `--vol vol1`): lá o negrito das teses quase não é detectado (R 1,4%).

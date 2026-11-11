@@ -4,6 +4,7 @@
     python3 tools/mede_formatacao.py                         # vol2, pp. 421-442, <id>.fmt.tsv
     python3 tools/mede_formatacao.py --xml vol2/vol2.estruturado.xml   # mede o TEI (<hi rend>)
     python3 tools/mede_formatacao.py --imagens DIR --erros 30           # decide de novo e lista erros
+    python3 tools/mede_formatacao.py --vol vol1                          # blocos de vol1/ouro/ somados
 
 Rótulos: cada token do .tex feito à mão leva o estilo em que está (\\emph -> it, \\textsc -> sc,
 \\textbf e enunciado de \\tese -> bold, rubrica de \\sub -> it; o resto rom).  As palavras do OCR
@@ -24,10 +25,14 @@ EST = {"emph": "it", "textit": "it", "textsc": "sc", "textbf": "bold"}
 OURO = "vol2/02_parte_theodicea/01_cap_existencia-de-deus.tex"
 
 
-def tokens_ouro(caminho):
-    """[(token, estilo)] do .tex do padrão-ouro, a partir do Summario."""
+def tokens_ouro(caminho, desde="Summario"):
+    """[(token, estilo)] do .tex do padrão-ouro, a partir de `desde` (None: o arquivo todo)."""
     s = re.sub(r"(?m)(?<!\\)%.*$", "", Path(caminho).read_text(encoding="utf-8"))
-    i = s.find("Summario")
+    s = re.sub(r"(?m)^\\ifdefined\\pg\\else.*$", "", s)        # cabeçalho de compilação avulsa
+    s = re.sub(r"\\csname\s*\w+\\endcsname", " ", s)
+    s = re.sub(r"\\(begin|end)\{[^}]*\}", " ", s)
+    s = re.sub(r"\\\\(\[[^\]]*\])?", " ", s)
+    i = s.find(desde) if desde else -1
     s = s[max(0, i - 40):] if i >= 0 else s
     out, pilha, buf = [], [], []
 
@@ -104,9 +109,9 @@ def palavras_tsv(pasta, de, ate):
     return ws, mani
 
 
-def rotula(ouro, pasta, de=421, ate=442):
+def rotula(ouro, pasta, de=421, ate=442, desde="Summario"):
     """{(pagina, chave): estilo} das palavras do OCR que casam com o ouro."""
-    g = tokens_ouro(ouro)
+    g = tokens_ouro(ouro, desde)
     t, _ = palavras_tsv(pasta, de, ate)
     sm = difflib.SequenceMatcher(None, [_norm(w) for w, _ in g], [_norm(x[2]) for x in t], autojunk=False)
     lab = {}
@@ -157,6 +162,7 @@ def relatorio(lab, det, erros=0, textos=None):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--vol", help="vol1 ou vol2: todos os blocos de ouro do volume (tools/mede_wer.py)")
     ap.add_argument("--pasta", default="vol2/paginas")
     ap.add_argument("--ouro", default=OURO)
     ap.add_argument("-f", "--de", type=int, default=421)
@@ -164,25 +170,37 @@ def main():
     ap.add_argument("--imagens", help="decide de novo a partir das medidas (cache) em vez de ler <id>.fmt.tsv")
     ap.add_argument("--erros", type=int, default=0, help="lista os N primeiros desacordos")
     a = ap.parse_args()
-    lab = rotula(a.ouro, a.pasta, a.de, a.ate)
-    t, mani = palavras_tsv(a.pasta, a.de, a.ate)
-    textos = {(p, k): w for p, k, w in t}
-    if a.imagens:
+    if a.vol:
         sys.path.insert(0, str(Path(__file__).resolve().parent))
-        import formatacao as F
-        pasta, imgs = Path(a.pasta), Path(a.imagens)
-        pags = [(mani[p], p) for p in range(a.de, a.ate + 1)]
-        med = F.mede(pasta, imgs, pags, jobs=4, quieto=True)
-        gab = F.carrega_gabarito()
-        gab = F.ajusta_gabarito([d["vec"] for ws in med.values() for d in ws if d["vec"] is not None], gab)
-        det = {}
-        for pid, p in pags:
-            for d in F.decide(med[pid], gab):
-                if d["rend"]:
-                    det[(p, (d["block"], d["par"], d["line"], d["word"]))] = d["rend"]
+        import mede_wer
+        a.pasta = f"{a.vol}/paginas"
+        blocos = [(t, de, ate, d) for _, t, de, ate, d in mede_wer.ouros(a.vol)]
     else:
-        det = detectado_fmt(a.pasta, mani, a.de, a.ate)
+        blocos = [(a.ouro, a.de, a.ate, "Summario")]
+    lab, det, textos = {}, {}, {}
+    for ouro, de, ate, desde in blocos:
+        lab.update(rotula(ouro, a.pasta, de, ate, desde))
+        t, mani = palavras_tsv(a.pasta, de, ate)
+        textos.update({(p, k): w for p, k, w in t})
+        det.update(decide(a, mani, de, ate) if a.imagens else detectado_fmt(a.pasta, mani, de, ate))
     relatorio(lab, det, a.erros, textos)
+
+
+def decide(a, mani, de, ate):
+    """{(pagina, chave): rend} decidido de novo a partir das medidas das imagens (--imagens)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import formatacao as F
+    pasta, imgs = Path(a.pasta), Path(a.imagens)
+    pags = [(mani[p], p) for p in range(de, ate + 1)]
+    med = F.mede(pasta, imgs, pags, jobs=4, quieto=True)
+    gab = F.carrega_gabarito()
+    gab = F.ajusta_gabarito([d["vec"] for ws in med.values() for d in ws if d["vec"] is not None], gab)
+    det = {}
+    for pid, p in pags:
+        for d in F.decide(med[pid], gab):
+            if d["rend"]:
+                det[(p, (d["block"], d["par"], d["line"], d["word"]))] = d["rend"]
+    return det
 
 
 if __name__ == "__main__":

@@ -313,7 +313,7 @@ def main():
     ap.add_argument("--tsv", help="lista de trocas (padrão: correcoes.tsv ao lado da saída)")
     ap.add_argument("--sem", default="", help=f"regras a desligar, separadas por vírgula ({', '.join(REGRAS)})")
     ap.add_argument("--com-teste", action="store_true",
-                    help="inclui o padrão-ouro (vol. 2, pp. 421-442) no léxico (não usar para medir)")
+                    help="inclui as páginas dos padrões-ouro (lexico.TESTE) no léxico (não usar para medir)")
     a = ap.parse_args()
     sem = {x for x in a.sem.split(",") if x}
     if sem - set(REGRAS):
