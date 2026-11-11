@@ -271,7 +271,7 @@ def acha(todos, no, desde, janela=1):
 def seleciona(raiz, p0, p1, ini, prox):
     """(todos, escolhidos): blocos do trecho.  Com `ini`, o recorte e POR TITULO: do bloco que e o
     titulo de `ini` ate antes do titulo `prox`.  Sem `ini` (faixa de paginas), por pagina."""
-    todos = marca_blocos(raiz, 0, 10 ** 6)
+    todos = marca_blocos(raiz, -10 ** 6, 10 ** 6)   # preliminares tem <pb n> negativo
     if ini is None:
         return todos, [b for b in todos if b[1] <= p1 and b[2] >= p0]
     i0 = acha(todos, ini, 0)
@@ -317,7 +317,11 @@ def formata_tei(arv, p0, p1, nome, ini=None, prox=None):
             e.getparent().remove(e)
     for d in reversed(list(novo.iter(TEI + "div"))):
         if d.getparent() is not None and not any(isinstance(x.tag, str) and x.tag != TEI + "pb" for x in d):
-            d.getparent().remove(d)
+            pai, i = d.getparent(), d.getparent().index(d)
+            for e in [x for x in d if x.tag == TEI + "pb"]:   # a quebra do inicio do trecho fica
+                pai.insert(i, e)                               # na div anterior, que sai vazia
+                i += 1
+            pai.remove(d)
     t = novo.find(f".//{TEI}teiHeader//{TEI}title")
     if t is not None:
         t.text = f"{t.text or ''} — trecho {nome} (pp. {pa}–{pb_})"

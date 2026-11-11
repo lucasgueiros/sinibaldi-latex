@@ -5,6 +5,7 @@
     python3 tools/mede_wer.py --xml /tmp/t.xml --lista 40       # e mostra as 40 primeiras trocas
     python3 tools/mede_wer.py --corrige                         # aplica tools/corrige_ocr.py antes
     python3 tools/mede_wer.py --vol vol1 [--corrige]            # ouro do vol. 1: vol1/ouro/*.tex
+    python3 tools/mede_wer.py --vol vol1 --tex rev.tex          # um .tex revisado (cortado pelos \\pg)
 
 Padrões-ouro (OUROS): vol. 2, pp. 421-442 (um capítulo inteiro); vol. 1, blocos de 4 páginas em
 vol1/ouro/<de>-<ate>_<nome>.tex (o intervalo sai do nome do arquivo).  Com vários blocos, cada um
@@ -55,9 +56,17 @@ def tex_limpo(s):
     return re.sub(r"[{}\\~]", " ", s)
 
 
-def le_ouro(caminho):
-    """(texto_inteiro, corpo, notas) do .tex: cada \\footnote{...} vai para as notas."""
+def le_ouro(caminho, de=None, ate=None):
+    """(texto_inteiro, corpo, notas) do .tex: cada \\footnote{...} vai para as notas.
+
+    Com de/ate, só o trecho de \\pg{de} até antes de \\pg{ate+1} (o .tex de uma revisão)."""
     g = re.sub(r"(?m)(?<!\\)%.*$", "", Path(caminho).read_text(encoding="utf-8"))
+    if de is not None:
+        i = g.find(f"\\pg{{{de}}}")
+        if i < 0:
+            sys.exit(f"{caminho}: sem \\pg{{{de}}}")
+        j = g.find(f"\\pg{{{ate + 1}}}", i)
+        g = g[i:j if j >= 0 else None]
     g = re.sub(r"(?m)^\\ifdefined\\pg\\else.*$", "", g)          # cabeçalho de compilação avulsa
     g = re.sub(r"\\csname\s*\w+\\endcsname", " ", g)
     corpo, notas, i = [], [], 0
@@ -143,6 +152,8 @@ def main():
     ap.add_argument("-l", "--ate", type=int)
     ap.add_argument("--corrige", action="store_true", help="aplica tools/corrige_ocr.py ao TEI antes de medir")
     ap.add_argument("--sem", default="", help="com --corrige: regras a desligar (vírgula)")
+    ap.add_argument("--tex", help="mede um .tex (p. ex. revisão de um capítulo) em vez do TEI; "
+                    "cada bloco é cortado pelos \\pg{n}")
     ap.add_argument("--lista", type=int, default=0, help="mostra as N primeiras trocas (texto inteiro)")
     a = ap.parse_args()
     if a.ouro:
@@ -153,9 +164,18 @@ def main():
     sem = set(filter(None, a.sem.split(",")))
     cache, soma = {}, collections.defaultdict(lambda: [0, 0])
     for xml, tex, de, ate, desde in blocos:
-        if xml not in cache:
-            cache[xml] = corrigido(xml, sem) if a.corrige else xml
-        ouro, tei = le_ouro(tex), le_tei(cache[xml], de, ate)
+        if a.tex:
+            d2, a2 = max(de, a.de or de), min(ate, a.ate or ate)   # trecho parcial: só a interseção
+            if (d2, a2) == (de, ate):
+                ouro = le_ouro(tex)
+            else:
+                ouro, desde = le_ouro(tex, d2, a2), None
+                print(f"(ouro cortado em pp. {d2}-{a2})")
+            tei = le_ouro(a.tex, d2, a2)
+        else:
+            if xml not in cache:
+                cache[xml] = corrigido(xml, sem) if a.corrige else xml
+            ouro, tei = le_ouro(tex), le_tei(cache[xml], de, ate)
         if len(blocos) > 1:
             print(f"pp. {de}-{ate}  {tex}")
         for nome, g, o in zip(("total", "corpo", "notas"), ouro, tei):
