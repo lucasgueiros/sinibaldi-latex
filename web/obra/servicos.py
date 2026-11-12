@@ -115,12 +115,33 @@ def salvar_blocos(edicao, ids_no_escopo, novos, autor, comentario="", volume=Non
     erros = esquema.validar_blocos(novos)
     if erros:
         raise ErroValidacao(erros)
+    _verificar_ids_livres(edicao, list(ids_no_escopo), novos)
     try:
         return _salvar(edicao, list(ids_no_escopo), novos, autor, comentario, volume, pagina, ancora, 0)
     except _Recomecar:
         with transaction.atomic():
             _renumerar(edicao)
         return _salvar(edicao, list(ids_no_escopo), novos, autor, comentario, volume, pagina, ancora, 1)
+
+
+def _verificar_ids_livres(edicao, ids_no_escopo, novos):
+    """Todo `xml:id` que surge agora (e não existia nos blocos do escopo) não pode existir em outro
+    bloco da edição: a árvore renomearia o nó em silêncio."""
+    antigos = set()
+    for xml in Bloco.objects.filter(edicao=edicao, pk__in=ids_no_escopo).values_list("xml", flat=True):
+        antigos.update(esquema.ids_do_fragmento(xml))
+    erros = []
+    for n in novos:
+        for ident in esquema.ids_do_fragmento(n["xml"]):
+            if ident in antigos:
+                continue
+            outro = (Bloco.objects.filter(edicao=edicao, xml__contains=f'xml:id="{ident}"')
+                     .exclude(pk__in=ids_no_escopo).first())
+            if outro is not None:
+                erros.append(f"O xml:id '{ident}' já é usado em outro bloco da edição (bloco #{outro.pk}). "
+                             "Escolha outro identificador.")
+    if erros:
+        raise ErroValidacao(erros)
 
 
 @transaction.atomic
@@ -215,10 +236,11 @@ def _salvar(edicao, ids, novos, autor, comentario, volume, pagina, ancora, tenta
     for (n, b), ordem in zip(pares, final):
         tipo = esquema.tipo_do_fragmento(n["xml"])
         if b is None:
+            ref = resultado[-1] if resultado else viz  # herda do bloco imediatamente anterior
             novo = Bloco(
                 edicao=edicao, ordem=ordem, tipo=tipo, xml=n["xml"],
-                volume_id=vol_id if vol_id is not None else (viz.volume_id if viz else None),
-                pagina=pagina if pagina is not None else (viz.pagina if viz else None),
+                volume_id=vol_id if vol_id is not None else (ref.volume_id if ref else None),
+                pagina=pagina if pagina is not None else (ref.pagina if ref else None),
                 procedencia=Bloco.NOVO if ed_nova else Bloco.COPIA, versao=1,
                 criado_por=autor, atualizado_por=autor,
             )
@@ -240,6 +262,9 @@ def _salvar(edicao, ids, novos, autor, comentario, volume, pagina, ancora, tenta
             b.atualizado_por, b.atualizado_em = autor, agora
             if ed_nova and b.procedencia == Bloco.COPIA:
                 b.procedencia = Bloco.ADAPTADO
+                if b.origem_id:  # adaptado contra esta versão da origem (ver servicos_nova.adaptados_pendentes)
+                    b.origem_versao_vista = (Bloco.objects.filter(pk=b.origem_id)
+                                             .values_list("versao", flat=True).first())
             res.editados += 1
         if mudou_ordem:
             if not mudou_xml:
@@ -252,7 +277,8 @@ def _salvar(edicao, ids, novos, autor, comentario, volume, pagina, ancora, tenta
         resultado.append(b)
     if a_atualizar:
         Bloco.objects.bulk_update(
-            a_atualizar, ["xml", "tipo", "ordem", "versao", "atualizado_por", "atualizado_em", "procedencia"])
+            a_atualizar, ["xml", "tipo", "ordem", "versao", "atualizado_por", "atualizado_em", "procedencia",
+                        "origem_versao_vista"])
     for b in removidos:
         rev(Revisao.REMOVER, b, b.xml, "", b.volume_id, b.pagina)
         reconstruir |= b.tipo in (Bloco.MARCO, Bloco.TITULO) or _logo_apos_titulo(edicao, b.ordem)

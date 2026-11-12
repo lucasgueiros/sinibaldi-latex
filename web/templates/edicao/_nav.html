@@ -5,5 +5,5 @@
   <a href="{% url 'obra:paginas' v.numero %}" class="{% if ativa == v.numero %}aba-ativa{% else %}aba{% endif %}">Vol. {{ v.numero }}</a>
   {% endfor %}
   <a href="{% url 'obra:historico' %}" class="{% if ativa == 'historico' %}aba-ativa{% else %}aba{% endif %}">Histórico</a>
-  <a href="/edicao-colaborativa/nova/" class="aba">Nova edição &rarr;</a>
+  <a href="{% url 'obra:nova_estrutura' %}" class="aba">Nova edição &rarr;</a>
 </nav>

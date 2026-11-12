@@ -15,6 +15,30 @@
   </section>
   {% endif %}
 
+  {% if nova %}
+  <section class="cartao" aria-labelledby="cartao-nova">
+    <div class="flex flex-wrap items-baseline justify-between gap-2">
+      <h2 id="cartao-nova" class="font-display text-xl text-crimson">Nova edição</h2>
+      <span class="text-sm text-ink/60">{{ nova.total }} blocos</span>
+    </div>
+    <dl class="mt-3 grid grid-cols-2 gap-2 text-center text-sm sm:grid-cols-4">
+      {% for rotulo, chave, n in nova.procedencias %}
+      <div><dt class="text-xs text-ink/60">{{ rotulo }}</dt><dd class="text-lg">{{ n }}</dd></div>
+      {% endfor %}
+    </dl>
+    <ul class="mt-3 space-y-1 text-sm">
+      <li>Partes: {% if nova.faltam %}<strong class="text-crimson">faltam {{ nova.faltam|join:", " }}</strong>{% elif nova.na_ordem %}na ordem-alvo{% else %}completas, fora da ordem-alvo{% endif %}.</li>
+      <li>Cópias desatualizadas: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' %}?aba=copias">{{ nova.pendentes.copias }}</a>
+        · adaptados com origem alterada: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' %}?aba=adaptados">{{ nova.pendentes.adaptados }}</a>
+        · blocos da 1916 sem correspondente: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' %}?aba=cobertura">{{ nova.pendentes.cobertura }}</a></li>
+    </ul>
+    <div class="mt-3 flex flex-wrap gap-3">
+      <a class="btn btn-primario btn-sm" href="{% url 'obra:nova_estrutura' %}">Estrutura</a>
+      <a class="btn btn-secundario btn-sm" href="{% url 'obra:nova_pendencias' %}">Pendências da 1916</a>
+    </div>
+  </section>
+  {% endif %}
+
   <section>
     <h2 class="font-display text-xl text-crimson">Progresso por volume</h2>
     <div class="mt-4 grid gap-6 md:grid-cols-2">

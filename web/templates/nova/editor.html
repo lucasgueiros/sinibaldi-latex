@@ -1,0 +1,118 @@
+{% extends "base_trabalho.html" %}
+{% load static %}
+{% block title %}Nova edição · {{ cabecalho.titulo }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
+{% block barra %}
+<nav class="flex items-center gap-2 truncate" aria-label="Localização">
+  <a href="{% url 'obra:painel' %}" class="text-crimson hover:underline">Revisão</a>
+  <span class="text-ink/40">/</span>
+  <a href="{% url 'obra:nova_estrutura' %}{% if cabecalho.xml_id %}?foco={{ cabecalho.xml_id }}#no-{{ cabecalho.xml_id }}{% endif %}" class="text-crimson hover:underline">Nova edição</a>
+  <span class="text-ink/40">/</span>
+  <span class="truncate" title="{{ cabecalho.titulo }}"><span class="text-ink/50">{{ cabecalho.nivel }}</span> {{ cabecalho.titulo }}</span>
+  <span class="ml-2 hidden shrink-0 text-xs text-ink/70 sm:inline">
+    {% if vizinhos.ant %}<a class="hover:text-crimson hover:underline" href="{{ vizinhos.ant.url }}" title="{{ vizinhos.ant.texto }}" data-testid="no-anterior">&laquo; anterior</a>{% endif %}
+    {% if vizinhos.ant and vizinhos.seg %} | {% endif %}
+    {% if vizinhos.seg %}<a class="hover:text-crimson hover:underline" href="{{ vizinhos.seg.url }}" title="{{ vizinhos.seg.texto }}" data-testid="no-seguinte">seguinte &raquo;</a>{% endif %}
+  </span>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div id="revisao" class="flex min-h-0 flex-1 flex-col md:flex-row" data-nova>
+
+  {# ---------------- coluna esquerda: texto de 1916 / scan ---------------- #}
+  <section id="col-scan" class="flex min-h-[40vh] min-w-0 flex-col md:min-h-0" style="flex: 0 0 50%" aria-label="Edição de 1916 e scan">
+    <div class="abas px-2 pt-1">
+      <button type="button" class="aba-ativa" data-esq="texto">Texto de 1916</button>
+      <button type="button" class="aba" data-esq="scan">Scan</button>
+      <span class="ml-auto self-center pr-2 text-xs text-ink/60" data-esq-info></span>
+    </div>
+    <div id="painel-esq-texto" class="min-h-0 flex-1 overflow-auto bg-parchment-light px-5 py-4">
+      <div class="obra nova-1916" data-testid="texto-1916">{{ html_1916|safe }}</div>
+      {% if notas_1916 %}
+      <ol class="notas-fim mt-6 border-t border-gold/50 pt-3 text-sm">
+        {% for n, h in notas_1916 %}<li id="onota-{{ n }}" value="{{ n }}">{{ h|safe }}</li>{% endfor %}
+      </ol>{% endif %}
+      <p class="mt-4 hidden text-sm italic text-ink/60" data-sem-origem>O bloco ativo não tem correspondente na edição de 1916 (é novo).</p>
+    </div>
+    <div id="painel-esq-scan" class="hidden min-h-0 flex-1 flex-col">
+      <div class="barra-ferramentas" data-barra-scan>
+        <button type="button" class="ferramenta" data-scan="ant" title="Página anterior" aria-label="Página anterior">&larr;</button>
+        <span class="px-2 text-sm" data-testid="indicador-pagina" data-scan-indicador>—</span>
+        <button type="button" class="ferramenta" data-scan="seg" title="Página seguinte" aria-label="Página seguinte">&rarr;</button>
+        <span class="mx-1 h-5 w-px bg-gold/60"></span>
+        <button type="button" class="ferramenta" data-zoom="menos" aria-label="Reduzir">&minus;</button>
+        <button type="button" class="ferramenta" data-zoom="mais" aria-label="Ampliar">+</button>
+        <button type="button" class="ferramenta" data-zoom="largura">Largura</button>
+        <button type="button" class="ferramenta" data-zoom="cem">100%</button>
+        <a class="ml-auto text-xs text-crimson hover:underline" href="#" data-scan-revisar target="_blank" rel="noopener" title="Abrir a tela de revisão da edição de 1916 nesta página">revisão da 1916 &nearr;</a>
+        <span class="text-xs text-ink/60" data-zoom-indicador></span>
+      </div>
+      <div id="visualizador" class="relative min-h-0 flex-1 overflow-hidden bg-ink/10" data-visualizador tabindex="0" aria-label="Imagem do scan">
+        <img src="" alt="Scan da página" class="absolute left-0 top-0 max-w-none select-none" draggable="false" style="transform-origin: 0 0; visibility: hidden">
+        <p class="absolute inset-0 hidden items-center justify-center p-6 text-center text-ink/70" data-sem-scan>Imagem do scan indisponível neste servidor.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="divisor" class="hidden w-1.5 shrink-0 cursor-col-resize bg-gold/50 hover:bg-crimson/60 md:block" role="separator" aria-orientation="vertical" aria-label="Redimensionar colunas" tabindex="0"></div>
+
+  {# ---------------- coluna do editor ---------------- #}
+  <section id="col-editor" class="flex min-h-0 min-w-0 flex-1 flex-col bg-parchment-light" aria-label="Editor da nova edição">
+    <div class="abas px-2 pt-1">
+      <button type="button" class="aba-ativa" data-aba="visual">Visual</button>
+      <button type="button" class="aba" data-aba="xml">XML</button>
+      <span class="ml-auto flex items-center gap-2 self-center pr-2 text-xs text-ink/60">
+        <span data-sujo class="hidden font-semibold text-crimson">&bull; alterações não gravadas</span>
+      </span>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-gold/60 bg-parchment-dark px-3 py-1 text-xs" data-testid="navegacao-telas">
+      {% if tem_ant %}<a class="btn btn-secundario btn-sm" href="{{ base_url }}?p={{ tela|add:'-1' }}" data-tela-ant>&larr; tela anterior</a>{% endif %}
+      <span data-testid="indicador-tela">tela {{ tela }} de {{ telas }} &middot; blocos {{ ini_tela }}&ndash;{{ fim_tela }} de {{ total }}</span>
+      {% if tem_seg %}<a class="btn btn-secundario btn-sm" href="{{ base_url }}?p={{ tela|add:'1' }}" data-tela-seg>tela seguinte &rarr;</a>{% endif %}
+      {% if subnos %}
+      <label class="ml-auto flex items-center gap-1">ir para
+        <select class="campo !w-auto !py-0.5 text-xs" data-subnos aria-label="Ir para sub-nó">
+          <option value="">sub-nó… ({{ subnos|length }})</option>
+          {% for s in subnos %}<option value="{{ s.tela }}">tela {{ s.tela }} · {{ s.nivel }} · {{ s.texto }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if caminho %}<span class="basis-full truncate text-ink/60" title="{{ caminho|join:' › ' }}">começa em: {{ caminho|join:" › " }}</span>{% endif %}
+    </div>
+
+    <div id="painel-visual" class="flex min-h-0 flex-1 flex-col" data-painel="visual">
+      <div id="editor" class="flex min-h-0 flex-1 flex-col"></div>
+    </div>
+    <div id="painel-xml" class="hidden min-h-0 flex-1 flex-col" data-painel="xml">
+      <textarea id="texto-xml" class="min-h-0 flex-1 resize-none border-0 bg-parchment-light p-3 font-mono text-[13px] leading-relaxed text-ink focus:outline-none" spellcheck="false" aria-label="XML dos blocos" wrap="soft"></textarea>
+    </div>
+
+    <ul id="erros" class="hidden max-h-32 list-disc space-y-0.5 overflow-auto border-t border-red-700 bg-red-50 py-2 pl-8 pr-3 text-sm text-red-900" role="alert"></ul>
+
+    <div id="info-bloco" class="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-gold/60 bg-parchment-dark px-3 py-1 text-xs text-ink/70" aria-live="polite">
+      <span data-info-texto>Clique num bloco para ver a procedência e quem o alterou por último.</span>
+      <span class="ml-auto flex flex-wrap items-center gap-2" data-acoes-bloco>
+        <button type="button" class="ferramenta !h-6 text-xs" data-acao-bloco="restaurar_1916" disabled title="Volta o texto deste bloco ao da edição de 1916">restaurar o texto de 1916</button>
+        <button type="button" class="ferramenta !h-6 text-xs" data-acao-bloco="suprimir" disabled title="Suprime ou restaura este bloco (nada é apagado)">suprimir</button>
+        <a class="hidden text-crimson hover:underline" data-info-link href="#" target="_blank" rel="noopener">ver histórico</a>
+      </span>
+    </div>
+
+    <form id="form-gravar" class="flex flex-wrap items-center gap-2 border-t-2 border-gold bg-parchment-dark px-3 py-2" onsubmit="return false">
+      <input id="comentario" class="campo !w-auto min-w-[10rem] flex-1 !py-1.5 text-sm" placeholder="Comentário da gravação (opcional)" maxlength="2000" autocomplete="off">
+      <button type="button" id="btn-gravar" class="btn btn-primario btn-sm" title="Ctrl+S">Gravar</button>
+    </form>
+    <p id="estado-revisao" class="px-3 pb-1 text-[11px] text-ink/60"></p>
+  </section>
+</div>
+
+{{ dados|json_script:"dados-nova" }}
+{{ esquema|json_script:"esquema-editor" }}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/editor.bundle.js' %}"></script>
+<script src="{% static 'js/nova.js' %}"></script>
+{% endblock %}

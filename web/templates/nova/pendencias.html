@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Nova edição · pendências{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with titulo="Sincronização com a 1916" eyebrow="NOVA EDIÇÃO" intro="A edição de 1916 continua sendo revisada: veja o que mudou nela e ainda não chegou à nova." %}
+<div class="mx-auto max-w-5xl space-y-6 px-4 py-10 sm:px-6">
+  {% include "nova/_nav.html" with ativa="pendencias" %}
+
+  <nav class="abas" aria-label="Tipo de pendência">
+    {% for chave, rotulo in abas %}
+    <a href="?aba={{ chave }}" class="{% if aba == chave %}aba-ativa{% else %}aba{% endif %}">{{ rotulo }} <span class="etiqueta etiqueta-neutra ml-1">{% for k, v in contagens.items %}{% if k == chave %}{{ v }}{% endif %}{% endfor %}</span></a>
+    {% endfor %}
+  </nav>
+
+  {% if aba == "copias" %}
+  <p class="text-sm text-ink/75">Blocos <strong>cópia</strong> cujo texto difere do da edição de 1916 (ela foi revisada depois da derivação). Atualizar copia o texto atual da 1916 e registra a revisão. <span class="text-ink/60">Vermelho: texto atual da nova; verde: texto da 1916.</span></p>
+  {% if contagens.copias %}
+  <form method="post" action="{% url 'obra:nova_pendencias_acao' %}">{% csrf_token %}<input type="hidden" name="aba" value="copias">
+    <button name="acao" value="atualizar_todas" class="btn btn-primario" onclick="return confirm('Atualizar todas as {{ contagens.copias }} cópias desatualizadas?')">Atualizar todas as cópias ({{ contagens.copias }})</button>
+  </form>
+  {% endif %}
+  {% elif aba == "adaptados" %}
+  <p class="text-sm text-ink/75">Blocos <strong>adaptados</strong> cuja origem na 1916 foi alterada depois da adaptação. Decida se a mudança deve ser incorporada (edite o bloco) e marque como visto. <span class="text-ink/60">Diferença: 1916 atual &rarr; nova (vermelho: só na 1916; verde: só na nova).</span></p>
+  {% else %}
+  <p class="text-sm text-ink/75">Blocos da edição de 1916 (exceto cabeçalhos correntes) sem nenhum bloco correspondente na nova edição. Um bloco <em>suprimido</em> conta como correspondente.</p>
+  {% endif %}
+
+  <div class="space-y-4">
+  {% for it in itens %}
+    <article class="painel">
+      <header class="painel-cabeca">
+        <span>bloco #{{ it.bloco.pk }}{% if it.vol %} &middot; vol. {{ it.vol }}, pág. {{ it.impressa|default:it.bloco.pagina }}{% endif %}</span>
+        <span class="flex items-center gap-2">
+          {% if it.no %}<a class="text-crimson normal-case hover:underline" href="{% url 'obra:nova_no' it.no.xml_id %}">abrir no editor</a>{% endif %}
+          {% if aba == "cobertura" and it.vol %}<a class="text-crimson normal-case hover:underline" href="{% url 'obra:revisar' it.vol it.bloco.pagina %}">ver na 1916</a>{% endif %}
+        </span>
+      </header>
+      <div class="painel-corpo space-y-2">
+        {% if aba == "cobertura" %}
+          <p>{{ it.amostra }}</p>
+        {% else %}
+          <pre class="dif">{{ it.diff }}</pre>
+          {% for m in it.mudancas %}
+          <details class="text-sm"><summary class="cursor-pointer text-ink/70">Mudança na 1916 por {{ m.rev.autor.get_full_name|default:m.rev.autor.username|default:"—" }} em {{ m.rev.criado_em|date:"d/m/Y H:i" }}{% if m.rev.comentario %} — {{ m.rev.comentario }}{% endif %}</summary><pre class="dif">{{ m.diff }}</pre></details>
+          {% endfor %}
+          <form method="post" action="{% url 'obra:nova_pendencias_acao' %}" class="flex flex-wrap gap-2">
+            {% csrf_token %}<input type="hidden" name="aba" value="{{ aba }}"><input type="hidden" name="ids" value="{{ it.bloco.pk }}">
+            {% if aba == "copias" %}<button name="acao" value="atualizar" class="btn btn-secundario btn-sm">Atualizar esta cópia</button>
+            {% else %}<button name="acao" value="visto" class="btn btn-secundario btn-sm">Marcar como visto</button>{% endif %}
+          </form>
+        {% endif %}
+      </div>
+    </article>
+  {% empty %}
+    <p class="cartao text-center text-ink/70">Nada pendente aqui.</p>
+  {% endfor %}
+  </div>
+  {% include "includes/paginacao.html" with page_obj=page_obj querystring=querystring %}
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{# Abas da nova edição. Uso: {% include "nova/_nav.html" with ativa="estrutura" %} #}
+<nav class="abas mb-6" aria-label="Nova edição">
+  <a href="{% url 'obra:painel' %}" class="aba">&larr; Painel</a>
+  <a href="{% url 'obra:nova_estrutura' %}" class="{% if ativa == 'estrutura' %}aba-ativa{% else %}aba{% endif %}">Estrutura</a>
+  <a href="{% url 'obra:nova_pendencias' %}" class="{% if ativa == 'pendencias' %}aba-ativa{% else %}aba{% endif %}">Pendências da 1916</a>
+  <a href="{% url 'obra:edicao' 'nova' %}" class="aba">Ver publicada</a>
+</nav>

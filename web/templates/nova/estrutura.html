@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Nova edição · estrutura{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with titulo="Nova edição" eyebrow="ESTRUTURA" intro="Reorganize as partes, mova e suprima trechos. Nada é apagado: tudo fica no histórico." %}
+<div class="mx-auto max-w-5xl space-y-8 px-4 py-10 sm:px-6">
+  {% include "nova/_nav.html" with ativa="estrutura" %}
+
+  <section class="cartao" aria-labelledby="ordem-partes">
+    <h2 id="ordem-partes" class="font-display text-xl text-crimson">Ordem das partes</h2>
+    <p class="mt-1 text-sm text-ink/70">Ordem-alvo: {% for nome in ordem_alvo %}<strong>{{ nome }}</strong>{% if not forloop.last %} &rsaquo; {% endif %}{% endfor %}.</p>
+    <ol class="mt-3 grid gap-2 sm:grid-cols-2">
+      {% for p in painel %}
+      <li class="nova-parte {% if p.falta %}nova-parte-falta{% else %}nova-parte-ok{% endif %}">
+        <span class="font-display text-xs tracking-[0.12em]">{{ forloop.counter }}. {{ p.nome|upper }}</span>
+        {% if p.falta %}<span class="etiqueta etiqueta-carmim">falta</span>
+        {% else %}<span class="etiqueta etiqueta-ouro">identificada</span>
+          <span class="block text-sm">{% for n in p.nos %}<a class="text-crimson hover:underline" href="{% url 'obra:nova_no' n.xml_id %}">{{ n.rotulo }} {{ n.titulo }}</a> <span class="text-ink/50">({{ n.xml_id }})</span>{% if not forloop.last %}; {% endif %}{% endfor %}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% if faltam %}
+    <div class="mt-4 border-l-4 border-amber-600 bg-amber-50 p-3 text-sm text-amber-900">
+      <p><strong>Falta marcar: {{ faltam_nomes|join:", " }}.</strong> O OCR não gerou o marco de parte para elas (no vol. 1, Lógica e Ontologia estão juntas num trecho antes da Cosmologia).</p>
+      <ol class="mt-1 list-decimal pl-5">
+        <li>Abra o trecho ou capítulo onde a parte começa (itens <em>trecho sem parte</em> ou <em>capítulo</em> abaixo) e vá à tela em que ela começa.</li>
+        <li>Ponha o cursor no bloco que será o primeiro da parte, escolha <em>Iniciar divisão &rsaquo; Parte</em> e informe o <code>xml:id</code> (sugestão: <code>n.parte-ontologia</code>).</li>
+        <li>Logo depois do marco insira o título da parte (parágrafo de título) e grave (Ctrl+S). A parte aparece aqui; tudo até o próximo marco de parte passa a ser dela.</li>
+      </ol>
+    </div>
+    {% endif %}
+    <form method="post" action="{% url 'obra:nova_aplicar_ordem' %}" class="mt-4 flex flex-wrap items-center gap-3">
+      {% csrf_token %}
+      <button class="btn btn-primario" {% if not completo or na_ordem %}disabled{% endif %}
+        onclick="return confirm('Reordenar as partes da nova edição? Os blocos serão renumerados; o histórico registra a operação.')">Aplicar ordem-alvo</button>
+      <span class="text-sm text-ink/70">
+        {% if not completo %}Habilitado quando as seis partes existirem.
+        {% elif na_ordem %}As partes já estão na ordem-alvo.
+        {% else %}Ordem resultante: {% for nome, p in alvo %}<span title="{{ p.xml_id }}">{{ nome }}</span>{% if not forloop.last %} &rsaquo; {% endif %}{% endfor %}.{% endif %}
+      </span>
+    </form>
+    <details class="mt-3 text-sm"><summary class="cursor-pointer text-ink/70">Ordem atual das partes</summary>
+      <p class="mt-1">{% for nome, p in ordem_atual %}<span title="{{ p.xml_id }}">{{ nome }}</span>{% if not forloop.last %} &rsaquo; {% endif %}{% empty %}nenhuma parte{% endfor %}</p>
+      <p class="mt-1 text-ink/60">Partes não identificadas pelo título seguem a anterior. Trechos sem parte vão para o início.</p>
+    </details>
+  </section>
+
+  <section aria-labelledby="arvore">
+    <h2 id="arvore" class="font-display text-xl text-crimson">Árvore <span class="text-sm text-ink/60">({{ total_blocos }} blocos{% for k, v in contagem.items %} · {{ v }} {{ k }}{% endfor %})</span></h2>
+    <ul class="arvore nova-arvore mt-3">
+      {% for it in itens %}
+        {% if it.tipo == "trecho" %}
+        <li class="nova-no nova-trecho">
+          <div class="nova-linha">
+            <a href="{% url 'obra:nova_trecho' it.ordem_ini %}" class="nova-titulo" title="Abrir no editor"><em>trecho sem parte</em></a>
+            <span class="nova-meta">{{ it.n_blocos }} bl.{% if it.vol %} · vol. {{ it.vol }}{% endif %} · &ldquo;{{ it.amostra }}&rdquo;</span>
+          </div>
+        </li>
+        {% else %}{% include "nova/_item.html" with no=it.no %}{% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+{% endblock %}

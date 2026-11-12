@@ -7,8 +7,8 @@
   {% include "edicao/_nav.html" with ativa="historico" %}
   <h1 class="font-display text-2xl text-crimson">Histórico do bloco #{{ bloco.pk }}</h1>
   <p class="mt-1 text-sm text-ink/70">
-    {{ bloco.get_tipo_display }}, versão {{ bloco.versao }}.
-    {% if bloco.volume and bloco.pagina is not None %}<a class="text-crimson hover:underline" href="{% url 'obra:revisar' bloco.volume.numero bloco.pagina %}">Abrir na tela de revisão (vol. {{ bloco.volume.numero }}, scan {{ bloco.pagina }})</a>{% endif %}
+    {{ bloco.edicao.titulo }} · {{ bloco.get_tipo_display }}, versão {{ bloco.versao }}.
+    {% if bloco.edicao.slug == '1916' and bloco.volume and bloco.pagina is not None %}<a class="text-crimson hover:underline" href="{% url 'obra:revisar' bloco.volume.numero bloco.pagina %}">Abrir na tela de revisão (vol. {{ bloco.volume.numero }}, scan {{ bloco.pagina }})</a>{% endif %}
   </p>
   <div class="mt-6 space-y-6">
   {% for l in linhas %}

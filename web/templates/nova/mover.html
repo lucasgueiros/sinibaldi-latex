@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Mover · {{ titulo_no }}{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with titulo="Mover trecho" eyebrow="NOVA EDIÇÃO" intro=titulo_no %}
+<div class="mx-auto max-w-3xl space-y-6 px-4 py-10 sm:px-6">
+  {% include "nova/_nav.html" with ativa="estrutura" %}
+  <form method="post" class="cartao space-y-4">
+    {% csrf_token %}
+    <p>Mover <strong>{{ titulo_no }}</strong> ({{ no.get_nivel_display|lower }}, {{ no.xml_id }}) com todo o seu conteúdo.</p>
+    <fieldset class="space-y-1">
+      <legend class="font-display text-xs tracking-[0.12em] text-crimson">Posição</legend>
+      <label class="flex items-center gap-2"><input type="radio" name="modo" value="antes" checked> antes do destino (mesmo nível)</label>
+      <label class="flex items-center gap-2"><input type="radio" name="modo" value="depois"> depois do destino (mesmo nível)</label>
+      {% if superiores %}<label class="flex items-center gap-2"><input type="radio" name="modo" value="dentro"> dentro do destino, como último filho (nível superior)</label>{% endif %}
+    </fieldset>
+    <label class="block">
+      <span class="font-display text-xs tracking-[0.12em] text-crimson">Destino</span>
+      <select name="alvo" class="campo mt-1" required>
+        <option value="">— escolha —</option>
+        <optgroup label="Mesmo nível ({{ no.get_nivel_display|lower }}), para antes/depois">
+          {% for n in iguais %}<option value="{{ n.pk }}">{{ n.rotulo }} {{ n.titulo }} [{{ n.xml_id }}]</option>{% endfor %}
+        </optgroup>
+        {% if superiores %}<optgroup label="Nível superior, para dentro">
+          {% for n in superiores %}<option value="{{ n.pk }}">{{ n.get_nivel_display }}: {{ n.rotulo }} {{ n.titulo }} [{{ n.xml_id }}]</option>{% endfor %}
+        </optgroup>{% endif %}
+      </select>
+    </label>
+    <p class="text-sm text-ink/70">{% if no.nivel != "parte" %}Só são oferecidos destinos do mesmo volume.{% else %}Partes podem ficar entre volumes.{% endif %}</p>
+    <div class="flex gap-3">
+      <button class="btn btn-primario">Mover</button>
+      <a class="btn btn-secundario" href="{% url 'obra:nova_estrutura' %}?foco={{ no.xml_id }}#no-{{ no.xml_id }}">Cancelar</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
