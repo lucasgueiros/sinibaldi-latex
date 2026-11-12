@@ -1,0 +1,27 @@
+{% load static %}<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Elementos de Philosophia{% endblock %} · Sinibaldi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Elementos de Philosophia, de D. Thiago Sinibaldi: edição colaborativa e leitura pública. Academia Leão XIII.">
+  <meta name="theme-color" content="#8B1A1A">
+  <link rel="icon" type="image/svg+xml" href="{% static 'img/logo.svg' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %} bg-parchment font-serif text-ink antialiased">
+  <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-crimson focus:px-4 focus:py-2 focus:text-parchment">Ir para o conteúdo</a>
+  {% block header %}{% include "includes/header.html" %}{% endblock %}
+  {% include "includes/mensagens.html" %}
+  <main id="conteudo" class="{% block main_class %}{% endblock %}">
+    {% block content %}{% endblock %}
+  </main>
+  {% block footer %}{% include "includes/footer.html" %}{% endblock %}
+  <script src="{% static 'js/site.js' %}" defer></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% load static %}
+<footer class="mt-24 bg-crimson-deep text-parchment">
+  <div class="h-2 bg-[repeating-linear-gradient(90deg,theme(colors.gold.DEFAULT)_0_12px,transparent_12px_20px)] opacity-60"></div>
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-10 text-center sm:px-6">
+    <span class="inline-flex rounded-md bg-parchment p-2 ring-1 ring-gold/40"><img src="{% static 'img/logo.svg' %}" alt="Selo da Academia Leão XIII" class="h-20 w-auto" width="71" height="80" loading="lazy"></span>
+    <p class="font-display text-sm tracking-[0.2em] text-gold-light"><em>Aurea sapientia restituenda</em></p>
+    <p class="text-lg">Elementos de Philosophia, de D. Thiago Sinibaldi — edição colaborativa da Academia Leão XIII de Artes e Ciências do Recife.</p>
+  </div>
+  <div class="border-t border-parchment/15">
+    <p class="mx-auto max-w-6xl px-4 py-4 text-center text-sm text-parchment/70 sm:px-6">Academia Leão XIII de Artes e Ciências do Recife · © {% now "Y" %}</p>
+  </div>
+</footer>

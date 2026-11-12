@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Exemplo visual{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with titulo="Exemplo visual" eyebrow="COMPONENTES" intro="Página de demonstração da casca visual." %}
+<div class="mx-auto max-w-5xl space-y-10 px-4 py-10 sm:px-6">
+
+  <section>
+    <h2 class="font-display text-xl text-crimson">Botões e etiquetas</h2>
+    <div class="mt-3 flex flex-wrap items-center gap-3">
+      <button class="btn btn-primario">Primário</button>
+      <button class="btn btn-secundario">Secundário</button>
+      <button class="btn btn-perigo">Perigo</button>
+      <button class="btn btn-primario btn-sm">Pequeno</button>
+      <span class="etiqueta">padrão</span> <span class="etiqueta etiqueta-ouro">ouro</span>
+      <span class="etiqueta etiqueta-carmim">carmim</span> <span class="etiqueta etiqueta-neutra">neutra</span>
+    </div>
+  </section>
+
+  <section class="grid gap-6 md:grid-cols-2">
+    <div class="cartao"><h3 class="font-display text-crimson">Cartão</h3><p>Conteúdo de cartão com filete duplo.</p></div>
+    <form class="cartao space-y-3" onsubmit="return false">
+      <input class="campo" placeholder="Campo de texto">
+      <select class="campo"><option>Seleção</option></select>
+      <textarea class="campo" placeholder="Área de texto"></textarea>
+    </form>
+  </section>
+
+  <section>
+    <div class="abas"><a href="#" class="aba-ativa">Revisão</a><a href="#" class="aba">Histórico</a><a href="#" class="aba">Notas</a></div>
+    <table class="tabela mt-4">
+      <thead><tr><th>Nó</th><th>Estado</th><th>Páginas</th></tr></thead>
+      <tbody>
+        <tr><td>Lógica</td><td><span class="etiqueta etiqueta-ouro">em revisão</span></td><td>1–120</td></tr>
+        <tr><td>Ontologia</td><td><span class="etiqueta etiqueta-carmim">pendente</span></td><td>121–300</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="grid gap-6 md:grid-cols-3">
+    <ul class="arvore">
+      <li><a href="#" class="ativo">Volume 1</a>
+        <ul><li><a href="#">Lógica</a><ul><li><a href="#">Prolegômenos</a></li></ul></li><li><a href="#">Ontologia</a></li></ul></li>
+      <li><a href="#">Volume 2</a></li>
+    </ul>
+    <div class="painel md:col-span-2">
+      <div class="painel-cabeca"><span>Editor</span><span class="etiqueta etiqueta-ouro">rascunho</span></div>
+      <div class="barra-ferramentas">
+        <button class="ferramenta"><em>I</em></button><button class="ferramenta-ativa"><strong>N</strong></button>
+        <button class="ferramenta">VS</button><button class="ferramenta" disabled>Nota</button>
+      </div>
+      <div class="painel-corpo">Corpo do painel.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-xl text-crimson">Leitura (.obra)</h2>
+    <div class="obra mt-3 border border-gold/40 bg-parchment-light p-6">
+      <p data-tei="fw">38 — METAPHYSICA — PARTE PRIMEIRA — ONTOLOGIA</p>
+      <h3 data-tei="head">Do ente em geral</h3>
+      <h3 data-tei="head" data-type="rotulo">Corollario</h3>
+      <div data-tei="argument">Sumário: da noção de ente e da sua divisão.</div>
+      <span data-tei="milestone" data-unit="tese" data-n="88"></span>
+      <p data-tei="p">O ente é <span data-tei="hi" data-rend="sc">aquillo</span> que existe, ou pode existir<span data-tei="pb" data-n="286"></span> sem contradição; <span data-tei="foreign">ens est quod habet esse</span>. <span data-tei="label">Nota.</span></p>
+      <p data-tei="p" data-type="definicao">Definição: ente é o que tem ser.</p>
+      <p data-tei="p" data-type="divisao">Divisão: ente real e ente de razão.</p>
+      <p data-tei="p" data-type="enunciado">Tese: o ente é transcendental.</p>
+      <p data-tei="p" data-type="argumento">Argumento: tudo o que é, é ente.</p>
+      <p data-tei="p" data-type="objecao">Objeção: o nada seria ente.</p>
+      <p data-tei="p" data-type="resposta">Resposta: nego a menor.</p>
+      <p data-tei="p" data-type="escolio">Escólio: S. Thomaz o ensina.</p>
+      <p data-tei="p" data-type="corolario">Corolário: logo o ente é uno.</p>
+      <p data-tei="p" data-type="observacao">Observação: ver adiante.</p>
+    </div>
+    <div class="obra obra-edicao mt-6 border border-gold/40 bg-parchment-light p-6">
+      <p data-tei="fw">38 — METAPHYSICA — PARTE PRIMEIRA — ONTOLOGIA</p>
+      <span data-tei="milestone" data-unit="tese" data-n="88"></span>
+      <p data-tei="p" data-type="enunciado">O ente é transcendental.<span data-tei="note"><span data-tei="note-p">Nota ao rodapé em modo edição.</span></span></p>
+      <p data-tei="p" data-type="definicao">Ente é o que tem ser.</p>
+      <p data-tei="p" data-type="divisao">Divisão.</p><p data-tei="p" data-type="argumento">Argumento.</p>
+      <p data-tei="p" data-type="objecao">Objeção.</p><p data-tei="p" data-type="resposta">Resposta.</p>
+      <p data-tei="p" data-type="escolio">Escólio.</p><p data-tei="p" data-type="corolario">Corolário.</p>
+      <p data-tei="p" data-type="observacao">Observação.</p>
+    </div>
+  </section>
+
+  {% include "includes/paginacao.html" with page_obj=pagina_exemplo %}
+</div>
+{% endblock %}

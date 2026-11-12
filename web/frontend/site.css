@@ -1,0 +1,133 @@
+/*
+ * Componentes (camada @layer components). Uso:
+ *  .btn .btn-primario .btn-secundario .btn-perigo .btn-sm  botões (.btn + variante; -sm reduz)
+ *  .cartao                  cartão de filete duplo sobre pergaminho claro
+ *  .etiqueta (-ouro -carmim -neutra)  pequena pílula de status
+ *  .campo                   input/select/textarea estilizados
+ *  .tabela                  tabela listrada com cabeçalho em Cinzel
+ *  .abas > .aba / .aba-ativa  navegação em abas
+ *  .barra-ferramentas > .ferramenta / .ferramenta-ativa  toolbar do editor
+ *  .arvore (ul/li aninhados)  sumário hierárquico com recuos (.ativo no link atual)
+ *  .painel (+ .painel-cabeca, .painel-corpo)  painel de borda dourada com cabeçalho
+ *  .mensagem                base das mensagens (cores via utilitários, ver mensagens.html)
+ *  .ornament .ornament-line  divisor ornamental
+ *  .nav-link (.is-active)   link de menu com sublinhado animado
+ *  .obra                    tipografia de leitura (atributos data-tei); .obra-edicao
+ *                           acrescenta etiquetas de estrutura para o modo de edição
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-size: 17px; }
+  @media (min-width: 640px) { html { font-size: 18px; } }
+  body { background-image: radial-gradient(rgba(139, 26, 26, 0.035) 1px, transparent 1px); background-size: 22px 22px; }
+  ::selection { background: theme("colors.crimson.DEFAULT"); color: theme("colors.parchment.DEFAULT"); }
+  :focus-visible { outline: 2px solid theme("colors.crimson.DEFAULT"); outline-offset: 3px; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-sm border border-transparent px-6 py-2.5 font-display text-sm font-semibold tracking-[0.12em] transition duration-200 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+  .btn-primario { @apply bg-crimson text-parchment shadow-md ring-1 ring-inset ring-gold/40 hover:bg-crimson-deep; }
+  .btn-secundario { @apply border-crimson bg-transparent text-crimson hover:bg-crimson hover:text-parchment; }
+  .btn-perigo { @apply bg-red-800 text-white ring-1 ring-inset ring-red-950/40 hover:bg-red-950; }
+
+  .nav-link { @apply relative py-1 text-ink transition-colors hover:text-crimson; }
+  .nav-link::after { content: ""; @apply absolute -bottom-1 left-1/2 h-px w-0 -translate-x-1/2 bg-crimson transition-all duration-300; }
+  .nav-link:hover::after, .nav-link.is-active::after { @apply w-full; }
+  .nav-link.is-active { @apply text-crimson; }
+  .brand-name { @apply relative block w-fit; }
+  .brand-name::after { content: ""; @apply absolute -bottom-1 left-1/2 h-px w-0 -translate-x-1/2 bg-crimson transition-all duration-300; }
+  .group:hover .brand-name::after, .group:focus-visible .brand-name::after { @apply w-full; }
+
+  .ornament { @apply flex items-center justify-center gap-3; }
+  .ornament-line { @apply h-px w-16 bg-gradient-to-r from-transparent to-gold sm:w-24; }
+  .ornament-line:last-child { @apply bg-gradient-to-l; }
+
+  .cartao { @apply relative border border-crimson/30 bg-parchment-light p-5 shadow-sm; }
+  .cartao::before { content: ""; @apply pointer-events-none absolute inset-1.5 border border-crimson/15; }
+  .cartao > * { @apply relative; }
+
+  .etiqueta { @apply inline-block rounded-full border border-ink/20 bg-parchment-dark px-2.5 py-0.5 font-display text-[0.65rem] font-semibold tracking-[0.12em] text-ink/70; }
+  .etiqueta-neutra { @apply border-ink/20 bg-parchment-dark text-ink/70; }
+  .etiqueta-ouro { @apply border-gold bg-gold-light/50 text-gold-dark; }
+  .etiqueta-carmim { @apply border-crimson/50 bg-crimson/10 text-crimson; }
+
+  .campo { @apply block w-full rounded-sm border border-gold bg-parchment-light px-3 py-2 text-base text-ink shadow-inner placeholder:text-ink/40 focus:border-crimson focus:outline-none focus:ring-1 focus:ring-crimson disabled:bg-parchment-dark disabled:text-ink/50; }
+  textarea.campo { @apply min-h-[6rem]; }
+
+  .tabela { @apply w-full border-collapse text-left; }
+  .tabela th { @apply border-b-2 border-gold bg-parchment-dark px-3 py-2 font-display text-xs font-semibold tracking-[0.12em] text-crimson; }
+  .tabela td { @apply border-b border-crimson/10 px-3 py-2 align-top; }
+  .tabela tbody tr:nth-child(even) { @apply bg-parchment-light/70; }
+  .tabela tbody tr:hover { @apply bg-gold-light/20; }
+
+  .abas { @apply flex flex-wrap gap-1 border-b border-gold; }
+  .aba { @apply -mb-px border border-transparent px-4 py-2 font-display text-xs tracking-[0.12em] text-ink/70 transition-colors hover:text-crimson; }
+  .aba-ativa { @apply -mb-px border border-b-parchment border-gold bg-parchment px-4 py-2 font-display text-xs font-semibold tracking-[0.12em] text-crimson; }
+
+  .barra-ferramentas { @apply flex flex-wrap items-center gap-1 border-b border-gold bg-parchment-dark px-2 py-1.5; }
+  .ferramenta { @apply inline-flex h-8 min-w-[2rem] items-center justify-center rounded-sm border border-transparent px-2 text-sm text-ink transition-colors hover:border-gold hover:bg-parchment-light disabled:opacity-40; }
+  .ferramenta-ativa { @apply inline-flex h-8 min-w-[2rem] items-center justify-center rounded-sm border border-crimson bg-crimson/10 px-2 text-sm text-crimson; }
+
+  .arvore { @apply list-none pl-0; }
+  .arvore ul { @apply ml-2 list-none border-l border-gold/50 pl-4; }
+  .arvore li { @apply py-0.5; }
+  .arvore a { @apply text-ink hover:text-crimson; }
+  .arvore a.ativo, .arvore .ativo > a { @apply font-semibold text-crimson; }
+
+  .painel { @apply flex flex-col border border-gold bg-parchment-light shadow-sm; }
+  .painel-cabeca { @apply flex items-center justify-between gap-2 border-b border-gold bg-parchment-dark px-4 py-2 font-display text-xs font-semibold tracking-[0.14em] text-crimson; }
+  .painel-corpo { @apply min-h-0 flex-1 p-4; }
+
+  .mensagem { @apply border-l-4 px-4 py-3; }
+
+  /* ---------- Tipografia de leitura da obra ---------- */
+  .obra { @apply text-lg leading-[1.7] text-ink; }
+  .obra [data-tei="milestone"] { @apply my-4 block h-px border-0 bg-gradient-to-r from-transparent via-gold/60 to-transparent; }
+  .obra-edicao [data-tei="milestone"] { @apply h-auto bg-none text-center; }
+  .obra-edicao [data-tei="milestone"]::before { content: attr(data-unit) " " attr(data-n); @apply inline-block rounded-sm border border-gold bg-gold-light/40 px-2 font-display text-[0.65rem] tracking-[0.12em] text-gold-dark; }
+
+  .obra h3[data-tei="head"] { @apply mb-4 mt-8 text-center font-display text-xl font-semibold tracking-[0.06em] text-crimson; }
+  .obra h3[data-tei="head"][data-type="rotulo"] { @apply text-sm tracking-[0.1em]; font-variant: small-caps; }
+
+  .obra p[data-tei="p"] { @apply my-0 text-justify; text-indent: 1.5em; hyphens: auto; -webkit-hyphens: auto; }
+  .obra p[data-tei="p"][data-type] { @apply relative my-2 border-l-[3px] pl-3; text-indent: 0; }
+  .obra-edicao p[data-tei="p"][data-type]::before { @apply block font-display text-[0.65rem] tracking-[0.14em]; }
+  .obra p[data-type="definicao"] { @apply border-l-gold; }
+  .obra-edicao p[data-type="definicao"]::before { content: "Definição"; @apply text-gold-dark; }
+  .obra p[data-type="divisao"] { @apply border-l-sky-700/60; }
+  .obra-edicao p[data-type="divisao"]::before { content: "Divisão"; @apply text-sky-800; }
+  .obra p[data-type="enunciado"] { @apply border-l-crimson; }
+  .obra-edicao p[data-type="enunciado"]::before { content: "Tese"; @apply text-crimson; }
+  .obra p[data-type="argumento"] { @apply border-l-emerald-700/60; }
+  .obra-edicao p[data-type="argumento"]::before { content: "Argumento"; @apply text-emerald-800; }
+  .obra p[data-type="objecao"] { @apply border-l-orange-600/60; }
+  .obra-edicao p[data-type="objecao"]::before { content: "Objeção"; @apply text-orange-800; }
+  .obra p[data-type="resposta"] { @apply border-l-teal-700/60; }
+  .obra-edicao p[data-type="resposta"]::before { content: "Resposta"; @apply text-teal-800; }
+  .obra p[data-type="escolio"] { @apply border-l-violet-700/50; }
+  .obra-edicao p[data-type="escolio"]::before { content: "Escólio"; @apply text-violet-800; }
+  .obra p[data-type="corolario"] { @apply border-l-fuchsia-700/50; }
+  .obra-edicao p[data-type="corolario"]::before { content: "Corolário"; @apply text-fuchsia-800; }
+  .obra p[data-type="observacao"] { @apply border-l-ink/30; }
+  .obra-edicao p[data-type="observacao"]::before { content: "Observação"; @apply text-ink/60; }
+
+  .obra [data-tei="argument"] { @apply my-4 text-center text-base italic; }
+  .obra p[data-tei="fw"] { @apply hidden text-center font-display text-xs tracking-[0.1em] text-ink/45; text-indent: 0; }
+  .obra-edicao p[data-tei="fw"] { @apply block; }
+  .obra [data-tei="hi"][data-rend="sc"] { font-variant: small-caps; }
+  .obra [data-tei="label"] { @apply font-bold; }
+  .obra [data-tei="foreign"] { @apply italic; }
+  .obra [data-tei="pb"]::before { content: "[" attr(data-n) "]"; @apply mx-1 select-none align-baseline font-display text-[0.7rem] text-gold-dark; }
+  .obra-edicao [data-tei="note"] { @apply my-2 block rounded-sm border border-gold bg-parchment-dark px-3 py-1.5 text-sm leading-snug; }
+  .obra-edicao [data-tei="note"]::before { content: "nota"; @apply mr-2 font-display text-[0.6rem] tracking-[0.12em] text-gold-dark; }
+  .obra-edicao [data-tei="note-p"] { @apply block; text-indent: 0; }
+}
+
+@media print {
+  header, footer, .print\:hidden { display: none !important; }
+  body { background: #fff; }
+}

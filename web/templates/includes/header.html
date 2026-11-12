@@ -1,0 +1,45 @@
+{% load static %}
+<header class="relative z-20 border-b-4 border-double border-crimson/70 bg-parchment/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href="/" class="group flex items-center gap-3" aria-label="Elementos de Philosophia — início">
+      <img src="{% static 'img/logo.svg' %}" alt="" class="h-12 w-auto shrink-0 sm:h-14" width="50" height="56">
+      <span class="brand-name leading-tight">
+        <span class="block whitespace-nowrap font-display text-base font-semibold tracking-[0.08em] text-crimson sm:text-xl sm:tracking-[0.12em]">Elementos de Philosophia</span>
+        <span class="block whitespace-nowrap font-display text-[0.6rem] tracking-[0.12em] text-ink/70 sm:text-xs sm:tracking-[0.22em]">D. Thiago Sinibaldi</span>
+      </span>
+    </a>
+    <nav class="hidden md:block" aria-label="Navegação principal">
+      <ul class="flex items-center gap-6 font-display text-sm tracking-[0.12em]">
+        <li><a href="/" class="nav-link{% if request.path == '/' %} is-active{% endif %}">Início</a></li>
+        <li><a href="/edicao/1916/" class="nav-link{% if '/edicao/1916' in request.path %} is-active{% endif %}">Edição de 1916/17</a></li>
+        <li><a href="/edicao/nova/" class="nav-link{% if '/edicao/nova' in request.path %} is-active{% endif %}">Nova edição</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="/edicao-colaborativa/" class="nav-link{% if '/edicao-colaborativa' in request.path %} is-active{% endif %}">Área de edição</a></li>
+          <li class="flex items-center gap-3 normal-case tracking-normal"><span class="text-ink/70">{{ user.get_full_name|default:user.get_username }}</span>
+            <form method="post" action="{% url 'sair' %}">{% csrf_token %}<button type="submit" class="btn btn-secundario btn-sm">Sair</button></form></li>
+        {% else %}
+          <li><a href="{% url 'entrar' %}" class="btn btn-primario btn-sm">Entrar</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-crimson/40 text-crimson md:hidden" data-menu-toggle aria-controls="menu-movel" aria-expanded="false">
+      <span class="sr-only">Abrir menu</span>
+      <svg data-icon-open class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg data-icon-close class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav id="menu-movel" class="hidden border-t border-crimson/20 md:hidden" aria-label="Navegação móvel" data-menu>
+    <ul class="mx-auto max-w-6xl px-4 py-3 font-display tracking-[0.12em]">
+      <li><a href="/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Início</a></li>
+      <li><a href="/edicao/1916/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Edição de 1916/17</a></li>
+      <li><a href="/edicao/nova/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Nova edição</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="/edicao-colaborativa/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Área de edição</a></li>
+        <li class="flex items-center justify-between py-3"><span class="normal-case tracking-normal text-ink/70">{{ user.get_full_name|default:user.get_username }}</span>
+          <form method="post" action="{% url 'sair' %}">{% csrf_token %}<button type="submit" class="btn btn-secundario btn-sm">Sair</button></form></li>
+      {% else %}
+        <li class="py-3"><a href="{% url 'entrar' %}" class="btn btn-primario btn-sm">Entrar</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>

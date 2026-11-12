@@ -70,3 +70,8 @@ Thumbs.db
 
 # medições de tools/formatacao.py (cache, regenerável)
 vol*/paginas/*.medidas.pkl
+
+# editor web (Django)
+web/db.sqlite3
+web/node_modules/
+web/staticfiles/
