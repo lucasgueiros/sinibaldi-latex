@@ -1,0 +1,64 @@
+{
+ "modelo": "haiku",
+ "formato": "tei",
+ "pedacos": 155,
+ "feitos": 7,
+ "falhas": {},
+ "fronteira": {
+  "1": {
+   "corpo": [
+    2786,
+    1268
+   ],
+   "notas": [
+    4051,
+    5579
+   ],
+   "num_notas": [
+    2,
+    2
+   ],
+   "troca": 1518
+  },
+  "10": {
+   "corpo": [
+    2513,
+    1723
+   ],
+   "notas": [
+    0,
+    789
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 789
+  },
+  "11": {
+   "corpo": [
+    2247,
+    981
+   ],
+   "notas": [
+    3585,
+    4826
+   ],
+   "num_notas": [
+    2,
+    3
+   ],
+   "troca": 1241
+  }
+ },
+ "total_cost_usd": 0.0999,
+ "num_turns": 9,
+ "duration_ms": 657944,
+ "usage": {
+  "input_tokens": 138680,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 172048
+ },
+ "is_error": true
+}

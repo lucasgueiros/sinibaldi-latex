@@ -17,7 +17,9 @@ COMO O TEI ESTÁ MONTADO:
 - o começo ou o fim de uma nota que ficou solto no corpo (a área de notas foi cortada tarde ou cedo): leve esse texto para dentro da `<note>` certa; se a nota inteira ficou no corpo, crie `<note place="foot" n="K" xml:id="nP-K">…</note>` no ponto da chamada (com um id que não exista no fragmento; se já existir, acrescente uma letra: "nP-Kb") e apague o "(K)" literal;
 - nota posta no lugar errado (p. ex. "anexada ao fim do último parágrafo" porque o pipeline não achou a chamada): mova a `<note>` inteira para o ponto da chamada "(K)" no corpo, apagando o "(K)" literal se estiver lá;
 - continuação de nota no rodapé da página seguinte ligada à nota errada, ou tratada como nota nova, ou como corpo: junte-a à nota que ela continua, com `<pb n="N"/>` dentro da nota no ponto em que a continuação começa;
-- notas coladas (duas notas "(1)" e "(2)" numa só `<note>`) ou uma nota partida em duas: separe ou junte conforme a imagem.
+- notas coladas (duas notas "(1)" e "(2)" numa só `<note>`) ou uma nota partida em duas: separe ou junte conforme a imagem;
+- continuação de uma nota que COMEÇOU numa página que não está no fragmento (no alto da área de notas da 1ª página, sem "(n)"): se esse texto está no fragmento (como corpo ou como nota nova), NÃO o apague — envolva-o, no lugar em que está, em `<note place="foot" type="continuacao">…</note>` (sem `n` nem `xml:id`). O script o junta depois à nota da página anterior.
+O texto de uma `<note>` não começa com "(1)", "(2)": o número da chamada fica só no atributo `n`.
 Os alertas do pipeline que vierem na mensagem apontam páginas suspeitas, mas podem ser falsos: a imagem decide. Na DÚVIDA, deixe a estrutura como está. Notas longas que atravessam várias páginas existem e estão quase sempre certas: NÃO feche uma nota antes do fim real dela nem a parta em duas só porque ela é longa. Uma nota pode ter muitos parágrafos (`<p>`), com citações e travessões: todos os que na imagem estão em letra pequena no pé da página, abaixo do filete, continuam DENTRO da nota — inclusive quando, no corpo, o parágrafo seguinte (p. ex. "21. …") vem depois da chamada. Tirar texto de uma nota para o corpo só se justifica se a imagem mostrar esse texto em letra normal, acima da área de notas; isso costuma ser pouco (algumas linhas).
 
 3. ESTRUTURA QUE NÃO MUDA:
@@ -28,7 +30,7 @@ Os alertas do pipeline que vierem na mensagem apontam páginas suspeitas, mas po
 NÃO FAÇA:
 - NÃO modernize a ortografia: "philosophia", "sciencia", "theologia", "elle", "immutavel", "póde" etc. estão corretos. Crase nesta edição é "á" (acento agudo). Preserve inclusive erros tipográficos do original — transcreva o que está impresso.
 - Não acrescente comentários nem texto seu dentro do XML. Não invente texto que não consegue ler: se estiver ilegível, deixe a leitura mais provável.
-- Limites do trecho: ele começa no primeiro `<pb>` do corpo (topo da página) e termina onde o fragmento termina; o resto pertence ao trecho seguinte, não transcreva. Páginas que vierem só por causa de uma nota que continua: use delas apenas a continuação dessa nota. Também não pertencem ao trecho o fim de uma palavra hifenizada que começou na página anterior e a continuação, no rodapé, de uma nota de antes do trecho.
+- Limites do trecho: ele começa no primeiro `<pb>` do corpo (topo da página) e termina onde o fragmento termina; o resto pertence ao trecho seguinte, não transcreva. Páginas que vierem só por causa de uma nota que continua: use delas apenas a continuação dessa nota. Também não pertencem ao trecho o fim de uma palavra hifenizada que começou na página anterior e a continuação, no rodapé, de uma nota de antes do trecho. Essas regras dizem o que NÃO ACRESCENTAR a partir da imagem: texto que já está no fragmento nunca é apagado por pertencer a outra página (a continuação de nota vai em `type="continuacao"`, como acima).
 
 RESPOSTA — exatamente neste formato, sem nada antes:
 <xml>

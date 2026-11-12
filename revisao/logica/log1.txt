@@ -1,0 +1,10 @@
+>> haiku: 7 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 5 (1 pp.): ok  US$ 0.005  30s  ent 10325 saí 7925
+  p. 3 (2 pp.): ok  US$ 0.013  85s  ent 16885 saí 22660
+  p. 6 (2 pp.): ok  US$ 0.009  56s  ent 16902 saí 14913
+  p. 1 (3 pp.): ok  fronteira: troca 1518 car., notas [2, 2]  US$ 0.020  137s  ent 23099 saí 35241
+  p. 8 (2 pp.): ok  US$ 0.012  76s  ent 16296 saí 21313
+  p. 10 (1 pp.): ok (2ª tentativa)  fronteira: troca 789 car., notas [0, 1]  US$ 0.011  76s  ent 19758 saí 18404
+  p. 11 (2 pp.): FALHOU: o texto mudou demais: de 5832 para 4548 caracteres (texto duplicado ou perdido?)  US$ 0.022  148s  ent 34865 saí 37811
+>> 7/155 pedaços, 1 falha(s), 2 com fronteira mudada, US$ 0.09, 10.1 min de chamadas; tokens {'input_tokens': 138130, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 158267}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

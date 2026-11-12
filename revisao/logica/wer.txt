@@ -1,0 +1,8 @@
+== entrada
+total  ouro   1680 ocr   1709  WER 12.32%  {'replace': 161, 'insert': 16, 'delete': 30}
+corpo  ouro    796 ocr    817  WER 10.43%  {'replace': 53, 'insert': 24, 'delete': 6}
+notas  ouro    884 ocr    893  WER  9.28%  {'replace': 75, 'delete': 1, 'insert': 6}
+== revisado
+total  ouro   1680 ocr   1709  WER 12.32%  {'replace': 161, 'insert': 16, 'delete': 30}
+corpo  ouro    796 ocr    817  WER 10.43%  {'replace': 53, 'insert': 24, 'delete': 6}
+notas  ouro    884 ocr    893  WER  9.28%  {'replace': 75, 'delete': 1, 'insert': 6}

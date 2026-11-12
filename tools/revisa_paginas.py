@@ -289,6 +289,10 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
     if troca > 60 or b["notas_n"] != a["notas_n"]:
         fronteira = {"corpo": [a["corpo"], b["corpo"]], "notas": [a["notas"], b["notas"]],
                      "num_notas": [a["notas_n"], b["notas_n"]], "troca": troca}
+    if RE_CONT.search(novo):
+        doc = ctx.documento(n, novo)
+        if "</note>" not in doc[:doc.find(novo) + RE_CONT.search(novo).start()]:
+            return "type=\"continuacao\" sem nenhuma nota antes dela no documento", fronteira
     if dn < 0 and troca > nota_corpo_max:
         return (f"tirou texto demais das notas para o corpo (~{troca} caracteres; notas {a['notas']} → {b['notas']}, "
                 f"corpo {a['corpo']} → {b['corpo']}; máximo {nota_corpo_max}). Notas longas têm vários parágrafos em "
@@ -297,6 +301,84 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
         return (f"passou texto demais do corpo para as notas (~{troca} caracteres; corpo {a['corpo']} → {b['corpo']}, "
                 f"notas {a['notas']} → {b['notas']}): o máximo é {troca_max}"), fronteira
     return None, fronteira
+
+
+# ---------------------------------------------------------------- montagem
+
+RE_CONT = re.compile(r'<note\b[^>]*\btype="continuacao"[^>]*>')
+RE_NUM_NOTA = re.compile(r'(<note\b[^>]*>\s*(?:<p\b[^>]*>\s*)?(?:<hi\b[^>]*>)?)\(\s*\d{1,2}\s*\)\s*')
+
+
+def liga_continuacoes(doc):
+    """Junta cada <note type="continuacao"> (continuação, no alto do rodapé, de uma nota que começou
+    noutro pedaço) à nota anterior do documento, com <pb n="P"/> dentro dela, se essa nota é da página
+    P-1 (pelo xml:id nP-K ou pelo último <pb> de dentro dela).  Devolve (doc, avisos)."""
+    avisos = []
+    inicio = 0
+    while m := RE_CONT.search(doc, inicio):
+        fim = doc.index("</note>", m.end())
+        cont = doc[m.end():fim]
+        # página corrente do corpo e a última nota fechada antes da continuação
+        pag, ult, ult_ant = None, None, None
+        nivel, abre = 0, None
+        for t in RE_TAG.finditer(doc, 0, m.start()):
+            if t[2] == "pb" and not nivel:
+                novo_pag = (RE_N.findall(t[3] or "") or [None])[0]
+                if novo_pag != pag:          # nota da página anterior: a última fechada antes deste <pb>
+                    pag, ult_ant = novo_pag, ult
+            elif t[2] == "note" and not t[4]:
+                if t[1]:
+                    nivel -= 1
+                    if not nivel:
+                        ult = (abre, t.start())
+                else:
+                    if not nivel:
+                        abre = t
+                    nivel += 1
+        alvo = None
+        if ult_ant and pag and pag.isdigit():
+            a, f = ult_ant
+            ps = [int(x) for x in re.findall(r'<pb\b[^>]*\bn="(\d+)"', doc[a.end():f])]
+            pid = re.search(r'xml:id="n(\d+)-', a[0])
+            pn = max(ps) if ps else int(pid[1]) if pid else None
+            if pn == int(pag) - 1:
+                alvo = f
+        if alvo is None:
+            avisos.append(f"p. {pag}: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte")
+            inicio = fim
+            continue
+        pb = f'<pb n="{pag}" facs="paginas/{int(pag):04d}.png"/>'
+        antes = doc[:alvo]
+        txt_ant = palavras_brutas(antes[-400:])
+        txt_cont = palavras_brutas(cont)
+        emenda = not re.search(r'[.!?»"]\s*$', txt_ant) or (txt_cont[:1].islower())
+        c = cont.strip()
+        if emenda and antes.rstrip().endswith("</p>"):
+            k = antes.rstrip().rfind("</p>")
+            if not txt_ant.endswith("-"):
+                pb = " " + pb
+            if c.startswith("<p"):
+                c = c[c.index(">") + 1:]
+                novo = antes[:k] + pb + c
+            elif "<p" not in c:
+                novo = antes[:k] + pb + c + "</p>"
+            else:
+                novo = antes + pb + c
+        else:
+            novo = antes + pb + (c if c.startswith("<p") or "<p" in c or not antes.rstrip().endswith("</p>")
+                                 else f"<p>{c}</p>")
+        resto = doc[alvo:m.start()] + doc[fim + len("</note>"):]
+        avisos.append(f"p. {pag}: continuação de nota ligada à nota anterior ({len(txt_cont)} car.)")
+        inicio = len(novo)
+        doc = novo + resto
+    doc, k = RE_NUM_NOTA.subn(r"\1", doc)
+    if k:
+        avisos.append(f"{k} nota(s) começavam com o número da chamada \"(n)\": tirado")
+    return doc, avisos
+
+
+def palavras_brutas(frag):
+    return re.sub(r"\s+", " ", html.unescape(RE_TAG.sub("", frag))).strip()
 
 
 # ---------------------------------------------------------------- imagens e alertas
@@ -608,7 +690,9 @@ def main():
         j = dirp / f"{n:04d}.json"
         if j.exists():
             todos.append(json.loads(j.read_text()))
-    final = prefixo + "".join(partes) + sufixo
+    final, avisos_mont = liga_continuacoes(prefixo + "".join(partes) + sufixo)
+    for x in avisos_mont:
+        print(f"   montagem: {x}", file=sys.stderr)
     erro = bem_formado(final)
     if erro:   # cada pedaço foi checado sozinho no documento; juntos não deveria falhar
         print(f"!! revisado.xml mal formado ao juntar os pedaços: {erro}", file=sys.stderr)
@@ -638,7 +722,9 @@ def main():
                   f"car., {fr['num_notas'][0]}→{fr['num_notas'][1]} nota(s)")
         return s + f": {r['notas']}"
     (args.saida / "relatorio.md").write_text(
-        "\n".join(linha(r) for r in sorted(todos, key=lambda r: r["pagina"])) + "\n", encoding="utf-8")
+        "\n".join(linha(r) for r in sorted(todos, key=lambda r: r["pagina"])) + "\n"
+        + ("\n## Montagem\n\n" + "\n".join(f"- {x}" for x in avisos_mont) + "\n" if avisos_mont else ""),
+        encoding="utf-8")
 
     p0, p1 = pedacos[0][0], max(max(p[2]) for p in pedacos)
     wer = []

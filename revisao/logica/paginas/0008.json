@@ -1,0 +1,28 @@
+{
+ "pagina": 8,
+ "paginas": [
+  8,
+  9
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (dignidude, ulilissima, confade, Hlustração, perleições, Juz, Luiz NIV, roubo/ronbo, nio/não etc.), acentos e cedilhas, palavras trocadas (\"Às\"→\"As\", \"Ás glorias\"→\"As glorias\", \"nà\"→\"na\"), hífens de fim de linha, \"(7\" lido de \"(Ib.\" no rodapé da p. 8, e formatação (negrito em a)/b), itálicos de \"em dignidade\", \"É utilissima…\", \"capital é um roubo\"; \"para\" não é negrito na p. 9).\nFronteira corpo/nota: nenhuma mudança estrutural; chamadas 1 e 2 (p. 8), 1 (p. 9) e as continuações de nota (n8-2 na p. 9) conferem com a imagem. Os alertas \"chamada (7)\" eram falsos: o \"(7\" era erro do OCR do \"(Ib.\".\nDúvidas: itálico exato de \"V e VI\" e de \"Ib.,ad\" (na imagem parecem itálicos); a grafia \"aperfeiçoa\"/\"scholastica\" lida com alguma incerteza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (dignidude, ulilissima, confade, Hlustração, perleições, Juz, Luiz NIV, roubo/ronbo, nio/não etc.), acentos e cedilhas, palavras trocadas (\"Às\"→\"As\", \"Ás glorias\"→\"As glorias\", \"nà\"→\"na\"), hífens de fim de linha, \"(7\" lido de \"(Ib.\" no rodapé da p. 8, e formatação (negrito em a)/b), itálicos de \"em dignidade\", \"É utilissima…\", \"capital é um roubo\"; \"para\" não é negrito na p. 9).\nFronteira corpo/nota: nenhuma mudança estrutural; chamadas 1 e 2 (p. 8), 1 (p. 9) e as continuações de nota (n8-2 na p. 9) conferem com a imagem. Os alertas \"chamada (7)\" eram falsos: o \"(7\" era erro do OCR do \"(Ib.\".\nDúvidas: itálico exato de \"V e VI\" e de \"Ib.,ad\" (na imagem parecem itálicos); a grafia \"aperfeiçoa\"/\"scholastica\" lida com alguma incerteza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0122861,
+ "duration_ms": 75787,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16296,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 21313
+ },
+ "reparo": false
+}
