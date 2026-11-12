@@ -39,7 +39,8 @@ padrões-ouro — vol. 2 pp. 421–442, vol. 1 `vol1/ouro/` (`--vol vol1`), `doc
 (cadeia inteira de um volume: formatação → TEI → correção → LaTeX → `build/volN.pdf`), `titulos.py`
 (detecta títulos/teses → `volN/estrutura.proposta.tsv` + alertas), `trecho.py` (seletor por id, tese
 ou página → txt/tei/tex/pdf/scan/slides; `--lista`, `--onde`; `docs/08`), `revisa_paginas.py` (revisão final
-por LLM, uma chamada `claude -p` por página contra a imagem; `docs/09`). Ver `docs/03`.
+por LLM — Haiku — sobre o TEI, uma chamada `claude -p` por página contra a imagem, podendo corrigir a
+fronteira corpo/nota; `docs/09`). Ver `docs/03`.
 
 ## Pipeline
 

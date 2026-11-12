@@ -2,7 +2,9 @@
 """Tabela da comparação de modelos (revisao-modelos/<modelo>/<vol>/, de roda.sh).
 
     python3 revisao-modelos/compara.py                         # revisao-modelos/<m>/<vol>/ (agente, roda.sh)
-    python3 revisao-modelos/compara.py revisao-modelos/por-pagina   # revisão por página (roda_por_pagina.sh)
+    python3 revisao-modelos/compara.py revisao-modelos/por-pagina       # por página sobre o .tex (antigo)
+    python3 revisao-modelos/compara.py revisao-modelos/por-pagina-xml   # por página sobre o TEI (roda_por_pagina.sh)
+Se houver revisado.xml/entrada/volN.xml ao lado do .tex, o WER é medido no TEI.
 WER contra o padrão-ouro (docs/07): vol. 2 = capítulo inteiro (pp. 421-442); vol. 1 = só o bloco
 331-334 que o ouro cobre (o capítulo vai até 359).  Custo/turnos/tempo do resultado.json do claude -p.
 """
@@ -17,9 +19,11 @@ AQUI = Path(__file__).resolve().parent
 FAIXA = {"vol2": (421, 442), "vol1": (331, 334)}
 
 
-def wer(vol, tex):
+def wer(vol, tex, tei=True):
     de, ate = FAIXA[vol]
-    r = subprocess.run([sys.executable, "tools/mede_wer.py", "--vol", vol, "--tex", str(tex), "-f", str(de),
+    xml = Path(tex).with_suffix(".xml")      # revisão sobre TEI: mede o XML (sem os números de \\pgn)
+    fonte = ["--xml", str(xml)] if tei and xml.exists() else ["--tex", str(tex)]
+    r = subprocess.run([sys.executable, "tools/mede_wer.py", "--vol", vol, *fonte, "-f", str(de),
                         "-l", str(ate)], cwd=RAIZ, capture_output=True, text=True)
     out = {}
     for m in re.finditer(r"^(total|corpo|notas)\s.*WER\s+([\d.]+)%", r.stdout, re.M):
@@ -41,7 +45,7 @@ def main():
     base = {}
     for vol in ("vol2", "vol1"):
         e = AQUI / "entrada" / f"{vol}.tex"
-        base[vol] = wer(vol, e)
+        base[vol] = wer(vol, e, tei=raiz.name.endswith("-xml"))   # entrada/volN.xml só na rodada TEI
         i = integridade(e)
         linhas.append(f"| *pipeline* | {vol} | {base[vol]['total']:.2f}% | {base[vol]['corpo']:.2f}% | "
                       f"{base[vol]['notas']:.2f}% | {i['pg']} ({i['pg_dup']}) | {i['notas']} | {i['chaves']} | | | | | |")

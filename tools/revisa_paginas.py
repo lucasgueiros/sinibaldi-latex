@@ -1,30 +1,36 @@
 #!/usr/bin/env python3
-"""Revisão final de um .tex por LLM, uma chamada `claude -p` por página (sem ferramentas, 1 turno).
+"""Revisão final de um TEI por LLM, uma chamada `claude -p` por página (sem ferramentas, 1 turno).
 
-    python3 tools/revisa_paginas.py ENTRADA.tex --vol vol2 --modelo haiku --saida DIR
-    python3 tools/revisa_paginas.py ENTRADA.tex --vol vol2 --modelo haiku --saida DIR --so 421,422
-    python3 tools/revisa_paginas.py ENTRADA.tex --vol vol2 --saida DIR --seco      # só mostra os pedaços
+    python3 tools/revisa_paginas.py ENTRADA.xml --vol vol2 --saida DIR [--paralelo 3]
+    python3 tools/revisa_paginas.py ENTRADA.xml --vol vol2 --saida DIR --so 421,422 --refaz
+    python3 tools/revisa_paginas.py ENTRADA.xml --vol vol2 --saida DIR --seco      # só mostra os pedaços
 
-Substitui o agente de capítulo inteiro de tools/revisa_trecho.sh, que relia o contexto todo (.tex do
-capítulo + imagens + prompt de sistema do Claude Code) a cada um dos 50-170 turnos (um Edit por
-correção) e consumia ~3 M tokens de cache por capítulo.  Aqui:
+ENTRADA.xml sai de `tools/trecho.py SELETOR -F tei` (ou é o volN.corrigido.xml inteiro).  Modelo padrão:
+Haiku.  Ver docs/09-revisao-llm.md.
 
-  * o .tex é cortado nos \\pg{N}; cada pedaço vai com as imagens das páginas que ele cobre
-    (N até o próximo \\pg, mais as citadas por \\pgn dentro dele: notas que continuam);
-  * cada página vai em duas metades (superior/inferior, com sobreposição), cinza, ≤ 1568 px — a
-    resolução máxima que a API usa sem reduzir; a nota de rodapé fica legível;
-  * as imagens vão embutidas na mensagem (--input-format stream-json), com --tools "" e prompt de
-    sistema próprio (tools/prompts/revisao_pagina.md): um único turno, contexto ~5-25 k tokens;
-  * o modelo devolve o pedaço inteiro em <tex>…</tex>; se os \\pg mudarem, as chaves desbalancearem
-    ou o tamanho variar demais, o pedaço é rejeitado (fica o original) e marcado em resultado.json;
+  * o XML é cortado nos <pb n> do CORPO (os de dentro de <note> marcam onde a nota continua); cada
+    pedaço vai com as imagens das páginas que cobre.  Páginas ligadas por uma nota que continua ficam
+    no mesmo pedaço (até --max-car): é aí que a fronteira corpo/nota costuma errar, e o conserto
+    mexe nas duas páginas.  Páginas só de nota juntam-se ao pedaço anterior;
+  * cada página vai em duas metades (superior/inferior, com sobreposição), cinza, ≤ 1568 px;
+  * os alertas do estruturador (volN/volN.estruturado.alertas.tsv) dessas páginas vão como pistas;
+  * o modelo devolve o fragmento em <xml>…</xml>.  Ele PODE corrigir a fronteira entre nota e corpo
+    (fechar/abrir nota noutro ponto, passar texto entre os dois, criar nota que ficou no corpo, levar a
+    nota ao ponto da chamada).  O validador recusa: XML mal formado no documento inteiro, <pb> do corpo
+    mudados, elementos novos, xml:id repetido, texto total que cresce/encolhe demais (duplicado ou
+    perdido) e passagem corpo↔nota acima de --troca-max.  Recusado, há nova chamada com o motivo;
   * cada pedaço é gravado em DIR/paginas/ ao terminar: rodar de novo retoma (--refaz para refazer).
 
-Saída em DIR: revisado.tex, relatorio.md (notas do modelo por pedaço), resultado.json (custo, chamadas,
-tokens, falhas; mesmos campos que compara.py lê) e wer.txt (tools/mede_wer.py antes/depois).
+Saída em DIR: revisado.xml, entrada.tex/revisado.tex (tei2latex --puro, para ler e para
+revisao-modelos/), relatorio.md (notas do modelo e mudanças de fronteira por pedaço), resultado.json
+(custo, chamadas, tokens, falhas, fronteira) e wer.txt (tools/mede_wer.py --xml antes/depois).
 """
 import argparse
 import base64
+import collections
 import concurrent.futures as cf
+import csv
+import html
 import io
 import json
 import os
@@ -35,94 +41,214 @@ import tempfile
 import time
 from pathlib import Path
 
+from lxml import etree
 from PIL import Image
 
 RAIZ = Path(__file__).resolve().parent.parent
 PROMPT = RAIZ / "tools/prompts/revisao_pagina.md"
+TEI = "{http://www.tei-c.org/ns/1.0}"
 LADO_MAX = 1568          # a API reduz qualquer imagem cujo lado maior passe disto
 SOBREPOE = 0.06          # fração da altura repetida nas duas metades
 MINIMO = 300             # pedaço com menos texto que isto vai junto com o anterior
-RE_PG = re.compile(r"\\pg\{(\d+)\}")
-RE_PGN = re.compile(r"\\pgn\{(\d+)\}")
+MAX_CAR = 9000           # teto (texto) de um pedaço que junta páginas ligadas por nota
+TROCA_MAX = 2500         # passagem corpo↔nota (caracteres) acima disto é recusada
+NGRAMA = 10              # sequência de palavras usada para achar texto duplicado/copiado
+REPETE_MAX = 3           # sequências duplicadas/copiadas toleradas (repetições legítimas, acaso)
+RE_TAG = re.compile(r"<(/?)([A-Za-z][\w:.-]*)((?:\s+[^>]*?)?)\s*(/?)>|<!--.*?-->|<\?.*?\?>", re.S)
+RE_N = re.compile(r'\bn="([^"]*)"')
+RE_ID = re.compile(r'\bxml:id="([^"]*)"')
+REND = {"it", "bold", "sc"}
+ALERTAS = {"chamadas-x-notas", "nota-sem-chamada", "vao-nas-notas", "nota-recuperada", "continuacao-duvidosa",
+           "corte-incerto", "corte-por-chamada", "numero-diverge"}
+
+
+# ---------------------------------------------------------------- análise de um fragmento
+
+def analisa(frag):
+    """Percorre as tags de um fragmento (que pode começar/terminar no meio de elementos, mas começa
+    fora de nota).  Devolve corpo/notas (caracteres de texto), os <pb> do corpo e de nota, nº de notas,
+    os ids, os nomes de elementos e erros de forma."""
+    r = {"corpo": 0, "notas": 0, "pb_corpo": [], "pb_nota": [], "notas_n": 0, "ids": [], "elems": set(),
+         "rend": set(), "erros": [], "pos_pb": []}
+    nota, i = 0, 0
+
+    def texto(s):
+        n = len(re.sub(r"\s+", " ", html.unescape(s)).strip()) if s.strip() else 0
+        r["notas" if nota else "corpo"] += n
+
+    for m in RE_TAG.finditer(frag):
+        texto(frag[i:m.start()])
+        i = m.end()
+        if not m[2]:                     # comentário / instrução
+            continue
+        fecha, nome, attrs, vazio = m[1], m[2], m[3] or "", m[4]
+        r["elems"].add(nome)
+        if not fecha:
+            r["ids"] += RE_ID.findall(attrs)
+            r["rend"] |= set(re.findall(r'\brend="([^"]*)"', attrs))
+        if nome == "pb":
+            n = (RE_N.findall(attrs) or ["?"])[0]
+            (r["pb_nota"] if nota else r["pb_corpo"]).append(n)
+            if not nota:
+                r["pos_pb"].append((m.start(), n))
+        elif nome == "note":
+            if fecha:
+                nota -= 1
+            elif not vazio:
+                nota += 1
+                r["notas_n"] += 1
+                if 'place="foot"' not in attrs:
+                    r["erros"].append("<note> sem place=\"foot\"")
+            if nota < 0:
+                r["erros"].append("</note> sem <note> aberto")
+                nota = 0
+    texto(frag[i:])
+    if nota:
+        r["erros"].append("<note> não fechado dentro do pedaço")
+    return r
+
+
+def palavras(frag):
+    return re.findall(r"\w+", html.unescape(RE_TAG.sub(" ", frag)).lower())
+
+
+def ngramas(frag, k=NGRAMA):
+    p = palavras(frag)
+    return collections.Counter(tuple(p[i:i + k]) for i in range(len(p) - k + 1))
+
+
+def chars_texto(frag):
+    a = analisa(frag)
+    return a["corpo"] + a["notas"]
 
 
 # ---------------------------------------------------------------- pedaços
 
-def corta(tex):
-    """Lista de (pagina, texto, paginas_das_imagens).  O preâmbulo vai com o primeiro pedaço;
-    \\pg repetidos em seguida (pipeline) ficam no mesmo pedaço."""
-    ms = list(RE_PG.finditer(tex))
-    if not ms:
-        sys.exit("o .tex não tem \\pg{N}")
-    inicios, nums = [0], [int(ms[0][1])]
-    for m in ms[1:]:
-        n = int(m[1])
-        if n != nums[-1]:
-            inicios.append(m.start())
+def corta(xml, max_car):
+    """(prefixo, [(pagina, texto, paginas_das_imagens)], sufixo).  Só os pedaços são revisados."""
+    ini_body = xml.find("<body")
+    fim_body = xml.rfind("</body>")
+    if ini_body < 0 or fim_body < 0:
+        sys.exit("a entrada não tem <body>…</body>")
+    ini_body = xml.index(">", ini_body) + 1
+    corpo = xml[ini_body:fim_body]
+    pbs = analisa(corpo)["pos_pb"]
+    if not pbs:
+        sys.exit("o TEI não tem <pb n> no corpo")
+    inicios, nums = [], []
+    for pos, n in pbs:
+        n = int(n)
+        if not nums or n != nums[-1]:       # <pb> repetidos em seguida ficam no mesmo pedaço
+            inicios.append(pos)
             nums.append(n)
-    inicios.append(len(tex))
-    # páginas só de nota (o corpo quase não tem texto entre dois \pg): juntam-se ao pedaço anterior,
-    # que já traz a nota e as imagens dessas páginas
+    inicios.append(len(corpo))
+    seg = lambda i: corpo[inicios[i]:inicios[i + 1]]
+    # junta ao anterior: (a) página quase sem texto de corpo (só continuação de nota, que está no
+    # pedaço anterior); (b) página para onde uma nota do pedaço anterior continua, até max_car
     i = 1
     while i < len(nums):
-        miolo = RE_PG.sub("", tex[inicios[i]:inicios[i + 1]]).strip()
-        if len(miolo) < MINIMO:
+        anterior = corpo[inicios[i - 1]:inicios[i]]
+        a = analisa(anterior)
+        curto = chars_texto(seg(i)) < MINIMO
+        liga = str(nums[i]) in a["pb_nota"] and chars_texto(anterior) + chars_texto(seg(i)) <= max_car
+        if curto or liga:
             del inicios[i], nums[i]
         else:
             i += 1
     pedacos = []
     for i, n in enumerate(nums):
-        texto = tex[inicios[i]:inicios[i + 1]]
+        texto = seg(i)
         prox = nums[i + 1] if i + 1 < len(nums) else n + 1
         pags = set(range(n, prox)) if prox > n else {n}
-        pags |= {int(p) for p in RE_PGN.findall(texto)}
+        pags |= {int(p) for p in analisa(texto)["pb_nota"] if p.isdigit()}
         pedacos.append((n, texto, sorted(pags)))
-    return pedacos
+    return xml[:ini_body + inicios[0]], pedacos, xml[ini_body + inicios[-1]:]
 
 
-def notas_e_corpo(texto):
-    """(caracteres dentro de \\footnote{…}, caracteres fora), casando chaves."""
-    dentro, i = 0, 0
-    while (j := texto.find("\\footnote{", i)) >= 0:
-        k, nivel = j + len("\\footnote{"), 1
-        while k < len(texto) and nivel:
-            nivel += {"{": 1, "}": -1}.get(texto[k], 0)
-            k += 1
-        dentro += k - j
-        i = k
-    return dentro, len(texto) - dentro
+# ---------------------------------------------------------------- validação
+
+class Contexto:
+    """O documento inteiro, para checar cada pedaço no lugar dele."""
+
+    def __init__(self, prefixo, pedacos, sufixo):
+        self.prefixo, self.sufixo = prefixo, sufixo
+        self.textos = [t for _, t, _ in pedacos]
+        self.idx = {n: k for k, (n, _, _) in enumerate(pedacos)}
+        doc = prefixo + "".join(self.textos) + sufixo
+        self.elems = analisa(doc)["elems"]
+        self.ids = collections.Counter(RE_ID.findall(doc))
+
+    def ids_fora(self, n):
+        """xml:id usados no documento fora do pedaço n."""
+        return +(self.ids - collections.Counter(RE_ID.findall(self.textos[self.idx[n]])))
+
+    def seguinte(self, n):
+        k = self.idx[n]
+        return self.textos[k + 1] if k + 1 < len(self.textos) else ""
+
+    def documento(self, n, novo):
+        k = self.idx[n]
+        return self.prefixo + "".join(self.textos[:k]) + novo + "".join(self.textos[k + 1:]) + self.sufixo
 
 
-def valida(texto, novo):
-    """None se a revisão preserva a estrutura; senão o motivo da recusa."""
-    if RE_PG.findall(novo) != RE_PG.findall(texto):
-        return f"os \\pg mudaram: {RE_PG.findall(texto)} → {RE_PG.findall(novo)}"
-    if RE_PGN.findall(novo) != RE_PGN.findall(texto):
-        return f"os \\pgn mudaram: {RE_PGN.findall(texto)} → {RE_PGN.findall(novo)}"
-    if novo.count("\\footnote{") != texto.count("\\footnote{"):
-        return f"número de \\footnote mudou: {texto.count(chr(92) + 'footnote{')} → {novo.count(chr(92) + 'footnote{')}"
-    saldo = lambda s: s.count("{") - s.count("}")
-    if saldo(novo) != saldo(texto):
-        return f"chaves desbalanceadas: saldo {saldo(texto)} → {saldo(novo)}"
-    # Linha reposta (o OCR perde muito a 1ª linha da página) só faz crescer uma parte; texto passado
-    # entre corpo e nota faz uma crescer e a outra encolher.  Mudança grande demais também é recusada.
-    # só contam as páginas com corpo: as de pura continuação de nota não têm 1ª linha a perder
-    paginas = max(1, sum(1 for seg in RE_PG.split(texto)[2::2] if notas_e_corpo(seg)[1] > 100))
-    (na, ca), (nb, cb) = notas_e_corpo(texto), notas_e_corpo(novo)
-    # uma linha impressa tem ~90 caracteres: o corpo pode ganhar/perder ~1 linha por página; as notas,
-    # poucas linhas (um parágrafo duplicado de outra página tem 500+ caracteres)
-    for nome, a, b, lim in (("das notas", na, nb, max(0.02 * na, 200)),
-                            ("do corpo", ca, cb, max(0.12 * ca, 180 * paginas))):
-        if abs(b - a) > lim:
-            return f"o texto {nome} mudou demais: de {a} para {b} caracteres (texto duplicado ou perdido?)"
-    tol = lambda a: max(0.06 * a, 60)
-    dc, dn = cb - ca, nb - na
-    if (dc > tol(ca) and dn < -tol(na)) or (dc < -tol(ca) and dn > tol(na)):
-        return (f"texto passou entre corpo e nota: corpo {ca} → {cb}, notas {na} → {nb} caracteres")
-    return None
+def bem_formado(doc):
+    try:
+        etree.fromstring(doc.encode("utf-8"), etree.XMLParser(resolve_entities=False, huge_tree=True))
+        return None
+    except etree.XMLSyntaxError as e:
+        return str(e)
 
 
-# ---------------------------------------------------------------- imagens
+def valida(n, texto, novo, pags, ctx, troca_max):
+    """(motivo da recusa ou None, mudança de fronteira ou None)."""
+    a, b = analisa(texto), analisa(novo)
+    if b["erros"]:
+        return "; ".join(sorted(set(b["erros"]))), None
+    if b["pb_corpo"] != a["pb_corpo"]:
+        return f"os <pb> do corpo mudaram: {a['pb_corpo']} → {b['pb_corpo']}", None
+    fora = [p for p in b["pb_nota"] if not p.isdigit() or int(p) not in pags]
+    if fora or len(set(b["pb_nota"])) != len(b["pb_nota"]):
+        return f"<pb> dentro de nota inválidos: {b['pb_nota']} (páginas do trecho: {pags})", None
+    novos = b["elems"] - ctx.elems
+    if novos:
+        return f"elementos que o TEI não usa: {sorted(novos)}", None
+    if b["rend"] - REND - a["rend"]:
+        return f"rend desconhecido: {sorted(b['rend'] - REND - a['rend'])}", None
+    rep = [x for x in b["ids"] if b["ids"].count(x) > 1 or x in ctx.ids_fora(n)]
+    if rep:
+        return f"xml:id repetido: {sorted(set(rep))}", None
+    erro = bem_formado(ctx.documento(n, novo))
+    if erro:
+        return f"o XML ficou mal formado: {erro}", None
+    # texto repetido: sequências de NGRAMA palavras que aparecem mais vezes que na entrada, ou que não
+    # estavam no pedaço mas estão no seguinte (nota/corpo de uma página extra copiado)
+    ga, gb, gs = ngramas(texto), ngramas(novo), ngramas(ctx.seguinte(n))
+    dup = sum(1 for g, c in gb.items() if c > ga.get(g, 0) and ga.get(g, 0) > 0)
+    copia = sum(1 for g in gb if g not in ga and g in gs)
+    if dup > REPETE_MAX:
+        return f"texto duplicado dentro do trecho (~{dup + NGRAMA - 1} palavras repetidas)", None
+    if copia > REPETE_MAX:
+        return (f"copiou ~{copia + NGRAMA - 1} palavras que pertencem ao trecho seguinte (corpo ou nota que começa "
+                "numa página extra)"), None
+    # tamanho: uma linha impressa tem ~90 caracteres; o corpo pode ganhar ~1 linha por página (a 1ª,
+    # que o OCR perde); um parágrafo duplicado de outra página tem 500+ caracteres
+    paginas = max(1, len(set(a["pb_corpo"])))
+    ta, tb = a["corpo"] + a["notas"], b["corpo"] + b["notas"]
+    if abs(tb - ta) > max(0.04 * ta, 200) + 180 * paginas:
+        return f"o texto mudou demais: de {ta} para {tb} caracteres (texto duplicado ou perdido?)", None
+    dc, dn = b["corpo"] - a["corpo"], b["notas"] - a["notas"]
+    fronteira = None
+    troca = min(abs(dc), abs(dn)) if dc * dn < 0 else 0
+    if troca > 60 or b["notas_n"] != a["notas_n"]:
+        fronteira = {"corpo": [a["corpo"], b["corpo"]], "notas": [a["notas"], b["notas"]],
+                     "num_notas": [a["notas_n"], b["notas_n"]], "troca": troca}
+    if troca > troca_max:
+        return (f"passou texto demais entre corpo e nota (~{troca} caracteres; corpo {a['corpo']} → {b['corpo']}, "
+                f"notas {a['notas']} → {b['notas']}): o máximo é {troca_max}"), fronteira
+    return None, fronteira
+
+
+# ---------------------------------------------------------------- imagens e alertas
 
 _cache_img = {}
 
@@ -146,25 +272,42 @@ def metades(png):
     return out
 
 
-def mensagem(n, texto, pags, imagens, descricao, aviso=""):
+def le_alertas(caminho):
+    al = {}
+    if caminho and Path(caminho).exists():
+        with open(caminho, encoding="utf-8") as f:
+            for l in csv.DictReader(f, delimiter="\t"):
+                if l["tipo"] in ALERTAS and l["pagina"].lstrip("-").isdigit():
+                    al.setdefault(int(l["pagina"]), []).append(f"{l['tipo']}: {l['mensagem']}")
+    return al
+
+
+def mensagem(n, texto, pags, args, aviso=""):
     conteudo = []
     for p in pags:
-        png = imagens / f"{p:04d}.png"
+        png = args.imagens / f"{p:04d}.png"
         if not png.exists():
             continue
         for nome, dados in zip(("metade superior", "metade inferior"), metades(png)):
             conteudo.append({"type": "text", "text": f"Página {p} — {nome}:"})
             conteudo.append({"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": dados}})
+    corpo_pags = sorted({int(p) for p in analisa(texto)["pb_corpo"]})
     extra = ""
-    if len(pags) > 1:
-        extra = (f" As páginas {', '.join(map(str, pags[1:]))} vêm porque o trecho continua nelas "
-                 "(nota de rodapé que prossegue, ou páginas só de nota). Delas use apenas o que pertence ao "
-                 "trecho: o texto que vem depois do fim do trecho — inclusive notas que COMEÇAM nessas páginas "
-                 "— é do trecho seguinte e não deve ser copiado.")
+    alem = [p for p in pags if p > corpo_pags[-1]]
+    if len(corpo_pags) > 1:
+        extra += f" O trecho cobre o corpo das páginas {', '.join(map(str, corpo_pags))}."
+    if alem:
+        extra += (f" As páginas {', '.join(map(str, alem))} vêm só porque uma nota do trecho continua nelas. Delas "
+                  "use apenas a continuação dessa nota: o corpo e as notas que COMEÇAM nessas páginas são do "
+                  "trecho seguinte e não devem ser copiados.")
+    alertas = [f"  p. {p}: {m}" for p in pags for m in args.alertas.get(p, [])]
+    if alertas:
+        extra += ("\n\nAlertas do pipeline para estas páginas (pistas de onde a fronteira corpo/nota pode estar "
+                  "errada; confira na imagem, podem ser falsos):\n" + "\n".join(alertas))
     conteudo.append({"type": "text", "text":
-                     f"{descricao}. Trecho que começa na página {n}.{extra} Revise este trecho LaTeX contra as "
-                     f"imagens e devolva-o corrigido no formato pedido.{' ' + aviso if aviso else ''}"
-                     f"\n\n<entrada>\n{texto}</entrada>"})
+                     f"{args.descricao}. Trecho que começa na página {n}.{extra}\n\nRevise este fragmento TEI contra "
+                     f"as imagens e devolva-o corrigido no formato pedido.{chr(10) * 2 + aviso if aviso else ''}"
+                     f"\n\n<entrada>\n{texto}\n</entrada>"})
     return {"type": "user", "message": {"role": "user", "content": conteudo}}
 
 
@@ -193,86 +336,108 @@ def chama(msg, modelo, sistema, effort, cwd):
     return res
 
 
-def processa(ped, args, sistema, cwd, dirp):
+def extrai(resp, texto):
+    m = re.search(r"<xml>\n?(.*?)\n?</xml>", resp, re.S)
+    if not m:
+        return None
+    novo = m[1]
+    # preserva o espaço em volta do fragmento (as fronteiras entre pedaços)
+    novo = texto[:len(texto) - len(texto.lstrip())] + novo.strip() + texto[len(texto.rstrip()):]
+    return novo
+
+
+def processa(ped, args, sistema, cwd, dirp, ctx):
     n, texto, pags = ped
     base = dirp / f"{n:04d}"
     js = base.with_suffix(".json")
     if js.exists() and not args.refaz:
         reg = json.loads(js.read_text())
-        rej = base.with_suffix(".rejeitado.tex")
+        rej = base.with_suffix(".rejeitado.xml")
         if args.revalida and reg["falha"] and rej.exists():   # critério novo sobre a resposta já paga
             novo = rej.read_text(encoding="utf-8")
-            if texto.endswith("\n") and not novo.endswith("\n"):
-                novo += "\n"
-            reg["falha"] = valida(texto, novo)
+            reg["falha"], reg["fronteira"] = valida(n, texto, novo, pags, ctx, args.troca_max)
             if reg["falha"] is None:
-                base.with_suffix(".revisado.tex").write_text(novo, encoding="utf-8")
+                base.with_suffix(".revisado.xml").write_text(novo, encoding="utf-8")
                 rej.unlink()
             js.write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
             print(f"  p. {n}: revalidado → {reg['falha'] or 'ok'}", file=sys.stderr)
         return reg
-    base.with_suffix(".entrada.tex").write_text(texto, encoding="utf-8")
-    for f in (".revisado.tex", ".rejeitado.tex"):
+    base.with_suffix(".entrada.xml").write_text(texto, encoding="utf-8")
+    for f in (".revisado.xml", ".rejeitado.xml"):
         base.with_suffix(f).unlink(missing_ok=True)
-    reg = {"pagina": n, "paginas": pags, "falha": None, "notas": "", "tentativas": [], "total_cost_usd": 0.0,
-           "duration_ms": 0, "num_turns": 0, "usage": {}}
+    reg = {"pagina": n, "paginas": pags, "falha": None, "fronteira": None, "notas": "", "tentativas": [],
+           "total_cost_usd": 0.0, "duration_ms": 0, "num_turns": 0, "usage": {}}
     aviso = ""
     for tentativa in range(args.tentativas):
         t0 = time.time()
-        msg = mensagem(n, texto, pags, args.imagens, args.descricao, aviso)
-        res = chama(msg, args.modelo, sistema, args.effort, cwd)
+        res = chama(mensagem(n, texto, pags, args, aviso), args.modelo, sistema, args.effort, cwd)
         resp = res.get("result") or ""
-        m = re.search(r"<tex>\n?(.*?)\n?</tex>", resp, re.S)
+        novo = extrai(resp, texto)
         notas = re.search(r"<notas>\s*(.*?)\s*</notas>", resp, re.S)
+        fronteira = None
         if res.get("is_error"):
             falha = "erro do claude: " + resp[:300]
-        elif not m:
-            falha = "resposta sem <tex>…</tex>"
+        elif novo is None:
+            falha = "resposta sem <xml>…</xml>"
         else:
-            novo = m[1]
-            if texto.endswith("\n") and not novo.endswith("\n"):
-                novo += "\n"
-            falha = valida(texto, novo)
+            falha, fronteira = valida(n, texto, novo, pags, ctx, args.troca_max)
         reg["total_cost_usd"] += res.get("total_cost_usd", 0) or 0
         reg["duration_ms"] += res.get("duration_ms") or int((time.time() - t0) * 1000)
         reg["num_turns"] += res.get("num_turns", 0) or 0
         for k, v in (res.get("usage") or {}).items():
             if isinstance(v, int):
                 reg["usage"][k] = reg["usage"].get(k, 0) + v
-        reg["tentativas"].append({"falha": falha, "notas": notas[1] if notas else "",
+        reg["tentativas"].append({"falha": falha, "fronteira": fronteira, "notas": notas[1] if notas else "",
                                   "resposta": resp if (falha or not notas) else ""})
-        reg["falha"], reg["notas"] = falha, notas[1] if notas else ""
+        reg["falha"], reg["fronteira"], reg["notas"] = falha, fronteira, notas[1] if notas else ""
         if falha is None:
-            base.with_suffix(".revisado.tex").write_text(novo, encoding="utf-8")
-            base.with_suffix(".rejeitado.tex").unlink(missing_ok=True)
+            base.with_suffix(".revisado.xml").write_text(novo, encoding="utf-8")
+            base.with_suffix(".rejeitado.xml").unlink(missing_ok=True)
             break
-        if m:
-            base.with_suffix(".rejeitado.tex").write_text(m[1], encoding="utf-8")
+        if novo is not None:
+            base.with_suffix(".rejeitado.xml").write_text(novo, encoding="utf-8")
         if res.get("is_error") and "limit" in resp.lower():
             break                                 # limite de uso: não adianta repetir
-        aviso = (f"ATENÇÃO: uma revisão anterior deste trecho foi recusada porque {falha}. Respeite as regras de "
-                 "ESTRUTURA: mesmos \\pg, \\pgn e \\footnote, nos mesmos lugares; não passe texto entre corpo e nota.")
+        aviso = (f"ATENÇÃO: uma revisão anterior deste trecho foi recusada porque {falha}. Respeite as regras: "
+                 "XML bem formado, as mesmas tags soltas no começo e no fim, os mesmos <pb> do corpo, nenhum texto "
+                 "duplicado de outra página nem omitido; só passe texto entre corpo e nota quando a imagem mostrar "
+                 "que o limite está errado.")
     js.write_text(json.dumps(reg, ensure_ascii=False, indent=1), encoding="utf-8")
     u = reg["usage"]
+    fr = reg["fronteira"]
+    fr = f"  fronteira: troca {fr['troca']} car., notas {fr['num_notas']}" if fr and not reg["falha"] else ""
     print(f"  p. {n} ({len(pags)} pp.): {'FALHOU: ' + reg['falha'] if reg['falha'] else 'ok'}"
-          f"{' (2ª tentativa)' if len(reg['tentativas']) > 1 and not reg['falha'] else ''}  US$ {reg['total_cost_usd']:.3f}  "
-          f"{reg['duration_ms'] / 1000:.0f}s  ent {u.get('input_tokens', 0) + u.get('cache_creation_input_tokens', 0) + u.get('cache_read_input_tokens', 0)}"
+          f"{' (2ª tentativa)' if len(reg['tentativas']) > 1 and not reg['falha'] else ''}{fr}"
+          f"  US$ {reg['total_cost_usd']:.3f}  {reg['duration_ms'] / 1000:.0f}s  "
+          f"ent {u.get('input_tokens', 0) + u.get('cache_creation_input_tokens', 0) + u.get('cache_read_input_tokens', 0)}"
           f" saí {u.get('output_tokens', 0)}", file=sys.stderr, flush=True)
     return reg
 
 
 # ---------------------------------------------------------------- principal
 
+def para_tex(xml, tex):
+    r = subprocess.run([sys.executable, "tools/tei2latex.py", str(xml), "--puro", "-o", str(tex)], cwd=RAIZ,
+                       capture_output=True, text=True)
+    if r.returncode:
+        print(f"!! tei2latex falhou em {xml}: {r.stderr[-500:]}", file=sys.stderr)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("entrada", type=Path)
+    ap.add_argument("entrada", type=Path, help="TEI (tools/trecho.py SELETOR -F tei, ou volN.corrigido.xml)")
     ap.add_argument("--vol", required=True, choices=["vol1", "vol2"])
     ap.add_argument("--modelo", default="haiku")
     ap.add_argument("--saida", type=Path, required=True)
     ap.add_argument("--imagens", type=Path, help="padrão: VOL/paginas do checkout principal")
+    ap.add_argument("--alertas", help="padrão: VOL/VOL.estruturado.alertas.tsv ('' para nenhum)")
     ap.add_argument("--so", help="só estes pedaços (páginas iniciais), p. ex. 421,422 ou 421-425")
     ap.add_argument("--paralelo", type=int, default=1)
     ap.add_argument("--effort", choices=["low", "medium", "high", "xhigh", "max"])
+    ap.add_argument("--max-car", type=int, default=MAX_CAR,
+                    help=f"teto de texto de um pedaço que junta páginas ligadas por nota (padrão {MAX_CAR})")
+    ap.add_argument("--troca-max", type=int, default=TROCA_MAX,
+                    help=f"caracteres que podem passar entre corpo e nota num pedaço (padrão {TROCA_MAX}; 0 congela)")
     ap.add_argument("--refaz", action="store_true", help="refaz pedaços já gravados")
     ap.add_argument("--tentativas", type=int, default=2, help="chamadas por pedaço se a revisão for recusada")
     ap.add_argument("--revalida", action="store_true",
@@ -281,16 +446,24 @@ def main():
     ap.add_argument("--descricao", default="Elementos de Philosophia")
     args = ap.parse_args()
 
-    if args.imagens is None:
-        comum = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=RAIZ,
-                               capture_output=True, text=True).stdout.strip()
-        cands = [RAIZ / args.vol / "paginas"] + ([Path(comum).parent / args.vol / "paginas"] if comum else [])
+    comum = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=RAIZ,
+                           capture_output=True, text=True).stdout.strip()
+    principal = Path(comum).parent if comum else RAIZ
+    if args.imagens is None:   # PNGs são git-ignorados: num worktree, os do checkout principal
+        cands = [RAIZ / args.vol / "paginas", principal / args.vol / "paginas"]
         args.imagens = next((c for c in cands if any(c.glob("0*.png"))), cands[0])
+    if args.alertas is None:
+        args.alertas = RAIZ / args.vol / f"{args.vol}.estruturado.alertas.tsv"
+    args.alertas = le_alertas(args.alertas)
     args.descricao = f"{args.descricao}, {args.vol}"
 
-    tex = args.entrada.read_text(encoding="utf-8")
-    pedacos = corta(tex)
-    assert "".join(t for _, t, _ in pedacos) == tex
+    xml = args.entrada.read_text(encoding="utf-8")
+    erro = bem_formado(xml)
+    if erro:
+        sys.exit(f"a entrada não é XML bem formado: {erro}")
+    prefixo, pedacos, sufixo = corta(xml, args.max_car)
+    assert prefixo + "".join(t for _, t, _ in pedacos) + sufixo == xml
+    ctx = Contexto(prefixo, pedacos, sufixo)
     escolha = pedacos
     if args.so:
         quero = set()
@@ -300,55 +473,73 @@ def main():
         escolha = [p for p in pedacos if p[0] in quero]
     if args.seco:
         for n, t, pags in escolha:
-            print(f"{n}: {len(t)} car., imagens {pags}")
+            a = analisa(t)
+            print(f"{n}: {len(t)} car. ({a['corpo']} corpo, {a['notas']} notas, {a['notas_n']} nota(s)), "
+                  f"imagens {pags}{'  alertas: ' + str(sum(len(args.alertas.get(p, [])) for p in pags)) if any(p in args.alertas for p in pags) else ''}")
         return
 
     args.saida.mkdir(parents=True, exist_ok=True)
     dirp = args.saida / "paginas"
     dirp.mkdir(exist_ok=True)
-    (args.saida / "entrada.tex").write_text(tex, encoding="utf-8")
+    (args.saida / "entrada.xml").write_text(xml, encoding="utf-8")
     sistema = PROMPT.read_text(encoding="utf-8")
     print(f">> {args.modelo}: {len(escolha)} pedaço(s) de {args.entrada} (imagens em {args.imagens})", file=sys.stderr)
     with tempfile.TemporaryDirectory(prefix="revisa_paginas.") as cwd:   # fora do repo: sem CLAUDE.md do projeto
         with cf.ThreadPoolExecutor(args.paralelo) as ex:
-            regs = list(ex.map(lambda p: processa(p, args, sistema, cwd, dirp), escolha))
+            list(ex.map(lambda p: processa(p, args, sistema, cwd, dirp, ctx), escolha))
 
     # junta: revisado onde houver, original no resto
     partes, todos = [], []
     for n, t, _ in pedacos:
-        r = dirp / f"{n:04d}.revisado.tex"
+        r = dirp / f"{n:04d}.revisado.xml"
         partes.append(r.read_text(encoding="utf-8") if r.exists() else t)
         j = dirp / f"{n:04d}.json"
         if j.exists():
             todos.append(json.loads(j.read_text()))
-    (args.saida / "revisado.tex").write_text("".join(partes), encoding="utf-8")
+    final = prefixo + "".join(partes) + sufixo
+    erro = bem_formado(final)
+    if erro:   # cada pedaço foi checado sozinho no documento; juntos não deveria falhar
+        print(f"!! revisado.xml mal formado ao juntar os pedaços: {erro}", file=sys.stderr)
+    (args.saida / "revisado.xml").write_text(final, encoding="utf-8")
+    for f in ("entrada", "revisado"):
+        para_tex(args.saida / f"{f}.xml", args.saida / f"{f}.tex")
 
     soma = lambda k: sum((r["usage"].get(k) or 0) for r in todos)
-    resumo = {"modelo": args.modelo, "pedacos": len(pedacos), "feitos": len(todos),
+    resumo = {"modelo": args.modelo, "formato": "tei", "pedacos": len(pedacos), "feitos": len(todos),
               "falhas": {r["pagina"]: r["falha"] for r in todos if r["falha"]},
+              "fronteira": {r["pagina"]: r["fronteira"] for r in todos if r.get("fronteira") and not r["falha"]},
               "total_cost_usd": round(sum(r["total_cost_usd"] for r in todos), 4),
               "num_turns": sum(r["num_turns"] or 0 for r in todos),
               "duration_ms": sum(r["duration_ms"] for r in todos),
               "usage": {k: soma(k) for k in ("input_tokens", "cache_creation_input_tokens",
                                              "cache_read_input_tokens", "output_tokens")},
-              "is_error": len(todos) < len(pedacos)}
+              "is_error": len(todos) < len(pedacos) or bool(erro)}
     (args.saida / "resultado.json").write_text(json.dumps(resumo, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    def linha(r):
+        fr = r.get("fronteira")
+        s = f"- p. {r['pagina']}"
+        if r["falha"]:
+            s += f" **FALHOU: {r['falha']}**"
+        elif fr:
+            s += (f" **fronteira**: corpo {fr['corpo'][0]}→{fr['corpo'][1]}, notas {fr['notas'][0]}→{fr['notas'][1]} "
+                  f"car., {fr['num_notas'][0]}→{fr['num_notas'][1]} nota(s)")
+        return s + f": {r['notas']}"
     (args.saida / "relatorio.md").write_text(
-        "\n".join(f"- p. {r['pagina']}{' **FALHOU: ' + r['falha'] + '**' if r['falha'] else ''}: {r['notas']}"
-                  for r in sorted(todos, key=lambda r: r["pagina"])) + "\n", encoding="utf-8")
+        "\n".join(linha(r) for r in sorted(todos, key=lambda r: r["pagina"])) + "\n", encoding="utf-8")
 
     p0, p1 = pedacos[0][0], max(max(p[2]) for p in pedacos)
     wer = []
     for f in ("entrada", "revisado"):
-        r = subprocess.run([sys.executable, "tools/mede_wer.py", "--vol", args.vol, "--tex",
-                            str((args.saida / f"{f}.tex").resolve()), "-f", str(p0), "-l", str(p1)],
+        r = subprocess.run([sys.executable, "tools/mede_wer.py", "--vol", args.vol, "--xml",
+                            str((args.saida / f"{f}.xml").resolve()), "-f", str(p0), "-l", str(p1)],
                            cwd=RAIZ, capture_output=True, text=True)
         wer.append(f"== {f}\n{r.stdout}{r.stderr}")
     (args.saida / "wer.txt").write_text("".join(wer), encoding="utf-8")
     print(f">> {resumo['feitos']}/{resumo['pedacos']} pedaços, {len(resumo['falhas'])} falha(s), "
-          f"US$ {resumo['total_cost_usd']:.2f}, {resumo['duration_ms'] / 6e4:.1f} min de chamadas; "
-          f"tokens {resumo['usage']}", file=sys.stderr)
-    print(f">> {args.saida}/revisado.tex  (wer.txt, relatorio.md, resultado.json)", file=sys.stderr)
+          f"{len(resumo['fronteira'])} com fronteira mudada, US$ {resumo['total_cost_usd']:.2f}, "
+          f"{resumo['duration_ms'] / 6e4:.1f} min de chamadas; tokens {resumo['usage']}", file=sys.stderr)
+    print(f">> {args.saida}/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)", file=sys.stderr)
 
 
 if __name__ == "__main__":
