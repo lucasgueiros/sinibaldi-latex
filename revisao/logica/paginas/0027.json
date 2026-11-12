@@ -1,0 +1,27 @@
+{
+ "pagina": 27,
+ "paginas": [
+  27
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (enimalidade→animalidade, Lodas→todas, mesino→mesmo, \"tlribuida\", \"AmwriGo 111 2 | ae\"→\"Artigo III\", \"&lt;\" espúrio, \"«\" espúrio), numeração \"25.\" que faltava, \"universal reflexa\"→\"universal-reflexa\", acento \"á\".\nFronteira: p. 27 — a nota (1) foi movida da chamada \"predicaveis\" para \"perfeição (')\", onde está a chamada real; a nota n9 foi renumerada para n=2 e posta em \"predicaveis\" (chamada (2)), com seu texto completo (incluindo o parágrafo \"As cinco ideas…\") dentro do rodapé. Nada de corpo foi passado para nota nem vice-versa.\nDúvidas: negrito de \"Idea completa e incompleta\" e \"Idea adequada e inadequada\" lido da imagem como negrito; \"ente\" em \"de que o ente\" tratado como romano; \"tambem\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (enimalidade→animalidade, Lodas→todas, mesino→mesmo, \"tlribuida\", \"AmwriGo 111 2 | ae\"→\"Artigo III\", \"&lt;\" espúrio, \"«\" espúrio), numeração \"25.\" que faltava, \"universal reflexa\"→\"universal-reflexa\", acento \"á\".\nFronteira: p. 27 — a nota (1) foi movida da chamada \"predicaveis\" para \"perfeição (')\", onde está a chamada real; a nota n9 foi renumerada para n=2 e posta em \"predicaveis\" (chamada (2)), com seu texto completo (incluindo o parágrafo \"As cinco ideas…\") dentro do rodapé. Nada de corpo foi passado para nota nem vice-versa.\nDúvidas: negrito de \"Idea completa e incompleta\" e \"Idea adequada e inadequada\" lido da imagem como negrito; \"ente\" em \"de que o ente\" tratado como romano; \"tambem\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0059232,
+ "duration_ms": 38814,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10702,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9706
+ },
+ "reparo": false
+}

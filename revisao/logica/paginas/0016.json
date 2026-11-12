@@ -1,0 +1,56 @@
+{
+ "pagina": 16,
+ "paginas": [
+  16,
+  17
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1575,
+   2192
+  ],
+  "notas": [
+   3083,
+   2819
+  ],
+  "num_notas": [
+   2,
+   3
+  ],
+  "troca": 264
+ },
+ "notas": "Erros corrigidos: OCR (todo, constitue, coisa, idea, apprehensão, Reducção, Artigo, Summario), itálicos/negritos, títulos, \"Divisão da Logica formal\" em negrito, \"17. Idea.\" em negrito; removido o cabeçalho corrente da p.16 e \"Vol. I 3\" da p.17; \"Advertimos…\" (corpo da p.17) estava dentro da nota 17-1 e foi devolvido ao corpo após `</note>`.\nFronteira: criada `<note type=\"continuacao\">` no alto do rodapé da p.16 (texto \"percebendo um objecto…\", continuação de nota da p.15), antes de n16-1; n17-1 fechada após \"…sensitiva.\".\nDúvidas: se \"nossa\", \"esse\", \"num\", \"cognoscente\", \"percepção\" (no corpo da n16-1) e \"Summario\" são itálico/negrito/versalete ou romanos; alerta sobre n15-1 não verificável neste trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1575,
+     2192
+    ],
+    "notas": [
+     3083,
+     2819
+    ],
+    "num_notas": [
+     2,
+     3
+    ],
+    "troca": 264
+   },
+   "notas": "Erros corrigidos: OCR (todo, constitue, coisa, idea, apprehensão, Reducção, Artigo, Summario), itálicos/negritos, títulos, \"Divisão da Logica formal\" em negrito, \"17. Idea.\" em negrito; removido o cabeçalho corrente da p.16 e \"Vol. I 3\" da p.17; \"Advertimos…\" (corpo da p.17) estava dentro da nota 17-1 e foi devolvido ao corpo após `</note>`.\nFronteira: criada `<note type=\"continuacao\">` no alto do rodapé da p.16 (texto \"percebendo um objecto…\", continuação de nota da p.15), antes de n16-1; n17-1 fechada após \"…sensitiva.\".\nDúvidas: se \"nossa\", \"esse\", \"num\", \"cognoscente\", \"percepção\" (no corpo da n16-1) e \"Summario\" são itálico/negrito/versalete ou romanos; alerta sobre n15-1 não verificável neste trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0137388,
+ "duration_ms": 95474,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17233,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24031
+ },
+ "reparo": false
+}

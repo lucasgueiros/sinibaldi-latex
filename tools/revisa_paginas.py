@@ -51,7 +51,9 @@ LADO_MAX = 1568          # a API reduz qualquer imagem cujo lado maior passe dis
 SOBREPOE = 0.06          # fração da altura repetida nas duas metades
 MINIMO = 300             # pedaço com menos texto que isto vai junto com o anterior
 MAX_CAR = 9000           # teto (texto) de um pedaço que junta páginas ligadas por nota
-TROCA_MAX = 2500         # passagem corpo→nota (caracteres) acima disto é recusada
+TROCA_MAX = 2500         # passagem corpo→nota (caracteres) acima disto é recusada…
+TROCA_PAG = 1800         # …ou acima disto vezes as páginas de corpo do pedaço: um rodapé inteiro que
+                         # ficou no corpo tem até ~2800 car. por página (vol. 1 p. 22)
 NOTA_CORPO_MAX = 800     # idem nota→corpo: ~8 linhas; o erro típico do modelo é esvaziar no corpo
                          # os parágrafos finais de uma nota longa (vol. 2 p. 441, 1567 car.)
 NGRAMA = 10              # sequência de palavras usada para achar texto duplicado/copiado
@@ -297,6 +299,7 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
         return (f"tirou texto demais das notas para o corpo (~{troca} caracteres; notas {a['notas']} → {b['notas']}, "
                 f"corpo {a['corpo']} → {b['corpo']}; máximo {nota_corpo_max}). Notas longas têm vários parágrafos em "
                 "letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo"), fronteira
+    troca_max = max(troca_max, TROCA_PAG * paginas) if troca_max else 0
     if troca > troca_max:
         return (f"passou texto demais do corpo para as notas (~{troca} caracteres; corpo {a['corpo']} → {b['corpo']}, "
                 f"notas {a['notas']} → {b['notas']}): o máximo é {troca_max}"), fronteira
@@ -514,8 +517,20 @@ def repara(texto, novo):
     return novo
 
 
+def tira_continuacoes_novas(texto, novo):
+    """Uma <note type="continuacao"> só embrulha texto que JÁ estava no pedaço.  Se o texto dela não estava
+    (o modelo o transcreveu da imagem, mas ele já está na nota do pedaço anterior: vol. 1 p. 16), sai."""
+    ga = ngramas(texto, 5)
+    def troca(m):
+        g = ngramas(m[0], 5)
+        tot = sum(g.values())
+        return m[0] if tot and sum(c for k, c in g.items() if k in ga) / tot >= 0.5 else ""
+    return re.sub(r'<note\b[^>]*\btype="continuacao"[^>]*>.*?</note>', troca, novo, flags=re.S)
+
+
 def confere(n, texto, novo, pags, ctx, args):
     """valida(); se o XML vier mal formado, tenta repara() e valida de novo.  (falha, fronteira, novo, reparou)"""
+    novo = tira_continuacoes_novas(texto, novo)
     falha, fronteira = valida(n, texto, novo, pags, ctx, args.troca_max, args.nota_corpo_max)
     if falha and ("mal formado" in falha or "não fechado" in falha or "sem <note> aberto" in falha):
         r = repara(texto, novo)

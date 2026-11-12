@@ -1,0 +1,55 @@
+{
+ "pagina": 21,
+ "paginas": [
+  21
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   848,
+   832
+  ],
+  "notas": [
+   1929,
+   1916
+  ],
+  "num_notas": [
+   2,
+   3
+  ],
+  "troca": 0
+ },
+ "notas": "Erros corrigidos: OCR (siptples→simples, \"€)\"→\"e)\", \"Hdea\"→\"Idea\", \"Deus\" e outros), hifenização e pontuação; removidos o \". |\" espúrio e o \"(7)\" lido no lugar de \"(3)\"; títulos e \"unica\" em itálico conforme a imagem.\nFronteira (p. 21): a nota n=3 continha as notas (2) e (3) coladas; separei a (2) e a (3), pus a (2) na chamada após \"sabio\" e a (3) no fim da f), na chamada \"(3)\" (antes em \"(7)\" lido no pé da frase).\nDúvidas: trecho \"egualé\"/\"exgotte\" da nota 3 está riscado na imagem (transcrevi \"eguale\"); \"forma\"/\"fórma\" e negrito dos títulos e) e f) não ficaram totalmente claros.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     848,
+     832
+    ],
+    "notas": [
+     1929,
+     1916
+    ],
+    "num_notas": [
+     2,
+     3
+    ],
+    "troca": 0
+   },
+   "notas": "Erros corrigidos: OCR (siptples→simples, \"€)\"→\"e)\", \"Hdea\"→\"Idea\", \"Deus\" e outros), hifenização e pontuação; removidos o \". |\" espúrio e o \"(7)\" lido no lugar de \"(3)\"; títulos e \"unica\" em itálico conforme a imagem.\nFronteira (p. 21): a nota n=3 continha as notas (2) e (3) coladas; separei a (2) e a (3), pus a (2) na chamada após \"sabio\" e a (3) no fim da f), na chamada \"(3)\" (antes em \"(7)\" lido no pé da frase).\nDúvidas: trecho \"egualé\"/\"exgotte\" da nota 3 está riscado na imagem (transcrevi \"eguale\"); \"forma\"/\"fórma\" e negrito dos títulos e) e f) não ficaram totalmente claros.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0061242,
+ "duration_ms": 42005,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10822,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10084
+ },
+ "reparo": false
+}

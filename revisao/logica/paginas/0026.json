@@ -1,0 +1,27 @@
+{
+ "pagina": 26,
+ "paginas": [
+  26
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros de OCR corrigidos (intellizencia, untiversal, iuersul, reslidade, commun/mulus, relaczo, vê, extrema, c)/a) etc.), marcas espúrias removidas («, “, \"aa\", \";\", \"E\" final) e negrito indevido tirado de \"mesma\" e \"extrema\"; \"a)\", \"b)\" e \"c)\" restaurados no lugar de \"4)\", \"Db)\" e \"oc)\".\nFronteira: a nota n26-1 estava anexada ao fim de t24.p3 (p. 26); foi movida para o ponto da chamada (1) no fim de t23.p17, na própria p. 26, com \"(1)\" literal apagado. A nota está inteira no rodapé da p. 26, sem continuação.\nDúvidas: itálicos de \"essencia\" e \"mas considerada\" e o negrito dos cabeçalhos a) e b) não são totalmente nítidos na imagem; mantive a leitura do OCR (negrito nos cabeçalhos a) e b) foi assumido pela aparência).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros de OCR corrigidos (intellizencia, untiversal, iuersul, reslidade, commun/mulus, relaczo, vê, extrema, c)/a) etc.), marcas espúrias removidas («, “, \"aa\", \";\", \"E\" final) e negrito indevido tirado de \"mesma\" e \"extrema\"; \"a)\", \"b)\" e \"c)\" restaurados no lugar de \"4)\", \"Db)\" e \"oc)\".\nFronteira: a nota n26-1 estava anexada ao fim de t24.p3 (p. 26); foi movida para o ponto da chamada (1) no fim de t23.p17, na própria p. 26, com \"(1)\" literal apagado. A nota está inteira no rodapé da p. 26, sem continuação.\nDúvidas: itálicos de \"essencia\" e \"mas considerada\" e o negrito dos cabeçalhos a) e b) não são totalmente nítidos na imagem; mantive a leitura do OCR (negrito nos cabeçalhos a) e b) foi assumido pela aparência).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0058593000000000004,
+ "duration_ms": 37005,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11013,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9516
+ },
+ "reparo": false
+}

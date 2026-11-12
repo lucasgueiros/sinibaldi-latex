@@ -1,0 +1,29 @@
+{
+ "pagina": 28,
+ "paginas": [
+  28,
+  29,
+  30
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (sig→ç, \"numericamente\", \"commum\", \"vefirá\"→\"refirá\", \"qué\"→\"que\", \"Y'este\"→\"D'este\", \"major\", \"£09 i Lun\" lixo), crases em \"á\", itálicos e hifenização \"repre-/senta\" (a palavra \"representa\" fica no fim de t26.p1 e \"a essencia\" abre t26.p2).\nFronteira: n28-2 e n29-1 passam a estar ligadas às chamadas (2) de t27 e (1) de t28 (apagados \"(O\" e \"(^)\", ponto movido para depois de </note>); continuação de n29-1 em p. 30 (\"não se lhe poderiam unir… por ellas.\") reposta após o pb 30 dentro da nota; o trecho \"d)\", \"(1) Advertimos…\" e o corpo da p. 30 ficam fora (trecho seguinte).\nDúvidas: itálicos de \"humana\", \"«animal»\", \"uma coisa commum\" e \"que\" na nota 2; \"major\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (sig→ç, \"numericamente\", \"commum\", \"vefirá\"→\"refirá\", \"qué\"→\"que\", \"Y'este\"→\"D'este\", \"major\", \"£09 i Lun\" lixo), crases em \"á\", itálicos e hifenização \"repre-/senta\" (a palavra \"representa\" fica no fim de t26.p1 e \"a essencia\" abre t26.p2).\nFronteira: n28-2 e n29-1 passam a estar ligadas às chamadas (2) de t27 e (1) de t28 (apagados \"(O\" e \"(^)\", ponto movido para depois de </note>); continuação de n29-1 em p. 30 (\"não se lhe poderiam unir… por ellas.\") reposta após o pb 30 dentro da nota; o trecho \"d)\", \"(1) Advertimos…\" e o corpo da p. 30 ficam fora (trecho seguinte).\nDúvidas: itálicos de \"humana\", \"«animal»\", \"uma coisa commum\" e \"que\" na nota 2; \"major\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.016975999999999998,
+ "duration_ms": 127711,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 22985,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 29355
+ },
+ "reparo": false
+}

@@ -1,0 +1,58 @@
+{
+ "pagina": 13,
+ "paginas": [
+  13,
+  14,
+  15,
+  16
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2502,
+   2505
+  ],
+  "notas": [
+   6401,
+   6361
+  ],
+  "num_notas": [
+   4,
+   5
+  ],
+  "troca": 3
+ },
+ "notas": "Erros corrigidos: OCR de letras e acentos (conbecimento, recta, tres, idea, Kantistas, expuzeram, pae), hifenizações de fim de linha (ensi-nam, qual-quer, simul-taneo), lixo (\" m\", \":\", \"'\", \"()\" e \"» \" no lugar de \"15.\"), linhas faltantes restauradas (cabeçalhos \"SECÇÃO PRIMEIRA\" / \"LOGICA FORMAL\" e label \"15.\").\nFronteiras: p.13 — n13-1 fechada antes de \"(2)\"; novo n13-2 criado na chamada \"sciencia (2)\" (antes estava dentro de n13-1). p.14 — n14-1 movida do fim da tese 14 para a chamada \"necessário (1)\" da tese 13; n14-2 posta na chamada \"material (2)\". p.15 — n14-2 fechada em \"é a formal\" (antes engolia os parágrafos seguintes); parágrafos \"Todas as operações…\" e \"A causa…\" (com continuação da p.16, só o trecho da nota) viraram n15-1, ancorada em \"argumentação (1)\" no corpo.\nDúvidas: leitura de \"objectica\", \"se pode chegar\" e \"ás artes\" (mantidos como impressos); a numeração superscrita de Summ. Th. transcrita como \"Iª-IIªe\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2502,
+     2505
+    ],
+    "notas": [
+     6401,
+     6361
+    ],
+    "num_notas": [
+     4,
+     5
+    ],
+    "troca": 3
+   },
+   "notas": "Erros corrigidos: OCR de letras e acentos (conbecimento, recta, tres, idea, Kantistas, expuzeram, pae), hifenizações de fim de linha (ensi-nam, qual-quer, simul-taneo), lixo (\" m\", \":\", \"'\", \"()\" e \"» \" no lugar de \"15.\"), linhas faltantes restauradas (cabeçalhos \"SECÇÃO PRIMEIRA\" / \"LOGICA FORMAL\" e label \"15.\").\nFronteiras: p.13 — n13-1 fechada antes de \"(2)\"; novo n13-2 criado na chamada \"sciencia (2)\" (antes estava dentro de n13-1). p.14 — n14-1 movida do fim da tese 14 para a chamada \"necessário (1)\" da tese 13; n14-2 posta na chamada \"material (2)\". p.15 — n14-2 fechada em \"é a formal\" (antes engolia os parágrafos seguintes); parágrafos \"Todas as operações…\" e \"A causa…\" (com continuação da p.16, só o trecho da nota) viraram n15-1, ancorada em \"argumentação (1)\" no corpo.\nDúvidas: leitura de \"objectica\", \"se pode chegar\" e \"ás artes\" (mantidos como impressos); a numeração superscrita de Summ. Th. transcrita como \"Iª-IIªe\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0221949,
+ "duration_ms": 149164,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 29379,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 38514
+ },
+ "reparo": false
+}

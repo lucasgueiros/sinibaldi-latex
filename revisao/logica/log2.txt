@@ -1,0 +1,17 @@
+>> haiku: 11 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 18 (2 pp.): ok  US$ 0.012  78s  ent 17610 saí 19891
+  p. 16 (2 pp.): ok  fronteira: troca 264 car., notas [2, 3]  US$ 0.014  95s  ent 17233 saí 24031
+  p. 20 (1 pp.): ok  US$ 0.009  58s  ent 11086 saí 15373
+  p. 21 (1 pp.): ok  fronteira: troca 0 car., notas [2, 3]  US$ 0.006  42s  ent 10822 saí 10084
+  p. 13 (4 pp.): ok  fronteira: troca 3 car., notas [4, 5]  US$ 0.022  149s  ent 29379 saí 38514
+  p. 26 (1 pp.): ok  US$ 0.006  37s  ent 11013 saí 9516
+  p. 27 (1 pp.): ok  US$ 0.006  39s  ent 10702 saí 9706
+  p. 24 (2 pp.): ok (2ª tentativa)  US$ 0.026  180s  ent 35516 saí 45022
+  p. 22 (3 pp.): FALHOU: passou texto demais do corpo para as notas (~2738 caracteres; corpo 3342 → 568, notas 3689 → 6427): o máximo é 2500  US$ 0.031  213s  ent 47191 saí 53486
+  p. 28 (3 pp.): ok  US$ 0.017  128s  ent 22985 saí 29355
+  p. 30 (2 pp.): ok  fronteira: troca 295 car., notas [2, 2]  US$ 0.021  158s  ent 18738 saí 38482
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 16: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: 1 nota(s) começavam com o número da chamada "(n)": tirado
+>> 18/155 pedaços, 1 falha(s), 7 com fronteira mudada, US$ 0.27, 30.6 min de chamadas; tokens {'input_tokens': 370955, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 465508}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
