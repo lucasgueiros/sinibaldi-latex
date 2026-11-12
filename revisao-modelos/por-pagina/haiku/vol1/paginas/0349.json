@@ -1,0 +1,24 @@
+{
+ "pagina": 349,
+ "paginas": [
+  349
+ ],
+ "falha": null,
+ "notas": "Corrigidos: cabeçalho corrente removido, \"79.\"→\"72.\", \"ARTIGO TII\" e \"-.\" reconstituídos, OCR de letras (szmples, abstracção, falla, perfeigóes, \"n\\&o\"→não), \"(t)\"→\"(1)\", hifenização \"conhe-çamos\" e ênfases (itálicos/negrito) conforme a imagem.\nDúvidas de estrutura (não alterei): o \\footnote no \"Ente infinito\" contém o texto da nota (2), e o texto da nota (1) está solto após \"Ora um ente,\" sem \\footnote; a chamada \"(²)\" após \"differença\" não tem \\footnote correspondente.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: cabeçalho corrente removido, \"79.\"→\"72.\", \"ARTIGO TII\" e \"-.\" reconstituídos, OCR de letras (szmples, abstracção, falla, perfeigóes, \"n\\&o\"→não), \"(t)\"→\"(1)\", hifenização \"conhe-çamos\" e ênfases (itálicos/negrito) conforme a imagem.\nDúvidas de estrutura (não alterei): o \\footnote no \"Ente infinito\" contém o texto da nota (2), e o texto da nota (1) está solto após \"Ora um ente,\" sem \\footnote; a chamada \"(²)\" após \"differença\" não tem \\footnote correspondente.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0045498,
+ "duration_ms": 29639,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8418,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7416
+ }
+}

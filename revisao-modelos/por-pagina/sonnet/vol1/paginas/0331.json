@@ -1,0 +1,26 @@
+{
+ "pagina": 331,
+ "paginas": [
+  331,
+  332,
+  333
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR (Summario, \"Artigo I\", 34→54, \"(¹)\", fotul/coumprehkensão, acentos, hifenização), lixo (\"---\" espúrios, \"(1)\" inicial da nota), itálicos/versaletes. Não reconstruí o texto \"ser unica…\" (continuação de nota anterior) nem o corpo das pp. 332–333, pois seus \\pg não estão neste trecho. Dúvida: uso de \\textsc{Deus} em todas as ocorrências.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR (Summario, \"Artigo I\", 34→54, \"(¹)\", fotul/coumprehkensão, acentos, hifenização), lixo (\"---\" espúrios, \"(1)\" inicial da nota), itálicos/versaletes. Não reconstruí o texto \"ser unica…\" (continuação de nota anterior) nem o corpo das pp. 332–333, pois seus \\pg não estão neste trecho. Dúvida: uso de \\textsc{Deus} em todas as ocorrências.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.12326600000000001,
+ "duration_ms": 51665,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 20398,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8247
+ }
+}

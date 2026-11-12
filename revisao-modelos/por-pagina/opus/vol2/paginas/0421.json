@@ -1,0 +1,27 @@
+{
+ "pagina": 421,
+ "paginas": [
+  421,
+  422,
+  423,
+  424
+ ],
+ "falha": null,
+ "notas": "Corrigidos erros de OCR na nota (r«dicionalismo, Boutrouz, Kent, 6 \\&, 08, Be, á/a, o/e, Drum, c. 19 etc.), itálicos faltantes/espúrios, \"bôa\", ponto/vírgula; negrito estendido aos títulos das teses 6 e 7; reposto \"nem pela\" no início da p. 423 e removido \" -\" espúrio.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos erros de OCR na nota (r«dicionalismo, Boutrouz, Kent, 6 \\&, 08, Be, á/a, o/e, Drum, c. 19 etc.), itálicos faltantes/espúrios, \"bôa\", ponto/vírgula; negrito estendido aos títulos das teses 6 e 7; reposto \"nem pela\" no início da p. 423 e removido \" -\" espúrio.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.240408,
+ "duration_ms": 52617,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 27682,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6484
+ }
+}

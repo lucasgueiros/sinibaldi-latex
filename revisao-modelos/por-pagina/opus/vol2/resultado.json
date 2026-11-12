@@ -1,0 +1,16 @@
+{
+ "modelo": "opus",
+ "pedacos": 15,
+ "feitos": 15,
+ "falhas": {},
+ "total_cost_usd": 1.7902,
+ "num_turns": 15,
+ "duration_ms": 353096,
+ "usage": {
+  "input_tokens": 226351,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 44241
+ },
+ "is_error": false
+}

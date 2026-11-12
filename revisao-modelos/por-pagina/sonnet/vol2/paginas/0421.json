@@ -1,0 +1,27 @@
+{
+ "pagina": 421,
+ "paginas": [
+  421,
+  422,
+  423,
+  424
+ ],
+ "falha": null,
+ "notas": "Corrigidos erros de OCR (immanentismo/innatistas/ontologistas, Kant, Boutroux, sô, noumeno, \"\\& → a/é\", 08 → os etc.), pontuação e itálicos; faltava \"nem pela\" no topo da p. 423; removido \" -\" espúrio após a nota.\nNão incluí o parágrafo \"5. Divisão da Theodicea\" nem a nota (1) do topo/rodapé da p. 421, pois não há \\pg/\\footnote correspondentes no trecho e o título do capítulo antecede o \\pg{421}; deixei a estrutura intacta. Espaço após \\pgn{422}/\\pgn{423}/\\pgn{424} acrescentado onde faltava.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos erros de OCR (immanentismo/innatistas/ontologistas, Kant, Boutroux, sô, noumeno, \"\\& → a/é\", 08 → os etc.), pontuação e itálicos; faltava \"nem pela\" no topo da p. 423; removido \" -\" espúrio após a nota.\nNão incluí o parágrafo \"5. Divisão da Theodicea\" nem a nota (1) do topo/rodapé da p. 421, pois não há \\pg/\\footnote correspondentes no trecho e o título do capítulo antecede o \\pg{421}; deixei a estrutura intacta. Espaço após \\pgn{422}/\\pgn{423}/\\pgn{424} acrescentado onde faltava.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.140958,
+ "duration_ms": 52376,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 27684,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8559
+ }
+}

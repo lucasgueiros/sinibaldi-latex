@@ -1,0 +1,25 @@
+{
+ "pagina": 429,
+ "paginas": [
+  429,
+  430
+ ],
+ "falha": null,
+ "notas": "Corrigidas leituras do OCR (Zrraciomaes, distineção, fteleologíco, Nào, contradieções, indieando, emmovel, DEus), acentos (basêam; \"a\" em vez de \"á\"), números (a. 3, c. 13), parênteses faltantes (art. III), Cap. I)) e itálicos/negrito do título do § 12.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidas leituras do OCR (Zrraciomaes, distineção, fteleologíco, Nào, contradieções, indieando, emmovel, DEus), acentos (basêam; \"a\" em vez de \"á\"), números (a. 3, c. 13), parênteses faltantes (art. III), Cap. I)) e itálicos/negrito do título do § 12.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.10611599999999999,
+ "duration_ms": 19841,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14379,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 2430
+ }
+}

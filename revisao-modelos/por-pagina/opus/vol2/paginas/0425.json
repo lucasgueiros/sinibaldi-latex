@@ -1,0 +1,25 @@
+{
+ "pagina": 425,
+ "paginas": [
+  425,
+  426
+ ],
+ "falha": null,
+ "notas": "Reposta a primeira linha perdida (\"pela sua\"); corrigidos erros de OCR (vieioso, dia?, /odo, Dus, ecistencia, Leibnits, 1./l., Dist. 8→3, 0)/1)→c)/b), á→a, nao) e versaletes DEus→Deus.\nAjustados itálicos (em si mesma, em relação a nós, Santo Anselmo, na mesma ordem, c. Gentes) e negrito integral dos títulos 9 e 10.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Reposta a primeira linha perdida (\"pela sua\"); corrigidos erros de OCR (vieioso, dia?, /odo, Dus, ecistencia, Leibnits, 1./l., Dist. 8→3, 0)/1)→c)/b), á→a, nao) e versaletes DEus→Deus.\nAjustados itálicos (em si mesma, em relação a nós, Santo Anselmo, na mesma ordem, c. Gentes) e negrito integral dos títulos 9 e 10.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.141196,
+ "duration_ms": 30396,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 15344,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 3991
+ }
+}

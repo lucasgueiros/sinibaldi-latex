@@ -1,0 +1,24 @@
+{
+ "pagina": 353,
+ "paginas": [
+  353
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de letras (sobretudo \"ignorado\", \"geometricas\", \"etc.\", \"é ou\", \"antecedente\", \"uniantur\", \"Igitur\"), ruídos (\"nihil]\", \"€\", \"L.\"→\"I.\", \"S0.\"→\"80.\", \"Tgitur\"), hifenização (\"encontrar-se\"), itálicos e negrito de \"Corollarios\"; removidos \"Vol, 1 24\", o ponto e a aspa espúrios antes da nota 2.\nDúvidas: \"(\\textasciicircum{})\" no corpo (marca da nota 2) mantido porque a posição do \\footnote é estrutural; \"C. Gent., I, 18\" lido como algarismo romano; \\textsc{Deum} trocado por texto comum por não parecer versalete na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de letras (sobretudo \"ignorado\", \"geometricas\", \"etc.\", \"é ou\", \"antecedente\", \"uniantur\", \"Igitur\"), ruídos (\"nihil]\", \"€\", \"L.\"→\"I.\", \"S0.\"→\"80.\", \"Tgitur\"), hifenização (\"encontrar-se\"), itálicos e negrito de \"Corollarios\"; removidos \"Vol, 1 24\", o ponto e a aspa espúrios antes da nota 2.\nDúvidas: \"(\\textasciicircum{})\" no corpo (marca da nota 2) mantido porque a posição do \\footnote é estrutural; \"C. Gent., I, 18\" lido como algarismo romano; \\textsc{Deum} trocado por texto comum por não parecer versalete na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046725000000000004,
+ "duration_ms": 31189,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8455,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7654
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "pagina": 442,
+ "paginas": [
+  442
+ ],
+ "falha": null,
+ "notas": "Corrigidos erros de OCR (inexplieavel→inexplicavel, cortezaos→cortezãos, enyenenar→envenenar, descanco→descanço, \"7.\"→\"»\", \"phiL\"→\"phil.\"); removido lixo final (vinheta \"--- e s+e---\" e \"/\").",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos erros de OCR (inexplieavel→inexplicavel, cortezaos→cortezãos, enyenenar→envenenar, descanco→descanço, \"7.\"→\"»\", \"phiL\"→\"phil.\"); removido lixo final (vinheta \"--- e s+e---\" e \"/\").",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.058932,
+ "duration_ms": 11092,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8413,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1264
+ }
+}

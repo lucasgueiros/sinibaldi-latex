@@ -1,0 +1,25 @@
+{
+ "pagina": 434,
+ "paginas": [
+  434,
+  435
+ ],
+ "falha": null,
+ "notas": "Erros corrigidos: linha inicial da pág. 434 reposta (\"exige necessariamente uma causa proporcionada. A causa\"); OCR (\"&\"→\"a\", \"o\"→\"c\", \"serio\"→\"serie\", \"differenca\"→\"differença\", \"Dxgus\", \"Vazherot\"→\"Vacherot\", \"É\"→\"é\", \"con- Siderou\"→\"considerou-se\"); pontuação e itálicos conferidos.\nDúvidas: os marcadores \"(1)\" e \"(2)\" impressos no início das notas foram omitidos (convenção do pipeline, pois o \\footnote já os gera); \"Vacherot\" é leitura provável da imagem; a forma \"possivel.\" foi mantida como impressa.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Erros corrigidos: linha inicial da pág. 434 reposta (\"exige necessariamente uma causa proporcionada. A causa\"); OCR (\"&\"→\"a\", \"o\"→\"c\", \"serio\"→\"serie\", \"differenca\"→\"differença\", \"Dxgus\", \"Vazherot\"→\"Vacherot\", \"É\"→\"é\", \"con- Siderou\"→\"considerou-se\"); pontuação e itálicos conferidos.\nDúvidas: os marcadores \"(1)\" e \"(2)\" impressos no início das notas foram omitidos (convenção do pipeline, pois o \\footnote já os gera); \"Vacherot\" é leitura provável da imagem; a forma \"possivel.\" foi mantida como impressa.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.007157200000000001,
+ "duration_ms": 44112,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14502,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11414
+ }
+}

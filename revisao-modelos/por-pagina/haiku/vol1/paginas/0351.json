@@ -1,0 +1,24 @@
+{
+ "pagina": 351,
+ "paginas": [
+  351
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de palavras (acto, mesmo, potencia, uma, toda a, subsistente, composito, Sum. Th.), palavras faltando (\"é\" em \"Ora o ente, que não é composto\" e \"é\" em \"Ora o acto puro\"), itálicos e negritos (títulos 75 e 76 em negrito, \"serão\" e \"ente\" sem negrito), remoção de \"=\", \"\\textbar{}\" e \"X\" espúrios, e reposição da primeira linha da p. 351 (\"ente, que é acto puro, não encerra...\").\nDúvidas: se \"quia vel una pars est actus...\" e \"p.\" estão em itálico na imagem (lido como texto comum); se \"a outra\" é sem acento (lido como \"a\").",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de palavras (acto, mesmo, potencia, uma, toda a, subsistente, composito, Sum. Th.), palavras faltando (\"é\" em \"Ora o ente, que não é composto\" e \"é\" em \"Ora o acto puro\"), itálicos e negritos (títulos 75 e 76 em negrito, \"serão\" e \"ente\" sem negrito), remoção de \"=\", \"\\textbar{}\" e \"X\" espúrios, e reposição da primeira linha da p. 351 (\"ente, que é acto puro, não encerra...\").\nDúvidas: se \"quia vel una pars est actus...\" e \"p.\" estão em itálico na imagem (lido como texto comum); se \"a outra\" é sem acento (lido como \"a\").",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0051339,
+ "duration_ms": 33926,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8474,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8573
+ }
+}

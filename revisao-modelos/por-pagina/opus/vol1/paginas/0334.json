@@ -1,0 +1,25 @@
+{
+ "pagina": 334,
+ "paginas": [
+  334,
+  335
+ ],
+ "falha": null,
+ "notas": "Corrigidos lixo de OCR (pontuação espúria, \"iE\", \"AL\", \"e})\"), letras trocadas (distiüetà, réalinente, 208.), acentos indevidos (ênte, essência), a linha \"Logo o ente, que é necessario\" partida; restaurados itálicos nas notas e negrito nos enunciados das teses 56 e 57. \"potencia: aliás\" — dúvida leve entre \":\" e \";\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos lixo de OCR (pontuação espúria, \"iE\", \"AL\", \"e})\"), letras trocadas (distiüetà, réalinente, 208.), acentos indevidos (ênte, essência), a linha \"Logo o ente, que é necessario\" partida; restaurados itálicos nas notas e negrito nos enunciados das teses 56 e 57. \"potencia: aliás\" — dúvida leve entre \":\" e \";\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.10566,
+ "duration_ms": 22050,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 13465,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 2590
+ }
+}

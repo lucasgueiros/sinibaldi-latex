@@ -1,0 +1,26 @@
+{
+ "pagina": 331,
+ "paginas": [
+  331,
+  332,
+  333
+ ],
+ "falha": null,
+ "notas": "Corrigidos: número do parágrafo (34→54), \"Artigo I\" (\\textbar{} espúrio), \"Summario\", lixo de OCR na chamada da nota \"(*J). ---\", muitas letras trocadas (fotul, oppüe, coumprehkensão, lambem, virtualiiente, \\&cto etc.), itálicos faltantes/sobrando e \\textsc{Deus}.\nDúvidas: \"realidades. necessarias\" e \"É total. se\" mantidos com ponto como parece impresso; o corpo da p. 332 (\"55. Ente necessario…\") não consta da entrada e não foi acrescentado.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: número do parágrafo (34→54), \"Artigo I\" (\\textbar{} espúrio), \"Summario\", lixo de OCR na chamada da nota \"(*J). ---\", muitas letras trocadas (fotul, oppüe, coumprehkensão, lambem, virtualiiente, \\&cto etc.), itálicos faltantes/sobrando e \\textsc{Deus}.\nDúvidas: \"realidades. necessarias\" e \"É total. se\" mantidos com ponto como parece impresso; o corpo da p. 332 (\"55. Ente necessario…\") não consta da entrada e não foi acrescentado.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.22748000000000002,
+ "duration_ms": 56366,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 20395,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7295
+ }
+}

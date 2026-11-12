@@ -1,0 +1,25 @@
+{
+ "pagina": 425,
+ "paginas": [
+  425,
+  426
+ ],
+ "falha": null,
+ "notas": "Restaurada a primeira linha da p. 425 (\"pela sua causa efficiente\"); corrigidos erros de OCR (vieioso→vicioso, dia?→da, \"Dus\"→Deus, \"Dist. 8\"→3, \"Leibnits\"→Leibnitz, \"ecistencia\"→existencia, \"0)\"→c), \"1)\"→b), \"Ente\", \"nao\"→não, \"/\\emph{odo}\"→todo) e formatação (cabeçalhos em negrito, \\emph{ideal}/\\emph{real}).\nDúvidas: o ponto final de \"na intelligencia\" estava depois do \"}\" de fecho da nota; movi-o para dentro da nota, pois a imagem o mostra no fim da nota. Mantive \\pgn{426} após \"premissas\" conforme pedido, embora a palavra esteja dividida entre as páginas (\"pre-/missas\").",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Restaurada a primeira linha da p. 425 (\"pela sua causa efficiente\"); corrigidos erros de OCR (vieioso→vicioso, dia?→da, \"Dus\"→Deus, \"Dist. 8\"→3, \"Leibnits\"→Leibnitz, \"ecistencia\"→existencia, \"0)\"→c), \"1)\"→b), \"Ente\", \"nao\"→não, \"/\\emph{odo}\"→todo) e formatação (cabeçalhos em negrito, \\emph{ideal}/\\emph{real}).\nDúvidas: o ponto final de \"na intelligencia\" estava depois do \"}\" de fecho da nota; movi-o para dentro da nota, pois a imagem o mostra no fim da nota. Mantive \\pgn{426} após \"premissas\" conforme pedido, embora a palavra esteja dividida entre as páginas (\"pre-/missas\").",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0073633,
+ "duration_ms": 43345,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 15368,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11653
+ }
+}

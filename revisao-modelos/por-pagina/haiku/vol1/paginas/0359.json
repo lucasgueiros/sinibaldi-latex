@@ -1,0 +1,24 @@
+{
+ "pagina": 359,
+ "paginas": [
+  359
+ ],
+ "falha": null,
+ "notas": "Corrigidos: restaurada a primeira linha da p. 359 (\"ente, que já o possue...\"), OCR (muíavel, T./I., jn/in, polest/potest, c. 90/c. 20, Fjrmissime), hifenizações (passa-ram, neces-riamente, d'este), pontuação e artefatos \"^^\" e \"m\"; removidos \"\\textsc\" em Deum/Deo, por não aparecerem em versalete na imagem.\nDúvidas: a nota (1) está no ponto da chamada de II, e não no \"(1)\" do parágrafo anterior, que ficou como texto simples; \"...\" entre as duas notas foi removido; pontuação de \"mutavel:\"/\"immutavel.\" e grafia \"extistentes\" incertas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: restaurada a primeira linha da p. 359 (\"ente, que já o possue...\"), OCR (muíavel, T./I., jn/in, polest/potest, c. 90/c. 20, Fjrmissime), hifenizações (passa-ram, neces-riamente, d'este), pontuação e artefatos \"^^\" e \"m\"; removidos \"\\textsc\" em Deum/Deo, por não aparecerem em versalete na imagem.\nDúvidas: a nota (1) está no ponto da chamada de II, e não no \"(1)\" do parágrafo anterior, que ficou como texto simples; \"...\" entre as duas notas foi removido; pontuação de \"mutavel:\"/\"immutavel.\" e grafia \"extistentes\" incertas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0051298,
+ "duration_ms": 36325,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8213,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8617
+ }
+}

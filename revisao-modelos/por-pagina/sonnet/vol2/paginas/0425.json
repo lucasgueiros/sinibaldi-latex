@@ -1,0 +1,25 @@
+{
+ "pagina": 425,
+ "paginas": [
+  425,
+  426
+ ],
+ "falha": null,
+ "notas": "Repus a primeira linha (\"pela sua\") da p. 425; corrigi leituras do OCR (vieioso, dia?, /odo, Dus, ecistencia, Leibnits, nao, esta→está, baséa→basêa), marcadores \"1)\" e \"0)\" → \"b)\" e \"c)\", e itálicos/versaletes na nota. Mantive \"attribuito\" e \"basêa\" como impressos; ponto \"(1)\" de chamada substituído pelo \\footnote já existente.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Repus a primeira linha (\"pela sua\") da p. 425; corrigi leituras do OCR (vieioso, dia?, /odo, Dus, ecistencia, Leibnits, nao, esta→está, baséa→basêa), marcadores \"1)\" e \"0)\" → \"b)\" e \"c)\", e itálicos/versaletes na nota. Mantive \"attribuito\" e \"basêa\" como impressos; ponto \"(1)\" de chamada substituído pelo \\footnote já existente.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.079972,
+ "duration_ms": 29866,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 15346,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4928
+ }
+}

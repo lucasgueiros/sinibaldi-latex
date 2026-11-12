@@ -1,0 +1,25 @@
+{
+ "pagina": 429,
+ "paginas": [
+  429,
+  430
+ ],
+ "falha": null,
+ "notas": "Corrigidos erros de OCR (irracionaes, DEus→Deus, distincção, contradicções, indicando, teleologico, Não, a. 3, c. 13, \"A.\" espúrio, \"á\"→\"a\", parênteses faltando em \"art. III)\" e \"Cap. I)\"), itálicos das letras a)–e) e \"immovel\"; removido o ponto espúrio antes de \"12.\" e posto em negrito o título. Dúvida menor: se \"e moraes\" na nota está todo em itálico (mantido como estava).",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos erros de OCR (irracionaes, DEus→Deus, distincção, contradicções, indicando, teleologico, Não, a. 3, c. 13, \"A.\" espúrio, \"á\"→\"a\", parênteses faltando em \"art. III)\" e \"Cap. I)\"), itálicos das letras a)–e) e \"immovel\"; removido o ponto espúrio antes de \"12.\" e posto em negrito o título. Dúvida menor: se \"e moraes\" na nota está todo em itálico (mantido como estava).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.064122,
+ "duration_ms": 27101,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14381,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 3536
+ }
+}

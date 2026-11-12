@@ -1,0 +1,24 @@
+{
+ "pagina": 440,
+ "paginas": [
+  440
+ ],
+ "falha": null,
+ "notas": "Corrigidos: referência \"pag. 91\" → \"94\"; \"E\" espúrio removido no fim da nota; \"Sao\" → \"São\"; \"DEus\"/\"Deus\" uniformizados em versalete; \"imme-diatamente\" rejuntado; títulos 18 e 19 em negrito integral conforme a imagem; \"São\"/\"Pensées div.,\" com pontuação corrigida.\nDúvidas: acento em \"possível\" (título 19) e \"possivel\" (título 18) foi lido assim na imagem; as notas b)–e) no rodapé superior pertencem à nota iniciada na página 439 e ficaram fora do trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: referência \"pag. 91\" → \"94\"; \"E\" espúrio removido no fim da nota; \"Sao\" → \"São\"; \"DEus\"/\"Deus\" uniformizados em versalete; \"imme-diatamente\" rejuntado; títulos 18 e 19 em negrito integral conforme a imagem; \"São\"/\"Pensées div.,\" com pontuação corrigida.\nDúvidas: acento em \"possível\" (título 19) e \"possivel\" (título 18) foi lido assim na imagem; as notas b)–e) no rodapé superior pertencem à nota iniciada na página 439 e ficaram fora do trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0032911,
+ "duration_ms": 21859,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8151,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4952
+ }
+}

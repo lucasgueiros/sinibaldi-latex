@@ -1,0 +1,25 @@
+{
+ "pagina": 434,
+ "paginas": [
+  434,
+  435
+ ],
+ "falha": null,
+ "notas": "Reposta a primeira linha da p. 434 (\"exige necessariamente uma causa proporcionada. A causa\"). Corrigidos erros de OCR (serio, Na., o/c, \\&, differenca, con- Siderou-se, Vazherot, afirma, Dxgus, DEus, É→é) e o itálico mal colocado em \"é necessario\" e \"é essencialmente contingente\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Reposta a primeira linha da p. 434 (\"exige necessariamente uma causa proporcionada. A causa\"). Corrigidos erros de OCR (serio, Na., o/c, \\&, differenca, con- Siderou-se, Vazherot, afirma, Dxgus, DEus, É→é) e o itálico mal colocado em \"é necessario\" e \"é essencialmente contingente\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.11125199999999999,
+ "duration_ms": 21718,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14478,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 2667
+ }
+}

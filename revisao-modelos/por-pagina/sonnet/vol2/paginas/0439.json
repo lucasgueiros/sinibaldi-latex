@@ -1,0 +1,24 @@
+{
+ "pagina": 439,
+ "paginas": [
+  439
+ ],
+ "falha": null,
+ "notas": "Removido \"EI\" espúrio após \\pg{439}; corrigido \"A. existencia\" → \"A existencia\" (título e toc); \"É\" → \"é\"; negrito dos títulos de 16 e 17 estendido a toda a expressão, com o ponto dentro. O texto do rodapé (continuação de nota anterior) não pertence ao trecho e foi omitido.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Removido \"EI\" espúrio após \\pg{439}; corrigido \"A. existencia\" → \"A existencia\" (título e toc); \"É\" → \"é\"; negrito dos títulos de 16 e 17 estendido a toda a expressão, com o ponto dentro. O texto do rodapé (continuação de nota anterior) não pertence ao trecho e foi omitido.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.027778,
+ "duration_ms": 10637,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 7959,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1186
+ }
+}

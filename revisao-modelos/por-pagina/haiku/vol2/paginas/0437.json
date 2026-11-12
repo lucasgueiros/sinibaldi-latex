@@ -1,0 +1,24 @@
+{
+ "pagina": 437,
+ "paginas": [
+  437
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de letras (exeeutando, forças, tirra}=cional), \"25)\" → \"b)\", \"\\textbf{moraes}\" mantido, ponto final após nota (1) e (2) no lugar de \":\", e \"adyertimos\" → \"advertimos\"; reposta a primeira linha da página 437 (\"a existencia de uma Intelligencia...\") logo após \\pg{437}.\nDúvidas: não acrescentei o \"(1)\"/\"(2)\" impresso nas notas, pois a marca automática do \\footnote já cumpre essa função; o texto em rodapé que começa com \"ser a do Ente…\" pertence à nota da página anterior e ficou fora do trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de letras (exeeutando, forças, tirra}=cional), \"25)\" → \"b)\", \"\\textbf{moraes}\" mantido, ponto final após nota (1) e (2) no lugar de \":\", e \"adyertimos\" → \"advertimos\"; reposta a primeira linha da página 437 (\"a existencia de uma Intelligencia...\") logo após \\pg{437}.\nDúvidas: não acrescentei o \"(1)\"/\"(2)\" impresso nas notas, pois a marca automática do \\footnote já cumpre essa função; o texto em rodapé que começa com \"ser a do Ente…\" pertence à nota da página anterior e ficou fora do trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.003092,
+ "duration_ms": 19748,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8360,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4512
+ }
+}

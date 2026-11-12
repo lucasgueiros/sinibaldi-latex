@@ -1,0 +1,27 @@
+{
+ "pagina": 426,
+ "paginas": [
+  426,
+  427,
+  428,
+  429
+ ],
+ "falha": null,
+ "notas": "Corrigidos erros de OCR (suppoóem, coiea, successdo, rasdo, ejfeíto, larmonia, «xistencia, leyam, cansa, ewístencia, 03s, dessemelhanca etc.), itálicos, vírgulas e lixo (\"\\&\", \".Devemos\"). Reposta a primeira linha da p. 426; negrito do título do n.º 11 unificado.\nDúvida: \"\\emph{imperfeito}\\pgn{429}, e o grau\" — mantida a posição do \\pgn, pois a palavra \"imper-feito\" fica completa antes dele; \"formúla\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos erros de OCR (suppoóem, coiea, successdo, rasdo, ejfeíto, larmonia, «xistencia, leyam, cansa, ewístencia, 03s, dessemelhanca etc.), itálicos, vírgulas e lixo (\"\\&\", \".Devemos\"). Reposta a primeira linha da p. 426; negrito do título do n.º 11 unificado.\nDúvida: \"\\emph{imperfeito}\\pgn{429}, e o grau\" — mantida a posição do \\pgn, pois a palavra \"imper-feito\" fica completa antes dele; \"formúla\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.126858,
+ "duration_ms": 44431,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 26949,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7296
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "pagina": 430,
+ "paginas": [
+  430,
+  431,
+  432,
+  433,
+  434
+ ],
+ "falha": null,
+ "notas": "Corrigidos: \"n\\&o\"/\"\\&\" espúrios (não, a, á), letras trocadas (ató, communiea, coneluo, inexhauriyel, attracgüo, wuniversal, conv, ad 8→ad 3, V.→t.), lixo do OCR (assinatura \"28 Vol. II\", aspas/dois-pontos espúrios), itálicos fragmentados unificados; repostos \"é\" no topo da p. 432 e \"causa\" no topo da p. 433.\nDúvida: \"conténdo\" (acento impresso pouco nítido); \\pg{431} está estruturalmente antes de \"b) No mundo…\" na imagem, mas foi mantido onde estava.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: \"n\\&o\"/\"\\&\" espúrios (não, a, á), letras trocadas (ató, communiea, coneluo, inexhauriyel, attracgüo, wuniversal, conv, ad 8→ad 3, V.→t.), lixo do OCR (assinatura \"28 Vol. II\", aspas/dois-pontos espúrios), itálicos fragmentados unificados; repostos \"é\" no topo da p. 432 e \"causa\" no topo da p. 433.\nDúvida: \"conténdo\" (acento impresso pouco nítido); \\pg{431} está estruturalmente antes de \"b) No mundo…\" na imagem, mas foi mantido onde estava.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.290132,
+ "duration_ms": 57061,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 33688,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7769
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "pagina": 435,
+ "paginas": [
+  435
+ ],
+ "falha": null,
+ "notas": "Corrigidos: \"á\" → \"a\", \"DEus\" → \"Deus\", \"O\" final → \"o\", itálicos faltando ou espúrios na nota (\"menos\", \"varias\", \"A\").\nRemovida a quebra de parágrafo espúria antes de \"necessarias\".\nO início da página traz no rodapé a continuação de uma nota da página anterior. Ela não foi incluída, como pedido.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: \"á\" → \"a\", \"DEus\" → \"Deus\", \"O\" final → \"o\", itálicos faltando ou espúrios na nota (\"menos\", \"varias\", \"A\").\nRemovida a quebra de parágrafo espúria antes de \"necessarias\".\nO início da página traz no rodapé a continuação de uma nota da página anterior. Ela não foi incluída, como pedido.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.064024,
+ "duration_ms": 13225,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8506,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1500
+ }
+}

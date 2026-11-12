@@ -1,0 +1,24 @@
+{
+ "pagina": 439,
+ "paginas": [
+  439
+ ],
+ "falha": null,
+ "notas": "Removidos \"EI\" espúrio após \\pg{439}; corrigido \"A.\" para \"A\" no título da seção e no addcontentsline; \"É\" para \"é\" em \"O theoretico\"; negrito de \"Divisão do atheismo theoretico\" estendido ao título inteiro, como na imagem.\nDúvidas: nenhuma relevante; a ortografia arcaica (\"póde\", \"affirmem\", \"Elle\") foi mantida como impressa.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Removidos \"EI\" espúrio após \\pg{439}; corrigido \"A.\" para \"A\" no título da seção e no addcontentsline; \"É\" para \"é\" em \"O theoretico\"; negrito de \"Divisão do atheismo theoretico\" estendido ao título inteiro, como na imagem.\nDúvidas: nenhuma relevante; a ortografia arcaica (\"póde\", \"affirmem\", \"Elle\") foi mantida como impressa.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0017161,
+ "duration_ms": 8773,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 7981,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1836
+ }
+}

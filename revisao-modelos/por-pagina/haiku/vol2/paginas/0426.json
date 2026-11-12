@@ -1,0 +1,27 @@
+{
+ "pagina": 426,
+ "paginas": [
+  426,
+  427,
+  428,
+  429
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de letras (cau­sa/causa, \"Ninguem viuo\", \"larmonia\", \"«xistencia\", \"coiea\", \"basé6am\", \"successdo\", \"ejfeíto\", \"rasdo\"), acentos e crases (\"á\"→\"a\" onde é artigo), hífens e pontuação (\"verificar.\" e \"conhecimento .\" espúrios), e itálicos.\nRestaurada a primeira linha da p. 426 (\"se prova a existencia da causa respectiva. Ora a existencia de\"); \\pg/\\pgn mantidos onde estavam. Dúvidas: \"(1)\" impresso dentro da nota não foi transcrito (numeração automática); a continuação de notas da p. 425 (\\\"missas… c. Gentes, l. I, c. 11\\\", \\\"b) Descartes\\\", \\\"c) Leibnitz\\\") ficou fora por pertencer à nota anterior; a posição de \\pg{427}\\pg{428} no meio da frase da seção 11 foi mantida como está.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de letras (cau­sa/causa, \"Ninguem viuo\", \"larmonia\", \"«xistencia\", \"coiea\", \"basé6am\", \"successdo\", \"ejfeíto\", \"rasdo\"), acentos e crases (\"á\"→\"a\" onde é artigo), hífens e pontuação (\"verificar.\" e \"conhecimento .\" espúrios), e itálicos.\nRestaurada a primeira linha da p. 426 (\"se prova a existencia da causa respectiva. Ora a existencia de\"); \\pg/\\pgn mantidos onde estavam. Dúvidas: \"(1)\" impresso dentro da nota não foi transcrito (numeração automática); a continuação de notas da p. 425 (\\\"missas… c. Gentes, l. I, c. 11\\\", \\\"b) Descartes\\\", \\\"c) Leibnitz\\\") ficou fora por pertencer à nota anterior; a posição de \\pg{427}\\pg{428} no meio da frase da seção 11 foi mantida como está.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.011495100000000001,
+ "duration_ms": 62956,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 26971,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17596
+ }
+}

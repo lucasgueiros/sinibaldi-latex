@@ -1,0 +1,27 @@
+{
+ "pagina": 426,
+ "paginas": [
+  426,
+  427,
+  428,
+  429
+ ],
+ "falha": null,
+ "notas": "Reposta a primeira linha perdida da p. 426 (\"se prova a existencia da causa respectiva. Ora a existencia de\"). Corrigidos erros de OCR (suppoóem, successdo, coiea, rasdo, ejfeíto, larmonia, swbjectivos, 03s, leyam, ewístencia, basé6am etc.), crases indevidas (á causa, á mesma), pontuação e itálicos (causa, começa, trecho \"razão não o produz…\").",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Reposta a primeira linha perdida da p. 426 (\"se prova a existencia da causa respectiva. Ora a existencia de\"). Corrigidos erros de OCR (suppoóem, successdo, coiea, rasdo, ejfeíto, larmonia, swbjectivos, 03s, leyam, ewístencia, basé6am etc.), crases indevidas (á causa, á mesma), pontuação e itálicos (causa, começa, trecho \"razão não o produz…\").",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.210228,
+ "duration_ms": 37522,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 26947,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5122
+ }
+}

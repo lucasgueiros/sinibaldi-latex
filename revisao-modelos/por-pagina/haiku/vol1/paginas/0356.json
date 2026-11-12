@@ -1,0 +1,24 @@
+{
+ "pagina": 356,
+ "paginas": [
+  356
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de letras (conítradiclorias, conírario, íransubstanciagzo, \"e)\"→\"c)\", \"Y)\"→\"É\", \"pare\"→\"para\", \"va\"→\"na\", \"&\"→\"á\"), acentos, hifenizações de fim de linha, rótulo \"§5.\" e negrito da tese, e o \"O\" espúrio após \"sabio\"; o cabeçalho da página e a linha \"em si a potencia…\" (continuação da nota da página anterior) ficaram de fora.\nDúvidas: o marcador \"(²)\" aparece no corpo, após \"sabio\", mas a nota 2 está presa ao fim da tese §5 — erro de estrutura, não alterado; \"movimento\" em \"Embora a mudança e o movimento\" foi colocado em itálico por parecer itálico na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de letras (conítradiclorias, conírario, íransubstanciagzo, \"e)\"→\"c)\", \"Y)\"→\"É\", \"pare\"→\"para\", \"va\"→\"na\", \"&\"→\"á\"), acentos, hifenizações de fim de linha, rótulo \"§5.\" e negrito da tese, e o \"O\" espúrio após \"sabio\"; o cabeçalho da página e a linha \"em si a potencia…\" (continuação da nota da página anterior) ficaram de fora.\nDúvidas: o marcador \"(²)\" aparece no corpo, após \"sabio\", mas a nota 2 está presa ao fim da tese §5 — erro de estrutura, não alterado; \"movimento\" em \"Embora a mudança e o movimento\" foi colocado em itálico por parecer itálico na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0043048999999999995,
+ "duration_ms": 27154,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8329,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6944
+ }
+}

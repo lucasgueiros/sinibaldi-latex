@@ -1,0 +1,25 @@
+{
+ "pagina": 337,
+ "paginas": [
+  337,
+  338
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de letras (L→I, ll→II, \"tal e L te\"→\"essencial e necessariamente\"), hifenização de fim de linha (con-tem, essen-cia, me-cessario), lixo (\"\\textasciicircum{}\", \"c\", \"Vol. 1, i . E\", \"o'contingente\"), acentos (á, ideal/real em itálico) e rótulos \"(1)\"/\"(2)\" impressos nas notas.\nDúvidas: a chamada da nota 1 não aparece no corpo (o \"(¹)\" de I está sem \\footnote; deixei \\textsuperscript{1}); removi um \\par espúrio no meio da frase da nota 2 (quebra de página \"O / proprio\" e \"me- / cessario\"), pois é a mesma frase.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de letras (L→I, ll→II, \"tal e L te\"→\"essencial e necessariamente\"), hifenização de fim de linha (con-tem, essen-cia, me-cessario), lixo (\"\\textasciicircum{}\", \"c\", \"Vol. 1, i . E\", \"o'contingente\"), acentos (á, ideal/real em itálico) e rótulos \"(1)\"/\"(2)\" impressos nas notas.\nDúvidas: a chamada da nota 1 não aparece no corpo (o \"(¹)\" de I está sem \\footnote; deixei \\textsuperscript{1}); removi um \\par espúrio no meio da frase da nota 2 (quebra de página \"O / proprio\" e \"me- / cessario\"), pois é a mesma frase.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0061010000000000005,
+ "duration_ms": 39890,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 13150,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9572
+ }
+}

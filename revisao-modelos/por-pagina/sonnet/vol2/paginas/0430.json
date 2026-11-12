@@ -1,0 +1,28 @@
+{
+ "pagina": 430,
+ "paginas": [
+  430,
+  431,
+  432,
+  433,
+  434
+ ],
+ "falha": null,
+ "notas": "Corrigidos erros de OCR (n\\&o, \\&→a/á, lo→lh'o, ató, hão, Nào, attracgüo, wuniversal, ad 8→ad 3, etc.), removidos assinatura \"28 Vor. II.\" e aspas espúrias; repostas as palavras iniciais \"é\" (p. 432) e \"causa\" (p. 433) após os \\pg. Dúvida menor: \"conténdo\" (acento impresso) e itálico em \"B. S. Hilaire\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos erros de OCR (n\\&o, \\&→a/á, lo→lh'o, ató, hão, Nào, attracgüo, wuniversal, ad 8→ad 3, etc.), removidos assinatura \"28 Vor. II.\" e aspas espúrias; repostas as palavras iniciais \"é\" (p. 432) e \"causa\" (p. 433) após os \\pg. Dúvida menor: \"conténdo\" (acento impresso) e itálico em \"B. S. Hilaire\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.16657,
+ "duration_ms": 60132,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 33690,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9919
+ }
+}

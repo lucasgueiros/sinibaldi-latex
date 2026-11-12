@@ -1,0 +1,25 @@
+{
+ "pagina": 429,
+ "paginas": [
+  429,
+  430
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de palavras (irracionaes, contradicções, indicando, teleologico, immovel, Cap. I, a. 3/c. 13), crases e pontuação (\"A.\" e \"á\" indevidos), vírgula em \"(Cosm. ger.), a ordem\", itálicos das alíneas a)–e) e de \"necessario\", negrito do título, e remoção do ponto espúrio antes de \"12.\".\nDúvidas: o pipeline pôs \"Escutámos… c. 13\" dentro da nota de p. 430, mas na imagem é corpo do texto (a nota termina em \"boa — a existencia de Deus.\"); não mexi na estrutura. A continuação \"feito, e o grau…\" da p. 428 no rodapé de 429 foi omitida, por não pertencer ao trecho. A grafia \"basêam-se\" no corpo foi lida na imagem com alguma incerteza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de palavras (irracionaes, contradicções, indicando, teleologico, immovel, Cap. I, a. 3/c. 13), crases e pontuação (\"A.\" e \"á\" indevidos), vírgula em \"(Cosm. ger.), a ordem\", itálicos das alíneas a)–e) e de \"necessario\", negrito do título, e remoção do ponto espúrio antes de \"12.\".\nDúvidas: o pipeline pôs \"Escutámos… c. 13\" dentro da nota de p. 430, mas na imagem é corpo do texto (a nota termina em \"boa — a existencia de Deus.\"); não mexi na estrutura. A continuação \"feito, e o grau…\" da p. 428 no rodapé de 429 foi omitida, por não pertencer ao trecho. A grafia \"basêam-se\" no corpo foi lida na imagem com alguma incerteza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0073583,
+ "duration_ms": 48392,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14403,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11836
+ }
+}

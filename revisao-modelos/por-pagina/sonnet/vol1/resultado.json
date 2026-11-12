@@ -1,0 +1,16 @@
+{
+ "modelo": "sonnet",
+ "pedacos": 26,
+ "feitos": 4,
+ "falhas": {},
+ "total_cost_usd": 0.2887,
+ "num_turns": 5,
+ "duration_ms": 116342,
+ "usage": {
+  "input_tokens": 57375,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17395
+ },
+ "is_error": true
+}

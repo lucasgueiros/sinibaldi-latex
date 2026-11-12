@@ -1,0 +1,24 @@
+{
+ "pagina": 350,
+ "paginas": [
+  350
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR de letras (comtudo, excellencia, nobilius, \"e.ser\", \"ura\", \"noulras\", \"denol\"), \"n\\&o\" para \"não\", \"Ora á\" para \"Ora a\", itálicos da tese 74 a) e negrito da tese 74, e removido o \"1\" solto no fim do trecho.\nDúvidas: a marca de nota \"() O Angelico\" foi lida como \"(²)\", pois a imagem mostra um sinal pequeno e ilegível; a referência \"C. Gent., I, 18\" também foi inferida do OCR (\"IS\"), e o \"I\" pode ser \"l\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR de letras (comtudo, excellencia, nobilius, \"e.ser\", \"ura\", \"noulras\", \"denol\"), \"n\\&o\" para \"não\", \"Ora á\" para \"Ora a\", itálicos da tese 74 a) e negrito da tese 74, e removido o \"1\" solto no fim do trecho.\nDúvidas: a marca de nota \"() O Angelico\" foi lida como \"(²)\", pois a imagem mostra um sinal pequeno e ilegível; a referência \"C. Gent., I, 18\" também foi inferida do OCR (\"IS\"), e o \"I\" pode ser \"l\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0033951999999999997,
+ "duration_ms": 19749,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8542,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5082
+ }
+}

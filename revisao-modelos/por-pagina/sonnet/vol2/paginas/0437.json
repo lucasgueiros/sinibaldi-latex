@@ -1,0 +1,29 @@
+{
+ "pagina": 437,
+ "paginas": [
+  437
+ ],
+ "falha": null,
+ "notas": "Reposta a primeira linha da página; corrigidos \"exeeutando\", \"tirra=cional\" (irracional, juntando a hifenização), \"25)\" → \"b)\", \"adyertimos\"; negrito em \"Argumentos moraes.\"; \"a)\" e \"b)\" em itálico; \":\" após a primeira chamada de nota trocado por \".\". Mantidas as duas \\footnote e os \\pg; a parte da nota anterior (ser a do Ente…, Os materialistas, Resposta) não pertence a este trecho.",
+ "tentativas": [
+  {
+   "falha": "número de \\footnote mudou: 2 → 1",
+   "notas": "Repus a primeira linha da página e o fim da nota anterior (ser a do Ente…), pois o trecho inclui o rodapé; reorganizei as duas notas (1) e (2) conforme a imagem, mantendo dois \\footnote. Corrigi \"exeeutando\", \"tirra\", \"25)\"→b), \"adyertimos\"; chamadas (1) e (2) no corpo.",
+   "resposta": "<tex>\n\\pg{437} a existencia de uma Intelligencia soberana e infinita. Na verdade, todo o agente \\emph{irracional}, nas suas operações, tende para um fim, empregando para isso os meios mais efficazes, e executando um plano com maravilhosa exactidão, constancia e uniformidade. Este fim, esta escolha de meios e este plano, devem ser effeitos de uma intelligencia \\emph{infinita}; porque só uma intelligencia \\emph{infinita} podia determinar a cada agente \\emph{irracional} um fim proporcionado, modelar planos complicados e ao mesmo tempo perfeitos, e, para os realizar, servir-se da forças cegas da natureza. A intelligencia \\emph{infinita} é propria de \\textsc{Deus}. Logo existe \\textsc{Deus} (1).\n\n14. \\textbf{Argumentos moraes}. --- Os argumentos \\emph{moraes} fundam-se em que, --- \\emph{a}) se existe uma lei \\emph{moral}, deve existir um legislador, --- \\emph{b}) se todos os povos admittiram a existencia de um Ente supremo, Este deve existir.\n\na) A consciencia attesta-nos que temos gravada no nosso coração uma lei moral, á qual não nos podemos subtrahir, e que o cumprimento d'essa lei produz tranquillidade, assim como a sua transgressão causa remorso. Ora a existencia d'esta lei, como a respectiva sancção, suppõe a existencia de um legislador. Este legislador não póde ser o proprio homem; aliás seria inexplicavel o sentimento da nossa dependencia de um poder superior. Logo deve ser um Ente superior ao homem e dotado de virtude ou poder \\emph{infinito}; porque só um ente infinitamente poderoso podia gravar no coração dos homens essa lei. O Ente superior, de que o homem depende e a que deve obedecer, é \\textsc{Deus}. Logo existe \\textsc{Deus} (2).\\footnote{ser a do Ente, que \\emph{criou} o proprio mundo. Ora o ente, que \\emph{criou} o mundo, deve ter um poder \\emph{infinito}. O ente, dotado de poder \\emph{infinito}, deve ter uma natureza \\emph{infinita} e por isso uma intelligencia \\emph{infinita}.\\par Os materialistas objectam: Esta ordem e regularidade, que existe em todo o universo e em cada substancia, não é effeito de uma causa intelligente e deliberada, mas é obra do \\emph{acaso}.\\par Resposta. O \\emph{acaso}, sendo \\emph{privação} de intelligencia e deliberação, é \\emph{nada}. Ora é absurdo dizer que o \\emph{nada} produziu a \\emph{realidade}. Logo a ordem, que existe no mundo, sendo uma \\emph{realidade}, não foi produzida pelo \\emph{acaso}, mas por um Ente real, infinitamente sabio e poderoso.\\par (1) Tambem este ponto ácerca da \\emph{finalidade} nas operações dos agentes \\emph{irracionaes} foi sufficientemente tratado na \\emph{Cosmologia geral}.\\par (2) Este argumento, apresentado tambem por \\emph{Kant} para a demonstração da existencia de \\textsc{Deus}, será mais desenvolvido na \\emph{Moral}.\\par Aqui apenas advertimos que a existencia da \\emph{lei moral} considera-se como um \\emph{facto experimental}, attestado pela consciencia. Provado o facto da existencia da \\emph{lei}, legitimamente deduz-se a existencia de um \\emph{legislador}.}\n</tex>\n<notas>\nRepus a primeira linha da página e o fim da nota anterior (ser a do Ente…), pois o trecho inclui o rodapé; reorganizei as duas notas (1) e (2) conforme a imagem, mantendo dois \\footnote. Corrigi \"exeeutando\", \"tirra\", \"25)\"→b), \"adyertimos\"; chamadas (1) e (2) no corpo.\n</notas>"
+  },
+  {
+   "falha": null,
+   "notas": "Reposta a primeira linha da página; corrigidos \"exeeutando\", \"tirra=cional\" (irracional, juntando a hifenização), \"25)\" → \"b)\", \"adyertimos\"; negrito em \"Argumentos moraes.\"; \"a)\" e \"b)\" em itálico; \":\" após a primeira chamada de nota trocado por \".\". Mantidas as duas \\footnote e os \\pg; a parte da nota anterior (ser a do Ente…, Os materialistas, Resposta) não pertence a este trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.06671200000000001,
+ "duration_ms": 24282,
+ "num_turns": 2,
+ "usage": {
+  "input_tokens": 16781,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 3315
+ }
+}

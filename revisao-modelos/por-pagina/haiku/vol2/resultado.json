@@ -1,0 +1,16 @@
+{
+ "modelo": "haiku",
+ "pedacos": 15,
+ "feitos": 15,
+ "falhas": {},
+ "total_cost_usd": 0.1443,
+ "num_turns": 18,
+ "duration_ms": 886578,
+ "usage": {
+  "input_tokens": 297639,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 229100
+ },
+ "is_error": false
+}

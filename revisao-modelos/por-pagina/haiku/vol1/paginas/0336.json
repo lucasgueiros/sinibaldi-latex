@@ -1,0 +1,25 @@
+{
+ "pagina": 336,
+ "paginas": [
+  336,
+  337
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR (n/u, l/t, c/e, \"Ih'o\"→\"lh'o\", \"xecessario\"→\"necessario\", \"impartseipado\"→\"imparticipado\", \"1,15\"→\"I, 15\"), pontuação dupla, \"\\textbar{}\" espúrio, itálicos e \\textbf indevidos em \"mediatamente\"/\"porque\" (que na imagem não são negritos).\nDúvidas: \"inevitevelmente\" foi lido como \"inevitavelmente\"; a numeração em a)/b) e o negrito de toda a tese 60 foram tomados da imagem, mas podem merecer conferência.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR (n/u, l/t, c/e, \"Ih'o\"→\"lh'o\", \"xecessario\"→\"necessario\", \"impartseipado\"→\"imparticipado\", \"1,15\"→\"I, 15\"), pontuação dupla, \"\\textbar{}\" espúrio, itálicos e \\textbf indevidos em \"mediatamente\"/\"porque\" (que na imagem não são negritos).\nDúvidas: \"inevitevelmente\" foi lido como \"inevitavelmente\"; a numeração em a)/b) e o negrito de toda a tese 60 foram tomados da imagem, mas podem merecer conferência.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0041429,
+ "duration_ms": 21167,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 13549,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5576
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "pagina": 424,
+ "paginas": [
+  424
+ ],
+ "falha": null,
+ "notas": "Corrigidos: primeira linha do corpo perdida pelo OCR (\"pois, como demonstrámos na\", reposta); \"á\"→\"a\" (sem crase); \"5)\"→\"b)\", \"€\"→\"é\", \"zntuicüo\"→\"intuição\", hífen de \"intel-lectuale\" juntado, \"Dk:\"→\\textsc{Dei}, traço \"-\" espúrio removido, itálicos em a)/b) e \"A\" do título em negrito.\nDúvidas: as aspas « » e o \"n.\" de fechamento estão ilegíveis no OCR (mantidas as do LaTeX); \"DEus\" mantido como impresso. O bloco \"Deus, que é a regra ultima…\" abaixo do filete pertence à continuação de nota da página 423, fora deste trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: primeira linha do corpo perdida pelo OCR (\"pois, como demonstrámos na\", reposta); \"á\"→\"a\" (sem crase); \"5)\"→\"b)\", \"€\"→\"é\", \"zntuicüo\"→\"intuição\", hífen de \"intel-lectuale\" juntado, \"Dk:\"→\\textsc{Dei}, traço \"-\" espúrio removido, itálicos em a)/b) e \"A\" do título em negrito.\nDúvidas: as aspas « » e o \"n.\" de fechamento estão ilegíveis no OCR (mantidas as do LaTeX); \"DEus\" mantido como impresso. O bloco \"Deus, que é a regra ultima…\" abaixo do filete pertence à continuação de nota da página 423, fora deste trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.006425,
+ "duration_ms": 48172,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8110,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11228
+ }
+}

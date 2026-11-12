@@ -1,0 +1,24 @@
+{
+ "pagina": 346,
+ "paginas": [
+  346
+ ],
+ "falha": null,
+ "notas": "Corrigidos: erros de OCR (ea→e a, perleições, porianlo, dos lermos, Logo 0, el→et, eleito, unicı→unica, signilica, poólencia), hifenização falsa \"per- feição\", ruído \"pois;se-não-fosse…\", \". .\" após a nota 1 e \":\" trocado por \".\" após a citação; ênfases indevidas removidas (porque a, pela, e, perfeição, Quanta) e cabeçalho \"68.\" posto todo em negrito como na imagem.\nDúvidas: a nota (2) aparece após \"().\" e não após um parêntese com o número, como a nota (1); mantive a posição dada. Não sei se \"\\textsc{Diz-S}\" é versalete na imagem (parece texto normal) e se \"iam altera natura\" está mesmo em itálico; mantive como estava.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: erros de OCR (ea→e a, perleições, porianlo, dos lermos, Logo 0, el→et, eleito, unicı→unica, signilica, poólencia), hifenização falsa \"per- feição\", ruído \"pois;se-não-fosse…\", \". .\" após a nota 1 e \":\" trocado por \".\" após a citação; ênfases indevidas removidas (porque a, pela, e, perfeição, Quanta) e cabeçalho \"68.\" posto todo em negrito como na imagem.\nDúvidas: a nota (2) aparece após \"().\" e não após um parêntese com o número, como a nota (1); mantive a posição dada. Não sei se \"\\textsc{Diz-S}\" é versalete na imagem (parece texto normal) e se \"iam altera natura\" está mesmo em itálico; mantive como estava.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0052175,
+ "duration_ms": 35273,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8440,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8747
+ }
+}

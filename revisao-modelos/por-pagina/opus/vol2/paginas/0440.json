@@ -1,0 +1,24 @@
+{
+ "pagina": 440,
+ "paginas": [
+  440
+ ],
+ "falha": null,
+ "notas": "Negrito dos títulos 18 e 19 estendido à frase inteira; na nota: \"Deus\" em versalete, \"São\", \"opéram\", \"pag. 94\", removido \"E\" espúrio; ponto final após a chamada da nota reposto.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Negrito dos títulos 18 e 19 estendido à frase inteira; na nota: \"Deus\" em versalete, \"São\", \"opéram\", \"pag. 94\", removido \"E\" espúrio; ponto final após a chamada da nota reposto.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.052708000000000005,
+ "duration_ms": 9380,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8127,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1010
+ }
+}

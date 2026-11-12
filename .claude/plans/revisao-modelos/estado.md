@@ -1,4 +1,4 @@
-# Revisão final por LLM — comparação de modelos (estado em 2026-11-11, interrompido)
+# Revisão final por LLM — comparação de modelos (2026-11-11: concluída, ver `docs/09-revisao-llm.md`)
 
 Branch `worktree-pdfs-revisao-modelos` (worktree `.claude/worktrees/pdfs-revisao-modelos`).
 
@@ -52,12 +52,17 @@ capítulo lido inteiro (77–120 KB ≈ 30–40 k tokens), (b) cada imagem de p�
 Contexto médio de ~20–60 k tokens × ~100 turnos × 6 sessões ≈ 15 M tokens de cache. Somado às
 sessões anteriores do dia (a principal também estava ativa), estourou a janela de 5 h.
 
-## Para a próxima sessão (sugestões)
-- Rodar **uma** sessão por vez e medir uma página antes de um capítulo (`--modelo haiku` primeiro).
-- Reduzir contexto por chamada: uma sessão `claude -p` **por página** (ou por 2–3 páginas), com só o
-  trecho daquela página do .tex e a imagem dela; juntar no fim. Contexto fica constante (~5–10 k).
-- Reescrever a página inteira num Write em vez de dezenas de Edits (menos turnos).
-- Imagem: baixar resolução do corpo (o texto grande lê bem a ~1000 px de largura) e só recortar notas.
-- Limitar turnos (`--max-turns`) e conferir `resultado.json` após cada execução.
-- `python3 revisao-modelos/compara.py` mede as saídas parciais atuais sem custo de modelo (as
-  revisões estão incompletas, então os números não comparam os modelos).
+## Retomada (2026-11-11, noite): revisão por página — CONCLUÍDA
+Branch `worktree-revisao-por-pagina` (o worktree antigo sumiu; o commit dele já estava no master).
+- `tools/revisa_paginas.py` + `tools/prompts/revisao_pagina.md`: uma chamada `claude -p` de 1 turno por
+  pedaço (cortado nos `\pg`), sem ferramentas, imagens embutidas (stream-json), estrutura congelada,
+  validador e 2ª tentativa. `revisao-modelos/roda_por_pagina.sh`, `compara.py <dir>`, `wer_paginas.py`.
+- Resultado em `revisao-modelos/por-pagina/` e `docs/09`: vol. 2 WER 3,12% → Haiku 0,89% (US$ 0,14) /
+  Sonnet 0,83% (US$ 1,09) / Opus 0,77% (US$ 1,79); vol. 1 (331–334) 5,98% → 1,22 / 1,50 / 1,12%.
+  Rodada inteira US$ ~4, sem tocar o limite de 5 h. Recomendação: Opus (Haiku se o custo pesar).
+- As saídas parciais da tentativa com agente (`revisao-modelos/{haiku,sonnet,opus}/`) ficam só como
+  registro do problema de consumo.
+
+## Próximos passos possíveis
+- Rodar Opus no resto dos volumes em lotes (`tools/trecho.py … -F tex` → `revisa_paginas.py`).
+- Passo à parte para erros de estrutura (nota fora do lugar, `\pg` deslocado), que a revisão congela.

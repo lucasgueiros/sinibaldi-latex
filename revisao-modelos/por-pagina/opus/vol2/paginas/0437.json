@@ -1,0 +1,24 @@
+{
+ "pagina": 437,
+ "paginas": [
+  437
+ ],
+ "falha": null,
+ "notas": "Reposta a primeira linha perdida da p. 437; corrigidos \"exeeutando\", \"tirra= cional\", \"25)\"→\"b)\", \"adyertimos\", \":\"→\".\" após a nota 1; negrito estendido a \"Argumentos moraes\" e itálico em a)/b) do parágrafo 14.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Reposta a primeira linha perdida da p. 437; corrigidos \"exeeutando\", \"tirra= cional\", \"25)\"→\"b)\", \"adyertimos\", \":\"→\".\" após a nota 1; negrito estendido a \"Argumentos moraes\" e itálico em a)/b) do parágrafo 14.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.058344,
+ "duration_ms": 10873,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8336,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1250
+ }
+}

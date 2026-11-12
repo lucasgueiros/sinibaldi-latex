@@ -38,7 +38,8 @@ padrões-ouro — vol. 2 pp. 421–442, vol. 1 `vol1/ouro/` (`--vol vol1`), `doc
 `<id>.fmt.tsv` → `<hi rend>`; `mede_formatacao.py` mede no ouro; `docs/06`), `gera_volume.sh`
 (cadeia inteira de um volume: formatação → TEI → correção → LaTeX → `build/volN.pdf`), `titulos.py`
 (detecta títulos/teses → `volN/estrutura.proposta.tsv` + alertas), `trecho.py` (seletor por id, tese
-ou página → txt/tei/tex/pdf/scan/slides; `--lista`, `--onde`; `docs/08`). Ver `docs/03`.
+ou página → txt/tei/tex/pdf/scan/slides; `--lista`, `--onde`; `docs/08`), `revisa_paginas.py` (revisão final
+por LLM, uma chamada `claude -p` por página contra a imagem; `docs/09`). Ver `docs/03`.
 
 ## Pipeline
 

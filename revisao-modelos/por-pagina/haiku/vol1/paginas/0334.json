@@ -1,0 +1,25 @@
+{
+ "pagina": 334,
+ "paginas": [
+  334,
+  335
+ ],
+ "falha": null,
+ "notas": "Corrigidos: OCR (“208.”→“aos”, “eo”→“e o”, “qué”, “exclue-de-si-toda-a”, “Logo o ente, que é que é”), restos como “\\textasciicircum{}”, “e})” e “. . !”, além de hifenização e itálicos/negritos das teses, letras “a)”/“b)” e termos em itálico conforme a imagem.\nDúvidas: alguns itálicos pontuais nas notas 2 e 3 (p. ex. “essencia”, “porque”) foram inferidos da imagem; “parte componentes” mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: OCR (“208.”→“aos”, “eo”→“e o”, “qué”, “exclue-de-si-toda-a”, “Logo o ente, que é que é”), restos como “\\textasciicircum{}”, “e})” e “. . !”, além de hifenização e itálicos/negritos das teses, letras “a)”/“b)” e termos em itálico conforme a imagem.\nDúvidas: alguns itálicos pontuais nas notas 2 e 3 (p. ex. “essencia”, “porque”) foram inferidos da imagem; “parte componentes” mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0077092,
+ "duration_ms": 46621,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 13487,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12721
+ }
+}

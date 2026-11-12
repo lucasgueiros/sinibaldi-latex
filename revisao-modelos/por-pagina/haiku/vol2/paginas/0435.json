@@ -1,0 +1,24 @@
+{
+ "pagina": 435,
+ "paginas": [
+  435
+ ],
+ "falha": null,
+ "notas": "Corrigidos: \"não á possuem\" → \"não a possuem\"; \"\\textsc{DEus}\" → \"\\textsc{Deus}\" na nota; \"O\" → \"o\" no fim; retirado o \\emph{A} inicial de \"objecção\" (não itálico na imagem); \"---\" mantido como travessão. Itálicos de \"mais/menos\" ajustados à imagem.\nDúvidas: o \"(1)\" do início da nota não foi duplicado, pois o número é gerado pelo \\footnote; a itálico de \"photographia\" e de \"menos\" em \"mais ou menos perfeita\" é uma leitura provável.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: \"não á possuem\" → \"não a possuem\"; \"\\textsc{DEus}\" → \"\\textsc{Deus}\" na nota; \"O\" → \"o\" no fim; retirado o \\emph{A} inicial de \"objecção\" (não itálico na imagem); \"---\" mantido como travessão. Itálicos de \"mais/menos\" ajustados à imagem.\nDúvidas: o \"(1)\" do início da nota não foi duplicado, pois o número é gerado pelo \\footnote; a itálico de \"photographia\" e de \"menos\" em \"mais ou menos perfeita\" é uma leitura provável.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.003509,
+ "duration_ms": 23002,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8530,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5312
+ }
+}

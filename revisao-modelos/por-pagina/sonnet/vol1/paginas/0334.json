@@ -1,0 +1,25 @@
+{
+ "pagina": 334,
+ "paginas": [
+  334,
+  335
+ ],
+ "falha": null,
+ "notas": "Corrigi letras trocadas, acentos, itálicos e negritos (enunciados das teses e \"a)\", \"b)\"), removi lixo do OCR e uma quebra espúria em \"Logo o ente, que é\". Deixei \"seria\", \"As parte componentes\" e \"D' onde\" como impressos; a pontuação \"exclue de si toda a potencia;\" é a leitura mais provável.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigi letras trocadas, acentos, itálicos e negritos (enunciados das teses e \"a)\", \"b)\"), removi lixo do OCR e uma quebra espúria em \"Logo o ente, que é\". Deixei \"seria\", \"As parte componentes\" e \"D' onde\" como impressos; a pontuação \"exclue de si toda a potencia;\" é a leitura mais provável.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.067656,
+ "duration_ms": 28330,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 13468,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4072
+ }
+}

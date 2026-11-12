@@ -1,0 +1,24 @@
+{
+ "pagina": 441,
+ "paginas": [
+  441
+ ],
+ "falha": null,
+ "notas": "Repostas a primeira linha da página (\"produziu e formou.\") e \"falsidade\"; corrigidos \"á\"→\"a\" (artigo), \"do\"→\"de duvidas\", 1818→1873, \"La Bruyère\", \"maçonica\", \"Deus\" em versalete; removidos lixo (\"á\" espúrio, \"/\", \"s.}.\") e movido o fim da nota para dentro dela (o \"}\" final estava deslocado/duplicado). Atenção: a posição do \\footnote final foi ajustada apenas no fechamento, conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Repostas a primeira linha da página (\"produziu e formou.\") e \"falsidade\"; corrigidos \"á\"→\"a\" (artigo), \"do\"→\"de duvidas\", 1818→1873, \"La Bruyère\", \"maçonica\", \"Deus\" em versalete; removidos lixo (\"á\" espúrio, \"/\", \"s.}.\") e movido o fim da nota para dentro dela (o \"}\" final estava deslocado/duplicado). Atenção: a posição do \\footnote final foi ajustada apenas no fechamento, conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.03537,
+ "duration_ms": 11077,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 8975,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1742
+ }
+}

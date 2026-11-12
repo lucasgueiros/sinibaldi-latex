@@ -1,0 +1,26 @@
+{
+ "pagina": 438,
+ "paginas": [
+  438,
+  439,
+  440
+ ],
+ "falha": null,
+ "notas": "Corrigidos erros de OCR (mortifiear, inealeulavel, Anaaes/Né, L'espèce humaine 355/1877, Agassiz, ü/u→«, cancaremos, crenca, 0)/4)/€)→c)/d)/e), todu), hífen de fim de linha, DEus→Deus em versalete, itálico em \"Não o encontrei…limitada\" e \\emph{a}). \nEstrutura mantida como veio (o corpo das págs. 439–440 e a nota Bayle não estão no trecho e não foram acrescentados); dúvida só quanto à pontuação \"Lavoisier.\" e \"Chevreul.\" (mantida).",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos erros de OCR (mortifiear, inealeulavel, Anaaes/Né, L'espèce humaine 355/1877, Agassiz, ü/u→«, cancaremos, crenca, 0)/4)/€)→c)/d)/e), todu), hífen de fim de linha, DEus→Deus em versalete, itálico em \"Não o encontrei…limitada\" e \\emph{a}). \nEstrutura mantida como veio (o corpo das págs. 439–440 e a nota Bayle não estão no trecho e não foram acrescentados); dúvida só quanto à pontuação \"Lavoisier.\" e \"Chevreul.\" (mantida).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.09791,
+ "duration_ms": 36836,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 21065,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5578
+ }
+}

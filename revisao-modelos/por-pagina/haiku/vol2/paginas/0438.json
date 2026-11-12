@@ -1,0 +1,26 @@
+{
+ "pagina": 438,
+ "paginas": [
+  438,
+  439,
+  440
+ ],
+ "falha": null,
+ "notas": "Corrigidos: acentos e cedilhas (esforçei, cançaremos, crença), palavras mal lidas (incalculavel, immenso, mortificar, Annaes da propagação da Fé, L'espèce humaine 1877/pag. 355), hifenização \"le- var\" → levar, pontuação das listas de naturalistas, aspas e lixo do OCR (\"ü\", \"€)\", \"Né\", \"toda\"→ \"todu\").\nDúvidas: a estrutura da nota é suspeita — na imagem, \"Objectam\", \"Resposta\", \"a)–e)\" e o trecho de Linneu/Kepler aparecem como texto de corpo (p. 438–439), mas mantive tudo dentro do \\footnote conforme pedido; o Bayle (p. 440) não está neste trecho e não foi incluído.",
+ "tentativas": [
+  {
+   "falha": null,
+   "notas": "Corrigidos: acentos e cedilhas (esforçei, cançaremos, crença), palavras mal lidas (incalculavel, immenso, mortificar, Annaes da propagação da Fé, L'espèce humaine 1877/pag. 355), hifenização \"le- var\" → levar, pontuação das listas de naturalistas, aspas e lixo do OCR (\"ü\", \"€)\", \"Né\", \"toda\"→ \"todu\").\nDúvidas: a estrutura da nota é suspeita — na imagem, \"Objectam\", \"Resposta\", \"a)–e)\" e o trecho de Linneu/Kepler aparecem como texto de corpo (p. 438–439), mas mantive tudo dentro do \\footnote conforme pedido; o Bayle (p. 440) não está neste trecho e não foi incluído.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0095597,
+ "duration_ms": 56093,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 21087,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 14902
+ }
+}
