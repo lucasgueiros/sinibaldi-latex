@@ -1,0 +1,10 @@
+{% if messages %}
+<div class="mx-auto max-w-4xl space-y-2 px-4 pt-4 sm:px-6" role="status">
+  {% for message in messages %}
+  <div data-mensagem class="mensagem flex items-start justify-between gap-3 {% if message.level_tag == 'success' %}border-emerald-700 bg-emerald-50 text-emerald-900{% elif message.level_tag == 'error' %}border-red-700 bg-red-50 text-red-900{% elif message.level_tag == 'warning' %}border-amber-600 bg-amber-50 text-amber-900{% else %}border-sky-700 bg-sky-50 text-sky-900{% endif %}">
+    <p>{{ message }}</p>
+    <button type="button" data-dispensar class="text-xl leading-none opacity-60 hover:opacity-100" aria-label="Dispensar">&times;</button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

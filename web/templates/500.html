@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Erro interno{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-2xl px-4 py-20 text-center">
+  <p class="font-display text-7xl font-semibold text-gold">500</p>
+  <h1 class="mt-4 font-display text-2xl font-semibold tracking-[0.06em] text-crimson">Erro interno</h1>
+  {% include "includes/ornament.html" %}
+  <p class="text-xl italic text-ink/80">Algo deu errado do nosso lado. Tente novamente em instantes.</p>
+  <a href="/" class="btn btn-primario mt-8">Voltar ao início</a>
+</div>
+{% endblock %}

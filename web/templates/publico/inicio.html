@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Início{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with eyebrow="D. THIAGO SINIBALDI" titulo="Elementos de Philosophia" intro="Logica, Ontologia, Cosmologia, Anthropologia, Theodicea e Moral — o compêndio de filosofia escolástica, em dois volumes." %}
+
+<div class="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+  <p class="text-xl leading-relaxed">Este site publica, para leitura e consulta, a obra <em>Elementos de Philosophia</em> de D. Thiago Sinibaldi
+    (vol. 1, 5.ª ed., 1917; vol. 2, 4.ª ed., 1916). O texto foi extraído de escaneamentos da edição impressa e está sendo
+    revisado e organizado por editores da Academia Leão XIII de Artes e Ciências do Recife.</p>
+  <p class="mt-4 text-lg leading-relaxed text-ink/85">Há duas edições: a <strong>de 1916/17</strong>, cópia fiel do livro, página a página,
+    com o fac-símile ao lado; e a <strong>nova edição</strong>, reorganizada e em construção. Qualquer trecho pode ser baixado em
+    TEI XML, texto puro, HTML, LaTeX e PDF.</p>
+
+  <div class="mt-8 grid gap-6 md:grid-cols-2">
+    {% for e in edicoes %}
+    <article class="cartao">
+      <h2 class="font-display text-xl font-semibold tracking-[0.06em] text-crimson">{{ e.titulo }}</h2>
+      <p class="mt-2 text-lg">{{ e.descricao }}</p>
+      <p class="mt-3 flex flex-wrap gap-2">
+        <span class="etiqueta etiqueta-ouro">{{ e.n_partes }} partes</span>
+        <span class="etiqueta etiqueta-ouro">{{ e.n_capitulos }} capítulos</span>
+        <span class="etiqueta etiqueta-ouro">{{ e.n_teses }} teses</span>
+      </p>
+      <p class="mt-4"><a class="btn btn-primario btn-sm" href="{% url 'obra:edicao' e.slug %}">Abrir o sumário</a></p>
+    </article>
+    {% endfor %}
+  </div>
+
+  <aside class="mensagem mt-10 border-gold bg-gold-light/30" role="note">
+    <p class="font-display text-xs tracking-[0.14em] text-gold-dark">UM AVISO HONESTO</p>
+    <p class="mt-1 text-lg">O texto vem de reconhecimento óptico de caracteres (OCR) e <strong>ainda está em revisão</strong>.
+      Há correções automáticas, mas ainda sobram erros de leitura, sobretudo nas citações em latim, nas notas de rodapé
+      e nos números. Em caso de dúvida, confira o fac-símile (os números de página entre colchetes levam à imagem).
+      Veja <a class="underline" href="{% url 'obra:sobre' %}">Sobre e como citar</a>.</p>
+  </aside>
+</div>
+{% endblock %}

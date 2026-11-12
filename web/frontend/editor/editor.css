@@ -1,0 +1,82 @@
+/* Estilos do editor WYSIWYG e da tela de revisão (CSS puro; compilado por `npm run build:editor`
+   em static/css/editor.css). Os componentes comuns (.btn, .abas, .barra-ferramentas, .obra…)
+   vêm de site.css. */
+
+.sn-componente { display: flex; flex-direction: column; min-height: 0; flex: 1 1 auto; }
+.sn-barra { position: sticky; top: 0; z-index: 5; }
+.sn-sep { display: inline-block; width: 1px; height: 1.3rem; background: rgba(176, 141, 87, 0.6); margin: 0 0.25rem; }
+.sn-select {
+  height: 2rem; max-width: 11rem; border: 1px solid #B08D57; background: #FBF7EE; color: #2A1F1A;
+  padding: 0 0.3rem; font-size: 0.8rem; border-radius: 2px;
+}
+.sn-select:disabled { opacity: 0.5; }
+.sn-barra { gap: 0.15rem; padding: 0.25rem 0.4rem; }
+.sn-barra .ferramenta, .sn-barra .ferramenta-ativa { min-width: 1.7rem; padding: 0 0.35rem; font-size: 0.8rem; }
+.sn-barra .sn-select { max-width: 8.6rem; font-size: 0.75rem; }
+
+.sn-area { flex: 1 1 auto; min-height: 0; overflow: auto; background: #FBF7EE; }
+.sn-editor { min-height: 100%; padding: 1rem 1.25rem 3rem; outline: none; }
+.sn-editor:focus { outline: none; }
+.sn-editor p[data-tei="p"] { min-height: 1.7em; }
+.sn-editor ::selection { background: rgba(139, 26, 26, 0.25); color: inherit; }
+
+/* bloco que começou na página anterior e atravessa para esta */
+.sn-editor .sn-continua {
+  position: relative; background: rgba(217, 191, 140, 0.22);
+  box-shadow: inset 0 3px 0 -1px rgba(139, 26, 26, 0.45); padding-top: 1.1rem;
+}
+.sn-editor .sn-continua::after {
+  content: attr(data-continua); position: absolute; top: 0.1rem; right: 0.4rem;
+  font: 600 0.62rem/1 Cinzel, Georgia, serif; letter-spacing: 0.1em; color: #8B1A1A; text-indent: 0;
+}
+
+/* marco de divisão (nó-átomo) */
+.sn-editor .sn-marco { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; margin: 0.9rem 0; }
+.sn-editor .sn-marco.ProseMirror-selectednode { outline: 2px solid #8B1A1A; outline-offset: 3px; }
+.sn-editor .sn-marco-editar {
+  font: 0.7rem Cinzel, Georgia, serif; letter-spacing: 0.08em; border: 1px solid #B08D57; background: #FBF7EE;
+  color: #8A6A3B; padding: 0 0.4rem; border-radius: 2px; cursor: pointer;
+}
+.sn-editor .sn-marco-editar:hover { background: #8B1A1A; color: #F6EFE0; }
+.sn-editor .sn-marco-id { font: 0.7rem ui-monospace, monospace; color: rgba(42, 31, 26, 0.55); }
+
+/* nota de rodapé (inline com parágrafos) e cabeçalho corrente inline */
+.sn-editor [data-tei="note"]::before { content: "nota " attr(data-n); }
+.sn-editor [data-tei="note-p"] + [data-tei="note-p"] { margin-top: 0.35rem; }
+.sn-editor span[data-tei="fw"] {
+  font: 0.72em Cinzel, Georgia, serif; letter-spacing: 0.06em; color: rgba(42, 31, 26, 0.65);
+  border: 1px dashed rgba(176, 141, 87, 0.9); padding: 0 0.3em; background: rgba(237, 226, 203, 0.6);
+}
+.sn-editor span[data-tei="pb"] { cursor: default; }
+.sn-editor span[data-tei="pb"].ProseMirror-selectednode::before { background: #8B1A1A; color: #F6EFE0; }
+.sn-editor [data-tei="label"] { color: #8B1A1A; }
+.sn-editor [data-tei="foreign"] { background: rgba(176, 141, 87, 0.12); }
+.sn-editor [data-tei="argument"] > p { margin: 0.2rem 0; }
+
+/* visualizador de scan */
+[data-visualizador] { cursor: grab; touch-action: none; outline: none; }
+[data-visualizador].sn-arrastando { cursor: grabbing; }
+[data-visualizador]:focus-visible { box-shadow: inset 0 0 0 2px #8B1A1A; }
+body.sn-redimensionando { cursor: col-resize; user-select: none; }
+body.sn-redimensionando [data-visualizador], body.sn-redimensionando .sn-area { pointer-events: none; }
+
+/* diálogo */
+dialog.sn-dialogo {
+  border: 1px solid #B08D57; background: #FBF7EE; color: #2A1F1A; padding: 1.2rem 1.4rem; min-width: min(26rem, 92vw);
+  box-shadow: 0 10px 30px rgba(42, 31, 26, 0.35);
+}
+dialog.sn-dialogo::backdrop { background: rgba(42, 31, 26, 0.4); }
+dialog.sn-dialogo h2 { font: 600 1rem Cinzel, Georgia, serif; letter-spacing: 0.1em; color: #8B1A1A; margin: 0 0 0.8rem; }
+.sn-dialogo-campo { display: block; margin-bottom: 0.7rem; font-size: 0.85rem; }
+.sn-dialogo-campo > span { display: block; margin-bottom: 0.15rem; }
+.sn-dialogo-campo small { display: block; color: rgba(42, 31, 26, 0.6); margin-top: 0.15rem; }
+.sn-dialogo-botoes { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.8rem; }
+.sn-dialogo-erro { color: #991b1b; font-size: 0.85rem; margin: 0 0 0.5rem; }
+
+/* histórico: diff por palavras */
+pre.dif {
+  white-space: pre-wrap; word-break: break-word; font: 12.5px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: #FBF7EE; border: 1px solid rgba(176, 141, 87, 0.5); padding: 0.5rem 0.7rem; margin: 0.25rem 0 0;
+}
+pre.dif ins.dif-ins { background: #c7ecc7; color: #14532d; text-decoration: none; }
+pre.dif del.dif-del { background: #f6c9c9; color: #7f1d1d; text-decoration: line-through; }

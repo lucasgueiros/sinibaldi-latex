@@ -1,0 +1,8 @@
+{# Uso: {% include "includes/paginacao.html" with page_obj=page_obj %}; `querystring` opcional (ex.: "q=abc&"). #}
+{% if page_obj.has_other_pages %}
+<nav class="mt-6 flex items-center justify-center gap-3 font-display text-xs tracking-[0.12em]" aria-label="Paginação">
+  {% if page_obj.has_previous %}<a class="btn btn-secundario btn-sm" href="?{{ querystring }}page={{ page_obj.previous_page_number }}">&laquo; Anterior</a>{% else %}<span class="btn btn-secundario btn-sm opacity-40">&laquo; Anterior</span>{% endif %}
+  <span class="text-ink/70">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+  {% if page_obj.has_next %}<a class="btn btn-secundario btn-sm" href="?{{ querystring }}page={{ page_obj.next_page_number }}">Próxima &raquo;</a>{% else %}<span class="btn btn-secundario btn-sm opacity-40">Próxima &raquo;</span>{% endif %}
+</nav>
+{% endif %}

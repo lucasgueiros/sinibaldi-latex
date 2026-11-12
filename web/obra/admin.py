@@ -1,0 +1,50 @@
+from django.contrib import admin
+
+from .models import Bloco, Edicao, No, Pagina, Revisao, Volume
+
+
+@admin.register(Edicao)
+class EdicaoAdmin(admin.ModelAdmin):
+    list_display = ("slug", "titulo", "tipo")
+
+
+@admin.register(Volume)
+class VolumeAdmin(admin.ModelAdmin):
+    list_display = ("numero", "titulo", "ano", "diretorio")
+
+
+@admin.register(Pagina)
+class PaginaAdmin(admin.ModelAdmin):
+    list_display = ("volume", "seq", "impressa", "estado", "revisada_por", "revisada_em")
+    list_filter = ("volume", "estado")
+    search_fields = ("impressa",)
+    raw_id_fields = ("revisada_por",)
+
+
+@admin.register(Bloco)
+class BlocoAdmin(admin.ModelAdmin):
+    list_display = ("pk", "edicao", "ordem", "tipo", "volume", "pagina", "procedencia", "versao", "resumo")
+    list_filter = ("edicao", "tipo", "procedencia", "volume")
+    search_fields = ("xml",)
+    raw_id_fields = ("origem", "criado_por", "atualizado_por")
+    ordering = ("edicao", "ordem")
+
+    @admin.display(description="xml")
+    def resumo(self, obj):
+        return obj.xml[:80]
+
+
+@admin.register(Revisao)
+class RevisaoAdmin(admin.ModelAdmin):
+    list_display = ("pk", "criado_em", "edicao", "acao", "autor", "bloco", "lote")
+    list_filter = ("edicao", "acao")
+    raw_id_fields = ("bloco", "autor")
+    readonly_fields = ("criado_em",)
+
+
+@admin.register(No)
+class NoAdmin(admin.ModelAdmin):
+    list_display = ("xml_id", "edicao", "nivel", "n", "rotulo", "titulo", "ordem_ini", "ordem_fim")
+    list_filter = ("edicao", "nivel", "volume")
+    search_fields = ("xml_id", "rotulo", "titulo")
+    raw_id_fields = ("pai",)

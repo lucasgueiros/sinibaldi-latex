@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Busca{% if q %}: {{ q }}{% endif %}{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+  <nav class="migalhas" aria-label="Você está em"><a href="{% url 'obra:edicao' edicao.slug %}">{{ edicao.titulo }}</a> <span aria-hidden="true">›</span> Busca</nav>
+  <h1 class="mt-3 font-display text-2xl font-semibold tracking-[0.06em] text-crimson">Buscar no texto</h1>
+  <form method="get" class="mt-4 flex gap-2" role="search">
+    <label for="q" class="sr-only">Termos</label>
+    <input id="q" name="q" type="search" value="{{ q }}" class="campo" placeholder="uma ou mais palavras (sem distinguir acentos)" required>
+    <button class="btn btn-primario btn-sm" type="submit">Buscar</button>
+  </form>
+
+  {% if q %}
+    <p class="mt-4 text-ink/75">{% if total %}{{ total }} trecho{{ total|pluralize }} encontrado{{ total|pluralize }}{% if limite_atingido %} (mostrando os primeiros){% endif %}.{% else %}Nada encontrado para «{{ q }}». Lembre-se da grafia antiga (philosophia, sciencia, elle…).{% endif %}</p>
+    <ol class="resultados mt-4">
+      {% for r in page_obj %}
+        <li>
+          <p class="text-xs font-display tracking-[0.1em] text-gold-dark">{% for c in r.caminho %}{{ c.rotulo|default:c.titulo }} › {% endfor %}</p>
+          <a class="text-lg font-semibold text-crimson hover:underline" href="{% url 'obra:no' edicao.slug r.no.xml_id %}#b{{ r.bloco }}">{{ r.no.rotulo }} {{ r.no.titulo }}{% if r.no.pag %} <span class="pag">p. {{ r.no.pag }}</span>{% endif %}</a>
+          <p class="mt-1 leading-snug">{{ r.trecho|safe }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+    {% include "includes/paginacao.html" %}
+  {% endif %}
+</div>
+{% endblock %}

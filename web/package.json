@@ -1,0 +1,21 @@
+{
+  "name": "sinibaldi-web",
+  "private": true,
+  "description": "Build do CSS (TailwindCSS) da edição colaborativa de Sinibaldi",
+  "scripts": {
+    "build": "tailwindcss -c frontend/tailwind.config.js -i frontend/site.css -o static/css/site.css --minify",
+    "build:editor": "esbuild frontend/editor/index.js --bundle --minify --target=es2019 --outfile=static/js/editor.bundle.js && esbuild frontend/editor/revisao.js --bundle --minify --target=es2019 --outfile=static/js/revisao.js && esbuild frontend/editor/editor.css --minify --outfile=static/css/editor.css",
+    "watch":"tailwindcss -c frontend/tailwind.config.js -i frontend/site.css -o static/css/site.css --watch"
+  },
+  "devDependencies": {
+    "@tiptap/core": "^2.11.5",
+    "@tiptap/extension-document": "^2.11.5",
+    "@tiptap/extension-dropcursor": "^2.11.5",
+    "@tiptap/extension-gapcursor": "^2.11.5",
+    "@tiptap/extension-history": "^2.11.5",
+    "@tiptap/extension-text": "^2.11.5",
+    "@tiptap/pm": "^2.11.5",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "3.4.17"
+  }
+}

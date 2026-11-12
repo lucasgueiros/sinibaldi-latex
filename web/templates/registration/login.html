@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Entrar{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with titulo="Entrar" eyebrow="ÁREA DE EDIÇÃO" intro="Acesso restrito aos editores." %}
+<div class="mx-auto max-w-md px-4 py-10">
+  <form method="post" class="cartao space-y-4">
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="mensagem border-red-700 bg-red-50 text-red-900">{{ form.non_field_errors }}</div>{% endif %}
+    <div>
+      <label for="{{ form.username.id_for_label }}" class="mb-1 block font-display text-xs tracking-[0.12em] text-crimson">Usuário</label>
+      <input type="text" name="username" id="{{ form.username.id_for_label }}" class="campo" autofocus autocomplete="username" required{% if form.username.value %} value="{{ form.username.value }}"{% endif %}>
+      {{ form.username.errors }}
+    </div>
+    <div>
+      <label for="{{ form.password.id_for_label }}" class="mb-1 block font-display text-xs tracking-[0.12em] text-crimson">Senha</label>
+      <input type="password" name="password" id="{{ form.password.id_for_label }}" class="campo" autocomplete="current-password" required>
+      {{ form.password.errors }}
+    </div>
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn btn-primario w-full">Entrar</button>
+  </form>
+</div>
+{% endblock %}

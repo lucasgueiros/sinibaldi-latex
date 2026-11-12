@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Fac-símile, vol. {{ volume.numero }}, p. {{ pag.impressa|default:pag.seq }}{% endblock %}
+{% block content %}
+<div class="mx-auto px-4 py-6 sm:px-6 {% if lado %}max-w-7xl{% else %}max-w-3xl{% endif %}">
+  <header class="text-center">
+    <p class="font-display text-xs tracking-[0.3em] text-gold-dark">FAC-SÍMILE · VOLUME {{ volume.numero }}</p>
+    <h1 class="mt-1 font-display text-2xl font-semibold tracking-[0.05em] text-crimson">Página {{ pag.impressa|default:pag.seq }}</h1>
+  </header>
+
+  <nav class="mt-4 flex flex-wrap items-center justify-center gap-3" aria-label="Páginas">
+    {% if anterior %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero anterior.seq %}{% if lado %}?lado=1{% endif %}" rel="prev">&laquo; p. {{ anterior.impressa|default:anterior.seq }}</a>{% endif %}
+    {% if no_pagina %}<a class="btn btn-primario btn-sm" href="{% url 'obra:no' ed16.slug no_pagina.xml_id %}#pag-{{ pag.seq }}">Ler o texto transcrito</a>{% endif %}
+    {% if ed16 %}{% if lado %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero pag.seq %}">Só a imagem</a>{% else %}<a class="btn btn-secundario btn-sm" href="?lado=1">Lado a lado</a>{% endif %}{% endif %}
+    {% if proxima %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero proxima.seq %}{% if lado %}?lado=1{% endif %}" rel="next">p. {{ proxima.impressa|default:proxima.seq }} &raquo;</a>{% endif %}
+  </nav>
+
+  <div class="mt-6 {% if lado %}grid gap-6 lg:grid-cols-2{% endif %}">
+    <figure class="facsimile">
+      <img src="{% url 'obra:scan' volume.numero pag.seq %}" alt="Página {{ pag.impressa|default:pag.seq }} do volume {{ volume.numero }}, escaneada" class="mx-auto h-auto max-w-full border border-gold shadow-md" loading="eager">
+    </figure>
+    {% if lado %}
+      <section class="obra transcricao" aria-label="Transcrição">
+        <p class="font-display text-xs tracking-[0.14em] text-gold-dark">TRANSCRIÇÃO (SOMENTE LEITURA)</p>
+        {% if continua %}<p class="text-sm italic text-ink/70">O primeiro parágrafo começa na página anterior.</p>{% endif %}
+        {% if html %}{{ html|safe }}{% else %}<p class="italic text-ink/70">Nenhum bloco de texto começa nesta página.</p>{% endif %}
+        {% if notas %}<ol class="notas-fim">{% for n, h in notas %}<li id="f-nota-{{ n }}" value="{{ n }}">{{ h|safe }}</li>{% endfor %}</ol>{% endif %}
+      </section>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

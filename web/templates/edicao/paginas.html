@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Vol. {{ volume.numero }} · páginas{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa=volume.numero %}
+  <h1 class="font-display text-2xl text-crimson">Vol. {{ volume.numero }} — {{ volume.titulo }}</h1>
+
+  <div class="mt-4 flex flex-wrap items-end justify-between gap-4">
+    <form method="get" class="flex items-end gap-2">
+      <label class="text-sm">Estado
+        <select name="estado" class="campo mt-1 !w-auto" onchange="this.form.submit()">
+          <option value="">Todos</option>
+          {% for valor, rotulo in estados %}<option value="{{ valor }}"{% if valor == estado %} selected{% endif %}>{{ rotulo }}</option>{% endfor %}
+        </select>
+      </label>
+      <noscript><button class="btn btn-secundario btn-sm">Filtrar</button></noscript>
+    </form>
+    <form method="get" class="flex items-end gap-2">
+      <label class="text-sm">Ir para a página
+        <input name="ir" class="campo mt-1 !w-32" placeholder="impressa ou scan" value="{{ erro_ir }}" inputmode="numeric" required>
+      </label>
+      <button class="btn btn-primario btn-sm">Ir</button>
+    </form>
+  </div>
+  {% if erro_ir %}<p class="mt-2 text-sm text-red-800">Página &ldquo;{{ erro_ir }}&rdquo; não encontrada neste volume.</p>{% endif %}
+
+  <table class="tabela mt-4">
+    <thead><tr><th>Scan</th><th>Pág. impressa</th><th>Estado</th><th>Revisada por</th><th>Última edição</th><th></th></tr></thead>
+    <tbody>
+    {% for p in page_obj %}
+      <tr>
+        <td><a class="text-crimson hover:underline" href="{% url 'obra:revisar' volume.numero p.seq %}">{{ p.seq }}</a></td>
+        <td>{{ p.impressa|default:"—" }}</td>
+        <td><span class="etiqueta {% if p.estado == 'validada' %}etiqueta-ouro{% elif p.estado == 'revisada' %}etiqueta-neutra{% else %}etiqueta-carmim{% endif %}">{{ p.get_estado_display }}</span></td>
+        <td class="text-sm">{% if p.revisada_por %}{{ p.revisada_por.get_full_name|default:p.revisada_por.username }} <span class="text-ink/60">{{ p.revisada_em|date:"d/m/Y" }}</span>{% else %}—{% endif %}</td>
+        <td class="text-sm">{% if p.ultimo_autor %}{{ p.ultimo_autor }} <span class="text-ink/60">{{ p.ultima_edicao|date:"d/m/Y" }}</span>{% else %}—{% endif %}</td>
+        <td class="text-right"><a class="btn btn-secundario btn-sm" href="{% url 'obra:revisar' volume.numero p.seq %}">Revisar</a></td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="6" class="text-center text-ink/60">Nenhuma página neste filtro.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% include "includes/paginacao.html" with page_obj=page_obj querystring=querystring %}
+</div>
+{% endblock %}

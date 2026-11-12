@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo_no }}{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 leitura">
+  <nav aria-label="Você está em" class="migalhas">
+    <a href="{% url 'obra:edicao' edicao.slug %}">{{ edicao.titulo }}</a>
+    {% for c in caminho %}<span aria-hidden="true">›</span> <a href="{% url 'obra:no' edicao.slug c.xml_id %}">{{ c.rotulo|default:c.titulo|default:c.xml_id }}</a>{% endfor %}
+  </nav>
+
+  <header class="mt-4 text-center">
+    <p class="font-display text-xs tracking-[0.3em] text-gold-dark">{{ no.get_nivel_display|upper }}{% if volume %} · VOL. {{ volume.numero }}{% endif %}{% if no.pag %} · {% if nova %}ORIG. {% endif %}P. {{ no.pag }}{% endif %}</p>
+    <h1 class="mt-2 font-display text-2xl font-semibold tracking-[0.05em] text-crimson sm:text-3xl">{% if no.rotulo %}{{ no.rotulo }}{% endif %}{% if no.rotulo and no.titulo %}<br><span class="text-xl sm:text-2xl">{{ no.titulo }}</span>{% elif no.titulo %}{{ no.titulo }}{% endif %}{% if not no.rotulo and not no.titulo %}{{ no.xml_id }}{% endif %}</h1>
+    {% include "includes/ornament.html" %}
+    <div class="flex flex-wrap items-center justify-center gap-3 print:hidden">
+      {% include "publico/_baixar.html" with itens=baixar %}
+      {% if no.pagina_ini is not None and volume %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero no.pagina_ini %}">Fac-símile</a>{% endif %}
+      <form method="get" action="{% url 'obra:busca' edicao.slug %}" class="inline-flex gap-1" role="search">
+        <label class="sr-only" for="q">Buscar</label><input id="q" name="q" type="search" class="campo !w-40 !py-1" placeholder="Buscar…" required>
+      </form>
+    </div>
+  </header>
+
+  {% if nova %}<p class="mt-4 text-center text-sm text-ink/70">As etiquetas à margem indicam a procedência de cada trecho (cópia, adaptado, novo); as que têm link levam ao trecho correspondente na edição de 1916/17.</p>{% endif %}
+
+  <article class="obra mt-6{% if nova %} obra-nova{% endif %}">{{ html|safe }}</article>
+
+  {% if filhos and not inteiro %}
+    <section class="mt-10" aria-labelledby="conteudo-do-no">
+      <h2 id="conteudo-do-no" class="font-display text-sm tracking-[0.14em] text-crimson">CONTEÚDO DESTE TRECHO</h2>
+      <ul class="arvore sumario mt-2">
+        {% for r in filhos %}{% include "publico/_no_arvore.html" with no=r %}{% endfor %}
+      </ul>
+      {% if pode_tudo %}<p class="mt-4"><a class="btn btn-secundario btn-sm" href="?completo=1">Ler tudo numa só página ({{ total }} blocos)</a></p>{% endif %}
+    </section>
+  {% endif %}
+
+  {% if notas %}
+    <section class="notas-fim mt-10" aria-labelledby="notas">
+      <h2 id="notas" class="font-display text-sm tracking-[0.14em] text-crimson">NOTAS</h2>
+      <ol>
+        {% for n, h in notas %}<li id="nota-{{ n }}" value="{{ n }}">{{ h|safe }} <a href="#ref-{{ n }}" class="volta" title="Voltar ao texto" aria-label="Voltar ao texto">↩</a></li>{% endfor %}
+      </ol>
+    </section>
+  {% endif %}
+
+  {% if contribuintes %}<p class="mt-8 border-t border-gold/40 pt-3 text-sm text-ink/75">Contribuíram para este trecho: {{ contribuintes|join:", " }}.</p>{% endif %}
+
+  <nav class="nav-no mt-8 print:hidden" aria-label="Navegação entre trechos">
+    {% if anterior %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:no' edicao.slug anterior.xml_id %}" title="{{ anterior.rotulo }} {{ anterior.titulo }}">&laquo; {{ anterior.rotulo|default:anterior.titulo|default:"Anterior" }}</a>{% else %}<span></span>{% endif %}
+    {% if pai %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:no' edicao.slug pai.xml_id %}">Subir ↑ {{ pai.rotulo|default:pai.titulo }}</a>{% else %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:edicao' edicao.slug %}">Sumário ↑</a>{% endif %}
+    {% if proximo %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:no' edicao.slug proximo.xml_id %}" title="{{ proximo.rotulo }} {{ proximo.titulo }}">{{ proximo.rotulo|default:proximo.titulo|default:"Próximo" }} &raquo;</a>{% else %}<span></span>{% endif %}
+  </nav>
+</div>
+{% endblock %}
