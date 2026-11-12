@@ -1,0 +1,18 @@
+{
+ "modelo": "haiku",
+ "formato": "tei",
+ "pedacos": 3,
+ "feitos": 3,
+ "falhas": {},
+ "fronteira": {},
+ "total_cost_usd": 0.0871,
+ "num_turns": 5,
+ "duration_ms": 573959,
+ "usage": {
+  "input_tokens": 117952,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 150702
+ },
+ "is_error": false
+}

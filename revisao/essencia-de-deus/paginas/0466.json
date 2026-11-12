@@ -1,0 +1,27 @@
+{
+ "pagina": 466,
+ "paginas": [
+  466
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em \"addicionada\", \"bondade\" (faltava o \"B\" lido como \"2\"), \"perfeições\" (lidas como \"perfeigóes\"/\"perfeicoóes\"), \"não\", \"Motor immovel\", \"l. I, c. 38 e 39\"; acréscimo de itálico em \"summa e infinitamente perfeito\" da nota 1.\nFronteira corpo/nota: nenhuma alteração; as notas 1 e 2 já estavam corretamente fechadas nas posições das chamadas, e a continuação da nota 1 no rodapé inferior (que repete a linha de sobreposição) não foi duplicada.\nDúvidas: o itálico de \"summa e infinitamente perfeito\" na nota 1 foi inferido da imagem; a palavra final \"infinita\" está no fim do trecho, com a hifenização \"infi-/nita\" cruzando para a página 467, que não está no trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em \"addicionada\", \"bondade\" (faltava o \"B\" lido como \"2\"), \"perfeições\" (lidas como \"perfeigóes\"/\"perfeicoóes\"), \"não\", \"Motor immovel\", \"l. I, c. 38 e 39\"; acréscimo de itálico em \"summa e infinitamente perfeito\" da nota 1.\nFronteira corpo/nota: nenhuma alteração; as notas 1 e 2 já estavam corretamente fechadas nas posições das chamadas, e a continuação da nota 1 no rodapé inferior (que repete a linha de sobreposição) não foi duplicada.\nDúvidas: o itálico de \"summa e infinitamente perfeito\" na nota 1 foi inferido da imagem; a palavra final \"infinita\" está no fim do trecho, com a hifenização \"infi-/nita\" cruzando para a página 467, que não está no trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046068,
+ "duration_ms": 26476,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10488,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7116
+ },
+ "reparo": false
+}

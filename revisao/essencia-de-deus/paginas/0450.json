@@ -1,0 +1,33 @@
+{
+ "pagina": 450,
+ "paginas": [
+  450
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em palavras (qu?escentes, Drxus, Znfrinseca, perfeigóes, ec., \"18\" por \"13\" na citação da Sum. Th.), hifenização, artigo \"á\" por \"a\" onde a imagem mostra \"a\", \".\" sobrando, pontuação (\"metaphysica;\"), e \"Deus\" em versalete; removi o invólucro <entrada>, que não é elemento TEI (motivo da recusa anterior). Nenhuma fronteira corpo/nota foi alterada; os <pb> do corpo estão intactos.\nDúvida: \"Todas estas opiniões…\" até \"…entre as duas expressões.\" (rodapé da p. 450, sem número) é continuação de nota iniciada na p. 449, fora deste trecho; mantive como parágrafos de corpo, como veio, porque não há número/id para ligá-la a uma <note> aqui.\nDúvida: a nota 1 está sem o \"(1)\" impresso no início, seguindo o padrão do pipeline (o número fica no atributo n).",
+ "tentativas": [
+  {
+   "falha": "elementos que o TEI não usa: ['entrada']",
+   "fronteira": null,
+   "notas": "Erros corrigidos na nota (1): \"A. nossa\" → \"A nossa\", \"conceitos,\" → \"conceitos.\", \"perfeigóes\" → \"perfeições\", \"q. 18\" → \"q. 13\"; \"positivos ;\" → \"positivos;\" e \"quie-/scentes\" do fim de linha já estava unido no `<hi>`.\nFronteira: na p. 450, o bloco no pé da página sem número (\"Todas estas opiniões são inacceitaveis.\" até \"...duas expressões.\", incluindo a) a d)) é continuação de nota da p. 449, anterior ao trecho; foi retirado do corpo e não transcrito, pois não é corpo. A nota (1) começa depois dele no rodapé, e sua chamada continua corretamente no fim de \"operativos\".\nDúvida: se o pipeline pretendia manter esses parágrafos como corpo, eles precisam voltar; a imagem os mostra abaixo do filete, portanto não são corpo.",
+   "resposta": "<xml>\n<pb n=\"450\" facs=\"paginas/0450.png\"/><p>Os attributos <hi rend=\"it\">quiescentes</hi> dividem-se em <hi rend=\"it\">negativos</hi> e <hi rend=\"it\">positivos</hi>. Os <hi rend=\"it\">negativos</hi> são os que <hi rend=\"it\">negam</hi> de <hi rend=\"sc\">Deus</hi> as imperfeições das creaturas. Os <hi rend=\"it\">positivos</hi> são os que <hi rend=\"it\">affirmam</hi> de <hi rend=\"sc\">Deus</hi> as perfeições creadas, mas isentas de todo o limite.</p><p>Neste artigo e no seguinte tratamos dos attributos <hi rend=\"it\">quiescentes</hi>, <hi rend=\"it\">negativos</hi> e <hi rend=\"it\">positivos</hi>; nos capitulos seguintes trataremos dos attributos <hi rend=\"it\">operativos</hi> <note place=\"foot\" n=\"1\" xml:id=\"n450-1\">A nossa intelligencia, não podendo, por ser finita, comprehender a Essencia divina, que excede, pela sua perfeição infinita, a capacidade de toda a creatura, procura exprimil-a, de algum modo, por muitos e differentes conceitos. A esta pluralidade e diversidade de conceitos corresponde, da parte de Deus, não uma pluralidade ou diversidade real de perfeições, mas uma plena e infinita perfeição, que equivale a todas as perfeições e que as contém de um modo eminente. — A esta pluralidade e diversidade de conceitos, que exprimem a unica e simplicissima Essencia divina, correspondem varios nomes, que por isso não são <hi rend=\"it\">synonymos</hi>, porque, embora todos exprimam a mesma Essencia, comtudo não a exprimem todos sob o mesmo aspecto, mas um exprime-a sob um aspecto e outro sob outro aspecto, e sempre de um modo <hi rend=\"it\">deficiente</hi> e <hi rend=\"it\">parcial</hi> (Cf. <hi rend=\"it\">Sum</hi>. <hi rend=\"it\">Th</hi>., p. I, q. 13, a. 4).</note>.</p>\n</entrada>\n</xml>\n<notas>\nErros corrigidos na nota (1): \"A. nossa\" → \"A nossa\", \"conceitos,\" → \"conceitos.\", \"perfeigóes\" → \"perfeições\", \"q. 18\" → \"q. 13\"; \"positivos ;\" → \"positivos;\" e \"quie-/scentes\" do fim de linha já estava unido no `<hi>`.\nFronteira: na p. 450, o bloco no pé da página sem número (\"Todas estas opiniões são inacceitaveis.\" até \"...duas expressões.\", incluindo a) a d)) é continuação de nota da p. 449, anterior ao trecho; foi retirado do corpo e não transcrito, pois não é corpo. A nota (1) começa depois dele no rodapé, e sua chamada continua corretamente no fim de \"operativos\".\nDúvida: se o pipeline pretendia manter esses parágrafos como corpo, eles precisam voltar; a imagem os mostra abaixo do filete, portanto não são corpo.\n</notas>"
+  },
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em palavras (qu?escentes, Drxus, Znfrinseca, perfeigóes, ec., \"18\" por \"13\" na citação da Sum. Th.), hifenização, artigo \"á\" por \"a\" onde a imagem mostra \"a\", \".\" sobrando, pontuação (\"metaphysica;\"), e \"Deus\" em versalete; removi o invólucro <entrada>, que não é elemento TEI (motivo da recusa anterior). Nenhuma fronteira corpo/nota foi alterada; os <pb> do corpo estão intactos.\nDúvida: \"Todas estas opiniões…\" até \"…entre as duas expressões.\" (rodapé da p. 450, sem número) é continuação de nota iniciada na p. 449, fora deste trecho; mantive como parágrafos de corpo, como veio, porque não há número/id para ligá-la a uma <note> aqui.\nDúvida: a nota 1 está sem o \"(1)\" impresso no início, seguindo o padrão do pipeline (o número fica no atributo n).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0108919,
+ "duration_ms": 73399,
+ "num_turns": 2,
+ "usage": {
+  "input_tokens": 21589,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17466
+ },
+ "reparo": false
+}

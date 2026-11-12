@@ -1,0 +1,36 @@
+{
+ "modelo": "haiku",
+ "formato": "tei",
+ "pedacos": 16,
+ "feitos": 16,
+ "falhas": {
+  "445": "o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 29142 (<string>, line 13)"
+ },
+ "fronteira": {
+  "447": {
+   "corpo": [
+    808,
+    1574
+   ],
+   "notas": [
+    6393,
+    5608
+   ],
+   "num_notas": [
+    1,
+    1
+   ],
+   "troca": 766
+  }
+ },
+ "total_cost_usd": 0.2816,
+ "num_turns": 25,
+ "duration_ms": 1868614,
+ "usage": {
+  "input_tokens": 422203,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 478669
+ },
+ "is_error": false
+}

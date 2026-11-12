@@ -1,0 +1,29 @@
+{
+ "pagina": 458,
+ "paginas": [
+  458,
+  459,
+  460
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (emmenso, emistentes, mutayeis, mumerica, distinegüo, creacüo, imaginução, &ttribütos, multiplieavel, \"£)\" → \"a)\"), hifenização de fim de linha (multi-plica-se), resíduos (\"'\" após \"Porquanto,\", \";\" e \"<p>7 gares\" isolados), números de teses/citações (Dist. 37, Dist. 21, a. 3, q. 11, q. 3) e itálicos/versalete; \"a successão\", \"affirmações\", \"humanidade\" minúscula.\nFronteiras corpo/nota: nenhuma alterada. Confirmadas: nota 1 e nota 2 da p. 458 (a nota 2 continua na p. 459 após o `<pb n=\"459\"/>`); nota 1 da p. 459 (inclui o bloco abaixo do filete, \"Pergunta-se…\" até \"Respondemos…\", que continua na p. 460 após o `<pb n=\"460\"/>`); notas 1 e 2 da p. 460. Acrescentei apenas `<p>` na nota 2 da p. 458, que tinha dois parágrafos sem marcação.\nDúvidas: as marcas de lápis sob o texto das pp. 459–460 foram ignoradas; não consegui confirmar se \"a)\" e \"b)\" da p. 460 são itálicos (transcrevi sem itálico); mantive \"Muitos negaram…\" dentro da nota 1 da p. 459, pois está abaixo do filete.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (emmenso, emistentes, mutayeis, mumerica, distinegüo, creacüo, imaginução, &ttribütos, multiplieavel, \"£)\" → \"a)\"), hifenização de fim de linha (multi-plica-se), resíduos (\"'\" após \"Porquanto,\", \";\" e \"<p>7 gares\" isolados), números de teses/citações (Dist. 37, Dist. 21, a. 3, q. 11, q. 3) e itálicos/versalete; \"a successão\", \"affirmações\", \"humanidade\" minúscula.\nFronteiras corpo/nota: nenhuma alterada. Confirmadas: nota 1 e nota 2 da p. 458 (a nota 2 continua na p. 459 após o `<pb n=\"459\"/>`); nota 1 da p. 459 (inclui o bloco abaixo do filete, \"Pergunta-se…\" até \"Respondemos…\", que continua na p. 460 após o `<pb n=\"460\"/>`); notas 1 e 2 da p. 460. Acrescentei apenas `<p>` na nota 2 da p. 458, que tinha dois parágrafos sem marcação.\nDúvidas: as marcas de lápis sob o texto das pp. 459–460 foram ignoradas; não consegui confirmar se \"a)\" e \"b)\" da p. 460 são itálicos (transcrevi sem itálico); mantive \"Muitos negaram…\" dentro da nota 1 da p. 459, pois está abaixo do filete.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0216673,
+ "duration_ms": 140817,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25348,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 38265
+ },
+ "reparo": false
+}

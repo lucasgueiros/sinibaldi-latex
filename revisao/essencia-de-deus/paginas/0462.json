@@ -1,0 +1,29 @@
+{
+ "pagina": 462,
+ "paginas": [
+  462,
+  463,
+  464
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras (Dzvus→Deus, Bsseneia, intelligenecia, intelligenoeia, affrmam, vendade, simplicissinia, \"mon\", \"&\"→\"a\", \"/\" espúrio, \"|\" espúrio), pontuação e acentos (á/a, \"a,\" e \"positivos,\"), e numeração da nota de verdade \"8\"→\"3\" (id n462-3) conforme a chamada (3); títulos de §§ 38–44 passados a negrito inteiro e \"ARTIGO III.\" em caixa alta, como impresso.\nFronteiras corpo/nota: nenhuma alterada; conferidas as notas de 462 (1, 2, 3, que continua em 463), 463 (1, 2, que continua em 464) e 464 (1); os pb internos às notas (462→463 e 463→464) e os pb do corpo foram mantidos.\nDúvidas: \"l. I\" vs \"1. I\" nas referências a Gentes (usei \"l.\"); grafia exata de \"DEUS\"/\"Deus\" em versalete e de \"Verdade\" em itálico no § 39; \"partecipado\" mantido como na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras (Dzvus→Deus, Bsseneia, intelligenecia, intelligenoeia, affrmam, vendade, simplicissinia, \"mon\", \"&\"→\"a\", \"/\" espúrio, \"|\" espúrio), pontuação e acentos (á/a, \"a,\" e \"positivos,\"), e numeração da nota de verdade \"8\"→\"3\" (id n462-3) conforme a chamada (3); títulos de §§ 38–44 passados a negrito inteiro e \"ARTIGO III.\" em caixa alta, como impresso.\nFronteiras corpo/nota: nenhuma alterada; conferidas as notas de 462 (1, 2, 3, que continua em 463), 463 (1, 2, que continua em 464) e 464 (1); os pb internos às notas (462→463 e 463→464) e os pb do corpo foram mantidos.\nDúvidas: \"l. I\" vs \"1. I\" nas referências a Gentes (usei \"l.\"); grafia exata de \"DEUS\"/\"Deus\" em versalete e de \"Verdade\" em itálico no § 39; \"partecipado\" mantido como na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.014140699999999999,
+ "duration_ms": 80806,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24832,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 23315
+ },
+ "reparo": false
+}

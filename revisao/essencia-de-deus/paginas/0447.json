@@ -1,0 +1,57 @@
+{
+ "pagina": 447,
+ "paginas": [
+  447,
+  448,
+  449
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   808,
+   1574
+  ],
+  "notas": [
+   6393,
+   5608
+  ],
+  "num_notas": [
+   1,
+   1
+  ],
+  "troca": 766
+ },
+ "notas": "Erros corrigidos: OCR de letras (con/com, Ew/Ex, sb/ab, Oucamos, illiimitado, inürinseca, conveuientius, differenca, affrmar, JEHOYAH, tomem→homem, attribue→attribuo), acentos e pontuação, palavras faltando (\"é o ser\", \"a humanidade\"), itálicos/versalete corrigidos, \"-de\" e \"4\"/\"2\" espúrios e \"29 : Vol. II\" removidos.\nFronteira: no p. 449, \"Todos os philosophos…\" até \"d)…possue.\" estava dentro da nota 1; movi-os para o corpo, após o título 26 (são corpo em letra normal). A nota 1 agora vai até \"ad 5).\" (p. 449). Acrescentei \"*\" (ornamento separador do p. 449) como parágrafo do corpo.\nDúvidas: \"e não e ser\" (p. 447 nota) mantido como lido na imagem; o \"*\" pode ser descartado se o pipeline não quiser ornamentos; \"Qui EST\" e \"Ego sum qui sum\" em versalete aproximado; o wrapper <entrada> não foi devolvido.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     808,
+     1574
+    ],
+    "notas": [
+     6393,
+     5608
+    ],
+    "num_notas": [
+     1,
+     1
+    ],
+    "troca": 766
+   },
+   "notas": "Erros corrigidos: OCR de letras (con/com, Ew/Ex, sb/ab, Oucamos, illiimitado, inürinseca, conveuientius, differenca, affrmar, JEHOYAH, tomem→homem, attribue→attribuo), acentos e pontuação, palavras faltando (\"é o ser\", \"a humanidade\"), itálicos/versalete corrigidos, \"-de\" e \"4\"/\"2\" espúrios e \"29 : Vol. II\" removidos.\nFronteira: no p. 449, \"Todos os philosophos…\" até \"d)…possue.\" estava dentro da nota 1; movi-os para o corpo, após o título 26 (são corpo em letra normal). A nota 1 agora vai até \"ad 5).\" (p. 449). Acrescentei \"*\" (ornamento separador do p. 449) como parágrafo do corpo.\nDúvidas: \"e não e ser\" (p. 447 nota) mantido como lido na imagem; o \"*\" pode ser descartado se o pipeline não quiser ornamentos; \"Qui EST\" e \"Ego sum qui sum\" em versalete aproximado; o wrapper <entrada> não foi devolvido.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.014826,
+ "duration_ms": 98746,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23315,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24989
+ },
+ "reparo": false
+}

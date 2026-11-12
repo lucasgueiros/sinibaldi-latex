@@ -389,11 +389,19 @@ def chama(msg, modelo, sistema, effort, cwd):
     return res
 
 
+def desembrulha(novo):
+    e = re.fullmatch(r"\s*<entrada>\n?(.*?)\n?</entrada>\s*", novo, re.S)
+    return e[1] if e else novo
+
+
 def extrai(resp, texto):
     m = re.search(r"<xml>\n?(.*?)\n?</xml>", resp, re.S)
     if not m:
         return None
     novo = m[1]
+    # o Haiku às vezes devolve o fragmento ainda embrulhado no <entrada>…</entrada> da mensagem
+    # (8 de 19 pedaços na rodada de 2026-11-12 sobre a Theodicea): tira o invólucro
+    novo = desembrulha(novo)
     # preserva o espaço em volta do fragmento (as fronteiras entre pedaços)
     novo = texto[:len(texto) - len(texto.lstrip())] + novo.strip() + texto[len(texto.rstrip()):]
     return novo
@@ -444,7 +452,7 @@ def processa(ped, args, sistema, cwd, dirp, ctx):
         reg = json.loads(js.read_text())
         rej = base.with_suffix(".rejeitado.xml")
         if args.revalida and reg["falha"] and rej.exists():   # critério novo sobre a resposta já paga
-            novo = rej.read_text(encoding="utf-8")
+            novo = desembrulha(rej.read_text(encoding="utf-8"))
             reg["falha"], reg["fronteira"], novo, reparou = confere(n, texto, novo, pags, ctx, args)
             reg["reparo"] = reg.get("reparo") or reparou
             if reg["falha"] is None:

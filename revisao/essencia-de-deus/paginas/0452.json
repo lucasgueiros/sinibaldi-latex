@@ -1,0 +1,30 @@
+{
+ "pagina": 452,
+ "paginas": [
+  452,
+  453,
+  454,
+  455
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em latim/itálico e nomes (Dszus→Deus, DEUS/DEus→Deus, \"1. T\"→\"l. I\", \"p. T\", \"q. 8\"→\"q. 3\", \"c. 88\"→\"c. 38\", \"nobresa\", \"evistencia\", \"distineccüo\", \"e«trinsecamente\", \"perfeigóes\", \"antAropomorphismo\", \"E^\", \"€\", \"4)\"→\"a)\", \"&amp;\" espúrios, \"E claro\"→\"E' claro\", \"atgeibutos\" em negrito indevido, \"Panne, Figo\" → Padre, Filho, Espirito Santo em versalete), hifenização \"persona-/lidade\", \"Assim é homem\", \"e a racionalidade\", \"Sent./Dist./Sum. Th.\" e referências.\nFronteiras corpo/nota: nenhuma alterada. A nota (1) de 452 foi mantida como única nota com continuações em 453, 454 e 455 (rodapés, com pb 453, 454 e 455 dentro da nota); o texto do corpo de 453 e 454 permanece depois da nota, como estava. Excluídos o rodapé \"os elementos são productos...\" de 452 (continuação de nota anterior ao trecho) e a nota \"(1) S. Thomaz trata d'isto\" de 455 (começa no trecho seguinte). Único ajuste estrutural: o pb 453 dentro da nota foi movido para o meio da palavra \"persona|lidade\".\nDúvidas: uso de versalete em \"Deus\" no corpo e em algumas ocorrências de \"Ora Deus\"; itálico de \"a)/b)/c)\" dos rótulos; \"Totavia\" e \"tambem\" mantidos como impressos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em latim/itálico e nomes (Dszus→Deus, DEUS/DEus→Deus, \"1. T\"→\"l. I\", \"p. T\", \"q. 8\"→\"q. 3\", \"c. 88\"→\"c. 38\", \"nobresa\", \"evistencia\", \"distineccüo\", \"e«trinsecamente\", \"perfeigóes\", \"antAropomorphismo\", \"E^\", \"€\", \"4)\"→\"a)\", \"&amp;\" espúrios, \"E claro\"→\"E' claro\", \"atgeibutos\" em negrito indevido, \"Panne, Figo\" → Padre, Filho, Espirito Santo em versalete), hifenização \"persona-/lidade\", \"Assim é homem\", \"e a racionalidade\", \"Sent./Dist./Sum. Th.\" e referências.\nFronteiras corpo/nota: nenhuma alterada. A nota (1) de 452 foi mantida como única nota com continuações em 453, 454 e 455 (rodapés, com pb 453, 454 e 455 dentro da nota); o texto do corpo de 453 e 454 permanece depois da nota, como estava. Excluídos o rodapé \"os elementos são productos...\" de 452 (continuação de nota anterior ao trecho) e a nota \"(1) S. Thomaz trata d'isto\" de 455 (começa no trecho seguinte). Único ajuste estrutural: o pb 453 dentro da nota foi movido para o meio da palavra \"persona|lidade\".\nDúvidas: uso de versalete em \"Deus\" no corpo e em algumas ocorrências de \"Ora Deus\"; itálico de \"a)/b)/c)\" dos rótulos; \"Totavia\" e \"tambem\" mantidos como impressos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0290953,
+ "duration_ms": 190462,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 33608,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 51469
+ },
+ "reparo": false
+}

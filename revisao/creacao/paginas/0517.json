@@ -1,0 +1,29 @@
+{
+ "pagina": 517,
+ "paginas": [
+  517,
+  518,
+  519
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (creacdo/creacüo/Oreatio, Theosophia, felicissima, perfeições, p. 369/I/q. 3, \"Zmaginario\", \"Of.\", \"creou\"/\"ereou\", \"1.9)\"/\"2.9)\"/\"8.º)\"→1.º/2.º/3.º), acentos e crases (á), \"n&o\"→não, \"commun.\"→commum, \"a-creação\", \"substancia.\" e fragmento \"e^\" removido; negrito dos títulos 88 e 89 e versalete de Deus/Pae conforme a imagem.\nFronteiras corpo/nota: nenhuma alterada. n517-1 continua em 518 e fecha após \"p. 369\"; n518-1 continua em 519 e fecha após \"q. 3, a. 17\"; n519-1 fecha no fim do fragmento. A linha \"veis, cada um…\" no rodapé de 517 (continuação de nota de antes do trecho) não foi transcrita.\nDúvidas: \"1. II\" e \"1. 2\" (lido como \"1.\" ou \"l.\"); \"igitur\" mantido em itálico; \"dispôr\"; \"Deus entende a sua gloria\"; \"á communicação\" (crase lida com incerteza).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (creacdo/creacüo/Oreatio, Theosophia, felicissima, perfeições, p. 369/I/q. 3, \"Zmaginario\", \"Of.\", \"creou\"/\"ereou\", \"1.9)\"/\"2.9)\"/\"8.º)\"→1.º/2.º/3.º), acentos e crases (á), \"n&o\"→não, \"commun.\"→commum, \"a-creação\", \"substancia.\" e fragmento \"e^\" removido; negrito dos títulos 88 e 89 e versalete de Deus/Pae conforme a imagem.\nFronteiras corpo/nota: nenhuma alterada. n517-1 continua em 518 e fecha após \"p. 369\"; n518-1 continua em 519 e fecha após \"q. 3, a. 17\"; n519-1 fecha no fim do fragmento. A linha \"veis, cada um…\" no rodapé de 517 (continuação de nota de antes do trecho) não foi transcrita.\nDúvidas: \"1. II\" e \"1. 2\" (lido como \"1.\" ou \"l.\"); \"igitur\" mantido em itálico; \"dispôr\"; \"Deus entende a sua gloria\"; \"á communicação\" (crase lida com incerteza).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0158236,
+ "duration_ms": 96055,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24491,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 26749
+ },
+ "reparo": false
+}

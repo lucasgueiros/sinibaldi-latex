@@ -1,0 +1,28 @@
+{
+ "pagina": 468,
+ "paginas": [
+  468,
+  469
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (Dzvus/Dxvus→Deus, immutayel, àmmutavel, \"&amp;\"→a, \"perfeigoes\"→perfeições, \"vé\"/\"vê\"), acentos e pontuação, \"al. 68\"→\"al. 63\", \"á materia\"→\"a materia\"; removidos o cabeçalho corrente e a linha de lixo \"——= EE E q…\" no início da página 468.\nFronteira: a chamada \"(3)\" da p. 468 estava ligada à nota \"8\" (alerta do pipeline procedente); renumerada para n=\"3\" (xml:id n468-3), pois a imagem mostra \"(3) A conclusão é evidente…\" no pé da p. 468. Nenhuma outra mudança de corpo/nota; a continuação na p. 469 permanece dentro da nota 3.\nDúvidas: não restaram leituras ilegíveis relevantes; mantive as negritas/versalete das manchetes 52–55 conforme a imagem (cabeçalho 54–55 em negrito integral).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (Dzvus/Dxvus→Deus, immutayel, àmmutavel, \"&amp;\"→a, \"perfeigoes\"→perfeições, \"vé\"/\"vê\"), acentos e pontuação, \"al. 68\"→\"al. 63\", \"á materia\"→\"a materia\"; removidos o cabeçalho corrente e a linha de lixo \"——= EE E q…\" no início da página 468.\nFronteira: a chamada \"(3)\" da p. 468 estava ligada à nota \"8\" (alerta do pipeline procedente); renumerada para n=\"3\" (xml:id n468-3), pois a imagem mostra \"(3) A conclusão é evidente…\" no pé da p. 468. Nenhuma outra mudança de corpo/nota; a continuação na p. 469 permanece dentro da nota 3.\nDúvidas: não restaram leituras ilegíveis relevantes; mantive as negritas/versalete das manchetes 52–55 conforme a imagem (cabeçalho 54–55 em negrito integral).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0083086,
+ "duration_ms": 47285,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17566,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13104
+ },
+ "reparo": false
+}
