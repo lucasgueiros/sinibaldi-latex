@@ -27,7 +27,8 @@
       <button type="button" class="ferramenta" data-zoom="mais" title="Ampliar (Ctrl + roda)" aria-label="Ampliar">+</button>
       <button type="button" class="ferramenta" data-zoom="largura" title="Ajustar à largura">Largura</button>
       <button type="button" class="ferramenta" data-zoom="cem" title="Tamanho real">100%</button>
-      <span class="ml-auto text-xs text-ink/60" data-zoom-indicador></span>
+      <a class="ml-auto text-xs text-crimson hover:underline" href="{{ dados.scanOriginal }}" target="_blank" rel="noopener" title="Abrir o PNG original (mais pesado)" data-scan-original>original</a>
+      <span class="text-xs text-ink/60" data-zoom-indicador></span>
     </div>
     <div id="visualizador" class="relative min-h-0 flex-1 overflow-hidden bg-ink/10" data-visualizador tabindex="0" aria-label="Imagem do scan">
       <img src="{{ dados.scan }}" alt="Scan da página {{ pagina.impressa|default:pagina.seq }}" class="absolute left-0 top-0 max-w-none select-none" draggable="false" style="transform-origin: 0 0; visibility: hidden">

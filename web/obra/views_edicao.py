@@ -237,7 +237,8 @@ def revisar(request, numero, seq):
         "urlGravar": reverse("obra:gravar", args=[volume.numero, seq]),
         "urlHistoricoBloco": reverse("obra:historico_bloco", args=[0]),
         "csrf": get_token(request),
-        "scan": reverse("obra:scan", args=[volume.numero, seq]),
+        "scan": reverse("obra:scan_jpg", args=[volume.numero, seq]) + "?l=1600",
+        "scanOriginal": reverse("obra:scan", args=[volume.numero, seq]),
         "chaveLocal": f"sinibaldi.revisao.v{volume.numero}",
         "urlSeguinte": reverse("obra:revisar", args=[volume.numero, seg.seq]) if seg else "",
     }

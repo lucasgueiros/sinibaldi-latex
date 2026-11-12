@@ -42,6 +42,7 @@
   const img = $("#visualizador img");
   const elIndicador = $("[data-scan-indicador]");
   const linkRevisar = $("[data-scan-revisar]");
+  const linkOriginal = $("[data-scan-original]");
   let scanAtual = null; // {vol, seq}
   function irScan(vol, seq) {
     if (vol == null || seq == null) {
@@ -60,6 +61,7 @@
       aviso.classList.remove("flex");
       img.src = url;
     }
+    if (linkOriginal) linkOriginal.href = dados.urlScanOriginal.replace("9991", vol).replace("9992", seq);
     linkRevisar.href = dados.urlRevisar.replace("9991", vol).replace("9992", seq);
   }
   document.querySelectorAll("[data-scan]").forEach((b) => b.addEventListener("click", () => {

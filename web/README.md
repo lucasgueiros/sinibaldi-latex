@@ -1,28 +1,68 @@
 # Editor web de *Elementos de Philosophia* (Django MVT)
 
-Backend/fundação: modelos, dialeto de fragmento, conversões TEI, serviços de escrita,
+Aplicação Django (MVT) de edição colaborativa. Backend/fundação: modelos, dialeto de fragmento, conversões TEI, serviços de escrita,
 importação/exportação. As telas ficam em `templates/`, `static/` e `frontend/`.
 
-## Como rodar
+## Como rodar (máquina limpa)
+
+Requisitos: Python 3.12+ (Django 5.2, lxml, Pillow). Node só para quem mexe no front.
 
 ```bash
 cd web
-python3 -m venv --system-site-packages .venv      # lxml vem do sistema
-.venv/bin/pip install -r requirements.txt
-export SINIBALDI_DADOS=/caminho/do/checkout      # opcional: raiz com volN/paginas/*.png (padrão: raiz do repo)
+python3 -m venv --system-site-packages .venv      # lxml vem do sistema; sem ele, o pip o instala
+.venv/bin/pip install -r requirements.txt         # Django, lxml, Pillow
+export SINIBALDI_DADOS=/caminho/do/checkout       # raiz com volN/paginas/*.png (só leitura); padrão: raiz do repo
 
-.venv/bin/python manage.py migrate
-.venv/bin/python manage.py importar_tei            # edição "1916" (~5 s): [--volume 1 2] [--fonte corrigido] [--recriar]
-.venv/bin/python manage.py derivar_nova_edicao     # edição "nova" [--recriar]
+.venv/bin/python manage.py migrate                # cria db.sqlite3 e o grupo "editores"
+.venv/bin/python manage.py importar_tei           # edição "1916" (~5 s): [--volume 1 2] [--fonte corrigido] [--recriar]
+.venv/bin/python manage.py derivar_nova_edicao    # edição "nova" [--recriar]
 .venv/bin/python manage.py createsuperuser
-.venv/bin/python manage.py runserver
+.venv/bin/python manage.py runserver              # http://127.0.0.1:8000/
+```
 
+`importar_tei` lê `volN/volN.corrigido.xml` (`--fonte estruturado` para o outro) em `SINIBALDI_DADOS` ou, se não achar, na raiz do repo; a ordem importar → derivar é obrigatória (a nova edição copia a de 1916).
+
+**Dar acesso a um editor**: crie o usuário (`createsuperuser`, ou pelo admin em `/admin/` com um superusuário)
+e ponha-o no grupo `editores` (admin › Usuários › Grupos, ou
+`manage.py shell -c "from django.contrib.auth.models import User, Group; User.objects.get(username='ana').groups.add(Group.objects.get(name='editores'))"`).
+O grupo (add/change/delete de `Bloco`) é criado pela migração `0002`; as telas de edição exigem login +
+`obra.change_bloco`. Superusuários passam sem o grupo.
+
+Variáveis de ambiente: `SINIBALDI_DADOS` (imagens), `SINIBALDI_CACHE` (padrão `web/cache/`: PDFs gerados e
+`scans/` com os JPEG reduzidos), `SECRET_KEY`, `DEBUG` (`0` desliga), `ALLOWED_HOSTS`.
+
+Utilitários e testes:
+
+```bash
 .venv/bin/python manage.py exportar_tei --edicao 1916 --volume 2 -o /tmp/vol2.xml   # [--forcar]
+.venv/bin/python manage.py sincronizar_nova_edicao [--aplicar]                       # ver "Pendências"
 .venv/bin/python manage.py test obra
 ```
 
-Variáveis de ambiente: `SINIBALDI_DADOS`, `SECRET_KEY`, `DEBUG` (`0` desliga), `ALLOWED_HOSTS`.
-O grupo `editores` (add/change/delete de `Bloco`) é criado pela migração `0002`.
+Front-end (só para quem altera `frontend/` ou `templates/`; os bundles em `static/` já vêm commitados):
+
+```bash
+npm install
+npm run build:editor    # TipTap: static/js/editor.bundle.js, revisao.js, nova.js, css do editor
+npm run build           # Tailwind (static/css), depois de mexer em templates
+```
+
+### Rotas principais
+
+| Rota | Nome (`obra:`) | O que é |
+|---|---|---|
+| `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`) |
+| `/fac-simile/<vol>/<seq>/` | `facsimile` | Imagem da página (JPEG 1600 px, link p/ PNG original) |
+| `/scan/<vol>/<seq>.png` | `scan` | PNG original da página (cache longo) |
+| `/scan/<vol>/<seq>.jpg?l=1000\|1600` | `scan_jpg` | JPEG reduzido em cache (`SINIBALDI_CACHE/scans/`); as telas usam `l=1600` e oferecem link "original" |
+| `/edicao-colaborativa/` | `painel` | Painel da área de revisão (login) |
+| `/edicao-colaborativa/1916/vol/<n>/` | `paginas` | Páginas do volume |
+| `/edicao-colaborativa/1916/vol/<n>/pag/<seq>/` | `revisar` | Scan + editor (`gravar/`, JSON) |
+| `/edicao-colaborativa/converter/` | `converter` | html/xml ↔ blocos (JSON) |
+| `/edicao-colaborativa/nova/` | `nova_estrutura` | Estrutura e ordem das partes da nova edição |
+| `/edicao-colaborativa/nova/no/<id>/` | `nova_no` | Editor paginado de um nó (`nova_trecho`, `nova_gravar`…) |
+| `/edicao-colaborativa/nova/pendencias/` | `nova_pendencias` | Sincronização com a 1916 |
+| `/entrar/`, `/admin/` | | Login e administração |
 
 ## Modelo
 
@@ -49,6 +89,11 @@ O editor é TipTap 2 com esquema próprio (`frontend/editor/esquema.js` espelha 
 usa Node nem CDN. A API (`window.SinibaldiEditor.montar/montarAbas/…`) está no topo de
 `frontend/editor/index.js`. Rode também `npm run build` (Tailwind) depois de mexer em templates.
 (`npm run build:editor` também gera `static/js/nova.js`, o controlador das telas da nova edição.)
+
+Proteção de estrutura no editor: marco (início de divisão) e `pb` nunca são substituídos por digitação ou
+colagem (com o marco selecionado, o texto vai para um parágrafo novo depois dele); Backspace/Delete junto a
+um marco primeiro o selecionam, e só com ele selecionado o removem. A seleção inicial é sempre um cursor de
+texto no primeiro bloco textual, sem roubar o foco.
 
 ## Nova edição (`/edicao-colaborativa/nova/`, `views_nova.py`, `servicos_nova.py`, `partes.py`)
 

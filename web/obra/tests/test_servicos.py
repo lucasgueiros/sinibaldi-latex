@@ -324,6 +324,50 @@ class OutrosTest(BaseBanco):
                 self.assertEqual(self.client.get(reverse("obra:scan", args=[1, 3])).status_code, 404)
         self.assertEqual(reverse("obra:scan", args=[1, -14]), "/scan/1/-14.png")
 
+    def test_scan_jpg(self):
+        import tempfile
+        from pathlib import Path
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as c:
+            (Path(d) / "vol1" / "paginas").mkdir(parents=True)
+            Image.new("L", (2400, 3000), 200).save(Path(d) / "vol1" / "paginas" / "0002.png")
+            with override_settings(SINIBALDI_DADOS=Path(d), SINIBALDI_CACHE=Path(c)):
+                url = reverse("obra:scan_jpg", args=[1, 2])
+                self.assertEqual(url, "/scan/1/2.jpg")
+                r = self.client.get(url, {"l": 1000})
+                self.assertEqual(r.status_code, 200)
+                self.assertEqual(r["Content-Type"], "image/jpeg")
+                self.assertIn("max-age", r["Cache-Control"])
+                corpo = b"".join(r.streaming_content)
+                r.close()
+                import io
+                im = Image.open(io.BytesIO(corpo))
+                self.assertEqual((im.format, im.width, im.height, im.mode), ("JPEG", 1000, 1250, "L"))
+                cache = Path(c) / "scans" / "v1_0002_1000.jpg"
+                self.assertTrue(cache.is_file())
+                self.assertEqual(list((Path(c) / "scans").glob("*.tmp")), [])
+                # reuso: o cache não é regerado
+                m = cache.stat().st_mtime_ns
+                from unittest import mock
+                with mock.patch("obra.scans._gera_jpg", side_effect=AssertionError("regerou")):
+                    r = self.client.get(url, {"l": 1000})
+                    self.assertEqual(r.status_code, 200)
+                    r.close()
+                self.assertEqual(cache.stat().st_mtime_ns, m)
+                r = self.client.get(url, {"l": 1600})
+                self.assertEqual(r.status_code, 200)
+                r.close()
+                self.assertTrue((Path(c) / "scans" / "v1_0002_1600.jpg").is_file())
+                # inexistente, largura não permitida ou ausente
+                self.assertEqual(self.client.get(reverse("obra:scan_jpg", args=[1, 3]), {"l": 1000}).status_code, 404)
+                self.assertEqual(self.client.get(url, {"l": 777}).status_code, 404)
+                self.assertEqual(self.client.get(url, {"l": "x"}).status_code, 404)
+                self.assertEqual(self.client.get(url).status_code, 404)
+                # o PNG continua
+                r = self.client.get(reverse("obra:scan", args=[1, 2]))
+                self.assertEqual(r["Content-Type"], "image/png")
+                r.close()
+
     def test_grupo_editores(self):
         from django.contrib.auth.models import Group
         g = Group.objects.get(name="editores")

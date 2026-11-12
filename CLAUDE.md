@@ -22,6 +22,7 @@ Do not look for one; the "code" here is whatever ad-hoc shell/Python you write t
 | `vol1_lat.txt` | OCR `por_best+lat` etiquetado — **nunca foi gerado** para o vol. 1 (ver `docs/04`). |
 | `tessdata/` | tessdata local, git-ignored (links do sistema + `lat` best + `por_best`). `export TESSDATA_PREFIX=$PWD/tessdata`. |
 | `vol2/` | Vol. 2 (Psicologia). `vol2.pdf` (413 pp.) → `vol2_div.pdf` (826 pp., `mutool poster -y 2`) → `vol2_div_ocr.pdf` (`ocrmypdf -l por_best+lat`). Árvore por nó: `docs/05`. |
+| `web/` | Aplicação Django de edição colaborativa (revisão da 1916, nova edição, parte pública); ver `web/README.md`. |
 | `.python-version` | pyenv pin: Python 3.12. `.venv/` (git-ignored) tem `ocrmypdf` e `python-pptx`. |
 
 The large PDFs (80–210 MB) are the only copy of the source material — never overwrite them in place; write
