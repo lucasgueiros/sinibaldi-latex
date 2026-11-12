@@ -1,0 +1,8 @@
+== entrada
+total  ouro   2139 ocr   2139  WER  4.86%  {'replace': 89, 'delete': 6, 'insert': 9}
+corpo  ouro    398 ocr    402  WER  6.78%  {'replace': 17, 'delete': 1, 'insert': 9}
+notas  ouro   1741 ocr   1737  WER  4.42%  {'replace': 72, 'delete': 5}
+== revisado
+total  ouro   2139 ocr   2143  WER  0.75%  {'insert': 4, 'replace': 12}
+corpo  ouro    398 ocr    402  WER  1.26%  {'insert': 4, 'replace': 1}
+notas  ouro   1741 ocr   1743  WER  0.40%  {'replace': 7}

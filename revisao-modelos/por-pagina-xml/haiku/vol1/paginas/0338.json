@@ -1,0 +1,27 @@
+{
+ "pagina": 338,
+ "paginas": [
+  338,
+  339
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de \"JII\", \"69\", \"H\", \"mecessario\", \"a0\", \"perfeigao\", \"efectivamente\", \"intelligencia\", \"indilferente\", \"distincto\", \"“\" espúrio, além de formatação itálica/negrito e numeração \"62.\". O parágrafo 62 estava partido em dois `<p>` e foi unido; o \"(^)\" literal foi apagado e a chamada (2) ficou no ponto \"perfeição\", com o ponto final depois da nota.\nFronteira: nenhuma nota mudou de posição ou de limite. A nota 1 (p. 338) e a nota 2 (p. 338→339, inclusive o parágrafo \"Finito é o que tem limites…\", que está no pé da p. 339 abaixo do filete) foram mantidas como estavam. A continuação \"proprio Kant escreve…\" no alto do rodapé da p. 338 pertence a nota anterior ao trecho e não foi transcrita.\nDúvidas: a palavra \"a\" em \"sic a nobis\" está encoberta por um traço de caneta; transcrevi \"a\". \"p. I\" pode ser \"p. 1\" no original; mantive \"I\". Também não tenho certeza se \"qualquer\" estava em itálico (deixei sem).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de \"JII\", \"69\", \"H\", \"mecessario\", \"a0\", \"perfeigao\", \"efectivamente\", \"intelligencia\", \"indilferente\", \"distincto\", \"“\" espúrio, além de formatação itálica/negrito e numeração \"62.\". O parágrafo 62 estava partido em dois `<p>` e foi unido; o \"(^)\" literal foi apagado e a chamada (2) ficou no ponto \"perfeição\", com o ponto final depois da nota.\nFronteira: nenhuma nota mudou de posição ou de limite. A nota 1 (p. 338) e a nota 2 (p. 338→339, inclusive o parágrafo \"Finito é o que tem limites…\", que está no pé da p. 339 abaixo do filete) foram mantidas como estavam. A continuação \"proprio Kant escreve…\" no alto do rodapé da p. 338 pertence a nota anterior ao trecho e não foi transcrita.\nDúvidas: a palavra \"a\" em \"sic a nobis\" está encoberta por um traço de caneta; transcrevi \"a\". \"p. I\" pode ser \"p. 1\" no original; mantive \"I\". Também não tenho certeza se \"qualquer\" estava em itálico (deixei sem).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0157244,
+ "duration_ms": 106416,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16599,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 28129
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 429,
+ "paginas": [
+  429,
+  430
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (Zrraciomaes, emmovel, distineção, fteleologíco, Cap. D, Nào, contradieções, indieando), acentos, itálicos e versalete (Deus, e moraes, segundas, contingentes, necessario, a/b/c/d/e), e referências da nota 1 (a. 8→a. 3; c. 18→c. 13), que continua no rodapé da p. 430 até \"c. 13\"; a nota 1 de 430 não foi copiada.\nFronteira corpo/nota: nenhuma mudança; a nota 1 de 429 foi mantida inteira, com o pb 430 dentro dela, e o \"(1)\" da p. 429 já estava corretamente posto como ponto de chamada.\nDúvidas: removi um ponto solto antes de \"12.\" (provável mancha); deixei todas as letras a)–e) em itálico por leitura incerta; a continuação do rodapé de 429 vinda da nota anterior ao trecho foi deixada de fora.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (Zrraciomaes, emmovel, distineção, fteleologíco, Cap. D, Nào, contradieções, indieando), acentos, itálicos e versalete (Deus, e moraes, segundas, contingentes, necessario, a/b/c/d/e), e referências da nota 1 (a. 8→a. 3; c. 18→c. 13), que continua no rodapé da p. 430 até \"c. 13\"; a nota 1 de 430 não foi copiada.\nFronteira corpo/nota: nenhuma mudança; a nota 1 de 429 foi mantida inteira, com o pb 430 dentro dela, e o \"(1)\" da p. 429 já estava corretamente posto como ponto de chamada.\nDúvidas: removi um ponto solto antes de \"12.\" (provável mancha); deixei todas as letras a)–e) em itálico por leitura incerta; a continuação do rodapé de 429 vinda da nota anterior ao trecho foi deixada de fora.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0095363,
+ "duration_ms": 57626,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16498,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 15773
+ }
+}

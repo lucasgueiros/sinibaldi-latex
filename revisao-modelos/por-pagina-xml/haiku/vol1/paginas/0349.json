@@ -1,0 +1,54 @@
+{
+ "pagina": 349,
+ "paginas": [
+  349
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1770,
+   1181
+  ],
+  "notas": [
+   832,
+   1399
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 567
+ },
+ "notas": "Erros corrigidos: OCR (0→o, szmples, occupamo-nos, egualdade, falta, perfeições, exclue, differença, abstracção, metaphysica), pontuação das listas, itálicos e negritos; cabeçalho \"ARTIGO III\" restaurado. Fronteira (p. 349): a nota \"(1) Nem se diga…\" estava solta no corpo após o §73 e foi movida para dentro de `<note n=\"1\">` na chamada \"(1)\" do §II; a nota \"(2) Ente simples…\" estava presa ao §II e foi movida para a chamada \"(2)\" no fim do §72. A página não tinha `<pb>` dentro das notas.\nDúvidas: negrito/itálico exatos de \"dependencia\", \"analogia\", do título \"Ente simples e ente composto\" e do versalete de \"Artigo III\"; mantive \"logico.\" com ponto, como parece impresso; mantive grafias sem acento de \"indivisivel/divisivel\", como na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1770,
+     1181
+    ],
+    "notas": [
+     832,
+     1399
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 567
+   },
+   "notas": "Erros corrigidos: OCR (0→o, szmples, occupamo-nos, egualdade, falta, perfeições, exclue, differença, abstracção, metaphysica), pontuação das listas, itálicos e negritos; cabeçalho \"ARTIGO III\" restaurado. Fronteira (p. 349): a nota \"(1) Nem se diga…\" estava solta no corpo após o §73 e foi movida para dentro de `<note n=\"1\">` na chamada \"(1)\" do §II; a nota \"(2) Ente simples…\" estava presa ao §II e foi movida para a chamada \"(2)\" no fim do §72. A página não tinha `<pb>` dentro das notas.\nDúvidas: negrito/itálico exatos de \"dependencia\", \"analogia\", do título \"Ente simples e ente composto\" e do versalete de \"Artigo III\"; mantive \"logico.\" com ponto, como parece impresso; mantive grafias sem acento de \"indivisivel/divisivel\", como na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0066594,
+ "duration_ms": 43832,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10014,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11316
+ }
+}

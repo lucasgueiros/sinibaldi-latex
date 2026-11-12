@@ -1,0 +1,27 @@
+{
+ "pagina": 355,
+ "paginas": [
+  355,
+  356
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras (f/t, ç/c, ß/ß etc.), acentos, \"O\"/\"6\"/\"2o\" por \"(2)\"/\"é\"/\"ao\", hifenizações (\"quan-do\", \"substan-cial\"), ruídos (\"!\", \"&\", \",,e\", \"a. termino\"), itálicos/negritos dos títulos §4 e §5 e das latinas (\"ad quem\", \"a quo\").\nFronteira: nota 356-2 estava anexada ao fim do §5; movida para a chamada \"sabio (2)\" na alínea c) da p. 356 (o \"O\" literal foi removido). Demais notas (355-1, 355-2 com continuação na p. 356, 356-1) já estavam corretas e foram mantidas.\nDúvidas: grafia \"distincção\" (nota 355-2) lida com incerteza; itálico em \"successiva\" e \"mudança\" na nota 356-1 pode não ser exato; a pontuação \"II, 17 : De Pot.\" foi lida como dois-pontos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras (f/t, ç/c, ß/ß etc.), acentos, \"O\"/\"6\"/\"2o\" por \"(2)\"/\"é\"/\"ao\", hifenizações (\"quan-do\", \"substan-cial\"), ruídos (\"!\", \"&\", \",,e\", \"a. termino\"), itálicos/negritos dos títulos §4 e §5 e das latinas (\"ad quem\", \"a quo\").\nFronteira: nota 356-2 estava anexada ao fim do §5; movida para a chamada \"sabio (2)\" na alínea c) da p. 356 (o \"O\" literal foi removido). Demais notas (355-1, 355-2 com continuação na p. 356, 356-1) já estavam corretas e foram mantidas.\nDúvidas: grafia \"distincção\" (nota 355-2) lida com incerteza; itálico em \"successiva\" e \"mudança\" na nota 356-1 pode não ser exato; a pontuação \"II, 17 : De Pot.\" foi lida como dois-pontos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0137393,
+ "duration_ms": 88157,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16803,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24118
+ }
+}

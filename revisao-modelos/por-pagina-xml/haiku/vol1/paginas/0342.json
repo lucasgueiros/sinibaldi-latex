@@ -1,0 +1,27 @@
+{
+ "pagina": 342,
+ "paginas": [
+  342,
+  343
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: título \"65.\" inteiro em negrito conforme a imagem (antes só \"si mesmo\"); removido o fragmento espúrio \"- D\" após o fim da nota (não está na página 342). Fronteira corpo/nota conferida: a nota 1 de p. 342 está correta e sua continuação no alto da p. 343 (\"limitação, podem ser percebidas…\") foi mantida dentro de n342-1, com o `<pb n=\"343\"/>` no ponto certo; nenhuma mudança de fronteira.\nDúvidas: \"é a. entidade limitada\" mantido com o ponto, pois pode ser sujeira da imagem. Os alertas da p. 343 (n343-8 e chamadas) referem-se a conteúdo fora deste trecho e não foram tratados.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: título \"65.\" inteiro em negrito conforme a imagem (antes só \"si mesmo\"); removido o fragmento espúrio \"- D\" após o fim da nota (não está na página 342). Fronteira corpo/nota conferida: a nota 1 de p. 342 está correta e sua continuação no alto da p. 343 (\"limitação, podem ser percebidas…\") foi mantida dentro de n342-1, com o `<pb n=\"343\"/>` no ponto certo; nenhuma mudança de fronteira.\nDúvidas: \"é a. entidade limitada\" mantido com o ponto, pois pode ser sujeira da imagem. Os alertas da p. 343 (n343-8 e chamadas) referem-se a conteúdo fora deste trecho e não foram tratados.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0034898000000000004,
+ "duration_ms": 17983,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14023,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4175
+ }
+}

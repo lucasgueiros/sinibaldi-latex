@@ -1,0 +1,26 @@
+{
+ "pagina": 441,
+ "paginas": [
+  441
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (falsidade, maçonica, 1873, \"Za/La Bruyère\", \"á/a\", \"dizia;/dizia:\", \"elle á fallaria\", \"DEus\"→Deus), hifenização \"tal- sidade\", reticências espúrias e \"/\" de margem; negrito dos títulos 20 e 21 estendido ao título inteiro conforme a imagem.\nFronteira corpo/nota: nenhuma alteração; notas 1 (p. 441) e 2 (p. 441, continua no rodapé da mesma página) permanecem como estavam, sem `<pb>` novo.\nDúvidas: se o \"».\" após \"Redemptor\" é ponto ou apenas aspas (mantido como estava); \"DEus\" tratado como versalete de \"Deus\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (falsidade, maçonica, 1873, \"Za/La Bruyère\", \"á/a\", \"dizia;/dizia:\", \"elle á fallaria\", \"DEus\"→Deus), hifenização \"tal- sidade\", reticências espúrias e \"/\" de margem; negrito dos títulos 20 e 21 estendido ao título inteiro conforme a imagem.\nFronteira corpo/nota: nenhuma alteração; notas 1 (p. 441) e 2 (p. 441, continua no rodapé da mesma página) permanecem como estavam, sem `<pb>` novo.\nDúvidas: se o \"».\" após \"Redemptor\" é ponto ou apenas aspas (mantido como estava); \"DEus\" tratado como versalete de \"Deus\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.005207300000000001,
+ "duration_ms": 31601,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10708,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8273
+ }
+}

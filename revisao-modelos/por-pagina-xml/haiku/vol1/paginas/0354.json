@@ -1,0 +1,26 @@
+{
+ "pagina": 354,
+ "paginas": [
+  354
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (immuíayel, inmutavel, ÁrTIGO, dérive, \"pode-/mos\", \"Án\", \"ess&amp;\", \"aliter/et\", \"muútationis\"), pontuação e hifenização, e a numeração das notas (a chamada \"(4)\" duplicada virou 1, 2 e 3).\nFronteiras: as três notas estavam trocadas de lugar. A nota (1) foi movida da S1 para a chamada \"simples (1)\" em II; a nota (2) foi movida para \"acto (²)\" na S1; a nota (3) foi movida de \"opposto para\" para \"existencia (³)\" na S2. Juntei em um só parágrafo \"tal é a / immutabilidade de Deus\", que o pipeline havia partido sem razão visível (linha sem recuo).\nDúvidas: \"Deus\" está em versalete (sc), mas a imagem sugere negrito; os \"...\" depois das chamadas (²) e (³) foram omitidos como resíduo tipográfico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (immuíayel, inmutavel, ÁrTIGO, dérive, \"pode-/mos\", \"Án\", \"ess&amp;\", \"aliter/et\", \"muútationis\"), pontuação e hifenização, e a numeração das notas (a chamada \"(4)\" duplicada virou 1, 2 e 3).\nFronteiras: as três notas estavam trocadas de lugar. A nota (1) foi movida da S1 para a chamada \"simples (1)\" em II; a nota (2) foi movida para \"acto (²)\" na S1; a nota (3) foi movida de \"opposto para\" para \"existencia (³)\" na S2. Juntei em um só parágrafo \"tal é a / immutabilidade de Deus\", que o pipeline havia partido sem razão visível (linha sem recuo).\nDúvidas: \"Deus\" está em versalete (sc), mas a imagem sugere negrito; os \"...\" depois das chamadas (²) e (³) foram omitidos como resíduo tipográfico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0057307,
+ "duration_ms": 39312,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10172,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9427
+ }
+}

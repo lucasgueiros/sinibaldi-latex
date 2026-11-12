@@ -55,7 +55,9 @@ TROCA_MAX = 2500         # passagem corpo→nota (caracteres) acima disto é rec
 NOTA_CORPO_MAX = 800     # idem nota→corpo: ~8 linhas; o erro típico do modelo é esvaziar no corpo
                          # os parágrafos finais de uma nota longa (vol. 2 p. 441, 1567 car.)
 NGRAMA = 10              # sequência de palavras usada para achar texto duplicado/copiado
-REPETE_MAX = 3           # sequências duplicadas/copiadas toleradas (repetições legítimas, acaso)
+DUP_MAX = 30             # n-gramas a mais que a entrada (~40 palavras): duplicação de verdade é um
+                         # parágrafo; uma frase que o livro repete e o OCR perdeu (vol. 2 p. 425) não
+COPIA_MAX = 12           # n-gramas vindos do pedaço seguinte ou de fora do trecho (~20 palavras)
 RE_TAG = re.compile(r"<(/?)([A-Za-z][\w:.-]*)((?:\s+[^>]*?)?)\s*(/?)>|<!--.*?-->|<\?.*?\?>", re.S)
 RE_N = re.compile(r'\bn="([^"]*)"')
 RE_ID = re.compile(r'\bxml:id="([^"]*)"')
@@ -264,15 +266,15 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
     ga, gb, gs = ngramas(texto), ngramas(novo), ngramas(ctx.seguinte(n))
     dup = sum(1 for g, c in gb.items() if c > ga.get(g, 0) and ga.get(g, 0) > 0)
     copia = sum(1 for g in gb if g not in ga and g in gs)
-    if dup > REPETE_MAX:
+    if dup > DUP_MAX:
         return f"texto duplicado dentro do trecho (~{dup + NGRAMA - 1} palavras repetidas)", None
-    if copia > REPETE_MAX:
+    if copia > COPIA_MAX:
         return (f"copiou ~{copia + NGRAMA - 1} palavras que pertencem ao trecho seguinte (corpo ou nota que começa "
                 "numa página extra)"), None
     fora = ctx.fora.get(n)
     if fora:
         alheio = sum(1 for g in gb if g not in ga and g in fora)
-        if alheio > REPETE_MAX:
+        if alheio > COPIA_MAX:
             return (f"copiou ~{alheio + NGRAMA - 1} palavras da página que ficam FORA do trecho (antes do começo "
                     "ou depois do fim dele)"), None
     # tamanho: uma linha impressa tem ~90 caracteres; o corpo pode ganhar ~1 linha por página (a 1ª,
@@ -397,6 +399,43 @@ def extrai(resp, texto):
     return novo
 
 
+RE_COMECO = re.compile(r"^\s*(?:<[^>]+>\s*)*")
+RE_FIM = re.compile(r"(?:\s*<[^>]+>)*\s*$")
+
+
+def repara(texto, novo):
+    """O modelo às vezes larga as tags soltas do começo/fim do fragmento (o `</div>` que fecha a secção
+    anterior, o `<p>` que segue no pedaço seguinte).  Repõe as do original nessas duas pontas."""
+    novo = RE_COMECO.match(texto)[0] + novo[RE_COMECO.match(novo).end():]
+    a, b = RE_FIM.search(texto), RE_FIM.search(novo)
+    novo = novo[:b.start()] + a[0]
+    # entre duas aberturas de <div> (únicas pelo xml:id), o mesmo número de </div> que no original:
+    # ao apagar lixo antes de um título ("<p>EI</p></div>") o modelo leva junto o </div>
+    ant_a = ant_b = 0
+    for m in re.finditer(r'<div\b[^>]*xml:id="[^"]+"[^>]*>', texto):
+        j = novo.find(m[0], ant_b)
+        if j < 0:
+            break
+        falta = texto.count("</div>", ant_a, m.start()) - novo.count("</div>", ant_b, j)
+        if falta > 0:
+            novo = novo[:j] + "</div>" * falta + novo[j:]
+            j += 6 * falta
+        ant_a, ant_b = m.end(), j + len(m[0])
+    return novo
+
+
+def confere(n, texto, novo, pags, ctx, args):
+    """valida(); se o XML vier mal formado, tenta repara() e valida de novo.  (falha, fronteira, novo, reparou)"""
+    falha, fronteira = valida(n, texto, novo, pags, ctx, args.troca_max, args.nota_corpo_max)
+    if falha and ("mal formado" in falha or "não fechado" in falha or "sem <note> aberto" in falha):
+        r = repara(texto, novo)
+        if r != novo:
+            f2, fr2 = valida(n, texto, r, pags, ctx, args.troca_max, args.nota_corpo_max)
+            if f2 is None:
+                return None, fr2, r, True
+    return falha, fronteira, novo, False
+
+
 def processa(ped, args, sistema, cwd, dirp, ctx):
     n, texto, pags = ped
     base = dirp / f"{n:04d}"
@@ -406,7 +445,8 @@ def processa(ped, args, sistema, cwd, dirp, ctx):
         rej = base.with_suffix(".rejeitado.xml")
         if args.revalida and reg["falha"] and rej.exists():   # critério novo sobre a resposta já paga
             novo = rej.read_text(encoding="utf-8")
-            reg["falha"], reg["fronteira"] = valida(n, texto, novo, pags, ctx, args.troca_max, args.nota_corpo_max)
+            reg["falha"], reg["fronteira"], novo, reparou = confere(n, texto, novo, pags, ctx, args)
+            reg["reparo"] = reg.get("reparo") or reparou
             if reg["falha"] is None:
                 base.with_suffix(".revisado.xml").write_text(novo, encoding="utf-8")
                 rej.unlink()
@@ -425,13 +465,14 @@ def processa(ped, args, sistema, cwd, dirp, ctx):
         resp = res.get("result") or ""
         novo = extrai(resp, texto)
         notas = re.search(r"<notas>\s*(.*?)\s*</notas>", resp, re.S)
-        fronteira = None
+        fronteira, reparou = None, False
         if res.get("is_error"):
             falha = "erro do claude: " + resp[:300]
         elif novo is None:
             falha = "resposta sem <xml>…</xml>"
         else:
-            falha, fronteira = valida(n, texto, novo, pags, ctx, args.troca_max, args.nota_corpo_max)
+            falha, fronteira, novo, reparou = confere(n, texto, novo, pags, ctx, args)
+        reg["reparo"] = reparou
         reg["total_cost_usd"] += res.get("total_cost_usd", 0) or 0
         reg["duration_ms"] += res.get("duration_ms") or int((time.time() - t0) * 1000)
         reg["num_turns"] += res.get("num_turns", 0) or 0

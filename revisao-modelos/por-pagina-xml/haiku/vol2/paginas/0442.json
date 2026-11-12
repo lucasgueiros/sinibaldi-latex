@@ -1,0 +1,26 @@
+{
+ "pagina": 442,
+ "paginas": [
+  442
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: \"inexplieaveis\"/\"inexplieavel\" → inexplicaveis/inexplicavel; \"cortezaos\" → cortezãos; \"enyenenar\" → envenenar; \"phiL\" → phil.; \"descanco\" → descanço; \"7\" → » na nota 1; removidos os lixos \"<p>/</p>\" e \"<p>— e s+e—</p>\" (barra e fleurão, fora do texto).\nFronteira corpo/nota: nenhuma alteração. O alerta de \"vão grande\" é falso: após \"(2).\" vêm só o filete e as notas 1 e 2, e depois do fleurão não há corpo.\nDúvidas: o \"».\" final da nota 1 foi lido pela imagem pequena (guilhemet e ponto), sem certeza absoluta.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: \"inexplieaveis\"/\"inexplieavel\" → inexplicaveis/inexplicavel; \"cortezaos\" → cortezãos; \"enyenenar\" → envenenar; \"phiL\" → phil.; \"descanco\" → descanço; \"7\" → » na nota 1; removidos os lixos \"<p>/</p>\" e \"<p>— e s+e—</p>\" (barra e fleurão, fora do texto).\nFronteira corpo/nota: nenhuma alteração. O alerta de \"vão grande\" é falso: após \"(2).\" vêm só o filete e as notas 1 e 2, e depois do fleurão não há corpo.\nDúvidas: o \"».\" final da nota 1 foi lido pela imagem pequena (guilhemet e ponto), sem certeza absoluta.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0042095,
+ "duration_ms": 25155,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10075,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6404
+ }
+}

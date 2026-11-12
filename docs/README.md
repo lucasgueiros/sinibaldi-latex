@@ -8,4 +8,4 @@
 - [06-formatacao.md](06-formatacao.md) — itálico, versalete e negrito medidos na imagem (`tools/formatacao.py`), precisão no padrão-ouro, `tools/gera_volume.sh`.
 - [07-padrao-ouro.md](07-padrao-ouro.md) — padrões-ouro dos dois volumes (vol. 2 pp. 421–442; vol. 1 três blocos em `vol1/ouro/`), convenções de transcrição, WER e formatação medidos.
 - [08-estrutura-e-trechos.md](08-estrutura-e-trechos.md) — `tools/titulos.py` (proposta de `estrutura.tsv` + alertas) e `tools/trecho.py` (trechos por id, tese ou página).
-- [09-revisao-llm.md](09-revisao-llm.md) — revisão final por LLM, uma chamada por página (`tools/revisa_paginas.py`): método, validador, comparação Haiku/Sonnet/Opus e recomendação.
+- [09-revisao-llm.md](09-revisao-llm.md) — revisão final por LLM (Haiku) sobre o TEI, uma chamada por página (`tools/revisa_paginas.py`), corrigindo também a fronteira corpo/nota: método, validador, medição; e o bug de `trecho.py` que perdia a 1ª linha de cada página.

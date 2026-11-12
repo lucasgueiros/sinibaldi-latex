@@ -1,0 +1,30 @@
+{
+ "pagina": 430,
+ "paginas": [
+  430,
+  431,
+  432,
+  433,
+  434
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (imnmovel, hão→não, da→da potencia, inexhauriyel, \"ó\"→\"é\", attraecüo, cadêa etc.), itálicos (todo acto, universal/necessaria/indestructivel, b) e a) de intelligencia), hifenização \"essen-/cial\" e \"dá-se\"; removidos \"28 Vol. II.\" e o parágrafo partido em \"que deve / identificar-se\", agora uma só <p>; \"Ad 8\" → \"ad 3\".\nFronteira corpo/nota: nenhuma mudança. A nota n430-1 (início em 430 após \"Logo existe Deus (1)\"; continuação em 431, 432, 433 e 434 até \"problemas.\") foi mantida como está. Não copiei o texto de 430 entre o cabeçalho e \"(1) Aqui…\" (\"Cap. I, art. V)… Escutámos… c. Gentes\"), por ser continuação de nota anterior ao trecho.\nDúvidas: \"de. causa\" (pontuação em Rousseau); \"a sujeito\" (mantido como impresso); \"aperfeiçoa\" vs \"aperfeiçôa\"; \"Couchy\" mantido; pb 433 colocado no meio de \"essen|cial\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (imnmovel, hão→não, da→da potencia, inexhauriyel, \"ó\"→\"é\", attraecüo, cadêa etc.), itálicos (todo acto, universal/necessaria/indestructivel, b) e a) de intelligencia), hifenização \"essen-/cial\" e \"dá-se\"; removidos \"28 Vol. II.\" e o parágrafo partido em \"que deve / identificar-se\", agora uma só <p>; \"Ad 8\" → \"ad 3\".\nFronteira corpo/nota: nenhuma mudança. A nota n430-1 (início em 430 após \"Logo existe Deus (1)\"; continuação em 431, 432, 433 e 434 até \"problemas.\") foi mantida como está. Não copiei o texto de 430 entre o cabeçalho e \"(1) Aqui…\" (\"Cap. I, art. V)… Escutámos… c. Gentes\"), por ser continuação de nota anterior ao trecho.\nDúvidas: \"de. causa\" (pontuação em Rousseau); \"a sujeito\" (mantido como impresso); \"aperfeiçoa\" vs \"aperfeiçôa\"; \"Couchy\" mantido; pb 433 colocado no meio de \"essen|cial\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0261232,
+ "duration_ms": 167875,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 36357,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 44975
+ }
+}

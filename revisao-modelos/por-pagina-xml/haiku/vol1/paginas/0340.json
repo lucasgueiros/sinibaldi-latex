@@ -1,0 +1,28 @@
+{
+ "pagina": 340,
+ "paginas": [
+  340,
+  341,
+  342
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros tratados: chamadas literais \"()\" e \"(')\" removidas e substituídas pelas notas; OCR (distinguitise, iptelligencia, Caríiesianos, cbegar, exgoltar, tudos, pare, indefinilo, delermipada), aspas espúrias, \"|\" removido; 64. em negrito e itálicos ajustados; número \"(1)\"/\"(2)\" no início das notas removido.\nFronteira: nota com \"(8)\" na p. 340 (sem chamada) reposicionada no ponto da chamada \"(2)\" e renumerada n340-2; nota \"(1)\" da p. 340 movida para a chamada \"(1)\" do início da página (estava no \"finito\"); nota n341-1 mantida na chamada \"(1)\" da p. 341; continuações nas pp. 341 e 342 juntadas às notas com <pb> internos; a nota \"(1) Descartes\" da p. 342 ficou fora do trecho.\nDúvidas: \"o extrema dos seres finitos\" e \"ainda que da um modo\" mantidos como impressos; data \"8 de Set.\" lida como \"8\"; itálico de \"negação\" na nota 2 incerto.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros tratados: chamadas literais \"()\" e \"(')\" removidas e substituídas pelas notas; OCR (distinguitise, iptelligencia, Caríiesianos, cbegar, exgoltar, tudos, pare, indefinilo, delermipada), aspas espúrias, \"|\" removido; 64. em negrito e itálicos ajustados; número \"(1)\"/\"(2)\" no início das notas removido.\nFronteira: nota com \"(8)\" na p. 340 (sem chamada) reposicionada no ponto da chamada \"(2)\" e renumerada n340-2; nota \"(1)\" da p. 340 movida para a chamada \"(1)\" do início da página (estava no \"finito\"); nota n341-1 mantida na chamada \"(1)\" da p. 341; continuações nas pp. 341 e 342 juntadas às notas com <pb> internos; a nota \"(1) Descartes\" da p. 342 ficou fora do trecho.\nDúvidas: \"o extrema dos seres finitos\" e \"ainda que da um modo\" mantidos como impressos; data \"8 de Set.\" lida como \"8\"; itálico de \"negação\" na nota 2 incerto.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.015386899999999998,
+ "duration_ms": 94636,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23124,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 26149
+ }
+}

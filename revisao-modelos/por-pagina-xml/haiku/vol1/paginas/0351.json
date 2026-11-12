@@ -1,0 +1,26 @@
+{
+ "pagina": 351,
+ "paginas": [
+  351
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (acío→acto, paries→partes, subsisteote→subsistente, eniquanto→emquanto, nunes→nunca, telo→acto, \"I. 18\"→\"I, 18\", \"Ora €\"→\"Ora é\"), pontuação, \"|\" e \"X\"/\"=\" espúrios, negritos e itálicos ajustados à imagem, \"é\" faltante em \"Ora o acto puro…\" e \"Logo o ente…\", frase \"ente;\" → \"ente,\", \"o.proprio\" → \"o proprio\"; removidos \"'\" e \":\" soltos. Nenhuma mudança de fronteira corpo/nota; as duas notas da p. 351 estão no lugar certo e inteiras no rodapé.\nDúvidas: a chamada e o rótulo da segunda nota (rodapé \"Diz S. Thomaz\") parecem \"(2)\" na imagem, mas o OCR leu \"(1)\"; mantive n=\"1\" e o id n351-1-2 sem alterar. Itálicos/negritos de algumas expressões curtas foram decididos pela leitura da imagem e podem ter erro de resolução.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (acío→acto, paries→partes, subsisteote→subsistente, eniquanto→emquanto, nunes→nunca, telo→acto, \"I. 18\"→\"I, 18\", \"Ora €\"→\"Ora é\"), pontuação, \"|\" e \"X\"/\"=\" espúrios, negritos e itálicos ajustados à imagem, \"é\" faltante em \"Ora o acto puro…\" e \"Logo o ente…\", frase \"ente;\" → \"ente,\", \"o.proprio\" → \"o proprio\"; removidos \"'\" e \":\" soltos. Nenhuma mudança de fronteira corpo/nota; as duas notas da p. 351 estão no lugar certo e inteiras no rodapé.\nDúvidas: a chamada e o rótulo da segunda nota (rodapé \"Diz S. Thomaz\") parecem \"(2)\" na imagem, mas o OCR leu \"(1)\"; mantive n=\"1\" e o id n351-1-2 sem alterar. Itálicos/negritos de algumas expressões curtas foram decididos pela leitura da imagem e podem ter erro de resolução.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0062033,
+ "duration_ms": 41342,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10148,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10377
+ }
+}

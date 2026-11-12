@@ -1,0 +1,26 @@
+{
+ "pagina": 424,
+ "paginas": [
+  424
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: \"á\" → \"a\" (corpo), \"5)\" → \"b)\" e \"zntuicüo\" → \"intuição\" na nota 1, \"DEus\" → \"Deus\", \"€\" → \"é\", \"Dk:\" → \"Dei\", \"intel lectuale\" → \"intellectuale\", travessão indevido em \"falsas. -\", e formatação do título \"8.\" (negrito), com \"A\" e \"de\" também em negrito conforme a imagem.\nFronteira: nenhuma mudança. A área de notas da p. 424 começa com a continuação da nota de p. 423 (\"Deus, que é a regra ultima…\" até \"tradicionalistas… verdade.\"), que fica fora do trecho; a nota 1 da p. 424 foi mantida no ponto da chamada \"(1)\".\nDúvidas: o \"(1)\" que abre a nota no rodapé não foi transcrito, pois o número já está em n=\"1\" (mantive o padrão do pipeline). Não consegui confirmar se \"E'\" é grafia original (mantido como impresso).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: \"á\" → \"a\" (corpo), \"5)\" → \"b)\" e \"zntuicüo\" → \"intuição\" na nota 1, \"DEus\" → \"Deus\", \"€\" → \"é\", \"Dk:\" → \"Dei\", \"intel lectuale\" → \"intellectuale\", travessão indevido em \"falsas. -\", e formatação do título \"8.\" (negrito), com \"A\" e \"de\" também em negrito conforme a imagem.\nFronteira: nenhuma mudança. A área de notas da p. 424 começa com a continuação da nota de p. 423 (\"Deus, que é a regra ultima…\" até \"tradicionalistas… verdade.\"), que fica fora do trecho; a nota 1 da p. 424 foi mantida no ponto da chamada \"(1)\".\nDúvidas: o \"(1)\" que abre a nota no rodapé não foi transcrito, pois o número já está em n=\"1\" (mantive o padrão do pipeline). Não consegui confirmar se \"E'\" é grafia original (mantido como impresso).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0042434,
+ "duration_ms": 28932,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9594,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6568
+ }
+}

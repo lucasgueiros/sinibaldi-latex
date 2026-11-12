@@ -1,0 +1,29 @@
+{
+ "pagina": 343,
+ "paginas": [
+  343,
+  344,
+  345,
+  346
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros: OCR (ente/ente, n&o→não, c/e, ç, \"infnito\", \"Scotisías\", \"Escholasticos\", \"physica-:. mente\"), hifenizações de fim de linha, lixo (\"H\", \"544\", \"N\", \"(^)\", \"2,0)\", \"1. 9. 7\", \"Toda. 2. creatura\") e parágrafos partidos indevidamente (66a, 67a) que foram unidos.\nFronteira: nota 1 movida da chamada errada no fim de 67a para a chamada \"(1)\" no fim de 66b (p. 343); nota n343-8 renumerada para n=\"2\" (xml:id n343-2) e mantida ancorada em \"é finito (2)\" no fim de 67a; continuações nas pp. 344, 345 e 346 mantidas dentro da nota; corpo das pp. 344 e 345 mantido após a nota.\nDúvidas: se a tese 66 e as teses 4.º/6.º estão em negrito/itálico integral na imagem (deixei como estava no TEI com ajustes mínimos); \"se lhe se podesse\" transcrito como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros: OCR (ente/ente, n&o→não, c/e, ç, \"infnito\", \"Scotisías\", \"Escholasticos\", \"physica-:. mente\"), hifenizações de fim de linha, lixo (\"H\", \"544\", \"N\", \"(^)\", \"2,0)\", \"1. 9. 7\", \"Toda. 2. creatura\") e parágrafos partidos indevidamente (66a, 67a) que foram unidos.\nFronteira: nota 1 movida da chamada errada no fim de 67a para a chamada \"(1)\" no fim de 66b (p. 343); nota n343-8 renumerada para n=\"2\" (xml:id n343-2) e mantida ancorada em \"é finito (2)\" no fim de 67a; continuações nas pp. 344, 345 e 346 mantidas dentro da nota; corpo das pp. 344 e 345 mantido após a nota.\nDúvidas: se a tese 66 e as teses 4.º/6.º estão em negrito/itálico integral na imagem (deixei como estava no TEI com ajustes mínimos); \"se lhe se podesse\" transcrito como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0203402,
+ "duration_ms": 123954,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 28467,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 34987
+ }
+}

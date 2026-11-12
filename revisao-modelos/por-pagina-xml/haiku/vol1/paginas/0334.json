@@ -1,0 +1,56 @@
+{
+ "pagina": 334,
+ "paginas": [
+  334,
+  335,
+  336
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2148,
+   2226
+  ],
+  "notas": [
+   4023,
+   3967
+  ],
+  "num_notas": [
+   5,
+   6
+  ],
+  "troca": 56
+ },
+ "notas": "Principais erros corrigidos: lixo de OCR (letras trocadas, \"eo\"→\"e o\", pontuação, símbolos espúrios), palavras faltantes (início do item b) de 335 e o trecho \"stirá sempre, é eterno… (2)\" de 335), hifenização, itálicos/negrito conforme a imagem (teses e letras a)/b) em negrito) e quebra de parágrafo indevida dentro de \"Logo o ente…\".\nFronteira: p. 334 — nota (2) renumerada de \"8\" para \"2\" (xml:id n334-2); nota (3) mantida na chamada (3) de 57 e a quebra de parágrafo passou para depois da chamada (2). p. 335 — a nota que continha (2) e (3) coladas foi separada: (2) passou para a chamada (2) do item 58 e (3) virou nota própria n335-3 na chamada (3) de 59; a nota (1) de 335 foi mantida na chamada do item b).\nDúvidas: \"é por isso\"/\"e por isso\" na nota (3) de 335 e itálico de algumas palavras (p. ex. \"porque\", \"contingente\" final em 334) foram lidos de forma aproximada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2148,
+     2226
+    ],
+    "notas": [
+     4023,
+     3967
+    ],
+    "num_notas": [
+     5,
+     6
+    ],
+    "troca": 56
+   },
+   "notas": "Principais erros corrigidos: lixo de OCR (letras trocadas, \"eo\"→\"e o\", pontuação, símbolos espúrios), palavras faltantes (início do item b) de 335 e o trecho \"stirá sempre, é eterno… (2)\" de 335), hifenização, itálicos/negrito conforme a imagem (teses e letras a)/b) em negrito) e quebra de parágrafo indevida dentro de \"Logo o ente…\".\nFronteira: p. 334 — nota (2) renumerada de \"8\" para \"2\" (xml:id n334-2); nota (3) mantida na chamada (3) de 57 e a quebra de parágrafo passou para depois da chamada (2). p. 335 — a nota que continha (2) e (3) coladas foi separada: (2) passou para a chamada (2) do item 58 e (3) virou nota própria n335-3 na chamada (3) de 59; a nota (1) de 335 foi mantida na chamada do item b).\nDúvidas: \"é por isso\"/\"e por isso\" na nota (3) de 335 e itálico de algumas palavras (p. ex. \"porque\", \"contingente\" final em 334) foram lidos de forma aproximada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0170411,
+ "duration_ms": 106747,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 22086,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 29665
+ }
+}

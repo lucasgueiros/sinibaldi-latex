@@ -1,0 +1,27 @@
+{
+ "pagina": 352,
+ "paginas": [
+  352,
+  353
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (identiücadà, effeito/ezxirinseca, necessario, antecedebte, potenlia, S0→80, L.→I.), pontuação, pontos finais espúrios (\" :\", \" '\", aspas soltas), assinaturas \"Vol. 1 24\" removidas, itálicos e negritos ajustados à imagem (teses 77–80 em negrito, \"elle\"/\"etc.\" sem itálico).\nFronteira: n353-2 estava colada ao fim do último parágrafo; movida para a chamada \"(2)\" após \"não-composto\" no corpo da p. 353 (removido o \"(^)\" literal). Demais notas (352-1, 352-2, 352-3 com continuação na p. 353, 353-1) já estavam corretas e foram mantidas.\nDúvidas: a rasura riscada em 352 (\"é contingente e finito,\") foi lida como marca manual, não como texto impresso; \"Deum\" mantido em versalete e \"Th..\" na citação de 353 não foram conferidos com certeza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (identiücadà, effeito/ezxirinseca, necessario, antecedebte, potenlia, S0→80, L.→I.), pontuação, pontos finais espúrios (\" :\", \" '\", aspas soltas), assinaturas \"Vol. 1 24\" removidas, itálicos e negritos ajustados à imagem (teses 77–80 em negrito, \"elle\"/\"etc.\" sem itálico).\nFronteira: n353-2 estava colada ao fim do último parágrafo; movida para a chamada \"(2)\" após \"não-composto\" no corpo da p. 353 (removido o \"(^)\" literal). Demais notas (352-1, 352-2, 352-3 com continuação na p. 353, 353-1) já estavam corretas e foram mantidas.\nDúvidas: a rasura riscada em 352 (\"é contingente e finito,\") foi lida como marca manual, não como texto impresso; \"Deum\" mantido em versalete e \"Th..\" na citação de 353 não foram conferidos com certeza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0130779,
+ "duration_ms": 83495,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16809,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 22794
+ }
+}

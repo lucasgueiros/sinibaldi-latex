@@ -1,0 +1,26 @@
+{
+ "pagina": 359,
+ "paginas": [
+  359
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (immutavel, possivel, Fjrmissime, c. 20, Firmissime), hifenização (\"neces-riamente\", \"passa-ram\"), itálico indevido em \"é\", lixo (\"m\", \"!\", ponto extra, \"T.\"→\"I.\", \"IT.\"→\"II.\", \"&\"→\"a\").\nFronteira: p. 359 — nota 1 estava anexada ao fim do parágrafo \"II.\"; movida para a chamada (1) após \"suppõe o ente immutavel\" (chamada literal \"(»\" apagada). Nota 2 mantida no fim de \"II.\", agora na chamada (2) após \"immutavel\"; o \"(2)\" literal foi apagado. Não há continuação de nota fora desta página.\nDúvidas: \"extistentes\" mantido como impresso e \"Se é immutavel\" (vírgula ou ponto) lido como vírgula.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (immutavel, possivel, Fjrmissime, c. 20, Firmissime), hifenização (\"neces-riamente\", \"passa-ram\"), itálico indevido em \"é\", lixo (\"m\", \"!\", ponto extra, \"T.\"→\"I.\", \"IT.\"→\"II.\", \"&\"→\"a\").\nFronteira: p. 359 — nota 1 estava anexada ao fim do parágrafo \"II.\"; movida para a chamada (1) após \"suppõe o ente immutavel\" (chamada literal \"(»\" apagada). Nota 2 mantida no fim de \"II.\", agora na chamada (2) após \"immutavel\"; o \"(2)\" literal foi apagado. Não há continuação de nota fora desta página.\nDúvidas: \"extistentes\" mantido como impresso e \"Se é immutavel\" (vírgula ou ponto) lido como vírgula.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0044999,
+ "duration_ms": 27039,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9864,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7027
+ }
+}

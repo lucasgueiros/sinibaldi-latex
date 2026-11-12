@@ -1,0 +1,29 @@
+{
+ "pagina": 421,
+ "paginas": [
+  421,
+  422,
+  423,
+  424
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (tradicionalismo, Kant, positivismo, subjectivos, immanentismo, innatistas, Boutroux, pretenção, adversarios, noumeno, experimentaes, \"é a\" e \"e\" lidos como \"&amp;\"), acentos (bôa, são, só), hífen e \"(c. 19\"→\"(c. 13\", \"Drum\"→\"Deum\", \"(\" e \"-\" espúrios; ponto faltando após \"ordem moral\".\nFronteira: nada mudou; a nota 2 vai de 421 até \"criterio de verdade\" (continua em 422, 423 e 424); os parágrafos \"de uma psychologia…\" e \"(1) Ninguem…\" do pé de 421 e \"(1) Os que negam…\" do pé de 424 são de outros trechos e ficaram fora.\nDúvidas: não verifiquei se \"Deus\" dentro da nota 2 é versalete ou romano na imagem; mantive a marcação da entrada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (tradicionalismo, Kant, positivismo, subjectivos, immanentismo, innatistas, Boutroux, pretenção, adversarios, noumeno, experimentaes, \"é a\" e \"e\" lidos como \"&amp;\"), acentos (bôa, são, só), hífen e \"(c. 19\"→\"(c. 13\", \"Drum\"→\"Deum\", \"(\" e \"-\" espúrios; ponto faltando após \"ordem moral\".\nFronteira: nada mudou; a nota 2 vai de 421 até \"criterio de verdade\" (continua em 422, 423 e 424); os parágrafos \"de uma psychologia…\" e \"(1) Ninguem…\" do pé de 421 e \"(1) Os que negam…\" do pé de 424 são de outros trechos e ficaram fora.\nDúvidas: não verifiquei se \"Deus\" dentro da nota 2 é versalete ou romano na imagem; mantive a marcação da entrada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.020544200000000002,
+ "duration_ms": 131089,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 30032,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 35082
+ }
+}

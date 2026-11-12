@@ -1,0 +1,26 @@
+{
+ "pagina": 358,
+ "paginas": [
+  358
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"immutavel\", \"mutavel\" (mwiabcel), \"perderia\", \"ou\", \"se\", \"mudança\", \"perfeição\", \"É mutavel\", \"pode\", \"actualidade\", \"o acto\", \"l. c.\"; símbolos \"^\" e \"89.\" lidos como \"§8\" e \"§9\"; pontuação espúria, aspas perdidas, \"&amp;\" escapado e itálicos indevidos em \"para o acto\" e \"pode adquirir\".\nFronteira corpo/nota: nenhuma alteração. As notas 1 e 2 ficam inteiras na página 358 e a chamada \"(1)\"/\"(2)\" continua no corpo. Foi criado um novo `<p>` antes de \"§8\", pois a imagem mostra parágrafo recuado.\nDúvidas: se a frase \"O ente mutavel é contingente…\" de §8 é negrito na imagem (mantive sem marcação); se \"O ente.\" da nota 1 tem ponto impresso (removi o ponto espúrio).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"immutavel\", \"mutavel\" (mwiabcel), \"perderia\", \"ou\", \"se\", \"mudança\", \"perfeição\", \"É mutavel\", \"pode\", \"actualidade\", \"o acto\", \"l. c.\"; símbolos \"^\" e \"89.\" lidos como \"§8\" e \"§9\"; pontuação espúria, aspas perdidas, \"&amp;\" escapado e itálicos indevidos em \"para o acto\" e \"pode adquirir\".\nFronteira corpo/nota: nenhuma alteração. As notas 1 e 2 ficam inteiras na página 358 e a chamada \"(1)\"/\"(2)\" continua no corpo. Foi criado um novo `<p>` antes de \"§8\", pois a imagem mostra parágrafo recuado.\nDúvidas: se a frase \"O ente mutavel é contingente…\" de §8 é negrito na imagem (mantive sem marcação); se \"O ente.\" da nota 1 tem ponto impresso (removi o ponto espúrio).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0074843,
+ "duration_ms": 48852,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10678,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12833
+ }
+}
