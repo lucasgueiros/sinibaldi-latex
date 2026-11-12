@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Sobre e como citar{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with eyebrow="SOBRE" titulo="Sobre e como citar" %}
+<div class="mx-auto max-w-3xl space-y-8 px-4 py-10 text-lg leading-relaxed sm:px-6">
+  <section>
+    <h2 class="font-display text-sm tracking-[0.14em] text-crimson">A OBRA</h2>
+    <p class="mt-2"><em>Elementos de Philosophia</em>, de D. Thiago Sinibaldi, é um compêndio de filosofia escolástica em dois volumes:
+      o primeiro (Logica, Ontologia, Cosmologia; 5.ª ed., Roma, 1917) e o segundo (Anthropologia, Theodicea, Moral; 4.ª ed., 1916).
+      A ortografia anterior a 1911 é a do original e não é modernizada.</p>
+  </section>
+  <section>
+    <h2 class="font-display text-sm tracking-[0.14em] text-crimson">AS DUAS EDIÇÕES</h2>
+    <dl class="mt-2 space-y-3">
+      {% for e in edicoes %}<div><dt class="font-semibold"><a class="text-crimson underline" href="{% url 'obra:edicao' e.slug %}">{{ e.titulo }}</a></dt><dd>{{ e.descricao }}</dd></div>{% endfor %}
+    </dl>
+    <p class="mt-3">A edição de 1916/17 acompanha o livro impresso: as marcas <span class="font-display text-gold-dark">[n]</span> no texto indicam o início da página impressa <em>n</em> e levam ao fac-símile. A nova edição parte desse texto, reorganiza a ordem das partes e é editada por colaboradores; cada trecho informa se é cópia, adaptado ou novo, e remete ao trecho de origem.</p>
+  </section>
+  <section class="mensagem border-gold bg-gold-light/30">
+    <h2 class="font-display text-sm tracking-[0.14em] text-gold-dark">ESTADO DO TEXTO</h2>
+    <p class="mt-1">O texto foi obtido por OCR dos escaneamentos, com correções automáticas e revisão ainda incompleta. Há erros de leitura, principalmente em latim, notas de rodapé e algarismos. Antes de citar, confira com o fac-símile.</p>
+  </section>
+  <section>
+    <h2 class="font-display text-sm tracking-[0.14em] text-crimson">FORMATOS PARA BAIXAR</h2>
+    <p class="mt-2">Em cada trecho (parte, secção, capítulo, artigo ou tese) o botão <strong>Baixar</strong> oferece:</p>
+    <ul class="mt-2 list-disc space-y-1 pl-6">
+      <li><strong>TEI XML</strong> — documento completo, aninhado, com cabeçalho (título, edição, fonte, contribuidores, data); inclui os volumes inteiros.</li>
+      <li><strong>Texto puro</strong> (.txt) — com as páginas impressas entre colchetes e as notas no fim.</li>
+      <li><strong>HTML</strong> — arquivo único, legível sem conexão.</li>
+      <li><strong>LaTeX</strong> (.tex) — documento autônomo, para compilar com <code>lualatex</code>.</li>
+      <li><strong>PDF</strong> — gerado na hora a partir do LaTeX (pode levar até alguns minutos na primeira vez; trechos muito grandes não têm PDF).</li>
+    </ul>
+  </section>
+  <section>
+    <h2 class="font-display text-sm tracking-[0.14em] text-crimson">COMO CITAR</h2>
+    <p class="mt-2">SINIBALDI, Thiago. <em>Elementos de Philosophia</em>. {% for e in edicoes %}{{ e.titulo }}{% if not forloop.last %}; {% endif %}{% endfor %}. Edição colaborativa da Academia Leão XIII de Artes e Ciências do Recife. Disponível neste site; indique a página do trecho, o endereço e a data de acesso.</p>
+  </section>
+</div>
+{% endblock %}

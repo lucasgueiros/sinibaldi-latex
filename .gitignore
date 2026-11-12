@@ -75,3 +75,4 @@ vol*/paginas/*.medidas.pkl
 web/db.sqlite3
 web/node_modules/
 web/staticfiles/
+web/cache/

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Histórico do bloco #{{ bloco.pk }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="historico" %}
+  <h1 class="font-display text-2xl text-crimson">Histórico do bloco #{{ bloco.pk }}</h1>
+  <p class="mt-1 text-sm text-ink/70">
+    {{ bloco.get_tipo_display }}, versão {{ bloco.versao }}.
+    {% if bloco.volume and bloco.pagina is not None %}<a class="text-crimson hover:underline" href="{% url 'obra:revisar' bloco.volume.numero bloco.pagina %}">Abrir na tela de revisão (vol. {{ bloco.volume.numero }}, scan {{ bloco.pagina }})</a>{% endif %}
+  </p>
+  <div class="mt-6 space-y-6">
+  {% for l in linhas %}
+    <article class="painel">
+      <header class="painel-cabeca">
+        <span>{{ l.rev.autor.get_full_name|default:l.rev.autor.username|default:"importação" }} &middot; {{ l.rev.criado_em|date:"d/m/Y H:i" }}</span>
+        <span class="etiqueta etiqueta-neutra">{{ l.rev.get_acao_display }}</span>
+      </header>
+      <div class="painel-corpo space-y-2">
+        {% if l.rev.comentario %}<p class="italic">&ldquo;{{ l.rev.comentario }}&rdquo;</p>{% endif %}
+        {% if l.diff %}<pre class="dif">{{ l.diff }}</pre>{% endif %}
+      </div>
+    </article>
+  {% empty %}
+    <p class="text-center text-ink/60">Sem revisões registradas para este bloco.</p>
+  {% endfor %}
+  </div>
+  {% include "includes/paginacao.html" with page_obj=page_obj %}
+</div>
+{% endblock %}

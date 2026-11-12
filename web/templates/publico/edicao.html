@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ edicao.titulo }}{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with eyebrow="SUMÁRIO" titulo=edicao.titulo intro=edicao.descricao %}
+<div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+  <form method="get" action="{% url 'obra:busca' edicao.slug %}" class="flex gap-2" role="search">
+    <label for="q" class="sr-only">Buscar no texto</label>
+    <input id="q" name="q" type="search" class="campo" placeholder="Buscar no texto desta edição…" required>
+    <button class="btn btn-primario btn-sm" type="submit">Buscar</button>
+  </form>
+
+  <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+    <span class="font-display text-xs tracking-[0.12em] text-ink/70">EDIÇÃO INTEIRA (TEI XML):</span>
+    {% for g in grupos %}{% if g.volume %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:baixar_volume' edicao.slug g.volume.numero %}" download>Vol. {{ g.volume.numero }}</a>{% endif %}{% endfor %}
+    {% if nova %}{% for v in volumes %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:baixar_volume' edicao.slug v.numero %}" download>Vol. {{ v.numero }}</a>{% endfor %}{% endif %}
+  </div>
+
+  {% for g in grupos %}
+    {% if g.volume %}<h2 class="mt-10 font-display text-lg font-semibold tracking-[0.1em] text-crimson">Volume {{ g.volume.numero }} <span class="text-ink/70">— {{ g.volume.titulo }}{% if g.volume.ano %}, {{ g.volume.ano }}{% endif %}</span></h2>{% else %}<div class="mt-8"></div>{% endif %}
+    <ul class="arvore sumario mt-3">
+      {% for r in g.raizes %}{% include "publico/_no_arvore.html" with no=r %}{% endfor %}
+    </ul>
+  {% endfor %}
+</div>
+{% endblock %}

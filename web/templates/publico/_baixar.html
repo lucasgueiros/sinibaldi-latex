@@ -1,0 +1,7 @@
+{# Menu "Baixar" de um trecho. Contexto: `itens` = [{formato, nome, url}]. #}
+<details class="baixar">
+  <summary class="btn btn-secundario btn-sm">Baixar</summary>
+  <ul class="baixar-lista">
+    {% for i in itens %}<li><a href="{{ i.url }}" download>{{ i.nome }}</a></li>{% endfor %}
+  </ul>
+</details>

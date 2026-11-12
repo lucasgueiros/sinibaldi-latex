@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Painel de revisão{% endblock %}
+{% block content %}
+{% include "includes/page_header.html" with titulo="Área de revisão" eyebrow="EDIÇÃO DE 1916/17" intro="Revisão das páginas contra o scan, volume a volume." %}
+<div class="mx-auto max-w-5xl space-y-10 px-4 py-10 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="painel" %}
+
+  {% if continuar %}
+  <section class="cartao flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <h2 class="font-display text-lg text-crimson">Continuar de onde parei</h2>
+      <p class="text-ink/80">Última página gravada por você: vol. {{ continuar.volume.numero }}, pág. {{ continuar.impressa|default:continuar.seq }} (scan {{ continuar.seq }}), em {{ continuar.quando|date:"d/m/Y H:i" }}.</p>
+    </div>
+    <a class="btn btn-primario" href="{% url 'obra:revisar' continuar.volume.numero continuar.seq %}">Continuar</a>
+  </section>
+  {% endif %}
+
+  <section>
+    <h2 class="font-display text-xl text-crimson">Progresso por volume</h2>
+    <div class="mt-4 grid gap-6 md:grid-cols-2">
+      {% for v in volumes %}
+      <div class="cartao">
+        <h3 class="font-display text-crimson"><a href="{% url 'obra:paginas' v.volume.numero %}" class="hover:underline">Vol. {{ v.volume.numero }}</a></h3>
+        <p class="text-sm text-ink/70">{{ v.volume.titulo }}</p>
+        <div class="mt-3 flex h-3 w-full overflow-hidden rounded-sm border border-gold bg-parchment-dark" role="img" aria-label="{{ v.pct_feito }}% das páginas revisadas ou validadas">
+          <div class="bg-emerald-700" style="width: {{ v.pct_validada|stringformat:'f' }}%" title="Validadas"></div>
+          <div class="bg-gold" style="width: {{ v.pct_revisada|stringformat:'f' }}%" title="Revisadas"></div>
+        </div>
+        <dl class="mt-3 grid grid-cols-3 gap-2 text-center text-sm">
+          <div><dt class="text-xs text-ink/60">Não revisadas</dt><dd class="text-lg"><a class="hover:text-crimson" href="{% url 'obra:paginas' v.volume.numero %}?estado=nao_revisada">{{ v.contagem.nao_revisada }}</a></dd></div>
+          <div><dt class="text-xs text-ink/60">Revisadas</dt><dd class="text-lg"><a class="hover:text-crimson" href="{% url 'obra:paginas' v.volume.numero %}?estado=revisada">{{ v.contagem.revisada }}</a></dd></div>
+          <div><dt class="text-xs text-ink/60">Validadas</dt><dd class="text-lg"><a class="hover:text-crimson" href="{% url 'obra:paginas' v.volume.numero %}?estado=validada">{{ v.contagem.validada }}</a></dd></div>
+        </dl>
+        <p class="mt-2 text-xs text-ink/60">{{ v.pct_feito }}% de {{ v.total }} páginas.</p>
+        <a class="btn btn-secundario btn-sm mt-3" href="{% url 'obra:paginas' v.volume.numero %}">Ver páginas</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section>
+    <div class="flex items-baseline justify-between">
+      <h2 class="font-display text-xl text-crimson">Últimas revisões</h2>
+      <a class="text-sm text-crimson hover:underline" href="{% url 'obra:historico' %}">Ver todo o histórico</a>
+    </div>
+    <table class="tabela mt-3">
+      <thead><tr><th>Quando</th><th>Quem</th><th>Página</th><th>Ação</th><th>Comentário</th></tr></thead>
+      <tbody>
+      {% for l in lotes %}
+        <tr>
+          <td class="whitespace-nowrap text-sm">{{ l.quando|date:"d/m/Y H:i" }}</td>
+          <td>{{ l.autor }}</td>
+          <td>{% if l.volume and l.pagina is not None %}<a class="text-crimson hover:underline" href="{% url 'obra:revisar' l.volume.numero l.pagina %}">vol. {{ l.volume.numero }}, scan {{ l.pagina }}</a>{% else %}—{% endif %}</td>
+          <td>{{ l.acao }}{% if l.n > 1 %} <span class="text-xs text-ink/60">(+{{ l.n|add:"-1" }})</span>{% endif %}</td>
+          <td class="text-sm">{{ l.comentario|default:"—" }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="5" class="text-center text-ink/60">Nenhuma revisão gravada ainda.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
+{% endblock %}

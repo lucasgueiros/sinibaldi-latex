@@ -589,3 +589,100 @@ def html_para_fragmento(html):
     if len(blocos) > 1:
         raise ValueError("O HTML contém mais de um bloco; use html_para_blocos.")
     return blocos[0]["xml"] if blocos else ""
+
+
+# ------------------------------------------- blocos <-> texto XML (aba XML)
+_RE_CABECALHO_BLOCO = re.compile(r'^\s*<\?bloco\s+(?P<attrs>[^?]*?)\s*\?>\s*$')
+_RE_ATTR_BLOCO = re.compile(r'(\w+)\s*=\s*"([^"]*)"')
+
+
+class ErroTextoXml(ValueError):
+    """Texto XML da aba XML inválido (malformado ou fora do esquema)."""
+
+    def __init__(self, erros):
+        self.erros = list(erros)
+        super().__init__("; ".join(self.erros))
+
+
+def blocos_para_texto_xml(blocos):
+    """Blocos (objetos com `.pk/.versao/.xml` ou dicts `id|pk`, `versao`, `xml`) -> texto da aba XML.
+
+    Um bloco por parágrafo de texto (separados por linha em branco); cada bloco existente é
+    precedido de `<?bloco id="123" versao="4"?>`; blocos novos (sem id) não têm essa linha."""
+    partes = []
+    for b in blocos:
+        pk = _campo(b, "pk", _campo(b, "id"))
+        versao = _campo(b, "versao")
+        xml = _campo(b, "xml")
+        if pk is not None:
+            cab = f'<?bloco id="{pk}"' + (f' versao="{versao}"' if versao is not None else "") + "?>\n"
+        else:
+            cab = ""
+        partes.append(cab + xml)
+    return "\n\n".join(partes)
+
+
+def _canonico(xml):
+    """Reserializa um fragmento JÁ VALIDADO na forma canônica (ordem de atributos, sem espaços entre <p>)."""
+    raiz = etree.fromstring(xml.encode("utf-8"))
+    return serializar_fragmento(converter_bloco(raiz, Relatorio())[1])
+
+
+def texto_xml_para_blocos(texto):
+    """Inverso de `blocos_para_texto_xml`: -> [{id|None, versao|None, xml}] (xml canônico).
+
+    Um bloco termina numa linha em branco; `<?bloco id versao?>` inicia um bloco novo.
+    Levanta `ErroTextoXml` com TODOS os erros (prefixados por 'Bloco N: ') se algo for
+    malformado ou fora do esquema."""
+    brutos = []   # [meta, [linhas]]
+    atual = None
+    for linha in (texto or "").replace("\r\n", "\n").replace("\r", "\n").split("\n"):
+        m = _RE_CABECALHO_BLOCO.match(linha)
+        if m:
+            atual = [dict(_RE_ATTR_BLOCO.findall(m.group("attrs"))), []]
+            brutos.append(atual)
+        elif not linha.strip():
+            if atual is not None and atual[1]:
+                atual = None   # fim do bloco
+        else:
+            if atual is None:
+                atual = [{}, []]
+                brutos.append(atual)
+            atual[1].append(linha)
+    erros = []
+    blocos = []
+    for i, (meta, linhas) in enumerate(brutos, 1):
+        xml = "\n".join(linhas).strip()
+        ident = versao = None
+        for chave in ("id", "versao"):
+            v = meta.get(chave)
+            if v is None:
+                continue
+            if not re.fullmatch(r"\d+", v):
+                erros.append(f"Bloco {i}: <?bloco?> com {chave} inválido: {v!r}.")
+            elif chave == "id":
+                ident = int(v)
+            else:
+                versao = int(v)
+        if not xml:
+            erros.append(f"Bloco {i}: <?bloco?> sem o XML do bloco.")
+            continue
+        blocos.append({"id": ident, "versao": versao, "xml": xml, "_n": i})
+    vistos_xml, vistos_id = {}, {}
+    for b in blocos:
+        for e in esquema.validar_fragmento(b["xml"]):
+            erros.append(f"Bloco {b['_n']}: {e}")
+        for x in esquema.ids_do_fragmento(b["xml"]):
+            if x in vistos_xml and vistos_xml[x] != b["_n"]:
+                erros.append(f"Bloco {b['_n']}: xml:id '{x}' já usado no bloco {vistos_xml[x]}.")
+            vistos_xml.setdefault(x, b["_n"])
+        if b["id"] is not None:
+            if b["id"] in vistos_id:
+                erros.append(f"Bloco {b['_n']}: id de bloco {b['id']} repetido (já no bloco {vistos_id[b['id']]}).")
+            vistos_id.setdefault(b["id"], b["_n"])
+    if erros:
+        raise ErroTextoXml(erros)
+    for b in blocos:
+        b.pop("_n")
+        b["xml"] = _canonico(b["xml"])
+    return blocos

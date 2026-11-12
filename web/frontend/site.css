@@ -131,3 +131,48 @@
   header, footer, .print\:hidden { display: none !important; }
   body { background: #fff; }
 }
+
+/* ================= Parte pública (leitura, sumário, busca, fac-símile) ================= */
+@layer components {
+  .migalhas { @apply text-sm text-ink/75; }
+  .migalhas a { @apply text-crimson hover:underline; }
+
+  .sumario { @apply text-lg; }
+  .sumario .item-sumario { @apply flex flex-wrap items-baseline gap-x-3; }
+  .sumario .rotulo { @apply font-display text-[0.8em] tracking-[0.06em]; }
+  .sumario a.item-parte, .sumario a.item-seccao { @apply font-display font-semibold text-crimson; }
+  .sumario a.item-capitulo { @apply font-semibold; }
+  .sumario .pag { @apply font-display text-[0.65rem] tracking-[0.1em] text-ink/55; }
+  .sumario > li { @apply mt-3; }
+  .sumario details.teses { @apply mt-0.5 text-base; }
+  .sumario details.teses > summary { @apply cursor-pointer font-display text-[0.65rem] tracking-[0.12em] text-gold-dark hover:text-crimson; }
+
+  .baixar { @apply relative inline-block; }
+  .baixar > summary { @apply cursor-pointer list-none; }
+  .baixar > summary::-webkit-details-marker { display: none; }
+  .baixar-compacto > summary { @apply font-display text-[0.65rem] tracking-[0.12em] text-ink/55 underline decoration-gold/60 hover:text-crimson; }
+  .baixar-lista { @apply absolute left-0 z-30 mt-1 min-w-[10rem] list-none border border-gold bg-parchment-light p-1 text-left shadow-md; }
+  .baixar-lista a { @apply block px-3 py-1.5 font-serif text-base text-ink hover:bg-gold-light/30 hover:text-crimson; }
+
+  .nav-no { @apply flex flex-wrap items-center justify-between gap-2; }
+
+  .resultados > li { @apply border-b border-crimson/15 py-3; }
+  .resultados mark { @apply bg-gold-light/60 px-0.5; }
+  .resultados .pag { @apply font-display text-[0.65rem] tracking-[0.1em] text-ink/55; }
+
+  .obra a[data-tei="pb"] { @apply no-underline; }
+  .obra sup.nref a { @apply px-0.5 font-display text-[0.7em] text-crimson no-underline hover:underline; }
+  .obra :target, .notas-fim :target { @apply bg-gold-light/40; }
+  .obra .proc { @apply float-right ml-3 select-none font-display text-[0.55rem] uppercase tracking-[0.12em] text-ink/40; text-indent: 0; }
+  .obra .proc a { @apply underline decoration-gold/60 hover:text-crimson; }
+  .obra .proc-novo { @apply text-emerald-800/70; }
+  .obra .proc-adaptado { @apply text-orange-800/70; }
+
+  .notas-fim { @apply text-base leading-snug; }
+  .notas-fim ol { @apply list-decimal space-y-1.5 pl-8; }
+  .notas-fim .volta { @apply ml-1 text-crimson no-underline; }
+
+  .leitura .obra p[data-tei="p"] { margin-top: 0.1rem; }
+  .facsimile img { max-height: 90vh; }
+  .transcricao { @apply max-h-[90vh] overflow-y-auto border border-gold/50 bg-parchment-light p-4 text-base; }
+}

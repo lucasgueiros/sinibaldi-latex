@@ -34,3 +34,17 @@ passo 1024). A hierarquia (`No`: parte > seccao > capitulo > artigo > tese) é d
 
 `Pagina.seq` é o `n` de `<pb>` (no vol. 1 coincide com a página impressa e é negativo nas
 preliminares); `Pagina.arquivo` é o radical da imagem (`0034`, `f001`).
+
+## Área de revisão (`/edicao-colaborativa/`, `views_edicao.py`)
+
+Login + permissão `obra.change_bloco`. Rotas (namespace `obra`): `painel`, `paginas` (`1916/vol/<n>/`),
+`revisar` (`1916/vol/<n>/pag/<seq>/`), `gravar` (`…/gravar/`, JSON), `converter` (`converter/`, JSON,
+genérico), `historico`, `historico_bloco`. A tela de revisão tem scan à esquerda e o editor à direita
+(abas Visual/XML). O texto das abas XML é `tei.blocos_para_texto_xml` / `texto_xml_para_blocos`
+(`<?bloco id versao?>` + um bloco por parágrafo). O diff do histórico é `obra/diffs.py`.
+
+O editor é TipTap 2 com esquema próprio (`frontend/editor/esquema.js` espelha o dialeto HTML de
+`tei.py`); fonte em `frontend/editor/`, empacotado por `npm run build:editor` em
+`static/js/editor.bundle.js` (+ `revisao.js`, `static/css/editor.css`), **commitados**: produção não
+usa Node nem CDN. A API (`window.SinibaldiEditor.montar/montarAbas/…`) está no topo de
+`frontend/editor/index.js`. Rode também `npm run build` (Tailwind) depois de mexer em templates.

@@ -1,0 +1,9 @@
+{# Abas da área de revisão. Uso: {% include "edicao/_nav.html" with ativa="painel" %} #}
+<nav class="abas mb-6" aria-label="Área de revisão">
+  <a href="{% url 'obra:painel' %}" class="{% if ativa == 'painel' %}aba-ativa{% else %}aba{% endif %}">Painel</a>
+  {% for v in volumes_nav %}
+  <a href="{% url 'obra:paginas' v.numero %}" class="{% if ativa == v.numero %}aba-ativa{% else %}aba{% endif %}">Vol. {{ v.numero }}</a>
+  {% endfor %}
+  <a href="{% url 'obra:historico' %}" class="{% if ativa == 'historico' %}aba-ativa{% else %}aba{% endif %}">Histórico</a>
+  <a href="/edicao-colaborativa/nova/" class="aba">Nova edição &rarr;</a>
+</nav>

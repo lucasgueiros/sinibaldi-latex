@@ -1,4 +1,4 @@
-from django.urls import path, register_converter
+from django.urls import include, path, register_converter
 
 from . import scans
 
@@ -20,4 +20,6 @@ register_converter(InteiroComSinal, "sint")
 
 urlpatterns = [
     path("scan/<int:volume>/<sint:seq>.png", scans.scan, name="scan"),
+    path("edicao-colaborativa/", include("obra.urls_edicao")),
+    path("", include("obra.urls_publico")),
 ]

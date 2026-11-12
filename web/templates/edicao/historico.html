@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Histórico de revisões{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="historico" %}
+  <h1 class="font-display text-2xl text-crimson">Histórico de revisões</h1>
+
+  <form method="get" class="mt-4 flex flex-wrap items-end gap-3">
+    <label class="text-sm">Autor
+      <select name="autor" class="campo mt-1 !w-auto">
+        <option value="">Todos</option>
+        {% for a in autores %}<option value="{{ a.pk }}"{% if f_autor == a.pk|stringformat:"d" %} selected{% endif %}>{{ a.get_full_name|default:a.username }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="text-sm">Volume
+      <select name="volume" class="campo mt-1 !w-auto">
+        <option value="">Todos</option>
+        {% for v in volumes %}<option value="{{ v.numero }}"{% if f_volume == v.numero|stringformat:"d" %} selected{% endif %}>Vol. {{ v.numero }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="text-sm">Página (scan)
+      <input name="pagina" class="campo mt-1 !w-28" value="{{ f_pagina }}" inputmode="numeric">
+    </label>
+    <label class="flex items-center gap-2 pb-2 text-sm"><input type="checkbox" name="importacoes" value="1"{% if f_importacoes %} checked{% endif %}> incluir importação</label>
+    <button class="btn btn-primario btn-sm">Filtrar</button>
+  </form>
+
+  <div class="mt-6 space-y-6">
+  {% for lote in itens %}
+    <article class="painel">
+      <header class="painel-cabeca">
+        <span>{{ lote.autor }} &middot; {{ lote.quando|date:"d/m/Y H:i" }}</span>
+        <span>
+          {% if lote.volume and lote.pagina is not None %}<a class="underline" href="{% url 'obra:revisar' lote.volume.numero lote.pagina %}">vol. {{ lote.volume.numero }}, scan {{ lote.pagina }}</a>{% endif %}
+          <span class="etiqueta etiqueta-neutra ml-2">{{ lote.n }} bloco{{ lote.n|pluralize }}</span>
+        </span>
+      </header>
+      <div class="painel-corpo space-y-3">
+        {% if lote.comentario %}<p class="italic">&ldquo;{{ lote.comentario }}&rdquo;</p>{% endif %}
+        {% for l in lote.linhas %}
+          <div class="border-l-2 border-gold pl-3">
+            <p class="text-xs text-ink/60">{{ l.rev.get_acao_display }}
+              {% if l.rev.bloco_id %}&middot; <a class="text-crimson hover:underline" href="{% url 'obra:historico_bloco' l.rev.bloco_id %}">bloco #{{ l.rev.bloco_id }}</a>{% endif %}</p>
+            {% if l.diff %}<pre class="dif">{{ l.diff }}</pre>{% endif %}
+          </div>
+        {% endfor %}
+        {% if lote.truncado %}<p class="text-sm text-ink/60">… (lote com mais de 40 blocos; mostrados os primeiros 40)</p>{% endif %}
+      </div>
+    </article>
+  {% empty %}
+    <p class="text-center text-ink/60">Nenhuma revisão encontrada.</p>
+  {% endfor %}
+  </div>
+  {% include "includes/paginacao.html" with page_obj=page_obj querystring=querystring %}
+</div>
+{% endblock %}
