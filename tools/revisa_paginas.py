@@ -51,7 +51,9 @@ LADO_MAX = 1568          # a API reduz qualquer imagem cujo lado maior passe dis
 SOBREPOE = 0.06          # fração da altura repetida nas duas metades
 MINIMO = 300             # pedaço com menos texto que isto vai junto com o anterior
 MAX_CAR = 9000           # teto (texto) de um pedaço que junta páginas ligadas por nota
-TROCA_MAX = 2500         # passagem corpo↔nota (caracteres) acima disto é recusada
+TROCA_MAX = 2500         # passagem corpo→nota (caracteres) acima disto é recusada
+NOTA_CORPO_MAX = 800     # idem nota→corpo: ~8 linhas; o erro típico do modelo é esvaziar no corpo
+                         # os parágrafos finais de uma nota longa (vol. 2 p. 441, 1567 car.)
 NGRAMA = 10              # sequência de palavras usada para achar texto duplicado/copiado
 REPETE_MAX = 3           # sequências duplicadas/copiadas toleradas (repetições legítimas, acaso)
 RE_TAG = re.compile(r"<(/?)([A-Za-z][\w:.-]*)((?:\s+[^>]*?)?)\s*(/?)>|<!--.*?-->|<\?.*?\?>", re.S)
@@ -108,8 +110,9 @@ def analisa(frag):
     return r
 
 
-def palavras(frag):
-    return re.findall(r"\w+", html.unescape(RE_TAG.sub(" ", frag)).lower())
+def palavras(frag, caixa=False):
+    s = html.unescape(RE_TAG.sub(" ", frag))
+    return re.findall(r"\w+", s if caixa else s.lower())
 
 
 def ngramas(frag, k=NGRAMA):
@@ -177,6 +180,42 @@ class Contexto:
         doc = prefixo + "".join(self.textos) + sufixo
         self.elems = analisa(doc)["elems"]
         self.ids = collections.Counter(RE_ID.findall(doc))
+        self.fora, self.limites = {}, {}
+
+    def com_volume(self, volume, pedacos):
+        """A entrada é um trecho recortado de `volume` (texto do volN.corrigido.xml): o começo e o fim
+        podem cair no meio de uma página, e o modelo vê a página inteira.  Guarda, por pedaço, os
+        n-gramas das suas páginas que estão fora do trecho (para recusar cópia) e, no primeiro e no
+        último, as palavras que ficam do lado de fora (para avisar o modelo)."""
+        i0, i1 = volume.find("<body"), volume.rfind("</body>")
+        corpo = volume[volume.index(">", i0) + 1:i1]
+        if "<fw" not in "".join(self.textos):          # trecho.py tira os cabeçalhos correntes
+            corpo = re.sub(r"<fw\b[^>]*>.*?</fw>", "", corpo, flags=re.S)
+        pos = analisa(corpo)["pos_pb"] + [(len(corpo), None)]
+        segs = {}
+        for (p, n), (q, _) in zip(pos, pos[1:]):
+            if n and n.isdigit():
+                segs[int(n)] = segs.get(int(n), "") + corpo[p:q]
+        trecho = set(ngramas("".join(self.textos)))
+        for k, (n, texto, _) in enumerate(pedacos):
+            pags = sorted({int(p) for p in analisa(texto)["pb_corpo"] if p.isdigit()})
+            vol = "".join(segs.get(p, "") for p in pags)
+            fora = set(ngramas(vol)) - trecho
+            if fora:
+                self.fora[n] = fora
+            vw, cw = palavras(vol, caixa=True), palavras(texto, caixa=True)
+            achar = lambda ws, alvo: next((i for i in range(len(ws) - len(alvo) + 1) if ws[i:i + len(alvo)] == alvo), -1)
+            avisos = []
+            if k == 0 and len(cw) >= 6 and (i := achar(vw, cw[:6])) > 0:
+                avisos.append(f"O trecho começa em “{' '.join(cw[:8])}…”, no meio da página {pags[0]}: o texto acima "
+                              f"disso na página (termina em “…{' '.join(vw[max(0, i - 12):i])}”), com as notas dele, é "
+                              "de outro trecho e NÃO deve ser transcrito.")
+            if k == len(pedacos) - 1 and len(cw) >= 6 and (i := achar(vw, cw[-6:])) >= 0 and i + 6 < len(vw):
+                avisos.append(f"O trecho termina em “…{' '.join(cw[-8:])}”, no meio da página {pags[-1]}: o texto "
+                              f"depois disso (começa em “{' '.join(vw[i + 6:i + 18])}…”), com as notas dele, é de "
+                              "outro trecho e NÃO deve ser transcrito.")
+            if avisos:
+                self.limites[n] = " ".join(avisos)
 
     def ids_fora(self, n):
         """xml:id usados no documento fora do pedaço n."""
@@ -199,7 +238,7 @@ def bem_formado(doc):
         return str(e)
 
 
-def valida(n, texto, novo, pags, ctx, troca_max):
+def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
     """(motivo da recusa ou None, mudança de fronteira ou None)."""
     a, b = analisa(texto), analisa(novo)
     if b["erros"]:
@@ -230,6 +269,12 @@ def valida(n, texto, novo, pags, ctx, troca_max):
     if copia > REPETE_MAX:
         return (f"copiou ~{copia + NGRAMA - 1} palavras que pertencem ao trecho seguinte (corpo ou nota que começa "
                 "numa página extra)"), None
+    fora = ctx.fora.get(n)
+    if fora:
+        alheio = sum(1 for g in gb if g not in ga and g in fora)
+        if alheio > REPETE_MAX:
+            return (f"copiou ~{alheio + NGRAMA - 1} palavras da página que ficam FORA do trecho (antes do começo "
+                    "ou depois do fim dele)"), None
     # tamanho: uma linha impressa tem ~90 caracteres; o corpo pode ganhar ~1 linha por página (a 1ª,
     # que o OCR perde); um parágrafo duplicado de outra página tem 500+ caracteres
     paginas = max(1, len(set(a["pb_corpo"])))
@@ -242,8 +287,12 @@ def valida(n, texto, novo, pags, ctx, troca_max):
     if troca > 60 or b["notas_n"] != a["notas_n"]:
         fronteira = {"corpo": [a["corpo"], b["corpo"]], "notas": [a["notas"], b["notas"]],
                      "num_notas": [a["notas_n"], b["notas_n"]], "troca": troca}
+    if dn < 0 and troca > nota_corpo_max:
+        return (f"tirou texto demais das notas para o corpo (~{troca} caracteres; notas {a['notas']} → {b['notas']}, "
+                f"corpo {a['corpo']} → {b['corpo']}; máximo {nota_corpo_max}). Notas longas têm vários parágrafos em "
+                "letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo"), fronteira
     if troca > troca_max:
-        return (f"passou texto demais entre corpo e nota (~{troca} caracteres; corpo {a['corpo']} → {b['corpo']}, "
+        return (f"passou texto demais do corpo para as notas (~{troca} caracteres; corpo {a['corpo']} → {b['corpo']}, "
                 f"notas {a['notas']} → {b['notas']}): o máximo é {troca_max}"), fronteira
     return None, fronteira
 
@@ -282,7 +331,7 @@ def le_alertas(caminho):
     return al
 
 
-def mensagem(n, texto, pags, args, aviso=""):
+def mensagem(n, texto, pags, args, ctx, aviso=""):
     conteudo = []
     for p in pags:
         png = args.imagens / f"{p:04d}.png"
@@ -300,6 +349,8 @@ def mensagem(n, texto, pags, args, aviso=""):
         extra += (f" As páginas {', '.join(map(str, alem))} vêm só porque uma nota do trecho continua nelas. Delas "
                   "use apenas a continuação dessa nota: o corpo e as notas que COMEÇAM nessas páginas são do "
                   "trecho seguinte e não devem ser copiados.")
+    if n in ctx.limites:
+        extra += " " + ctx.limites[n]
     alertas = [f"  p. {p}: {m}" for p in pags for m in args.alertas.get(p, [])]
     if alertas:
         extra += ("\n\nAlertas do pipeline para estas páginas (pistas de onde a fronteira corpo/nota pode estar "
@@ -355,7 +406,7 @@ def processa(ped, args, sistema, cwd, dirp, ctx):
         rej = base.with_suffix(".rejeitado.xml")
         if args.revalida and reg["falha"] and rej.exists():   # critério novo sobre a resposta já paga
             novo = rej.read_text(encoding="utf-8")
-            reg["falha"], reg["fronteira"] = valida(n, texto, novo, pags, ctx, args.troca_max)
+            reg["falha"], reg["fronteira"] = valida(n, texto, novo, pags, ctx, args.troca_max, args.nota_corpo_max)
             if reg["falha"] is None:
                 base.with_suffix(".revisado.xml").write_text(novo, encoding="utf-8")
                 rej.unlink()
@@ -370,7 +421,7 @@ def processa(ped, args, sistema, cwd, dirp, ctx):
     aviso = ""
     for tentativa in range(args.tentativas):
         t0 = time.time()
-        res = chama(mensagem(n, texto, pags, args, aviso), args.modelo, sistema, args.effort, cwd)
+        res = chama(mensagem(n, texto, pags, args, ctx, aviso), args.modelo, sistema, args.effort, cwd)
         resp = res.get("result") or ""
         novo = extrai(resp, texto)
         notas = re.search(r"<notas>\s*(.*?)\s*</notas>", resp, re.S)
@@ -380,7 +431,7 @@ def processa(ped, args, sistema, cwd, dirp, ctx):
         elif novo is None:
             falha = "resposta sem <xml>…</xml>"
         else:
-            falha, fronteira = valida(n, texto, novo, pags, ctx, args.troca_max)
+            falha, fronteira = valida(n, texto, novo, pags, ctx, args.troca_max, args.nota_corpo_max)
         reg["total_cost_usd"] += res.get("total_cost_usd", 0) or 0
         reg["duration_ms"] += res.get("duration_ms") or int((time.time() - t0) * 1000)
         reg["num_turns"] += res.get("num_turns", 0) or 0
@@ -437,7 +488,11 @@ def main():
     ap.add_argument("--max-car", type=int, default=MAX_CAR,
                     help=f"teto de texto de um pedaço que junta páginas ligadas por nota (padrão {MAX_CAR})")
     ap.add_argument("--troca-max", type=int, default=TROCA_MAX,
-                    help=f"caracteres que podem passar entre corpo e nota num pedaço (padrão {TROCA_MAX}; 0 congela)")
+                    help=f"caracteres que podem passar do corpo para as notas num pedaço (padrão {TROCA_MAX}; 0 congela)")
+    ap.add_argument("--nota-corpo-max", type=int, default=NOTA_CORPO_MAX,
+                    help=f"idem, das notas para o corpo (padrão {NOTA_CORPO_MAX}; 0 congela)")
+    ap.add_argument("--volume", help="TEI do volume de onde o trecho saiu, para avisar o modelo do que fica fora "
+                    "dele (padrão: VOL/VOL.corrigido.xml; '' para nenhum)")
     ap.add_argument("--refaz", action="store_true", help="refaz pedaços já gravados")
     ap.add_argument("--tentativas", type=int, default=2, help="chamadas por pedaço se a revisão for recusada")
     ap.add_argument("--revalida", action="store_true",
@@ -464,6 +519,11 @@ def main():
     prefixo, pedacos, sufixo = corta(xml, args.max_car)
     assert prefixo + "".join(t for _, t, _ in pedacos) + sufixo == xml
     ctx = Contexto(prefixo, pedacos, sufixo)
+    if args.volume is None:
+        args.volume = next((c for c in (RAIZ / args.vol / f"{args.vol}.corrigido.xml",
+                                        principal / args.vol / f"{args.vol}.corrigido.xml") if c.exists()), "")
+    if args.volume and Path(args.volume).resolve() != args.entrada.resolve():
+        ctx.com_volume(Path(args.volume).read_text(encoding="utf-8"), pedacos)
     escolha = pedacos
     if args.so:
         quero = set()
@@ -475,7 +535,10 @@ def main():
         for n, t, pags in escolha:
             a = analisa(t)
             print(f"{n}: {len(t)} car. ({a['corpo']} corpo, {a['notas']} notas, {a['notas_n']} nota(s)), "
-                  f"imagens {pags}{'  alertas: ' + str(sum(len(args.alertas.get(p, [])) for p in pags)) if any(p in args.alertas for p in pags) else ''}")
+                  f"imagens {pags}{'  alertas: ' + str(sum(len(args.alertas.get(p, [])) for p in pags)) if any(p in args.alertas for p in pags) else ''}"
+                  f"{'  fora do trecho: ' + str(len(ctx.fora[n])) + ' n-gramas' if n in ctx.fora else ''}")
+            if n in ctx.limites:
+                print("   " + ctx.limites[n])
         return
 
     args.saida.mkdir(parents=True, exist_ok=True)

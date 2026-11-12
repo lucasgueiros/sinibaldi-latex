@@ -172,6 +172,21 @@ def carrega(vol):
     return etree.parse(str(arq), etree.XMLParser(huge_tree=True))
 
 
+def tira(e):
+    """remove `e` da arvore SEM perder o seu tail (o texto que vem depois dele): o lxml apaga o tail
+    junto.  Depois de <fw> e <pb> esta a 1a linha da pagina, que assim sumia do recorte."""
+    pai = e.getparent()
+    if pai is None:
+        return
+    if e.tail:
+        ant = e.getprevious()
+        if ant is not None:
+            ant.tail = (ant.tail or "") + e.tail
+        else:
+            pai.text = (pai.text or "") + e.tail
+    pai.remove(e)
+
+
 def marca_blocos(raiz, p0, p1, remove=False):
     """percorre o corpo em ordem, rastreando a pagina por <pb>; devolve os blocos (el, pag_ini, pag_fim)
     que tocam [p0, p1].  Com remove=True, apaga do arvore o que nao toca (e as <div> que ficarem vazias)."""
@@ -212,7 +227,7 @@ def marca_blocos(raiz, p0, p1, remove=False):
     if remove:                      # <pb> fora da faixa
         for e in list(corpo.iter(TEI + "pb")):
             if not (p0 <= int(e.get("n")) <= p1) and e.getparent() is not None:
-                e.getparent().remove(e)
+                tira(e)
     return blocos
 
 
@@ -311,10 +326,10 @@ def formata_tei(arv, p0, p1, nome, ini=None, prox=None):
             el.getparent().remove(el)
     pa, pb_ = (ficam[0][1], ficam[-1][2]) if ficam else (p0, p1)
     for e in list(novo.iter(TEI + "fw")):
-        e.getparent().remove(e)
+        tira(e)
     for e in list(novo.iter(TEI + "pb")):
         if not (pa <= int(e.get("n")) <= pb_) and e.getparent() is not None:
-            e.getparent().remove(e)
+            tira(e)
     for d in reversed(list(novo.iter(TEI + "div"))):
         if d.getparent() is not None and not any(isinstance(x.tag, str) and x.tag != TEI + "pb" for x in d):
             pai, i = d.getparent(), d.getparent().index(d)
