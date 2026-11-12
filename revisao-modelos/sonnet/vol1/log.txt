@@ -1,0 +1,12 @@
+>> sonnet revisando vol1, trecho vol1:divisao-do-ente (pp. 331–359) em /tmp/revisa_trecho.wLFWWa
+claude saiu com erro (veja /home/lucas/workspace/sinibaldi-latex/.claude/worktrees/pdfs-revisao-modelos/revisao-modelos/sonnet/vol1/resultado.json)
+>> 6 min; 0 linhas alteradas
+== entrada
+total  ouro   2139 ocr   2145  WER  5.98%  {'insert': 24, 'replace': 89, 'delete': 15}
+corpo  ouro    398 ocr    405  WER 12.06%  {'insert': 21, 'replace': 17, 'delete': 10}
+notas  ouro   1741 ocr   1740  WER  4.60%  {'replace': 72, 'insert': 3, 'delete': 5}
+== revisado
+total  ouro   2139 ocr   2145  WER  5.98%  {'insert': 24, 'replace': 89, 'delete': 15}
+corpo  ouro    398 ocr    405  WER 12.06%  {'insert': 21, 'replace': 17, 'delete': 10}
+notas  ouro   1741 ocr   1740  WER  4.60%  {'replace': 72, 'insert': 3, 'delete': 5}
+>> /home/lucas/workspace/sinibaldi-latex/.claude/worktrees/pdfs-revisao-modelos/revisao-modelos/sonnet/vol1/revisado.tex  (relatório: relatorio.md, custo/tokens: resultado.json)

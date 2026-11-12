@@ -1,0 +1,12 @@
+>> opus revisando vol2, trecho vol2:existencia-de-deus (pp. 421–442) em /tmp/revisa_trecho.8gZgwM
+claude saiu com erro (veja /home/lucas/workspace/sinibaldi-latex/.claude/worktrees/pdfs-revisao-modelos/revisao-modelos/opus/vol2/resultado.json)
+>> 6 min; 16 linhas alteradas
+== entrada
+total  ouro  10846 ocr  10834  WER  3.12%  {'replace': 219, 'insert': 59, 'delete': 60}
+corpo  ouro   2140 ocr   2108  WER  6.82%  {'replace': 60, 'insert': 36, 'delete': 50}
+notas  ouro   8706 ocr   8726  WER  2.24%  {'replace': 154, 'insert': 28, 'delete': 13}
+== revisado
+total  ouro  10846 ocr  10862  WER  1.11%  {'replace': 70, 'insert': 43, 'delete': 7}
+corpo  ouro   2140 ocr   2145  WER  3.74%  {'replace': 35, 'insert': 36, 'delete': 9}
+notas  ouro   8706 ocr   8717  WER  0.49%  {'replace': 31, 'insert': 11, 'delete': 1}
+>> /home/lucas/workspace/sinibaldi-latex/.claude/worktrees/pdfs-revisao-modelos/revisao-modelos/opus/vol2/revisado.tex  (relatório: relatorio.md, custo/tokens: resultado.json)
