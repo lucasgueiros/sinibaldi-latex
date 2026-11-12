@@ -80,3 +80,20 @@ pre.dif {
 }
 pre.dif ins.dif-ins { background: #c7ecc7; color: #14532d; text-decoration: none; }
 pre.dif del.dif-del { background: #f6c9c9; color: #7f1d1d; text-decoration: line-through; }
+
+/* ===== Nova edição: procedência por bloco no editor e destaque no texto de 1916 ===== */
+.sn-editor .sn-proc { position: relative; border-left: 3px solid transparent; padding-left: 0.6rem; margin-left: -0.6rem; }
+.sn-editor .sn-proc-adaptado, .sn-editor .sn-proc-novo, .sn-editor .sn-proc-suprimido { padding-top: 1.05rem; }
+.sn-editor .sn-proc::after {
+  content: attr(data-proc); position: absolute; top: 0.15rem; right: 0.3rem; pointer-events: none;
+  font: 600 0.58rem/1 Cinzel, Georgia, serif; letter-spacing: 0.12em; text-transform: uppercase; text-indent: 0;
+}
+.sn-editor .sn-proc-copia { border-left-color: rgba(42, 31, 26, 0.18); }
+.sn-editor .sn-proc-copia::after { content: none; }
+.sn-editor .sn-proc-adaptado { border-left-color: #c2410c; background: rgba(251, 146, 60, 0.07); }
+.sn-editor .sn-proc-adaptado::after { color: #9a3412; }
+.sn-editor .sn-proc-novo { border-left-color: #047857; background: rgba(16, 185, 129, 0.07); }
+.sn-editor .sn-proc-novo::after { color: #065f46; }
+.sn-editor .sn-proc-suprimido { border-left-color: #991b1b; background: rgba(153, 27, 27, 0.07); opacity: 0.65; text-decoration: line-through; }
+.sn-editor .sn-proc-suprimido::after { color: #991b1b; text-decoration: none; }
+.nova-1916 .destaque-origem { background: rgba(217, 191, 140, 0.45); box-shadow: -4px 0 0 0 #8B1A1A; scroll-margin: 2rem; }

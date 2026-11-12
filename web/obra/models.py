@@ -89,6 +89,10 @@ class Bloco(models.Model):
         help_text="Bloco da edição 1916 de que este deriva (nova edição).",
     )
     procedencia = models.CharField(max_length=10, choices=PROCEDENCIAS, default=COPIA)
+    origem_versao_vista = models.PositiveIntegerField(
+        null=True, blank=True,
+        help_text="Versão do bloco de origem (1916) contra a qual este bloco foi adaptado ou que o editor já conferiu.",
+    )
     versao = models.PositiveIntegerField(default=1)
     criado_por = models.ForeignKey(
         settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="+"

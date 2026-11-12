@@ -8,6 +8,7 @@ RAIZ_REPO = BASE_DIR.parent                                # raiz do repositóri
 # Raiz dos dados (volN/*.xml, volN/paginas/*.png). Configurável: as imagens
 # do scan são git-ignoradas e podem viver em outro checkout.
 SINIBALDI_DADOS = Path(os.environ.get("SINIBALDI_DADOS", RAIZ_REPO))
+SINIBALDI_CACHE = Path(os.environ.get("SINIBALDI_CACHE") or (BASE_DIR / "cache"))
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-inseguro-troque-em-producao")
 DEBUG = os.environ.get("DEBUG", "1") not in ("0", "", "false", "False")

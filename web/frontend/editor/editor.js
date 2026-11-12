@@ -7,7 +7,7 @@ import History from "@tiptap/extension-history";
 import Gapcursor from "@tiptap/extension-gapcursor";
 import Dropcursor from "@tiptap/extension-dropcursor";
 import { DOMParser as PMDOMParser, Fragment } from "@tiptap/pm/model";
-import { EditorState, Plugin, TextSelection } from "@tiptap/pm/state";
+import { EditorState, Plugin, TextSelection, NodeSelection } from "@tiptap/pm/state";
 import { Decoration, DecorationSet } from "@tiptap/pm/view";
 
 import { nosDoEsquema, marcasDoEsquema } from "./esquema.js";
@@ -52,6 +52,42 @@ function htmlParaDoc(schema, html) {
   tpl.innerHTML = html || "";
   limparBrancos(tpl.content);
   return PMDOMParser.fromSchema(schema).parse(tpl.content, { preserveWhitespace: "full" });
+}
+
+// Seleção inicial segura: cursor de texto no primeiro bloco textual (nunca NodeSelection num marco).
+function selecaoInicial(doc) {
+  let pos = null;
+  doc.descendants((n, p) => {
+    if (pos !== null) return false;
+    if (n.isTextblock) { pos = p + 1; return false; }
+    return true;
+  });
+  return pos === null ? null : TextSelection.create(doc, pos);
+}
+
+const ATOMOS_PROTEGIDOS = ["marco", "pb"];
+function atomoSelecionado(state) {
+  const sel = state.selection;
+  return sel instanceof NodeSelection && ATOMOS_PROTEGIDOS.includes(sel.node.type.name) ? sel.node : null;
+}
+function intervaloTemMarco(state) {
+  const { from, to } = state.selection;
+  if (from === to) return false;
+  let achou = false;
+  state.doc.nodesBetween(from, to, (n) => {
+    if (n.type.name === "marco") achou = true;
+    return !achou;
+  });
+  return achou;
+}
+// Com um marco selecionado, insere um parágrafo vazio depois dele e põe o cursor nele.
+function abrirParagrafoDepoisDoMarco(view) {
+  const { state } = view;
+  const sel = state.selection;
+  const fim = sel.to;
+  const tr = state.tr.insert(fim, state.schema.nodes.paragrafo.create());
+  tr.setSelection(TextSelection.create(tr.doc, fim + 1));
+  view.dispatch(tr);
 }
 
 function blocosNaSelecao(state) {
@@ -261,6 +297,31 @@ export function montar(elemento, opcoes = {}) {
       return [
         new Plugin({
           props: {
+            // Marco/pb selecionados nunca são substituídos por digitação ou colagem.
+            handleTextInput(view, _from, _to, texto) {
+              const at = atomoSelecionado(view.state);
+              if (at) {
+                if (at.type.name === "marco") {
+                  abrirParagrafoDepoisDoMarco(view);
+                  view.dispatch(view.state.tr.insertText(texto));
+                }
+                return true;
+              }
+              return intervaloTemMarco(view.state); // seleção de vários blocos com marco: ignora a tecla
+            },
+            handleKeyDown(view, ev) {
+              if (ev.key !== "Backspace" && ev.key !== "Delete") return false;
+              if (ev.ctrlKey || ev.metaKey || ev.altKey) return false;
+              const { selection: sel, doc } = view.state;
+              if (!sel.empty || sel.$from.depth !== 1 || !sel.$from.parent.isTextblock) return false;
+              const $f = sel.$from;
+              let alvo = null;
+              if (ev.key === "Backspace" && $f.parentOffset === 0 && $f.index(0) > 0) alvo = doc.child($f.index(0) - 1) && { n: doc.child($f.index(0) - 1), pos: $f.before(1) - doc.child($f.index(0) - 1).nodeSize };
+              if (ev.key === "Delete" && $f.parentOffset === $f.parent.content.size && $f.index(0) < doc.childCount - 1) alvo = { n: doc.child($f.index(0) + 1), pos: $f.after(1) };
+              if (!alvo || alvo.n.type.name !== "marco") return false;
+              view.dispatch(view.state.tr.setSelection(NodeSelection.create(doc, alvo.pos)).scrollIntoView());
+              return true; // 1º toque seleciona o marco; só um segundo toque (com ele selecionado) o remove
+            },
             decorations(state) {
               if (!st.decorarBloco) return null;
               const decos = [];
@@ -304,6 +365,12 @@ export function montar(elemento, opcoes = {}) {
       attributes: { class: "obra obra-edicao sn-editor", spellcheck: "false", lang: "pt" },
       transformPastedHTML: (html) => html.replace(/\sdata-(bloco|versao|xmlid)="[^"]*"/g, ""),
       handlePaste(view, event) {
+        const at = atomoSelecionado(view.state);
+        if (at) {
+          if (at.type.name === "marco") abrirParagrafoDepoisDoMarco(view);
+          else return true; // pb: ignora a colagem
+          // com o cursor no parágrafo novo, segue o fluxo normal abaixo
+        } else if (intervaloTemMarco(view.state)) return true;
         if (colando) return false; // pasteText volta a chamar handlePaste: deixa o padrão agir
         const cd = event.clipboardData;
         if (!cd) return false;
@@ -324,6 +391,10 @@ export function montar(elemento, opcoes = {}) {
       },
     },
   });
+  {
+    const si = selecaoInicial(editor.state.doc);
+    if (si) editor.view.dispatch(editor.state.tr.setSelection(si).setMeta("addToHistory", false));
+  }
   estado.baseline = editor.state.doc;
   editor.storage.sinibaldi.decorarBloco = cfg.decorarBloco || null;
 
@@ -449,7 +520,7 @@ export function montar(elemento, opcoes = {}) {
     /** Substitui o conteúdo. `limpo` (padrão true) também redefine a base de comparação de `sujo()`. Zera o desfazer. */
     definirHtml(html, { limpo = true } = {}) {
       const doc = htmlParaDoc(schema, html);
-      const novo = EditorState.create({ schema, doc, plugins: editor.state.plugins });
+      const novo = EditorState.create({ schema, doc, plugins: editor.state.plugins, selection: selecaoInicial(doc) || undefined });
       editor.view.updateState(novo);
       if (limpo) estado.baseline = editor.state.doc;
       if (barra) barra.atualizar();

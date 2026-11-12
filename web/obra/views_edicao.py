@@ -179,8 +179,10 @@ def painel(request):
                 "pagina": r.pagina, "acao": r.get_acao_display(), "comentario": r.comentario, "n": 1}
         vistos[r.lote] = item
         lotes.append(item)
+    from .views_nova import resumo_nova  # import tardio: views_nova importa este módulo
     return render_area(request, "edicao/painel.html", {
-        "volumes": volumes, "continuar": continuar, "lotes": lotes[:12], "edicao": edicao})
+        "volumes": volumes, "continuar": continuar, "lotes": lotes[:12], "edicao": edicao,
+        "nova": resumo_nova()})
 
 
 # ----------------------------------------------------------- lista de páginas
@@ -235,7 +237,8 @@ def revisar(request, numero, seq):
         "urlGravar": reverse("obra:gravar", args=[volume.numero, seq]),
         "urlHistoricoBloco": reverse("obra:historico_bloco", args=[0]),
         "csrf": get_token(request),
-        "scan": reverse("obra:scan", args=[volume.numero, seq]),
+        "scan": reverse("obra:scan_jpg", args=[volume.numero, seq]) + "?l=1600",
+        "scanOriginal": reverse("obra:scan", args=[volume.numero, seq]),
         "chaveLocal": f"sinibaldi.revisao.v{volume.numero}",
         "urlSeguinte": reverse("obra:revisar", args=[volume.numero, seg.seq]) if seg else "",
     }
@@ -358,7 +361,7 @@ def historico(request):
 
 @exige_edicao()
 def historico_bloco(request, pk):
-    bloco = Bloco.objects.filter(pk=pk, edicao__slug=SLUG_REVISAO).select_related("volume").first()
+    bloco = Bloco.objects.filter(pk=pk).select_related("volume", "edicao").first()  # 1916 ou nova (só leitura)
     if bloco is None:
         raise Http404("Bloco não encontrado.")
     revs = bloco.revisoes.select_related("autor").order_by("-criado_em", "-pk")

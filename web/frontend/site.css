@@ -176,3 +176,22 @@
   .facsimile img { max-height: 90vh; }
   .transcricao { @apply max-h-[90vh] overflow-y-auto border border-gold/50 bg-parchment-light p-4 text-base; }
 }
+
+/* ================= Nova edição: estrutura, ordem das partes, pendências ================= */
+@layer components {
+  .nova-arvore { @apply text-base; }
+  .nova-no { @apply py-0.5; }
+  .nova-linha { @apply flex flex-wrap items-baseline gap-x-3 gap-y-0.5 rounded-sm px-1 hover:bg-gold-light/20; }
+  .nova-titulo { @apply font-semibold; }
+  .nova-titulo .rotulo { @apply font-display text-[0.8em] tracking-[0.06em]; }
+  .nova-titulo.item-parte, .nova-titulo.item-seccao { @apply font-display text-crimson; }
+  .nova-meta { @apply font-display text-[0.62rem] tracking-[0.1em] text-ink/55; }
+  .nova-acoes { @apply ml-auto flex items-center gap-0.5; }
+  .nova-acoes .ferramenta { @apply h-6 min-w-[1.5rem] px-1.5 text-xs; }
+  .nova-suprimido > .nova-linha { @apply text-ink/45 line-through; }
+  .nova-suprimido > .nova-linha .nova-acoes, .nova-suprimido > .nova-linha .nova-acoes * { @apply no-underline; }
+  .nova-foco > .nova-linha { @apply bg-gold-light/40 ring-1 ring-gold; }
+  .nova-trecho .nova-titulo { @apply text-ink/70; }
+  .nova-parte { @apply flex flex-wrap items-center gap-x-3 border border-gold/40 bg-parchment px-3 py-2; }
+  .nova-parte-falta { @apply border-crimson/50 bg-crimson/5; }
+}

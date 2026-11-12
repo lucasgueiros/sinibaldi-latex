@@ -4,7 +4,7 @@
   "description": "Build do CSS (TailwindCSS) da edição colaborativa de Sinibaldi",
   "scripts": {
     "build": "tailwindcss -c frontend/tailwind.config.js -i frontend/site.css -o static/css/site.css --minify",
-    "build:editor": "esbuild frontend/editor/index.js --bundle --minify --target=es2019 --outfile=static/js/editor.bundle.js && esbuild frontend/editor/revisao.js --bundle --minify --target=es2019 --outfile=static/js/revisao.js && esbuild frontend/editor/editor.css --minify --outfile=static/css/editor.css",
+    "build:editor": "esbuild frontend/editor/index.js --bundle --minify --target=es2019 --outfile=static/js/editor.bundle.js && esbuild frontend/editor/revisao.js --bundle --minify --target=es2019 --outfile=static/js/revisao.js && esbuild frontend/editor/nova.js --bundle --minify --target=es2019 --outfile=static/js/nova.js && esbuild frontend/editor/editor.css --minify --outfile=static/css/editor.css",
     "watch":"tailwindcss -c frontend/tailwind.config.js -i frontend/site.css -o static/css/site.css --watch"
   },
   "devDependencies": {

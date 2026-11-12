@@ -242,7 +242,7 @@ def _raiz_repo():
 
 
 def dir_cache():
-    d = Path(os.environ.get("SINIBALDI_CACHE") or (Path(settings.BASE_DIR) / "cache"))
+    d = Path(os.environ.get("SINIBALDI_CACHE") or Path(settings.SINIBALDI_CACHE))
     d.mkdir(parents=True, exist_ok=True)
     return d
 
