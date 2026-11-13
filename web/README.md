@@ -28,12 +28,13 @@ e ponha-o no grupo `editores` (admin › Usuários › Grupos, ou
 O grupo (add/change/delete de `Bloco`) é criado pela migração `0002`; as telas de edição exigem login +
 `obra.change_bloco`. Superusuários passam sem o grupo.
 
-Variáveis de ambiente: `SINIBALDI_DADOS` (imagens), `SINIBALDI_CACHE` (padrão `web/cache/`: PDFs gerados e
+Variáveis de ambiente: `SINIBALDI_DADOS` (imagens e o PDF original do scan, para o fac-símile), `SINIBALDI_CACHE` (padrão `web/cache/`: PDFs gerados e
 `scans/` com os JPEG reduzidos), `SECRET_KEY`, `DEBUG` (`0` desliga), `ALLOWED_HOSTS`.
 
 Utilitários e testes:
 
 ```bash
+.venv/bin/python manage.py preparar_downloads [--so fac-simile|pdf] [--edicao 1916] [--volume 1]  # PDFs dos volumes no cache
 .venv/bin/python manage.py exportar_tei --edicao 1916 --volume 2 -o /tmp/vol2.xml   # [--forcar]
 .venv/bin/python manage.py sincronizar_nova_edicao [--aplicar]                       # ver "Pendências"
 .venv/bin/python manage.py test obra
@@ -51,7 +52,10 @@ npm run build           # Tailwind (static/css), depois de mexer em templates
 
 | Rota | Nome (`obra:`) | O que é |
 |---|---|---|
-| `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`) |
+| `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`: xml, txt, html, tex, pdf) |
+| `/edicao/<slug>/<xml_id>/baixar/fac-simile/` | `baixar_fac_simile` | Fac-símile do trecho: as páginas do scan original em PDF |
+| `/edicao/<slug>/volume/<n>/baixar/xml/`, `…/pdf/` | `baixar_volume`, `baixar_volume_pdf` | Volume inteiro: TEI; PDF composto em LaTeX (em segundo plano) |
+| `/fac-simile/<vol>/baixar/` | `baixar_fac_simile_volume` | Fac-símile do volume inteiro (o scan original, uma página do livro por página) |
 | `/edicao/<slug>/<xml_id>/sugerir/` | `sugerir` | Formulário público (sem login) de sugestão de correção; POST grava `Sugestao` |
 | `/edicao-colaborativa/sugestoes/` | `sugestoes` | Triagem das sugestões (login); `sugestoes/<pk>/acao/` (`sugestao_acao`, POST) |
 | `/fac-simile/<vol>/<seq>/` | `facsimile` | Imagem da página (JPEG 1600 px, link p/ PNG original) |
@@ -152,6 +156,26 @@ Fluxo de trabalho:
    difere da origem — atualizáveis em massa; (b) adaptados cuja origem mudou depois da adaptação
    (`Bloco.origem_versao_vista`; sem ele, compara `atualizado_em`) — o editor vê o diff e marca como visto;
    (c) blocos da 1916 (exceto cabeçalhos) sem correspondente na nova.
+
+## Downloads em PDF (`exportacao.py`, `fac_simile.py`)
+
+O menu **Baixar** de cada trecho (na página do trecho e em partes/secções/capítulos do sumário) oferece TEI, texto,
+HTML, LaTeX, **PDF (LaTeX)** e **Fac-símile (PDF do scan)**; o topo do sumário oferece os mesmos formatos para o
+**volume inteiro**, e a página de fac-símile linka o volume inteiro.
+
+- **PDF (LaTeX)**: `tools/tei2latex.py --puro` sobre o TEI do banco (na própria requisição) e `latexmk -lualatex`
+  em segundo plano (`exportacao.em_segundo_plano`: uma thread por arquivo e processo, que não toca o banco). A
+  requisição espera até `ESPERA_PADRAO` (20 s); se não terminou, responde 202 com a página «Preparando…», que se
+  recarrega a cada 15 s e baixa o arquivo quando fica pronto. Sem limite de tamanho: o tempo máximo de compilação
+  é `tempo_limite_pdf` (120 s + 0,2 s por bloco; ~25 s medidos para 584 blocos). Cache em `SINIBALDI_CACHE`,
+  chave = conteúdo dos blocos.
+- **Fac-símile**: recortado do PDF original 2-up (`SINIBALDI_DADOS/volN/volN.pdf` ou `SINIBALDI_DADOS/volN.pdf`)
+  sem recomprimir as imagens: `mutool poster -x 2` + `mutool merge` na ordem do `volN/paginas/manifesto.tsv`, uma
+  vez por volume (`SINIBALDI_CACHE/fac-simile/vN-<assinatura>.pdf`, ~75 MB o vol. 1, ~200 MB o vol. 2; segundos),
+  e daí um `mutool merge` com as páginas do trecho (as de início dos blocos + os `<pb>` dentro deles). Nas folhas
+  com `/Rotate 90` (vol. 2) o poster entrega a metade direita primeiro; `fac_simile.preparar_volume` reordena.
+  Sem o PDF original ou sem `mutool`, a opção some.
+- `manage.py preparar_downloads` gera os volumes de antemão (o PDF LaTeX do vol. 1 leva alguns minutos).
 
 ## Slides (`slides.py`, `views_slides.py`)
 

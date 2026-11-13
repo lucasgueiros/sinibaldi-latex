@@ -18,7 +18,7 @@
   <div class="mt-6 {% if lado %}grid gap-6 lg:grid-cols-2{% endif %}">
     <figure class="facsimile">
       <img src="{% url 'obra:scan_jpg' volume.numero pag.seq %}?l=1600" alt="Página {{ pag.impressa|default:pag.seq }} do volume {{ volume.numero }}, escaneada" class="mx-auto h-auto max-w-full border border-gold shadow-md" loading="eager">
-      <figcaption class="mt-2 text-center text-xs"><a class="text-crimson hover:underline" href="{% url 'obra:scan' volume.numero pag.seq %}" target="_blank" rel="noopener">original (PNG)</a></figcaption>
+      <figcaption class="mt-2 text-center text-xs"><a class="text-crimson hover:underline" href="{% url 'obra:scan' volume.numero pag.seq %}" target="_blank" rel="noopener">original (PNG)</a>{% if baixar_volume %} · <a class="text-crimson hover:underline" href="{{ baixar_volume }}">volume inteiro (PDF{% if baixar_volume_mb %}, ~{{ baixar_volume_mb }} MB{% endif %})</a>{% endif %}</figcaption>
     </figure>
     {% if lado %}
       <section class="obra transcricao" aria-label="Transcrição">

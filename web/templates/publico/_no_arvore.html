@@ -1,4 +1,4 @@
-{# Item recursivo do sumário. Contexto: no, edicao, nova (bool). #}
+{# Item recursivo do sumário. Contexto: no, edicao, nova (bool), pdf_ok (bool), fac_vols (pks de volume com scan). #}
 <li>
   <span class="item-sumario">
     <a href="{% url 'obra:no' edicao.slug no.xml_id %}" class="item-{{ no.nivel }}">{% if no.rotulo %}<span class="rotulo">{{ no.rotulo }}</span>{% endif %}{% if no.titulo %} <span class="titulo">{{ no.titulo }}</span>{% endif %}{% if not no.rotulo and not no.titulo %}{{ no.xml_id }}{% endif %}</a>
@@ -11,6 +11,8 @@
           <li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'txt' %}" download>Texto puro</a></li>
           <li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'html' %}" download>HTML</a></li>
           <li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'tex' %}" download>LaTeX</a></li>
+          {% if pdf_ok %}<li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'pdf' %}">PDF (LaTeX)</a></li>{% endif %}
+          {% if no.volume_id in fac_vols %}<li><a href="{% url 'obra:baixar_fac_simile' edicao.slug no.xml_id %}">Fac-símile (PDF do scan)</a></li>{% endif %}
         </ul>
       </details>
     {% endif %}

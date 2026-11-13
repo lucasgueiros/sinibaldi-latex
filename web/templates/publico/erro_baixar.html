@@ -7,6 +7,6 @@
   <h1 class="font-display text-2xl font-semibold tracking-[0.06em] text-crimson">Não foi possível gerar o {{ formato }}</h1>
   <p class="mt-4 text-lg">{{ erro }}</p>
   {% if log %}<pre class="slides-log mt-4 text-left">{{ log }}</pre>{% endif %}
-  <p class="mt-6"><a class="btn btn-primario btn-sm" href="{% url 'obra:no' edicao.slug no.xml_id %}">Voltar ao trecho</a></p>
+  <p class="mt-6">{% if voltar %}<a class="btn btn-primario btn-sm" href="{{ voltar.0 }}">{{ voltar.1 }}</a>{% else %}<a class="btn btn-primario btn-sm" href="{% url 'obra:no' edicao.slug no.xml_id %}">Voltar ao trecho</a>{% endif %}</p>
 </div>
 {% endblock %}

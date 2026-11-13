@@ -2,6 +2,6 @@
 <details class="baixar">
   <summary class="btn btn-secundario btn-sm">Baixar</summary>
   <ul class="baixar-lista">
-    {% for i in itens %}<li><a href="{{ i.url }}" download>{{ i.nome }}</a></li>{% endfor %}
+    {% for i in itens %}<li><a href="{{ i.url }}"{% if i.formato != 'pdf' and i.formato != 'fac-simile' %} download{% endif %}>{{ i.nome }}</a></li>{% endfor %}
   </ul>
 </details>
