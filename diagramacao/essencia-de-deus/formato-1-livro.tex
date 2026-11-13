@@ -1,0 +1,16 @@
+% Formato 1 — folha de livro padrão (A5, 148×210 mm): corpo 11 pt, notas de rodapé
+% em corpo menor, numa coluna, numeradas por página «(1)» como no original.
+\documentclass[11pt,twoside]{book}
+\usepackage[a5paper,inner=17mm,outer=20mm,top=15mm,bottom=17mm,
+            includehead,headsep=5mm,footskip=8mm,marginparwidth=12mm]{geometry}
+\input{comum}
+\usepackage[perpage,bottom]{footmisc}
+\makeatletter
+\renewcommand\@makefnmark{\hbox{\normalfont\,(\@thefnmark)}}  % chamada «(1)» na linha
+\renewcommand\@makefntext[1]{\parindent=1em\noindent(\@thefnmark)\enspace#1}
+\makeatother
+\renewcommand\footnoterule{\vspace*{-3pt}\noindent\rule{.3\columnwidth}{.4pt}\vspace*{2.6pt}}
+\setlength{\footnotesep}{1.2\baselineskip}
+\begin{document}
+\input{texto}
+\end{document}

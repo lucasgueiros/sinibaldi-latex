@@ -1,0 +1,24 @@
+% Formato 2 — folha maior (170×240 mm): corpo 11 pt, notas de rodapé em corpo menor
+% e em DUAS colunas, numeradas por página «(1)».
+% As notas são as «familiares» do reledmac (\footnoteA, arranjo twocol), porque o
+% dblfnote entra em laço (input stack exceeded) com notas maiores que meia página —
+% e as deste livro passam de uma página inteira.
+\documentclass[11pt,twoside]{book}
+\usepackage[paperwidth=170mm,paperheight=240mm,inner=20mm,outer=24mm,top=18mm,
+            bottom=20mm,includehead,headsep=6mm,footskip=9mm,marginparwidth=14mm]{geometry}
+\input{comum}
+\usepackage[nocritical,noeledsec,noend]{reledmac}
+\arrangementX[A]{twocol}
+\colalignX[A]{\leftskip=0pt \rightskip=0pt plus .3em}  % justificado (padrão: raggedright)
+\parindentX[A]                                       % recuo de parágrafo dentro da nota
+\afternoteX[A]{.4\baselineskip}                      % respiro entre notas
+\usepackage{perpage}\MakePerPage{footnoteA}
+\makeatletter
+\renewcommand*{\normalbodyfootmarkX}[1]{\hbox{\normalfont\,(\@nameuse{@thefnmark#1})}}
+\renewcommand*{\normalfootfootmarkX}[1]{(\@nameuse{@thefnmark#1})\enspace}
+\makeatother
+\renewcommand\footnoteruleA{\vspace*{-3pt}\noindent\rule{.25\textwidth}{.4pt}\vspace*{2.6pt}}
+\let\footnote\footnoteA
+\begin{document}
+\input{texto}
+\end{document}

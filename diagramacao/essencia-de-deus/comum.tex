@@ -1,0 +1,64 @@
+% Macros comuns aos três ensaios de diagramação (formato-*.tex).  Cada mestre define a
+% geometria e o tratamento das notas ANTES de \input{comum}; aqui ficam fonte, títulos,
+% marcas de página e cabeçalhos.
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{portuguese}
+\setotherlanguage{latin}
+\setmainfont{EB Garamond}[Numbers={OldStyle,Proportional}]
+\usepackage{microtype}
+\usepackage{xcolor}
+\definecolor{marca}{gray}{0.45}
+\setlength{\emergencystretch}{1.5em}
+\frenchspacing
+
+% --- página do original ------------------------------------------------------
+% \pg{443}: virada de página do original no corpo -> na margem externa.
+% \pgn{444}: virada dentro de nota (marginpar é proibido ali) -> discreta no fluxo.
+% Em modo vertical (antes de um título ou parágrafo) a marca espera o próximo
+% parágrafo, senão cairia no pé da página anterior.
+\newcommand{\margempg}[1]{\marginpar{\footnotesize\color{marca}[#1]}}
+\gdef\pgpendente{}
+\newcommand{\pg}[1]{%
+  \ifvmode\xdef\pgpendente{\unexpanded\expandafter{\pgpendente}\noexpand\margempg{#1}}%
+  \else\margempg{#1}\fi\ignorespaces}
+\AddToHook{para/begin}{\ifinner\else
+  \let\pgagora\pgpendente\gdef\pgpendente{}\pgagora\fi}
+\newcommand{\pgn}[1]{{\scriptsize\color{marca}[#1]}}
+% (classe book, twoside: \marginpar vai para a margem externa)
+\setlength{\marginparsep}{3mm}
+
+% --- estrutura do autor ------------------------------------------------------
+% \capitulo{rótulo}{título}{summario}{pág.}
+\newcommand{\capitulo}[4]{%
+  \clearpage\thispagestyle{plain}\pg{#4}%
+  \vspace*{2\baselineskip}%
+  \begin{center}
+    {\scshape\lowercase{#1}\par}\medskip
+    {\large\scshape\lowercase{#2}\par}
+  \end{center}
+  \medskip
+  {\small\noindent\textsc{summario}: --- #3\par}
+  \markboth{\lowercase{#2}}{\lowercase{#2}}%
+  \bigskip}
+% \artigo{rótulo}{título}
+\newcommand{\artigo}[2]{%
+  \bigskip
+  \begin{center}{\scshape\lowercase{#1}.}\\[.3ex]{\itshape #2}\end{center}
+  \medskip}
+% tese numerada que corre com o texto / em linha própria / subdivisão a), b)
+\newcommand{\tese}[2]{\par\medskip\noindent#1.\enspace\textbf{#2}\;---\;}
+\newcommand{\teseB}[2]{\par\medskip\noindent#1.\enspace\textbf{#2}\par}
+\newcommand{\subp}[1]{\par\noindent\hspace*{\parindent}#1)\enspace}
+% trecho omitido neste ensaio
+\newcommand{\omitido}{\par{\centering[\dots]\par}}
+
+% --- cabeçalho ---------------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\oldstylenums{\thepage}\quad\scshape theodicea}
+\fancyhead[RO]{\small\scshape essencia e attributos de deus\quad\oldstylenums{\thepage}}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\oldstylenums{\thepage}}}
+\setcounter{page}{443}
