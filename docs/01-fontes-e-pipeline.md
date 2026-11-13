@@ -3,7 +3,9 @@
 ## Objetivo do projeto
 
 1. Gerar um **LaTeX do livro** (Sinibaldi, *Elementos de Philosophia* — Logica, Ontologia,
-   Cosmologia; 5.ª edição, Roma, 1897, em português pré-1911).
+   Cosmologia; 5.ª edição, Roma, 1927, em português pré-1911). Na folha de rosto o ano saiu
+   impresso errado ("1297") e foi corrigido à mão para 1927. O *imprimatur* (Subiaco, 15/08/1927,
+   folha 2 do scan) confirma a data.
 2. A partir desse LaTeX, montar **slides de trechos específicos**, sem duplicar texto (`docs/05`).
 3. O número da **página impressa** deve aparecer no texto em LaTeX na forma `[286]`.
 

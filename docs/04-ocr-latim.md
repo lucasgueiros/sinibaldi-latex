@@ -127,7 +127,7 @@ reconstruído; é git-ignored.
 
 - O latim melhorou muito, mas não está limpo: `conírahuntur` (por `contrahuntur`), `esl`, `sil`,
   `Lerminatam` persistem. Revisão humana contra a imagem continua obrigatória.
-- O `lat.traineddata` é treinado em latim de tipografia moderna; este livro é de 1897, com itálico
+- O `lat.traineddata` é treinado em latim de tipografia moderna; este livro é de 1916 (vol. 2) e 1927 (vol. 1), com itálico
   pesado nas citações, o que explica o resto do erro.
 - Grego, se houver no volume, continua sem modelo (`grc` não foi instalado). Não encontrei ocorrências
   relevantes, mas não fiz varredura exaustiva.

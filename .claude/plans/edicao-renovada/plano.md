@@ -17,7 +17,7 @@ imagem**, só para corrigir o que o script não resolve — e a modernização o
   `~/Downloads/SINIBALDI Thiago 1916 … Vol. 2 ….pdf` (413 folhas 2-up, imagem JPEG nativa de
   200 ppi, sem camada de texto; os dois arquivos em `Downloads` são idênticos, mesmo md5).
   Não há `vol2/vol2.pdf` nem `_div`/`_ocr` no repositório.
-- **Vol. 1** (ed. 1897): **o PDF não está nesta máquina.** Precisa ser localizado/copiado.
+- **Vol. 1** (ed. 1927): **o PDF não está nesta máquina.** Precisa ser localizado/copiado.
 - Já existe: `tex/preambulo.tex` (`\pg`, `\tese`, `\teseB`, `\sub`, `\subp`, notas comutáveis),
   `compila.sh`, `tools/corta.py`, `tools/corrige_w.py`, `tools/ocr_paginado.py`.
 - **Padrão-ouro:** `vol2/02_parte_theodicea/01_cap_existencia-de-deus.tex` (pp. 421–442) foi
