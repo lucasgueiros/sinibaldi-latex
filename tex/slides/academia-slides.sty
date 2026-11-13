@@ -4,6 +4,7 @@
 
 \RequirePackage{etoolbox}
 \RequirePackage{framed}
+\RequirePackage{ragged2e}
 \RequirePackage{fontspec}
 \RequirePackage{polyglossia}
 \setmainlanguage{portuges}
@@ -27,8 +28,8 @@
 % ---------- fontes ----------
 \setmainfont{EBGaramond}[Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,
   BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Ligatures=TeX]
-\newfontfamily\slcinzel{Cinzel-Regular.ttf}[BoldFont=Cinzel-Bold.ttf,LetterSpace=6]
-\newfontfamily\slcinzelt{Cinzel-Regular.ttf}[BoldFont=Cinzel-Bold.ttf,LetterSpace=2]
+\newfontfamily\slcinzel{Cinzel-Regular.ttf}[BoldFont=Cinzel-Bold.ttf,LetterSpace=6,Ligatures=TeX]
+\newfontfamily\slcinzelt{Cinzel-Regular.ttf}[BoldFont=Cinzel-Bold.ttf,LetterSpace=2,Ligatures=TeX]
 \newfontfamily\slcruz{DejaVu Sans}
 \newcommand\crux{{\slcruz\char"2720}}
 \newcommand\slromb{{\slcruz\char"25C6}}
@@ -42,7 +43,7 @@
 \hbadness=3000
 
 % ---------- geometria (160 x 90 mm) ----------
-\setbeamersize{text margin left=13mm,text margin right=13mm}
+\setbeamersize{text margin left=11.5mm,text margin right=11.5mm}
 
 % ---------- estado ----------
 \newcommand\sl@obra{}\newcommand\sl@autor{}\newcommand\sl@trecho{}
@@ -92,54 +93,60 @@
 % ---------- cabeçalho (altura fixa 22mm) ----------
 \newsavebox\sl@tbox
 \newcommand\sl@titulo{%
-  \def\sl@try##1##2{\sbox\sl@tbox{\vbox{\hsize=\dimexpr\paperwidth-26mm\relax\raggedright\slcinzelt\fontsize{##1}{##2}\selectfont\color{crimson}\sl@tit\par}}%
-    \ifdim\dimexpr\ht\sl@tbox+\dp\sl@tbox\relax>11.5mm \else\let\sl@ok\relax\fi}%
+  \def\sl@try##1##2{\sbox\sl@tbox{\vbox{\hsize=\dimexpr\paperwidth-23mm\relax\raggedright\slcinzelt\fontsize{##1}{##2}\selectfont\color{crimson}\sl@tit\par}}%
+    \ifdim\dimexpr\ht\sl@tbox+\dp\sl@tbox\relax>12.4mm \else\let\sl@ok\relax\fi}%
   \let\sl@ok\undefined
-  \sl@try{16}{19}\ifdefined\sl@ok\else\sl@try{14}{16.5}\fi
-  \ifdefined\sl@ok\else\sl@try{13}{15.5}\fi
-  \ifdefined\sl@ok\else\sl@try{12}{14}\fi
-  \ifdefined\sl@ok\else\sl@try{11}{12.5}\fi
-  \ifdefined\sl@ok\else\sl@try{9.5}{10.5}\fi
+  \sl@try{15}{19}\ifdefined\sl@ok\else\sl@try{13}{17}\fi
+  \ifdefined\sl@ok\else\sl@try{12}{16}\fi
+  \ifdefined\sl@ok\else\sl@try{11}{14.5}\fi
+  \ifdefined\sl@ok\else\sl@try{10}{13.5}\fi
+  \ifdefined\sl@ok\else\sl@try{9}{11.5}\fi
   \usebox\sl@tbox}
 \newcommand\sl@etiqueta{%
   \ifstrempty{\sl@rotulo}{}{%
     \fcolorbox{\sl@tagline}{\sl@tagfill}{\strut\hspace{.4em}{\slcinzel\fontsize{8.5}{10}\selectfont\color{\sl@tagtext}\MakeUppercase{\sl@rotulo}}\hspace{.4em}\strut}}%
   \ifnum\insertcontinuationcount>1 \hspace{.8em}{\itshape\color{golddark}\small continuação\ \insertcontinuationcount}\fi}
 \setbeamertemplate{headline}{%
-  \vbox to 24.4mm{\vskip 6mm
-    \hbox to \paperwidth{\hspace{13mm}\vbox to 5.9mm{\hbox{\sl@etiqueta}\vss}\hss}
-    \vskip .9mm
-    \hbox to \paperwidth{\hspace{13mm}\vbox to 11.6mm{\ifstrempty{\sl@tit}{}{\sl@titulo}\vss}\hss}
-    \vss}}
+  \vbox{\vskip 5.4mm
+    \hbox to \paperwidth{\hspace{11.5mm}\vbox to 5.8mm{\hbox{\sl@etiqueta}\vss}\hss}
+    \vskip 1mm
+    \hbox to \paperwidth{\hspace{11.5mm}\vbox{\ifstrempty{\sl@tit}{}{\sl@titulo}}\hss}
+    \vskip 1.6mm}}
 % o número exibido é o da página física (cada continuação é uma página)
 \setbeamertemplate{footline}{%
-  \vbox to 11mm{\vss
-    \hbox to \paperwidth{\hspace{13mm}\color{gold}\vrule height .35pt width \dimexpr\paperwidth-26mm\relax\hss}\vskip 1.6mm
-    \hbox to \paperwidth{\hspace{13mm}\hbox to \dimexpr\paperwidth-26mm\relax{%
+  \vbox to 8.8mm{\vss
+    \hbox to \paperwidth{\hspace{11.5mm}\color{gold}\vrule height .35pt width \dimexpr\paperwidth-23mm\relax\hss}\vskip 1.6mm
+    \hbox to \paperwidth{\hspace{11.5mm}\hbox to \dimexpr\paperwidth-23mm\relax{%
       \raisebox{-.9mm}{\includegraphics[height=5mm]{logo.pdf}}\hspace{1.5mm}%
       {\slcinzel\fontsize{6.5}{8}\selectfont\color{golddark}\MakeUppercase{\sl@obra}}\hfill
       {\itshape\fontsize{9}{10}\selectfont\color{ink!75}\sl@ref}\hfill
       {\slcinzel\fontsize{8}{10}\selectfont\color{crimson}\insertpagenumber}}\hss}%
-    \vskip 5.4mm}}
+    \vskip 3.8mm}}
 
 % ---------- o ambiente slide ----------
 \newenvironment{slide}[3]{%
   \sl@settipo{#1}\gdef\sl@tit{#2}\gdef\sl@ref{#3}%
   \begin{frame}[environment=slide,allowframebreaks,t]%
   \sl@corpo}{\end{frame}}
-\newcommand\sl@corpo{\raggedright\hyphenpenalty=200 \relax}
+\newcommand\sl@corpo{\justifying\parindent=0pt\relax}
 
 % ---------- corpo ----------
 \newsavebox\sl@ebox
+\newsavebox\sl@eboxb
 \newenvironment{enunciado}{%
   \par\vskip.35em
-  \begin{lrbox}{\sl@ebox}\begin{minipage}{\dimexpr\linewidth-27pt\relax}\fontsize{17.5}{22.5}\selectfont\color{ink}\strut\ignorespaces}%
+  \begin{lrbox}{\sl@ebox}\begin{minipage}{\dimexpr\linewidth-27pt\relax}\fontsize{16}{20.5}\selectfont\color{ink}\strut\ignorespaces}%
  {\strut\end{minipage}\end{lrbox}%
-  \noindent\fcolorbox{crimson}{parchmentlight}{\setlength{\fboxsep}{3pt}\fcolorbox{goldlight}{parchmentlight}{\setlength{\fboxsep}{6pt}\fcolorbox{parchmentlight}{parchmentlight}{\usebox\sl@ebox}}}%
+  \sbox\sl@eboxb{\fcolorbox{crimson}{parchmentlight}{\setlength{\fboxsep}{3pt}\fcolorbox{goldlight}{parchmentlight}{\setlength{\fboxsep}{6pt}\fcolorbox{parchmentlight}{parchmentlight}{\usebox\sl@ebox}}}}%
+  % encolhimento controlado: se a caixa passar de 80% da altura útil, escala-se (mín. 0,55)
+  \pgfmathsetmacro\sl@efator{min(1,max(0.55,0.8*\the\textheight/(\the\ht\sl@eboxb+\the\dp\sl@eboxb)))}%
+  \noindent\ifdim\dimexpr\ht\sl@eboxb+\dp\sl@eboxb\relax>0.8\textheight
+    \scalebox{\sl@efator}{\usebox\sl@eboxb}\else\usebox\sl@eboxb\fi
   \par\vskip.35em}
 
 \newcommand\sl@marca{\ifnum\@listdepth>1 {\color{gold}\fontsize{6}{6}\selectfont\slromb}\else{\color{crimson}\fontsize{10}{10}\selectfont\crux}\fi}
 \newenvironment{topicos}{%
+  \@itempenalty=0 \@beginparpenalty=0 \@endparpenalty=0 \clubpenalty=0 \widowpenalty=0
   \list{\sl@marca}{\setlength\labelwidth{1.2em}\setlength\leftmargin{1.6em}\setlength\labelsep{.4em}%
     \setlength\itemsep{.2em}\setlength\parsep{.2em}\setlength\topsep{.2em}\setlength\partopsep{0pt}%
     \ifnum\@listdepth>1 \setlength\topsep{.1em}\fi}}
@@ -153,16 +160,16 @@
   \MakeFramed{\advance\hsize-\width\FrameRestore}}{\endMakeFramed}
 \renewcommand\FrameCommand{\textcolor{gold}{\vrule width 2.6pt}\hspace{10pt}}
 
-\newlength\sl@rotw \setlength\sl@rotw{25mm}
-\newenvironment{rotulados}{\par\vskip.2em
-  \list{}{\setlength\labelwidth{\sl@rotw}\setlength\labelsep{.6em}\setlength\leftmargin{\dimexpr\sl@rotw+.6em\relax}%
-    \setlength\itemsep{.25em}\setlength\parsep{0pt}\setlength\topsep{0pt}\setlength\partopsep{0pt}\setlength\listparindent{0pt}}}
- {\endlist\par\vskip.2em}
+\newlength\sl@rotw \setlength\sl@rotw{21mm}
+\newenvironment{rotulados}{\par\vskip.1em\fontsize{12.5}{15}\selectfont\@itempenalty=0 \@beginparpenalty=0 \@endparpenalty=0 \clubpenalty=0 \widowpenalty=0
+  \list{}{\setlength\labelwidth{\sl@rotw}\setlength\labelsep{.5em}\setlength\leftmargin{\dimexpr\sl@rotw+.5em\relax}%
+    \setlength\itemsep{.2em}\setlength\parsep{0pt}\setlength\topsep{0pt}\setlength\partopsep{0pt}\setlength\listparindent{0pt}}}
+ {\endlist\par\vskip.1em}
 \newcommand\sl@concl[1]{\ifstrequal{#1}{Conclusão}{T}{\ifstrequal{#1}{Conclusao}{T}{\ifstrequal{#1}{Logo}{T}{F}}}}
-\newcommand\sl@lab[1]{\hfill{\slcinzelt\fontsize{8.5}{11}\selectfont\color{crimson}\MakeUppercase{#1}}}
+\newcommand\sl@lab[1]{\hfill{\slcinzelt\fontsize{8}{11}\selectfont\color{crimson}\MakeUppercase{#1}}}
 \newcommand\rot[2]{%
   \ifboolexpr{test{\ifdefstring{\sl@tipo}{argumento}} and (test{\ifstrequal{#1}{Conclusão}} or test{\ifstrequal{#1}{Conclusao}} or test{\ifstrequal{#1}{Logo}})}%
-    {\par\vskip.3em\item[\sl@lab{#1}]{\bfseries #2}\par}%
+    {\par\vskip.1em\item[\sl@lab{#1}]{\bfseries #2}\par}%
     {\item[\sl@lab{#1}]#2\par}}
 
 \newcommand\continua{\par\nopagebreak\hfill{\itshape\small\color{golddark}(continua)}\par}

@@ -37,4 +37,13 @@ TEXINPUTS=$PWD//: latexmk -lualatex -interaction=nonstopmode -halt-on-error -out
 
 O frame usa `allowframebreaks`: o que não cabe passa para um quadro seguinte, com o mesmo título e a marca
 "continuação n" na etiqueta. Limite: `enunciado` é uma caixa indivisível (não quebra); título muito longo
-encolhe (16 → 9 pt) para caber em até 2–3 linhas.
+encolhe (15 → 9 pt) para caber em até 2–3 linhas. O enunciado acima de ~5 linhas encolhe sozinho (mín. 0,55).
+
+## Orçamento medido (quadro 16:9, título de 1–2 linhas)
+
+- Parágrafo: 8 linhas × ~68 caracteres (≈ 540).
+- `rotulados` (12,5/15 pt): ~64 caracteres/linha; 10 linhas com título de 1 linha, 9 com título de 2 linhas
+  (silogismo Maior 4 + Menor 3 + Conclusão 1 cabe sempre).
+- `topicos`: ~66 caracteres/linha; 6 itens de 1 linha ou 3 de 2 linhas.
+- `enunciado` (16/20,5 pt): ~56 caracteres/linha; até 5 linhas sem encolher (sem parágrafo); com 3 linhas
+  sobram ~3 linhas de parágrafo.
