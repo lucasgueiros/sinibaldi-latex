@@ -1,0 +1,31 @@
+{
+ "pagina": 92,
+ "paginas": [
+  92,
+  93,
+  94,
+  95,
+  96
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de palavras (inducção, differença, dá, grammatical, restricção, hypothese, Babio→sabio, brutos, sensitivos etc.), acentos, pontuação, hifenização (\"argumen-tação\"), junk removido (\"I\", \"| |\", \"$\", \"s\", \"3\" final); reposta a linha \"Artigo VII\" no topo da p. 95; \"1)\" e \"4)\" da analogia/vantagens viraram \"a)\"/\"b)\" e \"Dizem…\" etc. mantidos como estavam.\nFronteira corpo/nota: nenhuma mudança estrutural. Mantidos: nota p.92 (n92-1) com continuação na p.93 (pb 93 dentro da nota); nota p.93 (n93-1) com continuação na p.94; nota p.94 (n94-1) com continuação nas p.95 e 96 (inclusive \"Convem com a analogia…\" e \"Requisitos\", que a imagem mostra em letra pequena no rodapé).\nDúvidas: se \"Dizem alguns philosophos… mas sim é uma\" (p.92) é corpo ou nota (a imagem sugere texto do rodapé, por isso mantido na nota); \"excepcuada\" (p.96) e \"À inducção\" (p.94) com leitura incerta; \"(1).\" após \"causalidade\" (p.92) mantido como ponto.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de palavras (inducção, differença, dá, grammatical, restricção, hypothese, Babio→sabio, brutos, sensitivos etc.), acentos, pontuação, hifenização (\"argumen-tação\"), junk removido (\"I\", \"| |\", \"$\", \"s\", \"3\" final); reposta a linha \"Artigo VII\" no topo da p. 95; \"1)\" e \"4)\" da analogia/vantagens viraram \"a)\"/\"b)\" e \"Dizem…\" etc. mantidos como estavam.\nFronteira corpo/nota: nenhuma mudança estrutural. Mantidos: nota p.92 (n92-1) com continuação na p.93 (pb 93 dentro da nota); nota p.93 (n93-1) com continuação na p.94; nota p.94 (n94-1) com continuação nas p.95 e 96 (inclusive \"Convem com a analogia…\" e \"Requisitos\", que a imagem mostra em letra pequena no rodapé).\nDúvidas: se \"Dizem alguns philosophos… mas sim é uma\" (p.92) é corpo ou nota (a imagem sugere texto do rodapé, por isso mantido na nota); \"excepcuada\" (p.96) e \"À inducção\" (p.94) com leitura incerta; \"(1).\" após \"causalidade\" (p.92) mantido como ponto.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0267505,
+ "duration_ms": 175145,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38615,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 45778
+ },
+ "reparo": false
+}

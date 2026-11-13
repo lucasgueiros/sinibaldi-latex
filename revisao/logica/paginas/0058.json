@@ -1,0 +1,29 @@
+{
+ "pagina": 58,
+ "paginas": [
+  58,
+  59,
+  60
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de palavras (contradicção, affirmativa, verdadeiras, essencialmente, \"Perih.\", \"tres\"), acentos, hifenização, \"(^)\" literais removidos e formatação itálica/negrito; o diagrama do schema (p. 58) foi linearizado em três linhas de `<p>` e os fragmentos de OCR removidos; \"Pedro é bom\" passou a texto sem itálico, conforme a imagem.\nMudanças de fronteira corpo/nota: p. 58 — nota 1 foi movida da chamada errada (fim de 68) para a chamada (1) em 66; nota 2 foi ancorada na chamada (2) em 67 (estava sem chamada, anexada ao fim do último parágrafo); nota 3 foi movida para a chamada (3) em 68 (estava após \"SUB-CONTRARIAS\"); o parágrafo \"A razão é…\" permaneceu dentro da nota 1 de p. 59, por estar em letra de nota na imagem.\nDúvidas: \"contradictorias. quando\" (ponto seguido de minúscula) e \"Esta tres\" foram transcritos como impressos; o parágrafo de 68 p.1/p.2 foi unido num só, pois não há quebra na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de palavras (contradicção, affirmativa, verdadeiras, essencialmente, \"Perih.\", \"tres\"), acentos, hifenização, \"(^)\" literais removidos e formatação itálica/negrito; o diagrama do schema (p. 58) foi linearizado em três linhas de `<p>` e os fragmentos de OCR removidos; \"Pedro é bom\" passou a texto sem itálico, conforme a imagem.\nMudanças de fronteira corpo/nota: p. 58 — nota 1 foi movida da chamada errada (fim de 68) para a chamada (1) em 66; nota 2 foi ancorada na chamada (2) em 67 (estava sem chamada, anexada ao fim do último parágrafo); nota 3 foi movida para a chamada (3) em 68 (estava após \"SUB-CONTRARIAS\"); o parágrafo \"A razão é…\" permaneceu dentro da nota 1 de p. 59, por estar em letra de nota na imagem.\nDúvidas: \"contradictorias. quando\" (ponto seguido de minúscula) e \"Esta tres\" foram transcritos como impressos; o parágrafo de 68 p.1/p.2 foi unido num só, pois não há quebra na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.021165200000000002,
+ "duration_ms": 147490,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24622,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 37406
+ },
+ "reparo": false
+}

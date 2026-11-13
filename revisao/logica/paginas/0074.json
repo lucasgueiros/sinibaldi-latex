@@ -1,0 +1,56 @@
+{
+ "pagina": 74,
+ "paginas": [
+  74,
+  75
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3498,
+   2354
+  ],
+  "notas": [
+   646,
+   1791
+  ],
+  "num_notas": [
+   1,
+   1
+  ],
+  "troca": 1144
+ },
+ "notas": "Erros corrigidos: OCR de palavras (ex.: \"Caldeu\"→\"Galileu\", \"Regras lie IV\"→\"Regras II e IV\", \"bastum\"→\"bastam\", \"fundamentues\"→\"fundamentaes\"), acentos/itálicos, numeração \"1.º)…4.º)\", \"Ex. da 3.ª fig.\" (estava \"4ª\"), remoção do \"2\" espúrio e do negrito indevido em \"tirar-se\"/\"mesmos\"; \"Artigo IV.\" sem ponto, conforme a imagem.\nFronteira: p. 74 — os três parágrafos \"(1) Esta regra…\", \"Alguns escriptores…\" e \"Outros dizem…\" estavam no corpo e foram movidos para dentro da nota n74-1 (que continua na p. 75 com \"dos mesmos principios…\"); o \"(1)\" literal foi retirado do início da nota; o `<pb n=\"75\"/>` interno à nota foi mantido, agora no meio do último parágrafo da nota.\nDúvidas: se \"sete\" e \"Artigo IV\" estão em itálico/ponto exatos na imagem não ficou totalmente nítido; o `<pb n=\"75\"/>` foi mantido duas vezes (dentro da nota e no corpo), como no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3498,
+     2354
+    ],
+    "notas": [
+     646,
+     1791
+    ],
+    "num_notas": [
+     1,
+     1
+    ],
+    "troca": 1144
+   },
+   "notas": "Erros corrigidos: OCR de palavras (ex.: \"Caldeu\"→\"Galileu\", \"Regras lie IV\"→\"Regras II e IV\", \"bastum\"→\"bastam\", \"fundamentues\"→\"fundamentaes\"), acentos/itálicos, numeração \"1.º)…4.º)\", \"Ex. da 3.ª fig.\" (estava \"4ª\"), remoção do \"2\" espúrio e do negrito indevido em \"tirar-se\"/\"mesmos\"; \"Artigo IV.\" sem ponto, conforme a imagem.\nFronteira: p. 74 — os três parágrafos \"(1) Esta regra…\", \"Alguns escriptores…\" e \"Outros dizem…\" estavam no corpo e foram movidos para dentro da nota n74-1 (que continua na p. 75 com \"dos mesmos principios…\"); o \"(1)\" literal foi retirado do início da nota; o `<pb n=\"75\"/>` interno à nota foi mantido, agora no meio do último parágrafo da nota.\nDúvidas: se \"sete\" e \"Artigo IV\" estão em itálico/ponto exatos na imagem não ficou totalmente nítido; o `<pb n=\"75\"/>` foi mantido duas vezes (dentro da nota e no corpo), como no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0078047,
+ "duration_ms": 45146,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17047,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12200
+ },
+ "reparo": false
+}

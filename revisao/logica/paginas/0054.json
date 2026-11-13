@@ -1,0 +1,55 @@
+{
+ "pagina": 54,
+ "paginas": [
+  54
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1238,
+   1222
+  ],
+  "notas": [
+   1161,
+   1151
+  ],
+  "num_notas": [
+   3,
+   4
+  ],
+  "troca": 0
+ },
+ "notas": "Erros corrigidos: OCR (Nano→Nuno, \"desconteniencia\", \"a/firmatica\", \"negatiuu\", \"clgunas\", \"tema-se\", \"3)\"→\"a)\", \"pois que. todo\", \"commum\", \"uni só\"/\"mie só\"), hifenização \"proposi-/ções\" (parágrafos 14–15 unidos; p15 removido), travessão e « » espúrios, \"(O)\"/\"()\"/\"(9\" substituídos pelas chamadas corretas; títulos 58 e 59 em negrito.\nFronteiras (p. 54): nota 1 movida do fim do §18 para a chamada \"conselheiro » (1)\" no §13; nota 3 movida do fim do §18 para a chamada \"homem (3)\" no §17 e separada da nota 4, que foi criada no fim do §18 (\"planta (4)\"); nota 2 já estava certa e foi mantida.\nDúvidas: itálico de \"um predicado\" na nota 4 e o negrito exato do título 59 foram lidos de imagem pequena.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1238,
+     1222
+    ],
+    "notas": [
+     1161,
+     1151
+    ],
+    "num_notas": [
+     3,
+     4
+    ],
+    "troca": 0
+   },
+   "notas": "Erros corrigidos: OCR (Nano→Nuno, \"desconteniencia\", \"a/firmatica\", \"negatiuu\", \"clgunas\", \"tema-se\", \"3)\"→\"a)\", \"pois que. todo\", \"commum\", \"uni só\"/\"mie só\"), hifenização \"proposi-/ções\" (parágrafos 14–15 unidos; p15 removido), travessão e « » espúrios, \"(O)\"/\"()\"/\"(9\" substituídos pelas chamadas corretas; títulos 58 e 59 em negrito.\nFronteiras (p. 54): nota 1 movida do fim do §18 para a chamada \"conselheiro » (1)\" no §13; nota 3 movida do fim do §18 para a chamada \"homem (3)\" no §17 e separada da nota 4, que foi criada no fim do §18 (\"planta (4)\"); nota 2 já estava certa e foi mantida.\nDúvidas: itálico de \"um predicado\" na nota 4 e o negrito exato do título 59 foram lidos de imagem pequena.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0061566,
+ "duration_ms": 43117,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10611,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10191
+ },
+ "reparo": false
+}

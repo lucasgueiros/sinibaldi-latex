@@ -1,0 +1,27 @@
+{
+ "pagina": 101,
+ "paginas": [
+  101
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e palavras (rentmente, disecwrso, on£ologice, intelligzencia, samidede, doc. cit., \"Oru\", \"nus\", \"us\", \"á\" por \"a\" em vários pontos), pontuação (\";:\" e \"—-\"), acentos, ruído (\"s\", \"2\", \"——\") e formatação `<hi>` (moral/discurso no corpo, \"pensamento\", \"causa\", \"propria e principalmente\"; removido negrito de \"para\"). Restaurado o travessão antes de \"Portanto\" e corrigidas as referências (1 Sent., a. 2).\nFronteira corpo/nota: sem mudanças. A nota 1 (p. 101) começa após \"da moral\" e termina em \"(Cf. S. Th., loc. cit.)\", inteiramente no pé da página, e o corpo \"119.\" está correto.\nDúvidas: \"immediata\" (lido assim na imagem, mas o original pode grafar \"inmediata\"); \"especie.\" com pontuação incerta no original; grafia de \"fôr\" mantida.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e palavras (rentmente, disecwrso, on£ologice, intelligzencia, samidede, doc. cit., \"Oru\", \"nus\", \"us\", \"á\" por \"a\" em vários pontos), pontuação (\";:\" e \"—-\"), acentos, ruído (\"s\", \"2\", \"——\") e formatação `<hi>` (moral/discurso no corpo, \"pensamento\", \"causa\", \"propria e principalmente\"; removido negrito de \"para\"). Restaurado o travessão antes de \"Portanto\" e corrigidas as referências (1 Sent., a. 2).\nFronteira corpo/nota: sem mudanças. A nota 1 (p. 101) começa após \"da moral\" e termina em \"(Cf. S. Th., loc. cit.)\", inteiramente no pé da página, e o corpo \"119.\" está correto.\nDúvidas: \"immediata\" (lido assim na imagem, mas o original pode grafar \"inmediata\"); \"especie.\" com pontuação incerta no original; grafia de \"fôr\" mantida.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0076981,
+ "duration_ms": 48926,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10806,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13235
+ },
+ "reparo": false
+}

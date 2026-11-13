@@ -1,0 +1,28 @@
+{
+ "pagina": 63,
+ "paginas": [
+  63,
+  64
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de palavras (ex.: \"tres jitizos\", \"explicitimente\", \"implicilamerte\", \"konrem\", \"conteniencia\", \"affiinetivo\"), hifenização \"ver-/dades\", lixo do OCR (\"M: , ;\", \"^ UT '\", \"! XxX\"), acentos e pontuação, e a numeração \"I\"/\"II\" da tabela de exemplos (o \"I\" faltava e foi reposto como parágrafo). Nenhuma fronteira corpo/nota foi alterada: as notas 1 e 2 das pp. 63–64 estão ancoradas nas chamadas corretas, e a continuação da nota 2 na p. 64 já está dentro da nota n63-2.\nAlerta \"numero-diverge\" da p. 64 não confirmado: a chamada \"(2)\" no fim da tese 76 está na imagem e ligada a n64-2 corretamente; nenhuma mudança feita.\nDúvidas: pontuação das citações \"p. 1, q. 85, a. 5\" (lidas com vírgulas); itálicos de \"nexo\", \"antecedente\" e \"consequente\" na nota 64-1; \"media*\" reduzido a \"media\" (asterisco considerado ruído); espaçamento da tabela de exemplos aproximado.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de palavras (ex.: \"tres jitizos\", \"explicitimente\", \"implicilamerte\", \"konrem\", \"conteniencia\", \"affiinetivo\"), hifenização \"ver-/dades\", lixo do OCR (\"M: , ;\", \"^ UT '\", \"! XxX\"), acentos e pontuação, e a numeração \"I\"/\"II\" da tabela de exemplos (o \"I\" faltava e foi reposto como parágrafo). Nenhuma fronteira corpo/nota foi alterada: as notas 1 e 2 das pp. 63–64 estão ancoradas nas chamadas corretas, e a continuação da nota 2 na p. 64 já está dentro da nota n63-2.\nAlerta \"numero-diverge\" da p. 64 não confirmado: a chamada \"(2)\" no fim da tese 76 está na imagem e ligada a n64-2 corretamente; nenhuma mudança feita.\nDúvidas: pontuação das citações \"p. 1, q. 85, a. 5\" (lidas com vírgulas); itálicos de \"nexo\", \"antecedente\" e \"consequente\" na nota 64-1; \"media*\" reduzido a \"media\" (asterisco considerado ruído); espaçamento da tabela de exemplos aproximado.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0135378,
+ "duration_ms": 91121,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17498,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 23576
+ },
+ "reparo": true
+}

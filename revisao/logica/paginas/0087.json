@@ -1,0 +1,56 @@
+{
+ "pagina": 87,
+ "paginas": [
+  87,
+  88
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2688,
+   1700
+  ],
+  "notas": [
+   2653,
+   3584
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 931
+ },
+ "notas": "Corrigidos: OCR (sorites, abstractas, incorruptivel, Polysyllogismo, Tracy, Cicero, \"sint\", \"e\" por \"&\"), hifenização \"con-vem\" e \"resol-ve-se\", cabeçalho corrente da p. 87 removido, \"|\" e \"()\" espúrios, numeração \"1.º/2.º/3.º\".\nFronteira: p. 87 — nota (1) (texto \"Portanto…\") estava no corpo; movida para a `<note n=\"1\">` na chamada após \"immortal\". Nota (2) (início \"O sorites funda-se…\") estava no corpo; movida para `<note n=\"2\">` após \"negativa)\". p. 88 — a continuação \"vem a espiritualidade…\" e \"Mas para que…\" estava dentro de n87-1; passou para n87-2, com `<pb n=\"88\"/>` dentro da nota no ponto \"con|vem\". Os `<pb>` do corpo não foram alterados.\nDúvidas: \"Ora a que é espiritual\" (p. 88, pode ser \"o\"); se \"1.º\" está impresso como \"1.\\\"\" (mantive \"1.º\"); algumas marcas de itálico em palavras isoladas e o espaçamento antes de \";\" e \":\" são aproximações da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2688,
+     1700
+    ],
+    "notas": [
+     2653,
+     3584
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 931
+   },
+   "notas": "Corrigidos: OCR (sorites, abstractas, incorruptivel, Polysyllogismo, Tracy, Cicero, \"sint\", \"e\" por \"&\"), hifenização \"con-vem\" e \"resol-ve-se\", cabeçalho corrente da p. 87 removido, \"|\" e \"()\" espúrios, numeração \"1.º/2.º/3.º\".\nFronteira: p. 87 — nota (1) (texto \"Portanto…\") estava no corpo; movida para a `<note n=\"1\">` na chamada após \"immortal\". Nota (2) (início \"O sorites funda-se…\") estava no corpo; movida para `<note n=\"2\">` após \"negativa)\". p. 88 — a continuação \"vem a espiritualidade…\" e \"Mas para que…\" estava dentro de n87-1; passou para n87-2, com `<pb n=\"88\"/>` dentro da nota no ponto \"con|vem\". Os `<pb>` do corpo não foram alterados.\nDúvidas: \"Ora a que é espiritual\" (p. 88, pode ser \"o\"); se \"1.º\" está impresso como \"1.\\\"\" (mantive \"1.º\"); algumas marcas de itálico em palavras isoladas e o espaçamento antes de \";\" e \":\" são aproximações da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0131029,
+ "duration_ms": 86906,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17819,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 22642
+ },
+ "reparo": false
+}

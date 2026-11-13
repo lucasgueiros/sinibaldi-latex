@@ -3,55 +3,56 @@
  "paginas": [
   1,
   2,
-  3
+  3,
+  4
  ],
  "falha": null,
  "fronteira": {
   "corpo": [
-   2786,
-   1268
+   4383,
+   2852
   ],
   "notas": [
-   4051,
-   5579
+   6995,
+   8512
   ],
   "num_notas": [
-   2,
-   2
+   3,
+   3
   ],
-  "troca": 1518
+  "troca": 1517
  },
- "notas": "Principais erros corrigidos: OCR (etymolo-gico, «sciencie», «sipremas», «ás», acentos e itálicos), linhas puladas (o início do §2 \"2. Objecto da Philosophia. — O objecto, pois, da…\" foi reposto no corpo da p. 2), lixo removido (cabeçalho \"INTRODUCÇÃO\"/\"2\" da p. 2, \"Vol. I. 2\", \"=\" e \"1\" espúrios, \"«\" espúrio).\nFronteira corpo/nota: p. 1 — o rodapé inteiro (de \"Causa, no sentido mais lato…\" até \"…conhecimento de\") estava no corpo; foi movido para dentro da `<note n1-1>`, antes de `<pb n=\"2\"/>` (continuação na p. 2, \"uma coisa…\", que termina \"…mesmo sentido.\"); o `<pb n=\"2\"/>` do corpo foi colocado após o fechamento de n1-1. Nota n2-1 (chamada \"Fé (1)\", p. 2) mantida; continuação na p. 3 (\"d'elle…\", \"É, pois…\") mantida dentro dela. A nota da chamada \"Deus (1)\" da p. 3 não foi copiada (pertence ao trecho seguinte).\nDúvidas: considerei as frases \"As causas ultimas…\" e \"A Philosophia chama-se…\" como rodapé (a frase \"conhecimento de\" continua em \"uma coisa\" na p. 2), e a quebra de parágrafo antes de \"É, pois…\" pelo recuo na imagem; a numeração \"(1)\" no início das notas foi omitida, como nas demais notas do fragmento; a leitura de \"Sum. Theol.\" e \"sufficiente\" é conjectural.",
+ "notas": "Principais erros: OCR de letras (ex.: \"sciencie\", \"sipremas\", \"biz\", \"Cosa\", \"Metuphysica\", \"Anthropologie\"), hifenizações de fim de linha, \"=\" e \"|\" espúrios, e \"Vol. I. 2\" removido; \"1 (1)\" da nota virou \"1.\" e o número da chamada foi tirado do texto da nota.\nFronteira: p. 1 — o bloco em letra pequena no pé (\"Causa, no sentido mais lato…\" até \"…conhecimento de\") estava no corpo; foi movido para dentro de n1-1, antes do <pb n=\"2\"/>, que a continua no rodapé da p. 2. Na p. 2, reposta a linha perdida \"2. Objecto da Philosophia. — O objecto, pois, da…\" logo após o <pb n=\"2\"/> do corpo. Demais notas (n2-1, n3-1) conferidas e mantidas.\nDúvidas: \"infimas\" (lido como \"infinas\" na imagem), negritos de \"a)\", \"b)\", \"c)\" e \"genero\", e \"Summ.\" / \"Acad., n. 6\" são leituras prováveis.",
  "tentativas": [
   {
    "falha": null,
    "fronteira": {
     "corpo": [
-     2786,
-     1268
+     4383,
+     2852
     ],
     "notas": [
-     4051,
-     5579
+     6995,
+     8512
     ],
     "num_notas": [
-     2,
-     2
+     3,
+     3
     ],
-    "troca": 1518
+    "troca": 1517
    },
-   "notas": "Principais erros corrigidos: OCR (etymolo-gico, «sciencie», «sipremas», «ás», acentos e itálicos), linhas puladas (o início do §2 \"2. Objecto da Philosophia. — O objecto, pois, da…\" foi reposto no corpo da p. 2), lixo removido (cabeçalho \"INTRODUCÇÃO\"/\"2\" da p. 2, \"Vol. I. 2\", \"=\" e \"1\" espúrios, \"«\" espúrio).\nFronteira corpo/nota: p. 1 — o rodapé inteiro (de \"Causa, no sentido mais lato…\" até \"…conhecimento de\") estava no corpo; foi movido para dentro da `<note n1-1>`, antes de `<pb n=\"2\"/>` (continuação na p. 2, \"uma coisa…\", que termina \"…mesmo sentido.\"); o `<pb n=\"2\"/>` do corpo foi colocado após o fechamento de n1-1. Nota n2-1 (chamada \"Fé (1)\", p. 2) mantida; continuação na p. 3 (\"d'elle…\", \"É, pois…\") mantida dentro dela. A nota da chamada \"Deus (1)\" da p. 3 não foi copiada (pertence ao trecho seguinte).\nDúvidas: considerei as frases \"As causas ultimas…\" e \"A Philosophia chama-se…\" como rodapé (a frase \"conhecimento de\" continua em \"uma coisa\" na p. 2), e a quebra de parágrafo antes de \"É, pois…\" pelo recuo na imagem; a numeração \"(1)\" no início das notas foi omitida, como nas demais notas do fragmento; a leitura de \"Sum. Theol.\" e \"sufficiente\" é conjectural.",
+   "notas": "Principais erros: OCR de letras (ex.: \"sciencie\", \"sipremas\", \"biz\", \"Cosa\", \"Metuphysica\", \"Anthropologie\"), hifenizações de fim de linha, \"=\" e \"|\" espúrios, e \"Vol. I. 2\" removido; \"1 (1)\" da nota virou \"1.\" e o número da chamada foi tirado do texto da nota.\nFronteira: p. 1 — o bloco em letra pequena no pé (\"Causa, no sentido mais lato…\" até \"…conhecimento de\") estava no corpo; foi movido para dentro de n1-1, antes do <pb n=\"2\"/>, que a continua no rodapé da p. 2. Na p. 2, reposta a linha perdida \"2. Objecto da Philosophia. — O objecto, pois, da…\" logo após o <pb n=\"2\"/> do corpo. Demais notas (n2-1, n3-1) conferidas e mantidas.\nDúvidas: \"infimas\" (lido como \"infinas\" na imagem), negritos de \"a)\", \"b)\", \"c)\" e \"genero\", e \"Summ.\" / \"Acad., n. 6\" são leituras prováveis.",
    "resposta": ""
   }
  ],
- "total_cost_usd": 0.0199304,
- "duration_ms": 136718,
+ "total_cost_usd": 0.026601299999999998,
+ "duration_ms": 173091,
  "num_turns": 1,
  "usage": {
-  "input_tokens": 23099,
+  "input_tokens": 31758,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 35241
+  "output_tokens": 46851
  },
  "reparo": false
 }

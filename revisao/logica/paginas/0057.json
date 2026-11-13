@@ -1,0 +1,55 @@
+{
+ "pagina": 57,
+ "paginas": [
+  57
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   690,
+   685
+  ],
+  "notas": [
+   1858,
+   1859
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 1
+ },
+ "notas": "Fronteira: a nota (1) estava presa à chamada errada (fim do §65, alerta \"(7)→(1)\"); movida para a chamada \"(1)\" do §64, fechada após \"resolve-se na condicional\", e a nota (2) foi aberta no §65 com \"Entre as partes…\", incluindo o parágrafo \"Pertencem…\" que está em letra pequena abaixo do filete (p. 57). Erros corrigidos: \"disjunetiva\", \"conjunegoes\", \"finito\", \"adversaliva\", \"sabio\" etc. OCR; \"planta\" tirado de negrito; \"p\" espúrio e quebra falsa de parágrafo na nota (1) (\"se-/guinte\") unidos.\nNão acrescentei \"sitiva\" no topo da p. 57: é fim de palavra hifenizada iniciada na p. 56, fora do trecho.\nDúvidas: itálicos de \"requisitos\", \"uma certa\" (lidos como normais) e a pontuação \"exponivel:\" foram decididos pela leitura da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     690,
+     685
+    ],
+    "notas": [
+     1858,
+     1859
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 1
+   },
+   "notas": "Fronteira: a nota (1) estava presa à chamada errada (fim do §65, alerta \"(7)→(1)\"); movida para a chamada \"(1)\" do §64, fechada após \"resolve-se na condicional\", e a nota (2) foi aberta no §65 com \"Entre as partes…\", incluindo o parágrafo \"Pertencem…\" que está em letra pequena abaixo do filete (p. 57). Erros corrigidos: \"disjunetiva\", \"conjunegoes\", \"finito\", \"adversaliva\", \"sabio\" etc. OCR; \"planta\" tirado de negrito; \"p\" espúrio e quebra falsa de parágrafo na nota (1) (\"se-/guinte\") unidos.\nNão acrescentei \"sitiva\" no topo da p. 57: é fim de palavra hifenizada iniciada na p. 56, fora do trecho.\nDúvidas: itálicos de \"requisitos\", \"uma certa\" (lidos como normais) e a pontuação \"exponivel:\" foram decididos pela leitura da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0072514,
+ "duration_ms": 47537,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10714,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12360
+ },
+ "reparo": true
+}

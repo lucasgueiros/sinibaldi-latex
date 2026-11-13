@@ -1,0 +1,28 @@
+{
+ "pagina": 38,
+ "paginas": [
+  38,
+  39
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras (differencas, ideas→idea, fermo→termo, zutmediatamente→immediatamente, inanimardo, infermedios, consiitutivas, Constitntivas), acentos e cedilhas, hífen de \"separar-se\", ordinais; removido lixo do quadro (\"| :\", \"C : MEME\", \"E\", \"; |\", \"]\"), \"<head>y</head>\" e o \"(^)\" literal (a chamada já estava no lugar certo na nota n39-2); \"genero\" sem negrito, como impresso.\nFronteiras corpo/nota: nenhuma mudança estrutural. n38-1 continua corretamente na p. 39 (a Mineralogia… e \"Agora uma advertencia…\"); n39-1 e n39-2 estão nas chamadas certas. O alerta \"n39-2 sem chamada\" é falso: a chamada (2) está após \"extensão\".\nDúvidas: o quadro foi transcrito em parágrafos, sem a disposição espacial; \"é e mineral\" lido como impresso; a grafia exata dos ordinais (ª/º) e a formatação de \"Artigo V\" foram inferidas da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras (differencas, ideas→idea, fermo→termo, zutmediatamente→immediatamente, inanimardo, infermedios, consiitutivas, Constitntivas), acentos e cedilhas, hífen de \"separar-se\", ordinais; removido lixo do quadro (\"| :\", \"C : MEME\", \"E\", \"; |\", \"]\"), \"<head>y</head>\" e o \"(^)\" literal (a chamada já estava no lugar certo na nota n39-2); \"genero\" sem negrito, como impresso.\nFronteiras corpo/nota: nenhuma mudança estrutural. n38-1 continua corretamente na p. 39 (a Mineralogia… e \"Agora uma advertencia…\"); n39-1 e n39-2 estão nas chamadas certas. O alerta \"n39-2 sem chamada\" é falso: a chamada (2) está após \"extensão\".\nDúvidas: o quadro foi transcrito em parágrafos, sem a disposição espacial; \"é e mineral\" lido como impresso; a grafia exata dos ordinais (ª/º) e a formatação de \"Artigo V\" foram inferidas da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0098426,
+ "duration_ms": 60949,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18036,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 16078
+ },
+ "reparo": false
+}

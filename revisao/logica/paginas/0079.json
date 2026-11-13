@@ -1,0 +1,27 @@
+{
+ "pagina": 79,
+ "paginas": [
+  79
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (unicersal, Vl→VI, Regra 11→II, affirinatioa, seje, conclusio, a/ffirmaliva, Lomo→Logo, pode'), pontuação (vírgula após \"tempo\", «→o, ponto espúrio antes de \"Logo\"), \"$2\"→§2, junção de \"dispo- .sição\" e \".6 claro\"→\"é claro\", e remoção de \".\" e \"« \" espúrios.\nFronteira corpo/nota: nenhuma alteração; a página 79 não contém notas de rodapé no fragmento.\nDúvidas: \"Modo.\" (§2) foi posto em negrito por parecer mais pesado na imagem; confirmar. Espaçamento antes de \";\" em \"substancia ;\" e \"planta ;\" mantido como no OCR.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (unicersal, Vl→VI, Regra 11→II, affirinatioa, seje, conclusio, a/ffirmaliva, Lomo→Logo, pode'), pontuação (vírgula após \"tempo\", «→o, ponto espúrio antes de \"Logo\"), \"$2\"→§2, junção de \"dispo- .sição\" e \".6 claro\"→\"é claro\", e remoção de \".\" e \"« \" espúrios.\nFronteira corpo/nota: nenhuma alteração; a página 79 não contém notas de rodapé no fragmento.\nDúvidas: \"Modo.\" (§2) foi posto em negrito por parecer mais pesado na imagem; confirmar. Espaçamento antes de \";\" em \"substancia ;\" e \"planta ;\" mantido como no OCR.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.003996700000000001,
+ "duration_ms": 22910,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10592,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5875
+ },
+ "reparo": false
+}

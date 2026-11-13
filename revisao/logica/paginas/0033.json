@@ -1,0 +1,55 @@
+{
+ "pagina": 33,
+ "paginas": [
+  33
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2510,
+   1081
+  ],
+  "notas": [
+   0,
+   1319
+  ],
+  "num_notas": [
+   0,
+   2
+  ],
+  "troca": 1319
+ },
+ "notas": "Corrigidos OCR (ex.: \"lemos\"→\"temos\", \"Celegorias\"→\"Categorias\", \"altribuir\"→\"attribuir\", \"praedicabiig\"→\"praedicabilia\", \"ideas\" e lixo como \"x\", \"(*)\", \"|\", \"Vol. I\" e \"&\"), juntadas palavras hifenizadas (\"repre-senta\", \"supre-mos\" — esta última atravessa a quebra de parágrafo do pipeline), e removido o \"(8)\"/\"(^)\"/\"(*)\" literal.\nFronteira: as notas 1 e 2 (rodapé da p. 33) estavam no corpo como `<p>` após \"dez,\"; movidas para o ponto das chamadas (n33-1 após \"cinco\"; n33-2 após \"sujeito\"), sem número no texto. \"dade,\" não foi acrescentado (fim de palavra da p. 32).\nDúvidas: quebras de parágrafo no meio de frase em t31.p4 e t33.p2 mantidas (estrutura); \"Logo\" e \"classes\" mantidos em negrito; \"secundarirmente\" transcrito como impresso; t35.p4 ficou aberto e vazio no fim do trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2510,
+     1081
+    ],
+    "notas": [
+     0,
+     1319
+    ],
+    "num_notas": [
+     0,
+     2
+    ],
+    "troca": 1319
+   },
+   "notas": "Corrigidos OCR (ex.: \"lemos\"→\"temos\", \"Celegorias\"→\"Categorias\", \"altribuir\"→\"attribuir\", \"praedicabiig\"→\"praedicabilia\", \"ideas\" e lixo como \"x\", \"(*)\", \"|\", \"Vol. I\" e \"&\"), juntadas palavras hifenizadas (\"repre-senta\", \"supre-mos\" — esta última atravessa a quebra de parágrafo do pipeline), e removido o \"(8)\"/\"(^)\"/\"(*)\" literal.\nFronteira: as notas 1 e 2 (rodapé da p. 33) estavam no corpo como `<p>` após \"dez,\"; movidas para o ponto das chamadas (n33-1 após \"cinco\"; n33-2 após \"sujeito\"), sem número no texto. \"dade,\" não foi acrescentado (fim de palavra da p. 32).\nDúvidas: quebras de parágrafo no meio de frase em t31.p4 e t33.p2 mantidas (estrutura); \"Logo\" e \"classes\" mantidos em negrito; \"secundarirmente\" transcrito como impresso; t35.p4 ficou aberto e vazio no fim do trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0110334,
+ "duration_ms": 83224,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10769,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 19913
+ },
+ "reparo": false
+}

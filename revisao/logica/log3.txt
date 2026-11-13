@@ -1,0 +1,31 @@
+>> haiku: 26 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 33 (1 pp.): ok  fronteira: troca 1319 car., notas [0, 2]  US$ 0.011  83s  ent 10769 saí 19913
+  p. 34 (3 pp.): ok  US$ 0.017  110s  ent 24283 saí 29532
+  p. 36 (1 pp.): ok  US$ 0.007  55s  ent 9837 saí 12732
+  p. 37 (1 pp.): ok  US$ 0.008  50s  ent 10566 saí 13122
+  p. 32 (1 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 137719 (<string>, line 13)  US$ 0.023  166s  ent 22250 saí 40603
+  p. 38 (2 pp.): ok  US$ 0.010  61s  ent 18036 saí 16078
+  p. 41 (1 pp.): ok  US$ 0.006  35s  ent 10826 saí 9248
+  p. 40 (1 pp.): ok  US$ 0.007  48s  ent 11368 saí 12577
+  p. 42 (2 pp.): ok  fronteira: troca 1709 car., notas [1, 2]  US$ 0.011  67s  ent 18134 saí 18650
+  p. 48 (1 pp.): ok  US$ 0.006  34s  ent 10876 saí 8949
+  p. 44 (3 pp.): ok  fronteira: troca 776 car., notas [3, 4]  US$ 0.028  196s  ent 24374 saí 51772
+  p. 46 (2 pp.): FALHOU: o texto mudou demais: de 3830 para 4663 caracteres (texto duplicado ou perdido?)  US$ 0.027  189s  ent 33363 saí 47745
+  p. 49 (1 pp.): ok (2ª tentativa)  US$ 0.015  102s  ent 21871 saí 25457
+  p. 50 (1 pp.): ok  US$ 0.005  28s  ent 10839 saí 6937
+  p. 52 (1 pp.): ok  US$ 0.007  45s  ent 11160 saí 11944
+  p. 53 (1 pp.): ok  US$ 0.005  33s  ent 10734 saí 7385
+  p. 51 (1 pp.): ok  US$ 0.010  67s  ent 11184 saí 17761
+  p. 54 (1 pp.): ok  fronteira: troca 0 car., notas [3, 4]  US$ 0.006  43s  ent 10611 saí 10191
+  p. 57 (1 pp.): ok  fronteira: troca 1 car., notas [1, 2]  US$ 0.007  48s  ent 10714 saí 12360
+  p. 61 (1 pp.): ok  fronteira: troca 2 car., notas [3, 4]  US$ 0.009  62s  ent 10775 saí 15895
+  p. 55 (2 pp.): ok (2ª tentativa)  US$ 0.027  181s  ent 36225 saí 45946
+  p. 58 (3 pp.): ok  US$ 0.021  147s  ent 24622 saí 37406
+  p. 62 (1 pp.): ok  US$ 0.010  71s  ent 10420 saí 18562
+  p. 63 (2 pp.): ok  US$ 0.014  91s  ent 17498 saí 23576
+  p. 68 (3 pp.): ok  US$ 0.024  190s  ent 24609 saí 43918
+  p. 65 (4 pp.): ok (2ª tentativa)  US$ 0.054  382s  ent 61224 saí 96116
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: 1 nota(s) começavam com o número da chamada "(n)": tirado
+>> 44/155 pedaços, 2 falha(s), 14 com fronteira mudada, US$ 0.64, 73.7 min de chamadas; tokens {'input_tokens': 848123, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 1119883}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

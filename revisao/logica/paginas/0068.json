@@ -1,0 +1,29 @@
+{
+ "pagina": 68,
+ "paginas": [
+  68,
+  69,
+  70
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (ffirina, Hacou, naterialistas, moriges/moríaes, Sfacrt, Ltriumphantemente, sensualismo etc.), pontuação e «» soltos, numeração dos parágrafos (83., 84., 85., não 89./S4.), \"(')\" e \"|\" removidos, \"ARTIGO III\" restaurado (faltava após pb 70), latim e itálicos conforme a imagem.\nFronteira: mantive a nota (1) como uma só `<note>` do p. 68 à p. 70 (texto de Mill, Spencer, Bacon fica nela); o `<pb 69>` interno marca a continuação; §4 e §5 permanecem como corpo, como no pipeline. Não movi texto entre corpo e nota, mas a imagem sugere que o corpo da p. 68 (\"Este dois principios…\", \"a) John Stuart Mill…\") pode estar em letra normal, e não em nota: dúvida não resolvida.\nDúvidas: se o texto em letra miúda da p. 69 (após o filete, \"depende…\") e o da p. 70 (abaixo do filete, \"dos syllogismos…\", \"c) Bacon…\") são de fato nota ou corpo; a ordem de §4 em relação à continuação da nota na p. 69 também ficou como no pipeline.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (ffirina, Hacou, naterialistas, moriges/moríaes, Sfacrt, Ltriumphantemente, sensualismo etc.), pontuação e «» soltos, numeração dos parágrafos (83., 84., 85., não 89./S4.), \"(')\" e \"|\" removidos, \"ARTIGO III\" restaurado (faltava após pb 70), latim e itálicos conforme a imagem.\nFronteira: mantive a nota (1) como uma só `<note>` do p. 68 à p. 70 (texto de Mill, Spencer, Bacon fica nela); o `<pb 69>` interno marca a continuação; §4 e §5 permanecem como corpo, como no pipeline. Não movi texto entre corpo e nota, mas a imagem sugere que o corpo da p. 68 (\"Este dois principios…\", \"a) John Stuart Mill…\") pode estar em letra normal, e não em nota: dúvida não resolvida.\nDúvidas: se o texto em letra miúda da p. 69 (após o filete, \"depende…\") e o da p. 70 (abaixo do filete, \"dos syllogismos…\", \"c) Bacon…\") são de fato nota ou corpo; a ordem de §4 em relação à continuação da nota na p. 69 também ficou como no pipeline.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0244199,
+ "duration_ms": 189680,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24609,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 43918
+ },
+ "reparo": false
+}

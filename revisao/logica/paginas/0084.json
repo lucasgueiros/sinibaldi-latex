@@ -1,0 +1,28 @@
+{
+ "pagina": 84,
+ "paginas": [
+  84,
+  85
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (inaior→maior, disjunetivo, contiecer→conhecer, \"Syllogismo\" com \"SyMogismo\", \"tam-bem\" juntado, \"Séparadamente\" minúsculo), pontuação e ruído removidos (\". .\", \"|\", \"O.\" no lugar da chamada \"(²)\").\nFronteira: as notas n84-1 e n84-2 estavam anexadas ao fim de t99.p1; movi n84-1 para a chamada \"(1)\" em t98.p5 (após \"proposições\") e n84-2 para a chamada \"(2)\" em t99 (após \"» \"), mantendo o `<pb n=\"85\"/>` interno da nota n84-2 e o texto \"Mas o syllogismo…\"/\"Todavia…\"/\"O syllogismo condicional…\" dentro dela, pois a imagem mostra essa área como notas (abaixo do filete, continuando na p. 85).\nDúvidas: \"Tertul-\" fica no fim do trecho (a sequência é do trecho seguinte); asterisco em \"syllogismo*\" e \"da condicionado\" (p. 84) mantidos como impressos; uso de itálico em \"A\" (nota 1) e em alguns trechos de exemplos seguem a leitura mais provável.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (inaior→maior, disjunetivo, contiecer→conhecer, \"Syllogismo\" com \"SyMogismo\", \"tam-bem\" juntado, \"Séparadamente\" minúsculo), pontuação e ruído removidos (\". .\", \"|\", \"O.\" no lugar da chamada \"(²)\").\nFronteira: as notas n84-1 e n84-2 estavam anexadas ao fim de t99.p1; movi n84-1 para a chamada \"(1)\" em t98.p5 (após \"proposições\") e n84-2 para a chamada \"(2)\" em t99 (após \"» \"), mantendo o `<pb n=\"85\"/>` interno da nota n84-2 e o texto \"Mas o syllogismo…\"/\"Todavia…\"/\"O syllogismo condicional…\" dentro dela, pois a imagem mostra essa área como notas (abaixo do filete, continuando na p. 85).\nDúvidas: \"Tertul-\" fica no fim do trecho (a sequência é do trecho seguinte); asterisco em \"syllogismo*\" e \"da condicionado\" (p. 84) mantidos como impressos; uso de itálico em \"A\" (nota 1) e em alguns trechos de exemplos seguem a leitura mais provável.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.016694,
+ "duration_ms": 114541,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18495,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 29689
+ },
+ "reparo": false
+}

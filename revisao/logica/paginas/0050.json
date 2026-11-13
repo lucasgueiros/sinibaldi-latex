@@ -1,0 +1,27 @@
+{
+ "pagina": 50,
+ "paginas": [
+  50
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (synthelico, fdlso, €, intellizencia, Stonvem, pretécado, veflexo, inLlelligencia, iuclue, reffectir, rellexão, sux, aclo, au, juízo, div ide-se, pronunciarià), pontuação e aspas espúrias; \"Monáego\" → \"Mondego\". Ortografia da edição mantida (conveniecia, nao→não ok).\nFronteira: nota 1 movida de §4 para a chamada (1) no §2 (após \"não é limpida\"); nota n50-3 renomeada n50-2 e movida para a chamada (2) no §4 (após \"homem\"), com os \"(1)\"/\"(2)\" literais removidos; o §5 (p. 50) fica sem nota, pois a nota que tinha ali era a (2).\nDúvidas: \"ex. o\" termina a p. 50 e continua na p. 51 (fora deste trecho); leitura de \"Mondego\" e do sinal após \"sensitivo »\" conferida só pela imagem, sem certeza absoluta.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (synthelico, fdlso, €, intellizencia, Stonvem, pretécado, veflexo, inLlelligencia, iuclue, reffectir, rellexão, sux, aclo, au, juízo, div ide-se, pronunciarià), pontuação e aspas espúrias; \"Monáego\" → \"Mondego\". Ortografia da edição mantida (conveniecia, nao→não ok).\nFronteira: nota 1 movida de §4 para a chamada (1) no §2 (após \"não é limpida\"); nota n50-3 renomeada n50-2 e movida para a chamada (2) no §4 (após \"homem\"), com os \"(1)\"/\"(2)\" literais removidos; o §5 (p. 50) fica sem nota, pois a nota que tinha ali era a (2).\nDúvidas: \"ex. o\" termina a p. 50 e continua na p. 51 (fora deste trecho); leitura de \"Mondego\" e do sinal após \"sensitivo »\" conferida só pela imagem, sem certeza absoluta.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0045524,
+ "duration_ms": 27964,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10839,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6937
+ },
+ "reparo": false
+}

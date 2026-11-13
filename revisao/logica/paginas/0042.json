@@ -1,0 +1,56 @@
+{
+ "pagina": 42,
+ "paginas": [
+  42,
+  43
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3588,
+   1863
+  ],
+  "notas": [
+   1552,
+   3261
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 1709
+ },
+ "notas": "Erros corrigidos: OCR (Supposicato, accepcüo, Nào, iniroduzir, Jão Ouve, Ampliação/dmpliação, bemaveníurados, creataras, vestriccito, oppóoe, aquelle/aguelle, 9.)→2.), anpellado, bumana, formaliente, \"«\" espúrio, \"&amp;\"→\"a\", \"pre-sente\" e similares) e formatação itálica.\nFronteira: p. 42 — nota (1) estava solta como <p> no corpo (p4); criei <note n=\"1\" xml:id=\"n42-1\"> no ponto da chamada após \"uma coisa\", com todo o texto do rodapé da p. 42 (sem \"(1)\"), e removi o parágrafo p4. p. 42/43 — nota (2) já estava correta e inteira, com a continuação na p. 43 dentro dela (alerta do pipeline falso; mantida).\nDúvidas: negrito/itálico pontuais (\"não\" em \"e não materialmente\", \"Deus\", \"não ouve\"), e se \"ex.\" e \"vêem\" têm formatação exata como na imagem; mantive a leitura mais provável.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3588,
+     1863
+    ],
+    "notas": [
+     1552,
+     3261
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 1709
+   },
+   "notas": "Erros corrigidos: OCR (Supposicato, accepcüo, Nào, iniroduzir, Jão Ouve, Ampliação/dmpliação, bemaveníurados, creataras, vestriccito, oppóoe, aquelle/aguelle, 9.)→2.), anpellado, bumana, formaliente, \"«\" espúrio, \"&amp;\"→\"a\", \"pre-sente\" e similares) e formatação itálica.\nFronteira: p. 42 — nota (1) estava solta como <p> no corpo (p4); criei <note n=\"1\" xml:id=\"n42-1\"> no ponto da chamada após \"uma coisa\", com todo o texto do rodapé da p. 42 (sem \"(1)\"), e removi o parágrafo p4. p. 42/43 — nota (2) já estava correta e inteira, com a continuação na p. 43 dentro dela (alerta do pipeline falso; mantida).\nDúvidas: negrito/itálico pontuais (\"não\" em \"e não materialmente\", \"Deus\", \"não ouve\"), e se \"ex.\" e \"vêem\" têm formatação exata como na imagem; mantive a leitura mais provável.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0111384,
+ "duration_ms": 66585,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18134,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18650
+ },
+ "reparo": false
+}

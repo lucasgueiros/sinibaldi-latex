@@ -1,0 +1,29 @@
+{
+ "pagina": 102,
+ "paginas": [
+  102,
+  103,
+  104
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (infeiro→inteiro, tellisencia, veage, lodos, efeclivamente, cognoscilivo, nutureza, Stan→Sum., Rouwm→homem, etc.), acentos (á→é, \"£\"→e, \"«\" removido, \"| U\" removido, \"d)\" sem ponto), hífen de a-for-tiori, \"e\" de \"Pedro é homem\", itálicos/negritos dos títulos a)–f) e de \"moral\".\nFronteira corpo/nota: nenhuma alteração; n102-1 fecha no fim da p. 103 e n103-1 fecha no fim da p. 104 (alertas de \"vão\" conferidos e confirmados como notas contínuas). Juntei parágrafos partidos por quebra de linha (t119.p3+p4, t120.p2+p3, e \"com a sua/natureza\" dentro da n103-1). A nota \"(1) A verdade deve encontrar-se…\" da p. 104 começa fora deste trecho e não foi copiada.\nDúvidas: itálicos de palavras isoladas (\"se compõe\", \"se divide\", \"inteiro\", \"juizo\" na p. 103) e a leitura de \"homem.\" / \"a nossa\" minúsculo foram feitos pela imagem, mas podem estar imprecisos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (infeiro→inteiro, tellisencia, veage, lodos, efeclivamente, cognoscilivo, nutureza, Stan→Sum., Rouwm→homem, etc.), acentos (á→é, \"£\"→e, \"«\" removido, \"| U\" removido, \"d)\" sem ponto), hífen de a-for-tiori, \"e\" de \"Pedro é homem\", itálicos/negritos dos títulos a)–f) e de \"moral\".\nFronteira corpo/nota: nenhuma alteração; n102-1 fecha no fim da p. 103 e n103-1 fecha no fim da p. 104 (alertas de \"vão\" conferidos e confirmados como notas contínuas). Juntei parágrafos partidos por quebra de linha (t119.p3+p4, t120.p2+p3, e \"com a sua/natureza\" dentro da n103-1). A nota \"(1) A verdade deve encontrar-se…\" da p. 104 começa fora deste trecho e não foi copiada.\nDúvidas: itálicos de palavras isoladas (\"se compõe\", \"se divide\", \"inteiro\", \"juizo\" na p. 103) e a leitura de \"homem.\" / \"a nossa\" minúsculo foram feitos pela imagem, mas podem estar imprecisos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0187787,
+ "duration_ms": 118099,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23417,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 32874
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 91,
+ "paginas": [
+  91
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: ponto espúrio após \"expressão\" removido; OCR de palavras da nota 1 (Dmminosa→luminosa, nà→na, accumwulaczo→accumulação, relações/itálicos, \"sy/ogismo\", \"synéhetico\", \"eeachtsaüo\", \"tdeu\", \"iniuipzo\", \"inducoro\" etc.); \"premissa inaiíor\" restaurado; \"*\" solto no fim da nota e \"Para. que. um\" com pontos espúrios corrigidos. Nenhuma fronteira corpo/nota foi alterada: n91-1 está completa, no ponto certo do corpo, e fecha no fim real da nota na p. 91.\nDúvidas: o texto da p. 91 abaixo do filete curto (\"sempre os phenomenos…\", \"a) Regras…\", \"De resto…\") está depois do ponto em que o fragmento termina, então não foi transcrito; a continuação de n90-1 que aparece no topo da área de notas da p. 91 também fica para o trecho seguinte. Não tive certeza sobre o negrito de \"applicar-se\" e \"logares\" (removido) e sobre \"juízo\" com acento; \"incompleta...\" mantido com reticências como no OCR.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: ponto espúrio após \"expressão\" removido; OCR de palavras da nota 1 (Dmminosa→luminosa, nà→na, accumwulaczo→accumulação, relações/itálicos, \"sy/ogismo\", \"synéhetico\", \"eeachtsaüo\", \"tdeu\", \"iniuipzo\", \"inducoro\" etc.); \"premissa inaiíor\" restaurado; \"*\" solto no fim da nota e \"Para. que. um\" com pontos espúrios corrigidos. Nenhuma fronteira corpo/nota foi alterada: n91-1 está completa, no ponto certo do corpo, e fecha no fim real da nota na p. 91.\nDúvidas: o texto da p. 91 abaixo do filete curto (\"sempre os phenomenos…\", \"a) Regras…\", \"De resto…\") está depois do ponto em que o fragmento termina, então não foi transcrito; a continuação de n90-1 que aparece no topo da área de notas da p. 91 também fica para o trecho seguinte. Não tive certeza sobre o negrito de \"applicar-se\" e \"logares\" (removido) e sobre \"juízo\" com acento; \"incompleta...\" mantido com reticências como no OCR.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.009372199999999999,
+ "duration_ms": 70740,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10037,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 16737
+ },
+ "reparo": false
+}

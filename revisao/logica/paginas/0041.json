@@ -1,0 +1,27 @@
+{
+ "pagina": 41,
+ "paginas": [
+  41
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (exprime/sabio, \"m significação\", \"komen\", \"equédenontins\", \"fermo\", \"signal convencional\", \"tambem\" etc.), hifenização e palavras faltantes; \"(^)\" passou a ser a chamada (1) e o \"(3)\" literal foi removido.\nFronteira: nota 1 movida de d) (p. 41, fim de \"alguns homem\") para c) após \"etc.\"; nota 2 movida do fim de e) (após \"ao ar\") para d) após \"algum homem\"; nota 3 mantida no fim de e) como chamada (3) ao \"ao ar\", com seus parágrafos reunidos em um só <p>. Não houve linha de corpo faltando nem texto de corpo parado no rodapé.\nDúvidas: extensão do negrito dos cabeçalhos c), d), e) (apliquei a expressão inteira, como na imagem); a numeração \"7\" do alerta do pipeline era um erro de OCR das chamadas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (exprime/sabio, \"m significação\", \"komen\", \"equédenontins\", \"fermo\", \"signal convencional\", \"tambem\" etc.), hifenização e palavras faltantes; \"(^)\" passou a ser a chamada (1) e o \"(3)\" literal foi removido.\nFronteira: nota 1 movida de d) (p. 41, fim de \"alguns homem\") para c) após \"etc.\"; nota 2 movida do fim de e) (após \"ao ar\") para d) após \"algum homem\"; nota 3 mantida no fim de e) como chamada (3) ao \"ao ar\", com seus parágrafos reunidos em um só <p>. Não houve linha de corpo faltando nem texto de corpo parado no rodapé.\nDúvidas: extensão do negrito dos cabeçalhos c), d), e) (apliquei a expressão inteira, como na imagem); a numeração \"7\" do alerta do pipeline era um erro de OCR das chamadas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0057066,
+ "duration_ms": 34884,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10826,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9248
+ },
+ "reparo": false
+}

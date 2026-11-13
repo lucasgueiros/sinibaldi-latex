@@ -1,0 +1,61 @@
+{
+ "pagina": 104,
+ "paginas": [
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   4689,
+   1530
+  ],
+  "notas": [
+   16010,
+   19000
+  ],
+  "num_notas": [
+   1,
+   1
+  ],
+  "troca": 2990
+ },
+ "notas": "Principais erros: OCR (l/t, n/u, c/e, \"ß\"-like, dígitos e pontuação), restaurados acentos e a ortografia original; removido lixo do scan (\"mM ^\", \"H . E\", \"Bo do T j-\", \"q a.d.\" unido à nota). Retirado o \"(t)\" literal do corpo, mantido o \".\" após a chamada \"(1)\".\nFronteira: no p. 104 a nota n104-1 continua no p. 105 (alto da área de notas) e termina em \"Dist. 19, q. 5, a. 1).\" — mantida como estava. Movidos do corpo para dentro da nota n104-1 os parágrafos \"Que a verdade se encontre… (por ex., o circulo\" e \"que o amor da verdade… (Filipp., XII, 2)\" (pp. 106), que estão em letra menor sob o filete do p. 106 e continuam no p. 107 (\"é redondo)\"); mantidas em corpo só as partes em letra normal (pp. 105–109 superiores). Confirmada a continuação da nota até o p. 110 (\"causa está contida…\" até \"…necessidade.\"); a nota \"(1) A conclusão…\" do p. 110 não foi copiada (trecho seguinte).\nDúvidas: a linha \"humanidade não se percebe…\" no alto da área de notas do p. 104 é continuação de nota da página 103 (fora do trecho), não incluída. A fronteira do p. 105 (texto \"Note-se…\" a \"mais\") e a ordem exata entre corpo e nota nas pp. 105–106 foram inferidas pelo fluxo da frase e podem exigir conferência.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     4689,
+     1530
+    ],
+    "notas": [
+     16010,
+     19000
+    ],
+    "num_notas": [
+     1,
+     1
+    ],
+    "troca": 2990
+   },
+   "notas": "Principais erros: OCR (l/t, n/u, c/e, \"ß\"-like, dígitos e pontuação), restaurados acentos e a ortografia original; removido lixo do scan (\"mM ^\", \"H . E\", \"Bo do T j-\", \"q a.d.\" unido à nota). Retirado o \"(t)\" literal do corpo, mantido o \".\" após a chamada \"(1)\".\nFronteira: no p. 104 a nota n104-1 continua no p. 105 (alto da área de notas) e termina em \"Dist. 19, q. 5, a. 1).\" — mantida como estava. Movidos do corpo para dentro da nota n104-1 os parágrafos \"Que a verdade se encontre… (por ex., o circulo\" e \"que o amor da verdade… (Filipp., XII, 2)\" (pp. 106), que estão em letra menor sob o filete do p. 106 e continuam no p. 107 (\"é redondo)\"); mantidas em corpo só as partes em letra normal (pp. 105–109 superiores). Confirmada a continuação da nota até o p. 110 (\"causa está contida…\" até \"…necessidade.\"); a nota \"(1) A conclusão…\" do p. 110 não foi copiada (trecho seguinte).\nDúvidas: a linha \"humanidade não se percebe…\" no alto da área de notas do p. 104 é continuação de nota da página 103 (fora do trecho), não incluída. A fronteira do p. 105 (texto \"Note-se…\" a \"mais\") e a ordem exata entre corpo e nota nas pp. 105–106 foram inferidas pelo fluxo da frase e podem exigir conferência.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0358813,
+ "duration_ms": 258461,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 51428,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 61477
+ },
+ "reparo": true
+}

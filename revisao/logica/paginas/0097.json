@@ -1,0 +1,27 @@
+{
+ "pagina": 97,
+ "paginas": [
+  97
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR em palavras (elenco, petição, denunciando, Christianismo, asiaticos, inducção, \"&amp;)\" → \"g)\", \"Cirenlo\", \"Não-cansa\"), hifenização/espaçamento (\"oqueéapenasuma\"), travessão espúrio em d), aspas soltas (p16) e assinatura \"Vol, 1.\" removidas; itálicos e negritos dos títulos a)–h) e dos termos da lista inicial ajustados à imagem; \"move\" e \"corre\" incluídos no itálico das citações da letra e).\nFronteira corpo/nota: nenhuma nota neste fragmento; nenhuma mudança de fronteira feita.\nDúvidas: negrito dos títulos a)–h) acrescentado com base na imagem (o OCR não o marcava); a palavra \"philosophia ;\" manteve o espaço antes do ponto-e-vírgula, como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR em palavras (elenco, petição, denunciando, Christianismo, asiaticos, inducção, \"&amp;)\" → \"g)\", \"Cirenlo\", \"Não-cansa\"), hifenização/espaçamento (\"oqueéapenasuma\"), travessão espúrio em d), aspas soltas (p16) e assinatura \"Vol, 1.\" removidas; itálicos e negritos dos títulos a)–h) e dos termos da lista inicial ajustados à imagem; \"move\" e \"corre\" incluídos no itálico das citações da letra e).\nFronteira corpo/nota: nenhuma nota neste fragmento; nenhuma mudança de fronteira feita.\nDúvidas: negrito dos títulos a)–h) acrescentado com base na imagem (o OCR não o marcava); a palavra \"philosophia ;\" manteve o espaço antes do ponto-e-vírgula, como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0048344,
+ "duration_ms": 29449,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10244,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7620
+ },
+ "reparo": false
+}

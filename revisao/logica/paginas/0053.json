@@ -1,0 +1,27 @@
+{
+ "pagina": 53,
+ "paginas": [
+  53
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (agradavel, bellas, synthetica, \"Em relação é\", \"Quem\"/\"DU.\" espúrios removidos, \"ÁrTIGO Il\"), pontuação, itálicos e negritos dos títulos 55–57 conforme a imagem.\nFronteira corpo/nota: conferida nas duas notas (1 e 2) da página 53; ambas estão no pé da página e corretamente ligadas às chamadas; nenhuma mudança estrutural. O alerta \"(7) ligada à (2)\" é falso: a chamada impressa é (¹) e (²).\nDúvidas: se \"na propria\" e \"a alma humana…\", \"nenhum morto…\", \"os paes…\" estão em itálico na imagem (marquei como itálico); se os títulos 55–57 estão inteiros em negrito (marquei assim).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (agradavel, bellas, synthetica, \"Em relação é\", \"Quem\"/\"DU.\" espúrios removidos, \"ÁrTIGO Il\"), pontuação, itálicos e negritos dos títulos 55–57 conforme a imagem.\nFronteira corpo/nota: conferida nas duas notas (1 e 2) da página 53; ambas estão no pé da página e corretamente ligadas às chamadas; nenhuma mudança estrutural. O alerta \"(7) ligada à (2)\" é falso: a chamada impressa é (¹) e (²).\nDúvidas: se \"na propria\" e \"a alma humana…\", \"nenhum morto…\", \"os paes…\" estão em itálico na imagem (marquei como itálico); se os títulos 55–57 estão inteiros em negrito (marquei assim).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0047659,
+ "duration_ms": 32896,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10734,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7385
+ },
+ "reparo": false
+}

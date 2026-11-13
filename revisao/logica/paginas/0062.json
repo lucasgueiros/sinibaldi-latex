@@ -1,0 +1,27 @@
+{
+ "pagina": 62,
+ "paginas": [
+  62
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (eqnivalencia, allera, Às, Hn, udwiltem, eguivalencia, 7ui0, 1n-, 4mmediatamente, SuUMMARIO), 1º/2º→1.ª/2.ª, acentos, itálicos, marcas espúrias (\"*\", \".\", \"-\", \"O\", \"1\" solto) e \"Raciocinio..\" duplo.\nFronteira, p. 62: nota 1 saiu do fim de t74.p5 e foi para t73.p5, logo após \"equivalencia\", onde está a chamada \"(1)\" do corpo; o \"(1)\" literal foi apagado.\nDúvidas: \"desconveniencia\" já vem inteiro no fragmento, embora a imagem mostre \"desconve-\" com \"niencia\" na página seguinte (mantido); a quebra entre t73.p3 e t73.p4 é de linha na imagem, mas foi mantida; \"Regra\" em versalete e \"Raciocinio, seus elementos…\" em itálico (a imagem mostra negrito-itálico) são leituras prováveis.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (eqnivalencia, allera, Às, Hn, udwiltem, eguivalencia, 7ui0, 1n-, 4mmediatamente, SuUMMARIO), 1º/2º→1.ª/2.ª, acentos, itálicos, marcas espúrias (\"*\", \".\", \"-\", \"O\", \"1\" solto) e \"Raciocinio..\" duplo.\nFronteira, p. 62: nota 1 saiu do fim de t74.p5 e foi para t73.p5, logo após \"equivalencia\", onde está a chamada \"(1)\" do corpo; o \"(1)\" literal foi apagado.\nDúvidas: \"desconveniencia\" já vem inteiro no fragmento, embora a imagem mostre \"desconve-\" com \"niencia\" na página seguinte (mantido); a quebra entre t73.p3 e t73.p4 é de linha na imagem, mas foi mantida; \"Regra\" em versalete e \"Raciocinio, seus elementos…\" em itálico (a imagem mostra negrito-itálico) são leituras prováveis.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.010322999999999999,
+ "duration_ms": 71493,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10420,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18562
+ },
+ "reparo": false
+}

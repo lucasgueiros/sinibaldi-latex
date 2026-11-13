@@ -1,0 +1,55 @@
+{
+ "pagina": 61,
+ "paginas": [
+  61
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1308,
+   1310
+  ],
+  "notas": [
+   1109,
+   1095
+  ],
+  "num_notas": [
+   3,
+   4
+  ],
+  "troca": 2
+ },
+ "notas": "Erros corrigidos: OCR em quase todas as palavras (t/l, n/u, \"universaes\", \"particulares\", \"reducção\", \"proposições\", \"quantidade\", \"torna\"), \"()\" de chamadas removidos, italicos ajustados, \"!\" e \"5\"/\"4)\" espúrios apagados, e as notas (3) e (4), que estavam coladas, foram separadas.\nFronteiras (p. 61): nota 1 saiu do fim de 71 b) e foi para o ponto da chamada (1) em 71 a), após \"« algum sabio é homem »\"; nota 2 saiu do fim de 71 c) e foi para o fim de 71 b), após \"« algum mineral não é planta »\"; nota 3 agora fica só com \"A conversão contraposta…\" no fim de 71 c); o trecho \"A particula negativa «não»…\" virou nota 4 (xml:id n61-4) no ponto da chamada (4) em 72.\nDúvidas: \"dá á proposição\" e \"ao que tinha\" (na imagem, lidos como \"da á\" e \"ào que linha\"); \"de affirmativa\" (itálico incerto); \"particularidade\" pode ser negrito-itálico na imagem; \"A'\" de \"A' conversão\" mantido como na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1308,
+     1310
+    ],
+    "notas": [
+     1109,
+     1095
+    ],
+    "num_notas": [
+     3,
+     4
+    ],
+    "troca": 2
+   },
+   "notas": "Erros corrigidos: OCR em quase todas as palavras (t/l, n/u, \"universaes\", \"particulares\", \"reducção\", \"proposições\", \"quantidade\", \"torna\"), \"()\" de chamadas removidos, italicos ajustados, \"!\" e \"5\"/\"4)\" espúrios apagados, e as notas (3) e (4), que estavam coladas, foram separadas.\nFronteiras (p. 61): nota 1 saiu do fim de 71 b) e foi para o ponto da chamada (1) em 71 a), após \"« algum sabio é homem »\"; nota 2 saiu do fim de 71 c) e foi para o fim de 71 b), após \"« algum mineral não é planta »\"; nota 3 agora fica só com \"A conversão contraposta…\" no fim de 71 c); o trecho \"A particula negativa «não»…\" virou nota 4 (xml:id n61-4) no ponto da chamada (4) em 72.\nDúvidas: \"dá á proposição\" e \"ao que tinha\" (na imagem, lidos como \"da á\" e \"ào que linha\"); \"de affirmativa\" (itálico incerto); \"particularidade\" pode ser negrito-itálico na imagem; \"A'\" de \"A' conversão\" mantido como na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.009025,
+ "duration_ms": 61921,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10775,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 15895
+ },
+ "reparo": false
+}

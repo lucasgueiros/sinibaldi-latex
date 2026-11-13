@@ -1,0 +1,58 @@
+{
+ "pagina": 44,
+ "paginas": [
+  44,
+  45,
+  46,
+  47
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   5459,
+   4663
+  ],
+  "notas": [
+   6140,
+   6896
+  ],
+  "num_notas": [
+   6,
+   7
+  ],
+  "troca": 756
+ },
+ "notas": "Principais erros: OCR de letras (fermo/termo, cowmui, Lodo, metaphasica, distinetas etc.), acentos, hifenizações de fim de linha, pontuação, romanos (II/III), \"|\" espúrio e marcas de nota \"(n)\" literais; linhas do corpo fundidas em parágrafos inteiros (II, III, IV) e um trecho do corpo (p. 45, \"Devemos advertir…\") restaurado na sequência.\nFronteiras: p. 44 — a nota (1) ficou só com o texto de \"A definição serve…\"; \"Relativamente…\" virou nota 2 (após \"creados\") e \"Acerca da definição real…\" nota 3 (após \"etc.\"); p. 45 — \"reza das coisas… resolve a coisa nos seus varios elementos\" saiu do corpo e foi para a nota 3 de p. 44 (pb 45 interno); removida nota espúria n44-1-2 com \"ponatur» In VII Met.\" (que é corpo de p. 45); p. 45 nota 1 mantida, sem o \"Isto é evidente\" que foi para p. 46 (nota 1, após \"clara\"); p. 46 — nota \"Sendo a definição…\" movida de \"clara\" para \"breve\" (nota 2) e unida à continuação de p. 47 (\"trar os elementos…\"), que era nota separada n46-3; p. 47 nota 1 mantida.\nDúvidas: \"natu-|reza\" e \"encon-|trar\" ficaram com pb no meio da palavra (hífen de quebra de página removido); grafia de \"Deus\" (negrito/versalete) inferida; fragmento termina em \"(tal é\" como no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     5459,
+     4663
+    ],
+    "notas": [
+     6140,
+     6896
+    ],
+    "num_notas": [
+     6,
+     7
+    ],
+    "troca": 756
+   },
+   "notas": "Principais erros: OCR de letras (fermo/termo, cowmui, Lodo, metaphasica, distinetas etc.), acentos, hifenizações de fim de linha, pontuação, romanos (II/III), \"|\" espúrio e marcas de nota \"(n)\" literais; linhas do corpo fundidas em parágrafos inteiros (II, III, IV) e um trecho do corpo (p. 45, \"Devemos advertir…\") restaurado na sequência.\nFronteiras: p. 44 — a nota (1) ficou só com o texto de \"A definição serve…\"; \"Relativamente…\" virou nota 2 (após \"creados\") e \"Acerca da definição real…\" nota 3 (após \"etc.\"); p. 45 — \"reza das coisas… resolve a coisa nos seus varios elementos\" saiu do corpo e foi para a nota 3 de p. 44 (pb 45 interno); removida nota espúria n44-1-2 com \"ponatur» In VII Met.\" (que é corpo de p. 45); p. 45 nota 1 mantida, sem o \"Isto é evidente\" que foi para p. 46 (nota 1, após \"clara\"); p. 46 — nota \"Sendo a definição…\" movida de \"clara\" para \"breve\" (nota 2) e unida à continuação de p. 47 (\"trar os elementos…\"), que era nota separada n46-3; p. 47 nota 1 mantida.\nDúvidas: \"natu-|reza\" e \"encon-|trar\" ficaram com pb no meio da palavra (hífen de quebra de página removido); grafia de \"Deus\" (negrito/versalete) inferida; fragmento termina em \"(tal é\" como no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.028205300000000003,
+ "duration_ms": 193260,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32063,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 49998
+ },
+ "reparo": false
+}

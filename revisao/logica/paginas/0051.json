@@ -1,0 +1,27 @@
+{
+ "pagina": 51,
+ "paginas": [
+  51
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em muitas palavras (synihetico, saóio, Lumbem, conbingeniemenio, metaplysico, repu;ma, \"20\" por \"ao\", \"|\" espúrio), numeração da tese 59 → 52, lixo final da nota 2 (segundo parágrafo) removido, itálicos e negritos ajustados à imagem.\nFronteira: a nota 2 estava anexada ao fim do §53 (pb 51); foi movida para a chamada \"(2)\" em \"a nossa alma é immortal\", onde a imagem mostra o sinal. A nota 1 está correta e inclui, em letra pequena, os parágrafos sobre Kant e \"É evidente\".\nDúvidas: mantive a `<head>` \"CAPITULO SEGUNDO\" (parece cabeçalho corrente, mas é estrutura), o atributo n=\"59\" da tese (apesar do rótulo 52) e o negrito de \"Juizo immediato e mediato\" (leitura da imagem incerta).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em muitas palavras (synihetico, saóio, Lumbem, conbingeniemenio, metaplysico, repu;ma, \"20\" por \"ao\", \"|\" espúrio), numeração da tese 59 → 52, lixo final da nota 2 (segundo parágrafo) removido, itálicos e negritos ajustados à imagem.\nFronteira: a nota 2 estava anexada ao fim do §53 (pb 51); foi movida para a chamada \"(2)\" em \"a nossa alma é immortal\", onde a imagem mostra o sinal. A nota 1 está correta e inclui, em letra pequena, os parágrafos sobre Kant e \"É evidente\".\nDúvidas: mantive a `<head>` \"CAPITULO SEGUNDO\" (parece cabeçalho corrente, mas é estrutura), o atributo n=\"59\" da tese (apesar do rótulo 52) e o negrito de \"Juizo immediato e mediato\" (leitura da imagem incerta).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0099989,
+ "duration_ms": 67403,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11184,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17761
+ },
+ "reparo": false
+}

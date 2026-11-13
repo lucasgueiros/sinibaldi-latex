@@ -1,0 +1,27 @@
+{
+ "pagina": 37,
+ "paginas": [
+  37
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de palavras (aléa→á, \"Acção É O\"→\"é o\", erradamene, alstraeqüo, remes, nhjectivos, unécersal, couvtem, ditferencas, differengas), itálicos/negritos fora do lugar (virtude, sciencia, soffre, Pedro, está, Estado/disposição, Habito) e hifenização \"ma-/gistrado\" junta; reordenei os rótulos \"IVª…Xª categ.\" para a ordem de leitura da imagem e removi o \"(1)\" literal da nota 1, que continua na mesma posição, após \"togado\".\nFronteira corpo/nota: não alterei; a nota 1 (p. 37) começa e termina na própria página, sem continuação nem texto de corpo no rodapé.\nDúvidas: mantive a separação dos parágrafos como veio (\"Quandocação .\" com espaço antes do ponto, como impresso); a forma \"1.as\" de \"(1.as differenças intermedias)\" foi lida na imagem e pode estar ligeiramente diferente.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de palavras (aléa→á, \"Acção É O\"→\"é o\", erradamene, alstraeqüo, remes, nhjectivos, unécersal, couvtem, ditferencas, differengas), itálicos/negritos fora do lugar (virtude, sciencia, soffre, Pedro, está, Estado/disposição, Habito) e hifenização \"ma-/gistrado\" junta; reordenei os rótulos \"IVª…Xª categ.\" para a ordem de leitura da imagem e removi o \"(1)\" literal da nota 1, que continua na mesma posição, após \"togado\".\nFronteira corpo/nota: não alterei; a nota 1 (p. 37) começa e termina na própria página, sem continuação nem texto de corpo no rodapé.\nDúvidas: mantive a separação dos parágrafos como veio (\"Quandocação .\" com espaço antes do ponto, como impresso); a forma \"1.as\" de \"(1.as differenças intermedias)\" foi lida na imagem e pode estar ligeiramente diferente.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0076176,
+ "duration_ms": 50397,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10566,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13122
+ },
+ "reparo": false
+}

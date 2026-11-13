@@ -1,0 +1,14 @@
+>> haiku: 3 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 1 (4 pp.): ok  fronteira: troca 1517 car., notas [3, 3]  US$ 0.027  173s  ent 31758 saí 46851
+  p. 71 (1 pp.): FALHOU: o texto mudou demais: de 2574 para 2077 caracteres (texto duplicado ou perdido?) Foi omitido o trecho de ~75 palavras que começa em “é reconhecida por sabios nolaveis e insuspeitos Leibnitz escreve N…”: se ele é a continuação de uma nota que começou numa página anterior, envolva-o em <note place="foot" type="continuacao">…</note> no lugar em que está, em vez de apagá-lo.  US$ 0.027  184s  ent 33121 saí 47137
+  p. 13 (5 pp.): ok  fronteira: troca 0 car., notas [6, 7]  US$ 0.035  232s  ent 37719 saí 62397
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: 1 nota(s) começavam com o número da chamada "(n)": tirado
+>> 57/131 pedaços, 1 falha(s), 18 com fronteira mudada, US$ 0.95, 106.8 min de chamadas; tokens {'input_tokens': 1189168, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 1654556}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> haiku: 1 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 104 (7 pp.): ok  fronteira: troca 2990 car., notas [1, 1]  US$ 0.036  258s  ent 51428 saí 61477
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: 1 nota(s) começavam com o número da chamada "(n)": tirado
+>> 58/131 pedaços, 1 falha(s), 19 com fronteira mudada, US$ 0.98, 111.1 min de chamadas; tokens {'input_tokens': 1240596, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 1716033}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

@@ -1,0 +1,57 @@
+{
+ "pagina": 110,
+ "paginas": [
+  110,
+  111,
+  112
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   767,
+   759
+  ],
+  "notas": [
+   6161,
+   6135
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 0
+ },
+ "notas": "Principais erros corrigidos: OCR de palavras (iden, uu, reutidáde, fortnado, necessariunente, semalhignga, emitlir, imperfeitaomente, Juizo→juizo, \"pex\", \"E\" e \"/\" espúrios), pontuação e hifens; itálicos ajustados (em concreto, na realidade, por accidente).\nFronteira corpo/nota: a nota (1) da p. 110 agora fecha após \"…nem de um modo imperfeito.\" (p. 112); o trecho \"(1) A egualdade…\" da p. 112, que estava dentro da n110-1, foi separado como nota n112-1 no ponto da chamada \"indivisivel (1)\" do corpo (p. 112), e o \"(*)\" foi removido. O rodapé da p. 110 antes do \"(1)\" (continuação da nota da p. 109) está fora do trecho e não foi transcrito.\nDúvidas: a nota n112-1 foi fechada no fim do trecho, pois continua na p. 113; se a pipeline não juntar, verificar. Não consegui confirmar com certeza se \"juizo\" e \"mesmo objecto\" estão em itálico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     767,
+     759
+    ],
+    "notas": [
+     6161,
+     6135
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 0
+   },
+   "notas": "Principais erros corrigidos: OCR de palavras (iden, uu, reutidáde, fortnado, necessariunente, semalhignga, emitlir, imperfeitaomente, Juizo→juizo, \"pex\", \"E\" e \"/\" espúrios), pontuação e hifens; itálicos ajustados (em concreto, na realidade, por accidente).\nFronteira corpo/nota: a nota (1) da p. 110 agora fecha após \"…nem de um modo imperfeito.\" (p. 112); o trecho \"(1) A egualdade…\" da p. 112, que estava dentro da n110-1, foi separado como nota n112-1 no ponto da chamada \"indivisivel (1)\" do corpo (p. 112), e o \"(*)\" foi removido. O rodapé da p. 110 antes do \"(1)\" (continuação da nota da p. 109) está fora do trecho e não foi transcrito.\nDúvidas: a nota n112-1 foi fechada no fim do trecho, pois continua na p. 113; se a pipeline não juntar, verificar. Não consegui confirmar com certeza se \"juizo\" e \"mesmo objecto\" estão em itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0207507,
+ "duration_ms": 137294,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23022,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 36897
+ },
+ "reparo": false
+}

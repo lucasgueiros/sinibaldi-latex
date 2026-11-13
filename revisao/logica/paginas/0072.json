@@ -1,0 +1,28 @@
+{
+ "pagina": 72,
+ "paginas": [
+  72,
+  73
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (medio/termo, Napoleão, Regra II, acentos e itálicos conforme a imagem), cabeçalho \"72 LOGICA — SECÇÃO PRIMEIRA\" removido do corpo, numeração das regras e chamadas de nota (\"1ª)\", \"2ª)\"), aspas e sinais espúrios; hífens/palavras soltas (\"2\" e negrito em \"Camões\", \";\" antes de \"Logo\") eliminados.\nFronteira corpo/nota: mantida como estava (nota 1 na p.72, nota 2 da p.72 com continuação na p.73 no ponto \"convenha|com o medio\"); nenhuma mudança estrutural.\nDúvidas: os `<head>` \"CAPITULO TERCEIRO\" / \"RACIOCINIO E ARGUMENTAÇÃO — 73\" são o cabeçalho corrente da p.73 e o `div cap-6` pode ser espúrio; deixei a estrutura intacta conforme a regra, mas convém revisar. Também incerta a grafia \"Lusíadas\"/\"Lusiadas\" e os pontos da linha \"Logo . . .\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (medio/termo, Napoleão, Regra II, acentos e itálicos conforme a imagem), cabeçalho \"72 LOGICA — SECÇÃO PRIMEIRA\" removido do corpo, numeração das regras e chamadas de nota (\"1ª)\", \"2ª)\"), aspas e sinais espúrios; hífens/palavras soltas (\"2\" e negrito em \"Camões\", \";\" antes de \"Logo\") eliminados.\nFronteira corpo/nota: mantida como estava (nota 1 na p.72, nota 2 da p.72 com continuação na p.73 no ponto \"convenha|com o medio\"); nenhuma mudança estrutural.\nDúvidas: os `<head>` \"CAPITULO TERCEIRO\" / \"RACIOCINIO E ARGUMENTAÇÃO — 73\" são o cabeçalho corrente da p.73 e o `div cap-6` pode ser espúrio; deixei a estrutura intacta conforme a regra, mas convém revisar. Também incerta a grafia \"Lusíadas\"/\"Lusiadas\" e os pontos da linha \"Logo . . .\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0104002,
+ "duration_ms": 64590,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17082,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17384
+ },
+ "reparo": false
+}
