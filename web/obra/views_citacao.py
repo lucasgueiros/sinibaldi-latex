@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.utils.text import slugify
 
 from . import citacao, leitura
-from .models import Edicao, No, Volume
+from .models import Edicao, No, Volume, edicao_visivel_ou_404
 
 TIPOS = {
     "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -38,20 +38,22 @@ def montar(request, ed, no, dados):
     bloco = (dados.get("bloco") or "").strip()
     if trecho and bloco.isdigit():
         url += f"#b{bloco}"
-    nova = ed.tipo == Edicao.NOVA
+    nova = ed.derivada
+    nota = {Edicao.NOVA: "Edição digital adaptada", Edicao.ATUALIZADA: "Edição digital atualizada"}.get(ed.tipo, "")
+    sufixo = {Edicao.NOVA: "n", Edicao.ATUALIZADA: "a"}.get(ed.tipo, "")
     ano = vol.ano if vol else None
     num = vol.numero if vol else None
     return citacao.Citacao(
         ano=ano, volume=num, titulo_volume=vol.titulo if vol else "",
         edicao_txt="" if nova else citacao.EDICAO_VOLUME.get(num or 0, ""),
-        nota_edicao="Edição digital adaptada" if nova else "",
+        nota_edicao=nota,
         pi=pi, pf=pf, trecho=trecho, url=url, acesso=citacao.data_acesso(timezone.localdate()),
-        chave=re.sub(r"[^a-z0-9]", "", f"sinibaldi{ano or ''}v{num or ''}{'n' if nova else ''}"),
+        chave=re.sub(r"[^a-z0-9]", "", f"sinibaldi{ano or ''}v{num or ''}{sufixo}"),
     )
 
 
 def citar(request, slug, xml_id):
-    ed = get_object_or_404(Edicao, slug=slug)
+    ed = edicao_visivel_ou_404(slug, request.user)
     no = get_object_or_404(No, edicao=ed, xml_id=xml_id)
     dados = request.POST if request.method == "POST" else request.GET
     base = {"edicao": ed, "no": no, "titulo_no": leitura.titulo_do_no(no)}

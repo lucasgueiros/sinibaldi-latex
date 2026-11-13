@@ -3,6 +3,13 @@
 {% block content %}
 {% include "includes/page_header.html" with eyebrow="SUMÁRIO" titulo=edicao.titulo intro=edicao.descricao %}
 <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+  {% if not edicao.publica %}<p class="mensagem mb-6 text-sm" role="note">Esta edição está <strong>oculta</strong>: não aparece na parte pública; só editores a veem.</p>{% endif %}
+  {% if edicao.componentes %}
+  <section class="mb-6" aria-labelledby="componentes">
+    <h2 id="componentes" class="font-display text-xs tracking-[0.12em] text-ink/70">O QUE COMPÕE ESTA EDIÇÃO</h2>
+    <ul class="mt-2 list-disc pl-5">{% for c in edicao.componentes %}<li>{{ c }}</li>{% endfor %}</ul>
+  </section>
+  {% endif %}
   <form method="get" action="{% url 'obra:busca' edicao.slug %}" class="flex gap-2" role="search">
     <label for="q" class="sr-only">Buscar no texto</label>
     <input id="q" name="q" type="search" class="campo" placeholder="Buscar no texto desta edição…" required>

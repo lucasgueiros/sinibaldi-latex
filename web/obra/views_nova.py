@@ -1,8 +1,11 @@
-"""Telas da NOVA EDIÇÃO: estrutura (árvore, mover, suprimir, ordem das partes), editor de trecho
-paginado (texto de 1916 + scan à esquerda) e pendências de sincronização com a 1916.
+"""Telas das edições DERIVADAS da 1916 (atualizada e nova): estrutura (árvore; na nova também mover,
+suprimir e ordem das partes), editor de trecho paginado (texto de 1916 + scan à esquerda) e
+pendências de sincronização com a 1916.
 
-Todas exigem login + `obra.change_bloco` e operam SOMENTE na edição `nova` (`_nova()`); os serviços
-filtram por edição, de modo que ids de blocos da 1916 são recusados."""
+Todas exigem login + `obra.change_bloco`, recebem o `slug` da edição e operam SOMENTE nela
+(`_nova(slug)`: 404 se não for derivada); os serviços filtram por edição, de modo que ids de blocos
+da 1916 são recusados. As operações estruturais exigem `edicao.reorganiza` (só a nova). No contexto
+dos templates a edição derivada continua se chamando `nova`."""
 import time
 from bisect import bisect_left
 from math import ceil
@@ -22,13 +25,22 @@ from .views_edicao import (_json_corpo, _fmt_data, blocos_do_conteudo, esquema_p
                            nome_de, render_area)
 
 SLUG_NOVA = "nova"
+SLUG_ATUALIZADA = "atualizada"
 POR_TELA = 40          # blocos por tela do editor
 POR_LISTA = 25         # itens por página nas pendências
 PROCEDENCIA_ROTULO = dict(Bloco.PROCEDENCIAS)
 
 
-def _nova():
-    return get_object_or_404(Edicao, slug=SLUG_NOVA, tipo=Edicao.NOVA)
+def _nova(slug):
+    return get_object_or_404(Edicao, slug=slug, tipo__in=Edicao.DERIVADAS)
+
+
+def _reorganizavel(slug):
+    """A edição derivada, se ela reorganiza a estrutura; senão 404 (a atualizada segue a 1916)."""
+    ed = _nova(slug)
+    if not ed.reorganiza:
+        raise Http404("Esta edição segue a estrutura da 1916.")
+    return ed
 
 
 def _erro_json(msg, status=400):
@@ -85,8 +97,8 @@ def _itens_raiz(arv, trechos):
 
 # ================================================================== estrutura
 @exige_edicao()
-def estrutura(request):
-    nova = _nova()
+def estrutura(request, slug):
+    nova = _nova(slug)
     arv, ordens = _arvore_enriquecida(nova)
     foco = request.GET.get("foco", "")
     alvo = arv.por_id.get(foco)
@@ -95,7 +107,7 @@ def estrutura(request):
         alvo = alvo.pai_obj
     trechos = _trechos_soltos(nova, arv, ordens)
     itens = _itens_raiz(arv, trechos)
-    plano = partes.plano_partes(nova)
+    plano = partes.plano_partes(nova)  # o painel de partes só aparece na nova (edicao.reorganiza)
     painel = []
     for r, nome in enumerate(partes.ORDEM_PARTES):
         achadas = plano["identificadas"].get(r, [])
@@ -118,8 +130,8 @@ def estrutura(request):
         "ordem_alvo": partes.ORDEM_PARTES})
 
 
-def _redirect_estrutura(xml_id=None):
-    url = reverse("obra:nova_estrutura")
+def _redirect_estrutura(nova, xml_id=None):
+    url = reverse("obra:nova_estrutura", args=[nova.slug])
     if xml_id:
         url += f"?foco={xml_id}#no-{xml_id}"
     return redirect(url)
@@ -131,8 +143,8 @@ def _no_ou_404(nova, xml_id):
 
 @exige_edicao()
 @require_POST
-def aplicar_ordem(request):
-    nova = _nova()
+def aplicar_ordem(request, slug):
+    nova = _reorganizavel(slug)
     t0 = time.perf_counter()
     try:
         servicos_nova.aplicar_ordem_partes(nova, autor=request.user)
@@ -141,14 +153,14 @@ def aplicar_ordem(request):
     else:
         messages.success(request, f"Partes reordenadas ({time.perf_counter() - t0:.1f} s): "
                                   + " › ".join(partes.ORDEM_PARTES) + ".")
-    return _redirect_estrutura()
+    return _redirect_estrutura(nova)
 
 
 @exige_edicao()
 @require_POST
-def acao_no(request, xml_id):
+def acao_no(request, slug, xml_id):
     """subir | descer | suprimir | restaurar (POST de formulário; volta à mesma posição da árvore)."""
-    nova = _nova()
+    nova = _reorganizavel(slug)
     no = _no_ou_404(nova, xml_id)
     acao = request.POST.get("acao", "")
     try:
@@ -161,7 +173,7 @@ def acao_no(request, xml_id):
                 servicos.mover_no(no, depois_de=irmaos[i + 1], autor=request.user)
             else:
                 messages.info(request, "O nó já está no limite.")
-                return _redirect_estrutura(xml_id)
+                return _redirect_estrutura(nova, xml_id)
             messages.success(request, f"Movido: {arvore_titulo(no)}.")
         elif acao in ("suprimir", "restaurar"):
             n = servicos_nova.definir_supressao(
@@ -172,7 +184,7 @@ def acao_no(request, xml_id):
             messages.error(request, "Ação desconhecida.")
     except servicos.ErroOperacao as e:
         messages.error(request, str(e))
-    return _redirect_estrutura(xml_id)
+    return _redirect_estrutura(nova, xml_id)
 
 
 def arvore_titulo(no):
@@ -181,9 +193,9 @@ def arvore_titulo(no):
 
 @exige_edicao()
 @require_http_methods(["GET", "POST"])
-def mover(request, xml_id):
+def mover(request, slug, xml_id):
     """Formulário "mover para…": antes/depois de outro nó do mesmo nível, ou dentro de um nó de nível superior."""
-    nova = _nova()
+    nova = _reorganizavel(slug)
     no = _no_ou_404(nova, xml_id)
     niveis = list(arvore.esquema.NIVEIS_ORDEM)
     todos = list(No.objects.filter(edicao=nova).order_by("ordem_ini"))
@@ -211,7 +223,7 @@ def mover(request, xml_id):
             messages.error(request, str(e))
         else:
             messages.success(request, f"Movido: {arvore_titulo(no)}.")
-            return _redirect_estrutura(xml_id)
+            return _redirect_estrutura(nova, xml_id)
     return render_area(request, "nova/mover.html", {
         "nova": nova, "no": no, "iguais": iguais, "superiores": superiores,
         "titulo_no": arvore_titulo(no)})
@@ -291,16 +303,16 @@ def _tela_editor(request, nova, *, blocos_qs, base_url, cabecalho, no=None, orde
         "tela": p, "telas": n_telas, "total": total, "base": base_url,
         "subnos": subnos,
         "urlConverter": reverse("obra:converter"),
-        "urlGravar": reverse("obra:nova_gravar"),
-        "urlAcaoBloco": reverse("obra:nova_bloco_acao"),
+        "urlGravar": reverse("obra:nova_gravar", args=[nova.slug]),
+        "urlAcaoBloco": reverse("obra:nova_bloco_acao", args=[nova.slug]),
         "urlHistoricoBloco": reverse("obra:historico_bloco", args=[0]),
         "urlRevisar": reverse("obra:revisar", args=[9991, 9992]),
         "urlScan": reverse("obra:scan_jpg", args=[9991, 9992]) + "?l=1600",
         "urlScanOriginal": reverse("obra:scan", args=[9991, 9992]),
-        "urlEstrutura": reverse("obra:nova_estrutura"),
+        "urlEstrutura": reverse("obra:nova_estrutura", args=[nova.slug]),
         "paginas": _volumes_paginas(),
         "csrf": get_token(request),
-        "chaveLocal": "sinibaldi.nova",
+        "chaveLocal": f"sinibaldi.{nova.slug}",
     }
     return render_area(request, "nova/editor.html", {
         "nova": nova, "dados": dados, "esquema": esquema_para_cliente(), "cabecalho": cabecalho,
@@ -311,22 +323,22 @@ def _tela_editor(request, nova, *, blocos_qs, base_url, cabecalho, no=None, orde
 
 
 @exige_edicao()
-def editar_no(request, xml_id):
-    nova = _nova()
+def editar_no(request, slug, xml_id):
+    nova = _nova(slug)
     no = _no_ou_404(nova, xml_id)
     ant = arvore.no_anterior(no, mesmo_nivel=True)
     seg = arvore.no_proximo(no, mesmo_nivel=True)
     return _tela_editor(
-        request, nova, blocos_qs=arvore.blocos_do_no(no), base_url=reverse("obra:nova_no", args=[xml_id]),
+        request, nova, blocos_qs=arvore.blocos_do_no(no), base_url=reverse("obra:nova_no", args=[nova.slug, xml_id]),
         cabecalho={"titulo": leitura.titulo_do_no(no), "nivel": no.get_nivel_display(), "xml_id": no.xml_id},
         no=no, vizinhos={
-            "ant": {"url": reverse("obra:nova_no", args=[ant.xml_id]), "texto": leitura.titulo_do_no(ant)} if ant else None,
-            "seg": {"url": reverse("obra:nova_no", args=[seg.xml_id]), "texto": leitura.titulo_do_no(seg)} if seg else None})
+            "ant": {"url": reverse("obra:nova_no", args=[nova.slug, ant.xml_id]), "texto": leitura.titulo_do_no(ant)} if ant else None,
+            "seg": {"url": reverse("obra:nova_no", args=[nova.slug, seg.xml_id]), "texto": leitura.titulo_do_no(seg)} if seg else None})
 
 
 @exige_edicao()
-def editar_trecho(request, ordem_ini):
-    nova = _nova()
+def editar_trecho(request, slug, ordem_ini):
+    nova = _nova(slug)
     arv, ordens = _arvore_enriquecida(nova)
     if arv.cobrindo(ordem_ini) is not None:
         raise Http404("Esse trecho pertence a um nó da árvore.")
@@ -341,12 +353,12 @@ def editar_trecho(request, ordem_ini):
         if it is None:
             return None
         if it["tipo"] == "no":
-            return {"url": reverse("obra:nova_no", args=[it["no"].xml_id]), "texto": leitura.titulo_do_no(it["no"])}
-        return {"url": reverse("obra:nova_trecho", args=[it["ordem_ini"]]), "texto": "trecho sem parte"}
+            return {"url": reverse("obra:nova_no", args=[nova.slug, it["no"].xml_id]), "texto": leitura.titulo_do_no(it["no"])}
+        return {"url": reverse("obra:nova_trecho", args=[nova.slug, it["ordem_ini"]]), "texto": "trecho sem parte"}
 
     qs = Bloco.objects.filter(edicao=nova, ordem__gte=t["ordem_ini"], ordem__lt=t["ordem_fim"]).order_by("ordem")
     return _tela_editor(
-        request, nova, blocos_qs=qs, base_url=reverse("obra:nova_trecho", args=[t["ordem_ini"]]),
+        request, nova, blocos_qs=qs, base_url=reverse("obra:nova_trecho", args=[nova.slug, t["ordem_ini"]]),
         cabecalho={"titulo": "Trecho sem parte", "nivel": "fora da árvore", "xml_id": ""},
         vizinhos={"ant": ligacao(itens[i - 1]) if i else None,
                   "seg": ligacao(itens[i + 1]) if i + 1 < len(itens) else None})
@@ -354,9 +366,9 @@ def editar_trecho(request, ordem_ini):
 
 @exige_edicao(api=True)
 @require_POST
-def gravar(request):
+def gravar(request, slug):
     """Grava os blocos de UMA tela do editor (escopo `ids`) na edição nova."""
-    nova = _nova()
+    nova = _nova(slug)
     dados = _json_corpo(request)
     if dados is None:
         return _erro_json("Requisição inválida (JSON esperado).")
@@ -386,9 +398,9 @@ def gravar(request):
 
 @exige_edicao(api=True)
 @require_POST
-def acao_bloco(request):
+def acao_bloco(request, slug):
     """`{acao: restaurar_1916|suprimir|restaurar_supressao, bloco, ids}` -> a tela recarregada (como gravar)."""
-    nova = _nova()
+    nova = _nova(slug)
     d = _json_corpo(request)
     if d is None:
         return _erro_json("Requisição inválida (JSON esperado).")
@@ -397,13 +409,15 @@ def acao_bloco(request):
         return _erro_json("Informe `bloco` e os `ids` da tela.")
     bloco = Bloco.objects.filter(pk=pk, edicao=nova).first()
     if bloco is None:
-        return _erro_json("Bloco não encontrado na edição nova.", 404)
+        return _erro_json(f"Bloco não encontrado na edição {nova.titulo.lower()}.", 404)
     try:
         if acao == "restaurar_1916":
             if bloco.origem_id is None:
                 return _erro_json("Este bloco não tem origem na edição de 1916.")
             servicos_nova.restaurar_texto_1916(nova, [pk], autor=request.user)
         elif acao in ("suprimir", "restaurar_supressao"):
+            if not nova.reorganiza:
+                return _erro_json("Esta edição não suprime trechos.")
             servicos_nova.definir_supressao(nova, bloco.ordem, bloco.ordem + 1, acao == "suprimir", autor=request.user)
         else:
             return _erro_json("Ação desconhecida.")
@@ -414,22 +428,29 @@ def acao_bloco(request):
 
 
 # ===================================================== resumo para o painel
-def resumo_nova():
-    """Dados do cartão da nova edição no painel (None se a edição não existir)."""
-    nova = Edicao.objects.filter(slug=SLUG_NOVA, tipo=Edicao.NOVA).first()
+def resumo_nova(slug=SLUG_NOVA):
+    """Dados do cartão de uma edição derivada no painel (None se a edição não existir)."""
+    nova = Edicao.objects.filter(slug=slug, tipo__in=Edicao.DERIVADAS).first()
     if nova is None:
         return None
     cont = dict(Bloco.objects.filter(edicao=nova).values_list("procedencia").annotate(n=Count("id")))
     total = sum(cont.values())
-    plano = partes.plano_partes(nova)
+    plano = partes.plano_partes(nova) if nova.reorganiza else None
     return {
         "edicao": nova, "total": total,
-        "procedencias": [(PROCEDENCIA_ROTULO[k], k, cont.get(k, 0)) for k in PROCEDENCIA_ROTULO],
+        "procedencias": [(PROCEDENCIA_ROTULO[k], k, cont.get(k, 0)) for k in PROCEDENCIA_ROTULO
+                         if nova.reorganiza or k != Bloco.SUPRIMIDO],
         "pendentes": {"copias": servicos_nova.copias_desatualizadas(nova).count(),
                       "adaptados": servicos_nova.adaptados_pendentes(nova).count(),
                       "cobertura": servicos_nova.sem_correspondente(nova).count()},
-        "faltam": [partes.ORDEM_PARTES[r] for r in plano["faltam"]], "na_ordem": plano["na_ordem"],
+        "faltam": [partes.ORDEM_PARTES[r] for r in plano["faltam"]] if plano else [],
+        "na_ordem": plano["na_ordem"] if plano else True,
     }
+
+
+def resumos_derivadas():
+    """Cartões do painel: atualizada e depois nova (as que existirem)."""
+    return [r for r in (resumo_nova(SLUG_ATUALIZADA), resumo_nova(SLUG_NOVA)) if r]
 
 
 # ================================================================== pendências
@@ -438,8 +459,8 @@ ABAS = [("copias", "Cópias desatualizadas"), ("adaptados", "Adaptados com orige
 
 
 @exige_edicao()
-def pendencias(request):
-    nova = _nova()
+def pendencias(request, slug):
+    nova = _nova(slug)
     aba = request.GET.get("aba", "copias")
     if aba not in dict(ABAS):
         aba = "copias"
@@ -495,8 +516,8 @@ def _no_do_bloco(nova, bloco):
 
 @exige_edicao()
 @require_POST
-def acao_pendencias(request):
-    nova = _nova()
+def acao_pendencias(request, slug):
+    nova = _nova(slug)
     acao = request.POST.get("acao", "")
     ids = [int(i) for i in request.POST.getlist("ids") if i.isdigit()]
     aba = request.POST.get("aba", "copias")
@@ -516,4 +537,4 @@ def acao_pendencias(request):
             messages.error(request, "Ação desconhecida.")
     except servicos.ErroOperacao as e:
         messages.error(request, str(e))
-    return redirect(reverse("obra:nova_pendencias") + f"?aba={aba}")
+    return redirect(reverse("obra:nova_pendencias", args=[nova.slug]) + f"?aba={aba}")

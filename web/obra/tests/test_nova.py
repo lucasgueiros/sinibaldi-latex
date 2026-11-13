@@ -94,7 +94,7 @@ class NovaBase(TestCase):
     def gravar(self, blocos, comentario="", url=None, subst=None):
         corpo = {"formato": "xml", "conteudo": conteudo_xml(blocos, subst or {}), "ids": [b.pk for b in blocos],
                  "comentario": comentario}
-        return self.client.post(url or reverse("obra:nova_gravar"), json.dumps(corpo), content_type="application/json")
+        return self.client.post(url or reverse("obra:nova_gravar", args=["nova"]), json.dumps(corpo), content_type="application/json")
 
     def primeiro_paragrafo(self, chave="cosmologia"):
         t = No.objects.get(edicao=self.nova, xml_id=f"v1.t{[p[0].lower() for p in self.partes_].index(chave) + 1}")
@@ -102,12 +102,12 @@ class NovaBase(TestCase):
 
 
 URLS_GET = [
-    ("obra:nova_estrutura", []), ("obra:nova_no", ["v1.t1"]), ("obra:nova_mover", ["v1.t1"]),
-    ("obra:nova_trecho", [PASSO_ORDEM]), ("obra:nova_pendencias", []),
+    ("obra:nova_estrutura", ["nova"]), ("obra:nova_no", ["nova", "v1.t1"]), ("obra:nova_mover", ["nova", "v1.t1"]),
+    ("obra:nova_trecho", ["nova", PASSO_ORDEM]), ("obra:nova_pendencias", ["nova"]),
 ]
 URLS_POST = [
-    ("obra:nova_aplicar_ordem", []), ("obra:nova_no_acao", ["v1.t1"]), ("obra:nova_gravar", []),
-    ("obra:nova_bloco_acao", []), ("obra:nova_pendencias_acao", []),
+    ("obra:nova_aplicar_ordem", ["nova"]), ("obra:nova_no_acao", ["nova", "v1.t1"]), ("obra:nova_gravar", ["nova"]),
+    ("obra:nova_bloco_acao", ["nova"]), ("obra:nova_pendencias_acao", ["nova"]),
 ]
 
 
@@ -136,14 +136,14 @@ class PermissoesTest(NovaBase):
             self.assertEqual(self.client.get(reverse(nome, args=args)).status_code, 200, nome)
 
     def test_get_nao_executa_acoes(self):
-        self.assertEqual(self.client.get(reverse("obra:nova_aplicar_ordem")).status_code, 405)
-        self.assertEqual(self.client.get(reverse("obra:nova_no_acao", args=["v1.t1"])).status_code, 405)
+        self.assertEqual(self.client.get(reverse("obra:nova_aplicar_ordem", args=["nova"])).status_code, 405)
+        self.assertEqual(self.client.get(reverse("obra:nova_no_acao", args=["nova", "v1.t1"])).status_code, 405)
 
     def test_post_sem_csrf_recusado(self):
         from django.test import Client
         c = Client(enforce_csrf_checks=True)
         c.force_login(self.ana)
-        self.assertEqual(c.post(reverse("obra:nova_no_acao", args=["v1.t1"]), {"acao": "suprimir"}).status_code, 403)
+        self.assertEqual(c.post(reverse("obra:nova_no_acao", args=["nova", "v1.t1"]), {"acao": "suprimir"}).status_code, 403)
         self.assertFalse(Bloco.objects.filter(edicao=self.nova, procedencia=Bloco.SUPRIMIDO).exists())
 
 
@@ -173,7 +173,7 @@ class PartesTest(NovaBase):
         self.assertEqual(self.ids_marcos(), ["v1.parte-moral", "v1.parte-teodiceia", "v1.parte-direito",
                                              "v1.parte-ontologia", "v1.parte-antropologia", "v1.parte-cosmologia",
                                              "v1.parte-logica"])
-        r = self.client.post(reverse("obra:nova_aplicar_ordem"), follow=True)
+        r = self.client.post(reverse("obra:nova_aplicar_ordem", args=["nova"]), follow=True)
         self.assertEqual(r.status_code, 200)
         esperado = ["v1.parte-logica", "v1.parte-cosmologia", "v1.parte-antropologia", "v1.parte-ontologia",
                     "v1.parte-teodiceia", "v1.parte-direito", "v1.parte-moral"]
@@ -208,7 +208,7 @@ class PartesTest(NovaBase):
         self.assertEqual(partes.plano_partes(self.nova)["faltam"], [5])
         with self.assertRaises(servicos.ErroOperacao):
             servicos_nova.aplicar_ordem_partes(self.nova, autor=self.ana)
-        r = self.client.post(reverse("obra:nova_aplicar_ordem"), follow=True)
+        r = self.client.post(reverse("obra:nova_aplicar_ordem", args=["nova"]), follow=True)
         self.assertContains(r, "Faltam partes: Moral")
         self.assertEqual(self.ids_marcos()[0], "v1.parte-teodiceia")
 
@@ -217,7 +217,7 @@ class PartesTest(NovaBase):
             servicos_nova.aplicar_ordem_partes(self.e1916, autor=self.ana)
 
     def test_painel_na_estrutura(self):
-        r = self.client.get(reverse("obra:nova_estrutura"))
+        r = self.client.get(reverse("obra:nova_estrutura", args=["nova"]))
         self.assertContains(r, "Ordem das partes")
         self.assertContains(r, "Aplicar ordem-alvo")
         self.assertNotContains(r, "Habilitado quando as seis")
@@ -229,44 +229,44 @@ class MoverTest(NovaBase):
         def ordem():
             return [n.xml_id for n in No.objects.filter(edicao=self.nova, nivel="parte").order_by("ordem_ini")]
         antes = ordem()
-        r = self.client.post(reverse("obra:nova_no_acao", args=["v1.parte-cosmologia"]), {"acao": "subir"})
+        r = self.client.post(reverse("obra:nova_no_acao", args=["nova", "v1.parte-cosmologia"]), {"acao": "subir"})
         self.assertEqual(r.status_code, 302)
         self.assertIn("foco=v1.parte-cosmologia#no-v1.parte-cosmologia", r["Location"])
         depois = ordem()
         i = antes.index("v1.parte-cosmologia")
         self.assertEqual(depois[i - 1], "v1.parte-cosmologia")
-        self.client.post(reverse("obra:nova_no_acao", args=["v1.parte-cosmologia"]), {"acao": "descer"})
+        self.client.post(reverse("obra:nova_no_acao", args=["nova", "v1.parte-cosmologia"]), {"acao": "descer"})
         self.assertEqual(ordem(), antes)
         rev = Revisao.objects.filter(edicao=self.nova, acao=Revisao.MOVER, autor=self.ana)
         self.assertEqual(rev.count(), 2)
 
     def test_limite_nao_move(self):
-        r = self.client.post(reverse("obra:nova_no_acao", args=["v1.parte-moral"]), {"acao": "subir"}, follow=True)
+        r = self.client.post(reverse("obra:nova_no_acao", args=["nova", "v1.parte-moral"]), {"acao": "subir"}, follow=True)
         self.assertContains(r, "já está no limite")
 
     def test_mover_para_outro_pai(self):
         # a tese 1 (da Moral) vai para dentro da parte Logica
         alvo = No.objects.get(edicao=self.nova, xml_id="v1.parte-logica")
-        r = self.client.post(reverse("obra:nova_mover", args=["v1.t1"]), {"alvo": alvo.pk, "modo": "dentro"})
+        r = self.client.post(reverse("obra:nova_mover", args=["nova", "v1.t1"]), {"alvo": alvo.pk, "modo": "dentro"})
         self.assertEqual(r.status_code, 302)
         t1 = No.objects.get(edicao=self.nova, xml_id="v1.t1")
         self.assertEqual(No.objects.get(pk=t1.pai_id).xml_id, "v1.parte-logica")
 
     def test_mover_antes_de_outro_irmao(self):
         alvo = No.objects.get(edicao=self.nova, xml_id="v1.parte-logica")
-        self.client.post(reverse("obra:nova_mover", args=["v1.parte-moral"]), {"alvo": alvo.pk, "modo": "antes"})
+        self.client.post(reverse("obra:nova_mover", args=["nova", "v1.parte-moral"]), {"alvo": alvo.pk, "modo": "antes"})
         self.assertEqual(self.ids_marcos()[-2:], ["v1.parte-moral", "v1.parte-logica"])
 
     def test_destino_invalido(self):
         alvo = No.objects.get(edicao=self.nova, xml_id="v1.parte-logica")
-        r = self.client.post(reverse("obra:nova_mover", args=["v1.t1"]), {"alvo": alvo.pk, "modo": "antes"})
+        r = self.client.post(reverse("obra:nova_mover", args=["nova", "v1.t1"]), {"alvo": alvo.pk, "modo": "antes"})
         self.assertEqual(r.status_code, 200)  # tese vs parte: nível diferente -> volta ao formulário com erro
         self.assertContains(r, "mesmo nível")
 
     def test_nao_toca_1916(self):
         antes = self.foto_1916()
-        self.client.post(reverse("obra:nova_no_acao", args=["v1.parte-cosmologia"]), {"acao": "subir"})
-        self.client.post(reverse("obra:nova_aplicar_ordem"))
+        self.client.post(reverse("obra:nova_no_acao", args=["nova", "v1.parte-cosmologia"]), {"acao": "subir"})
+        self.client.post(reverse("obra:nova_aplicar_ordem", args=["nova"]))
         self.assertEqual(self.foto_1916(), antes)
 
     def test_so_nova_no_servico(self):
@@ -277,7 +277,7 @@ class MoverTest(NovaBase):
 
     def test_rotas_nao_enxergam_nos_da_1916(self):
         # o xml_id existe nas duas edições; a ação vale só para a nova
-        self.client.post(reverse("obra:nova_no_acao", args=["v1.t3"]), {"acao": "suprimir"})
+        self.client.post(reverse("obra:nova_no_acao", args=["nova", "v1.t3"]), {"acao": "suprimir"})
         self.assertFalse(Bloco.objects.filter(edicao=self.e1916, procedencia=Bloco.SUPRIMIDO).exists())
         self.assertTrue(Bloco.objects.filter(edicao=self.nova, procedencia=Bloco.SUPRIMIDO).exists())
 
@@ -286,18 +286,18 @@ class SuprimirTest(NovaBase):
     def test_suprimir_e_restaurar_no(self):
         no = No.objects.get(edicao=self.nova, xml_id="v1.parte-logica")
         n_no = arvore.blocos_do_no(no).count()
-        r = self.client.post(reverse("obra:nova_no_acao", args=["v1.parte-logica"]), {"acao": "suprimir"}, follow=True)
+        r = self.client.post(reverse("obra:nova_no_acao", args=["nova", "v1.parte-logica"]), {"acao": "suprimir"}, follow=True)
         self.assertContains(r, f"({n_no} blocos)")
         sup = Bloco.objects.filter(edicao=self.nova, procedencia=Bloco.SUPRIMIDO)
         self.assertEqual(sup.count(), n_no)
         self.assertEqual(Bloco.objects.filter(edicao=self.nova).count(), len(self.bnova()))  # nada apagado
         # aparece riscado na árvore
-        self.assertContains(self.client.get(reverse("obra:nova_estrutura")), "nova-suprimido")
+        self.assertContains(self.client.get(reverse("obra:nova_estrutura", args=["nova"])), "nova-suprimido")
         # a parte pública oculta
         html, _ = leitura.renderizar(list(arvore.blocos_do_no(no)), impressas_={})
         self.assertEqual(html.strip(), "")
         self.assertEqual(Revisao.objects.filter(edicao=self.nova, comentario="Suprimido.", autor=self.ana).count(), n_no)
-        self.client.post(reverse("obra:nova_no_acao", args=["v1.parte-logica"]), {"acao": "restaurar"})
+        self.client.post(reverse("obra:nova_no_acao", args=["nova", "v1.parte-logica"]), {"acao": "restaurar"})
         self.assertFalse(Bloco.objects.filter(edicao=self.nova, procedencia=Bloco.SUPRIMIDO).exists())
         self.assertTrue(all(b.procedencia == Bloco.COPIA for b in arvore.blocos_do_no(no)))
 
@@ -336,7 +336,7 @@ class ProcedenciaTest(NovaBase):
         anterior = Bloco.objects.filter(edicao=self.nova, ordem__lt=p.ordem).order_by("-ordem").first()
         texto = conteudo_xml([p]) + "\n\n<p>Parágrafo criado aqui.</p>"
         corpo = {"formato": "xml", "conteudo": texto, "ids": [p.pk]}
-        r = self.client.post(reverse("obra:nova_gravar"), json.dumps(corpo), content_type="application/json")
+        r = self.client.post(reverse("obra:nova_gravar", args=["nova"]), json.dumps(corpo), content_type="application/json")
         self.assertEqual(r.status_code, 200, r.content)
         novo = Bloco.objects.get(edicao=self.nova, xml__contains="Parágrafo criado aqui")
         self.assertEqual(novo.procedencia, Bloco.NOVO)
@@ -366,7 +366,7 @@ class ProcedenciaTest(NovaBase):
         p = self.primeiro_paragrafo()
         marco = '<milestone unit="parte" n="1" xml:id="v1.parte-moral"/>'
         corpo = {"formato": "xml", "conteudo": marco + "\n\n" + conteudo_xml([p]), "ids": [p.pk]}
-        r = self.client.post(reverse("obra:nova_gravar"), json.dumps(corpo), content_type="application/json")
+        r = self.client.post(reverse("obra:nova_gravar", args=["nova"]), json.dumps(corpo), content_type="application/json")
         self.assertEqual(r.status_code, 400)
         self.assertIn("já é usado em outro bloco", r.json()["erros"][0])
 
@@ -375,7 +375,7 @@ class ProcedenciaTest(NovaBase):
         marco = '<milestone unit="parte" n="9" xml:id="n.parte-ontologia-2"/>'
         titulo = '<head>ONTOLOGIA NOVA</head>'
         corpo = {"formato": "xml", "conteudo": marco + "\n\n" + titulo + "\n\n" + conteudo_xml([p]), "ids": [p.pk]}
-        r = self.client.post(reverse("obra:nova_gravar"), json.dumps(corpo), content_type="application/json")
+        r = self.client.post(reverse("obra:nova_gravar", args=["nova"]), json.dumps(corpo), content_type="application/json")
         self.assertEqual(r.status_code, 200, r.content)
         self.assertTrue(r.json()["estrutura_mudou"])
         no = No.objects.get(edicao=self.nova, xml_id="n.parte-ontologia-2")
@@ -401,7 +401,7 @@ class ProcedenciaTest(NovaBase):
         self.assertEqual(r.status_code, 400)
         self.assertEqual(self.foto_1916(), antes)
         # nem as ações por bloco
-        r = self.client.post(reverse("obra:nova_bloco_acao"), json.dumps({"acao": "suprimir", "bloco": b.pk, "ids": [b.pk]}),
+        r = self.client.post(reverse("obra:nova_bloco_acao", args=["nova"]), json.dumps({"acao": "suprimir", "bloco": b.pk, "ids": [b.pk]}),
                              content_type="application/json")
         self.assertEqual(r.status_code, 404)
         self.assertEqual(self.foto_1916(), antes)
@@ -409,7 +409,7 @@ class ProcedenciaTest(NovaBase):
 
 class RestaurarTest(NovaBase):
     def acao(self, acao, p, ids=None):
-        return self.client.post(reverse("obra:nova_bloco_acao"),
+        return self.client.post(reverse("obra:nova_bloco_acao", args=["nova"]),
                                 json.dumps({"acao": acao, "bloco": p.pk, "ids": ids or [p.pk]}),
                                 content_type="application/json")
 
@@ -462,10 +462,10 @@ class PendenciasTest(NovaBase):
         self.assertEqual(servicos_nova.copias_desatualizadas(self.nova).count(), 0)
         o = self.mudar_1916(p)
         self.assertEqual(list(servicos_nova.copias_desatualizadas(self.nova)), [p])
-        r = self.client.get(reverse("obra:nova_pendencias") + "?aba=copias")
+        r = self.client.get(reverse("obra:nova_pendencias", args=["nova"]) + "?aba=copias")
         self.assertContains(r, "Atualizar todas as cópias (1)")
         self.assertContains(r, "dif-ins")
-        r = self.client.post(reverse("obra:nova_pendencias_acao"), {"acao": "atualizar", "ids": [p.pk], "aba": "copias"},
+        r = self.client.post(reverse("obra:nova_pendencias_acao", args=["nova"]), {"acao": "atualizar", "ids": [p.pk], "aba": "copias"},
                              follow=True)
         self.assertContains(r, "1 cópia atualizada")
         p.refresh_from_db()
@@ -478,7 +478,7 @@ class PendenciasTest(NovaBase):
         for p in ps:
             self.mudar_1916(p)
         self.assertEqual(servicos_nova.copias_desatualizadas(self.nova).count(), 2)
-        self.client.post(reverse("obra:nova_pendencias_acao"), {"acao": "atualizar_todas", "aba": "copias"})
+        self.client.post(reverse("obra:nova_pendencias_acao", args=["nova"]), {"acao": "atualizar_todas", "aba": "copias"})
         self.assertEqual(servicos_nova.copias_desatualizadas(self.nova).count(), 0)
 
     def test_nao_atualiza_adaptados(self):
@@ -496,10 +496,10 @@ class PendenciasTest(NovaBase):
         self.assertEqual(servicos_nova.adaptados_pendentes(self.nova).count(), 0)
         self.mudar_1916(p, de="Texto", para="Texto da 1916")
         self.assertEqual(list(servicos_nova.adaptados_pendentes(self.nova)), [p])
-        r = self.client.get(reverse("obra:nova_pendencias") + "?aba=adaptados")
+        r = self.client.get(reverse("obra:nova_pendencias", args=["nova"]) + "?aba=adaptados")
         self.assertContains(r, "Marcar como visto")
         self.assertContains(r, "revisão na 1916")
-        r = self.client.post(reverse("obra:nova_pendencias_acao"), {"acao": "visto", "ids": [p.pk], "aba": "adaptados"},
+        r = self.client.post(reverse("obra:nova_pendencias_acao", args=["nova"]), {"acao": "visto", "ids": [p.pk], "aba": "adaptados"},
                              follow=True)
         self.assertContains(r, "marcado como visto")
         self.assertEqual(servicos_nova.adaptados_pendentes(self.nova).count(), 0)
@@ -524,7 +524,7 @@ class PendenciasTest(NovaBase):
         extra = Bloco.objects.create(edicao=self.e1916, ordem=o.ordem + 2, tipo="paragrafo", xml="<p>Esquecido</p>",
                                      volume=self.vol, pagina=3)
         self.assertEqual(list(servicos_nova.sem_correspondente(self.nova)), [extra])
-        r = self.client.get(reverse("obra:nova_pendencias") + "?aba=cobertura")
+        r = self.client.get(reverse("obra:nova_pendencias", args=["nova"]) + "?aba=cobertura")
         self.assertContains(r, "Esquecido")
         self.assertContains(r, "ver na 1916")
         # suprimido conta como correspondente
@@ -549,29 +549,29 @@ class PendenciasTest(NovaBase):
     def test_painel_mostra_cartao_da_nova(self):
         r = self.client.get(reverse("obra:painel"))
         self.assertContains(r, "Nova edição")
-        self.assertContains(r, reverse("obra:nova_pendencias"))
-        self.assertContains(r, reverse("obra:nova_estrutura"))
+        self.assertContains(r, reverse("obra:nova_pendencias", args=["nova"]))
+        self.assertContains(r, reverse("obra:nova_estrutura", args=["nova"]))
 
 
 class TelasTest(NovaBase):
     extras = 100
 
     def test_trecho_solto_e_arvore(self):
-        r = self.client.get(reverse("obra:nova_estrutura"))
+        r = self.client.get(reverse("obra:nova_estrutura", args=["nova"]))
         self.assertContains(r, "trecho sem parte")
         primeiro = Bloco.objects.filter(edicao=self.nova).order_by("ordem").first()
-        url = reverse("obra:nova_trecho", args=[primeiro.ordem])
+        url = reverse("obra:nova_trecho", args=["nova", primeiro.ordem])
         self.assertContains(r, url)
         r = self.client.get(url)
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, "Frontispício")
-        self.assertEqual(self.client.get(reverse("obra:nova_trecho", args=[No.objects.first().ordem_ini])).status_code, 404)
+        self.assertEqual(self.client.get(reverse("obra:nova_trecho", args=["nova", No.objects.first().ordem_ini])).status_code, 404)
 
     def test_paginacao_por_blocos(self):
         no = No.objects.get(edicao=self.nova, xml_id="v1.parte-logica")
         total = arvore.blocos_do_no(no).count()
         self.assertGreater(total, 100)
-        url = reverse("obra:nova_no", args=["v1.parte-logica"])
+        url = reverse("obra:nova_no", args=["nova", "v1.parte-logica"])
         r = self.client.get(url)
         self.assertEqual(r.context["telas"], -(-total // 40))
         d = r.context["dados"]
@@ -589,7 +589,7 @@ class TelasTest(NovaBase):
         self.assertEqual(d["subnos"][0]["tela"], 1)
 
     def test_texto_de_1916_na_esquerda_e_gravar_na_tela(self):
-        r = self.client.get(reverse("obra:nova_no", args=["v1.t7"]))
+        r = self.client.get(reverse("obra:nova_no", args=["nova", "v1.t7"]))
         self.assertContains(r, 'class="obra nova-1916"')
         self.assertContains(r, "Texto de Logica")
         d = r.context["dados"]

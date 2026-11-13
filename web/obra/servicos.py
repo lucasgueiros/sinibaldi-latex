@@ -219,7 +219,7 @@ def _salvar(edicao, ids, novos, autor, comentario, volume, pagina, ancora, tenta
     # --- aplicar
     lote = uuid.uuid4()
     agora = timezone.now()
-    ed_nova = edicao.tipo == Edicao.NOVA
+    ed_nova = edicao.derivada  # nova ou atualizada: copia -> adaptado, bloco criado -> novo
     res = ResultadoSalvar(lote=lote)
     revisoes = []
     reconstruir = False
@@ -308,9 +308,9 @@ def mover_no(no, antes_de=None, depois_de=None, para_pai=None, autor=None, comen
     * `antes_de=<No>` / `depois_de=<No>`: vira irmão (mesmo nível) do alvo, antes/depois dele;
     * `para_pai=<No>` sozinho: último filho de `para_pai`; combinado com antes_de/depois_de,
       o alvo deve ser filho de `para_pai`.
-    Só em edição `nova`. Registra uma `Revisao(acao="mover")` e reconstrói a árvore."""
+    Só na edição `nova` (a única que reorganiza a estrutura). Registra uma `Revisao(acao="mover")` e reconstrói a árvore."""
     edicao = no.edicao
-    if edicao.tipo != Edicao.NOVA:
+    if not edicao.reorganiza:
         raise ErroOperacao("Só é permitido mover nós na edição nova.")
     alvos = [x for x in (antes_de, depois_de) if x is not None]
     if len(alvos) > 1:

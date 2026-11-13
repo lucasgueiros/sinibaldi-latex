@@ -61,7 +61,7 @@ class RotasTest(PublicoBase):
         self.get("edicao", "inexistente", status=404)
 
     def test_sumario_uma_consulta_de_arvore(self):
-        with self.assertNumQueries(5):  # edição, nós, páginas, volumes, volumes com texto
+        with self.assertNumQueries(6):  # edição, nós, páginas, volumes, volumes com texto, menu de edições
             self.get("edicao", "1916")
 
     def test_no_capitulo_e_tese(self):
@@ -96,10 +96,10 @@ class RotasTest(PublicoBase):
         self.assertContains(r, 'href="%s"' % reverse("obra:revisar", args=[1, 2]))
         self.assertContains(r, "Editar (p. 2)")
         r = self.get("no", "nova", "v1.cap-1")                        # nova: editor do próprio nó
-        self.assertContains(r, 'href="%s"' % reverse("obra:nova_no", args=["v1.cap-1"]))
+        self.assertContains(r, 'href="%s"' % reverse("obra:nova_no", args=["nova", "v1.cap-1"]))
 
     def test_no_consultas_limitadas(self):
-        with self.assertNumQueries(7):
+        with self.assertNumQueries(8):  # +1: menu de edições do cabeçalho
             self.get("no", "1916", "v1.cap-1")
 
     def test_busca(self):

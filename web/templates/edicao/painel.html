@@ -25,29 +25,48 @@
   </section>
   {% endif %}
 
-  {% if nova %}
-  <section class="cartao" aria-labelledby="cartao-nova">
+  {% for nova in derivadas %}{% with ed=nova.edicao %}
+  <section class="cartao" aria-labelledby="cartao-{{ ed.slug }}">
     <div class="flex flex-wrap items-baseline justify-between gap-2">
-      <h2 id="cartao-nova" class="font-display text-xl text-crimson">Nova edição</h2>
+      <h2 id="cartao-{{ ed.slug }}" class="font-display text-xl text-crimson">{{ ed.titulo }}{% if not ed.publica %} <span class="etiqueta ml-1">oculta</span>{% endif %}</h2>
       <span class="text-sm text-ink/60">{{ nova.total }} blocos</span>
     </div>
+    {% if ed.componentes %}<p class="mt-2 text-sm text-ink/75">Compõem esta edição: {{ ed.componentes|join:"; " }}.</p>{% endif %}
     <dl class="mt-3 grid grid-cols-2 gap-2 text-center text-sm sm:grid-cols-4">
       {% for rotulo, chave, n in nova.procedencias %}
       <div><dt class="text-xs text-ink/60">{{ rotulo }}</dt><dd class="text-lg">{{ n }}</dd></div>
       {% endfor %}
     </dl>
     <ul class="mt-3 space-y-1 text-sm">
-      <li>Partes: {% if nova.faltam %}<strong class="text-crimson">faltam {{ nova.faltam|join:", " }}</strong>{% elif nova.na_ordem %}na ordem-alvo{% else %}completas, fora da ordem-alvo{% endif %}.</li>
-      <li>Cópias desatualizadas: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' %}?aba=copias">{{ nova.pendentes.copias }}</a>
-        · adaptados com origem alterada: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' %}?aba=adaptados">{{ nova.pendentes.adaptados }}</a>
-        · blocos da 1916 sem correspondente: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' %}?aba=cobertura">{{ nova.pendentes.cobertura }}</a></li>
+      {% if ed.reorganiza %}<li>Partes: {% if nova.faltam %}<strong class="text-crimson">faltam {{ nova.faltam|join:", " }}</strong>{% elif nova.na_ordem %}na ordem-alvo{% else %}completas, fora da ordem-alvo{% endif %}.</li>{% else %}<li>Estrutura e ordem das partes: as da edição de 1916/17.</li>{% endif %}
+      <li>Cópias desatualizadas: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' ed.slug %}?aba=copias">{{ nova.pendentes.copias }}</a>
+        · adaptados com origem alterada: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' ed.slug %}?aba=adaptados">{{ nova.pendentes.adaptados }}</a>
+        · blocos da 1916 sem correspondente: <a class="text-crimson hover:underline" href="{% url 'obra:nova_pendencias' ed.slug %}?aba=cobertura">{{ nova.pendentes.cobertura }}</a></li>
     </ul>
     <div class="mt-3 flex flex-wrap gap-3">
-      <a class="btn btn-primario btn-sm" href="{% url 'obra:nova_estrutura' %}">Estrutura</a>
-      <a class="btn btn-secundario btn-sm" href="{% url 'obra:nova_pendencias' %}">Pendências da 1916</a>
+      <a class="btn btn-primario btn-sm" href="{% url 'obra:nova_estrutura' ed.slug %}">Estrutura</a>
+      <a class="btn btn-secundario btn-sm" href="{% url 'obra:nova_pendencias' ed.slug %}">Pendências da 1916</a>
     </div>
   </section>
-  {% endif %}
+  {% endwith %}{% endfor %}
+
+  <section class="cartao" aria-labelledby="cartao-edicoes">
+    <h2 id="cartao-edicoes" class="font-display text-xl text-crimson">Edições na parte pública</h2>
+    <ul class="mt-3 space-y-2 text-sm">
+      {% for ed in edicoes %}
+      <li class="flex flex-wrap items-center justify-between gap-3">
+        <span><a class="text-crimson hover:underline" href="{% url 'obra:edicao' ed.slug %}">{{ ed.titulo }}</a>
+          — {% if ed.publica %}visível{% else %}<strong>oculta</strong> (só editores a veem){% endif %}</span>
+        {% if perms.obra.change_edicao %}
+        <form method="post" action="{% url 'obra:visibilidade' ed.slug %}">{% csrf_token %}
+          <input type="hidden" name="publica" value="{% if ed.publica %}0{% else %}1{% endif %}">
+          <button class="btn btn-secundario btn-sm">{% if ed.publica %}Esconder{% else %}Mostrar{% endif %}</button>
+        </form>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
 
   <section>
     <h2 class="font-display text-xl text-crimson">Progresso por volume</h2>

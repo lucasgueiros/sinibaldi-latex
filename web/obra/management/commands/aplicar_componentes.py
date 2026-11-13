@@ -1,8 +1,8 @@
 """Converte nos componentes próprios: o sumário de cada capítulo (`<argument>`, obra/sumarios.py) e o
 aparato do fim de cada volume (nó `anexo` com `anexo-titulo`/`indice`, obra/anexos.py).
 
-Aplica na 1916 e depois na nova (os blocos editados à mão na nova são pulados); na nova, os blocos
-resultantes voltam a apontar para os da 1916 e ficam `copia` quando o texto coincide."""
+Aplica na 1916 e depois nas derivadas (atualizada, nova; os blocos editados à mão nelas são pulados);
+nas derivadas, os blocos resultantes voltam a apontar para os da 1916 e ficam `copia` quando o texto coincide."""
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
@@ -15,11 +15,11 @@ class Command(BaseCommand):
 
     def add_arguments(self, p):
         p.add_argument("--aplicar", action="store_true", help="Grava (sem isso, só relata).")
-        p.add_argument("--edicao", action="append", help="slug (repetível); padrão: 1916 e nova")
+        p.add_argument("--edicao", action="append", help="slug (repetível); padrão: 1916 e as derivadas")
         p.add_argument("--detalhe", action="store_true", help="mostra o XML resultante")
 
     def handle(self, *args, aplicar, edicao, detalhe, **opts):
-        slugs = edicao or ["1916", "nova"]
+        slugs = edicao or ["1916"] + [e.slug for e in Edicao.ordenadas(Edicao.objects.filter(tipo__in=Edicao.DERIVADAS))]
         nova = Edicao.objects.filter(slug="nova", tipo=Edicao.NOVA).first()
         ed16 = Edicao.objects.filter(slug="1916").first()
         if nova and ed16 and "nova" in slugs:
@@ -40,8 +40,8 @@ class Command(BaseCommand):
             self._edicao(ed, aplicar, detalhe)
 
     def _pular(self, ed, blocos):
-        """Na nova, não reescreve o que um editor já mexeu."""
-        return ed.tipo == Edicao.NOVA and any(b.procedencia in (Bloco.ADAPTADO, Bloco.NOVO) for b in blocos)
+        """Nas derivadas, não reescreve o que um editor já mexeu."""
+        return ed.derivada and any(b.procedencia in (Bloco.ADAPTADO, Bloco.NOVO) for b in blocos)
 
     def _edicao(self, ed, aplicar, detalhe):
         arv = leitura.Arvore(ed)
@@ -88,9 +88,9 @@ class Command(BaseCommand):
                                            volume=a.blocos[0].volume_id, pagina=a.blocos[0].pagina)
                 tocados += r.blocos
         self.stdout.write(f"  {n_sum} sumário(s), {n_anexo} anexo(s), {pulados} pulado(s).")
-        if aplicar and ed.tipo == Edicao.NOVA and tocados:
+        if aplicar and ed.derivada and tocados:
             n = religar(ed, [b.pk for b in tocados])
-            self.stdout.write(f"  {n} bloco(s) da nova religados à 1916 como cópia.")
+            self.stdout.write(f"  {n} bloco(s) de {ed.slug} religados à 1916 como cópia.")
         if not aplicar:
             self.stdout.write("  (use --aplicar para gravar)")
 

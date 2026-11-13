@@ -5,6 +5,7 @@ dentro de uma `Edicao`); a hierarquia (`No`) é derivada dos blocos `marco`.
 """
 from django.conf import settings
 from django.db import models
+from django.http import Http404
 
 from . import esquema
 
@@ -12,14 +13,34 @@ PASSO_ORDEM = 1024  # folga entre `ordem` de blocos vizinhos
 
 
 class Edicao(models.Model):
+    """Três edições: a rediagramação do texto de 1916/17 (`diplomatica`, slug "1916"), a edição
+    atualizada (`atualizada`) e a nova edição (`nova`). As duas últimas são DERIVADAS: cada bloco
+    aponta para a `origem` na 1916 e acompanha a revisão dela (`servicos_nova`). Só a nova reorganiza
+    a estrutura (ordem das partes, mover, suprimir). `publica=False` esconde a edição da parte
+    pública (quem tem `obra.change_bloco` ainda a vê, marcada como oculta)."""
     DIPLOMATICA = "diplomatica"
+    ATUALIZADA = "atualizada"
     NOVA = "nova"
-    TIPOS = [(DIPLOMATICA, "Diplomática"), (NOVA, "Nova edição")]
+    TIPOS = [(DIPLOMATICA, "Rediagramação do texto de 1916/17"), (ATUALIZADA, "Edição atualizada"),
+             (NOVA, "Nova edição")]
+    DERIVADAS = (ATUALIZADA, NOVA)
+    ORDEM_TIPOS = {DIPLOMATICA: 0, ATUALIZADA: 1, NOVA: 2}
+    # o que compõe a edição atualizada (mostrado no site e no painel)
+    COMPONENTES_ATUALIZADA = [
+        "Rediagramação",
+        "Atualização ortográfica e gramatical",
+        "Atualização das referências e citações",
+        "Revisão das gravuras",
+        "Notas do editor",
+    ]
 
     slug = models.SlugField(unique=True)
     titulo = models.CharField(max_length=200)
     tipo = models.CharField(max_length=12, choices=TIPOS, default=DIPLOMATICA)
     descricao = models.TextField(blank=True)
+    publica = models.BooleanField(
+        "pública", default=True,
+        help_text="Desmarcada, a edição some da parte pública (só editores a veem).")
 
     class Meta:
         verbose_name = "edição"
@@ -27,6 +48,54 @@ class Edicao(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    @property
+    def titulo_curto(self):
+        """Rótulo do menu do cabeçalho."""
+        return {self.DIPLOMATICA: "Texto de 1916/17", self.ATUALIZADA: "Edição atualizada",
+                self.NOVA: "Nova edição"}.get(self.tipo, self.titulo)
+
+    @property
+    def derivada(self):
+        return self.tipo in self.DERIVADAS
+
+    @property
+    def reorganiza(self):
+        """Pode mudar a estrutura (ordem das partes, mover, suprimir)? Só a nova edição."""
+        return self.tipo == self.NOVA
+
+    @property
+    def componentes(self):
+        return self.COMPONENTES_ATUALIZADA if self.tipo == self.ATUALIZADA else []
+
+    @property
+    def chave_ordem(self):
+        return (self.ORDEM_TIPOS.get(self.tipo, 9), self.slug)
+
+    @classmethod
+    def ordenadas(cls, qs=None):
+        """Edições na ordem de apresentação: 1916, atualizada, nova."""
+        return sorted(qs if qs is not None else cls.objects.all(), key=lambda e: e.chave_ordem)
+
+    @classmethod
+    def visiveis(cls, user=None):
+        """Edições que `user` pode ver na parte pública, ordenadas."""
+        qs = cls.objects.all()
+        if not pode_ver_ocultas(user):
+            qs = qs.filter(publica=True)
+        return cls.ordenadas(qs)
+
+
+def pode_ver_ocultas(user):
+    return bool(user is not None and user.is_authenticated and user.has_perm("obra.change_bloco"))
+
+
+def edicao_visivel_ou_404(slug, user):
+    """A edição `slug`, se existir e `user` puder vê-la (pública, ou `user` é editor); senão 404."""
+    ed = Edicao.objects.filter(slug=slug).first()
+    if ed is None or not (ed.publica or pode_ver_ocultas(user)):
+        raise Http404("Edição não encontrada.")
+    return ed
 
 
 class Volume(models.Model):

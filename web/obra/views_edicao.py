@@ -7,6 +7,7 @@ permissão -> 403). Endpoints JSON (`converter`, `gravar`) respondem 401/403 em 
 import json
 from functools import wraps
 
+from django.contrib import messages
 from django.contrib.auth.views import redirect_to_login
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
@@ -80,6 +81,7 @@ def _json_corpo(request):
 def render_area(request, modelo, contexto):
     contexto["volumes_nav"] = list(Volume.objects.all())
     contexto["sugestoes_pendentes"] = Sugestao.objects.filter(estado=Sugestao.PENDENTE).count()
+    contexto["derivadas_nav"] = Edicao.ordenadas(Edicao.objects.filter(tipo__in=Edicao.DERIVADAS))
     return render(request, modelo, contexto)
 
 
@@ -180,10 +182,23 @@ def painel(request):
                 "pagina": r.pagina, "acao": r.get_acao_display(), "comentario": r.comentario, "n": 1}
         vistos[r.lote] = item
         lotes.append(item)
-    from .views_nova import resumo_nova  # import tardio: views_nova importa este módulo
+    from .views_nova import resumos_derivadas  # import tardio: views_nova importa este módulo
     return render_area(request, "edicao/painel.html", {
         "volumes": volumes, "continuar": continuar, "lotes": lotes[:12], "edicao": edicao,
-        "nova": resumo_nova()})
+        "derivadas": resumos_derivadas(), "edicoes": Edicao.ordenadas()})
+
+
+@exige_edicao()
+@require_POST
+def visibilidade(request, slug):
+    """Mostra/esconde a edição na parte pública (`Edicao.publica`). Exige `obra.change_edicao`."""
+    if not request.user.has_perm("obra.change_edicao"):
+        raise PermissionDenied
+    ed = get_object_or_404(Edicao, slug=slug)
+    ed.publica = request.POST.get("publica") == "1"
+    ed.save(update_fields=["publica"])
+    messages.success(request, f"{ed.titulo}: {'visível na parte pública' if ed.publica else 'escondida da parte pública'}.")
+    return redirect("obra:painel")
 
 
 # ----------------------------------------------------------- lista de páginas

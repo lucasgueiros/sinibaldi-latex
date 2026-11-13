@@ -1,20 +1,20 @@
-{# Item recursivo da árvore da nova edição. Contexto: no, foco. #}
+{# Item recursivo da árvore de uma edição derivada. Contexto: no, foco, nova (a edição). #}
 <li id="no-{{ no.xml_id }}" class="nova-no{% if no.suprimido %} nova-suprimido{% endif %}{% if no.xml_id == foco %} nova-foco{% endif %}">
   <div class="nova-linha">
-    <a href="{% url 'obra:nova_no' no.xml_id %}" class="nova-titulo item-{{ no.nivel }}" title="Abrir no editor">
+    <a href="{% url 'obra:nova_no' nova.slug no.xml_id %}" class="nova-titulo item-{{ no.nivel }}" title="Abrir no editor">
       {% if no.rotulo %}<span class="rotulo">{{ no.rotulo }}</span>{% endif %}{% if no.titulo %} <span>{{ no.titulo }}</span>{% endif %}{% if not no.rotulo and not no.titulo %}{{ no.xml_id }}{% endif %}</a>
     <span class="nova-meta">{{ no.n_blocos }} bl.{% if no.pag %} · orig. p. {{ no.pag }}{% endif %}{% if no.suprimido %} · <strong>suprimido</strong>{% endif %}</span>
-    <form method="post" action="{% url 'obra:nova_no_acao' no.xml_id %}" class="nova-acoes">
+    {% if nova.reorganiza %}<form method="post" action="{% url 'obra:nova_no_acao' nova.slug no.xml_id %}" class="nova-acoes">
       {% csrf_token %}
       <button name="acao" value="subir" class="ferramenta" title="Mover para cima (entre irmãos do mesmo nível)" aria-label="Subir"{% if not no.irmao_ant %} disabled{% endif %}>&uarr;</button>
       <button name="acao" value="descer" class="ferramenta" title="Mover para baixo" aria-label="Descer"{% if not no.irmao_seg %} disabled{% endif %}>&darr;</button>
-      <a class="ferramenta" href="{% url 'obra:nova_mover' no.xml_id %}" title="Mover para…">mover&hellip;</a>
+      <a class="ferramenta" href="{% url 'obra:nova_mover' nova.slug no.xml_id %}" title="Mover para…">mover&hellip;</a>
       {% if no.suprimido %}
       <button name="acao" value="restaurar" class="ferramenta" title="Restaurar este trecho (tira a supressão)">restaurar</button>
       {% else %}
       <button name="acao" value="suprimir" class="ferramenta" title="Suprimir (nada é apagado)" onclick="return confirm('Suprimir este trecho da nova edição? Nada é apagado; dá para restaurar.')">suprimir</button>
       {% endif %}
-    </form>
+    </form>{% endif %}
   </div>
   {% if no.teses_lista %}
     <details class="teses"{% if no.abre %} open{% endif %}><summary>{{ no.teses_lista|length }} tese{{ no.teses_lista|length|pluralize }}</summary>

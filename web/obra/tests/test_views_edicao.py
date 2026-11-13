@@ -119,7 +119,7 @@ class PainelEListaTest(BaseViews):
         vol = r.context["volumes"][0]
         self.assertEqual((vol["contagem"]["revisada"], vol["contagem"]["nao_revisada"], vol["total"]), (1, 2, 3))
         self.assertIsNone(r.context["continuar"])
-        self.assertContains(r, "/edicao-colaborativa/nova/")
+        self.assertContains(r, "Edições na parte pública")
 
     def test_continuar_de_onde_parei(self):
         bs, ids = self.escopo(2)
