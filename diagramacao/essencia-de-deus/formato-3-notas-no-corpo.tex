@@ -1,0 +1,45 @@
+% Formato 3 — notas no corpo (160×230 mm).  O texto oficial vem em destaque, em corpo
+% maior (12 pt, preto); cada nota é solta logo DEPOIS do parágrafo que a chama (não no
+% meio da frase), em corpo menor, cinza, recuada e com filete à esquerda.
+\documentclass[12pt,twoside]{book}
+\usepackage[paperwidth=160mm,paperheight=230mm,inner=19mm,outer=24mm,top=17mm,
+            bottom=19mm,includehead,headsep=6mm,footskip=9mm,marginparwidth=14mm]{geometry}
+\input{comum}
+\usepackage[most]{tcolorbox}
+\definecolor{nota}{gray}{0.28}
+\definecolor{filete}{gray}{0.70}
+
+% \footnote{...}: chamada «(n)» no texto; o conteúdo entra numa fila esvaziada no
+% fim do parágrafo (hook para/after).  \ifemnota impede que os \par da própria nota
+% disparem de novo a fila.
+\newtoks\notasfila
+\newif\ifemnota
+\renewcommand\footnote[1]{%
+  \stepcounter{footnote}%
+  \hbox{\normalfont\,(\arabic{footnote})}%
+  \expandafter\enfileira\expandafter{\the\value{footnote}}{#1}}
+\newcommand\enfileira[2]{\global\notasfila\expandafter{\the\notasfila\umanota{#1}{#2}}}
+\newcommand\umanota[2]{%
+  \begin{tcolorbox}[breakable,enhanced jigsaw,frame hidden,interior hidden,
+      borderline west={1.2pt}{0pt}{filete},left=4mm,right=0mm,top=0mm,bottom=0mm,
+      boxsep=0mm,before skip=.6\baselineskip,after skip=.9\baselineskip,
+      left skip=6mm,fontupper=\footnotesize\color{nota}]
+    \setlength{\parindent}{1em}\noindent{\scshape nota (#1).}\enspace #2
+  \end{tcolorbox}}
+% Só na lista vertical principal: cabeçalho, marginpar e a própria caixa são
+% "inner" e também disparam para/after (sem isto a fila era solta dentro da rotina de
+% saída quando o parágrafo da chamada quebrava de página, e a nota saía sobreposta).
+\newcommand\soltanotas{%
+  \ifinner\else\ifemnota\else
+    \edef\tmpfila{\the\notasfila}%
+    \ifx\tmpfila\empty\else
+      \emnotatrue
+      \begingroup\the\notasfila\endgroup
+      \global\notasfila{}%
+      \emnotafalse
+    \fi
+  \fi\fi}
+\AddToHook{para/after}{\soltanotas}
+\begin{document}
+\input{texto}
+\end{document}
