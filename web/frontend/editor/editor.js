@@ -15,13 +15,14 @@ import { dialogo } from "./dialogo.js";
 import { postarJSON } from "./rede.js";
 
 const ESQUEMA_PADRAO = {
-  niveis: { parte: "Parte", seccao: "Secção", capitulo: "Capítulo", artigo: "Artigo", tese: "Tese" },
+  niveis: { anexo: "Anexo", parte: "Parte", seccao: "Secção", capitulo: "Capítulo", artigo: "Artigo", tese: "Tese" },
   tipos_paragrafo: {
     definicao: "Definição", divisao: "Divisão", enunciado: "Tese", argumento: "Argumento",
     objecao: "Objeção", resposta: "Resposta", escolio: "Escólio", corolario: "Corolário", observacao: "Observação",
+    "anexo-titulo": "Título no anexo", indice: "Entrada do índice",
   },
   rend: { it: "Itálico", bold: "Negrito", sc: "Versalete" },
-  prefixos_id: { parte: "parte", seccao: "sec", capitulo: "cap", artigo: "art", tese: "t" },
+  prefixos_id: { anexo: "anexo", parte: "parte", seccao: "sec", capitulo: "cap", artigo: "art", tese: "t" },
 };
 
 // ------------------------------------------------------------ utilidades

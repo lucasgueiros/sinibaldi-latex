@@ -1,11 +1,11 @@
-"""Sumários de capítulo: detecção do do autor (OCR), comando ocultar_sumarios e sumário gerado."""
+"""Componentes: sumário de capítulo (<argument>) e aparato do fim do volume (anexo)."""
 from io import StringIO
 
 from django.core.management import call_command
 from django.test import SimpleTestCase
 
-from obra import sumarios
-from obra.models import Bloco
+from obra import anexos, servicos, sumarios
+from obra.models import Bloco, Edicao, No
 
 from .test_publico import PublicoBase
 
@@ -24,10 +24,6 @@ class DetectarTest(SimpleTestCase):
                     '<hi rend="sc">SuwMaRIO</hi>0: —', "SuwwARIO; —", "SUMNARIO ; —", "SuwMARIO :: —"):
             with self.subTest(rot):
                 self.assertEqual(achar(p(f"{rot} Ente necessario e ente contingente.")), [[0]])
-
-    def test_titulo_grudado(self):
-        a = sumarios.detectar(None, [p("DIVISÃO DO ENTE SuxMARIO: — Ente necessario. — Ente finito.")])
-        self.assertEqual(a[0].titulo_embutido, "DIVISÃO DO ENTE")
 
     def test_texto_corrido_nao_e_sumario(self):
         self.assertEqual(achar(p("o homem Supponhamos: — que a coisa seja.")), [])
@@ -60,37 +56,83 @@ class DetectarTest(SimpleTestCase):
         self.assertEqual(achar(*bs), [[0, 2], [3]])
 
 
-class SumarioGeradoTest(PublicoBase):
+class ComponenteSumarioTest(SimpleTestCase):
+    def comp(self, *blocos):
+        return sumarios.componente(sumarios.detectar(None, blocos)[0])
+
+    def test_um_p_por_assunto_hifenizacao_e_titulo_grudado(self):
+        xml = self.comp(p("DIVISÃO DO ENTE SuxMARIO: — Ente necessario e ente contingente. -— Pro-"),
+                        p("cesso: Methodo analytico, — Ente simples - composto,"))
+        self.assertEqual(xml, ["<head>DIVISÃO DO ENTE</head>",
+                               "<argument><p>Ente necessario e ente contingente.</p>"
+                               "<p>Processo: Methodo analytico.</p><p>Ente simples - composto.</p></argument>"])
+
+    def test_argument_antigo_preserva_marcacao(self):
+        xml = self.comp(p('<argument><p>— Existencia de <hi rend="sc">Deus</hi> . — O atheismo.</p></argument>',
+                          Bloco.SUMARIO))
+        self.assertEqual(xml, ['<argument><p>Existencia de <hi rend="sc">Deus</hi>.</p><p>O atheismo.</p></argument>'])
+
+    def test_titulo_curto_e_ruido(self):
+        self.assertEqual(self.comp(p("IT SuwMARIO :: — Aspecto geral."))[0], "<argument><p>Aspecto geral.</p></argument>")
+
+
+class AnexoTest(SimpleTestCase):
+    def test_divisao(self):
+        for t in ("CAPITULO SEGUNDO", "- CAPITULO TERCEIRO", "SECÇÃO Il. — Cosmologia geral.", "LOGICA",
+                  "SYNOPSE DA MORAL"):
+            self.assertTrue(anexos._e_divisao(t), t)
+        for t in ("Juizo e proposição, sua divisão . . . 45", "a) Idea. — Idea é a simples representação"):
+            self.assertFalse(anexos._e_divisao(t), t)
+
+
+class AplicarComponentesTest(PublicoBase):
+    """Na 1916 sintética: um sumário de OCR na tese 2 e um índice com capítulo fantasma no fim."""
+
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+        for ed in (cls.edicao, cls.nova):
+            fim = Bloco.objects.filter(edicao=ed).order_by("-ordem").first()
+            servicos.salvar_blocos(ed, [], [{"xml": x} for x in (
+                "<p>SUMMARIO: — Juizo e proposição. — Divisão da</p>", "<p>proposição simples.</p>",
+                "<p>INDICE DAS MATERIAS</p>", "<p>Idea e termo . . . 16</p>",
+                '<milestone unit="capitulo" xml:id="v1.cap-99"/>', '<head type="rotulo">CAPITULO SEGUNDO</head>',
+                "<p>Juizo e proposição . . . 45</p>")], None, ancora=fim.pk)
+        # a nova copia a 1916: liga os blocos acrescentados
+        novos16 = list(Bloco.objects.filter(edicao=cls.edicao).order_by("-ordem")[:7])[::-1]
+        novosN = list(Bloco.objects.filter(edicao=cls.nova).order_by("-ordem")[:7])[::-1]
+        for a, b in zip(novosN, novos16):
+            a.origem, a.procedencia = b, Bloco.COPIA
+        Bloco.objects.bulk_update(novosN, ["origem", "procedencia"])
+
     def cmd(self, *args):
         out = StringIO()
-        call_command("ocultar_sumarios", *args, stdout=out)
+        call_command("aplicar_componentes", *args, stdout=out)
         return out.getvalue()
 
-    def test_ocultar_gerar_desfazer(self):
-        arg = Bloco.objects.get(edicao=self.nova, tipo=Bloco.SUMARIO)
-        self.assertIn("1 sumário(s), 1 bloco(s)", self.cmd())
-        arg.refresh_from_db()
-        self.assertNotEqual(arg.procedencia, Bloco.SUPRIMIDO)          # sem --aplicar, só relata
+    def test_relatorio_nao_grava(self):
+        self.assertIn("1 sumário(s), 1 anexo(s)", self.cmd())
+        self.assertTrue(No.objects.filter(edicao=self.edicao, xml_id="v1.cap-99").exists())
 
-        r = self.get("no", "nova", "v1.cap-1")
-        self.assertContains(r, "Sumário do capítulo.")
-        self.assertContains(r, 'class="sumario-cap')                   # gerado, mesmo antes
-        self.assertContains(r, "Idea")
-        self.assertContains(r, "Termo")
-        self.assertRegex(r.content.decode(), r'href="#b\d+"><span class="num">1\.</span>')
-
-        self.assertIn("1 bloco(s) suprimido(s)", self.cmd("--aplicar"))
-        arg.refresh_from_db()
-        self.assertEqual(arg.procedencia, Bloco.SUPRIMIDO)
-        self.assertNotContains(self.get("no", "nova", "v1.cap-1"), "Sumário do capítulo.")
-        self.assertIn("0 sumário(s)", self.cmd())                      # já suprimido: nada a fazer
-
-        self.assertIn("1 bloco(s) restaurado(s)", self.cmd("--desfazer"))
-        arg.refresh_from_db()
-        self.assertEqual(arg.procedencia, Bloco.COPIA)
-
-    def test_diplomatica_e_tese_sem_sumario_gerado(self):
-        r = self.get("no", "1916", "v1.cap-1")
-        self.assertContains(r, "Sumário do capítulo.")
-        self.assertNotContains(r, 'class="sumario-cap')
-        self.assertNotContains(self.get("no", "nova", "v1.t1"), 'class="sumario-cap')
+    def test_aplicar(self):
+        self.cmd("--aplicar")
+        for ed in (self.edicao, self.nova):
+            with self.subTest(ed.slug):
+                self.assertFalse(No.objects.filter(edicao=ed, xml_id="v1.cap-99").exists())
+                anexo = No.objects.get(edicao=ed, xml_id="v1.indice")
+                self.assertEqual((anexo.nivel, anexo.titulo, anexo.pai_id), ("anexo", "INDICE DAS MATERIAS", None))
+                xmls = list(Bloco.objects.filter(edicao=ed, ordem__gte=anexo.ordem_ini).order_by("ordem")
+                            .values_list("xml", flat=True))
+                self.assertEqual(xmls[2:], ['<p type="indice">Idea e termo . . . 16</p>',
+                                            '<p type="anexo-titulo">CAPITULO SEGUNDO</p>',
+                                            '<p type="indice">Juizo e proposição . . . 45</p>'])
+                self.assertTrue(Bloco.objects.filter(
+                    edicao=ed, xml="<argument><p>Juizo e proposição.</p><p>Divisão da proposição simples.</p></argument>").exists())
+        # nova: tudo volta a ser cópia ligada à 1916
+        for b in Bloco.objects.filter(edicao=self.nova, ordem__gte=No.objects.get(edicao=self.nova, xml_id="v1.indice").ordem_ini):
+            self.assertEqual((b.procedencia, b.xml), (Bloco.COPIA, b.origem.xml))
+        self.assertIn("0 sumário(s), 0 anexo(s)", self.cmd())          # idempotente
+        r = self.get("no", "nova", "v1.indice")
+        self.assertContains(r, 'data-type="indice"')
+        r = self.get("edicao", "nova")
+        self.assertContains(r, "INDICE DAS MATERIAS")

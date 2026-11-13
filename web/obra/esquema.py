@@ -17,6 +17,7 @@ NS_XML = "http://www.w3.org/XML/1998/namespace"
 
 # --- rótulos legíveis (ordem = ordem hierárquica / de menu) -----------------
 NIVEIS = {  # do mais alto ao mais baixo
+    "anexo": "Anexo",   # aparato do fim do volume (Synopse, Indice das materias): fecha tudo e não tem filhos
     "parte": "Parte",
     "seccao": "Secção",
     "capitulo": "Capítulo",
@@ -35,6 +36,8 @@ TIPOS_PARAGRAFO = {
     "escolio": "Escólio",
     "corolario": "Corolário",
     "observacao": "Observação",
+    "anexo-titulo": "Título no anexo",   # divisão citada na Synopse/Índice (não é estrutura)
+    "indice": "Entrada do índice",
 }
 
 REND = {"it": "Itálico", "bold": "Negrito", "sc": "Versalete"}

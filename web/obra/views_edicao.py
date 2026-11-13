@@ -61,7 +61,7 @@ def esquema_para_cliente():
         "tipos_paragrafo": esquema.TIPOS_PARAGRAFO,
         "rend": esquema.REND,
         "tipos_bloco": esquema.TIPOS_BLOCO,
-        "prefixos_id": {"parte": "parte", "seccao": "sec", "capitulo": "cap", "artigo": "art", "tese": "t"},
+        "prefixos_id": {"anexo": "anexo", "parte": "parte", "seccao": "sec", "capitulo": "cap", "artigo": "art", "tese": "t"},
     }
 
 

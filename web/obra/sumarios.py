@@ -1,21 +1,24 @@
-"""Sumários de capítulo.
+"""Sumário de capítulo como componente: `<argument>` com um `<p>` por assunto.
 
 O «Summario» que o autor põe no começo de cada capítulo chegou do OCR em mau estado: o rótulo
 aparece como `SussAnt0`, `Suwxaxio`, `SuxwaR)0`…, às vezes grudado no título do capítulo, e o
 texto vem picotado em vários `<p>` com as linhas da página. Só alguns viraram `<argument>`.
 
 `detectar(edicao)` acha esses sumários nos blocos (independe da árvore de nós, porque o marco do
-capítulo às vezes falta e o sumário cai dentro da secção ou de uma tese); o comando
-`ocultar_sumarios` os marca como suprimidos na edição nova. `gerar(no)` monta um sumário novo a
-partir dos nós (artigos e teses) do capítulo, que a página do capítulo mostra no lugar do antigo.
+capítulo às vezes falta e o sumário cai dentro da secção ou de uma tese). `componente(achado)`
+devolve os blocos que os substituem: o título grudado vira `<head>` e o sumário, `<argument>`
+com um `<p>` por assunto (o rótulo «Summario» e os travessões são da apresentação). Aplicado pelo
+comando `aplicar_componentes`.
 """
 import re
 from dataclasses import dataclass, field
 
+from lxml import etree
+
 from .leitura import texto_plano
 from .models import Bloco
 
-COMENTARIO = "Sumário do autor (OCR) ocultado: substituído pelo sumário gerado (ocultar_sumarios)."
+COMENTARIO = "Sumário do capítulo convertido no componente <argument> (aplicar_componentes)."
 
 # rótulo «SUMMARIO:» com as leituras do OCR (SussAnt0, Suwxaxio, SuxwaR)0, "BUMMARIO, SummaAn10…),
 # seguido de dois-pontos e do travessão que abre a lista de assuntos
@@ -106,41 +109,84 @@ def detectar(edicao, blocos=None):
     return achados
 
 
-# ------------------------------------------------------------------- sumário gerado
-def _titulo(no, limite=90):
-    t = (no.titulo or "").strip(" .;,")
-    corte = re.split(r"\s+[—–]\s*", t, maxsplit=1)[0].strip(" .;,|")   # "Definição, — Definição é…"
-    if len(re.sub(r"\W", "", corte)) >= 3:
-        t = corte
-    if len(re.sub(r"\W", "", t)) < 3:    # "y", "|": resto de OCR, não título
-        return ""
-    return t if len(t) <= limite else t[:limite].rsplit(" ", 1)[0] + "…"
+# --------------------------------------------------------------------- componente
+_HIFEN_FIM = re.compile(r"(\w)-\s*$")
+_HIFEN_MEIO = re.compile(r"(\w)-\s+(?=[a-zà-ÿ])")
+_SEPARADOR = re.compile(r"\s*(?:[—–]+-*|-{2,})\s*")
+_ESPACO_PONTUACAO = re.compile(r"\s+([.,;:])")
+_LETRAS = re.compile(r"[A-Za-zÀ-ÿ]")
+_PONTAS = " .,;:|\"“”'^-—–"
 
 
-def _numero(no):
-    return no.rotulo.replace("Tese", "").strip(" .") if no.rotulo else ""
+def _esc(t):
+    return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def gerar(no):
-    """Sumário de um nó já montado por `leitura.Arvore` (usa `filhos_lista`).
-
-    Lista de grupos `{"no": artigo|None, "titulo": str, "teses": [{"no", "numero", "titulo"}]}`:
-    as teses soltas no capítulo (antes do primeiro artigo ou entre artigos) formam grupos sem
-    cabeçalho. Vazio se o nó não tem filhos."""
-    grupos = []
-    for f in no.filhos_lista:
-        if f.nivel == "tese":
-            if not grupos or grupos[-1]["no"] is not None:
-                grupos.append({"no": None, "titulo": "", "teses": []})
-            grupos[-1]["teses"].append({"no": f, "numero": _numero(f), "titulo": _titulo(f)})
+def _interno(el):
+    """Conteúdo inline de `el` como string XML, sem cabeçalhos correntes."""
+    for fw in el.findall(".//fw"):
+        pai, cauda = fw.getparent(), fw.tail or ""
+        ant = fw.getprevious()
+        if ant is not None:
+            ant.tail = (ant.tail or "") + cauda
         else:
-            teses = [d for d in _descendentes(f) if d.nivel == "tese"]
-            grupos.append({"no": f, "titulo": _titulo(f, 120),
-                           "teses": [{"no": t, "numero": _numero(t), "titulo": _titulo(t)} for t in teses]})
-    return grupos
+            pai.text = (pai.text or "") + cauda
+        pai.remove(fw)
+    return _esc(el.text or "") + "".join(etree.tostring(c, encoding="unicode", with_tail=True) for c in el)
 
 
-def _descendentes(no):
-    for f in no.filhos_lista:
-        yield f
-        yield from _descendentes(f)
+def _linhas(achado):
+    out = []
+    for b in achado.blocos:
+        el = etree.fromstring(b.xml.encode("utf-8"))
+        out.extend(_interno(p) for p in (el.findall("p") if el.tag == "argument" else [el]))
+    return out
+
+
+def _juntar(linhas):
+    """Junta as linhas impressas desfazendo a hifenização (`Pro-` + `cesso`)."""
+    out = ""
+    for t in linhas:
+        t = t.strip()
+        if out and _HIFEN_FIM.search(out):
+            out = _HIFEN_FIM.sub(r"\1", out) + t
+        else:
+            out = f"{out} {t}" if out else t
+    return _HIFEN_MEIO.sub(r"\1", out)
+
+
+def _item(xml):
+    """Um assunto: pontas limpas, terminado em ponto; `<hi>` preservado se ficou equilibrado."""
+    xml = _ESPACO_PONTUACAO.sub(r"\1", " ".join(xml.split())).strip(_PONTAS)
+    try:
+        el = etree.fromstring(f"<p>{xml}</p>".encode("utf-8"))
+    except etree.XMLSyntaxError:                       # <hi> cortado pelo travessão: fica o texto
+        xml = _esc(_TAG.sub("", xml)).strip(_PONTAS)
+        el = etree.fromstring(f"<p>{xml}</p>".encode("utf-8"))
+    texto = "".join(el.itertext()).strip()
+    if len(_LETRAS.findall(texto)) < 3:
+        return None
+    return xml if texto.endswith(".") else xml + "."
+
+
+def assuntos(achado):
+    """Os assuntos do sumário (XML inline), um por item, cada um terminado em ponto."""
+    if achado.blocos[0].tipo == Bloco.SUMARIO:         # <argument>: cada <p> já é um assunto (ou vários)
+        pedacos = [x for p in _linhas(achado) for x in _SEPARADOR.split(p)]
+    else:                                              # linhas impressas: junta e tira «TÍTULO SUMMARIO: —»
+        xml = _juntar(_linhas(achado))
+        m = _SEPARADOR.search(xml)
+        pedacos = _SEPARADOR.split(xml[m.end():] if m else xml)
+    return [i for i in map(_item, pedacos) if i]
+
+
+def componente(achado):
+    """XML dos blocos que substituem o achado: [`<head>` do título grudado,] `<argument>`."""
+    out = []
+    titulo = " ".join(achado.titulo_embutido.split())
+    if len(_LETRAS.findall(titulo)) >= 6:
+        out.append(f"<head>{_esc(titulo)}</head>")
+    itens = assuntos(achado)
+    if itens:
+        out.append("<argument>" + "".join(f"<p>{i}</p>" for i in itens) + "</argument>")
+    return out

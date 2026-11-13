@@ -115,7 +115,20 @@
   .obra p[data-type="observacao"] { @apply border-l-ink/30; }
   .obra-edicao p[data-type="observacao"]::before { content: "Observação"; @apply text-ink/60; }
 
-  .obra [data-tei="argument"] { @apply my-4 text-center text-base italic; }
+  /* sumário do capítulo (<argument>, um <p> por assunto): «SUMMARIO: — A. — B.», como no livro */
+  .obra [data-tei="argument"] { @apply mx-auto my-6 max-w-xl text-justify text-base leading-relaxed; hyphens: auto; }
+  .obra [data-tei="argument"]::before { content: "Summario:"; @apply mr-1 font-display text-[0.8em] tracking-[0.12em] text-crimson; }
+  .obra [data-tei="argument"] > p { @apply my-0 inline; text-indent: 0; }
+  .obra [data-tei="argument"] > p::before { content: " — "; }
+  .obra-edicao [data-tei="argument"] { @apply rounded-sm border border-dashed border-gold px-3 py-2; }
+  .obra-edicao [data-tei="argument"] > p { @apply block; }
+
+  /* aparato do fim do volume (nó anexo): divisões citadas e entradas do índice */
+  .obra p[data-tei="p"][data-type="anexo-titulo"] { @apply mb-1 mt-5 border-0 pl-0 text-center font-display text-sm tracking-[0.1em] text-crimson; text-indent: 0; }
+  .obra p[data-tei="p"][data-type="indice"] { @apply my-1 border-0 pl-6 text-left text-base leading-snug; text-indent: -1.5rem; }
+  .obra-edicao p[data-type="anexo-titulo"]::before { content: "Título no anexo"; @apply text-ink/50; }
+  .obra-edicao p[data-type="indice"]::before { content: "Entrada do índice"; @apply text-ink/50; text-indent: 0; }
+  .sumario a.item-anexo { @apply font-display text-crimson/80; }
   .obra p[data-tei="fw"] { @apply hidden text-center font-display text-xs tracking-[0.1em] text-ink/45; text-indent: 0; }
   .obra-edicao p[data-tei="fw"] { @apply block; }
   .obra [data-tei="hi"][data-rend="sc"] { font-variant: small-caps; }
@@ -146,17 +159,6 @@
   .sumario > li { @apply mt-3; }
   .sumario details.teses { @apply mt-0.5 text-base; }
   .sumario details.teses > summary { @apply cursor-pointer font-display text-[0.65rem] tracking-[0.12em] text-gold-dark hover:text-crimson; }
-  /* sumário gerado no topo do capítulo (edição nova; templates/publico/_sumario_gerado.html) */
-  .sumario-cap { @apply rounded-sm border-y border-gold/60 px-1 py-4 text-[0.95rem] leading-relaxed; }
-  .sumario-cap-titulo { @apply text-center font-display text-sm tracking-[0.3em] text-crimson; }
-  .sumario-cap ol { @apply mt-2 list-none pl-0; }
-  .sumario-cap li + li { @apply mt-2; }
-  .sumario-cap a { @apply text-ink hover:text-crimson; }
-  .sumario-cap-artigo { @apply font-semibold; }
-  .sumario-cap-artigo .rotulo { @apply font-display text-[0.8em] tracking-[0.06em] text-crimson; }
-  .sumario-cap-teses { @apply mt-0.5 text-justify; hyphens: auto; }
-  .sumario-cap-teses .num { @apply text-ink/60; }
-  .sumario-cap-nota { @apply mt-3 text-center text-xs italic text-ink/55; }
 
   .baixar { @apply relative inline-block; }
   .baixar > summary { @apply cursor-pointer list-none; }
