@@ -2,6 +2,7 @@
 from django.urls import path
 
 from . import views_publico as v
+from . import views_slides as sl
 
 urlpatterns = [
     path("", v.inicio, name="inicio"),
@@ -11,5 +12,9 @@ urlpatterns = [
     path("edicao/<slug:slug>/volume/<int:numero>/baixar/xml/", v.baixar_volume, name="baixar_volume"),
     path("edicao/<slug:slug>/<str:xml_id>/", v.no, name="no"),
     path("edicao/<slug:slug>/<str:xml_id>/baixar/<str:formato>/", v.baixar, name="baixar"),
+    path("edicao/<slug:slug>/<str:xml_id>/slides/", sl.pagina, name="slides"),
+    path("edicao/<slug:slug>/<str:xml_id>/slides.pdf", sl.arquivo, {"formato": "pdf"}, name="slides_pdf"),
+    path("edicao/<slug:slug>/<str:xml_id>/slides.tex", sl.arquivo, {"formato": "tex"}, name="slides_tex"),
+    path("edicao/<slug:slug>/<str:xml_id>/slides.txt", sl.arquivo, {"formato": "txt"}, name="slides_txt"),
     path("fac-simile/<int:volume>/<sint:seq>/", v.facsimile, name="facsimile"),
 ]

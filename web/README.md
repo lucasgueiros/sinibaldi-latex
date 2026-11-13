@@ -55,6 +55,9 @@ npm run build           # Tailwind (static/css), depois de mexer em templates
 | `/fac-simile/<vol>/<seq>/` | `facsimile` | Imagem da página (JPEG 1600 px, link p/ PNG original) |
 | `/scan/<vol>/<seq>.png` | `scan` | PNG original da página (cache longo) |
 | `/scan/<vol>/<seq>.jpg?l=1000\|1600` | `scan_jpg` | JPEG reduzido em cache (`SINIBALDI_CACHE/scans/`); as telas usam `l=1600` e oferecem link "original" |
+| `/edicao/<slug>/<xml_id>/slides/` | `slides` | Slides do trecho (PDF embutido); `slides.pdf`, `slides.tex`, `slides.txt` (`slides_pdf`/`_tex`/`_txt`, `?baixar=1`) |
+| `/edicao-colaborativa/slides/` | `slides_lista` | Apresentações salvas (login) |
+| `/edicao-colaborativa/slides/<slug>/<xml_id>/` | `slides_editor` | Corrigir a fonte dos slides; POST em `salvar/`, `regenerar/`, `descartar/`, `restaurar/` |
 | `/edicao-colaborativa/` | `painel` | Painel da área de revisão (login) |
 | `/edicao-colaborativa/1916/vol/<n>/` | `paginas` | Páginas do volume |
 | `/edicao-colaborativa/1916/vol/<n>/pag/<seq>/` | `revisar` | Scan + editor (`gravar/`, JSON) |
@@ -125,3 +128,17 @@ Fluxo de trabalho:
    difere da origem — atualizáveis em massa; (b) adaptados cuja origem mudou depois da adaptação
    (`Bloco.origem_versao_vista`; sem ele, compara `atualizado_em`) — o editor vê o diff e marca como visto;
    (c) blocos da 1916 (exceto cabeçalhos) sem correspondente na nova.
+
+## Slides (`slides.py`, `views_slides.py`)
+
+O gerador é `tools/gera_slides.py` (TEI do nó → *fonte* `.slides.txt` → beamer → PDF). Qualquer nó de até
+400 blocos tem slides: a página pública (`…/slides/`) só embute o PDF; quem compila é `slides.pdf`
+(`latexmk`, cache em `SINIBALDI_CACHE`, chave = hash da fonte + do gerador + de `tex/slides/academia-slides.sty`,
+semáforo compartilhado com o PDF do texto). Sem registro, os slides são os automáticos e nada vai ao banco.
+Quem tem `obra.change_bloco` corrige a fonte em `…/edicao-colaborativa/slides/<slug>/<xml_id>/`: *Salvar e
+recompilar* (valida com `validar`; `versao` dá controle otimista, conflito = 409 sem perder o texto), *Gerar de
+novo a partir do texto*, *Descartar correções* e *Histórico*/restaurar (`ApresentacaoRevisao`, que sobrevive
+a descartar). `Apresentacao` e o histórico se ligam por `(edicao, xml_id)`, não a `No` (cache recriado por
+`arvore.reconstruir`). Se o texto do livro mudou desde a geração, o editor avisa e mostra o diff, sem
+sobrescrever. Linha de comando: `manage.py gerar_slides --edicao 1916 --no v2.art-6 [-o x.pdf] [--fonte]`.
+O CSS próprio está em `static/css/slides.css` (sem recompilar o Tailwind).

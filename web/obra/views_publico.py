@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils.html import escape
 
-from . import exportacao, leitura
+from . import exportacao, leitura, slides
 from .models import Bloco, Edicao, No, Pagina, Volume
 
 LIMITE_BLOCOS = 400      # nó com filhos até este tamanho é mostrado inteiro
@@ -147,6 +147,7 @@ def no(request, slug, xml_id):
         "total": total, "anterior": arv.vizinho(n, -1), "proximo": arv.vizinho(n, 1), "pai": n.pai_obj,
         "contribuintes": leitura.contribuintes(ed, n.ordem_ini, n.ordem_fim),
         "baixar": menu_baixar(ed, n, total),
+        "slides_url": reverse("obra:slides", args=[ed.slug, n.xml_id]) if slides.disponivel(n, total) else None,
         "volume": Volume.objects.filter(pk=n.volume_id).first(),
     }
     # tese cujo único conteúdo é o próprio texto: nada de sumário de filhos

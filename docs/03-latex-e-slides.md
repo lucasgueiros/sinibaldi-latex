@@ -1,8 +1,8 @@
 # Arquitetura LaTeX (livro → PDF) e slides
 
-Os slides **não** saem do LaTeX: um script monta a base a partir dos trechos marcados no `.tex`
-(texto do livro literal), um LLM torna a base didática, e `tools/md2pptx.py` gera o `.pptx`. Não
-há beamer. Ver a seção "Slides" no fim e `docs/05-estrutura-por-no.md`.
+Slides em LaTeX (beamer), sem LLM: `tools/gera_slides.py` (TEI → fonte `.slides.txt` → `.tex` →
+PDF) com o tema da Academia em `tex/slides/`; o site gera, mostra e corrige (`web/README.md`, seção
+"Slides"). O caminho antigo (`.slides.md` + LLM → `.pptx`) continua no fim deste arquivo.
 
 ## Marca de página impressa
 
@@ -91,7 +91,34 @@ quem monta os slides.
 
 O seccionamento natural segue os parágrafos numerados do autor (`87.`, `88.`, …), não a paginação.
 
-## Slides
+## Slides (beamer, sem LLM)
+
+```bash
+python3 tools/gera_slides.py base vol2/vol2.corrigido.xml --id v2.art-6 -o x.slides.txt   # fonte editável
+python3 tools/gera_slides.py pdf  x.slides.txt -o x.pdf      # ou direto do TEI (mesmas opções de base)
+python3 tools/gera_slides.py valida x.slides.txt             # mensagens "linha N: …"
+python3 tools/gera_slides.py resumo vol1/vol1.corrigido.xml  # tipos de slide (calibração)
+python3 -m unittest tools/test_gera_slides.py                # SLIDES_VOLUMES=1: texto integral dos 2 volumes
+```
+
+- **Fonte `.slides.txt`** (o que o editor humano corrige; nunca LaTeX): `=== tipo`, `# título`,
+  `@ referência`, corpo com `! enunciado`, `- tópico` (`  - ` aninha), `> citação`, `Rótulo:: texto`,
+  `+continua`; inline `*it*`, `**neg**`, `^sc^`. O cabeçalho de comentários `%` de cada fonte gerada
+  repete a sintaxe. Todo texto é escapado ao virar `.tex` (fonte = entrada não confiável).
+- **Tipos / telas** (tema `tex/slides/academia-slides.sty`, ver `tex/slides/README.md`): `capa`,
+  `secao`, `tese`, `definicao`, `divisao`, `argumento`, `objecao`, `resposta`, `corolario`, `escolio`,
+  `observacao`, `citacao`, `texto` — etiqueta e barra próprias por tipo; Cinzel + EB Garamond, cores do site.
+- **Classificação** por regras do estilo do autor: `p type=` explícito manda; senão título em negrito
+  da tese, "divide-se…", "X é…/chama-se…", silogismo `Ora … Logo …` → Maior/Menor/Conclusão (os
+  conectivos viram rótulo), "Corollario", "Objecção", subdivisões `a)`/`1.º`/`I.` → um slide cada.
+  Todo o texto do corpo (sem notas) aparece, literal e na ordem — exceto lixo de OCR isolado (`|`).
+- **Paginação** estimada em linhas, medidas no tema (parágrafo 8 linhas de ~68 car.; `rotulados`
+  9–10 linhas de ~64; enunciado ≤ 5 linhas de ~56); `--max-car` (padrão 544) é a escala. Se o tema
+  mudar de métricas, recalibre (`allowframebreaks` só segura transbordo residual: meta = 0 páginas "continuação").
+- Medido: vol. 1 → 4051 slides, vol. 2 → 2331; `texto` = 49% / 29% dos de conteúdo (vol. 1 pior: TEI
+  ainda fragmentado). `v2.art-6`: 12 slides, ~8 s; `v2.cap-1` (345 blocos): 266 slides, ~45 s.
+
+### Caminho antigo (PPTX via LLM)
 
 ```bash
 python3 tools/gera_slides_base.py <caminho-do-nó>/<stem>.tex     # -> <stem>.slides.base.md

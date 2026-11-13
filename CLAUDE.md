@@ -31,7 +31,7 @@ derived files under new names.
 `tools/`: `extract_paginado.py` (texto etiquetado por página impressa; `--corrige-w` para `w→u`),
 `ocr_paginado.py` (re-OCR `por_best+lat` sob demanda), `corrige_w.py` (whitelist `w→u`),
 `corta.py` (recorta um nó → `<stem>.pdf` + `<stem>.txt`), `trecho.py` (extrai `%%>>> id`),
-`gera_slides_base.py` (`.tex` → `.slides.base.md`), `md2pptx.py` (`.slides.md` → `.pptx`),
+`gera_slides.py` (TEI → slides beamer/PDF, sem LLM; `docs/03`), `gera_slides_base.py` (`.tex` → `.slides.base.md`), `md2pptx.py` (`.slides.md` → `.pptx`),
 `estruturar_tei.py` (`paginas/*.tsv` → `volN.estruturado.xml` + alertas), `corrige_ocr.py`
 (TEI estruturado → `volN.corrigido.xml` + `volN/correcoes.tsv`), `mede_wer.py` (WER contra os
 padrões-ouro — vol. 2 pp. 421–442, vol. 1 `vol1/ouro/` (`--vol vol1`), `docs/07` — o portão de qualquer mudança no texto), `lexico.py` (léxico do corpus +
@@ -104,7 +104,8 @@ O escopo vai até o **PDF do livro**: `livro.tex` + fragmentos por nó (`vol2/�
 compilado com `latexmk -lualatex`. Um capítulo isolado, da raiz: `./compila.sh <capitulo>
 [--sem-notas | --notas-corpo]` → `build/` (comandos no topo do `README.md`). `\pg{286}` imprime `[286]`, marcando a quebra de página do
 original; `\tese`/`\teseB`/`\sub`/`\subp` marcam a estrutura do autor. `tex/_preview.tex` compila um
-nó isolado. Slides: `gera_slides_base.py` → LLM torna didático → `md2pptx.py` (não há beamer/Marp).
+nó isolado. Slides: `tools/gera_slides.py` (TEI → `.slides.txt` editável → beamer com o tema da
+Academia em `tex/slides/` → PDF, sem LLM; o site gera/mostra/corrige). Antigo: `gera_slides_base.py` → LLM → `md2pptx.py`.
 Ver `docs/03-latex-e-slides.md` e `docs/05-estrutura-por-no.md`.
 
 ## Convenções do projeto
