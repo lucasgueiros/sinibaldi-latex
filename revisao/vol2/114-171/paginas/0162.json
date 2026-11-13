@@ -1,0 +1,29 @@
+{
+ "pagina": 162,
+ "paginas": [
+  162,
+  163,
+  164
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (Zmmateriaes, abst :'ahida, n&o, basóa, aperfeigóa, uni&o, \"à\" → \"á\", \"éntellectus\", \"paivao\", \"8. Thomaz\", \"&\" → \"a\"), itálicos indevidos (e), pontuação e lixo (\"'\", \":\" e \"&amp;\"), e a quebra de parágrafo espúria após \"á\" (a frase segue na mesma linha).\nFronteira corpo/nota: não alterada. A nota 162-1 começa em 162 e segue por 163 e até o topo de 164 (sem tocar as notas de 164); o trecho \"Pela definição… esta terceira especie de\" (163, abaixo do filete) foi mantido na nota, pois a imagem o mostra em letra menor e a continuação \"passividade…\" está no rodapé de 164.\nDúvidas: itálico de \"A especie\" e \"pode/póde\" em \"pode deixar de lhe convir\" (ilegíveis com segurança); \"intelligivel é immaterial\" mantido com itálico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (Zmmateriaes, abst :'ahida, n&o, basóa, aperfeigóa, uni&o, \"à\" → \"á\", \"éntellectus\", \"paivao\", \"8. Thomaz\", \"&\" → \"a\"), itálicos indevidos (e), pontuação e lixo (\"'\", \":\" e \"&amp;\"), e a quebra de parágrafo espúria após \"á\" (a frase segue na mesma linha).\nFronteira corpo/nota: não alterada. A nota 162-1 começa em 162 e segue por 163 e até o topo de 164 (sem tocar as notas de 164); o trecho \"Pela definição… esta terceira especie de\" (163, abaixo do filete) foi mantido na nota, pois a imagem o mostra em letra menor e a continuação \"passividade…\" está no rodapé de 164.\nDúvidas: itálico de \"A especie\" e \"pode/póde\" em \"pode deixar de lhe convir\" (ilegíveis com segurança); \"intelligivel é immaterial\" mantido com itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0168893,
+ "duration_ms": 115304,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23583,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 29062
+ },
+ "reparo": false
+}

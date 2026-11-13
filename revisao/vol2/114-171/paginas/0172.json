@@ -1,0 +1,27 @@
+{
+ "pagina": 172,
+ "paginas": [
+  172
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (rasdo→razão, mautavel→mutavel, immoyel→immovel, mutayeis→mutaveis, \"émomateriaes\"→immateriaes, \"p. l\"→\"p. I\", \"&\"→\"á\", \"e á\"→\"e a\"), acentos, pontuação (ponto ausente, \"q..\", \"divisio\"), palavras grudadas (\"funcçõesda\"), itálicos (\"e\", \"o\", \"A\" romanos), \"DEUS\" em versalete como \"Deus\"; removido \" :\" solto no fim da nota.\nFronteira corpo/nota: nenhuma alteração. A nota 1 começa na chamada \"(1)\" da p. 172 e continua até o fim do trecho, sem partes de corpo misturadas (o texto em letra pequena no pé da página está todo dentro da nota).\nDúvidas: a imagem inferior da p. 172 termina em \"mas duas funcções\" e parece não mostrar o restante (\"da mesma faculdade…\"); mantive o texto do fragmento. \"immateriaes\" é leitura provável, não confirmada na imagem; \"rasdo\" foi lido como razão e \"esta fóra\" como \"está fóra\"; italicos de \"A razão\" (início de parágrafos) não ficaram totalmente claros.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (rasdo→razão, mautavel→mutavel, immoyel→immovel, mutayeis→mutaveis, \"émomateriaes\"→immateriaes, \"p. l\"→\"p. I\", \"&\"→\"á\", \"e á\"→\"e a\"), acentos, pontuação (ponto ausente, \"q..\", \"divisio\"), palavras grudadas (\"funcçõesda\"), itálicos (\"e\", \"o\", \"A\" romanos), \"DEUS\" em versalete como \"Deus\"; removido \" :\" solto no fim da nota.\nFronteira corpo/nota: nenhuma alteração. A nota 1 começa na chamada \"(1)\" da p. 172 e continua até o fim do trecho, sem partes de corpo misturadas (o texto em letra pequena no pé da página está todo dentro da nota).\nDúvidas: a imagem inferior da p. 172 termina em \"mas duas funcções\" e parece não mostrar o restante (\"da mesma faculdade…\"); mantive o texto do fragmento. \"immateriaes\" é leitura provável, não confirmada na imagem; \"rasdo\" foi lido como razão e \"esta fóra\" como \"está fóra\"; italicos de \"A razão\" (início de parágrafos) não ficaram totalmente claros.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0097194,
+ "duration_ms": 66069,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 12584,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 16922
+ },
+ "reparo": false
+}

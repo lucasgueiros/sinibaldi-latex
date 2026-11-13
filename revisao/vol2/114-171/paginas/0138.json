@@ -1,0 +1,27 @@
+{
+ "pagina": 138,
+ "paginas": [
+  138
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (sonsecução→consecução, beni→bem, zrascivel→irascivel, rascivel→irascivel, Ihe→lhe, esforco→esforço, differenga→differença, mal,e→mal, e, é sua→á sua) e «» lidos no lugar de \"agradavel\"/\"arduo\" (agora em itálico); pontuação e itálicos ajustados (\"distinctos;\", \"formaes:\", \"o concupiscivel\" com só \"concupiscivel\" em itálico, \"é util\" com só \"util\" em itálico).\nFronteira corpo/nota: nenhuma alteração. Nota 1 (p. 138) e nota 2 (p. 138) estão corretas; a área de notas começa após o filete, e o parágrafo \"Ora o appetite sensitivo…\" e \"Ambos os appetites…\" estão no rodapé, como na imagem.\nDúvidas: nenhuma relevante; \"b)\" e \"appetites\" lidos como na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (sonsecução→consecução, beni→bem, zrascivel→irascivel, rascivel→irascivel, Ihe→lhe, esforco→esforço, differenga→differença, mal,e→mal, e, é sua→á sua) e «» lidos no lugar de \"agradavel\"/\"arduo\" (agora em itálico); pontuação e itálicos ajustados (\"distinctos;\", \"formaes:\", \"o concupiscivel\" com só \"concupiscivel\" em itálico, \"é util\" com só \"util\" em itálico).\nFronteira corpo/nota: nenhuma alteração. Nota 1 (p. 138) e nota 2 (p. 138) estão corretas; a área de notas começa após o filete, e o parágrafo \"Ora o appetite sensitivo…\" e \"Ambos os appetites…\" estão no rodapé, como na imagem.\nDúvidas: nenhuma relevante; \"b)\" e \"appetites\" lidos como na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0060125,
+ "duration_ms": 38581,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11065,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9812
+ },
+ "reparo": false
+}

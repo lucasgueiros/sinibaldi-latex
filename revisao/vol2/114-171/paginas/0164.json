@@ -1,0 +1,34 @@
+{
+ "pagina": 164,
+ "paginas": [
+  164,
+  165,
+  166,
+  167,
+  168,
+  169,
+  170,
+  171
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (abstrata→abstraia, fuzegoes→funções, Averrües, Axrietoteles, aa. 8,4,5→3,4,5, p. L→p. I, q. 79 a. 7, Lux→luz, \"7\"→»), acentos, ordinais (9)→.º), (p)→b)), hifenizações (intel-/lectual, simplici-/dade, di-/stinctas, imma-/terial) e lixo (cabeçalho \"168 METAPHYSICA…\", trechos \"SNC…\" e \"NE MC…\", \"4\"/\"gb\"/\"4E)\" etc.).\nFronteira corpo/nota: a nota n164-1 mantém-se fechada no fim da p. 171 (sem mudança de início/fim); na p. 168, \"verdades não conhecidas. — Digamos alguma coisa…\" estava dentro da nota e foi tirado para o corpo, logo após o `<pb 168/>` do §122; \"só a essencia…\" continua na nota. Na p. 165, a fronteira foi mantida (o `<pb 165/>` do corpo está antes do §121, e o parágrafo `t120.p2` ficou vazio).\nDúvidas: o ornamento \"* * *\" entre a p. 170 e \"O P. Manuel Bernardes\" não foi transcrito (não é texto); a vírgula/ponto após \"(1)\" foi deixado como \".\" depois da nota; \"Acto\" e \"ACTO\" em versalete foram tomados como `<hi rend=\"sc\">`.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (abstrata→abstraia, fuzegoes→funções, Averrües, Axrietoteles, aa. 8,4,5→3,4,5, p. L→p. I, q. 79 a. 7, Lux→luz, \"7\"→»), acentos, ordinais (9)→.º), (p)→b)), hifenizações (intel-/lectual, simplici-/dade, di-/stinctas, imma-/terial) e lixo (cabeçalho \"168 METAPHYSICA…\", trechos \"SNC…\" e \"NE MC…\", \"4\"/\"gb\"/\"4E)\" etc.).\nFronteira corpo/nota: a nota n164-1 mantém-se fechada no fim da p. 171 (sem mudança de início/fim); na p. 168, \"verdades não conhecidas. — Digamos alguma coisa…\" estava dentro da nota e foi tirado para o corpo, logo após o `<pb 168/>` do §122; \"só a essencia…\" continua na nota. Na p. 165, a fronteira foi mantida (o `<pb 165/>` do corpo está antes do §121, e o parágrafo `t120.p2` ficou vazio).\nDúvidas: o ornamento \"* * *\" entre a p. 170 e \"O P. Manuel Bernardes\" não foi transcrito (não é texto); a vírgula/ponto após \"(1)\" foi deixado como \".\" depois da nota; \"Acto\" e \"ACTO\" em versalete foram tomados como `<hi rend=\"sc\">`.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0385661,
+ "duration_ms": 234715,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 61321,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 64868
+ },
+ "reparo": false
+}

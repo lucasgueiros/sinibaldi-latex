@@ -1,0 +1,27 @@
+{
+ "pagina": 113,
+ "paginas": [
+  113
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigido o itálico em \"a vista\" (o artigo \"a\" está em letra normal, não em itálico, como na imagem). Nenhuma fronteira corpo/nota alterada na página 113: o corpo termina em \"perceber o\", antes do filete, e a linha \"num estado anormal…\" abaixo do filete é continuação de nota da página anterior, fora do trecho, por isso não foi transcrita.\nDúvida restante: nenhuma relevante; o trecho termina com o parágrafo aberto, como no fragmento original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigido o itálico em \"a vista\" (o artigo \"a\" está em letra normal, não em itálico, como na imagem). Nenhuma fronteira corpo/nota alterada na página 113: o corpo termina em \"perceber o\", antes do filete, e a linha \"num estado anormal…\" abaixo do filete é continuação de nota da página anterior, fora do trecho, por isso não foi transcrita.\nDúvida restante: nenhuma relevante; o trecho termina com o parágrafo aberto, como no fragmento original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0023288000000000002,
+ "duration_ms": 12936,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9443,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 2769
+ },
+ "reparo": false
+}

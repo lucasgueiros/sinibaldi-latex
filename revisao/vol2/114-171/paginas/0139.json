@@ -1,0 +1,27 @@
+{
+ "pagina": 139,
+ "paginas": [
+  139
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros de OCR corrigidos: \"/rascivel\"→\"irascivel\", \"provimo\"→\"proximo\", \"fermo\"→\"termo\", \"é\" restabelecido em \"que nos é agradavel\", notas ordinais \"1.5)/2.º)/8.3)\"→\"1.ª)/2.ª)/3.ª)\", pontuação final, itálico de \"Sum. Th.\", e removido o asterisco espúrio em \"ao* concupiscivel\".\nFronteira corpo/nota: sem alterações; a nota 1 está corretamente inteira no pé da p. 139 (começa e termina na mesma página).\nDúvidas: \"distinguem-se\" é a palavra completa de \"distin-\" (fim da metade superior), mantida como está por já vir inteira no fragmento; o asterisco em \"ao*\" foi tomado como artefato.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros de OCR corrigidos: \"/rascivel\"→\"irascivel\", \"provimo\"→\"proximo\", \"fermo\"→\"termo\", \"é\" restabelecido em \"que nos é agradavel\", notas ordinais \"1.5)/2.º)/8.3)\"→\"1.ª)/2.ª)/3.ª)\", pontuação final, itálico de \"Sum. Th.\", e removido o asterisco espúrio em \"ao* concupiscivel\".\nFronteira corpo/nota: sem alterações; a nota 1 está corretamente inteira no pé da p. 139 (começa e termina na mesma página).\nDúvidas: \"distinguem-se\" é a palavra completa de \"distin-\" (fim da metade superior), mantida como está por já vir inteira no fragmento; o asterisco em \"ao*\" foi tomado como artefato.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0064719,
+ "duration_ms": 39303,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11284,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10687
+ },
+ "reparo": false
+}
