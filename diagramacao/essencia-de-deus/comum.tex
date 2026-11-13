@@ -17,13 +17,26 @@
 % \pgn{444}: virada dentro de nota (marginpar é proibido ali) -> discreta no fluxo.
 % Em modo vertical (antes de um título ou parágrafo) a marca espera o próximo
 % parágrafo, senão cairia no pé da página anterior.
-\newcommand{\margempg}[1]{\marginpar{\footnotesize\color{marca}[#1]}}
+% marginnote, não \marginpar: \marginpar é float e, com notas retidas de uma página
+% para outra (\dimen\footins limitado), o LaTeX aborta com «Float(s) lost».
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\footnotesize\color{marca}}
+\newcommand{\margempg}[1]{\marginnote{[#1]}}
+% Antes de \tese/\teseB/\subp (que fazem \par\medskip\noindent) a marca fica pendente
+% e é solta por eles (\soltapg) já dentro do parágrafo novo; antes de texto comum,
+% abre o parágrafo ali mesmo.  (Um hook para/begin com \marginnote comia o recuo de
+% parágrafo.)
 \gdef\pgpendente{}
+\newcommand{\soltapg}{\pgpendente\gdef\pgpendente{}}
 \newcommand{\pg}[1]{%
-  \ifvmode\xdef\pgpendente{\unexpanded\expandafter{\pgpendente}\noexpand\margempg{#1}}%
-  \else\margempg{#1}\fi\ignorespaces}
-\AddToHook{para/begin}{\ifinner\else
-  \let\pgagora\pgpendente\gdef\pgpendente{}\pgagora\fi}
+  \ifvmode\def\pgarg{#1}\expandafter\pgvert
+  \else\margempg{#1}\expandafter\ignorespaces\fi}
+\newcommand{\pgvert}{\futurelet\pgprox\pgvertdecide}
+\newcommand{\pgvertdecide}{%
+  \ifx\pgprox\tese \pgadia\else\ifx\pgprox\teseB \pgadia\else\ifx\pgprox\subp \pgadia
+  \else\leavevmode\margempg{\pgarg}\fi\fi\fi}
+\newcommand{\pgadia}{%
+  \xdef\pgpendente{\unexpanded\expandafter{\pgpendente}\noexpand\margempg{\pgarg}}}
 \newcommand{\pgn}[1]{{\scriptsize\color{marca}[#1]}}
 % (classe book, twoside: \marginpar vai para a margem externa)
 \setlength{\marginparsep}{3mm}
@@ -31,10 +44,10 @@
 % --- estrutura do autor ------------------------------------------------------
 % \capitulo{rótulo}{título}{summario}{pág.}
 \newcommand{\capitulo}[4]{%
-  \clearpage\thispagestyle{plain}\pg{#4}%
+  \clearpage\thispagestyle{plain}%
   \vspace*{2\baselineskip}%
   \begin{center}
-    {\scshape\lowercase{#1}\par}\medskip
+    {\scshape\lowercase{#1}\margempg{#4}\par}\medskip
     {\large\scshape\lowercase{#2}\par}
   \end{center}
   \medskip
@@ -47,11 +60,11 @@
   \begin{center}{\scshape\lowercase{#1}.}\\[.3ex]{\itshape #2}\end{center}
   \medskip}
 % tese numerada que corre com o texto / em linha própria / subdivisão a), b)
-\newcommand{\tese}[2]{\par\medskip\noindent#1.\enspace\textbf{#2}\;---\;}
-\newcommand{\teseB}[2]{\par\medskip\noindent#1.\enspace\textbf{#2}\par}
-\newcommand{\subp}[1]{\par\noindent\hspace*{\parindent}#1)\enspace}
-% trecho omitido neste ensaio
-\newcommand{\omitido}{\par{\centering[\dots]\par}}
+\newcommand{\tese}[2]{\par\medskip\noindent\soltapg#1.\enspace\textbf{#2}\;---\;}
+\newcommand{\teseB}[2]{\par\medskip\noindent\soltapg#1.\enspace\textbf{#2}\par}
+\newcommand{\subp}[1]{\par\noindent\soltapg\hspace*{\parindent}#1)\enspace}
+% asterisco do original: abre um apêndice sem número dentro de uma nota
+\newcommand{\asterisco}{\par\smallskip{\centering$\ast$\par}\smallskip\noindent}
 
 % --- cabeçalho ---------------------------------------------------------------
 \usepackage{fancyhdr}
