@@ -30,6 +30,7 @@ import base64
 import collections
 import concurrent.futures as cf
 import csv
+import difflib
 import html
 import io
 import json
@@ -50,7 +51,8 @@ TEI = "{http://www.tei-c.org/ns/1.0}"
 LADO_MAX = 1568          # a API reduz qualquer imagem cujo lado maior passe disto
 SOBREPOE = 0.06          # fração da altura repetida nas duas metades
 MINIMO = 300             # pedaço com menos texto que isto vai junto com o anterior
-MAX_CAR = 9000           # teto (texto) de um pedaço que junta páginas ligadas por nota
+MAX_CAR = 16000          # teto (texto) de um pedaço que junta páginas ligadas por nota (9000 deixava a
+                         # fronteira da p. 46 do vol. 1 entre dois pedaços, sem conserto possível)
 TROCA_MAX = 2500         # passagem corpo→nota (caracteres) acima disto é recusada…
 TROCA_PAG = 1800         # …ou acima disto vezes as páginas de corpo do pedaço: um rodapé inteiro que
                          # ficou no corpo tem até ~2800 car. por página (vol. 1 p. 22)
@@ -131,7 +133,7 @@ def chars_texto(frag):
 
 # ---------------------------------------------------------------- pedaços
 
-def corta(xml, max_car):
+def corta(xml, max_car, junta=()):
     """(prefixo, [(pagina, texto, paginas_das_imagens)], sufixo).  Só os pedaços são revisados."""
     ini_body = xml.find("<body")
     fim_body = xml.rfind("</body>")
@@ -158,7 +160,8 @@ def corta(xml, max_car):
         a = analisa(anterior)
         curto = chars_texto(seg(i)) < MINIMO
         liga = str(nums[i]) in a["pb_nota"] and chars_texto(anterior) + chars_texto(seg(i)) <= max_car
-        if curto or liga:
+        forca = any(a < nums[i] <= b and nums[i - 1] >= a for a, b in junta)
+        if curto or liga or forca:
             del inicios[i], nums[i]
         else:
             i += 1
@@ -284,7 +287,17 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
     paginas = max(1, len(set(a["pb_corpo"])))
     ta, tb = a["corpo"] + a["notas"], b["corpo"] + b["notas"]
     if abs(tb - ta) > max(0.04 * ta, 200) + 180 * paginas:
-        return f"o texto mudou demais: de {ta} para {tb} caracteres (texto duplicado ou perdido?)", None
+        pista = ""
+        if tb < ta:
+            pa, pn = palavras(texto, caixa=True), palavras(novo, caixa=True)
+            sm = difflib.SequenceMatcher(None, pa, pn, autojunk=False)
+            perdas = [(i2 - i1, i1) for op, i1, i2, _, _ in sm.get_opcodes() if op in ("delete", "replace") and i2 - i1 >= 15]
+            if perdas:
+                k, i1 = max(perdas)
+                pista = (f" Foi omitido o trecho de ~{k} palavras que começa em “{' '.join(pa[i1:i1 + 10])}…”: se ele é a "
+                         "continuação de uma nota que começou numa página anterior, envolva-o em "
+                         "<note place=\"foot\" type=\"continuacao\">…</note> no lugar em que está, em vez de apagá-lo.")
+        return f"o texto mudou demais: de {ta} para {tb} caracteres (texto duplicado ou perdido?){pista}", None
     dc, dn = b["corpo"] - a["corpo"], b["notas"] - a["notas"]
     fronteira = None
     troca = min(abs(dc), abs(dn)) if dc * dn < 0 else 0
@@ -475,12 +488,12 @@ def chama(msg, modelo, sistema, effort, cwd):
 
 
 def desembrulha(novo):
-    e = re.fullmatch(r"\s*<entrada>\n?(.*?)\n?</entrada>\s*", novo, re.S)
-    return e[1] if e else novo
+    novo = re.sub(r"^\s*<entrada>\n?", "", novo)
+    return re.sub(r"\n?</entrada>\s*$", "", novo)
 
 
 def extrai(resp, texto):
-    m = re.search(r"<xml>\n?(.*?)\n?</xml>", resp, re.S)
+    m = re.search(r"<xml>\n?(.*?)\n?</xml>", resp, re.S) or re.search(r"<xml>\n?(.*?)\n?<notas>", resp, re.S)
     if not m:
         return None
     novo = m[1]
@@ -545,7 +558,9 @@ def processa(ped, args, sistema, cwd, dirp, ctx):
     n, texto, pags = ped
     base = dirp / f"{n:04d}"
     js = base.with_suffix(".json")
-    if js.exists() and not args.refaz:
+    ent = base.with_suffix(".entrada.xml")
+    mudou = ent.exists() and ent.read_text(encoding="utf-8") != texto    # pedaço remontado (outro --max-car)
+    if js.exists() and not args.refaz and not mudou:
         reg = json.loads(js.read_text())
         rej = base.with_suffix(".rejeitado.xml")
         if args.revalida and reg["falha"] and rej.exists():   # critério novo sobre a resposta já paga
@@ -639,6 +654,8 @@ def main():
                     help=f"idem, das notas para o corpo (padrão {NOTA_CORPO_MAX}; 0 congela)")
     ap.add_argument("--volume", help="TEI do volume de onde o trecho saiu, para avisar o modelo do que fica fora "
                     "dele (padrão: VOL/VOL.corrigido.xml; '' para nenhum)")
+    ap.add_argument("--junta", help="força num pedaço só as páginas A-B (p. ex. 104-109; vírgulas para várias "
+                    "faixas): fica gravado em SAIDA/junta.txt e vale nas rodadas seguintes")
     ap.add_argument("--refaz", action="store_true", help="refaz pedaços já gravados")
     ap.add_argument("--tentativas", type=int, default=2, help="chamadas por pedaço se a revisão for recusada")
     ap.add_argument("--revalida", action="store_true",
@@ -662,7 +679,15 @@ def main():
     erro = bem_formado(xml)
     if erro:
         sys.exit(f"a entrada não é XML bem formado: {erro}")
-    prefixo, pedacos, sufixo = corta(xml, args.max_car)
+    arq_junta = args.saida / "junta.txt"
+    faixas = set(arq_junta.read_text().split()) if arq_junta.exists() else set()
+    if args.junta:
+        faixas |= set(args.junta.split(","))
+        if not args.seco:
+            args.saida.mkdir(parents=True, exist_ok=True)
+            arq_junta.write_text("\n".join(sorted(faixas, key=lambda f: int(f.split("-")[0]))) + "\n")
+    junta = [tuple(int(x) for x in f.split("-")) for f in faixas]
+    prefixo, pedacos, sufixo = corta(xml, args.max_car, junta)
     assert prefixo + "".join(t for _, t, _ in pedacos) + sufixo == xml
     ctx = Contexto(prefixo, pedacos, sufixo)
     if args.volume is None:
@@ -701,9 +726,11 @@ def main():
     partes, todos = [], []
     for n, t, _ in pedacos:
         r = dirp / f"{n:04d}.revisado.xml"
-        partes.append(r.read_text(encoding="utf-8") if r.exists() else t)
+        e = dirp / f"{n:04d}.entrada.xml"
+        vale = e.exists() and e.read_text(encoding="utf-8") == t
+        partes.append(r.read_text(encoding="utf-8") if vale and r.exists() else t)
         j = dirp / f"{n:04d}.json"
-        if j.exists():
+        if vale and j.exists():
             todos.append(json.loads(j.read_text()))
     final, avisos_mont = liga_continuacoes(prefixo + "".join(partes) + sufixo)
     for x in avisos_mont:
