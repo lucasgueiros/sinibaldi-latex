@@ -1,0 +1,9 @@
+/* Citação ABNT: pré-visualização do que vai para o Word (corpo 12; citação longa: recuo de 4 cm, corpo 10). */
+.ct-curta, .ct-referencia { margin-top: .5rem; text-align: justify; line-height: 1.6; }
+.ct-referencia { text-align: left; }
+.ct-longa {
+  margin: .5rem 0 0 4cm; font-size: .83em; line-height: 1.25; text-align: justify; max-width: calc(100% - 4cm);
+}
+@media (max-width: 40rem) { .ct-longa { margin-left: 1.5rem; max-width: none; } }
+.ct-codigo { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; width: 100%; }
+.ct-flutuante { white-space: nowrap; }

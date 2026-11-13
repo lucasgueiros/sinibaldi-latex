@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}{{ titulo_no }}{% endblock %}
-{% block extra_js %}<script src="{% static 'js/sugestao.js' %}" defer></script>{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/citacao.css' %}">{% endblock %}
+{% block extra_js %}<script src="{% static 'js/sugestao.js' %}" defer></script><script src="{% static 'js/citacao.js' %}" defer></script>{% endblock %}
 {% block content %}
 <div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 leitura">
   <nav aria-label="Você está em" class="migalhas">
@@ -17,6 +18,7 @@
       {% include "publico/_baixar.html" with itens=baixar %}
       {% if slides_url %}<a class="btn btn-secundario btn-sm" href="{{ slides_url }}">Slides</a>{% endif %}
       {% if no.pagina_ini is not None and volume %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero no.pagina_ini %}">Fac-símile</a>{% endif %}
+      <a class="btn btn-secundario btn-sm" href="{% url 'obra:citar' edicao.slug no.xml_id %}">Citar (ABNT)</a>
       <a class="btn btn-secundario btn-sm" href="{% url 'obra:sugerir' edicao.slug no.xml_id %}" data-sg-link>Sugerir correção</a>
       <form method="get" action="{% url 'obra:busca' edicao.slug %}" class="inline-flex gap-1" role="search">
         <label class="sr-only" for="q">Buscar</label><input id="q" name="q" type="search" class="campo !w-40 !py-1" placeholder="Buscar…" required>
@@ -57,6 +59,10 @@
   </nav>
 </div>
 
+<button type="button" class="sg-flutuante ct-flutuante print:hidden" data-ct-flutuante hidden>Citar (ABNT)</button>
+<form method="post" action="{% url 'obra:citar' edicao.slug no.xml_id %}" data-ct-form hidden>{% csrf_token %}
+  <input type="hidden" name="trecho"><input type="hidden" name="pi"><input type="hidden" name="pf"><input type="hidden" name="bloco">
+</form>
 <button type="button" class="sg-flutuante print:hidden" data-sg-flutuante hidden>Sugerir correção</button>
 <dialog class="sg-dialogo print:hidden" data-sg-dialogo aria-labelledby="sg-titulo">
   <form method="post" action="{% url 'obra:sugerir' edicao.slug no.xml_id %}">
