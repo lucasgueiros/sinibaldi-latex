@@ -1,0 +1,27 @@
+{
+ "pagina": 467,
+ "paginas": [
+  467
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR e ortografia (wnoquoque, differenca, multiplieada, E), acentos (è→é, á→é em \"substancial\"), pontuação do início, \"overdadeiras\", \"ntelligencia\", \"ewtrinsecamente\", \"Dxzus\" → Deus em versalete, e \"E)\" → \"E'\". Negritos dos títulos 50 e 51 ajustados para a frase inteira em negrito, como na imagem.\nFronteira corpo/nota: nenhuma alteração. Nota 1 fecha na metade inferior (p. 467); nota 2 começa com \"Cf. c. Gentes\" e inclui o parágrafo \"Advertimos…\", que está em letra pequena abaixo do filete; \"nita\" do início da página (fim de palavra da página 466) não foi incluído, conforme a regra.\nDúvida restante: nenhuma relevante; pontuação \"Sum. Th.,\" mantida como no fragmento, com \"Th\" em itálico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR e ortografia (wnoquoque, differenca, multiplieada, E), acentos (è→é, á→é em \"substancial\"), pontuação do início, \"overdadeiras\", \"ntelligencia\", \"ewtrinsecamente\", \"Dxzus\" → Deus em versalete, e \"E)\" → \"E'\". Negritos dos títulos 50 e 51 ajustados para a frase inteira em negrito, como na imagem.\nFronteira corpo/nota: nenhuma alteração. Nota 1 fecha na metade inferior (p. 467); nota 2 começa com \"Cf. c. Gentes\" e inclui o parágrafo \"Advertimos…\", que está em letra pequena abaixo do filete; \"nita\" do início da página (fim de palavra da página 466) não foi incluído, conforme a regra.\nDúvida restante: nenhuma relevante; pontuação \"Sum. Th.,\" mantida como no fragmento, com \"Th\" em itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0063879,
+ "duration_ms": 39027,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10889,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10598
+ },
+ "reparo": false
+}

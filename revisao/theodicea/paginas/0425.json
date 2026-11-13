@@ -1,0 +1,31 @@
+{
+ "pagina": 425,
+ "paginas": [
+  425,
+  426,
+  427,
+  428,
+  429
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (vieioso, ideal, ejfeíto, ewístencia, larmonia, basêam, \"/odo\", \"Dus\", \"Leibnits\", \"Dist. 8\"→3), hifenizações (rela-tividade, subjectivos), termos em caixa alta (DEus/DEUS→Deus), itálico/romano em \"e\" e \"Santo Anselmo\", \"1)\"/\"0)\" de b) e c), \"visive? o\" → \"visivel e\", \"&amp;\" → \"a\", e \"viuo\", \"nao\", \"á existencia\", \"tem un\", \"coiea\", \"successdo\".\nFronteiras corpo/nota: nenhuma alterada. Mantive a nota n425-1 (p. 425) abrangendo \"Os mais celebres…\" até \"pre-\" e a continuação em 426 (\"missas…\"), pois na imagem essas linhas estão em letra menor no pé da página; a n426-1 segue até 429 (continuação), com pb 427 e 428 dentro dela.\nDúvidas: se \"Os mais celebres…\"/\"Critica. Ainda que…\" (425) são corpo ou nota (escolhi nota, pelo espaçamento menor); grafias \"póde/pode\" e \"accrescentaremos/acrescentaremos\" mantidas como no fragmento; o pb 426 interno está após \"premissas\" e o pb 429 após \"imperfeito\", palavras que aparecem inteiras no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (vieioso, ideal, ejfeíto, ewístencia, larmonia, basêam, \"/odo\", \"Dus\", \"Leibnits\", \"Dist. 8\"→3), hifenizações (rela-tividade, subjectivos), termos em caixa alta (DEus/DEUS→Deus), itálico/romano em \"e\" e \"Santo Anselmo\", \"1)\"/\"0)\" de b) e c), \"visive? o\" → \"visivel e\", \"&amp;\" → \"a\", e \"viuo\", \"nao\", \"á existencia\", \"tem un\", \"coiea\", \"successdo\".\nFronteiras corpo/nota: nenhuma alterada. Mantive a nota n425-1 (p. 425) abrangendo \"Os mais celebres…\" até \"pre-\" e a continuação em 426 (\"missas…\"), pois na imagem essas linhas estão em letra menor no pé da página; a n426-1 segue até 429 (continuação), com pb 427 e 428 dentro dela.\nDúvidas: se \"Os mais celebres…\"/\"Critica. Ainda que…\" (425) são corpo ou nota (escolhi nota, pelo espaçamento menor); grafias \"póde/pode\" e \"accrescentaremos/acrescentaremos\" mantidas como no fragmento; o pb 426 interno está após \"premissas\" e o pb 429 após \"imperfeito\", palavras que aparecem inteiras no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0314692,
+ "duration_ms": 207483,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38292,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 55280
+ },
+ "reparo": false
+}

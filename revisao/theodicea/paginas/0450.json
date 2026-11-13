@@ -1,0 +1,55 @@
+{
+ "pagina": 450,
+ "paginas": [
+  450
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2175,
+   351
+  ],
+  "notas": [
+   857,
+   2674
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 1817
+ },
+ "notas": "Erros corrigidos: OCR (\"qu?escentes\", \"inaeceitavel\", \"Zfrinseca\", \"Drxus\", \"perfeigóes\", \"q. 18\"→\"q. 13\", \"ec.\"→\"etc.\", \"differenca\"→\"differença\"), acentos, pontuação espúria (\" ;\", \" .\", \"'\" antes de \"deve\", \"conceitos, A\"), \"A.\" → \"A\" e itálicos/versalete (\"Deus\" normalizado em `sc`, \"a se\"/\"a\", \"c)\" em itálico).\nFronteira corpo/nota (p. 450): o bloco sem número no alto da área de notas, de \"Todas estas opiniões são inacceitaveis.\" até \"…differença entre as duas expressões.\", era corpo no XML; é continuação de nota iniciada na p. 449 e foi envolvido em `<note type=\"continuacao\">` no lugar em que está. A nota 1 ficou restrita ao parágrafo \"(1) A nossa intelligencia…\", já numerado no pé da página.\nDúvidas: não restaram relevantes; a leitura de \"differentes\" e \"distinga Deus\" (sem versalete) segue a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2175,
+     351
+    ],
+    "notas": [
+     857,
+     2674
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 1817
+   },
+   "notas": "Erros corrigidos: OCR (\"qu?escentes\", \"inaeceitavel\", \"Zfrinseca\", \"Drxus\", \"perfeigóes\", \"q. 18\"→\"q. 13\", \"ec.\"→\"etc.\", \"differenca\"→\"differença\"), acentos, pontuação espúria (\" ;\", \" .\", \"'\" antes de \"deve\", \"conceitos, A\"), \"A.\" → \"A\" e itálicos/versalete (\"Deus\" normalizado em `sc`, \"a se\"/\"a\", \"c)\" em itálico).\nFronteira corpo/nota (p. 450): o bloco sem número no alto da área de notas, de \"Todas estas opiniões são inacceitaveis.\" até \"…differença entre as duas expressões.\", era corpo no XML; é continuação de nota iniciada na p. 449 e foi envolvido em `<note type=\"continuacao\">` no lugar em que está. A nota 1 ficou restrita ao parágrafo \"(1) A nossa intelligencia…\", já numerado no pé da página.\nDúvidas: não restaram relevantes; a leitura de \"differentes\" e \"distinga Deus\" (sem versalete) segue a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0067857,
+ "duration_ms": 44065,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10997,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11372
+ },
+ "reparo": false
+}

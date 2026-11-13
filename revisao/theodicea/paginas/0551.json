@@ -1,0 +1,31 @@
+{
+ "pagina": 551,
+ "paginas": [
+  551,
+  552,
+  553,
+  554,
+  555
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (inteligencia, emanações, realizam, importar, Biologia/Psychologia, \"Be\"→\"Se\", \"todÜs\", \"Siryam\", \"Às\"→\"As\", \"5)\"/\"0)\"/\"| 8)\"→\"b)\"/\"c)\"/\"a)\"), acentos, \"&amp;\" e \"!\" espúrios, hifenização \"nega-|ção\" → \"negação\", parágrafos \"c)\"/\"d)\" separados na nota 551-1, \"2.ª\" e \"juristas\".\nFronteiras: n552-1 deixou de conter \"(1) D'onde se vê…\" (p. 553), que virou nota n553-1 no chamada \"(1)\" de \"posse do proprio Deus\" (p. 553); o trecho \"movimento da epocha actual… verdade\" (p. 554), que estava em n553-1, foi para n553-2 (chamada \"(2)\" de p. 553), ligado a \"a) Os sequazes… e o\" por pb 554.\nDúvidas: \"epocha »\" (p. 553) lido como \"»\"; \"a base de Moral dos positivistas\" (p. 554) mantido como impresso; pb 552/553/554/555 aparecem duas vezes (uma no corpo, uma na nota), como no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (inteligencia, emanações, realizam, importar, Biologia/Psychologia, \"Be\"→\"Se\", \"todÜs\", \"Siryam\", \"Às\"→\"As\", \"5)\"/\"0)\"/\"| 8)\"→\"b)\"/\"c)\"/\"a)\"), acentos, \"&amp;\" e \"!\" espúrios, hifenização \"nega-|ção\" → \"negação\", parágrafos \"c)\"/\"d)\" separados na nota 551-1, \"2.ª\" e \"juristas\".\nFronteiras: n552-1 deixou de conter \"(1) D'onde se vê…\" (p. 553), que virou nota n553-1 no chamada \"(1)\" de \"posse do proprio Deus\" (p. 553); o trecho \"movimento da epocha actual… verdade\" (p. 554), que estava em n553-1, foi para n553-2 (chamada \"(2)\" de p. 553), ligado a \"a) Os sequazes… e o\" por pb 554.\nDúvidas: \"epocha »\" (p. 553) lido como \"»\"; \"a base de Moral dos positivistas\" (p. 554) mantido como impresso; pb 552/553/554/555 aparecem duas vezes (uma no corpo, uma na nota), como no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.025831899999999998,
+ "duration_ms": 164026,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 39184,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 43827
+ },
+ "reparo": false
+}

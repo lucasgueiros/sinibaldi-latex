@@ -1,0 +1,28 @@
+{
+ "pagina": 524,
+ "paginas": [
+  524,
+  525
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (mafturaes→naturaes, Eº→E', 2mumediatamente→immediatamente, ewtrinsecamente→extrinsecamente, qwasé→quasi, a. 8→a. 3, Sao→São, vé→vê, Áuetor→Auctor), cabeçalhos em negrito conforme a imagem, e restos de aspas/marcas de margem (“, ') removidos; \"Causa univer-sal\" reunido em \"universal\".\nFronteira corpo/nota: nenhuma alteração estrutural; notas 524-1, 524-2 (com continuação na p. 525), 525-1 e a divisão corpo/rodapé conferem com as imagens; cabeçalho corrente da p. 525 não estava no XML e não foi incluído.\nDúvidas: \"Especies do concurso\" e \"97. Deus concorre…\" tratados como cabeçalhos todos em negrito; o tratamento do \"E'\" e do \"DEus\" (versalete) nas notas foi mantido como transcrito; o wrapper <entrada> não foi reproduzido.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (mafturaes→naturaes, Eº→E', 2mumediatamente→immediatamente, ewtrinsecamente→extrinsecamente, qwasé→quasi, a. 8→a. 3, Sao→São, vé→vê, Áuetor→Auctor), cabeçalhos em negrito conforme a imagem, e restos de aspas/marcas de margem (“, ') removidos; \"Causa univer-sal\" reunido em \"universal\".\nFronteira corpo/nota: nenhuma alteração estrutural; notas 524-1, 524-2 (com continuação na p. 525), 525-1 e a divisão corpo/rodapé conferem com as imagens; cabeçalho corrente da p. 525 não estava no XML e não foi incluído.\nDúvidas: \"Especies do concurso\" e \"97. Deus concorre…\" tratados como cabeçalhos todos em negrito; o tratamento do \"E'\" e do \"DEus\" (versalete) nas notas foi mantido como transcrito; o wrapper <entrada> não foi reproduzido.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0085156,
+ "duration_ms": 48137,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17821,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13467
+ },
+ "reparo": true
+}

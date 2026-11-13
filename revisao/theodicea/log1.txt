@@ -1,0 +1,52 @@
+>> haiku: 48 pedaço(s) de revisao/theodicea/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 424 (1 pp.): ok  US$ 0.005  35s  ent 9870 saí 8056
+  p. 425 (5 pp.): ok  US$ 0.031  207s  ent 38292 saí 55280
+  p. 419 (6 pp.): ok  US$ 0.035  223s  ent 44990 saí 61384
+  p. 429 (6 pp.): ok  US$ 0.033  220s  ent 44220 saí 57017
+  p. 434 (2 pp.): ok  US$ 0.011  64s  ent 18311 saí 18405
+  p. 436 (2 pp.): ok  US$ 0.009  53s  ent 17678 saí 14549
+  p. 442 (1 pp.): ok  US$ 0.003  16s  ent 10343 saí 3748
+  p. 441 (1 pp.): ok  US$ 0.005  32s  ent 10984 saí 8492
+  p. 447 (3 pp.): ok  US$ 0.021  153s  ent 23591 saí 38134
+  p. 450 (1 pp.): ok  fronteira: troca 1817 car., notas [1, 2]  US$ 0.007  44s  ent 10997 saí 11372
+  p. 438 (3 pp.): FALHOU: tirou texto demais das notas para o corpo (~3120 caracteres; notas 6695 → 3572, corpo 1918 → 5038; máximo 800). Notas longas têm vários parágrafos em letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo  US$ 0.043  311s  ent 50544 saí 76088
+  p. 451 (5 pp.): ok  US$ 0.032  204s  ent 42245 saí 56054
+  p. 443 (5 pp.): ok (2ª tentativa)  US$ 0.066  446s  ent 78470 saí 116730
+  p. 456 (2 pp.): ok (2ª tentativa)  US$ 0.039  289s  ent 36713 saí 70125
+  p. 461 (1 pp.): ok  US$ 0.005  113s  ent 11282 saí 7518
+  p. 465 (1 pp.): ok  US$ 0.004  19s  ent 11013 saí 5036
+  p. 466 (1 pp.): ok  US$ 0.006  37s  ent 10764 saí 9685
+  p. 462 (3 pp.): ok  US$ 0.013  75s  ent 25108 saí 21931
+  p. 467 (1 pp.): ok  US$ 0.006  39s  ent 10889 saí 10598
+  p. 468 (2 pp.): ok  US$ 0.007  40s  ent 17842 saí 11105
+  p. 473 (1 pp.): ok  US$ 0.005  25s  ent 10934 saí 6855
+  p. 458 (3 pp.): ok (2ª tentativa)  US$ 0.044  290s  ent 51484 saí 77790
+  p. 470 (3 pp.): ok  US$ 0.014  87s  ent 24761 saí 23714
+  p. 474 (4 pp.): ok  US$ 0.014  84s  ent 29973 saí 22726
+  p. 487 (2 pp.): ok  US$ 0.011  71s  ent 17369 saí 18448
+  p. 492 (6 pp.): ok  US$ 0.027  171s  ent 44778 saí 45516
+  p. 497 (1 pp.): ok  US$ 0.006  42s  ent 9938 saí 9994
+  p. 477 (11 pp.): ok  US$ 0.059  397s  ent 80579 saí 101791
+  p. 489 (4 pp.): FALHOU: tirou texto demais das notas para o corpo (~4618 caracteres; notas 9053 → 4351, corpo 1072 → 5690; máximo 800). Notas longas têm vários parágrafos em letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo  US$ 0.049  333s  ent 61926 saí 86029
+  p. 498 (3 pp.): ok  US$ 0.014  87s  ent 24804 saí 23424
+  p. 506 (1 pp.): ok  US$ 0.006  41s  ent 9989 saí 9627
+  p. 510 (1 pp.): ok  US$ 0.006  35s  ent 11187 saí 9876
+  p. 507 (3 pp.): ok  US$ 0.021  138s  ent 25478 saí 37110
+  p. 501 (6 pp.): ok  US$ 0.033  226s  ent 45582 saí 57819
+  p. 511 (4 pp.): ok  US$ 0.024  154s  ent 31097 saí 41862
+  p. 519 (1 pp.): ok  US$ 0.004  20s  ent 10712 saí 4918
+  p. 524 (2 pp.): ok  US$ 0.009  48s  ent 17821 saí 13467
+  p. 520 (4 pp.): ok  US$ 0.017  95s  ent 31668 saí 26705
+  p. 514 (6 pp.): ok  US$ 0.030  201s  ent 44456 saí 51511
+  p. 526 (4 pp.): ok  US$ 0.020  127s  ent 30317 saí 33370
+  p. 529 (4 pp.): ok  US$ 0.023  164s  ent 30230 saí 40613
+  p. 542 (1 pp.): ok  US$ 0.003  19s  ent 10631 saí 4786
+  p. 532 (6 pp.): ok  US$ 0.029  185s  ent 45174 saí 48886
+  p. 543 (1 pp.): ok  US$ 0.004  24s  ent 10551 saí 5959
+  p. 538 (4 pp.): ok  US$ 0.024  151s  ent 32412 saí 41050
+  p. 548 (3 pp.): ok  US$ 0.014  92s  ent 22832 saí 22652
+  p. 551 (5 pp.): ok  US$ 0.026  164s  ent 39184 saí 43827
+  p. 544 (5 pp.): FALHOU: os <pb> do corpo mudaram: ['544', '545', '546', '547'] → ['544', '545', '546', '547', '548']  US$ 0.065  462s  ent 76966 saí 114483
+   montagem: p. 450: continuação de nota ligada à nota anterior (1862 car.)
+>> 48/48 pedaços, 3 falha(s), 1 com fronteira mudada, US$ 0.98, 109.2 min de chamadas; tokens {'input_tokens': 1406979, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 1686115}
+>> revisao/theodicea/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

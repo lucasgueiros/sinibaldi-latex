@@ -1,0 +1,32 @@
+{
+ "pagina": 532,
+ "paginas": [
+  532,
+  533,
+  534,
+  535,
+  536,
+  537
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (simuwltaneo, hespanbol, tAomistas, premocdo/premocéáo, fransitoria, ijjsica, S&S., cayallo, \"o\"/\"&amp;\" por \"a\"/\"á\", acentos como indifferenca, excluo, transitoria), numeração de citações (Sum. Th. 1-9→1-2, ad 8→ad 3, q. 28→23, q. 82→32, q. 88→83, q. 99→22), \"b)\" em vez de \"D)\", lixo \"74\" e \"n\"/\"7/\" removidos, e parágrafos fundidos onde a frase continua na página seguinte (por/meio, o dominio/de seus actos).\nFronteira corpo/nota: mantida como estava. A nota 532-1 vai de \"(1)\" na p. 532 até o fim da p. 537 (texto miúdo sob os filetes); os trechos em letra grande de §100 (pp. 533–537) estão no corpo, depois da nota. O latim \"prima magis influit…\", os §§ IV e V no alto de 532 são continuação de nota da p. 531, anterior ao trecho, e não foram acrescentados.\nDúvidas: grafia versalete de \"Deus\" (DEus/DEUS/Deus) deixada como no XML; leituras de \"q. 23\" (Molina), \"q. 32\" (Cf. Sum. Th.) e \"A'\" (= Á) pela imagem, mas com pouca nitidez.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (simuwltaneo, hespanbol, tAomistas, premocdo/premocéáo, fransitoria, ijjsica, S&S., cayallo, \"o\"/\"&amp;\" por \"a\"/\"á\", acentos como indifferenca, excluo, transitoria), numeração de citações (Sum. Th. 1-9→1-2, ad 8→ad 3, q. 28→23, q. 82→32, q. 88→83, q. 99→22), \"b)\" em vez de \"D)\", lixo \"74\" e \"n\"/\"7/\" removidos, e parágrafos fundidos onde a frase continua na página seguinte (por/meio, o dominio/de seus actos).\nFronteira corpo/nota: mantida como estava. A nota 532-1 vai de \"(1)\" na p. 532 até o fim da p. 537 (texto miúdo sob os filetes); os trechos em letra grande de §100 (pp. 533–537) estão no corpo, depois da nota. O latim \"prima magis influit…\", os §§ IV e V no alto de 532 são continuação de nota da p. 531, anterior ao trecho, e não foram acrescentados.\nDúvidas: grafia versalete de \"Deus\" (DEus/DEUS/Deus) deixada como no XML; leituras de \"q. 23\" (Molina), \"q. 32\" (Cf. Sum. Th.) e \"A'\" (= Á) pela imagem, mas com pouca nitidez.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0289604,
+ "duration_ms": 184687,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 45174,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 48886
+ },
+ "reparo": false
+}

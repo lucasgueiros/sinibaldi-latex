@@ -1,0 +1,29 @@
+{
+ "pagina": 548,
+ "paginas": [
+  548,
+  549,
+  550
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de palavras (Dus, In hoe, ewtraordénario, Tratámos, t&amp;o, efficas, exelue, Redempcüo, HowrEM-Dzvus, Jrsus, \"das_causas\", \"«\" lido como \"u\"), números de citação (q. 82→32, q. 108→103, a. 9→3, 19-90→19-20), aspas e hifenização; \"107.\" e \"108.\" em negrito como na imagem.\nFronteira: a página 548 perdia o corpo \"Resposta. E' falso… eternamente perdidos.\" (linhas puladas), reposto como `<p>` após a chamada (1) de 548, antes do pb 549. As notas e os pb das notas (548-1, 549-1, 549-2, 550-1) já estavam corretas e não foram alteradas. Não incluí o texto no alto do rodapé de 548 (\"elle ser rebaixado… Michelet.\"), que é continuação de nota de antes do trecho.\nDúvida: se \"DEUS/DEum/SANGUE/JESUS\" em versalete devem manter a caixa alta do impresso; mantive a forma do fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de palavras (Dus, In hoe, ewtraordénario, Tratámos, t&amp;o, efficas, exelue, Redempcüo, HowrEM-Dzvus, Jrsus, \"das_causas\", \"«\" lido como \"u\"), números de citação (q. 82→32, q. 108→103, a. 9→3, 19-90→19-20), aspas e hifenização; \"107.\" e \"108.\" em negrito como na imagem.\nFronteira: a página 548 perdia o corpo \"Resposta. E' falso… eternamente perdidos.\" (linhas puladas), reposto como `<p>` após a chamada (1) de 548, antes do pb 549. As notas e os pb das notas (548-1, 549-1, 549-2, 550-1) já estavam corretas e não foram alteradas. Não incluí o texto no alto do rodapé de 548 (\"elle ser rebaixado… Michelet.\"), que é continuação de nota de antes do trecho.\nDúvida: se \"DEUS/DEum/SANGUE/JESUS\" em versalete devem manter a caixa alta do impresso; mantive a forma do fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0136092,
+ "duration_ms": 91632,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 22832,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 22652
+ },
+ "reparo": false
+}

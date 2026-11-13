@@ -1,0 +1,27 @@
+{
+ "pagina": 506,
+ "paginas": [
+  506
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: palavra perdida no início da página 506 (\"liberação\", reposta na primeira linha); OCR (\"Eº\"→\"E'\", \"erear\"→\"crear\", \"indifferenca\"→\"indifferença\", \"é á\"→\"é a\", \"DEus\"→\"Deus\", \"P. I\"→\"p. I\", \"a. 8\"→\"a. 3\"); negrito do título 77 ampliado para \"divino.\", conforme a imagem. Nenhuma mudança de fronteira corpo/nota; a chamada (1) continua no lugar, e a nota 1 (rodapé de 506) foi mantida inteira. Não transcrevi a continuação de nota no alto do rodapé de 506 (\"mas, antes, é um seu defeito…\"), por ser de nota anterior ao trecho.\nDúvidas: o parágrafo \"Sendo necessario…\" foi mantido dentro da nota 1 (letra que parece pequena, mas pode ser corpo); o parágrafo \"c)\" e o restante da página 506 não estão no fragmento e não foram acrescentados, por estarem além do fim do trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: palavra perdida no início da página 506 (\"liberação\", reposta na primeira linha); OCR (\"Eº\"→\"E'\", \"erear\"→\"crear\", \"indifferenca\"→\"indifferença\", \"é á\"→\"é a\", \"DEus\"→\"Deus\", \"P. I\"→\"p. I\", \"a. 8\"→\"a. 3\"); negrito do título 77 ampliado para \"divino.\", conforme a imagem. Nenhuma mudança de fronteira corpo/nota; a chamada (1) continua no lugar, e a nota 1 (rodapé de 506) foi mantida inteira. Não transcrevi a continuação de nota no alto do rodapé de 506 (\"mas, antes, é um seu defeito…\"), por ser de nota anterior ao trecho.\nDúvidas: o parágrafo \"Sendo necessario…\" foi mantido dentro da nota 1 (letra que parece pequena, mas pode ser corpo); o parágrafo \"c)\" e o restante da página 506 não estão no fragmento e não foram acrescentados, por estarem além do fim do trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0058124000000000006,
+ "duration_ms": 41401,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9989,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9627
+ },
+ "reparo": false
+}

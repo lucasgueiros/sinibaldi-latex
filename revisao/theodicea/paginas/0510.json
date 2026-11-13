@@ -1,0 +1,27 @@
+{
+ "pagina": 510,
+ "paginas": [
+  510
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (deye→deve, ligeneia→ligencia, identifieando, mmanente→immanente, distineção→distincção, \"€\"→\"e\", \"&\"→\"á\"), acentos (è→é, á→a, Vivo/Participação/porém), maiúsculas indevidas (Porque, Movimento, Purissimo, DEus), e a remoção de \",\" final da nota 1 por \".\"; \"intel-\"/\"ligencia\" foi reunido em \"intelligencia\" e os dois `<p>` foram fundidos num só (é quebra de linha, não de parágrafo).\nFronteira corpo/nota: sem mudanças. A nota 1 (após \"vida\") e a nota 2 (após \"a sua vida\") estão no lugar certo e completas na página 510; o alerta \"(9) ligada à nota (2)\" não se confirma na imagem (a chamada impressa é \"(2)\").\nDúvidas: \"(C. Gentes, l. I. c. 98)\" — a imagem pode ser \"1.\" ou \"l.\"; transcrevi \"l.\". Negrito do título \"81.\" e \"82.\" mantido como no XML.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (deye→deve, ligeneia→ligencia, identifieando, mmanente→immanente, distineção→distincção, \"€\"→\"e\", \"&\"→\"á\"), acentos (è→é, á→a, Vivo/Participação/porém), maiúsculas indevidas (Porque, Movimento, Purissimo, DEus), e a remoção de \",\" final da nota 1 por \".\"; \"intel-\"/\"ligencia\" foi reunido em \"intelligencia\" e os dois `<p>` foram fundidos num só (é quebra de linha, não de parágrafo).\nFronteira corpo/nota: sem mudanças. A nota 1 (após \"vida\") e a nota 2 (após \"a sua vida\") estão no lugar certo e completas na página 510; o alerta \"(9) ligada à nota (2)\" não se confirma na imagem (a chamada impressa é \"(2)\").\nDúvidas: \"(C. Gentes, l. I. c. 98)\" — a imagem pode ser \"1.\" ou \"l.\"; transcrevi \"l.\". Negrito do título \"81.\" e \"82.\" mantido como no XML.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0060567,
+ "duration_ms": 35313,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11187,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9876
+ },
+ "reparo": false
+}

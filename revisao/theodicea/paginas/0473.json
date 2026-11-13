@@ -1,0 +1,27 @@
+{
+ "pagina": 473,
+ "paginas": [
+  473
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: \"como á nossa\" → \"como a nossa\"; \"Logo á intelligencia\" → \"Logo a intelligencia\"; \"coisa, Ora\" → \"coisa. Ora\"; \"so admitte\" → \"se admitte\"; \"Th,\" → \"Th.,\"; \"DEus\" (versalete) → \"Deus\"; títulos 61 e 62 passados para negrito integral, como na imagem.\nFronteira corpo/nota: sem alterações. A nota 1 (p. 473, rodapé) e a nota 2 (p. 473, rodapé) estão corretamente posicionadas e completas nesta página.\nDúvidas: o sinal « antes de \"Em Deus\" na nota 2 foi mantido como está no OCR; a extensão exata do negrito dos títulos 61 e 62 (número incluído) foi uma leitura da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: \"como á nossa\" → \"como a nossa\"; \"Logo á intelligencia\" → \"Logo a intelligencia\"; \"coisa, Ora\" → \"coisa. Ora\"; \"so admitte\" → \"se admitte\"; \"Th,\" → \"Th.,\"; \"DEus\" (versalete) → \"Deus\"; títulos 61 e 62 passados para negrito integral, como na imagem.\nFronteira corpo/nota: sem alterações. A nota 1 (p. 473, rodapé) e a nota 2 (p. 473, rodapé) estão corretamente posicionadas e completas nesta página.\nDúvidas: o sinal « antes de \"Em Deus\" na nota 2 foi mantido como está no OCR; a extensão exata do negrito dos títulos 61 e 62 (número incluído) foi uma leitura da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0045209,
+ "duration_ms": 25222,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10934,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6855
+ },
+ "reparo": false
+}

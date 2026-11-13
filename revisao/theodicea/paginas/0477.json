@@ -1,0 +1,37 @@
+{
+ "pagina": 477,
+ "paginas": [
+  477,
+  478,
+  479,
+  480,
+  481,
+  482,
+  483,
+  484,
+  485,
+  486,
+  487
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (4)→a), 19)/209)/8º)/49)/59)→1º)–5º), \"eseapasse\", \"identifieando\", \"tn altero\", \"Bie igitur\", \"inspieit\", \"a. B)/a. 18/a. 9\" → a. 5/13/3 etc.; citações (Bannez, p. 113-115, Cf. a. 3 ad 3, c. 67); palavras partidas por quebra de linha/página recompostas (\"Pro|videncia\", \"pa|lavras\"); junk removido (\"———\", \"81 Vor. II.\", \"482 METAPHYSICA…\", \"SENA = v ELT\", \"|\" espúrios, \"Pp)\"); parágrafos partidos por cabeçalho de página reunidos (a. 65 a) e b), citação de S. Thomaz no n477-1); cabeçalho corrente com número de página removido do <head>, rótulo alterado para CAPITULO III.\nFronteira corpo/nota: mantida como o pipeline a montou: a nota n477-1 (letra menor, abaixo do filete em cada página) vai de 477 ao fim de 487, e o corpo é o bloco em letra maior (65 a–c) acima do filete de cada página; não houve nenhum texto movido entre corpo e nota. Não copiei a nota n487-1 (\"(1) Para evitar equivocos…\"), que começa em 487 e pertence ao trecho seguinte.\nDúvidas: rótulo \"CAPITULO II\"→\"III\" (decisão por cabeçalho da imagem; confirmar se a div deve existir aqui); negrito em \"pode\" e \"necessario\" da nota retirado por não o ver claramente na imagem; o ornamento \"*\" entre a nota 479 e \"Tendo provado\" foi omitido; \"Ma o objecto\" e \"invincível\" transcritos como lidos, sem certeza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (4)→a), 19)/209)/8º)/49)/59)→1º)–5º), \"eseapasse\", \"identifieando\", \"tn altero\", \"Bie igitur\", \"inspieit\", \"a. B)/a. 18/a. 9\" → a. 5/13/3 etc.; citações (Bannez, p. 113-115, Cf. a. 3 ad 3, c. 67); palavras partidas por quebra de linha/página recompostas (\"Pro|videncia\", \"pa|lavras\"); junk removido (\"———\", \"81 Vor. II.\", \"482 METAPHYSICA…\", \"SENA = v ELT\", \"|\" espúrios, \"Pp)\"); parágrafos partidos por cabeçalho de página reunidos (a. 65 a) e b), citação de S. Thomaz no n477-1); cabeçalho corrente com número de página removido do <head>, rótulo alterado para CAPITULO III.\nFronteira corpo/nota: mantida como o pipeline a montou: a nota n477-1 (letra menor, abaixo do filete em cada página) vai de 477 ao fim de 487, e o corpo é o bloco em letra maior (65 a–c) acima do filete de cada página; não houve nenhum texto movido entre corpo e nota. Não copiei a nota n487-1 (\"(1) Para evitar equivocos…\"), que começa em 487 e pertence ao trecho seguinte.\nDúvidas: rótulo \"CAPITULO II\"→\"III\" (decisão por cabeçalho da imagem; confirmar se a div deve existir aqui); negrito em \"pode\" e \"necessario\" da nota retirado por não o ver claramente na imagem; o ornamento \"*\" entre a nota 479 e \"Tendo provado\" foi omitido; \"Ma o objecto\" e \"invincível\" transcritos como lidos, sem certeza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0589534,
+ "duration_ms": 396706,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 80579,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 101791
+ },
+ "reparo": false
+}

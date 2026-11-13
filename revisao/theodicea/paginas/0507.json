@@ -1,0 +1,29 @@
+{
+ "pagina": 507,
+ "paginas": [
+  507,
+  508,
+  509
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos sobretudo erros de OCR (bôas, effectivo, Ib., 3.º/4.º, dá, Dei, immanentes, \"Dus\", \"&amp;\", \"0\", \"per-/gunta\" partido entre p. 507 e 508), hifenização \"IN-FUNDENS\" e \"cha-/mar-se\", linhas de corpo da p. 508 reunidas num só parágrafo, \"|\" espúrio removido, e o ponto final que estava como vírgula após a chamada (2).\nFronteiras corpo/nota: nenhuma alterada. Conferido: n507-1 (p. 507, inclui \"Por isso — 1.º)\" até \"A' pergunta\" e continua na p. 508); n508-2 já contém a continuação no pé da p. 509 (\"Como o Pae…\"); n509-1 correta.\nDúvidas: negrito de \"algum merito\", \"dispõe\", \"esse\" (n509-1) e \"80. Deus é dotado de vida.\" (todo em negrito); \"un objecto\" e \"mais on menos\" mantidos/corrigido para \"ou\" conforme leitura da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos sobretudo erros de OCR (bôas, effectivo, Ib., 3.º/4.º, dá, Dei, immanentes, \"Dus\", \"&amp;\", \"0\", \"per-/gunta\" partido entre p. 507 e 508), hifenização \"IN-FUNDENS\" e \"cha-/mar-se\", linhas de corpo da p. 508 reunidas num só parágrafo, \"|\" espúrio removido, e o ponto final que estava como vírgula após a chamada (2).\nFronteiras corpo/nota: nenhuma alterada. Conferido: n507-1 (p. 507, inclui \"Por isso — 1.º)\" até \"A' pergunta\" e continua na p. 508); n508-2 já contém a continuação no pé da p. 509 (\"Como o Pae…\"); n509-1 correta.\nDúvidas: negrito de \"algum merito\", \"dispõe\", \"esse\" (n509-1) e \"80. Deus é dotado de vida.\" (todo em negrito); \"un objecto\" e \"mais on menos\" mantidos/corrigido para \"ou\" conforme leitura da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.021102799999999998,
+ "duration_ms": 137937,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25478,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 37110
+ },
+ "reparo": false
+}

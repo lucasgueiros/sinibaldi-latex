@@ -1,0 +1,32 @@
+{
+ "pagina": 429,
+ "paginas": [
+  429,
+  430,
+  431,
+  432,
+  433,
+  434
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de palavras (Zrraciomaes, distineção, fteleologíco, contradieções, Oз, wuniversal, inexhauriyel, imnmovel, hão, lo, ó, n&amp;o), acentos e itálicos, referências (a. 8→a. 3; c. 18→c. 13; Cap. D→Cap. I), hifenizações, parágrafo \"28 Vol. II\" (assinatura) removido e \"12.\" corrigido.\nFronteira corpo/nota: nenhuma alteração estrutural. Confirmei: nota 429-1 começa em \"Na classificação…\" e continua na p. 430 até \"Cf. Sum. Th.\"; nota 430-1 (a partir de \"Aqui a palavra…\") continua nas pp. 431, 432, 433 e termina na p. 434 em \"…innumeraveis problemas.\"; o corpo das pp. 431–433 segue a nota no lugar certo; os textos de rodapé que pertencem à nota de antes do trecho (p. 429, \"feito, e o grau…\") não foram incluídos. Os alertas p. 430, 432 e 434 já estavam corretos no fragmento.\nDúvidas: \"á\" vs. \"a\" em \"á finalidade\", \"á origem\" (não distingui com segurança na imagem); se falta vírgula após \"ger.\" na p. 429 antes do pb 430; se \"Na verdade, se a materia…\" (p. 432) é parágrafo novo ou continuação (mantido contínuo); se \"essencial\" em itálico na p. 432–433; \"aperfeiçõa\" (mantido como no OCR).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de palavras (Zrraciomaes, distineção, fteleologíco, contradieções, Oз, wuniversal, inexhauriyel, imnmovel, hão, lo, ó, n&amp;o), acentos e itálicos, referências (a. 8→a. 3; c. 18→c. 13; Cap. D→Cap. I), hifenizações, parágrafo \"28 Vol. II\" (assinatura) removido e \"12.\" corrigido.\nFronteira corpo/nota: nenhuma alteração estrutural. Confirmei: nota 429-1 começa em \"Na classificação…\" e continua na p. 430 até \"Cf. Sum. Th.\"; nota 430-1 (a partir de \"Aqui a palavra…\") continua nas pp. 431, 432, 433 e termina na p. 434 em \"…innumeraveis problemas.\"; o corpo das pp. 431–433 segue a nota no lugar certo; os textos de rodapé que pertencem à nota de antes do trecho (p. 429, \"feito, e o grau…\") não foram incluídos. Os alertas p. 430, 432 e 434 já estavam corretos no fragmento.\nDúvidas: \"á\" vs. \"a\" em \"á finalidade\", \"á origem\" (não distingui com segurança na imagem); se falta vírgula após \"ger.\" na p. 429 antes do pb 430; se \"Na verdade, se a materia…\" (p. 432) é parágrafo novo ou continuação (mantido contínuo); se \"essencial\" em itálico na p. 432–433; \"aperfeiçõa\" (mantido como no OCR).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0329305,
+ "duration_ms": 220260,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44220,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 57017
+ },
+ "reparo": false
+}

@@ -1,0 +1,30 @@
+{
+ "pagina": 474,
+ "paginas": [
+  474,
+  475,
+  476,
+  477
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (distineta, Applieando, Dro→Deo, Dei/Deus em versalete, \"é infinitamente\", \"fundam-se\", \"c. 41\"→\"c. 47\", \"1. T\"→\"l. I\", \"p. T\"→\"p. I\", \"1.9)\"/\"8.9)\"→\"1.º)\"/\"3.º)\", \"&amp;\"→\"á\", \"Nào\"→\"Não\", \"essentía\"), acentos, pontuação (\"Conhece o proprio ser.\"), \"|\" espúrio e itálico indevido em \"a união\"; \"b) Conhece perfeitamente o proprio ser.\" passado a negrito como o \"a)\"; nota 476-1 envolvida em `<p>`.\nFronteiras corpo/nota: nenhuma alterada. O parágrafo \"Applicando…\" (474) e tudo até \"(Sum. Th., a. 5 ad 3)\" ficam na nota 474-1, pois a imagem mostra o filete do rodapé em 474 e 475 e o texto em letra pequena abaixo dele; as notas 476-1, 476-2 e a continuação em 477 também conferem.\nDúvidas: se \"Applicando…\" é mesmo continuação da nota 1 (decidi que sim pela posição abaixo do filete); e se o negrito em \"b) Conhece perfeitamente o proprio ser.\" é real ou artefato da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (distineta, Applieando, Dro→Deo, Dei/Deus em versalete, \"é infinitamente\", \"fundam-se\", \"c. 41\"→\"c. 47\", \"1. T\"→\"l. I\", \"p. T\"→\"p. I\", \"1.9)\"/\"8.9)\"→\"1.º)\"/\"3.º)\", \"&amp;\"→\"á\", \"Nào\"→\"Não\", \"essentía\"), acentos, pontuação (\"Conhece o proprio ser.\"), \"|\" espúrio e itálico indevido em \"a união\"; \"b) Conhece perfeitamente o proprio ser.\" passado a negrito como o \"a)\"; nota 476-1 envolvida em `<p>`.\nFronteiras corpo/nota: nenhuma alterada. O parágrafo \"Applicando…\" (474) e tudo até \"(Sum. Th., a. 5 ad 3)\" ficam na nota 474-1, pois a imagem mostra o filete do rodapé em 474 e 475 e o texto em letra pequena abaixo dele; as notas 476-1, 476-2 e a continuação em 477 também conferem.\nDúvidas: se \"Applicando…\" é mesmo continuação da nota 1 (decidi que sim pela posição abaixo do filete); e se o negrito em \"b) Conhece perfeitamente o proprio ser.\" é real ou artefato da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0143603,
+ "duration_ms": 84497,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 29973,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 22726
+ },
+ "reparo": false
+}

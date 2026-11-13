@@ -1,0 +1,28 @@
+{
+ "pagina": 468,
+ "paginas": [
+  468,
+  469
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (Dzvus/Dxzus/DEus → Deus em versalete, \"àmmutavel\" → immutavel, \"&amp;\" → a, \"é á\" → \"é a\", \"al. 68\" → \"al. 63\", cedilhas perdidas em perfeições/esperanças, espaço em \"Deus,e\"); removidos o cabeçalho corrente e a linha de lixo OCR no início da p. 468.\nFronteira: p. 468 — a nota com \"(3)\" estava ligada ao número 8 no atributo n; corrigido para n=\"3\" (xml:id n468-3), no ponto da chamada \"(3)\" após \"Logo Deus é bello\"; a continuação no alto da p. 469 permanece dentro dela. Nenhuma fronteira de corpo/nota foi alterada além disso.\nDúvidas: na p. 469, \"clara e· intuitiva\" tem uma marca entre \"e\" e \"intuitiva\" que pode ser sujeira da impressão; transcrevi \"e intuitiva\" sem ela. A formatação em negrito de \"Belleza\"/\"Deus\" no título do §52 não ficou totalmente legível.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (Dzvus/Dxzus/DEus → Deus em versalete, \"àmmutavel\" → immutavel, \"&amp;\" → a, \"é á\" → \"é a\", \"al. 68\" → \"al. 63\", cedilhas perdidas em perfeições/esperanças, espaço em \"Deus,e\"); removidos o cabeçalho corrente e a linha de lixo OCR no início da p. 468.\nFronteira: p. 468 — a nota com \"(3)\" estava ligada ao número 8 no atributo n; corrigido para n=\"3\" (xml:id n468-3), no ponto da chamada \"(3)\" após \"Logo Deus é bello\"; a continuação no alto da p. 469 permanece dentro dela. Nenhuma fronteira de corpo/nota foi alterada além disso.\nDúvidas: na p. 469, \"clara e· intuitiva\" tem uma marca entre \"e\" e \"intuitiva\" que pode ser sujeira da impressão; transcrevi \"e intuitiva\" sem ela. A formatação em negrito de \"Belleza\"/\"Deus\" no título do §52 não ficou totalmente legível.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0073367,
+ "duration_ms": 40044,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17842,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11105
+ },
+ "reparo": false
+}

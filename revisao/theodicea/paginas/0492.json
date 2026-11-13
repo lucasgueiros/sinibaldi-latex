@@ -1,0 +1,32 @@
+{
+ "pagina": 492,
+ "paginas": [
+  492,
+  493,
+  494,
+  495,
+  496,
+  497
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (Dus/Dxvus/DEus→Deus em versalete, \"é &amp;\"→\"é a\", \"6\"→\"é\", \"wnigenito\", \"Aypothetica\", \"verdudeira\", \"Facullade\", \"12.\"→\"72.\", \"cireumstancias\", \"peceado\", \"Of.\"→\"Cf.\", \"q. 21, 84\"→\"q. 27, 34\", \"q. 28\"→\"q. 23\", \"vé\"→\"vê\", \"tive occasiüo\", \"nio\", \"distineta\", \"distinecüo\", \"ao primeiro\"); removido \"A\" solto após a nota 1 e fragmento duplicado no pb; cabeçalhos em negrito completados conforme a imagem; hífens/acentos ajustados.\nFronteiras: nenhuma mudança estrutural. Nota 492-2 mantida (continua em 493 e 494, inclui \"Mas a Fé…\" por ser letra menor abaixo do filete); nota 494-2 mantida até 495; \"A vontade divina…\" (*, a), b)) na pág. 495 mantido dentro da nota 495-1, pois a imagem mostra letra pequena do mesmo tamanho das notas (alerta de p. 495 considerado falso); nota 495-1 segue até 496; nota 496-1 segue até o \"beatifico.\" na pág. 497 (o \"(1) Esta e as seguintes…\" de 497 não foi copiado, pertence ao trecho seguinte).\nDúvidas: a linha \"da todos os homens\" foi mantida como impressa; o filete sob o cabeçalho da pág. 493 foi lido como início da área de notas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (Dus/Dxvus/DEus→Deus em versalete, \"é &amp;\"→\"é a\", \"6\"→\"é\", \"wnigenito\", \"Aypothetica\", \"verdudeira\", \"Facullade\", \"12.\"→\"72.\", \"cireumstancias\", \"peceado\", \"Of.\"→\"Cf.\", \"q. 21, 84\"→\"q. 27, 34\", \"q. 28\"→\"q. 23\", \"vé\"→\"vê\", \"tive occasiüo\", \"nio\", \"distineta\", \"distinecüo\", \"ao primeiro\"); removido \"A\" solto após a nota 1 e fragmento duplicado no pb; cabeçalhos em negrito completados conforme a imagem; hífens/acentos ajustados.\nFronteiras: nenhuma mudança estrutural. Nota 492-2 mantida (continua em 493 e 494, inclui \"Mas a Fé…\" por ser letra menor abaixo do filete); nota 494-2 mantida até 495; \"A vontade divina…\" (*, a), b)) na pág. 495 mantido dentro da nota 495-1, pois a imagem mostra letra pequena do mesmo tamanho das notas (alerta de p. 495 considerado falso); nota 495-1 segue até 496; nota 496-1 segue até o \"beatifico.\" na pág. 497 (o \"(1) Esta e as seguintes…\" de 497 não foi copiado, pertence ao trecho seguinte).\nDúvidas: a linha \"da todos os homens\" foi mantida como impressa; o filete sob o cabeçalho da pág. 493 foi lido como início da área de notas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0272358,
+ "duration_ms": 170633,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44778,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 45516
+ },
+ "reparo": false
+}

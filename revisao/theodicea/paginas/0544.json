@@ -1,0 +1,31 @@
+{
+ "pagina": 544,
+ "paginas": [
+  544,
+  545,
+  546,
+  547,
+  548
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros de OCR corrigidos (cuidado→cuidado, é a, fatalistas, Deus em versalete, a→á, pontuação etc.); removido \"35 Vor. II.\" e o negrito espúrio no corpo de 545/546. Nenhuma mudança de fronteira corpo/nota: a nota n544-2 realmente atravessa as pp. 545–548 até \"perdidos.\" (a nota \"(1) In hoc est…\" da p. 548 pertence ao trecho seguinte). Dúvida: \"Schopenhauer\" (p. 545, final) pode estar impresso com acento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros de OCR corrigidos (cuidado→cuidado, é a, fatalistas, Deus em versalete, a→á, pontuação etc.); removido \"35 Vor. II.\" e o negrito espúrio no corpo de 545/546. Nenhuma mudança de fronteira corpo/nota: a nota n544-2 realmente atravessa as pp. 545–548 até \"perdidos.\" (a nota \"(1) In hoc est…\" da p. 548 pertence ao trecho seguinte). Dúvida: \"Schopenhauer\" (p. 545, final) pode estar impresso com acento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.202536,
+ "duration_ms": 74443,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38393,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12575
+ },
+ "reparo": false
+}

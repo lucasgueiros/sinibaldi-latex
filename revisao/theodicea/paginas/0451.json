@@ -1,0 +1,31 @@
+{
+ "pagina": 451,
+ "paginas": [
+  451,
+  452,
+  453,
+  454,
+  455
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (Dsus/Dus, evistencia, anthropomorphismo, póle, nobresa, simpicidade, exelue, \"4)\"→\"a)\", \"€)\"→\"e)\", \"1 Sent\"→\"I Sent\", \"&amp;\"→\"a\"/\"á\"), acentos e \"rusão\"→\"razão\"; citações de S. Thomaz corrigidas (q. 8→q. 3, c. 88→c. 38, a. 8→a. 3, c. 18→c. 13, q. 8/9→q. 3/2); versalete em Padre, Filho, Espirito Santo; \"atgeibutos\" sem negrito.\nFronteiras corpo/nota conferidas em todas as páginas (451–455): estrutura já correta, nenhuma mudança. A nota 451-2 cruza para 452 (pb 452 dentro da nota); a 452-1 cruza 452→455 (pb 453, 454, 455 dentro da nota); a 455-1 fica no pé de 455; corpo 453/454/455 preservado após a nota longa.\nDúvidas mantidas como impressas: \"merece,a\", \"o Paternidade\", \"(I Sent. … a. 3 ad 6.\" sem parêntese de fechamento, \"contendo todas as possiveis\" com itálico; \"a immensidade e a unidade\" lido como artigo sem acento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (Dsus/Dus, evistencia, anthropomorphismo, póle, nobresa, simpicidade, exelue, \"4)\"→\"a)\", \"€)\"→\"e)\", \"1 Sent\"→\"I Sent\", \"&amp;\"→\"a\"/\"á\"), acentos e \"rusão\"→\"razão\"; citações de S. Thomaz corrigidas (q. 8→q. 3, c. 88→c. 38, a. 8→a. 3, c. 18→c. 13, q. 8/9→q. 3/2); versalete em Padre, Filho, Espirito Santo; \"atgeibutos\" sem negrito.\nFronteiras corpo/nota conferidas em todas as páginas (451–455): estrutura já correta, nenhuma mudança. A nota 451-2 cruza para 452 (pb 452 dentro da nota); a 452-1 cruza 452→455 (pb 453, 454, 455 dentro da nota); a 455-1 fica no pé de 455; corpo 453/454/455 preservado após a nota longa.\nDúvidas mantidas como impressas: \"merece,a\", \"o Paternidade\", \"(I Sent. … a. 3 ad 6.\" sem parêntese de fechamento, \"contendo todas as possiveis\" com itálico; \"a immensidade e a unidade\" lido como artigo sem acento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0322515,
+ "duration_ms": 204024,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 42245,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 56054
+ },
+ "reparo": false
+}

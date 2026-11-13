@@ -1,0 +1,32 @@
+{
+ "pagina": 514,
+ "paginas": [
+  514,
+  515,
+  516,
+  517,
+  518,
+  519
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (creacdo, Z espúrio, \"alentras\", \"enigi&opera\", \"dirige\" partido, \"possi-\" + \", cada\" em vez de \"veis\"), pontuação, numeração das notas (2.º, 3.º), citações (q. 3 a 4, ad 3, ad 13, p. 369), itálico/negrito indevidos e cabeçalhos 86–88 em negrito inteiro; \"(1)\" removido do início das notas; \"possi-<pb 517/>veis\" juntado.\nFronteira corpo/nota: nenhuma mudança estrutural; a nota 514-1 continua até 517 (correto pela imagem) e a 517-1 até 518 foot; o texto \"rege-as… aspecto activo\" do pé de 514 é continuação da nota 513-1, fora do trecho, e não foi acrescentado (alerta n513-1 tratado assim).\nDúvidas: trecho \"emquanto é ente[…]opera\" e \"Para isso\" parcialmente cobertos por mancha na imagem de 514; leitura provável adotada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (creacdo, Z espúrio, \"alentras\", \"enigi&opera\", \"dirige\" partido, \"possi-\" + \", cada\" em vez de \"veis\"), pontuação, numeração das notas (2.º, 3.º), citações (q. 3 a 4, ad 3, ad 13, p. 369), itálico/negrito indevidos e cabeçalhos 86–88 em negrito inteiro; \"(1)\" removido do início das notas; \"possi-<pb 517/>veis\" juntado.\nFronteira corpo/nota: nenhuma mudança estrutural; a nota 514-1 continua até 517 (correto pela imagem) e a 517-1 até 518 foot; o texto \"rege-as… aspecto activo\" do pé de 514 é continuação da nota 513-1, fora do trecho, e não foi acrescentado (alerta n513-1 tratado assim).\nDúvidas: trecho \"emquanto é ente[…]opera\" e \"Para isso\" parcialmente cobertos por mancha na imagem de 514; leitura provável adotada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0302011,
+ "duration_ms": 201092,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44456,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 51511
+ },
+ "reparo": false
+}

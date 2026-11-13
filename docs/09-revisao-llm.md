@@ -137,6 +137,16 @@ Problemas achados e consertados na ferramenta:
 O Haiku muitas vezes **não descreve** no `<notas>` a mudança de fronteira que fez (pp. 74, 87, 89, 110):
 o `relatorio.md` mostra a mudança pelos números, e é por eles que se confere.
 
+## Rodada da Theodiceia inteira (vol. 2 pp. 419–556, 2026-11-13)
+
+`revisao/theodicea/` (entrada = `trecho.py vol2:theodicea -F tei`). 48 pedaços, **0 falhas**, XML bem
+formado, os 137 `<pb>` do corpo e as 135 `<note>` iguais aos da entrada. Haiku em 45 pedaços; as 3 falhas
+do Haiku (pp. 438 e 489: nota longa passada ao corpo; p. 544: `<pb>` a mais) foram refeitas com Sonnet
+(`--modelo sonnet --so N --refaz`) sem recusa. Custo em preço de API: US$ 1,34 (Haiku ~0,98; Sonnet ~0,36).
+Única mudança de fronteira: p. 450, continuação de nota ligada à nota anterior (1862 car.). O `wer.txt` mede
+só o ouro que cai no trecho (pp. 421–442 do capítulo Existência de Deus): total 3,26% → 1,52%, notas
+2,94% → 1,10%, corpo 4,72% → 3,13% (sobra deleção de OCR, 62 inserções do ouro).
+
 ## Pendências
 
 - Conferir no `relatorio.md` e em `resultado.json → fronteira` cada mudança de fronteira até haver

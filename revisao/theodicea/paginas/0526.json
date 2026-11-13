@@ -1,0 +1,30 @@
+{
+ "pagina": 526,
+ "paginas": [
+  526,
+  527,
+  528,
+  529
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em latim e português (q. 8→q. 3, I/II/III/V, \"Nào\", \"Catisa\", \"Tutamente\", \"4 Creatura\" → «, \"l. ITI\"/\"c. 10\"→c. 70, \"Dus\", \"DEus\"/\"DEUS\"→Deus, \"altribuir\", \"partieipando\", \"e\"→\"et\" e \"una ct\"→\"et\"), hifenizações (\"abso-lutamente\", \"in-strumento\") e \"á\"→\"a\" onde a imagem tem \"a\"; itálicos e versalete ajustados.\nFronteira corpo/nota: conferida em 526, 527, 528 e 529; nenhuma mudança. A nota 1 de 526 realmente se estende em letra menor por 526 (inferior), 527, 528 (inferior) e 529 (até \"(De verit. q. 24, a. 1 ad 5).\"); o corpo volta em 527 com \"98.\" e em 528 com \"mais perfeito…\". Os <pb> de 527 e 528 dentro da nota e o <pb n=\"527\"/> do corpo foram mantidos.\nDúvidas: distingui letra menor e normal pelo tamanho dos caracteres na imagem, sem régua clara entre \"Demonstrada…\" e o corpo de 526; mantive como nota. Omiti o envoltório <entrada> do enunciado, que não é TEI.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em latim e português (q. 8→q. 3, I/II/III/V, \"Nào\", \"Catisa\", \"Tutamente\", \"4 Creatura\" → «, \"l. ITI\"/\"c. 10\"→c. 70, \"Dus\", \"DEus\"/\"DEUS\"→Deus, \"altribuir\", \"partieipando\", \"e\"→\"et\" e \"una ct\"→\"et\"), hifenizações (\"abso-lutamente\", \"in-strumento\") e \"á\"→\"a\" onde a imagem tem \"a\"; itálicos e versalete ajustados.\nFronteira corpo/nota: conferida em 526, 527, 528 e 529; nenhuma mudança. A nota 1 de 526 realmente se estende em letra menor por 526 (inferior), 527, 528 (inferior) e 529 (até \"(De verit. q. 24, a. 1 ad 5).\"); o corpo volta em 527 com \"98.\" e em 528 com \"mais perfeito…\". Os <pb> de 527 e 528 dentro da nota e o <pb n=\"527\"/> do corpo foram mantidos.\nDúvidas: distingui letra menor e normal pelo tamanho dos caracteres na imagem, sem régua clara entre \"Demonstrada…\" e o corpo de 526; mantive como nota. Omiti o envoltório <entrada> do enunciado, que não é TEI.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.019716699999999997,
+ "duration_ms": 126556,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 30317,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 33370
+ },
+ "reparo": false
+}

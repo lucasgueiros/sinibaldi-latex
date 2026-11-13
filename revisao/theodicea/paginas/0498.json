@@ -1,0 +1,29 @@
+{
+ "pagina": 498,
+ "paginas": [
+  498,
+  499,
+  500
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (conyém→convém, inteligencia→intelligencia, dieit→dicit, pér→per, Sibi→sibi, in es→in ea, communieando→communicando, seeundum, bonum. aliis, semelhanca→semelhança, \"/im\"→fim, Dist. 4b→45, P- 1→p. I, \"TA.\"→Th.), ordinais das objeções (1.º/8.º/4.4→1.ª/3.ª/4.ª), small caps de Deus unificadas, e \"a\" de \"a vontade creada\" sem itálico.\nFronteira corpo/nota: nenhuma mudança. A nota n498-1 continua corretamente nas pp. 499 (após o pb 499 dentro da nota, em \"Unde id…\") e 500 (até \"participare\"); o alerta do pipeline é falso positivo. Os pb 499 e 500 do corpo permanecem.\nDúvida restante: \"produz\"/\"pro-\" (p. 499→500) é palavra partida; deixei o pb 500 depois da palavra inteira, como veio.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (conyém→convém, inteligencia→intelligencia, dieit→dicit, pér→per, Sibi→sibi, in es→in ea, communieando→communicando, seeundum, bonum. aliis, semelhanca→semelhança, \"/im\"→fim, Dist. 4b→45, P- 1→p. I, \"TA.\"→Th.), ordinais das objeções (1.º/8.º/4.4→1.ª/3.ª/4.ª), small caps de Deus unificadas, e \"a\" de \"a vontade creada\" sem itálico.\nFronteira corpo/nota: nenhuma mudança. A nota n498-1 continua corretamente nas pp. 499 (após o pb 499 dentro da nota, em \"Unde id…\") e 500 (até \"participare\"); o alerta do pipeline é falso positivo. Os pb 499 e 500 do corpo permanecem.\nDúvida restante: \"produz\"/\"pro-\" (p. 499→500) é palavra partida; deixei o pb 500 depois da palavra inteira, como veio.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0141924,
+ "duration_ms": 86715,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24804,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 23424
+ },
+ "reparo": false
+}
