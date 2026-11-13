@@ -5,23 +5,23 @@
  ],
  "falha": null,
  "fronteira": null,
- "notas": "Corrigidos: OCR (Sfoicos, 1149→1142, Plafonicos, wuntversaes, iodas, Uuniversaes, deverjamos, ialso, íaes, admitlem, commnum, nssim etc.), hifenização \"inde-pendentemente\" juntada, lixo removido (\"- $4 Ps\", \"EM\", \"|\", \"«\", \"MB\", \"HH\", \"t\", \"bv\", \"B P^\", \"u\", \"— 3 —\", \"25.1\", \"dii\", \"Vol. I 12\"), palavra \"sentada\" reposta no topo da p. 161, negrito indevido em \"essa\" removido, \"algum modo\"/\"objectiva\" e \"essencia abstracta\" em itálico conforme a imagem.\nFronteira: a nota \"deram esta opinião… moderna.\" (continuação da nota da p. 160, sem \"(n)\") estava solta no corpo; envolvida em `<note type=\"continuacao\">` no lugar, sem n nem xml:id. Não há notas com chamada na p. 161. Removido o parágrafo t148.p13 (só lixo de assinatura \"Vol. I 12\"); p. 161 termina em \"par-\", cuja continuação está na página seguinte.\nDúvidas: grafia \"exagerado\" (p. 161, corpo) vs. \"exaggerado\" (p. 161, título do §11), mantidas como as li; itálicos de \"reaes\", \"nomes\" e \"conceitos\" podem não estar exatos em todos os casos.",
+ "notas": "Corrigidos erros de OCR, itálicos e lixo (cabeçalho/assinatura \"Vol. I. 12\", marcas espúrias, negrito indevido em \"essa\"). Fronteira p. 161: o texto \"deram esta opinião… edade moderna.\" estava no corpo (alto da área de notas, sem \"(n)\"); envolvido em <note type=\"continuacao\">. Dúvida menor: alguns itálicos de pontuação.",
  "tentativas": [
   {
    "falha": null,
    "fronteira": null,
-   "notas": "Corrigidos: OCR (Sfoicos, 1149→1142, Plafonicos, wuntversaes, iodas, Uuniversaes, deverjamos, ialso, íaes, admitlem, commnum, nssim etc.), hifenização \"inde-pendentemente\" juntada, lixo removido (\"- $4 Ps\", \"EM\", \"|\", \"«\", \"MB\", \"HH\", \"t\", \"bv\", \"B P^\", \"u\", \"— 3 —\", \"25.1\", \"dii\", \"Vol. I 12\"), palavra \"sentada\" reposta no topo da p. 161, negrito indevido em \"essa\" removido, \"algum modo\"/\"objectiva\" e \"essencia abstracta\" em itálico conforme a imagem.\nFronteira: a nota \"deram esta opinião… moderna.\" (continuação da nota da p. 160, sem \"(n)\") estava solta no corpo; envolvida em `<note type=\"continuacao\">` no lugar, sem n nem xml:id. Não há notas com chamada na p. 161. Removido o parágrafo t148.p13 (só lixo de assinatura \"Vol. I 12\"); p. 161 termina em \"par-\", cuja continuação está na página seguinte.\nDúvidas: grafia \"exagerado\" (p. 161, corpo) vs. \"exaggerado\" (p. 161, título do §11), mantidas como as li; itálicos de \"reaes\", \"nomes\" e \"conceitos\" podem não estar exatos em todos os casos.",
+   "notas": "Corrigidos erros de OCR, itálicos e lixo (cabeçalho/assinatura \"Vol. I. 12\", marcas espúrias, negrito indevido em \"essa\"). Fronteira p. 161: o texto \"deram esta opinião… edade moderna.\" estava no corpo (alto da área de notas, sem \"(n)\"); envolvido em <note type=\"continuacao\">. Dúvida menor: alguns itálicos de pontuação.",
    "resposta": ""
   }
  ],
- "total_cost_usd": 0.0084943,
- "duration_ms": 55906,
+ "total_cost_usd": 0.059354,
+ "duration_ms": 27549,
  "num_turns": 1,
  "usage": {
-  "input_tokens": 10873,
+  "input_tokens": 11007,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 14814
+  "output_tokens": 3734
  },
- "reparo": true
+ "reparo": false
 }

@@ -1,0 +1,65 @@
+>> haiku: 11 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 97 (1 pp.): ok  US$ 0.005  33s  ent 10398 saí 8242
+  p. 161 (1 pp.): ok  US$ 0.008  52s  ent 11027 saí 13437
+  p. 133 (1 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 568754 (<string>, line 13)  US$ 0.025  180s  ent 32824 saí 43697
+  p. 221 (1 pp.): ok  fronteira: troca 113 car., notas [0, 1]  US$ 0.007  46s  ent 10923 saí 11121
+  p. 223 (1 pp.): ok  US$ 0.006  47s  ent 10639 saí 10824
+  p. 227 (1 pp.): ok  US$ 0.008  51s  ent 10819 saí 13019
+  p. 207 (6 pp.): ok  US$ 0.048  326s  ent 43429 saí 86793
+  p. 231 (1 pp.): FALHOU: <note> não fechado dentro do pedaço  US$ 0.020  140s  ent 33169 saí 33792
+  p. 247 (1 pp.): ok  fronteira: troca 138 car., notas [0, 1]  US$ 0.005  41s  ent 10792 saí 7582
+  p. 233 (1 pp.): FALHOU: o texto mudou demais: de 3281 para 503 caracteres (texto duplicado ou perdido?) Foi omitido o trecho de ~479 palavras que começa em “cc e C OT mas na acção livre Ora nenhuma…”: se ele é a continuação de uma nota que começou numa página anterior, envolva-o em <note place="foot" type="continuacao">…</note> no lugar em que está, em vez de apagá-lo.  US$ 0.040  312s  ent 34248 saí 73653
+  p. 145 (6 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 640471 (<string>, line 13)  US$ 0.112  855s  ent 132612 saí 196943
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 116: continuação de nota ligada à nota anterior (1008 car.)
+   montagem: p. 129: continuação de nota ligada à nota anterior (3198 car.)
+   montagem: p. 130: continuação de nota ligada à nota anterior (3228 car.)
+   montagem: p. 139: continuação de nota ligada à nota anterior (2861 car.)
+   montagem: p. 162: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 181: continuação de nota ligada à nota anterior (334 car.)
+   montagem: p. 189: continuação de nota ligada à nota anterior (267 car.)
+   montagem: p. 221: continuação de nota ligada à nota anterior (116 car.)
+   montagem: p. 222: continuação de nota ligada à nota anterior (360 car.)
+   montagem: p. 224: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 225: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 226: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 228: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 229: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 230: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 232: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 234: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 240: continuação de nota ligada à nota anterior (1647 car.)
+   montagem: p. 241: continuação de nota ligada à nota anterior (541 car.)
+   montagem: p. 246: continuação de nota ligada à nota anterior (588 car.)
+   montagem: p. 247: continuação de nota ligada à nota anterior (138 car.)
+   montagem: p. 248: continuação de nota ligada à nota anterior (681 car.)
+   montagem: 2 nota(s) começavam com o número da chamada "(n)": tirado
+>> 126/126 pedaços, 8 falha(s), 50 com fronteira mudada, US$ 2.63, 306.2 min de chamadas; tokens {'input_tokens': 3071925, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 4645867}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> haiku: 126 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 116: continuação de nota ligada à nota anterior (1008 car.)
+   montagem: p. 129: continuação de nota ligada à nota anterior (3198 car.)
+   montagem: p. 130: continuação de nota ligada à nota anterior (3228 car.)
+   montagem: p. 139: continuação de nota ligada à nota anterior (2861 car.)
+   montagem: p. 162: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 181: continuação de nota ligada à nota anterior (334 car.)
+   montagem: p. 189: continuação de nota ligada à nota anterior (267 car.)
+   montagem: p. 221: continuação de nota ligada à nota anterior (116 car.)
+   montagem: p. 222: continuação de nota ligada à nota anterior (360 car.)
+   montagem: p. 224: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 225: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 226: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 228: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 229: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 230: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 232: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 234: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 240: continuação de nota ligada à nota anterior (1647 car.)
+   montagem: p. 241: continuação de nota ligada à nota anterior (541 car.)
+   montagem: p. 246: continuação de nota ligada à nota anterior (588 car.)
+   montagem: p. 247: continuação de nota ligada à nota anterior (138 car.)
+   montagem: p. 248: continuação de nota ligada à nota anterior (681 car.)
+   montagem: 2 nota(s) começavam com o número da chamada "(n)": tirado
+>> 126/126 pedaços, 8 falha(s), 50 com fronteira mudada, US$ 2.63, 306.2 min de chamadas; tokens {'input_tokens': 3071925, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 4645867}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

@@ -7,49 +7,49 @@
  "fronteira": {
   "corpo": [
    3483,
-   1485
+   1477
   ],
   "notas": [
    0,
-   1974
+   1975
   ],
   "num_notas": [
    0,
    1
   ],
-  "troca": 1974
+  "troca": 1975
  },
- "notas": "Corrigidos: lixo inicial (\"E\"), letras trocadas (inlerpolado, renlidade, tránscendenies, Éranscendentaes, mostre, francez, respondeu), acentos e cedilhas (côres, abraçaram, affecções, á/à), hifenizações/palavras grudadas (dasapparecer, admittindo-a, de-ideas, sahida da. ), pontuação e itálicos (postular, cidadão francez).\nFronteira: em p. 229 o trecho \"com côres aterradoras … cidadão francez!...\" está no corpo, mas é letra menor abaixo do filete e sem \"(n)\" — continuação da nota de p. 228; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` e o parágrafo p78 foi fechado após \"2º.) se\", reabrindo em t188.p79 (\"Se Kant\").\nDúvidas: o sinal após \"Se\" (grafado ”) pode ser artefato da imagem, mantido como lido; não consegui confirmar se a citação de Franchi fecha as aspas antes de \"Os postulados\".",
+ "notas": "Corrigidos erros de OCR, acentos e itálicos. Fronteira p. 229: o texto \"com côres aterradoras… cidadão francez!...\" estava no corpo e é continuação de nota anterior (letra pequena sob o filete); envolvido em note type=\"continuacao\" no fim do p78. O \"Se Kant…\" permanece corpo. Dúvida: o hífen/itálico de \"francez !...\" ficou dentro do itálico.",
  "tentativas": [
   {
    "falha": null,
    "fronteira": {
     "corpo": [
      3483,
-     1485
+     1477
     ],
     "notas": [
      0,
-     1974
+     1975
     ],
     "num_notas": [
      0,
      1
     ],
-    "troca": 1974
+    "troca": 1975
    },
-   "notas": "Corrigidos: lixo inicial (\"E\"), letras trocadas (inlerpolado, renlidade, tránscendenies, Éranscendentaes, mostre, francez, respondeu), acentos e cedilhas (côres, abraçaram, affecções, á/à), hifenizações/palavras grudadas (dasapparecer, admittindo-a, de-ideas, sahida da. ), pontuação e itálicos (postular, cidadão francez).\nFronteira: em p. 229 o trecho \"com côres aterradoras … cidadão francez!...\" está no corpo, mas é letra menor abaixo do filete e sem \"(n)\" — continuação da nota de p. 228; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` e o parágrafo p78 foi fechado após \"2º.) se\", reabrindo em t188.p79 (\"Se Kant\").\nDúvidas: o sinal após \"Se\" (grafado ”) pode ser artefato da imagem, mantido como lido; não consegui confirmar se a citação de Franchi fecha as aspas antes de \"Os postulados\".",
+   "notas": "Corrigidos erros de OCR, acentos e itálicos. Fronteira p. 229: o texto \"com côres aterradoras… cidadão francez!...\" estava no corpo e é continuação de nota anterior (letra pequena sob o filete); envolvido em note type=\"continuacao\" no fim do p78. O \"Se Kant…\" permanece corpo. Dúvida: o hífen/itálico de \"francez !...\" ficou dentro do itálico.",
    "resposta": ""
   }
  ],
- "total_cost_usd": 0.0046853,
- "duration_ms": 29961,
+ "total_cost_usd": 0.052834,
+ "duration_ms": 24888,
  "num_turns": 1,
  "usage": {
-  "input_tokens": 10378,
+  "input_tokens": 10512,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 7295
+  "output_tokens": 3181
  },
- "reparo": true
+ "reparo": false
 }

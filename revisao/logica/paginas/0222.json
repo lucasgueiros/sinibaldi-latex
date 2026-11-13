@@ -7,49 +7,49 @@
  "fronteira": {
   "corpo": [
    3131,
-   2751
+   2754
   ],
   "notas": [
    0,
-   348
+   347
   ],
   "num_notas": [
    0,
    1
   ],
-  "troca": 348
+  "troca": 347
  },
- "notas": "Erros corrigidos: OCR (Malebeanche, Iuc&o, investivação, Balural, ilegituno, XT, Q espirito, talso, Oorganisar, \"intelligencia\" e outros), hifenização (\"evi-tar\" → \"evitar\"), pontuação e lixo (\"Monumentos .\", \"sciencia. .\", aspas soltas) e o ornamento \"※\" no lugar de \"M\".\nFronteira: o texto \"Deus; porque, se não se admittirem…\" até \"…da sciencia.\" (p. 222, metade superior, abaixo do filete, sem \"(n)\") é continuação de nota da p. 221; estava no corpo, foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no mesmo lugar. Nenhuma outra mudança de fronteira.\nDúvidas: se \"nada\" estava em negrito (adotei texto normal); se \"systema\" (linha 19) está em itálico; se é \"o nossa razão\" ou \"a nossa razão\" (mantive \"o\"); \"inexlicaveis\" mantido como impresso.",
+ "notas": "OCR corrigido (letras trocadas, hifenização, lixo \"|\", ornamento ※, formatação hi, grafias). Fronteira p. 222: o texto \"Deus; porque…\" estava no corpo como parágrafo; é continuação de nota anterior (sem \"(n)\", letra pequena abaixo do filete) e foi envolvido em <note type=\"continuacao\"> logo depois do p17. Removi negrito de \"nada\" e versalete de \"Deus\".",
  "tentativas": [
   {
    "falha": null,
    "fronteira": {
     "corpo": [
      3131,
-     2751
+     2754
     ],
     "notas": [
      0,
-     348
+     347
     ],
     "num_notas": [
      0,
      1
     ],
-    "troca": 348
+    "troca": 347
    },
-   "notas": "Erros corrigidos: OCR (Malebeanche, Iuc&o, investivação, Balural, ilegituno, XT, Q espirito, talso, Oorganisar, \"intelligencia\" e outros), hifenização (\"evi-tar\" → \"evitar\"), pontuação e lixo (\"Monumentos .\", \"sciencia. .\", aspas soltas) e o ornamento \"※\" no lugar de \"M\".\nFronteira: o texto \"Deus; porque, se não se admittirem…\" até \"…da sciencia.\" (p. 222, metade superior, abaixo do filete, sem \"(n)\") é continuação de nota da p. 221; estava no corpo, foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no mesmo lugar. Nenhuma outra mudança de fronteira.\nDúvidas: se \"nada\" estava em negrito (adotei texto normal); se \"systema\" (linha 19) está em itálico; se é \"o nossa razão\" ou \"a nossa razão\" (mantive \"o\"); \"inexlicaveis\" mantido como impresso.",
+   "notas": "OCR corrigido (letras trocadas, hifenização, lixo \"|\", ornamento ※, formatação hi, grafias). Fronteira p. 222: o texto \"Deus; porque…\" estava no corpo como parágrafo; é continuação de nota anterior (sem \"(n)\", letra pequena abaixo do filete) e foi envolvido em <note type=\"continuacao\"> logo depois do p17. Removi negrito de \"nada\" e versalete de \"Deus\".",
    "resposta": ""
   }
  ],
- "total_cost_usd": 0.0046287,
- "duration_ms": 28462,
+ "total_cost_usd": 0.057002,
+ "duration_ms": 27190,
  "num_turns": 1,
  "usage": {
-  "input_tokens": 10602,
+  "input_tokens": 10736,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 7137
+  "output_tokens": 3553
  },
  "reparo": false
 }

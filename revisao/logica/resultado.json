@@ -1,17 +1,9 @@
 {
- "modelo": "haiku",
+ "modelo": "sonnet",
  "formato": "tei",
- "pedacos": 126,
- "feitos": 126,
- "falhas": {
-  "133": "o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 568799 (<string>, line 13)",
-  "145": "texto duplicado dentro do trecho (~41 palavras repetidas)",
-  "207": "o XML ficou mal formado: Opening and ending tag mismatch: note line 13 and p, line 13, column 891085 (<string>, line 13)",
-  "252": "erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)",
-  "255": "erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)",
-  "256": "erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)",
-  "260": "erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)"
- },
+ "pedacos": 125,
+ "feitos": 125,
+ "falhas": {},
  "fronteira": {
   "1": {
    "corpo": [
@@ -343,6 +335,21 @@
    ],
    "troca": 0
   },
+  "133": {
+   "corpo": [
+    2180,
+    1261
+   ],
+   "notas": [
+    507,
+    1291
+   ],
+   "num_notas": [
+    1,
+    2
+   ],
+   "troca": 784
+  },
   "134": {
    "corpo": [
     1888,
@@ -372,6 +379,21 @@
     4
    ],
    "troca": 715
+  },
+  "145": {
+   "corpo": [
+    3775,
+    953
+   ],
+   "notas": [
+    13939,
+    16879
+   ],
+   "num_notas": [
+    1,
+    1
+   ],
+   "troca": 2822
   },
   "151": {
    "corpo": [
@@ -406,17 +428,17 @@
   "162": {
    "corpo": [
     3327,
-    298
+    1459
    ],
    "notas": [
     0,
-    3003
+    1843
    ],
    "num_notas": [
     0,
-    2
+    1
    ],
-   "troca": 3003
+   "troca": 1843
   },
   "165": {
    "corpo": [
@@ -523,25 +545,55 @@
    ],
    "troca": 259
   },
-  "222": {
+  "221": {
    "corpo": [
-    3131,
-    2751
+    3219,
+    3066
    ],
    "notas": [
     0,
-    348
+    113
    ],
    "num_notas": [
     0,
     1
    ],
-   "troca": 348
+   "troca": 113
+  },
+  "222": {
+   "corpo": [
+    3131,
+    2754
+   ],
+   "notas": [
+    0,
+    347
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 347
+  },
+  "223": {
+   "corpo": [
+    3316,
+    2827
+   ],
+   "notas": [
+    0,
+    474
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 474
   },
   "224": {
    "corpo": [
     3311,
-    3117
+    3112
    ],
    "notas": [
     0,
@@ -556,22 +608,22 @@
   "225": {
    "corpo": [
     3262,
-    2241
+    2240
    ],
    "notas": [
     0,
-    999
+    1000
    ],
    "num_notas": [
     0,
     1
    ],
-   "troca": 999
+   "troca": 1000
   },
   "226": {
    "corpo": [
     3258,
-    3009
+    3018
    ],
    "notas": [
     0,
@@ -586,92 +638,92 @@
   "228": {
    "corpo": [
     3315,
-    619
+    2261
    ],
    "notas": [
     0,
-    2694
+    1048
    ],
    "num_notas": [
     0,
     1
    ],
-   "troca": 2694
+   "troca": 1048
   },
   "229": {
    "corpo": [
     3483,
-    1485
+    1477
    ],
    "notas": [
     0,
-    1974
+    1975
    ],
    "num_notas": [
     0,
     1
    ],
-   "troca": 1974
+   "troca": 1975
   },
   "230": {
    "corpo": [
     3376,
-    2610
+    2606
    ],
    "notas": [
     0,
-    752
+    750
    ],
    "num_notas": [
     0,
     1
    ],
-   "troca": 752
+   "troca": 750
+  },
+  "231": {
+   "corpo": [
+    3403,
+    2873
+   ],
+   "notas": [
+    0,
+    476
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 476
   },
   "232": {
    "corpo": [
-    3219,
-    2567
+    6500,
+    385
    ],
    "notas": [
     0,
-    642
+    5944
    ],
    "num_notas": [
     0,
-    1
+    2
    ],
-   "troca": 642
-  },
-  "233": {
-   "corpo": [
-    3281,
-    2806
-   ],
-   "notas": [
-    0,
-    303
-   ],
-   "num_notas": [
-    0,
-    1
-   ],
-   "troca": 303
+   "troca": 5944
   },
   "234": {
    "corpo": [
     2438,
-    523
+    525
    ],
    "notas": [
     0,
-    1874
+    1866
    ],
    "num_notas": [
     0,
     1
    ],
-   "troca": 1874
+   "troca": 1866
   },
   "235": {
    "corpo": [
@@ -733,6 +785,21 @@
    ],
    "troca": 574
   },
+  "247": {
+   "corpo": [
+    3416,
+    3273
+   ],
+   "notas": [
+    0,
+    138
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 138
+  },
   "248": {
    "corpo": [
     4548,
@@ -747,16 +814,46 @@
     3
    ],
    "troca": 604
+  },
+  "252": {
+   "corpo": [
+    3556,
+    787
+   ],
+   "notas": [
+    5367,
+    7917
+   ],
+   "num_notas": [
+    2,
+    3
+   ],
+   "troca": 2550
+  },
+  "260": {
+   "corpo": [
+    2128,
+    894
+   ],
+   "notas": [
+    0,
+    1203
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 1203
   }
  },
- "total_cost_usd": 2.6445,
- "num_turns": 169,
- "duration_ms": 18433570,
+ "total_cost_usd": 3.9541,
+ "num_turns": 156,
+ "duration_ms": 17315781,
  "usage": {
-  "input_tokens": 3134571,
+  "input_tokens": 2980604,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 4662183
+  "output_tokens": 4338674
  },
  "is_error": false
 }

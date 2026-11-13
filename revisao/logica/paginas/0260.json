@@ -3,25 +3,53 @@
  "paginas": [
   260
  ],
- "falha": "erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)",
- "fronteira": null,
- "notas": "",
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2128,
+   894
+  ],
+  "notas": [
+   0,
+   1203
+  ],
+  "num_notas": [
+   0,
+   1
+  ],
+  "troca": 1203
+ },
+ "notas": "Erros corrigidos: OCR de letras (€→c, £heodiceo→theodicea, glotlologia→glottologia, pata→para, distinctus→distinctas), linhas e palavras mal unidas (\"conhecer..a\", \"Mathematica é a\"), lixo (\"! ^\", \":\" espúrio, \"qué\"), \"inter nacional\" e \"ete\", e o \"C\"\" substituído pela chamada.\nFronteira: a chamada (1) estava só como \"C\"\" no fim de p. 260; criei `<note place=\"foot\" n=\"1\" xml:id=\"n260-1\">` nesse ponto, com as observações 1.º e 2.º (p. 260, pé da página), e removi o parágrafo-lixo t206.p27. Não há continuação de nota de 259 no alto da área de notas de 260 (a primeira linha é \"(1) As seguintes…\").\nDúvidas: itálico em \"penal\", \"constitucional\", \"internacional\" e versalete em \"Deus\" seguem a imagem, mas a leitura é incerta; \"1.º\"/\"2.º\" pode ser \"1.ª\"/\"2.ª\" no original.",
  "tentativas": [
   {
-   "falha": "erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)",
-   "fronteira": null,
-   "notas": "",
-   "resposta": "You've hit your 5-hour limit · resets 12:40am (America/Recife)"
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2128,
+     894
+    ],
+    "notas": [
+     0,
+     1203
+    ],
+    "num_notas": [
+     0,
+     1
+    ],
+    "troca": 1203
+   },
+   "notas": "Erros corrigidos: OCR de letras (€→c, £heodiceo→theodicea, glotlologia→glottologia, pata→para, distinctus→distinctas), linhas e palavras mal unidas (\"conhecer..a\", \"Mathematica é a\"), lixo (\"! ^\", \":\" espúrio, \"qué\"), \"inter nacional\" e \"ete\", e o \"C\"\" substituído pela chamada.\nFronteira: a chamada (1) estava só como \"C\"\" no fim de p. 260; criei `<note place=\"foot\" n=\"1\" xml:id=\"n260-1\">` nesse ponto, com as observações 1.º e 2.º (p. 260, pé da página), e removi o parágrafo-lixo t206.p27. Não há continuação de nota de 259 no alto da área de notas de 260 (a primeira linha é \"(1) As seguintes…\").\nDúvidas: itálico em \"penal\", \"constitucional\", \"internacional\" e versalete em \"Deus\" seguem a imagem, mas a leitura é incerta; \"1.º\"/\"2.º\" pode ser \"1.ª\"/\"2.ª\" no original.",
+   "resposta": ""
   }
  ],
- "total_cost_usd": 0.0,
- "duration_ms": 1600,
+ "total_cost_usd": 0.0054277,
+ "duration_ms": 35048,
  "num_turns": 1,
  "usage": {
-  "input_tokens": 0,
+  "input_tokens": 10202,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 0
+  "output_tokens": 8815
  },
  "reparo": false
 }

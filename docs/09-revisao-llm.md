@@ -97,6 +97,46 @@ exata, mas a ordem de grandeza vale.)
 - **Custo:** US$ ~0,01–0,04 por pedaço; tokens por pedaço ~10–60 k de entrada e ~10–70 k de saída (Haiku
   pensa muito). ≈ 1750 páginas do livro ≈ US$ 15–20 em preço de API.
 
+## Rodada da Lógica inteira (vol. 1 pp. 1–260, 2026-11-12/13)
+
+`revisao/logica/` (entrada = `trecho.py vol1:1-260 -F tei`: Introdução + Lógica; a Metaphysica abre na
+p. 261). Rodada em lotes crescentes, revisando cada lote antes do seguinte. Resultado: **125/125 pedaços,
+0 falhas**, XML bem formado, os 260 `<pb>` do corpo intactos, 220 → 247 notas, ~59 mil car. do corpo
+para as notas (quase todos de notas longas que o pipeline deixara no corpo). Custo em preço de API:
+**US$ 3,95** (Haiku ~US$ 2,9; Sonnet ~US$ 1,1 em 21 pedaços difíceis). Bateu o limite de 5 h do plano
+uma vez (pp. 252–260 refeitas depois). Não há ouro nestas páginas: o `wer.txt` não diz nada aqui.
+
+Problemas achados e consertados na ferramenta:
+
+- **Nota que continua noutro pedaço.** O pipeline às vezes deixa no corpo o rodapé que continua a nota da
+  página anterior, e essa página é outro pedaço. O Haiku *apagava* esse texto ("continuação de nota de
+  antes do trecho"), e a recusa deixava o pedaço sem revisão. Agora o modelo o embrulha em
+  `<note place="foot" type="continuacao">`, e `liga_continuacoes()` junta-o, na montagem, à nota da
+  página anterior (com `<pb n="P"/>` dentro), em cadeia (pp. 217–233: uma nota de 16 páginas). A regra
+  "não pertence ao trecho" ficou restrita ao que só está na imagem. Continuação que não estava na entrada
+  (transcrita da imagem, já presente no pedaço anterior: p. 16) é descartada.
+- **Pista de continuação** (`dica_continuacao`): só quando a nota do pedaço anterior é longa (ou já
+  continuação) e chega à página n-1 *e* a 1ª página do pedaço não tem nota nenhuma (14 de 125 pedaços).
+- **`--max-car` 9000 → 16000** e **`--junta A-B`** (gravado em `SAIDA/junta.txt`): páginas ligadas por
+  nota que ficavam em pedaços diferentes não podiam ter a fronteira consertada (p. 46: nota (1) da p. 46
+  colada à nota da p. 45). Um pedaço cuja entrada mudou é refeito, nunca colado com a revisão velha.
+  Junções manuais usadas: 68-71, 104-109, 145-149, 169-173, 232-233.
+- **Validador:** teto corpo→nota `max(2500, 3200 × páginas)` (rodapé de página inteira no corpo: pp. 22,
+  162, 228); acréscimo grande aceito se ≥ 60% dos seus trigramas estão no OCR bruto
+  (`volN/paginas/NNNN.txt`): o pipeline perdeu a nota (1) inteira da p. 113; `xml:id` repetido pelo
+  modelo é desduplicado (`nP-Kb`/sem id) em vez de recusado; na recusa por texto perdido, a nova
+  tentativa recebe as primeiras palavras do trecho apagado; extração tolerante a `<entrada>`/`</xml>`
+  faltando; "(n)" no começo do texto de uma nota é tirado.
+- **Sonnet onde o Haiku falha em série** (`--modelo sonnet --so … --refaz`): pp. 133, 145, 161–162,
+  221–234. Mesmo o Sonnet não embrulhou a continuação na p. 227 (e largou a 1ª linha dela): consertado à
+  mão em `paginas/0227.revisado.xml`. Na p. 233 os dois modelos apagavam a continuação; com
+  `--junta 232-233` o Sonnet acertou.
+- Revalidadas com critério manual, conferidas na imagem: p. 187 (`--nota-corpo-max 3000`: a tese "174."
+  estava dentro de uma nota).
+
+O Haiku muitas vezes **não descreve** no `<notas>` a mudança de fronteira que fez (pp. 74, 87, 89, 110):
+o `relatorio.md` mostra a mudança pelos números, e é por eles que se confere.
+
 ## Pendências
 
 - Conferir no `relatorio.md` e em `resultado.json → fronteira` cada mudança de fronteira até haver

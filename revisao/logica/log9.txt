@@ -1,0 +1,77 @@
+>> haiku: 4 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 255 (1 pp.): ok  US$ 0.005  31s  ent 10901 saí 8030
+  p. 260 (1 pp.): ok  fronteira: troca 1203 car., notas [0, 1]  US$ 0.005  35s  ent 10202 saí 8815
+  p. 252 (3 pp.): ok  fronteira: troca 2550 car., notas [2, 3]  US$ 0.036  259s  ent 25056 saí 67032
+  p. 256 (4 pp.): ok (2ª tentativa)  US$ 0.100  722s  ent 93401 saí 180995
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 116: continuação de nota ligada à nota anterior (1008 car.)
+   montagem: p. 129: continuação de nota ligada à nota anterior (3198 car.)
+   montagem: p. 130: continuação de nota ligada à nota anterior (3228 car.)
+   montagem: p. 139: continuação de nota ligada à nota anterior (2861 car.)
+   montagem: p. 162: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 181: continuação de nota ligada à nota anterior (334 car.)
+   montagem: p. 189: continuação de nota ligada à nota anterior (267 car.)
+   montagem: p. 221: continuação de nota ligada à nota anterior (116 car.)
+   montagem: p. 222: continuação de nota ligada à nota anterior (360 car.)
+   montagem: p. 224: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 225: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 226: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 228: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 229: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 230: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 232: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 234: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 240: continuação de nota ligada à nota anterior (1647 car.)
+   montagem: p. 241: continuação de nota ligada à nota anterior (541 car.)
+   montagem: p. 246: continuação de nota ligada à nota anterior (588 car.)
+   montagem: p. 247: continuação de nota ligada à nota anterior (138 car.)
+   montagem: p. 248: continuação de nota ligada à nota anterior (681 car.)
+   montagem: 2 nota(s) começavam com o número da chamada "(n)": tirado
+>> 126/126 pedaços, 4 falha(s), 52 com fronteira mudada, US$ 2.75, 319.8 min de chamadas; tokens {'input_tokens': 3186429, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 4858408}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 18 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 133 (1 pp.): ok  fronteira: troca 784 car., notas [1, 2]  US$ 0.041  23s  ent 10803 saí 1911
+  p. 161 (1 pp.): ok  US$ 0.059  28s  ent 11007 saí 3734
+  p. 162 (1 pp.): ok  fronteira: troca 1843 car., notas [0, 1]  US$ 0.056  27s  ent 10530 saí 3485
+  p. 221 (1 pp.): ok  fronteira: troca 113 car., notas [0, 1]  US$ 0.065  29s  ent 10903 saí 4306
+  p. 222 (1 pp.): ok  fronteira: troca 347 car., notas [0, 1]  US$ 0.057  27s  ent 10736 saí 3553
+  p. 223 (1 pp.): ok  fronteira: troca 474 car., notas [0, 1]  US$ 0.053  24s  ent 10619 saí 3222
+  p. 224 (1 pp.): ok  fronteira: troca 147 car., notas [0, 1]  US$ 0.067  37s  ent 11023 saí 4480
+  p. 145 (6 pp.): ok  fronteira: troca 2822 car., notas [1, 1]  US$ 0.417  203s  ent 44046 saí 32855
+  p. 225 (1 pp.): ok  fronteira: troca 1000 car., notas [0, 1]  US$ 0.055  26s  ent 10793 saí 3359
+  p. 226 (1 pp.): ok  fronteira: troca 173 car., notas [0, 1]  US$ 0.058  28s  ent 11003 saí 3579
+  p. 227 (1 pp.): ok  US$ 0.059  29s  ent 10644 saí 3808
+  p. 228 (1 pp.): ok  fronteira: troca 1048 car., notas [0, 1]  US$ 0.055  25s  ent 10380 saí 3434
+  p. 229 (1 pp.): ok  fronteira: troca 1975 car., notas [0, 1]  US$ 0.053  25s  ent 10512 saí 3181
+  p. 230 (1 pp.): ok  fronteira: troca 750 car., notas [0, 1]  US$ 0.055  27s  ent 10568 saí 3422
+  p. 232 (1 pp.): ok  fronteira: troca 641 car., notas [0, 1]  US$ 0.057  24s  ent 10686 saí 3538
+  p. 231 (1 pp.): ok (2ª tentativa)  fronteira: troca 476 car., notas [0, 1]  US$ 0.103  44s  ent 21849 saí 5959
+  p. 234 (1 pp.): ok  fronteira: troca 1866 car., notas [0, 1]  US$ 0.053  26s  ent 10572 saí 3212
+  p. 233 (1 pp.): FALHOU: o texto mudou demais: de 3281 para 503 caracteres (texto duplicado ou perdido?) Foi omitido o trecho de ~479 palavras que começa em “cc e C OT mas na acção livre Ora nenhuma…”: se ele é a continuação de uma nota que começou numa página anterior, envolva-o em <note place="foot" type="continuacao">…</note> no lugar em que está, em vez de apagá-lo.  US$ 0.124  61s  ent 22766 saí 7847
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 116: continuação de nota ligada à nota anterior (1008 car.)
+   montagem: p. 129: continuação de nota ligada à nota anterior (3198 car.)
+   montagem: p. 130: continuação de nota ligada à nota anterior (3228 car.)
+   montagem: p. 139: continuação de nota ligada à nota anterior (2861 car.)
+   montagem: p. 181: continuação de nota ligada à nota anterior (334 car.)
+   montagem: p. 189: continuação de nota ligada à nota anterior (267 car.)
+   montagem: p. 221: continuação de nota ligada à nota anterior (116 car.)
+   montagem: p. 222: continuação de nota ligada à nota anterior (361 car.)
+   montagem: p. 223: continuação de nota ligada à nota anterior (479 car.)
+   montagem: p. 224: continuação de nota ligada à nota anterior (147 car.)
+   montagem: p. 225: continuação de nota ligada à nota anterior (1016 car.)
+   montagem: p. 226: continuação de nota ligada à nota anterior (173 car.)
+   montagem: p. 228: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 229: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 230: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 231: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 232: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 234: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 240: continuação de nota ligada à nota anterior (1647 car.)
+   montagem: p. 241: continuação de nota ligada à nota anterior (541 car.)
+   montagem: p. 246: continuação de nota ligada à nota anterior (588 car.)
+   montagem: p. 247: continuação de nota ligada à nota anterior (138 car.)
+   montagem: p. 248: continuação de nota ligada à nota anterior (681 car.)
+   montagem: 2 nota(s) começavam com o número da chamada "(n)": tirado
+>> 126/126 pedaços, 1 falha(s), 56 com fronteira mudada, US$ 3.88, 287.9 min de chamadas; tokens {'input_tokens': 2977715, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 4331528}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
