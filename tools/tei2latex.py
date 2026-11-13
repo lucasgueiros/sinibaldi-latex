@@ -57,6 +57,7 @@ CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\ufffe\uffff]")
 SECIONAMENTO = {  # div@type -> comando
     "parte": "part", "livro": "part", "seccao": "part", "capitulo": "chapter", "artigo": "section",
     "secao": "subsection", "subsecao": "subsubsection",
+    "anexo": "chapter",   # aparato do fim do volume (Synopse, Indice das materias)
 }
 HI = {"it": r"\emph{%s}", "italic": r"\emph{%s}", "i": r"\emph{%s}",
       "bold": r"\textbf{%s}", "b": r"\textbf{%s}",
@@ -168,6 +169,10 @@ class Conv:
     # ---------- blocos ----------
     def p(self, e):
         txt = self.inline(e).strip()
+        if txt and e.get("type") == "anexo-titulo":     # divisão citada na Synopse/Índice
+            return r"\begin{center}\small\textsc{" + txt + r"}\end{center}"
+        if txt and e.get("type") == "indice":           # entrada do índice: recuo pendente
+            return r"{\small\noindent\hangindent=1.5em " + txt + r"\par}"
         if self.notas_pag and txt:              # TEI bruto: liga "(n)" a nota da pagina
             def sub(m):
                 nota = self.notas_pag.pop(m.group(1), None)
@@ -200,8 +205,10 @@ class Conv:
                 saida.append(self.bloco_citacao(c))
             elif n == "list":
                 saida.append(self.lista(c))
-            elif n in ("note", "head", "argument", "label") or n in IGNORADOS:
-                continue                        # notas brutas: ja ligadas; head/argument: em div()
+            elif n == "argument":                # sumário do capítulo, onde estiver
+                saida.append(r"{\small\noindent\textsc{Summario}: " + self.inline_p(c) + r"\par}")
+            elif n in ("note", "head", "label") or n in IGNORADOS:
+                continue                        # notas brutas: ja ligadas; head: em div()
             else:
                 self.desconhecidos[n] += 1
                 t = self.inline(c).strip()
@@ -255,7 +262,7 @@ class Conv:
         if not self.dentro():
             self.corpo(d, saida)                # so para achar o <pb> de entrada na faixa
             return
-        if xid and tipo in ("tese", "artigo", "capitulo", "parte"):
+        if xid and tipo in ("tese", "artigo", "capitulo", "parte", "anexo"):
             saida.append(f"%%>>> {xid}")        # marcador de tools/trecho.py
         if tipo == "tese":
             self.tese(d, saida)
@@ -264,13 +271,15 @@ class Conv:
             t = self.titulo(d, SECIONAMENTO[tipo])
             if t:
                 saida.append(t)
-            for a in d.findall(T("argument")):
-                saida.append(r"{\small\noindent\textsc{Summario}: " + self.inline_p(a) + r"\par}")
         self.corpo(d, saida)
 
     def inline_p(self, a):
+        """<argument>: um <p> por assunto -> «--- A. --- B.», como no livro."""
         ps = a.findall(T("p"))
-        return " ".join(self.inline(p).strip() for p in ps) if ps else self.inline(a).strip()
+        if not ps:
+            return self.inline(a).strip()
+        itens = [self.inline(p).strip().lstrip("—–- ") for p in ps]
+        return " ".join("--- " + i for i in itens if i)
 
     def titulo(self, d, cmd):
         heads = d.findall(T("head"))

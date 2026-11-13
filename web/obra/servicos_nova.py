@@ -36,10 +36,38 @@ def reordenar_blocos(edicao, pks_na_ordem):
 
 
 @transaction.atomic
+def reunir_anexos(edicao, regioes_1916, autor=None):
+    """Junta no fim da edição nova, na ordem da 1916, os blocos copiados de cada região de aparato
+    da 1916 (`regioes_1916`: listas de blocos da 1916, uma por anexo). Serve para a nova em que a
+    reordenação de partes espalhou o índice junto com as partes fantasmas. Retorna quantos blocos
+    foram reunidos."""
+    exige_nova(edicao)
+    linhas = list(Bloco.objects.select_for_update().filter(edicao=edicao).order_by("ordem")
+                  .values_list("pk", "origem_id"))
+    grupos, usados = [], set()
+    for regiao in regioes_1916:
+        pos = {b.pk: i for i, b in enumerate(regiao)}
+        g = sorted((pk for pk, o in linhas if o in pos), key=lambda pk, o=dict(linhas): pos[o[pk]])
+        grupos.append(g)
+        usados.update(g)
+    if not usados:
+        return 0
+    sequencia = [pk for pk, _ in linhas if pk not in usados] + [pk for g in grupos for pk in g]
+    if sequencia != [pk for pk, _ in linhas]:
+        reordenar_blocos(edicao, sequencia)
+        Revisao.objects.create(bloco_id=grupos[0][0] if grupos[0] else None, edicao=edicao, autor=autor,
+                               acao=Revisao.MOVER, lote=uuid.uuid4(),
+                               comentario="Aparato do fim dos volumes reunido no fim da edição (aplicar_componentes).")
+        arvore.reconstruir(edicao)
+    return len(usados)
+
+
+@transaction.atomic
 def aplicar_ordem_partes(edicao, autor=None, comentario=""):
     """Reordena as PARTES segundo `partes.ORDEM_PARTES`. Cada parte (com descendentes) é uma faixa;
     partes não identificadas seguem a anterior; dentro do mesmo tipo vale a ordem original; trechos
-    fora de qualquer parte vão para o início, na ordem original. Exige as seis partes.
+    fora de qualquer parte vão para o início, na ordem original, exceto os anexos (aparato do fim
+    dos volumes), que vão para o fim. Exige as seis partes.
     Retorna os nós de parte na ordem final."""
     exige_nova(edicao)
     plano = partes.plano_partes(edicao)
@@ -56,10 +84,15 @@ def aplicar_ordem_partes(edicao, autor=None, comentario=""):
     for i0, i1 in cortes.values():
         for i in range(i0, i1):
             dentro[i] = True
-    sequencia = [pk for (pk, _), d in zip(linhas, dentro) if not d]
+    no_anexo = [False] * len(linhas)
+    for a in No.objects.filter(edicao=edicao, nivel="anexo"):
+        for i in range(bisect_left(ordens, a.ordem_ini), bisect_left(ordens, a.ordem_fim)):
+            no_anexo[i] = not dentro[i]
+    sequencia = [pk for (pk, _), d, x in zip(linhas, dentro, no_anexo) if not d and not x]
     for p in plano["alvo"]:
         i0, i1 = cortes[p.pk]
         sequencia.extend(pk for pk, _ in linhas[i0:i1])
+    sequencia.extend(pk for (pk, _), x in zip(linhas, no_anexo) if x)
     reordenar_blocos(edicao, sequencia)
     Revisao.objects.create(
         bloco_id=linhas[0][0] if linhas else None, edicao=edicao, autor=autor, acao=Revisao.MOVER,

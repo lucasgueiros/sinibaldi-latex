@@ -48,6 +48,6 @@ class ValidacaoTest(SimpleTestCase):
         self.assertTrue(any(e.startswith("Bloco 3") for e in erros))
 
     def test_constantes_para_ui(self):
-        self.assertEqual(list(esquema.NIVEIS)[0], "parte")
+        self.assertEqual(list(esquema.NIVEIS)[:2], ["anexo", "parte"])
         self.assertEqual(esquema.TIPOS_PARAGRAFO["enunciado"], "Tese")
         self.assertEqual(set(esquema.REND), {"it", "bold", "sc"})

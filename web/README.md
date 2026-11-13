@@ -37,8 +37,27 @@ Utilitários e testes:
 .venv/bin/python manage.py preparar_downloads [--so fac-simile|pdf] [--edicao 1916] [--volume 1]  # PDFs dos volumes no cache
 .venv/bin/python manage.py exportar_tei --edicao 1916 --volume 2 -o /tmp/vol2.xml   # [--forcar]
 .venv/bin/python manage.py sincronizar_nova_edicao [--aplicar]                       # ver "Pendências"
+.venv/bin/python manage.py aplicar_componentes [--aplicar] [--edicao 1916|nova]   # ver "Componentes"
 .venv/bin/python manage.py test obra
 ```
+
+### Componentes: sumário de capítulo e aparato do fim do volume
+
+O OCR deixou o «Summario» de cada capítulo picotado em parágrafos (`SussAnt0: — dia, sua definição…`)
+e transformou as linhas da *Synopse* e do *Indice das materias* do fim de cada volume em marcos e
+títulos (capítulos/partes fantasmas no sumário principal). `aplicar_componentes` converte, nas duas
+edições (1916 e depois nova; sem `--aplicar` só relata; idempotente):
+
+- **sumário de capítulo** (`obra/sumarios.py`) → `<argument>` com um `<p>` por assunto (o rótulo
+  «Summario:» e os travessões vêm do CSS/LaTeX); o título do capítulo que o OCR grudou vira `<head>`;
+- **aparato final** (`obra/anexos.py`) → nó de nível `anexo` (`v1.synopse`, `v1.indice`…) com
+  `<head>`; os marcos de dentro somem; as divisões citadas viram `<p type="anexo-titulo">` e as
+  entradas do índice, `<p type="indice">`. O texto não muda.
+
+Na nova, o aparato espalhado pela reordenação de partes é antes reunido no fim
+(`servicos_nova.reunir_anexos`), blocos editados à mão são pulados, e os resultantes voltam a ser
+`copia` ligados à 1916; `aplicar_ordem_partes` passou a manter os anexos no fim. Leva ~2 min (cada
+gravação reconstrói a árvore).
 
 Front-end (só para quem altera `frontend/` ou `templates/`; os bundles em `static/` já vêm commitados):
 
