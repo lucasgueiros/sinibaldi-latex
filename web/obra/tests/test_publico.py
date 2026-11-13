@@ -84,6 +84,20 @@ class RotasTest(PublicoBase):
         self.assertContains(r, "/edicao/1916/")       # link ao trecho de origem
         self.assertContains(r, "adaptado")
 
+    def test_no_botao_editar(self):
+        from django.contrib.auth.models import Group
+        r = self.get("no", "1916", "v1.cap-1")                       # anônimo: sem botão
+        self.assertNotContains(r, ">Editar")
+        self.client.force_login(self.user2)                           # logado sem permissão: sem botão
+        self.assertNotContains(self.get("no", "1916", "v1.cap-1"), ">Editar")
+        self.user2.groups.add(Group.objects.get(name="editores"))
+        self.client.force_login(self.user2)
+        r = self.get("no", "1916", "v1.t2")                           # 1916: revisão da página onde começa
+        self.assertContains(r, 'href="%s"' % reverse("obra:revisar", args=[1, 2]))
+        self.assertContains(r, "Editar (p. 2)")
+        r = self.get("no", "nova", "v1.cap-1")                        # nova: editor do próprio nó
+        self.assertContains(r, 'href="%s"' % reverse("obra:nova_no", args=["v1.cap-1"]))
+
     def test_no_consultas_limitadas(self):
         with self.assertNumQueries(8):
             self.get("no", "1916", "v1.cap-1")

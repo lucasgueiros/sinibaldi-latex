@@ -150,8 +150,23 @@ def no(request, slug, xml_id):
         "slides_url": reverse("obra:slides", args=[ed.slug, n.xml_id]) if slides.disponivel(n, total) else None,
         "volume": Volume.objects.filter(pk=n.volume_id).first(),
     }
+    ctx["editar_url"] = _url_editar(request, ed, n, ctx["volume"])
     # tese cujo único conteúdo é o próprio texto: nada de sumário de filhos
     return render(request, "publico/no.html", ctx)
+
+
+def _url_editar(request, ed, n, volume):
+    """Tela de edição do trecho, para quem pode editar (mesma permissão da área restrita); senão None.
+
+    Nova edição: o editor do próprio nó. 1916: a revisão da página onde o trecho começa (o editor é por página).
+    """
+    if not request.user.has_perm("obra.change_bloco"):
+        return None
+    if ed.tipo == Edicao.NOVA:
+        return reverse("obra:nova_no", args=[n.xml_id])
+    if volume is not None and n.pagina_ini is not None:
+        return reverse("obra:revisar", args=[volume.numero, n.pagina_ini])
+    return None
 
 
 def menu_baixar(ed, n, total=None):

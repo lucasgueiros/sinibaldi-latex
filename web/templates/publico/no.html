@@ -18,6 +18,7 @@
       {% if slides_url %}<a class="btn btn-secundario btn-sm" href="{{ slides_url }}">Slides</a>{% endif %}
       {% if no.pagina_ini is not None and volume %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero no.pagina_ini %}">Fac-símile</a>{% endif %}
       <a class="btn btn-secundario btn-sm" href="{% url 'obra:sugerir' edicao.slug no.xml_id %}" data-sg-link>Sugerir correção</a>
+      {% if editar_url %}<a class="btn btn-primario btn-sm" href="{{ editar_url }}"{% if not nova %} title="Abre a revisão da página onde o trecho começa"{% endif %}>Editar{% if not nova and no.pag %} (p. {{ no.pag }}){% endif %}</a>{% endif %}
       <form method="get" action="{% url 'obra:busca' edicao.slug %}" class="inline-flex gap-1" role="search">
         <label class="sr-only" for="q">Buscar</label><input id="q" name="q" type="search" class="campo !w-40 !py-1" placeholder="Buscar…" required>
       </form>
