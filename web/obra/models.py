@@ -138,12 +138,14 @@ class Pagina(models.Model):
 
 class Bloco(models.Model):
     MARCO, TITULO, PARAGRAFO, SUMARIO, CABECALHO = "marco", "titulo", "paragrafo", "sumario", "cabecalho"
+    GRAVURA = "gravura"
     TIPOS = [
         (MARCO, "Marco de divisão"),
         (TITULO, "Título"),
         (PARAGRAFO, "Parágrafo"),
         (SUMARIO, "Sumário"),
         (CABECALHO, "Cabeçalho corrente"),
+        (GRAVURA, "Gravura"),
     ]
     COPIA, ADAPTADO, NOVO, SUPRIMIDO = "copia", "adaptado", "novo", "suprimido"
     PROCEDENCIAS = [(COPIA, "Cópia"), (ADAPTADO, "Adaptado"), (NOVO, "Novo"), (SUPRIMIDO, "Suprimido")]

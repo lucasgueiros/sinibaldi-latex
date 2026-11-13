@@ -35,11 +35,16 @@
  * window.SinibaldiEditor.montarVisualizador(el, {botoes, indicador, chave}) — scan com zoom/arrasto.
  * window.SinibaldiEditor.montarDivisor({divisor, primeira, chave}) — divisor arrastável (posição em localStorage).
  * window.SinibaldiEditor.postarJSON(url, corpo, csrf) -> Promise<{status, dados}>
+ * window.SinibaldiEditor.dialogo({titulo, campos, confirmar, validar, imagem}) -> Promise<valores|null>
+ *
+ * Gravuras: editor.inserirGravura({xmlid, url, width, legenda, src}); o visualizador tem
+ * selecionarCaixa() -> Promise<{x, y, l, a}|null> (pixels da imagem exibida) e limparCaixa().
  */
 import { montar } from "./editor.js";
 import { montarAbas } from "./abas.js";
 import { montarVisualizador } from "./visualizador.js";
 import { montarDivisor } from "./divisor.js";
 import { postarJSON } from "./rede.js";
+import { dialogo } from "./dialogo.js";
 
-window.SinibaldiEditor = { montar, montarAbas, montarVisualizador, montarDivisor, postarJSON };
+window.SinibaldiEditor = { montar, montarAbas, montarVisualizador, montarDivisor, postarJSON, dialogo };

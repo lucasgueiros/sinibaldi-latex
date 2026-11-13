@@ -182,6 +182,9 @@
   .resultados .pag { @apply font-display text-[0.65rem] tracking-[0.1em] text-ink/55; }
 
   .obra [data-tei="anchor"][data-type="asterisco"]::before { content: "∗"; @apply my-2 block select-none text-center; }
+  .obra figure[data-tei="figure"] { @apply my-5 text-center; }
+  .obra figure[data-tei="figure"] img { @apply mx-auto block h-auto max-w-full; }
+  .obra figure[data-tei="figure"] figcaption { @apply mt-1.5 text-[0.9em]; }
   .obra a[data-tei="pb"] { @apply no-underline; }
   .obra sup.nref a { @apply px-0.5 font-display text-[0.7em] text-crimson no-underline hover:underline; }
   .obra :target, .notas-fim :target { @apply bg-gold-light/40; }

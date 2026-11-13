@@ -27,6 +27,8 @@
       <button type="button" class="ferramenta" data-zoom="mais" title="Ampliar (Ctrl + roda)" aria-label="Ampliar">+</button>
       <button type="button" class="ferramenta" data-zoom="largura" title="Ajustar à largura">Largura</button>
       <button type="button" class="ferramenta" data-zoom="cem" title="Tamanho real">100%</button>
+      <span class="mx-1 h-5 w-px bg-gold/60"></span>
+      <button type="button" class="ferramenta" data-gravura aria-pressed="false" title="Recortar uma gravura do scan (arraste uma caixa) e inseri-la no texto"{% if not dados.scanDim %} disabled{% endif %}>Gravura</button>
       <a class="ml-auto text-xs text-crimson hover:underline" href="{{ dados.scanOriginal }}" target="_blank" rel="noopener" title="Abrir o PNG original (mais pesado)" data-scan-original>original</a>
       <span class="text-xs text-ink/60" data-zoom-indicador></span>
     </div>

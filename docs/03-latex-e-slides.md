@@ -17,6 +17,14 @@ Definida em `tex/preambulo.tex`:
 `\asterisco` imprime o `∗` centrado em linha própria (divisão de assunto do original); vale no corpo, no meio do
 parágrafo e dentro de `\footnote{…}`. No TEI: `<milestone unit="asterisco"/>` (inline ou entre blocos) ou um
 `<p>*</p>`; `tools/tei2latex.py` converte ambos.
+
+`\gravura{arquivo.png}{0.60}{legenda}` põe uma gravura recortada do fac-símile no ponto exato do original
+(sem float, centrada, fração da largura do texto, legenda opcional em corpo menor). No TEI:
+`<figure xml:id><graphic url="paginas/0034.png#xywh=x,y,l,a" width="60%"/><head>legenda</head></figure>` — a
+caixa (fragmento de mídia W3C) é em pixels do PNG original da página. `tools/tei2latex.py` recorta a caixa com
+Pillow (`--base`: pasta contra a qual resolver a url, padrão a do XML; `--dir-gravuras`: onde gravar os
+recortes, padrão `build/gravuras`, caminho que o `.tex` cita). Sem a imagem, sai uma caixa «gravura
+indisponível» com `% REVER`. As gravuras são marcadas pela web (tela de revisão da 1916, botão **Gravura**).
 Os números vêm de `tools/extract_paginado.py` (ver `docs/02-numeracao-de-paginas.md`) — nunca do OCR
 do cabeçalho. Sendo uma macro única, a aparência (margem, sobrescrito, cinza) muda depois sem tocar
 no texto.

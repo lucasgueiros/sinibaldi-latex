@@ -5,6 +5,7 @@ Cada bloco é UM elemento, sem prefixo nem declaração de namespace:
   blocos   <milestone unit n xml:id/>  (marco)     <head [type=rotulo]>  (titulo)
            <p [type] [xml:id]>         (paragrafo) <argument><p/>…</argument> (sumario)
            <fw type="header">          (cabecalho)
+           <figure xml:id><graphic url width/>[<head>legenda</head>]</figure>  (gravura)
   inline   <hi rend>, <label>, <foreign xml:lang>, <pb n facs/>, <note place n xml:id>,
            <anchor type="asterisco"/> (componente semântico: o ∗ de divisão de assunto, no corpo ou em nota),
            <fw type="header"> (cabeçalho corrente que o OCR deixou no meio de um parágrafo),
@@ -18,7 +19,11 @@ a referência que o próprio Sinibaldi deu, «(Post. anal., l. I)», e liga-a à
 dentro de citação nem `<bibl>` dentro de `<bibl>`. `type="mencao"` (termo entre aspas, sem fonte)
 dispensa o `xml:id`.
 
-`<note>` contém só `<p>` (sem nota dentro de nota). Tudo é definido aqui; as telas
+`<note>` contém só `<p>` (sem nota dentro de nota). Gravura (componente semântico): o recorte de uma
+ilustração do fac-símile. `graphic/@url` = `paginas/NNNN.png#xywh=x,y,l,a` (imagem da página, relativa
+ao diretório do volume, + fragmento de mídia W3C com a caixa em pixels do PNG original); `@width`
+opcional em % da largura do texto; `<head>` opcional = legenda (só itálico/versalete/negrito/latim/rótulo).
+O `xml:id` (`vN.gravura-…`) é obrigatório: o prefixo do volume localiza a imagem. Tudo é definido aqui; as telas
 montam barras de ferramentas a partir de `NIVEIS`, `TIPOS_PARAGRAFO`, `REND`.
 """
 import re
@@ -67,6 +72,7 @@ TIPOS_BLOCO = {
     "paragrafo": "Parágrafo",
     "sumario": "Sumário",
     "cabecalho": "Cabeçalho corrente",
+    "gravura": "Gravura",
 }
 
 TIPO_DA_RAIZ = {  # elemento raiz -> Bloco.tipo
@@ -75,6 +81,7 @@ TIPO_DA_RAIZ = {  # elemento raiz -> Bloco.tipo
     "p": "paragrafo",
     "argument": "sumario",
     "fw": "cabecalho",
+    "figure": "gravura",
 }
 
 # Atributos permitidos por elemento, NA ORDEM CANÔNICA de serialização.
@@ -92,6 +99,8 @@ ATRIBUTOS = {
     "note": ("place", "n", "xml:id"),
     "quote": ("type", "xml:id", "corresp"),
     "bibl": ("corresp",),
+    "figure": ("xml:id",),
+    "graphic": ("url", "width"),
 }
 
 # Valores fechados de alguns atributos. None = qualquer valor não vazio.
@@ -108,8 +117,22 @@ VALORES = {
 
 INLINE = ("hi", "label", "foreign", "pb", "anchor", "note", "fw", "quote", "bibl")
 INLINE_EM_NOTA = ("hi", "label", "foreign", "pb", "anchor", "fw", "quote", "bibl")  # sem nota dentro de nota
+INLINE_EM_LEGENDA = ("hi", "label", "foreign")  # <head> de <figure>
 SEM_AUTOANINHAR = ("quote", "bibl")  # nem citação dentro de citação, nem bibl dentro de bibl
-VAZIOS = ("milestone", "pb", "anchor")  # elementos sem conteúdo
+VAZIOS = ("milestone", "pb", "anchor", "graphic")  # elementos sem conteúdo
+
+# graphic/@url de uma gravura: imagem da página + caixa (x, y, largura, altura) em pixels do PNG original.
+RE_URL_GRAVURA = re.compile(r"^paginas/(?P<arquivo>[A-Za-z0-9_-]+)\.png#xywh=(?P<x>\d+),(?P<y>\d+),(?P<l>\d+),(?P<a>\d+)$")
+RE_LARGURA_GRAVURA = re.compile(r"^(100|[1-9][0-9]?)%$")
+RE_VOLUME_ID = re.compile(r"^v(\d+)\.")
+
+
+def caixa_da_gravura(url):
+    """`paginas/0034.png#xywh=1,2,3,4` -> ('0034', (1, 2, 3, 4)) ou None."""
+    m = RE_URL_GRAVURA.match(url or "")
+    if not m:
+        return None
+    return m.group("arquivo"), tuple(int(m.group(k)) for k in "xyla")
 
 
 def nome_atributo(qname):
@@ -133,13 +156,17 @@ def permitidos_em(nome, contexto):
         return INLINE
     if contexto == "inline_nota":
         return INLINE_EM_NOTA
+    if contexto == "inline_legenda":
+        return INLINE_EM_LEGENDA
     return ()
 
 
 def contexto_dos_filhos(nome, contexto):
     """Contexto de conteúdo dos filhos de `nome`, dado o contexto em que ele aparece."""
     if nome in ("p", "head", "fw", "hi", "label", "foreign", "quote", "bibl"):
-        return "inline_nota" if contexto == "inline_nota" else "inline"
+        if contexto in ("inline_nota", "inline_legenda", "figura"):
+            return "inline_nota" if contexto == "inline_nota" else "inline_legenda"
+        return "inline"
     return None
 
 
@@ -179,6 +206,18 @@ def _validar_atributos(el, nome, erros):
         erros.append('<anchor> exige type="asterisco".')
     if nome == "pb" and el.get("n") is None:
         erros.append('<pb> exige o atributo "n".')
+    if nome == "figure" and not el.get(qname_atributo("xml:id")):
+        erros.append('<figure> exige xml:id (vN.gravura-…).')
+    if nome == "graphic":
+        url = el.get("url")
+        cx = caixa_da_gravura(url)
+        if cx is None:
+            erros.append(f"<graphic> exige url=\"paginas/NNNN.png#xywh=x,y,largura,altura\" (recebido: {url!r}).")
+        elif cx[1][2] <= 0 or cx[1][3] <= 0:
+            erros.append("<graphic>: a caixa da gravura tem largura ou altura zero.")
+        w = el.get("width")
+        if w is not None and not RE_LARGURA_GRAVURA.match(w):
+            erros.append(f"<graphic>: width deve ser uma porcentagem de 1% a 100% (recebido: {w!r}).")
     if nome == "quote":
         if el.get("type") is None:
             erros.append('<quote> exige type="direta" ou "indireta".')
@@ -232,6 +271,10 @@ def _validar_elemento(el, contexto, erros):
         erros.append("Citação dentro de citação não é permitida." if nome == "quote"
                      else "<bibl> dentro de <bibl> não é permitido.")
         return
+    elif contexto == "figura":
+        if nome not in ("graphic", "head"):
+            erros.append(f"<figure> só pode conter <graphic> e <head>, não <{nome}>.")
+            return
     elif nome not in permitidos_em(nome, contexto):
         if nome == "note" and contexto == "inline_nota":
             erros.append("Nota dentro de nota não é permitida.")
@@ -243,6 +286,17 @@ def _validar_elemento(el, contexto, erros):
     if nome in VAZIOS:
         if len(el) or (el.text and el.text.strip()):
             erros.append(f"<{nome}> deve ser vazio.")
+        return
+    if nome == "figure":
+        if (el.text and el.text.strip()) or any(f.tail and f.tail.strip() for f in el):
+            erros.append("<figure> não aceita texto solto; a legenda vai em <head>.")
+        nomes = [f.tag for f in el if isinstance(f.tag, str)]
+        if nomes[:1] != ["graphic"] or nomes.count("graphic") != 1:
+            erros.append("<figure> exige um único <graphic>, como primeiro filho.")
+        if nomes.count("head") > 1:
+            erros.append("<figure> aceita no máximo um <head> (legenda).")
+        for filho in el:
+            _validar_elemento(filho, "figura", erros)
         return
     if nome in ("argument", "note"):
         if el.text and el.text.strip():

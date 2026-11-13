@@ -175,6 +175,32 @@ def _normalizar_paragrafos(src, dst, ctx, rel, prefixo):
         etree.SubElement(dst, "p")
 
 
+def _converter_figura(src, dst, rel, prefixo):
+    """<figure>: o primeiro <graphic> e o primeiro <head> (legenda); o resto é descartado."""
+    graphic = head = None
+    for c in src:
+        if not isinstance(c.tag, str):
+            continue
+        n = nome_local(c.tag)
+        if n == "graphic" and graphic is None:
+            graphic = c
+        elif n == "head" and head is None:
+            head = c
+        else:
+            rel.descartados[f"<{n}> em <figure>"] += 1
+    if graphic is not None:
+        _definir_attrs(etree.SubElement(dst, "graphic"), "graphic", graphic, rel)
+    if head is not None and ((head.text or "").strip() or len(head)):
+        h = etree.SubElement(dst, "head")
+        _copiar_conteudo(head, h, "inline_legenda", rel, prefixo)
+        h.text = (h.text or "").lstrip() or None
+        if len(h):
+            if h[-1].tail:
+                h[-1].tail = h[-1].tail.rstrip() or None
+        elif h.text:
+            h.text = h.text.rstrip() or None
+
+
 def converter_bloco(el, rel, prefixo=""):
     """Converte um elemento (qualquer namespace) em elemento do dialeto. Retorna (tipo, elemento)."""
     nome = nome_local(el.tag)
@@ -182,6 +208,8 @@ def converter_bloco(el, rel, prefixo=""):
     _definir_attrs(raiz, nome, el, rel, prefixo)
     if nome == "milestone":
         pass
+    elif nome == "figure":
+        _converter_figura(el, raiz, rel, prefixo)
     elif nome == "argument":
         _normalizar_paragrafos(el, raiz, "inline", rel, prefixo)
     else:
@@ -216,7 +244,7 @@ def paginas_do_fragmento(xml):
 
 
 # ------------------------------------------------------------------- achatar
-_NOMES_BLOCO = {"head", "p", "argument", "fw"}
+_NOMES_BLOCO = {"head", "p", "argument", "fw", "figure"}
 
 
 def achatar(tei_volume, numero=None, relatorio=None):
@@ -397,10 +425,47 @@ def _h(tag, **attrs):
     return e
 
 
+def src_gravura(xml_id, url):
+    """URL (no site) do recorte de uma gravura, ou '' se o xml:id não diz o volume ou a url é inválida."""
+    m = esquema.RE_VOLUME_ID.match(xml_id or "")
+    cx = esquema.caixa_da_gravura(url)
+    if not m or cx is None:
+        return ""
+    from django.urls import reverse
+    arquivo, caixa = cx
+    return reverse("obra:gravura", args=[int(m.group(1)), arquivo, ",".join(map(str, caixa))])
+
+
+def _html_figura(el):
+    """<figure> -> <figure data-tei=figure data-xmlid data-url data-width><img><figcaption>…</figcaption></figure>."""
+    graphic = el.find("graphic")
+    url = graphic.get("url") if graphic is not None else None
+    largura = graphic.get("width") if graphic is not None else None
+    h = _h("figure", tei="figure", data_xmlid=el.get(XML_ID), data_url=url, data_width=largura)
+    img = etree.SubElement(h, "img", src=src_gravura(el.get(XML_ID), url), alt="Gravura")
+    img.set("data-tei", "graphic")
+    img.set("draggable", "false")
+    if largura:
+        img.set("style", f"width: {largura}")
+    cap = etree.SubElement(h, "figcaption")
+    head = el.find("head")
+    if head is not None:
+        cap.text = head.text
+        for c in head:
+            if isinstance(c.tag, str):
+                novo = _html_elemento(c, "inline")
+                novo.tail = c.tail
+                cap.append(novo)
+        img.set("alt", "".join(head.itertext()).strip() or "Gravura")
+    return h
+
+
 def _html_elemento(el, ctx):
     """`ctx`: 'raiz' | 'inline' | 'argumento' | 'nota'."""
     nome = el.tag
     g = el.get
+    if nome == "figure":
+        return _html_figura(el)
     if nome == "milestone":
         h = _h("div", tei="milestone", data_unit=g("unit"), data_n=g("n"), data_xmlid=g(XML_ID))
     elif nome == "head":
@@ -473,11 +538,31 @@ _CABECALHOS_HTML = {"h1", "h2", "h3", "h4", "h5", "h6"}
 _PARAGRAFOS_HTML = {"p", "li", "blockquote", "pre", "dd", "dt"}
 
 
+def _bruto_figura(h):
+    """<figure data-tei=figure> -> <figure><graphic/><head/></figure> (img é só apresentação)."""
+    e = etree.Element("figure")
+    if h.get("data-xmlid"):
+        e.set(XML_ID, h.get("data-xmlid"))
+    gr = etree.SubElement(e, "graphic")
+    for k, a in (("data-url", "url"), ("data-width", "width")):
+        if h.get(k):
+            gr.set(a, h.get(k))
+    cap = next((c for c in h if isinstance(c.tag, str) and c.tag.lower() == "figcaption"), None)
+    if cap is not None:
+        cab = _bruto(cap)
+        cab.tag = "head"
+        cab.attrib.clear()
+        e.append(cab)
+    return e
+
+
 def _bruto(h):
     """Elemento HTML -> elemento 'bruto' com nomes TEI (desconhecidos mantêm o nome HTML)."""
     tag = h.tag.lower() if isinstance(h.tag, str) else ""
     dt = h.get("data-tei")
     g = h.get
+    if dt == "figure":
+        return _bruto_figura(h)
     if dt == "milestone":
         nome, attrs = "milestone", {"unit": g("data-unit"), "n": g("data-n"), XML_ID: g("data-xmlid")}
     elif dt == "head" or tag in _CABECALHOS_HTML:
@@ -537,7 +622,7 @@ def _nome_bloco(h):
     """Nome do bloco TEI se `h` é um elemento de nível de bloco, senão None."""
     tag = h.tag.lower() if isinstance(h.tag, str) else ""
     dt = h.get("data-tei")
-    if dt in ("milestone", "head", "argument", "p"):
+    if dt in ("milestone", "head", "argument", "p", "figure"):
         return dt
     if dt == "fw":
         return "fw" if tag != "span" else None
@@ -576,7 +661,7 @@ def html_para_blocos(html, relatorio=None):
     def emitir(nome, bruto, ident, versao):
         bruto.tag = nome
         _tipo, el = converter_bloco(bruto, rel)
-        if nome != "milestone" and not len(el) and not (el.text or "").strip():
+        if nome not in ("milestone", "figure") and not len(el) and not (el.text or "").strip():
             return
         saida.append({"id": ident, "versao": versao, "xml": serializar_fragmento(el)})
 

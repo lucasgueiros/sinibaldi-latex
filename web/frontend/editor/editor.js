@@ -122,7 +122,7 @@ function conteudoAdaptado(content, alvo, S) {
 
 function reconstruirBloco(node, alvo, tipoPar, S) {
   const nome = node.type.name;
-  if (nome === "marco") return null;
+  if (nome === "marco" || nome === "gravura") return null;
   const fontes = [];
   if (nome === "sumario") node.forEach((p, _o, i) => fontes.push({ content: p.content, primeiro: i === 0, xmlid: p.attrs.xmlid }));
   else fontes.push({ content: node.content, primeiro: true, xmlid: node.attrs.xmlid });
@@ -162,7 +162,7 @@ function converterSelecao(editor, alvo, tipoPar = null) {
 
 function definirTipoParagrafo(editor, tipo) {
   const { state, view } = editor;
-  const alvos = blocosNaSelecao(state).filter((b) => b.node.type.name !== "marco");
+  const alvos = blocosNaSelecao(state).filter((b) => !["marco", "gravura"].includes(b.node.type.name));
   if (!alvos.length) return false;
   if (alvos.every((b) => b.node.type.name === "paragrafo")) {
     const tr = state.tr;
@@ -348,9 +348,9 @@ export function montar(elemento, opcoes = {}) {
               let alvo = null;
               if (ev.key === "Backspace" && $f.parentOffset === 0 && $f.index(0) > 0) alvo = doc.child($f.index(0) - 1) && { n: doc.child($f.index(0) - 1), pos: $f.before(1) - doc.child($f.index(0) - 1).nodeSize };
               if (ev.key === "Delete" && $f.parentOffset === $f.parent.content.size && $f.index(0) < doc.childCount - 1) alvo = { n: doc.child($f.index(0) + 1), pos: $f.after(1) };
-              if (!alvo || alvo.n.type.name !== "marco") return false;
+              if (!alvo || !["marco", "gravura"].includes(alvo.n.type.name)) return false;
               view.dispatch(view.state.tr.setSelection(NodeSelection.create(doc, alvo.pos)).scrollIntoView());
-              return true; // 1º toque seleciona o marco; só um segundo toque (com ele selecionado) o remove
+              return true; // 1º toque seleciona o marco/gravura; só um segundo toque (com ele selecionado) o remove
             },
             decorations(state) {
               if (!st.decorarBloco) return null;
@@ -498,6 +498,29 @@ export function montar(elemento, opcoes = {}) {
       view.dispatch(editor.state.tr.insert(pos, marco).scrollIntoView());
       editor.commands.focus();
     },
+    /** Insere uma gravura ({xmlid, url, width, legenda, src}) antes do bloco atual se o cursor está no
+     *  início dele, senão depois. Devolve false se o xml:id já existe nesta tela. */
+    inserirGravura({ xmlid, url, width = null, legenda = "", src = "" }) {
+      const { state, view } = editor;
+      if (!editor.isEditable) return false;
+      let repetido = false;
+      state.doc.descendants((n) => {
+        if (n.attrs && n.attrs.xmlid === xmlid) repetido = true;
+      });
+      if (repetido) return false;
+      const S = state.schema;
+      const leg = (legenda || "").trim();
+      const node = S.nodes.gravura.create({ xmlid, url, width: width || null, src }, leg ? S.text(leg) : null);
+      const { $from } = state.selection;
+      let pos;
+      if ($from.depth === 0) pos = state.selection.to;
+      else pos = $from.parentOffset === 0 && $from.depth === 1 ? $from.before(1) : $from.after(1);
+      const tr = state.tr.insert(pos, node);
+      tr.setSelection(NodeSelection.create(tr.doc, pos));
+      view.dispatch(tr.scrollIntoView());
+      editor.commands.focus();
+      return true;
+    },
     async editarMarco(pos) {
       const node = editor.state.doc.nodeAt(pos);
       if (!node || node.type.name !== "marco" || !editor.isEditable) return;
@@ -571,6 +594,8 @@ export function montar(elemento, opcoes = {}) {
       notificar();
     },
     sujo,
+    /** Gravura recortada do fac-símile (ver api.inserirGravura). */
+    inserirGravura: (g) => api.inserirGravura(g),
     /** Declara o conteúdo atual como "gravado". */
     marcarLimpo() {
       estado.baseline = editor.state.doc;
