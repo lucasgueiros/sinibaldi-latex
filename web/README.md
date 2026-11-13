@@ -52,6 +52,7 @@ npm run build           # Tailwind (static/css), depois de mexer em templates
 | Rota | Nome (`obra:`) | O que é |
 |---|---|---|
 | `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`) |
+| | | Com login + `obra.change_bloco`, a página do trecho mostra **Editar**: na nova edição leva a `nova_no` do nó; na 1916, a `revisar` da página onde o trecho começa |
 | `/edicao/<slug>/<xml_id>/sugerir/` | `sugerir` | Formulário público (sem login) de sugestão de correção; POST grava `Sugestao` |
 | `/edicao-colaborativa/sugestoes/` | `sugestoes` | Triagem das sugestões (login); `sugestoes/<pk>/acao/` (`sugestao_acao`, POST) |
 | `/fac-simile/<vol>/<seq>/` | `facsimile` | Imagem da página (JPEG 1600 px, link p/ PNG original) |
