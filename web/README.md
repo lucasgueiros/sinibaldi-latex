@@ -200,6 +200,15 @@ do editor, `volume`/`pagina` do bloco intactos). Recusa, sem alterar nada, quand
 mais de uma vez no bloco, atravessa elementos (itálico, nota, marca de página), o bloco sumiu ou houve conflito de
 versão; nesses casos corrija à mão no editor e use *Aceitar*. A lista avisa quando o bloco mudou depois do envio.
 
+## Notas de rodapé (`leitura.renderizar`, `static/js/site.js`, `static/css/notas.css`)
+
+`renderizar` troca cada `<note>` por `<sup class="nref"><a href="#nota-N">` e devolve a lista que os
+templates põem no fim (`notas-fim`). No navegador, clicar no número abre a nota num popup junto à
+chamada (acompanha a rolagem; Esc, × ou clique fora fecham, e o foco volta ao número); o link «ir para
+as notas» do popup, ou Ctrl/⌘/Shift-clique, mantém o salto para a lista. Vale em toda página que tenha
+`sup.nref` e a `<li>` de destino (leitura, fac-símile, painel 1916 do editor da nova); sem JS, o link
+continua saltando para o fim. `notas.css` é CSS puro, fora do build do Tailwind.
+
 ## Citação ABNT (`citacao.py`, `views_citacao.py`, `static/js/citacao*.js`)
 
 Na leitura, o leitor seleciona uma passagem e clica em «Citar (ABNT)» (botão flutuante à esquerda do «Sugerir

@@ -1,0 +1,41 @@
+/* Popup das notas de rodapé (static/js/site.js). CSS puro, fora do build do Tailwind. */
+.nota-pop {
+  position: fixed; z-index: 60; width: 28rem; max-width: calc(100vw - 16px); max-height: min(60vh, 24rem);
+  display: flex; flex-direction: column;
+  background: #FBF7EE; color: #2A1F1A; border: 1px solid #B08D57; border-top: 3px solid #8B1A1A;
+  border-radius: 4px; box-shadow: 0 8px 24px rgba(42, 31, 26, .22);
+  font-family: "EB Garamond", Garamond, Georgia, serif; font-size: 1rem; line-height: 1.4;
+  text-align: left; text-indent: 0;
+}
+.nota-pop:focus { outline: none; }
+.nota-pop:focus-visible { outline: 2px solid #B08D57; outline-offset: 2px; }
+.nota-pop-acima { border-top-width: 1px; border-top-color: #B08D57; border-bottom: 3px solid #8B1A1A; }
+.nota-pop-seta {
+  position: absolute; top: -8px; width: 0; height: 0; margin-left: -7px;
+  border: 7px solid transparent; border-top: 0; border-bottom-color: #8B1A1A;
+}
+.nota-pop-acima .nota-pop-seta {
+  top: auto; bottom: -8px; border: 7px solid transparent; border-bottom: 0; border-top-color: #8B1A1A;
+}
+.nota-pop-cab {
+  display: flex; align-items: center; gap: .75rem; padding: .35rem .5rem .3rem .85rem;
+  border-bottom: 1px solid rgba(176, 141, 87, .4);
+}
+.nota-pop-n {
+  font-family: Cinzel, "Trajan Pro", Georgia, serif; font-size: .7rem; letter-spacing: .14em;
+  text-transform: uppercase; color: #8B1A1A;
+}
+.nota-pop-ir {
+  margin-left: auto; font-size: .85rem; color: #8A6A3B; text-decoration: underline;
+  text-decoration-color: rgba(176, 141, 87, .6);
+}
+.nota-pop-ir:hover { color: #8B1A1A; }
+.nota-pop-fechar {
+  border: 0; background: none; cursor: pointer; font-size: 1.35rem; line-height: 1; padding: 0 .3rem;
+  color: rgba(42, 31, 26, .6);
+}
+.nota-pop-fechar:hover, .nota-pop-fechar:focus-visible { color: #8B1A1A; }
+.nota-pop-corpo { overflow: auto; padding: .55rem .85rem .7rem; }
+.nota-pop-corpo a { color: #8B1A1A; }
+sup.nref a[aria-expanded="true"] { background: rgba(217, 191, 140, .55); border-radius: 2px; }
+@media print { .nota-pop { display: none; } }
