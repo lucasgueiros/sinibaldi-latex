@@ -143,6 +143,8 @@ class Conv:
             return self.inline(c, em_nota)
         if n == "lb":
             return " "
+        if n == "milestone" and c.get("unit") == "asterisco":
+            return r" \asterisco{} "
         if n == "p":                            # paragrafo dentro de nota
             corpo = self.inline(c, em_nota)
             return (r"\par " + corpo) if (c.getprevious() is not None or (c.getparent().text or "").strip()) else corpo
@@ -173,6 +175,8 @@ class Conv:
             return r"\begin{center}\small\textsc{" + txt + r"}\end{center}"
         if txt and e.get("type") == "indice":           # entrada do índice: recuo pendente
             return r"{\small\noindent\hangindent=1.5em " + txt + r"\par}"
+        if txt == "*":                          # parágrafo que é só o asterisco do original
+            txt = r"\asterisco{}"
         if self.notas_pag and txt:              # TEI bruto: liga "(n)" a nota da pagina
             def sub(m):
                 nota = self.notas_pag.pop(m.group(1), None)
@@ -201,6 +205,8 @@ class Conv:
                 if t:
                     saida.append((self.flush_pg() + " " + t).strip())
                     self.contagem["p"] += 1
+            elif n == "milestone" and c.get("unit") == "asterisco":
+                saida.append(r"\asterisco{}")
             elif n in ("cit", "quote"):
                 saida.append(self.bloco_citacao(c))
             elif n == "list":

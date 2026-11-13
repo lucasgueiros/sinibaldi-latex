@@ -18,6 +18,10 @@
 % Virada de página do original DENTRO de uma nota (\pgn{422}); discreta, para não quebrar a nota.
 \newcommand{\pgn}[1]{{\scriptsize\textbf{[#1]}}}
 
+% Asterisco do original (divisão de assunto, sem título): \asterisco centrado em linha própria,
+% também válido no meio do parágrafo ou dentro de nota (\footnote{... \asterisco ...}).
+\newcommand{\asterisco}{\par\medskip\centerline{\footnotesize$\ast$}\medskip\noindent}
+
 % Citações latinas de S. Tomás (o OCR erra muito aqui: sempre conferir na imagem).
 \newenvironment{latim}{\begin{quote}\itshape}{\end{quote}}
 

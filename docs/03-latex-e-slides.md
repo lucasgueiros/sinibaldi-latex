@@ -13,6 +13,10 @@ Definida em `tex/preambulo.tex`:
 ```
 
 `\pg{286}` imprime `[286]` no fluxo do texto, na posição exata onde a página virava no original.
+
+`\asterisco` imprime o `∗` centrado em linha própria (divisão de assunto do original); vale no corpo, no meio do
+parágrafo e dentro de `\footnote{…}`. No TEI: `<milestone unit="asterisco"/>` (inline ou entre blocos) ou um
+`<p>*</p>`; `tools/tei2latex.py` converte ambos.
 Os números vêm de `tools/extract_paginado.py` (ver `docs/02-numeracao-de-paginas.md`) — nunca do OCR
 do cabeçalho. Sendo uma macro única, a aparência (margem, sobrescrito, cinza) muda depois sem tocar
 no texto.
