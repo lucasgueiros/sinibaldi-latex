@@ -46,7 +46,7 @@ class Command(BaseCommand):
         except Edicao.DoesNotExist:
             raise CommandError("Importe a edição 1916 antes (importar_tei).")
         nova, criada = Edicao.objects.get_or_create(slug="nova", defaults=dict(
-            titulo="Nova edição", tipo=Edicao.NOVA,
+            titulo="Nova edição", tipo=Edicao.NOVA, publica=False,  # escondida da parte pública
             descricao="Edição revista e reorganizada; cada bloco aponta para a origem na edição de 1916."))
         if nova.blocos.exists():
             if not recriar:

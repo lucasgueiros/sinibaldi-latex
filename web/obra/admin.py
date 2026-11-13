@@ -6,7 +6,9 @@ from .models import (Apresentacao, ApresentacaoRevisao, Bloco, Citacao, Edicao, 
 
 @admin.register(Edicao)
 class EdicaoAdmin(admin.ModelAdmin):
-    list_display = ("slug", "titulo", "tipo")
+    list_display = ("slug", "titulo", "tipo", "publica")
+    list_editable = ("publica",)
+    list_filter = ("tipo", "publica")
 
 
 @admin.register(Volume)

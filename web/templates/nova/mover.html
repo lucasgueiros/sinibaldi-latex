@@ -28,7 +28,7 @@
     <p class="text-sm text-ink/70">{% if no.nivel != "parte" %}Só são oferecidos destinos do mesmo volume.{% else %}Partes podem ficar entre volumes.{% endif %}</p>
     <div class="flex gap-3">
       <button class="btn btn-primario">Mover</button>
-      <a class="btn btn-secundario" href="{% url 'obra:nova_estrutura' %}?foco={{ no.xml_id }}#no-{{ no.xml_id }}">Cancelar</a>
+      <a class="btn btn-secundario" href="{% url 'obra:nova_estrutura' nova.slug %}?foco={{ no.xml_id }}#no-{{ no.xml_id }}">Cancelar</a>
     </div>
   </form>
 </div>

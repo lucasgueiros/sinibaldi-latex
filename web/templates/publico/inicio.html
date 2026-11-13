@@ -7,15 +7,17 @@
   <p class="text-xl leading-relaxed">Este site publica, para leitura e consulta, a obra <em>Elementos de Philosophia</em> de D. Thiago Sinibaldi
     (vol. 1, 5.ª ed., 1917; vol. 2, 4.ª ed., 1916). O texto foi extraído de escaneamentos da edição impressa e está sendo
     revisado e organizado por editores da Academia Leão XIII de Artes e Ciências do Recife.</p>
-  <p class="mt-4 text-lg leading-relaxed text-ink/85">Há duas edições: a <strong>de 1916/17</strong>, cópia fiel do livro, página a página,
-    com o fac-símile ao lado; e a <strong>nova edição</strong>, reorganizada e em construção. Qualquer trecho pode ser baixado em
+  <p class="mt-4 text-lg leading-relaxed text-ink/85">A obra é publicada em edições separadas: a <strong>rediagramação do texto de 1916/17</strong>,
+    cópia fiel do livro, página a página, com o fac-símile ao lado; e a <strong>edição atualizada</strong>, que parte desse texto
+    com ortografia, gramática, referências e gravuras revistas e notas do editor. Qualquer trecho pode ser baixado em
     TEI XML, texto puro, HTML, LaTeX e PDF.</p>
 
   <div class="mt-8 grid gap-6 md:grid-cols-2">
     {% for e in edicoes %}
     <article class="cartao">
-      <h2 class="font-display text-xl font-semibold tracking-[0.06em] text-crimson">{{ e.titulo }}</h2>
+      <h2 class="font-display text-xl font-semibold tracking-[0.06em] text-crimson">{{ e.titulo }}{% if not e.publica %} <span class="etiqueta text-xs">oculta</span>{% endif %}</h2>
       <p class="mt-2 text-lg">{{ e.descricao }}</p>
+      {% if e.componentes %}<ul class="mt-2 list-disc pl-5 text-base text-ink/85">{% for c in e.componentes %}<li>{{ c }}</li>{% endfor %}</ul>{% endif %}
       <p class="mt-3 flex flex-wrap gap-2">
         <span class="etiqueta etiqueta-ouro">{{ e.n_partes }} partes</span>
         <span class="etiqueta etiqueta-ouro">{{ e.n_capitulos }} capítulos</span>

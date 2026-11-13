@@ -13,7 +13,7 @@ from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.views.decorators.http import require_POST
 
 from . import exportacao, leitura, slides
-from .models import Apresentacao, ApresentacaoRevisao, Edicao, No
+from .models import Apresentacao, ApresentacaoRevisao, Edicao, No, edicao_visivel_ou_404
 from .views_edicao import PERMISSAO, _fmt_data, exige_edicao, nome_de, render_area
 
 FORMATOS = {
@@ -23,8 +23,8 @@ FORMATOS = {
 }
 
 
-def _no(slug, xml_id):
-    ed = get_object_or_404(Edicao, slug=slug)
+def _no(request, slug, xml_id):
+    ed = edicao_visivel_ou_404(slug, request.user)
     return ed, get_object_or_404(No.objects.select_related("edicao", "volume"), edicao=ed, xml_id=xml_id)
 
 
@@ -35,7 +35,7 @@ def _nome(no, ext):
 # ====================================================================== pública
 def pagina(request, slug, xml_id):
     """Página dos slides: PDF embutido, nº de slides, selo, downloads. Não compila nada."""
-    ed = get_object_or_404(Edicao, slug=slug)
+    ed = edicao_visivel_ou_404(slug, request.user)
     arv = leitura.Arvore(ed)
     n = arv.por_id.get(xml_id)
     if n is None:
@@ -73,7 +73,7 @@ def _com_cache(resp, etag):
 @xframe_options_sameorigin
 def arquivo(request, slug, xml_id, formato):
     """PDF (inline; `?baixar=1` baixa), `.tex` ou fonte `.txt` dos slides. O PDF é compilado aqui."""
-    ed, n = _no(slug, xml_id)
+    ed, n = _no(request, slug, xml_id)
     rotulo, tipo, ext = FORMATOS[formato]
     try:
         if not slides.disponivel(n):
@@ -142,7 +142,7 @@ def _contexto_editor(request, ed, n, ap, *, fonte=None, erros=(), versao=None, c
 
 @exige_edicao()
 def editor(request, slug, xml_id):
-    ed, n = _no(slug, xml_id)
+    ed, n = _no(request, slug, xml_id)
     ap = slides.apresentacao_do_no(n)
     try:
         ctx = _contexto_editor(request, ed, n, ap)
@@ -184,7 +184,7 @@ def _volta(ed, n):
 @exige_edicao()
 @require_POST
 def salvar(request, slug, xml_id):
-    ed, n = _no(slug, xml_id)
+    ed, n = _no(request, slug, xml_id)
     fonte = request.POST.get("fonte", "")
     versao = _inteiro(request.POST.get("versao"))
     if versao is None:
@@ -207,7 +207,7 @@ def salvar(request, slug, xml_id):
 @require_POST
 def regenerar(request, slug, xml_id):
     """Substitui a fonte pela automática (a anterior fica no histórico). Com correções, exige `confirmo`."""
-    ed, n = _no(slug, xml_id)
+    ed, n = _no(request, slug, xml_id)
     ap = slides.apresentacao_do_no(n)
     if ap is not None and ap.editada and not request.POST.get("confirmo"):
         messages.error(request, "Marque a caixa de confirmação para substituir as correções pela versão automática.")
@@ -229,7 +229,7 @@ def regenerar(request, slug, xml_id):
 @exige_edicao()
 @require_POST
 def descartar(request, slug, xml_id):
-    ed, n = _no(slug, xml_id)
+    ed, n = _no(request, slug, xml_id)
     if not request.POST.get("confirmo"):
         messages.error(request, "Marque a caixa de confirmação para descartar as correções.")
         return _volta(ed, n)
@@ -246,7 +246,7 @@ def descartar(request, slug, xml_id):
 @require_POST
 def restaurar(request, slug, xml_id):
     """Põe de volta a fonte de uma revisão do histórico (como nova revisão)."""
-    ed, n = _no(slug, xml_id)
+    ed, n = _no(request, slug, xml_id)
     rev = slides.revisao_do_no(n, _inteiro(request.POST.get("revisao")) or 0)
     versao = _inteiro(request.POST.get("versao"))
     if rev is None or versao is None:

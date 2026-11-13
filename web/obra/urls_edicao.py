@@ -1,4 +1,4 @@
-"""Área restrita: revisão da edição 1916/17 e telas da nova edição."""
+"""Área restrita: revisão da edição 1916/17 e telas das edições derivadas (atualizada, nova)."""
 from django.urls import path
 
 from . import views_citacoes as ct
@@ -32,15 +32,16 @@ urlpatterns = [
     path("slides/<slug:slug>/<str:xml_id>/regenerar/", sl.regenerar, name="slides_regenerar"),
     path("slides/<slug:slug>/<str:xml_id>/descartar/", sl.descartar, name="slides_descartar"),
     path("slides/<slug:slug>/<str:xml_id>/restaurar/", sl.restaurar, name="slides_restaurar"),
-    # nova edição
-    path("nova/", n.estrutura, name="nova_estrutura"),
-    path("nova/partes/aplicar/", n.aplicar_ordem, name="nova_aplicar_ordem"),
-    path("nova/no/<str:xml_id>/", n.editar_no, name="nova_no"),
-    path("nova/no/<str:xml_id>/acao/", n.acao_no, name="nova_no_acao"),
-    path("nova/no/<str:xml_id>/mover/", n.mover, name="nova_mover"),
-    path("nova/trecho/<int:ordem_ini>/", n.editar_trecho, name="nova_trecho"),
-    path("nova/gravar/", n.gravar, name="nova_gravar"),
-    path("nova/bloco/acao/", n.acao_bloco, name="nova_bloco_acao"),
-    path("nova/pendencias/", n.pendencias, name="nova_pendencias"),
-    path("nova/pendencias/acao/", n.acao_pendencias, name="nova_pendencias_acao"),
+    # edições derivadas da 1916 (atualizada, nova): por último, pois <slug>/ casaria com as rotas acima
+    path("<slug:slug>/", n.estrutura, name="nova_estrutura"),
+    path("<slug:slug>/partes/aplicar/", n.aplicar_ordem, name="nova_aplicar_ordem"),
+    path("<slug:slug>/no/<str:xml_id>/", n.editar_no, name="nova_no"),
+    path("<slug:slug>/no/<str:xml_id>/acao/", n.acao_no, name="nova_no_acao"),
+    path("<slug:slug>/no/<str:xml_id>/mover/", n.mover, name="nova_mover"),
+    path("<slug:slug>/trecho/<int:ordem_ini>/", n.editar_trecho, name="nova_trecho"),
+    path("<slug:slug>/gravar/", n.gravar, name="nova_gravar"),
+    path("<slug:slug>/bloco/acao/", n.acao_bloco, name="nova_bloco_acao"),
+    path("<slug:slug>/pendencias/", n.pendencias, name="nova_pendencias"),
+    path("<slug:slug>/pendencias/acao/", n.acao_pendencias, name="nova_pendencias_acao"),
+    path("<slug:slug>/visibilidade/", v.visibilidade, name="visibilidade"),
 ]

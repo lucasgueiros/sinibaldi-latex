@@ -15,7 +15,8 @@ export SINIBALDI_DADOS=/caminho/do/checkout       # raiz com volN/paginas/*.png 
 
 .venv/bin/python manage.py migrate                # cria db.sqlite3 e o grupo "editores"
 .venv/bin/python manage.py importar_tei           # edição "1916" (~5 s): [--volume 1 2] [--fonte corrigido] [--recriar]
-.venv/bin/python manage.py derivar_nova_edicao    # edição "nova" [--recriar]
+.venv/bin/python manage.py derivar_edicao_atualizada  # edição "atualizada" [--recriar] [--oculta]
+.venv/bin/python manage.py derivar_nova_edicao    # edição "nova" (nasce oculta) [--recriar]
 .venv/bin/python manage.py createsuperuser
 .venv/bin/python manage.py runserver              # http://127.0.0.1:8000/
 ```
@@ -103,10 +104,28 @@ npm run build           # Tailwind (static/css), depois de mexer em templates
 | `/edicao-colaborativa/1916/vol/<n>/` | `paginas` | Páginas do volume |
 | `/edicao-colaborativa/1916/vol/<n>/pag/<seq>/` | `revisar` | Scan + editor (`gravar/`, JSON) |
 | `/edicao-colaborativa/converter/` | `converter` | html/xml ↔ blocos (JSON) |
-| `/edicao-colaborativa/nova/` | `nova_estrutura` | Estrutura e ordem das partes da nova edição |
-| `/edicao-colaborativa/nova/no/<id>/` | `nova_no` | Editor paginado de um nó (`nova_trecho`, `nova_gravar`…) |
-| `/edicao-colaborativa/nova/pendencias/` | `nova_pendencias` | Sincronização com a 1916 |
+| `/edicao-colaborativa/<slug>/` | `nova_estrutura` | Estrutura de uma edição derivada (`atualizada`, `nova`); na nova, também a ordem das partes |
+| `/edicao-colaborativa/<slug>/no/<id>/` | `nova_no` | Editor paginado de um nó (`nova_trecho`, `nova_gravar`…) |
+| `/edicao-colaborativa/<slug>/pendencias/` | `nova_pendencias` | Sincronização com a 1916 |
+| `/edicao-colaborativa/<slug>/visibilidade/` | `visibilidade` | POST: mostra/esconde a edição na parte pública (`obra.change_edicao`) |
 | `/entrar/`, `/admin/` | | Login e administração |
+
+## As três edições
+
+| slug | tipo | O que é |
+|---|---|---|
+| `1916` | `diplomatica` | **Rediagramação do texto de 1916/17**: o texto do livro, página a página, revisado contra o scan |
+| `atualizada` | `atualizada` | **Edição atualizada**: derivada da 1916 na mesma ordem. Compõem-na (`Edicao.COMPONENTES_ATUALIZADA`, só descritivo por enquanto): rediagramação; atualização ortográfica e gramatical; atualização das referências e citações; revisão das gravuras; notas do editor |
+| `nova` | `nova` | **Nova edição**: derivada e reorganizada (ordem das partes, mover, suprimir); **oculta** |
+
+`atualizada` e `nova` são *derivadas* (`Edicao.derivada`): blocos com `origem` na 1916, procedência
+copia/adaptado/novo, mesmas telas de edição e pendências (rotas com o slug). Só a nova tem
+`Edicao.reorganiza` (as operações estruturais dão 404/`ErroOperacao` na atualizada).
+
+**Esconder uma edição**: `Edicao.publica` (migração `0007` deixa a `nova` oculta). Oculta, ela some
+do menu, do início e do "sobre", e as rotas públicas dela (leitura, busca, downloads, citar, sugerir,
+slides) dão 404, exceto para quem tem `obra.change_bloco`, que a vê com o selo «oculta». Alternar:
+painel (*Edições na parte pública*, exige `obra.change_edicao`, ou seja, superusuário) ou admin › Edições.
 
 ## Modelo
 
@@ -197,7 +216,10 @@ edições; indexada a cada `salvar_blocos`) e `Fonte` (entrada BibTeX).
 - Saídas: na nova, leitura, `.txt`, `.tex`/PDF (`tei2latex.py --citacoes precisa`) trocam a referência de
   Sinibaldi pela precisa; o TEI exportado leva `<back><div type="citacoes">` com fontes e fichas.
 
-## Nova edição (`/edicao-colaborativa/nova/`, `views_nova.py`, `servicos_nova.py`, `partes.py`)
+## Edições derivadas: nova e atualizada (`/edicao-colaborativa/<slug>/`, `views_nova.py`, `servicos_nova.py`, `partes.py`)
+
+O que segue vale para as duas, exceto o que mexe na estrutura (ordem das partes, mover, suprimir), que é só da nova.
+`sincronizar_nova_edicao`, `aplicar_componentes` e `aplicar_asteriscos` tratam todas as derivadas (`--edicao` filtra).
 
 Telas só para a edição `nova` (login + `obra.change_bloco`; nenhuma rota daqui altera blocos da 1916 e a
 tela de revisão da 1916 não enxerga os da nova). Todas as operações são POST com CSRF e gravam `Revisao`

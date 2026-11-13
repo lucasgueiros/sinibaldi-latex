@@ -11,8 +11,7 @@
     <nav class="hidden md:block" aria-label="Navegação principal">
       <ul class="flex items-center gap-6 font-display text-sm tracking-[0.12em]">
         <li><a href="/" class="nav-link{% if request.path == '/' %} is-active{% endif %}">Início</a></li>
-        <li><a href="/edicao/1916/" class="nav-link{% if '/edicao/1916' in request.path %} is-active{% endif %}">Edição de 1916/17</a></li>
-        <li><a href="/edicao/nova/" class="nav-link{% if '/edicao/nova' in request.path %} is-active{% endif %}">Nova edição</a></li>
+        {% for e in edicoes_menu %}<li><a href="{% url 'obra:edicao' e.slug %}" class="nav-link{% if edicao.slug == e.slug %} is-active{% endif %}"{% if not e.publica %} title="Oculta: só editores a veem"{% endif %}>{{ e.titulo_curto }}{% if not e.publica %} <span aria-hidden="true">◌</span>{% endif %}</a></li>{% endfor %}
         {% if user.is_authenticated %}
           <li><a href="/edicao-colaborativa/" class="nav-link{% if '/edicao-colaborativa' in request.path %} is-active{% endif %}">Área de edição</a></li>
           <li class="flex items-center gap-3 normal-case tracking-normal"><span class="text-ink/70">{{ user.get_full_name|default:user.get_username }}</span>
@@ -31,8 +30,7 @@
   <nav id="menu-movel" class="hidden border-t border-crimson/20 md:hidden" aria-label="Navegação móvel" data-menu>
     <ul class="mx-auto max-w-6xl px-4 py-3 font-display tracking-[0.12em]">
       <li><a href="/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Início</a></li>
-      <li><a href="/edicao/1916/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Edição de 1916/17</a></li>
-      <li><a href="/edicao/nova/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Nova edição</a></li>
+      {% for e in edicoes_menu %}<li><a href="{% url 'obra:edicao' e.slug %}" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">{{ e.titulo_curto }}{% if not e.publica %} (oculta){% endif %}</a></li>{% endfor %}
       {% if user.is_authenticated %}
         <li><a href="/edicao-colaborativa/" class="block border-b border-crimson/10 py-3 text-ink hover:text-crimson">Área de edição</a></li>
         <li class="flex items-center justify-between py-3"><span class="normal-case tracking-normal text-ink/70">{{ user.get_full_name|default:user.get_username }}</span>

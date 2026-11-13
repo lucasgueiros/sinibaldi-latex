@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.utils.html import escape
 
 from . import exportacao, fac_simile, leitura, slides
-from .models import Bloco, Edicao, No, Pagina, Volume
+from .models import Bloco, Edicao, No, Pagina, Volume, edicao_visivel_ou_404
 
 LIMITE_BLOCOS = 400      # nó com filhos até este tamanho é mostrado inteiro
 LIMITE_COMPLETO = 3000   # "ler tudo" só até aqui
@@ -24,8 +24,9 @@ FORMATOS = {
 }
 
 
-def _edicao(slug):
-    return get_object_or_404(Edicao, slug=slug)
+def _edicao(request, slug):
+    """A edição pelo slug; 404 se ela estiver escondida (`publica=False`) e o usuário não for editor."""
+    return edicao_visivel_ou_404(slug, request.user)
 
 
 def _fabrica_url_fac(volumes=None):
@@ -36,14 +37,9 @@ def _fabrica_url_fac(volumes=None):
     return lambda volume_id, seq: reverse("obra:facsimile", args=[num.get(volume_id, volume_id), seq])
 
 
-def _contexto_comum(ed):
-    return {"edicao": ed, "outras_edicoes": Edicao.objects.exclude(pk=ed.pk).order_by("slug")}
-
-
 # ------------------------------------------------------------------------- início
 def inicio(request):
-    edicoes = list(Edicao.objects.order_by("-slug"))  # "nova" antes de "1916"? ordenamos abaixo
-    edicoes.sort(key=lambda e: (e.slug != "1916", e.slug))
+    edicoes = Edicao.visiveis(request.user)  # 1916, atualizada, nova; as ocultas só para editores
     cont = {}
     for ed_id, nivel, c in No.objects.values_list("edicao_id", "nivel").annotate(c=Count("id")):
         cont.setdefault(ed_id, {})[nivel] = c
@@ -56,17 +52,17 @@ def inicio(request):
 
 
 def sobre(request):
-    return render(request, "publico/sobre.html", {"edicoes": Edicao.objects.order_by("slug"),
+    return render(request, "publico/sobre.html", {"edicoes": Edicao.visiveis(request.user),
                                                   "formatos": FORMATOS})
 
 
 # ---------------------------------------------------------------------- sumário
 def edicao(request, slug):
-    ed = _edicao(slug)
+    ed = _edicao(request, slug)
     arv = leitura.Arvore(ed)
     arv.rotular_paginas(leitura.impressas())
     volumes = {v.pk: v for v in Volume.objects.all()}
-    if ed.tipo == Edicao.DIPLOMATICA:
+    if not ed.reorganiza:  # 1916 e atualizada seguem a ordem dos volumes
         grupos = []
         for r in arv.raizes:
             if not grupos or grupos[-1]["volume"].pk != r.volume_id:
@@ -75,7 +71,7 @@ def edicao(request, slug):
     else:
         grupos = [{"volume": None, "raizes": arv.raizes}]
     return render(request, "publico/edicao.html", {
-        "edicao": ed, "grupos": grupos, "n_nos": len(arv.nos), "nova": ed.tipo == Edicao.NOVA,
+        "edicao": ed, "grupos": grupos, "n_nos": len(arv.nos), "nova": ed.derivada,
         "volumes_baixar": _volumes_baixar(ed, volumes.values()), **_contexto_arvore(volumes.values()),
     })
 
@@ -107,7 +103,7 @@ def _volumes_baixar(ed, volumes):
 
 
 def busca(request, slug):
-    ed = _edicao(slug)
+    ed = _edicao(request, slug)
     q = (request.GET.get("q") or "").strip()
     pagina = None
     if q:
@@ -138,7 +134,7 @@ def _url_no(slug, xml_id, bloco=None):
 
 
 def no(request, slug, xml_id):
-    ed = _edicao(slug)
+    ed = _edicao(request, slug)
     arv = leitura.Arvore(ed)
     n = arv.por_id.get(xml_id)
     if n is None:
@@ -158,7 +154,7 @@ def no(request, slug, xml_id):
             i += 1
         blocos = blocos[i:]
     origens = {}
-    if ed.tipo == Edicao.NOVA:
+    if ed.derivada:
         ed16 = Edicao.objects.filter(slug="1916").first()
         if ed16:
             arv16 = leitura.Arvore(ed16)
@@ -169,10 +165,10 @@ def no(request, slug, xml_id):
                         origens[b.pk] = _url_no("1916", alvo.xml_id, b.origem_id)
     volumes = {v.pk: v for v in Volume.objects.all()}
     html, notas = leitura.renderizar(blocos, impressas_=imp, modo="web", url_facsimile=_fabrica_url_fac(volumes), origens=origens,
-                                     volumes=({} if ed.tipo == Edicao.NOVA else None),
+                                     volumes=({} if ed.derivada else None),
                                      citacoes=leitura.DadosCitacoes(), nova=ed.tipo == Edicao.NOVA)
     ctx = {
-        "edicao": ed, "nova": ed.tipo == Edicao.NOVA, "no": n, "caminho": arv.caminho(n)[:-1], "titulo_no": leitura.titulo_do_no(n),
+        "edicao": ed, "nova": ed.derivada, "no": n, "caminho": arv.caminho(n)[:-1], "titulo_no": leitura.titulo_do_no(n),
         "html": html, "notas": notas, "filhos": filhos, "inteiro": inteiro, "pode_tudo": pode_tudo,
         "total": total, "anterior": arv.vizinho(n, -1), "proximo": arv.vizinho(n, 1), "pai": n.pai_obj,
         "contribuintes": leitura.contribuintes(ed, n.ordem_ini, n.ordem_fim),
@@ -189,12 +185,13 @@ def no(request, slug, xml_id):
 def _url_editar(request, ed, n, volume):
     """Tela de edição do trecho, para quem pode editar (mesma permissão da área restrita); senão None.
 
-    Nova edição: o editor do próprio nó. 1916: a revisão da página onde o trecho começa (o editor é por página).
+    Edições derivadas (atualizada, nova): o editor do próprio nó. 1916: a revisão da página onde o trecho
+    começa (o editor é por página).
     """
     if not request.user.has_perm("obra.change_bloco"):
         return None
-    if ed.tipo == Edicao.NOVA:
-        return reverse("obra:nova_no", args=[n.xml_id])
+    if ed.derivada:
+        return reverse("obra:nova_no", args=[ed.slug, n.xml_id])
     if volume is not None and n.pagina_ini is not None:
         return reverse("obra:revisar", args=[volume.numero, n.pagina_ini])
     return None
@@ -278,7 +275,7 @@ def _entregar(request, chave, funcao, tipo, nome, rotulo, voltar, espera=None):
 def baixar(request, slug, xml_id, formato):
     if formato not in FORMATOS:
         raise Http404("Formato desconhecido.")
-    ed = _edicao(slug)
+    ed = _edicao(request, slug)
     n = get_object_or_404(No.objects.select_related("edicao", "volume"), edicao=ed, xml_id=xml_id)
     rotulo, tipo, ext = FORMATOS[formato]
     nome = exportacao.nome_arquivo(n, ext)
@@ -307,7 +304,7 @@ def baixar(request, slug, xml_id, formato):
 
 
 def baixar_volume(request, slug, numero):
-    ed = _edicao(slug)
+    ed = _edicao(request, slug)
     vol = get_object_or_404(Volume, numero=numero)
     if not Bloco.objects.filter(edicao=ed, volume=vol).exists():
         raise Http404("Volume sem texto nesta edição.")
@@ -325,7 +322,7 @@ def _voltar_sumario(ed):
 
 def baixar_volume_pdf(request, slug, numero):
     """PDF (LaTeX) do volume inteiro: compila em segundo plano (alguns minutos na primeira vez)."""
-    ed = _edicao(slug)
+    ed = _edicao(request, slug)
     vol = get_object_or_404(Volume, numero=numero)
     blocos = exportacao.blocos_do_volume(ed, vol)
     if not blocos.exists():
@@ -345,7 +342,7 @@ def baixar_volume_pdf(request, slug, numero):
 
 def baixar_fac_simile(request, slug, xml_id):
     """Fac-símile (páginas do scan original) de um trecho."""
-    ed = _edicao(slug)
+    ed = _edicao(request, slug)
     n = get_object_or_404(No.objects.select_related("edicao", "volume"), edicao=ed, xml_id=xml_id)
     rotulo = "fac-símile em PDF"
     try:

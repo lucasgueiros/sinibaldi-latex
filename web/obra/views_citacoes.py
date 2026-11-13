@@ -161,8 +161,8 @@ def editar(request, xml_id):
         l["url_publico"] = (reverse("obra:no", args=[ed.slug, no.xml_id]) + f"#b{l['bloco'].pk}") if no else None
         if ed.tipo == Edicao.DIPLOMATICA and l["volume"] is not None and l["seq"] is not None:
             l["url_editor"] = reverse("obra:revisar", args=[l["volume"].numero, l["seq"]])
-        elif ed.tipo == Edicao.NOVA and no:
-            l["url_editor"] = reverse("obra:nova_no", args=[no.xml_id])
+        elif ed.derivada and no:
+            l["url_editor"] = reverse("obra:nova_no", args=[ed.slug, no.xml_id])
         if l["volume"] is not None and l["seq"] is not None:
             l["url_scan"] = reverse("obra:facsimile", args=[l["volume"].numero, l["seq"]])
         l["html"] = _contexto_html(l["bloco"], xml_id)

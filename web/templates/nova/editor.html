@@ -1,12 +1,12 @@
 {% extends "base_trabalho.html" %}
 {% load static %}
-{% block title %}Nova edição · {{ cabecalho.titulo }}{% endblock %}
+{% block title %}{{ nova.titulo }} · {{ cabecalho.titulo }}{% endblock %}
 {% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
 {% block barra %}
 <nav class="flex items-center gap-2 truncate" aria-label="Localização">
   <a href="{% url 'obra:painel' %}" class="text-crimson hover:underline">Revisão</a>
   <span class="text-ink/40">/</span>
-  <a href="{% url 'obra:nova_estrutura' %}{% if cabecalho.xml_id %}?foco={{ cabecalho.xml_id }}#no-{{ cabecalho.xml_id }}{% endif %}" class="text-crimson hover:underline">Nova edição</a>
+  <a href="{% url 'obra:nova_estrutura' nova.slug %}{% if cabecalho.xml_id %}?foco={{ cabecalho.xml_id }}#no-{{ cabecalho.xml_id }}{% endif %}" class="text-crimson hover:underline">{{ nova.titulo }}</a>
   <span class="text-ink/40">/</span>
   <span class="truncate" title="{{ cabecalho.titulo }}"><span class="text-ink/50">{{ cabecalho.nivel }}</span> {{ cabecalho.titulo }}</span>
   <span class="ml-2 hidden shrink-0 text-xs text-ink/70 sm:inline">
@@ -59,7 +59,7 @@
   <div id="divisor" class="hidden w-1.5 shrink-0 cursor-col-resize bg-gold/50 hover:bg-crimson/60 md:block" role="separator" aria-orientation="vertical" aria-label="Redimensionar colunas" tabindex="0"></div>
 
   {# ---------------- coluna do editor ---------------- #}
-  <section id="col-editor" class="flex min-h-0 min-w-0 flex-1 flex-col bg-parchment-light" aria-label="Editor da nova edição">
+  <section id="col-editor" class="flex min-h-0 min-w-0 flex-1 flex-col bg-parchment-light" aria-label="Editor da edição {{ nova.titulo|lower }}">
     <div class="abas px-2 pt-1">
       <button type="button" class="aba-ativa" data-aba="visual">Visual</button>
       <button type="button" class="aba" data-aba="xml">XML</button>
@@ -96,7 +96,7 @@
       <span data-info-texto>Clique num bloco para ver a procedência e quem o alterou por último.</span>
       <span class="ml-auto flex flex-wrap items-center gap-2" data-acoes-bloco>
         <button type="button" class="ferramenta !h-6 text-xs" data-acao-bloco="restaurar_1916" disabled title="Volta o texto deste bloco ao da edição de 1916">restaurar o texto de 1916</button>
-        <button type="button" class="ferramenta !h-6 text-xs" data-acao-bloco="suprimir" disabled title="Suprime ou restaura este bloco (nada é apagado)">suprimir</button>
+        <button type="button" class="ferramenta !h-6 text-xs" data-acao-bloco="suprimir"{% if not nova.reorganiza %} hidden{% endif %} disabled title="Suprime ou restaura este bloco (nada é apagado)">suprimir</button>
         <a class="hidden text-crimson hover:underline" data-info-link href="#" target="_blank" rel="noopener">ver histórico</a>
       </span>
     </div>

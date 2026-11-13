@@ -12,7 +12,7 @@ from django.views.decorators.http import require_POST
 
 from . import diffs, leitura, servicos, servicos_sugestoes
 from .forms import SugestaoForm
-from .models import Bloco, Edicao, No, Sugestao
+from .models import Bloco, Edicao, No, Sugestao, edicao_visivel_ou_404
 from .views_edicao import exige_edicao, render_area
 
 LIMITE_ENVIOS = 10        # envios por IP por janela
@@ -50,7 +50,7 @@ def _bloco_valido(ed, pk):
 
 
 def sugerir(request, slug, xml_id):
-    ed = get_object_or_404(Edicao, slug=slug)
+    ed = edicao_visivel_ou_404(slug, request.user)
     no = get_object_or_404(No, edicao=ed, xml_id=xml_id)
     status = 200
     if request.method == "POST":
@@ -85,13 +85,14 @@ def _sucesso(request, ed, no, bloco_id):
 
 # ================================================================ área dos editores
 def _url_editor(s, arvore_de):
-    """Link para o editor do bloco: tela da página (1916) ou do nó (nova edição); None sem bloco."""
+    """Link para o editor do bloco: tela da página (1916) ou do nó (edições derivadas); None sem bloco."""
     b = s.bloco
     if b is None:
         return None
-    if s.edicao.tipo == Edicao.NOVA:
+    if s.edicao.derivada:
+        slug = s.edicao.slug
         n = arvore_de(s.edicao).cobrindo(b.ordem)
-        return reverse("obra:nova_no", args=[n.xml_id]) if n else reverse("obra:nova_estrutura")
+        return reverse("obra:nova_no", args=[slug, n.xml_id]) if n else reverse("obra:nova_estrutura", args=[slug])
     if b.volume_id and b.pagina is not None:
         return reverse("obra:revisar", args=[b.volume.numero, b.pagina])
     return None
@@ -131,7 +132,7 @@ def lista(request):
     qs_get.pop("page", None)
     return render_area(request, "edicao/sugestoes.html", {
         "itens": itens, "page_obj": page_obj, "f_estado": estado, "f_edicao": f_edicao,
-        "estados": Sugestao.ESTADOS, "edicoes": Edicao.objects.order_by("slug"),
+        "estados": Sugestao.ESTADOS, "edicoes": Edicao.ordenadas(),
         "querystring": (qs_get.urlencode() + "&") if qs_get else ""})
 
 

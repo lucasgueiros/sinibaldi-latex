@@ -20,7 +20,7 @@ from obra.models import Bloco, Edicao, Pagina, Volume
 
 
 class Command(BaseCommand):
-    help = "Insere o componente asterisco (1916 e nova) a partir de `*` soltos e/ou de uma lista TSV."
+    help = "Insere o componente asterisco (1916 e derivadas) a partir de `*` soltos e/ou de uma lista TSV."
 
     def add_arguments(self, p):
         p.add_argument("--aplicar", action="store_true", help="Grava (sem isso, só relata).")
@@ -31,7 +31,7 @@ class Command(BaseCommand):
         ed16 = Edicao.objects.filter(slug="1916").first()
         if ed16 is None:
             raise CommandError("A edição '1916' não existe.")
-        nova = Edicao.objects.filter(slug="nova", tipo=Edicao.NOVA).first()
+        derivadas = Edicao.ordenadas(Edicao.objects.filter(tipo__in=Edicao.DERIVADAS))
         # pk do bloco da 1916 -> [(operação xml -> (xml_novo, motivo), descrição)]
         plano = defaultdict(list)
         if not sem_solitarios:
@@ -52,8 +52,8 @@ class Command(BaseCommand):
         for linha, motivo in pendencias:
             self.stdout.write(self.style.WARNING(f"  pendente: {self._rotulo(linha)} — {motivo}"))
 
-        if nova is not None and alterados:
-            self.stdout.write(self.style.MIGRATE_HEADING("== nova"))
+        for nova in derivadas if alterados else []:
+            self.stdout.write(self.style.MIGRATE_HEADING(f"== {nova.slug}"))
             self._nova(nova, plano, alterados, aplicar)
         if not aplicar:
             self.stdout.write("(use --aplicar para gravar)")

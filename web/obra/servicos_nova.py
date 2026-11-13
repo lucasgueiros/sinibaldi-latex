@@ -1,5 +1,6 @@
-"""Operações de escrita exclusivas da edição NOVA (reordenar partes, suprimir, restaurar o texto de
-1916, sincronizar com a 1916). Todas exigem `edicao.tipo == nova` (ErroOperacao se não) e gravam
+"""Operações de escrita das edições DERIVADAS da 1916 (atualizada e nova): restaurar o texto de 1916 e
+sincronizar com a 1916 (`exige_derivada`); reordenar partes, reunir anexos e suprimir só na nova, a
+única que reorganiza a estrutura (`exige_nova`). ErroOperacao se a edição não serve; todas gravam
 `Revisao` com o autor. A regra de procedência ao gravar (copia -> adaptado, bloco criado -> novo)
 está em `servicos.salvar_blocos`."""
 import uuid
@@ -15,8 +16,13 @@ from .servicos import ErroOperacao
 
 
 def exige_nova(edicao):
-    if edicao.tipo != Edicao.NOVA:
+    if not edicao.reorganiza:
         raise ErroOperacao("Operação permitida só na edição nova.")
+
+
+def exige_derivada(edicao):
+    if not edicao.derivada:
+        raise ErroOperacao("Operação permitida só nas edições derivadas da 1916 (atualizada e nova).")
 
 
 def _rev(edicao, bloco, autor, lote, comentario, antes, depois):
@@ -143,7 +149,7 @@ def _estrutural(tipos):
 def restaurar_texto_1916(edicao, ids, autor=None, comentario=""):
     """Volta xml e tipo dos blocos aos da `origem` atual e a procedência a `copia` (isso também tira
     a supressão). Ignora blocos sem origem. Retorna os blocos alterados."""
-    exige_nova(edicao)
+    exige_derivada(edicao)
     blocos = list(Bloco.objects.select_for_update().select_related("origem")
                   .filter(edicao=edicao, pk__in=list(ids), origem__isnull=False).order_by("ordem"))
     lote = uuid.uuid4()
@@ -183,7 +189,7 @@ def copias_desatualizadas(edicao):
 def atualizar_copias(edicao, ids=None, autor=None):
     """Copia o xml atual da origem para os blocos `copia` desatualizados (todos, ou só `ids`).
     Retorna quantos foram atualizados."""
-    exige_nova(edicao)
+    exige_derivada(edicao)
     qs = copias_desatualizadas(edicao).select_related("origem")
     if ids is not None:
         qs = qs.filter(pk__in=list(ids))
@@ -221,7 +227,7 @@ def adaptados_pendentes(edicao):
 @transaction.atomic
 def marcar_origem_vista(edicao, ids, autor=None):
     """Registra a versão atual da origem como já conferida. Retorna quantos blocos."""
-    exige_nova(edicao)
+    exige_derivada(edicao)
     blocos = list(Bloco.objects.select_for_update().select_related("origem")
                   .filter(edicao=edicao, pk__in=list(ids), origem__isnull=False))
     for b in blocos:
@@ -231,8 +237,8 @@ def marcar_origem_vista(edicao, ids, autor=None):
 
 
 def sem_correspondente(nova):
-    """Blocos da 1916 (exceto cabeçalhos correntes) sem nenhum bloco correspondente na nova
-    (um bloco suprimido conta como correspondente)."""
+    """Blocos da 1916 (exceto cabeçalhos correntes) sem nenhum bloco correspondente na edição
+    derivada `nova` (um bloco suprimido conta como correspondente)."""
     cobertos = Bloco.objects.filter(edicao=nova, origem__isnull=False).values("origem_id")
     return (Bloco.objects.filter(edicao__slug="1916").exclude(tipo=Bloco.CABECALHO)
             .exclude(pk__in=cobertos).order_by("volume__numero", "ordem"))

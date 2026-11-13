@@ -1,10 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Nova edição · estrutura{% endblock %}
+{% block title %}{{ nova.titulo }} · estrutura{% endblock %}
 {% block content %}
-{% include "includes/page_header.html" with titulo="Nova edição" eyebrow="ESTRUTURA" intro="Reorganize as partes, mova e suprima trechos. Nada é apagado: tudo fica no histórico." %}
+{% if nova.reorganiza %}{% include "includes/page_header.html" with titulo=nova.titulo eyebrow="ESTRUTURA" intro="Reorganize as partes, mova e suprima trechos. Nada é apagado: tudo fica no histórico." %}{% else %}{% include "includes/page_header.html" with titulo=nova.titulo eyebrow="ESTRUTURA" intro="Segue a estrutura e a ordem da edição de 1916/17; abra um trecho para atualizá-lo." %}{% endif %}
 <div class="mx-auto max-w-5xl space-y-8 px-4 py-10 sm:px-6">
   {% include "nova/_nav.html" with ativa="estrutura" %}
 
+  {% if nova.componentes %}
+  <section class="cartao" aria-labelledby="componentes">
+    <h2 id="componentes" class="font-display text-xl text-crimson">O que compõe esta edição</h2>
+    <ul class="mt-2 list-disc pl-5 text-sm">{% for c in nova.componentes %}<li>{{ c }}</li>{% endfor %}</ul>
+  </section>
+  {% endif %}
+
+  {% if nova.reorganiza %}
   <section class="cartao" aria-labelledby="ordem-partes">
     <h2 id="ordem-partes" class="font-display text-xl text-crimson">Ordem das partes</h2>
     <p class="mt-1 text-sm text-ink/70">Ordem-alvo: {% for nome in ordem_alvo %}<strong>{{ nome }}</strong>{% if not forloop.last %} &rsaquo; {% endif %}{% endfor %}.</p>
@@ -14,7 +22,7 @@
         <span class="font-display text-xs tracking-[0.12em]">{{ forloop.counter }}. {{ p.nome|upper }}</span>
         {% if p.falta %}<span class="etiqueta etiqueta-carmim">falta</span>
         {% else %}<span class="etiqueta etiqueta-ouro">identificada</span>
-          <span class="block text-sm">{% for n in p.nos %}<a class="text-crimson hover:underline" href="{% url 'obra:nova_no' n.xml_id %}">{{ n.rotulo }} {{ n.titulo }}</a> <span class="text-ink/50">({{ n.xml_id }})</span>{% if not forloop.last %}; {% endif %}{% endfor %}</span>
+          <span class="block text-sm">{% for n in p.nos %}<a class="text-crimson hover:underline" href="{% url 'obra:nova_no' nova.slug n.xml_id %}">{{ n.rotulo }} {{ n.titulo }}</a> <span class="text-ink/50">({{ n.xml_id }})</span>{% if not forloop.last %}; {% endif %}{% endfor %}</span>
         {% endif %}
       </li>
       {% endfor %}
@@ -29,7 +37,7 @@
       </ol>
     </div>
     {% endif %}
-    <form method="post" action="{% url 'obra:nova_aplicar_ordem' %}" class="mt-4 flex flex-wrap items-center gap-3">
+    <form method="post" action="{% url 'obra:nova_aplicar_ordem' nova.slug %}" class="mt-4 flex flex-wrap items-center gap-3">
       {% csrf_token %}
       <button class="btn btn-primario" {% if not completo or na_ordem %}disabled{% endif %}
         onclick="return confirm('Reordenar as partes da nova edição? Os blocos serão renumerados; o histórico registra a operação.')">Aplicar ordem-alvo</button>
@@ -44,6 +52,7 @@
       <p class="mt-1 text-ink/60">Partes não identificadas pelo título seguem a anterior. Trechos sem parte vão para o início.</p>
     </details>
   </section>
+  {% endif %}
 
   <section aria-labelledby="arvore">
     <h2 id="arvore" class="font-display text-xl text-crimson">Árvore <span class="text-sm text-ink/60">({{ total_blocos }} blocos{% for k, v in contagem.items %} · {{ v }} {{ k }}{% endfor %})</span></h2>
@@ -52,7 +61,7 @@
         {% if it.tipo == "trecho" %}
         <li class="nova-no nova-trecho">
           <div class="nova-linha">
-            <a href="{% url 'obra:nova_trecho' it.ordem_ini %}" class="nova-titulo" title="Abrir no editor"><em>trecho sem parte</em></a>
+            <a href="{% url 'obra:nova_trecho' nova.slug it.ordem_ini %}" class="nova-titulo" title="Abrir no editor"><em>trecho sem parte</em></a>
             <span class="nova-meta">{{ it.n_blocos }} bl.{% if it.vol %} · vol. {{ it.vol }}{% endif %} · &ldquo;{{ it.amostra }}&rdquo;</span>
           </div>
         </li>
