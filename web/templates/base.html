@@ -1,4 +1,4 @@
-{% load static %}<!DOCTYPE html>
+{% load static estaticos %}<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
@@ -10,8 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/site.css' %}">
-  <link rel="stylesheet" href="{% static 'css/notas.css' %}">
+  <link rel="stylesheet" href="{% static_v 'css/site.css' %}">
   {% block extra_css %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %} bg-parchment font-serif text-ink antialiased">
@@ -22,7 +21,7 @@
     {% block content %}{% endblock %}
   </main>
   {% block footer %}{% include "includes/footer.html" %}{% endblock %}
-  <script src="{% static 'js/site.js' %}" defer></script>
+  <script src="{% static_v 'js/site.js' %}" defer></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>

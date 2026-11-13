@@ -197,6 +197,19 @@
   .notas-fim ol { @apply list-decimal space-y-1.5 pl-8; }
   .notas-fim .volta { @apply ml-1 text-crimson no-underline; }
 
+  /* Popup da nota (static/js/site.js): clicar em sup.nref abre a nota junto à chamada */
+  sup.nref a[aria-expanded="true"] { @apply rounded-sm bg-gold-light/60; }
+  .nota-pop { @apply fixed z-[60] flex max-h-[min(60vh,24rem)] w-[28rem] max-w-[calc(100vw-16px)] flex-col rounded border border-t-[3px] border-gold border-t-crimson bg-parchment-light text-left font-serif text-base leading-snug text-ink shadow-xl focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold print:hidden; text-indent: 0; }
+  .nota-pop-acima { @apply border-b-[3px] border-t border-b-crimson border-t-gold; }
+  .nota-pop-seta { @apply absolute -top-2 -ml-[7px] h-0 w-0 border-[7px] border-t-0 border-transparent border-b-crimson; }
+  .nota-pop-acima .nota-pop-seta { @apply -bottom-2 top-auto border-b-0 border-t-[7px] border-b-transparent border-t-crimson; }
+  .nota-pop-cab { @apply flex items-center gap-3 border-b border-gold/40 py-1.5 pl-3.5 pr-2; }
+  .nota-pop-n { @apply font-display text-[0.7rem] uppercase tracking-[0.14em] text-crimson; }
+  .nota-pop-ir { @apply ml-auto text-sm text-gold-dark underline decoration-gold/60 hover:text-crimson; }
+  .nota-pop-fechar { @apply cursor-pointer px-1 text-2xl leading-none text-ink/60 hover:text-crimson focus-visible:text-crimson; }
+  .nota-pop-corpo { @apply overflow-auto px-3.5 pb-3 pt-2; }
+  .nota-pop-corpo a { @apply text-crimson; }
+
   .leitura .obra p[data-tei="p"] { margin-top: 0.1rem; }
   .facsimile img { max-height: 90vh; }
   .transcricao { @apply max-h-[90vh] overflow-y-auto border border-gold/50 bg-parchment-light p-4 text-base; }
