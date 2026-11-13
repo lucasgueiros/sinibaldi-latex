@@ -13,7 +13,7 @@
   let estadoGravado = dados.estado.valor;
 
   SE.montarDivisor({ divisor: $("#divisor"), primeira: $("#col-scan"), chave: "sinibaldi.divisor" });
-  SE.montarVisualizador($("#visualizador"), {
+  const vis = SE.montarVisualizador($("#visualizador"), {
     botoes: $("#col-scan .barra-ferramentas"), indicador: $("[data-zoom-indicador]"), chave: "sinibaldi.scan",
   });
 
@@ -154,6 +154,64 @@
       gravar(false);
     }
   });
+
+  // ---- gravuras: caixa no scan -> recorte do PNG original -> bloco <figure> no texto
+  const btnGravura = $("[data-gravura]");
+  const sufixo = () => Math.random().toString(36).slice(2, 7);
+  async function recortarGravura() {
+    const imgScan = $("#visualizador img");
+    if (!dados.scanDim || !imgScan || !imgScan.naturalWidth) {
+      mensagem("Sem a imagem original desta página: não é possível recortar uma gravura.", true);
+      return;
+    }
+    if (abas.ativa() !== "visual" && !(await abas.trocar("visual"))) return;
+    btnGravura.classList.add("ferramenta-ativa");
+    btnGravura.setAttribute("aria-pressed", "true");
+    mensagem("Arraste no scan uma caixa em volta da gravura (Esc cancela).");
+    const c = await vis.selecionarCaixa();
+    btnGravura.classList.remove("ferramenta-ativa");
+    btnGravura.setAttribute("aria-pressed", "false");
+    if (!c) {
+      mensagem("Recorte cancelado.");
+      return;
+    }
+    // caixa medida no JPEG exibido -> pixels do PNG original
+    const [W, H] = dados.scanDim;
+    const kx = W / imgScan.naturalWidth;
+    const ky = H / imgScan.naturalHeight;
+    const x = Math.max(0, Math.floor(c.x * kx));
+    const y = Math.max(0, Math.floor(c.y * ky));
+    const l = Math.min(W - x, Math.ceil(c.l * kx));
+    const a = Math.min(H - y, Math.ceil(c.a * ky));
+    const xywh = `${x},${y},${l},${a}`;
+    const src = dados.urlGravura.replace("/ARQ/0,0,1,1.png", `/${dados.arquivo}/${xywh}.png`);
+    const r = await SE.dialogo({
+      titulo: "Inserir gravura",
+      imagem: src,
+      campos: [
+        { nome: "legenda", rotulo: "Legenda", valor: "", ajuda: "Opcional; só a legenda impressa fora da imagem (pode ser editada depois, no texto)." },
+        { nome: "largura", rotulo: "Largura no texto", tipo: "select", valor: "",
+          opcoes: [["", "100%"], ["75%", "75%"], ["60%", "60%"], ["50%", "50%"], ["40%", "40%"], ["33%", "33%"], ["25%", "25%"]] },
+      ],
+      confirmar: "Inserir no texto",
+    });
+    vis.limparCaixa();
+    if (!r) {
+      mensagem("Gravura não inserida.");
+      return;
+    }
+    let ok = false;
+    for (let i = 0; i < 5 && !ok; i++) {
+      ok = editor.inserirGravura({
+        xmlid: `${dados.prefixoId}gravura-${dados.arquivo}-${sufixo()}`,
+        url: `paginas/${dados.arquivo}.png#xywh=${xywh}`,
+        width: r.largura || null, legenda: r.legenda, src,
+      });
+    }
+    mensagem(ok ? "Gravura inserida no texto (antes do bloco, se o cursor estava no início dele; senão, depois). Grave para salvar."
+      : "Não foi possível inserir a gravura.", !ok);
+  }
+  if (btnGravura) btnGravura.addEventListener("click", recortarGravura);
 
   atualizarSujo();
   // exposto para depuração e testes de navegador

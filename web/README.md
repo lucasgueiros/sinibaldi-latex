@@ -72,6 +72,26 @@ com cabeçalho `volume<TAB>pagina<TAB>depois_de<TAB>nota` (`pagina` = impressa; 
 (`atualizar_copias`) e repete a inserção nos blocos `adaptado` quando o trecho ainda existe — senão
 avisa para inserir à mão.
 
+### Componente gravura
+
+Ilustração recortada do fac-símile, como bloco próprio (`Bloco.tipo = "gravura"`):
+`<figure xml:id="v1.gravura-0034-ab12c"><graphic url="paginas/0034.png#xywh=x,y,l,a" width="60%"/><head>legenda</head></figure>`.
+A url é a imagem da página (relativa ao diretório do volume, como o `facs` do `<pb>`) + a caixa em pixels do
+PNG original (fragmento de mídia W3C); `width` (opcional, 1–100 %) é a largura no texto; `<head>` (opcional) é a
+legenda, só com itálico/negrito/versalete/latim/rótulo. O `xml:id` é obrigatório e seu prefixo `vN.` diz o
+volume (`obra/esquema.py`).
+
+- **Marcar** (tela de revisão da 1916): botão **Gravura** na barra do scan → arraste uma caixa em volta da
+  ilustração (Esc cancela; zoom e roda continuam valendo) → diálogo com a prévia do recorte, legenda e largura →
+  **Inserir no texto**: o bloco entra antes do bloco do cursor (se o cursor está no início dele) ou depois. A
+  legenda se edita no próprio editor, a largura no seletor da gravura; Enter na legenda abre parágrafo novo e
+  Backspace no início dela seleciona a gravura (o 2º remove). Grave como de costume.
+- **Recorte**: `/gravura/<vol>/<arquivo>/<x,y,l,a>.png` (`obra:gravura`, público, cache longo; PNG em
+  `SINIBALDI_CACHE/gravuras/`; caixa além da borda é aparada).
+- **Saídas**: leitura pública e editor mostram o recorte; HTML para baixar embute a imagem (data URI); texto
+  puro dá `[Gravura: legenda]`; TEI exporta o `<figure>`; LaTeX/PDF usam `\gravura` (`tools/tei2latex.py`
+  recorta do scan do volume para `SINIBALDI_CACHE/gravuras-tex/`).
+
 Front-end (só para quem altera `frontend/` ou `templates/`; os bundles em `static/` já vêm commitados):
 
 ```bash

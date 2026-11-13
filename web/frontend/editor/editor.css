@@ -55,9 +55,23 @@
 .sn-editor [data-tei="foreign"] { background: rgba(176, 141, 87, 0.12); }
 .sn-editor [data-tei="argument"] > p { margin: 0.2rem 0; }
 
+/* gravura (figure): imagem recortada do fac-símile + legenda editável */
+.sn-editor figure.sn-gravura { margin: 1rem 0; padding: 0.4rem 0.5rem 0.5rem; text-align: center; border: 1px dashed rgba(176, 141, 87, 0.8); background: rgba(237, 226, 203, 0.35); }
+.sn-editor figure.sn-gravura.ProseMirror-selectednode { outline: 2px solid #8B1A1A; outline-offset: 3px; }
+.sn-editor .sn-gravura-barra { display: flex; align-items: center; gap: 0.5rem; justify-content: center; margin-bottom: 0.35rem; font: 600 0.62rem/1 Cinzel, Georgia, serif; letter-spacing: 0.1em; color: #8B1A1A; text-transform: uppercase; }
+.sn-editor .sn-gravura-barra .sn-select { height: 1.5rem; font: 0.72rem Georgia, serif; text-transform: none; letter-spacing: 0; }
+.sn-editor figure.sn-gravura img { display: block; margin: 0 auto; max-width: 100%; height: auto; background: #fff; }
+.sn-editor figure.sn-gravura img:not([src]), .sn-editor figure.sn-gravura img[src=""] { min-height: 4rem; width: 60%; border: 1px solid #B08D57; }
+.sn-editor figure.sn-gravura figcaption { margin-top: 0.35rem; font-size: 0.9em; min-height: 1.4em; }
+.sn-editor figure.sn-gravura-sem-legenda figcaption::before { content: "legenda (opcional)"; color: rgba(42, 31, 26, 0.4); font-style: italic; pointer-events: none; float: left; width: 100%; height: 0; }
+
 /* visualizador de scan */
 [data-visualizador] { cursor: grab; touch-action: none; outline: none; }
 [data-visualizador].sn-arrastando { cursor: grabbing; }
+[data-visualizador].sn-recortando { cursor: crosshair; }
+[data-visualizador] .sn-caixa { position: absolute; display: none; border: 2px solid #8B1A1A; background: rgba(139, 26, 26, 0.12); box-shadow: 0 0 0 9999px rgba(42, 31, 26, 0.25); pointer-events: none; }
+.sn-dialogo-previa { margin: 0 0 0.8rem; text-align: center; background: #fff; border: 1px solid rgba(176, 141, 87, 0.6); padding: 0.4rem; }
+.sn-dialogo-previa img { max-width: 100%; max-height: 40vh; }
 [data-visualizador]:focus-visible { box-shadow: inset 0 0 0 2px #8B1A1A; }
 body.sn-redimensionando { cursor: col-resize; user-select: none; }
 body.sn-redimensionando [data-visualizador], body.sn-redimensionando .sn-area { pointer-events: none; }

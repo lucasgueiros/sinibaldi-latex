@@ -2,7 +2,8 @@
 // dialogo({titulo, campos: [{nome, rotulo, tipo: "texto"|"select", valor, opcoes: [[valor, rótulo]], ajuda, obrigatorio}]})
 //   -> Promise<{nome: valor}|null>
 // `validar(valores) -> string|null`: mensagem de erro impede o fechamento.
-export function dialogo({ titulo, campos, confirmar = "OK", validar = null }) {
+// `imagem`: URL de uma prévia mostrada acima dos campos (p.ex. o recorte de uma gravura).
+export function dialogo({ titulo, campos, confirmar = "OK", validar = null, imagem = null }) {
   return new Promise((resolve) => {
     const d = document.createElement("dialog");
     d.className = "sn-dialogo";
@@ -11,6 +12,15 @@ export function dialogo({ titulo, campos, confirmar = "OK", validar = null }) {
     const h = document.createElement("h2");
     h.textContent = titulo;
     form.appendChild(h);
+    if (imagem) {
+      const fig = document.createElement("div");
+      fig.className = "sn-dialogo-previa";
+      const img = document.createElement("img");
+      img.src = imagem;
+      img.alt = "Prévia";
+      fig.appendChild(img);
+      form.appendChild(fig);
+    }
     const inputs = {};
     for (const c of campos) {
       const label = document.createElement("label");

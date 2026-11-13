@@ -115,6 +115,19 @@ def _interno(el):
     return "".join(partes)
 
 
+def _embutir_gravura(fig):
+    import base64
+    from . import esquema, scans
+    img = fig.find("img")
+    m = esquema.RE_VOLUME_ID.match(fig.get("data-xmlid") or "")
+    cx = esquema.caixa_da_gravura(fig.get("data-url"))
+    caminho = scans.recorte_gravura(int(m.group(1)), *cx) if (m and cx and img is not None) else None
+    if caminho is not None:
+        img.set("src", "data:image/png;base64," + base64.b64encode(caminho.read_bytes()).decode("ascii"))
+    elif img is not None:
+        img.set("src", "")
+
+
 def renderizar(blocos, *, impressas_, modo="web", url_facsimile=None, origens=None, prefixo_id="", volumes=None):
     """HTML de leitura de uma sequência de blocos.
 
@@ -145,6 +158,9 @@ def renderizar(blocos, *, impressas_, modo="web", url_facsimile=None, origens=No
             _remover(fw)
         if h.get("data-tei") == "fw":
             continue
+        if not web:  # HTML autônomo: a gravura vai embutida (data URI)
+            for fig in ([h] if h.get("data-tei") == "figure" else []):
+                _embutir_gravura(fig)
         for pb in h.xpath('.//*[@data-tei="pb"]'):
             novo = criar_pb(int(pb.get("data-n")), b.volume_id)
             novo.tail = pb.tail

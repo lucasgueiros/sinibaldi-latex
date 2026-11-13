@@ -15,6 +15,10 @@ Entende dois TEI:
     secao|tese">, <head>, <argument>, <label>, <hi rend>, <quote>/<cit>, <foreign>, <s>/<seg>,
     <choice>, <note> dentro de <p> (com <pb> dentro da nota), <list>.
 
+Gravura (<figure><graphic url="paginas/NNNN.png#xywh=x,y,l,a" width="60%"/><head>legenda</head></figure>):
+a caixa e recortada da imagem da pagina (resolvida contra --base, padrao: a pasta do XML) para
+--dir-gravuras (padrao build/gravuras) com Pillow e vira \\gravura{arquivo}{0.60}{legenda}.
+
 Mapeamento (preambulo.tex): <pb n> -> \\pg{n}  (dentro de nota -> \\pgn{n});  <fw> -> comentario;
 div tese com <label> + <hi rend="bold"> iniciais -> \\tese{n}{enunciado};  <hi rend="it"> ->
 \\emph;  bold -> \\textbf;  sc -> \\textsc;  <quote> em bloco -> ambiente latim.
@@ -80,8 +84,44 @@ def ln(e):
     return etree.QName(e).localname
 
 
+RE_URL_GRAVURA = re.compile(r"^(?P<img>[^#]+)#xywh=(\d+),(\d+),(\d+),(\d+)$")
+
+
+def recorta_gravura(base, url, destino_dir):
+    """Recorta a caixa `#xywh=` da imagem `base/url` em `destino_dir`; devolve o Path ou None."""
+    m = RE_URL_GRAVURA.match(url or "")
+    if not m or base is None or destino_dir is None:
+        return None
+    origem = Path(base) / m.group("img")
+    if not origem.is_file():
+        return None
+    x, y, l, a = (int(v) for v in m.groups()[1:])
+    nome = re.sub(r"[^A-Za-z0-9_-]", "_", f"{Path(base).resolve().name}_{origem.stem}_{x}_{y}_{l}_{a}")
+    destino = Path(destino_dir) / f"{nome}.png"
+    if destino.is_file() and destino.stat().st_mtime >= origem.stat().st_mtime:
+        return destino
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+    with Image.open(origem) as im:
+        x2, y2 = min(x + l, im.width), min(y + a, im.height)
+        if x >= x2 or y >= y2:
+            return None
+        rec = im.crop((x, y, x2, y2))
+        if rec.mode not in ("L", "RGB"):
+            rec = rec.convert("RGB")
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        tmp = destino.with_name(destino.stem + "-tmp.png")
+        dpi = im.info.get("dpi")
+        rec.save(tmp, "PNG", optimize=True, **({"dpi": dpi} if dpi else {}))
+        tmp.replace(destino)
+    return destino
+
+
 class Conv:
-    def __init__(self, grafia="original", de=None, ate=None):
+    def __init__(self, grafia="original", de=None, ate=None, base=None, dir_gravuras=None):
+        self.base, self.dir_gravuras = base, dir_gravuras
         self.escolhe = ("reg", "corr") if grafia == "atual" else ("orig", "sic")
         self.de, self.ate = de, ate
         self.pagina = None          # n da ultima <pb> vista (impressa, int)
@@ -169,6 +209,26 @@ class Conv:
         return rf"\footnote{{{self.inline(e, em_nota=True).strip()}}}"
 
     # ---------- blocos ----------
+    def figura(self, e):
+        """<figure>: \\gravura{arquivo}{fração}{legenda} (recorte do fac-símile)."""
+        g = e.find(T("graphic"))
+        h = e.find(T("head"))
+        leg = self.inline(h).strip() if h is not None else ""
+        url = g.get("url") if g is not None else None
+        larg = (g.get("width") or "100%") if g is not None else "100%"
+        try:
+            frac = max(0.01, min(1.0, float(larg.rstrip("%")) / 100))
+        except ValueError:
+            frac = 1.0
+        self.contagem["gravuras"] += 1
+        arq = recorta_gravura(self.base, url, self.dir_gravuras)
+        if arq is None:
+            self.avisos.append(f"p. {self.pagina}: gravura sem imagem ({url!r})")
+            return (r"\begin{center}\fbox{\footnotesize gravura indisponível}"
+                    + (r"\\ {\small " + leg + "}" if leg else "")
+                    + r"\end{center} % REVER: gravura " + esc(url or "sem url"))
+        return rf"\gravura{{{arq.as_posix()}}}{{{frac:.2f}}}{{{leg}}}"
+
     def p(self, e):
         txt = self.inline(e).strip()
         if txt and e.get("type") == "anexo-titulo":     # divisão citada na Synopse/Índice
@@ -207,6 +267,8 @@ class Conv:
                     self.contagem["p"] += 1
             elif (n == "anchor" and c.get("type") == "asterisco") or (n == "milestone" and c.get("unit") == "asterisco"):
                 saida.append(r"\asterisco{}")
+            elif n == "figure":
+                saida.append((self.flush_pg() + "\n" + self.figura(c)).strip())
             elif n in ("cit", "quote"):
                 saida.append(self.bloco_citacao(c))
             elif n == "list":
@@ -339,6 +401,9 @@ def main():
                     help="original: <orig>/<sic> (padrão); atual: <reg>/<corr>")
     ap.add_argument("--puro", action="store_true",
                     help="sem as linhas de compilação avulsa (para \\input no livro)")
+    ap.add_argument("--base", help="pasta contra a qual resolver graphic/@url das gravuras (padrão: a do XML)")
+    ap.add_argument("--dir-gravuras", default="build/gravuras",
+                    help="onde gravar os recortes das gravuras (padrão: build/gravuras; o .tex cita este caminho)")
     a = ap.parse_args()
 
     try:
@@ -350,7 +415,7 @@ def main():
     if corpo is None:
         sys.exit(f"{a.xml}: TEI sem <text><body>")
 
-    c = Conv(a.grafia, a.de, a.ate)
+    c = Conv(a.grafia, a.de, a.ate, base=a.base or Path(a.xml).parent, dir_gravuras=a.dir_gravuras)
     saida = []
     c.corpo(corpo, saida)
     c.notas_orfas(saida)
@@ -368,7 +433,8 @@ def main():
     else:
         sys.stdout.write(texto)
 
-    print(f"{c.contagem['p']} parágrafos, {c.contagem['notas']} notas", file=sys.stderr)
+    print(f"{c.contagem['p']} parágrafos, {c.contagem['notas']} notas"
+          + (f", {c.contagem['gravuras']} gravuras" if c.contagem["gravuras"] else ""), file=sys.stderr)
     for av in c.avisos:
         print("aviso:", av, file=sys.stderr)
     if c.desconhecidos:

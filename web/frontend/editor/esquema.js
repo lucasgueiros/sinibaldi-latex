@@ -7,6 +7,7 @@
 //     paragrafo p[data-tei=p][data-type?][data-xmlid?]
 //     sumario   div[data-tei=argument] > p[data-xmlid?]                  (argPara+)
 //     cabecalho p[data-tei=fw]
+//     gravura   figure[data-tei=figure][data-xmlid][data-url][data-width] > img + figcaption (legenda: text*)
 //   inline
 //     pb        span[data-tei=pb][data-n][data-facs]                     (átomo)
 //     asterisco span[data-tei=anchor][data-type=asterisco]               (átomo; vale também em nota)
@@ -17,6 +18,7 @@
 //
 // Todo bloco carrega data-bloco / data-versao (identidade e versão no servidor).
 import { Node, Mark, mergeAttributes } from "@tiptap/core";
+import { NodeSelection, TextSelection } from "@tiptap/pm/state";
 
 const attr = (nome, html) => ({
   default: null,
@@ -173,6 +175,128 @@ export const Marco = Node.create({
   },
 });
 
+// Componente semântico: gravura recortada do fac-símile (<figure><graphic url="…#xywh=…"/><head/></figure>).
+// A imagem é só apresentação (src vem do servidor ou de quem a inseriu); a legenda é o conteúdo editável.
+const LARGURAS_GRAVURA = [["", "100%"], ["75%", "75%"], ["60%", "60%"], ["50%", "50%"], ["40%", "40%"], ["33%", "33%"], ["25%", "25%"]];
+
+export const Gravura = Node.create({
+  name: "gravura",
+  group: "bloco",
+  content: "text*",
+  defining: true,
+  isolating: true,
+  priority: 1000,
+  addAttributes() {
+    return {
+      ...attrsBloco(),
+      xmlid: attr("xmlid", "data-xmlid"),
+      url: attr("url", "data-url"),
+      width: attr("width", "data-width"),
+      src: {
+        default: "",
+        parseHTML: (el) => {
+          const img = el.querySelector("img");
+          return img ? img.getAttribute("src") || "" : "";
+        },
+        renderHTML: () => ({}),
+      },
+    };
+  },
+  parseHTML() {
+    return [{ tag: 'figure[data-tei="figure"]', contentElement: "figcaption", priority: 60 }];
+  },
+  renderHTML({ node, HTMLAttributes }) {
+    const img = { src: node.attrs.src || "", alt: "Gravura", "data-tei": "graphic", draggable: "false" };
+    if (node.attrs.width) img.style = `width: ${node.attrs.width}`;
+    return ["figure", mergeAttributes({ "data-tei": "figure" }, HTMLAttributes), ["img", img], ["figcaption", 0]];
+  },
+  addKeyboardShortcuts() {
+    const naLegenda = (state) => state.selection.$from.parent.type.name === "gravura";
+    return {
+      // Enter na legenda abre um parágrafo depois da gravura (nunca a divide: o xml:id é único).
+      Enter: ({ editor }) => {
+        const { state, view } = editor;
+        if (!naLegenda(state)) return false;
+        const fim = state.selection.$from.after(1);
+        const tr = state.tr.insert(fim, state.schema.nodes.paragrafo.create());
+        tr.setSelection(TextSelection.create(tr.doc, fim + 1));
+        view.dispatch(tr.scrollIntoView());
+        return true;
+      },
+      // Backspace no início da legenda seleciona a gravura (não funde a legenda no bloco anterior).
+      Backspace: ({ editor }) => {
+        const { state, view } = editor;
+        const { selection: sel } = state;
+        if (!naLegenda(state) || !sel.empty || sel.$from.parentOffset !== 0) return false;
+        view.dispatch(state.tr.setSelection(NodeSelection.create(state.doc, sel.$from.before(1))));
+        return true;
+      },
+    };
+  },
+  addNodeView() {
+    return ({ node, editor, getPos }) => {
+      const dom = document.createElement("figure");
+      dom.className = "sn-gravura";
+      dom.setAttribute("data-tei", "figure");
+      const barra = document.createElement("div");
+      barra.className = "sn-gravura-barra";
+      barra.contentEditable = "false";
+      const rotulo = document.createElement("span");
+      rotulo.textContent = "Gravura";
+      const sel = document.createElement("select");
+      sel.className = "sn-select";
+      sel.title = "Largura da gravura (em relação à largura do texto)";
+      for (const [v, r] of LARGURAS_GRAVURA) {
+        const o = document.createElement("option");
+        o.value = v;
+        o.textContent = r;
+        sel.appendChild(o);
+      }
+      const ident = document.createElement("span");
+      ident.className = "sn-marco-id";
+      barra.append(rotulo, sel, ident);
+      const img = document.createElement("img");
+      img.alt = "Gravura";
+      img.draggable = false;
+      img.contentEditable = "false";
+      const cap = document.createElement("figcaption");
+      dom.append(barra, img, cap);
+      let atual = node;
+      const pintar = (n) => {
+        if (img.getAttribute("src") !== (n.attrs.src || "")) img.setAttribute("src", n.attrs.src || "");
+        img.style.width = n.attrs.width || "";
+        if (!LARGURAS_GRAVURA.some(([v]) => v === (n.attrs.width || ""))) {
+          const o = document.createElement("option");
+          o.value = o.textContent = n.attrs.width;
+          sel.appendChild(o);
+        }
+        sel.value = n.attrs.width || "";
+        ident.textContent = n.attrs.xmlid || "";
+        dom.classList.toggle("sn-gravura-sem-legenda", n.content.size === 0);
+        sel.disabled = !editor.isEditable;
+      };
+      pintar(node);
+      sel.addEventListener("change", () => {
+        const pos = getPos();
+        if (typeof pos !== "number") return;
+        editor.view.dispatch(editor.state.tr.setNodeMarkup(pos, null, { ...atual.attrs, width: sel.value || null }));
+      });
+      return {
+        dom,
+        contentDOM: cap,
+        update(n) {
+          if (n.type !== atual.type) return false;
+          atual = n;
+          pintar(n);
+          return true;
+        },
+        stopEvent: (e) => barra.contains(e.target),
+        ignoreMutation: (m) => m.type !== "selection" && !cap.contains(m.target),
+      };
+    };
+  },
+});
+
 export const MarcaPagina = Node.create({
   name: "pb",
   group: "inline",
@@ -312,7 +436,7 @@ export const Rotulo = Mark.create({
 
 // Ordem importa: o primeiro nó do grupo "bloco" é o bloco padrão (Enter no fim de um bloco).
 export const nosDoEsquema = [
-  Paragrafo, Titulo, Sumario, ParagrafoSumario, Cabecalho, Marco,
+  Paragrafo, Titulo, Sumario, ParagrafoSumario, Cabecalho, Marco, Gravura,
   MarcaPagina, Asterisco, Nota, ParagrafoNota, CabecalhoInline,
 ];
 export const marcasDoEsquema = [Negrito, Italico, Versalete, Latim, Rotulo];

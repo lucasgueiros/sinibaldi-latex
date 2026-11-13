@@ -194,6 +194,10 @@ def texto_do_no(no):
             atual = b.pagina
         if b.tipo == Bloco.SUMARIO:
             saida.append("\n".join(_texto_inline(p, notas, impressa) for p in el))
+        elif b.tipo == Bloco.GRAVURA:
+            cab = el.find("head")
+            leg = _texto_inline(cab, notas, impressa) if cab is not None else ""
+            saida.append(f"[Gravura: {leg}]" if leg else "[Gravura]")
         else:
             saida.append(_texto_inline(el, notas, impressa))
         u = tei.ultima_pagina(el)
@@ -217,6 +221,7 @@ p[data-type]{text-indent:0;border-left:3px solid #c9a86a;padding-left:.7rem;marg
 [data-tei=pb]::before{content:"[" attr(data-n) "]";color:#8a6d2b;font:.72rem sans-serif;margin:0 .3rem}
 [data-tei=argument]{font-size:.95rem;text-align:justify;margin:1.5rem auto;max-width:36rem}[data-tei=argument]::before{content:"Summario:";font-variant:small-caps;letter-spacing:.08em}[data-tei=argument]>p{display:inline;margin:0;text-indent:0}[data-tei=argument]>p::before{content:" — "}p[data-type=anexo-titulo]{border:0;padding-left:0;text-align:center;font-variant:small-caps;margin:1.2rem 0 .3rem;text-indent:0}p[data-type=indice]{border:0;margin:.2rem 0;padding-left:1.5rem;text-indent:-1.5rem;text-align:left}
 [data-tei=milestone]{margin:1.6rem 0;border-top:1px solid #d9c9a3}
+figure[data-tei=figure]{margin:1.2rem 0;text-align:center}figure[data-tei=figure] img{max-width:100%}figure[data-tei=figure] figcaption{font-size:.9rem;margin-top:.3rem}
 sup a{text-decoration:none;color:#6b1414}.notas{font-size:.85rem;border-top:1px solid #bbb;margin-top:2rem;padding-top:.5rem}
 .fonte{font-size:.8rem;color:#666;border-top:1px solid #ddd;margin-top:2rem;padding-top:.6rem}"""
 
@@ -294,7 +299,7 @@ class _Trava:
         self.f.close()
 
 
-def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT):
+def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT, volume=None):
     """Caminho do .tex autônomo (em cache, nome = `chave`) a partir do TEI de `gerar_tei()`."""
     cache = dir_cache()
     alvo = cache / f"{chave}.tex"
@@ -308,7 +313,11 @@ def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT):
             xml, frag = Path(tmp) / "trecho.xml", Path(tmp) / "trecho.frag.tex"
             xml.write_text(gerar_tei(), encoding="utf-8")
             try:
-                r = subprocess.run([sys.executable, str(script), str(xml), "-o", str(frag), "--puro"],
+                # gravuras: recortadas do scan do volume para o cache (caminho absoluto no .tex)
+                extra = ["--dir-gravuras", str(cache / "gravuras-tex")]
+                if volume is not None:
+                    extra += ["--base", str(Path(settings.SINIBALDI_DADOS) / volume.diretorio)]
+                r = subprocess.run([sys.executable, str(script), str(xml), "-o", str(frag), "--puro", *extra],
                                    capture_output=True, text=True, timeout=timeout, cwd=str(_raiz_repo()))
             except subprocess.TimeoutExpired:
                 raise ErroExportacao("A conversão para LaTeX demorou demais. Tente um trecho menor.")
@@ -323,7 +332,7 @@ def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT):
 
 def latex_do_no(no):
     """Caminho do .tex autônomo do nó (em cache). Levanta ErroExportacao."""
-    return _latex(_versao(no), lambda: tei_do_no(no), titulo_do_no(no))
+    return _latex(_versao(no), lambda: tei_do_no(no), titulo_do_no(no), volume=no.volume)
 
 
 def blocos_do_volume(edicao, volume):
@@ -339,7 +348,7 @@ def _versao_volume(edicao, volume):
 def latex_do_volume(edicao, volume):
     """Caminho do .tex autônomo de um volume inteiro da edição (em cache). Levanta ErroExportacao."""
     return _latex(_versao_volume(edicao, volume), lambda: tei_do_volume(edicao, volume),
-                  f"{TITULO_OBRA}, vol. {volume.numero}", timeout=TEX_TIMEOUT_VOLUME)
+                  f"{TITULO_OBRA}, vol. {volume.numero}", timeout=TEX_TIMEOUT_VOLUME, volume=volume)
 
 
 def tempo_limite_pdf(n_blocos):

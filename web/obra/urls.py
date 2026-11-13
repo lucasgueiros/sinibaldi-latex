@@ -21,6 +21,7 @@ register_converter(InteiroComSinal, "sint")
 urlpatterns = [
     path("scan/<int:volume>/<sint:seq>.png", scans.scan, name="scan"),
     path("scan/<int:volume>/<sint:seq>.jpg", scans.scan_jpg, name="scan_jpg"),
+    path("gravura/<int:volume>/<slug:arquivo>/<str:xywh>.png", scans.gravura, name="gravura"),
     path("edicao-colaborativa/", include("obra.urls_edicao")),
     path("", include("obra.urls_publico")),
 ]

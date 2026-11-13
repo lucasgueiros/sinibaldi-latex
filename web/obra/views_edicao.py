@@ -18,7 +18,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
-from . import diffs, esquema, servicos, tei
+from . import diffs, esquema, scans, servicos, tei
 from .models import Bloco, Edicao, Pagina, Revisao, Sugestao, Volume
 
 PERMISSAO = "obra.change_bloco"
@@ -240,6 +240,10 @@ def revisar(request, numero, seq):
         "csrf": get_token(request),
         "scan": reverse("obra:scan_jpg", args=[volume.numero, seq]) + "?l=1600",
         "scanOriginal": reverse("obra:scan", args=[volume.numero, seq]),
+        # gravuras: a caixa é medida em pixels do PNG original (o visualizador mostra o JPEG reduzido)
+        "scanDim": scans.dimensoes_scan(volume, seq),
+        "arquivo": pagina.arquivo or format(seq, "04d"),
+        "urlGravura": reverse("obra:gravura", args=[volume.numero, "ARQ", "0,0,1,1"]),
         "chaveLocal": f"sinibaldi.revisao.v{volume.numero}",
         "urlSeguinte": reverse("obra:revisar", args=[volume.numero, seg.seq]) if seg else "",
     }
