@@ -9,11 +9,22 @@
     <button class="btn btn-primario btn-sm" type="submit">Buscar</button>
   </form>
 
-  <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
-    <span class="font-display text-xs tracking-[0.12em] text-ink/70">EDIÇÃO INTEIRA (TEI XML):</span>
-    {% for g in grupos %}{% if g.volume %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:baixar_volume' edicao.slug g.volume.numero %}" download>Vol. {{ g.volume.numero }}</a>{% endif %}{% endfor %}
-    {% if nova %}{% for v in volumes %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:baixar_volume' edicao.slug v.numero %}" download>Vol. {{ v.numero }}</a>{% endfor %}{% endif %}
-  </div>
+  {% if volumes_baixar %}
+  <section class="mt-5" aria-labelledby="baixar-volumes">
+    <h2 id="baixar-volumes" class="font-display text-xs tracking-[0.12em] text-ink/70">BAIXAR O VOLUME INTEIRO</h2>
+    <ul class="mt-2 space-y-2 text-sm">
+      {% for l in volumes_baixar %}
+      <li class="flex flex-wrap items-center gap-2">
+        <span class="font-semibold">Vol. {{ l.volume.numero }}</span>
+        {% if l.pdf %}<a class="btn btn-secundario btn-sm" href="{{ l.pdf }}" title="Texto desta edição composto em LaTeX">PDF</a>{% endif %}
+        {% if l.tei %}<a class="btn btn-secundario btn-sm" href="{{ l.tei }}" download>TEI XML</a>{% endif %}
+        {% if l.fac %}<a class="btn btn-secundario btn-sm" href="{{ l.fac }}" title="Páginas do livro original escaneado">Fac-símile (scan{% if l.fac_mb %}, ~{{ l.fac_mb }} MB{% endif %})</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="mt-2 text-xs text-ink/70">O PDF do volume inteiro é composto na primeira vez que alguém o pede e pode levar alguns minutos; depois sai na hora. Trechos (partes, capítulos) podem ser baixados pelo menu «Baixar» de cada item.</p>
+  </section>
+  {% endif %}
 
   {% for g in grupos %}
     {% if g.volume %}<h2 class="mt-10 font-display text-lg font-semibold tracking-[0.1em] text-crimson">Volume {{ g.volume.numero }} <span class="text-ink/70">— {{ g.volume.titulo }}{% if g.volume.ano %}, {{ g.volume.ano }}{% endif %}</span></h2>{% else %}<div class="mt-8"></div>{% endif %}

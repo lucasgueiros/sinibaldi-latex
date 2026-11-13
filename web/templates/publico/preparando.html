@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{# Arquivo grande sendo gerado em segundo plano. Contexto: formato, voltar = (url, rótulo), atualizar (s). #}
+{% block title %}Preparando o {{ formato }}{% endblock %}
+{% block extra_css %}<meta http-equiv="refresh" content="{{ atualizar }}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
+  <h1 class="font-display text-2xl font-semibold tracking-[0.06em] text-crimson">Preparando o {{ formato }}…</h1>
+  <p class="mt-4 text-lg">É a primeira vez que este arquivo é pedido e ele está sendo gerado agora. Pode levar alguns minutos.</p>
+  <p class="mt-2">Esta página tenta de novo a cada {{ atualizar }} segundos; quando o arquivo ficar pronto, o download começa sozinho.
+    Você também pode fechá-la e voltar mais tarde: o arquivo fica guardado e sai na hora.</p>
+  <p class="mt-6 flex flex-wrap justify-center gap-3">
+    <a class="btn btn-primario btn-sm" href="">Tentar agora</a>
+    {% if voltar %}<a class="btn btn-secundario btn-sm" href="{{ voltar.0 }}">{{ voltar.1 }}</a>{% endif %}
+  </p>
+</div>
+{% endblock %}

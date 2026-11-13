@@ -61,7 +61,7 @@ class RotasTest(PublicoBase):
         self.get("edicao", "inexistente", status=404)
 
     def test_sumario_uma_consulta_de_arvore(self):
-        with self.assertNumQueries(4):  # edição, nós, páginas, volumes
+        with self.assertNumQueries(5):  # edição, nós, páginas, volumes, volumes com texto
             self.get("edicao", "1916")
 
     def test_no_capitulo_e_tese(self):
@@ -99,7 +99,7 @@ class RotasTest(PublicoBase):
         self.assertContains(r, 'href="%s"' % reverse("obra:nova_no", args=["v1.cap-1"]))
 
     def test_no_consultas_limitadas(self):
-        with self.assertNumQueries(8):
+        with self.assertNumQueries(7):
             self.get("no", "1916", "v1.cap-1")
 
     def test_busca(self):
@@ -179,10 +179,61 @@ class DownloadTest(PublicoBase):
         with mock.patch("obra.exportacao.subprocess.run", side_effect=AssertionError("recompilou")):
             self.baixar("1916", "v1.t1", "pdf")
 
-    def test_pdf_grande_demais_erro_amigavel(self):
-        with mock.patch("obra.exportacao.PDF_MAX_BLOCOS", 0):
+    def test_pdf_demorado_mostra_preparando(self):
+        import threading
+        liberado = threading.Event()
+        pdf = os.path.join(tempfile.mkdtemp(), "x.pdf")
+        with open(pdf, "wb") as f:
+            f.write(b"%PDF-1.4 falso")
+
+        def compila(tex, timeout):
+            liberado.wait(10)
+            return pdf
+
+        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                mock.patch("obra.exportacao.compilar_pdf", side_effect=compila), \
+                mock.patch("obra.exportacao.ESPERA_PADRAO", 0.05):
+            r = self.baixar("1916", "v1.cap-1", "pdf", status=202)
+            self.assertContains(r, "Preparando", status_code=202)
+            self.assertContains(r, 'http-equiv="refresh"', status_code=202)
+            self.assertEqual(r["Retry-After"], "15")
+            liberado.set()
+            with mock.patch("obra.exportacao.ESPERA_PADRAO", 5):
+                r = self.baixar("1916", "v1.cap-1", "pdf")
+        self.assertEqual(self.corpo(r), b"%PDF-1.4 falso")
+        self.assertIn(".pdf", r["Content-Disposition"])
+
+    def test_pdf_erro_amigavel(self):
+        from obra.exportacao import ErroExportacao
+        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                mock.patch("obra.exportacao.compilar_pdf", side_effect=ErroExportacao("falhou de propósito")):
             r = self.baixar("1916", "v1.cap-1", "pdf", status=503)
-        self.assertContains(r, "grande demais", status_code=503)
+        self.assertContains(r, "falhou de propósito", status_code=503)
+        self.assertContains(r, "Voltar ao trecho", status_code=503)
+
+    def test_pdf_volume(self):
+        pdf = os.path.join(tempfile.mkdtemp(), "v.pdf")
+        with open(pdf, "wb") as f:
+            f.write(b"%PDF-1.4 volume")
+        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                mock.patch("obra.exportacao.compilar_pdf", return_value=pdf) as comp:
+            r = self.client.get(reverse("obra:baixar_volume_pdf", args=["1916", 1]))
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('filename="sinibaldi-1916-vol1.pdf"', r["Content-Disposition"])
+        tex = comp.call_args[0][0].read_text(encoding="utf-8")   # LaTeX do volume inteiro
+        self.assertIn("\\begin{document}", tex)
+        self.assertIn("IDEA", tex)                               # parte 1…
+        self.assertIn("COSMOLOGIA", tex)                         # …e parte 2
+        self.assertEqual(self.client.get(reverse("obra:baixar_volume_pdf", args=["1916", 7])).status_code, 404)
+
+    def test_sumario_oferece_pdf_do_trecho_e_do_volume(self):
+        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                override_settings(SINIBALDI_DADOS=tempfile.mkdtemp()):
+            r = self.get("edicao", "1916")
+        self.assertContains(r, reverse("obra:baixar", args=["1916", "v1.cap-1", "pdf"]))
+        self.assertContains(r, reverse("obra:baixar_volume_pdf", args=["1916", 1]))
+        self.assertContains(r, reverse("obra:baixar_volume", args=["1916", 1]))
+        self.assertNotContains(r, "Fac-símile (scan")    # sem o scan original nesta instalação
 
     def test_erros(self):
         self.baixar("1916", "v1.cap-1", "zip", status=404)
@@ -214,3 +265,113 @@ class LeituraTest(PublicoBase):
         t1 = arv.por_id["v1.t1"]
         self.assertIs(arv.cobrindo(t1.ordem_ini), t1)
         self.assertEqual(arv.cobrindo(t1.ordem_ini).pai_obj.xml_id, "v1.cap-1")
+
+
+class FacSimileTest(PublicoBase):
+    """Scan 2-up sintético: folha 1 = páginas 1 (esquerda, preta) e 2 (direita, branca); folha 2 = 3 e 4."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        if not shutil.which("mutool"):
+            raise __import__("unittest").SkipTest("mutool ausente")
+        from PIL import Image, ImageDraw
+        cls.dados = tempfile.mkdtemp()
+        cls.cache = tempfile.mkdtemp()
+        d = os.path.join(cls.dados, "vol1", "paginas")
+        os.makedirs(d)
+        folhas = []
+        for tons in ((0, 255), (255, 0)):
+            im = Image.new("L", (400, 280), 255)
+            ImageDraw.Draw(im).rectangle((0, 0, 199, 279), fill=tons[0])
+            ImageDraw.Draw(im).rectangle((200, 0, 399, 279), fill=tons[1])
+            folhas.append(im)
+        folhas[0].save(os.path.join(cls.dados, "vol1", "vol1.pdf"), save_all=True, append_images=folhas[1:])
+        with open(os.path.join(d, "manifesto.tsv"), "w") as f:
+            f.write("id\timpressa\tfolha\tmetade\tpdf_idx\n")
+            for i in range(1, 5):
+                f.write(f"{i:04d}\t{i}\t{(i + 1) // 2}\t{'ED'[(i + 1) % 2]}\t{i}\n")
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.dados, ignore_errors=True)
+        shutil.rmtree(cls.cache, ignore_errors=True)
+        super().tearDownClass()
+
+    def setUp(self):
+        super().setUp()
+        self.amb = override_settings(SINIBALDI_DADOS=self.dados, SINIBALDI_CACHE=self.cache)
+        self.amb.enable()
+        self.env = mock.patch.dict(os.environ, {"SINIBALDI_CACHE": self.cache})
+        self.env.start()
+
+    def tearDown(self):
+        self.env.stop()
+        self.amb.disable()
+        super().tearDown()
+
+    def corpo(self, r):
+        return b"".join(r.streaming_content) if r.streaming else r.content
+
+    def tons(self, pdf_bytes):
+        """Brilho médio de cada página do PDF (0 = preta, 255 = branca)."""
+        import subprocess
+        from PIL import Image, ImageStat
+        tmp = tempfile.mkdtemp()
+        try:
+            arq = os.path.join(tmp, "x.pdf")
+            with open(arq, "wb") as f:
+                f.write(pdf_bytes)
+            r = subprocess.run(["mutool", "draw", "-q", "-r", "10", "-o", os.path.join(tmp, "p%d.png"), arq],
+                               capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            n = len([x for x in os.listdir(tmp) if x.endswith(".png")])
+            return [round(ImageStat.Stat(Image.open(os.path.join(tmp, f"p{i}.png")).convert("L")).mean[0])
+                    for i in range(1, n + 1)]
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_volume_inteiro_em_ordem(self):
+        r = self.client.get(reverse("obra:baixar_fac_simile_volume", args=[1]))
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('filename="sinibaldi-fac-simile-vol1.pdf"', r["Content-Disposition"])
+        tons = self.tons(self.corpo(r))
+        self.assertEqual(len(tons), 4)
+        self.assertLess(tons[0], 50)      # p. 1 = metade esquerda (preta) da folha 1
+        self.assertGreater(tons[1], 200)
+        self.assertGreater(tons[2], 200)
+        self.assertLess(tons[3], 50)
+        self.assertEqual(self.client.get(reverse("obra:baixar_fac_simile_volume", args=[9])).status_code, 404)
+
+    def test_trecho(self):
+        # tese 1 começa na p. 1 e tem <pb n="2"> dentro: páginas 1 e 2
+        r = self.client.get(reverse("obra:baixar_fac_simile", args=["1916", "v1.t1"]))
+        self.assertEqual(r.status_code, 200)
+        self.assertIn("fac-simile.pdf", r["Content-Disposition"])
+        tons = self.tons(self.corpo(r))
+        self.assertEqual(len(tons), 2)
+        self.assertLess(tons[0], 50)
+        self.assertGreater(tons[1], 200)
+        # parte 2: o título está no fim da p. 2 e a tese 3 na p. 3
+        r = self.client.get(reverse("obra:baixar_fac_simile", args=["1916", "v1.parte-2"]))
+        self.assertEqual(self.tons(self.corpo(r)), [255, 255])   # pp. 2 e 3: ambas brancas
+
+    def test_links(self):
+        r = self.client.get(reverse("obra:edicao", args=["1916"]))
+        self.assertContains(r, reverse("obra:baixar_fac_simile_volume", args=[1]))
+        self.assertContains(r, reverse("obra:baixar_fac_simile", args=["1916", "v1.cap-1"]))
+        r = self.client.get(reverse("obra:no", args=["1916", "v1.cap-1"]))
+        self.assertContains(r, "Fac-símile (PDF do scan)")
+        r = self.client.get(reverse("obra:facsimile", args=[1, 2]))
+        self.assertContains(r, "volume inteiro (PDF")
+
+    def test_sem_scan_erro_amigavel(self):
+        os.rename(os.path.join(self.dados, "vol1", "vol1.pdf"), os.path.join(self.dados, "vol1", "x.pdf"))
+        try:
+            r = self.client.get(reverse("obra:baixar_fac_simile", args=["1916", "v1.t1"]))
+            self.assertEqual(r.status_code, 503)
+            self.assertContains(r, "não está disponível", status_code=503)
+            r = self.client.get(reverse("obra:no", args=["1916", "v1.cap-1"]))
+            self.assertNotContains(r, "Fac-símile (PDF do scan)")
+        finally:
+            os.rename(os.path.join(self.dados, "vol1", "x.pdf"), os.path.join(self.dados, "vol1", "vol1.pdf"))

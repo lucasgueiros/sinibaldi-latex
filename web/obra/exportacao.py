@@ -8,6 +8,7 @@ num documento autônomo (preâmbulo de `tex/preambulo.tex` embutido). PDF: esse 
 import fcntl
 import hashlib
 import html as _html
+import logging
 import os
 import re
 import shutil
@@ -33,9 +34,12 @@ AVISO_OCR = ("Texto obtido por OCR e ainda em revisão: pode conter erros de lei
              "especialmente nas citações latinas e nas notas de rodapé.")
 
 TEX_TIMEOUT = 20
-PDF_TIMEOUT = 120
-PDF_MAX_BLOCOS = 1200          # acima disso o PDF não é oferecido (compilação passaria do limite)
+TEX_TIMEOUT_VOLUME = 300
+PDF_TIMEOUT = 120              # base; somam-se PDF_SEGUNDOS_POR_BLOCO por bloco (ver tempo_limite_pdf)
+PDF_SEGUNDOS_POR_BLOCO = 0.2
+ESPERA_PADRAO = 20             # segundos que a requisição espera antes de mostrar "preparando"
 _semaforo_pdf = threading.Semaphore(2)
+logger = logging.getLogger(__name__)
 
 
 class ErroExportacao(Exception):
@@ -254,11 +258,9 @@ def _versao(no):
     return hashlib.sha1(bruto.encode()).hexdigest()[:16]
 
 
-def pdf_disponivel(no, n_blocos=None):
-    """O PDF só é oferecido a nós que compilam bem dentro do limite de tempo."""
-    if n_blocos is None:
-        n_blocos = blocos_do_no(no).count()
-    return n_blocos <= PDF_MAX_BLOCOS and shutil.which("latexmk") is not None
+def pdf_disponivel(no=None, n_blocos=None):
+    """PDF via LaTeX: qualquer tamanho (os grandes compilam em segundo plano); basta haver latexmk."""
+    return shutil.which("latexmk") is not None
 
 
 def _preambulo():
@@ -289,9 +291,8 @@ class _Trava:
         self.f.close()
 
 
-def latex_do_no(no):
-    """Caminho do .tex autônomo do nó (em cache). Levanta ErroExportacao."""
-    chave = _versao(no)
+def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT):
+    """Caminho do .tex autônomo (em cache, nome = `chave`) a partir do TEI de `gerar_tei()`."""
     cache = dir_cache()
     alvo = cache / f"{chave}.tex"
     with _Trava(cache / f"{chave}.lock"):
@@ -302,31 +303,63 @@ def latex_do_no(no):
             raise ErroExportacao("A conversão para LaTeX não está disponível nesta instalação.")
         with tempfile.TemporaryDirectory(dir=cache, prefix="tmp-") as tmp:
             xml, frag = Path(tmp) / "trecho.xml", Path(tmp) / "trecho.frag.tex"
-            xml.write_text(tei_do_no(no), encoding="utf-8")
+            xml.write_text(gerar_tei(), encoding="utf-8")
             try:
                 r = subprocess.run([sys.executable, str(script), str(xml), "-o", str(frag), "--puro"],
-                                   capture_output=True, text=True, timeout=TEX_TIMEOUT, cwd=str(_raiz_repo()))
+                                   capture_output=True, text=True, timeout=timeout, cwd=str(_raiz_repo()))
             except subprocess.TimeoutExpired:
                 raise ErroExportacao("A conversão para LaTeX demorou demais. Tente um trecho menor.")
             if r.returncode != 0 or not frag.is_file() or not frag.stat().st_size:
                 raise ErroExportacao("Não foi possível converter este trecho para LaTeX.")
-            tex = _embrulhar(frag.read_text(encoding="utf-8"), titulo_do_no(no))
+            tex = _embrulhar(frag.read_text(encoding="utf-8"), titulo)
             parcial = Path(tmp) / "final.tex"
             parcial.write_text(tex, encoding="utf-8")
             os.replace(parcial, alvo)
     return alvo
 
 
-def pdf_do_no(no):
-    """Caminho do PDF do nó (em cache), compilado com latexmk -lualatex. Levanta ErroExportacao."""
-    if not pdf_disponivel(no):
-        raise ErroExportacao("Este trecho é grande demais para gerar o PDF na hora; baixe o TEI ou o LaTeX.")
-    tex = latex_do_no(no)
+def latex_do_no(no):
+    """Caminho do .tex autônomo do nó (em cache). Levanta ErroExportacao."""
+    return _latex(_versao(no), lambda: tei_do_no(no), titulo_do_no(no))
+
+
+def blocos_do_volume(edicao, volume):
+    return Bloco.objects.filter(edicao=edicao, volume=volume).exclude(procedencia=Bloco.SUPRIMIDO)
+
+
+def _versao_volume(edicao, volume):
+    ag = blocos_do_volume(edicao, volume).aggregate(n=Count("id"), m=Max("atualizado_em"), v=Max("versao"))
+    bruto = f"{edicao.slug}|vol{volume.numero}|{ag['n']}|{ag['m']}|{ag['v']}"
+    return "vol-" + hashlib.sha1(bruto.encode()).hexdigest()[:16]
+
+
+def latex_do_volume(edicao, volume):
+    """Caminho do .tex autônomo de um volume inteiro da edição (em cache). Levanta ErroExportacao."""
+    return _latex(_versao_volume(edicao, volume), lambda: tei_do_volume(edicao, volume),
+                  f"{TITULO_OBRA}, vol. {volume.numero}", timeout=TEX_TIMEOUT_VOLUME)
+
+
+def tempo_limite_pdf(n_blocos):
+    """Tempo de compilação permitido: ~25 s medidos para 584 blocos; folga de 4 a 5 vezes."""
+    return PDF_TIMEOUT + int(n_blocos * PDF_SEGUNDOS_POR_BLOCO)
+
+
+def pdf_pronto(tex):
+    """Caminho do PDF já compilado e em dia com o .tex, ou None."""
+    pdf = Path(tex).with_suffix(".pdf")
+    if pdf.is_file() and pdf.stat().st_size and pdf.stat().st_mtime >= Path(tex).stat().st_mtime:
+        return pdf
+    return None
+
+
+def compilar_pdf(tex, timeout=PDF_TIMEOUT):
+    """Compila o .tex com latexmk -lualatex (PDF ao lado, em cache). Não usa o banco. Levanta ErroExportacao."""
+    tex = Path(tex)
     pdf = tex.with_suffix(".pdf")
     with _Trava(tex.with_suffix(".pdflock")):
-        if pdf.is_file() and pdf.stat().st_size and pdf.stat().st_mtime >= tex.stat().st_mtime:
+        if pdf_pronto(tex):
             return pdf
-        if not _semaforo_pdf.acquire(timeout=PDF_TIMEOUT):
+        if not _semaforo_pdf.acquire(timeout=timeout):
             raise ErroExportacao("O servidor está ocupado gerando outros PDFs. Tente novamente em instantes.")
         try:
             with tempfile.TemporaryDirectory(dir=dir_cache(), prefix="pdf-") as tmp:
@@ -335,7 +368,7 @@ def pdf_do_no(no):
                     r = subprocess.run(
                         ["latexmk", "-lualatex", "-interaction=nonstopmode", "-halt-on-error",
                          f"-outdir={tmp}", f"-jobname={job}", str(tex)],
-                        capture_output=True, text=True, timeout=PDF_TIMEOUT, cwd=tmp,
+                        capture_output=True, text=True, timeout=timeout, cwd=tmp,
                         env={**os.environ, "max_print_line": "200"})
                 except subprocess.TimeoutExpired:
                     raise ErroExportacao("A geração do PDF passou do tempo limite. Baixe o TEI ou o LaTeX.")
@@ -347,6 +380,51 @@ def pdf_do_no(no):
         finally:
             _semaforo_pdf.release()
     return pdf
+
+
+def pdf_do_no(no):
+    """Caminho do PDF do nó (em cache), compilado na hora. Levanta ErroExportacao."""
+    if not pdf_disponivel(no):
+        raise ErroExportacao("A geração de PDF não está disponível nesta instalação; baixe o TEI ou o LaTeX.")
+    return compilar_pdf(latex_do_no(no), tempo_limite_pdf(blocos_do_no(no).count()))
+
+
+# ------------------------------------------------------------------- segundo plano
+_tarefas = {}
+_tarefas_trava = threading.Lock()
+
+
+def em_segundo_plano(chave, funcao, espera=ESPERA_PADRAO):
+    """Roda `funcao()` (que devolve um Path e NÃO usa o banco) numa thread, uma por `chave` por processo,
+    e espera por ela até `espera` segundos.
+
+    Devolve ("pronto", Path), ("preparando", None) ou ("erro", mensagem). Uma tarefa terminada é
+    esquecida quando alguém lê o resultado; quem pedir de novo roda `funcao` outra vez, que deve
+    ser idempotente e rápida quando o arquivo já está em cache."""
+    with _tarefas_trava:
+        t = _tarefas.get(chave)
+        if t is None:
+            t = {"resultado": None}
+
+            def corpo(t=t):
+                try:
+                    t["resultado"] = ("pronto", funcao())
+                except ErroExportacao as e:
+                    t["resultado"] = ("erro", str(e))
+                except Exception:  # noqa: BLE001 — a mensagem vai ao leitor; o traceback, ao log
+                    logger.exception("falha em segundo plano: %s", chave)
+                    t["resultado"] = ("erro", "Falha inesperada ao gerar o arquivo.")
+
+            t["thread"] = threading.Thread(target=corpo, name=f"sinibaldi-{chave}", daemon=True)
+            _tarefas[chave] = t
+            t["thread"].start()
+    t["thread"].join(max(0.0, espera))
+    if t["thread"].is_alive():
+        return ("preparando", None)
+    with _tarefas_trava:
+        if _tarefas.get(chave) is t:
+            del _tarefas[chave]
+    return t["resultado"]
 
 
 def nome_arquivo(no, extensao):
