@@ -2,6 +2,7 @@
 from django.urls import path
 
 from . import views_publico as v
+from . import views_sugestoes as sg
 
 urlpatterns = [
     path("", v.inicio, name="inicio"),
@@ -10,6 +11,7 @@ urlpatterns = [
     path("edicao/<slug:slug>/busca/", v.busca, name="busca"),
     path("edicao/<slug:slug>/volume/<int:numero>/baixar/xml/", v.baixar_volume, name="baixar_volume"),
     path("edicao/<slug:slug>/<str:xml_id>/", v.no, name="no"),
+    path("edicao/<slug:slug>/<str:xml_id>/sugerir/", sg.sugerir, name="sugerir"),
     path("edicao/<slug:slug>/<str:xml_id>/baixar/<str:formato>/", v.baixar, name="baixar"),
     path("fac-simile/<int:volume>/<sint:seq>/", v.facsimile, name="facsimile"),
 ]

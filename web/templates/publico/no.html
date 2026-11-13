@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}{{ titulo_no }}{% endblock %}
+{% block extra_js %}<script src="{% static 'js/sugestao.js' %}" defer></script>{% endblock %}
 {% block content %}
 <div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 leitura">
   <nav aria-label="Você está em" class="migalhas">
@@ -14,10 +16,12 @@
     <div class="flex flex-wrap items-center justify-center gap-3 print:hidden">
       {% include "publico/_baixar.html" with itens=baixar %}
       {% if no.pagina_ini is not None and volume %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero no.pagina_ini %}">Fac-símile</a>{% endif %}
+      <a class="btn btn-secundario btn-sm" href="{% url 'obra:sugerir' edicao.slug no.xml_id %}" data-sg-link>Sugerir correção</a>
       <form method="get" action="{% url 'obra:busca' edicao.slug %}" class="inline-flex gap-1" role="search">
         <label class="sr-only" for="q">Buscar</label><input id="q" name="q" type="search" class="campo !w-40 !py-1" placeholder="Buscar…" required>
       </form>
     </div>
+    <p class="mt-3 text-sm text-ink/70 print:hidden">Achou um erro? Selecione o trecho e clique em «Sugerir correção».</p>
   </header>
 
   {% if nova %}<p class="mt-4 text-center text-sm text-ink/70">As etiquetas à margem indicam a procedência de cada trecho (cópia, adaptado, novo); as que têm link levam ao trecho correspondente na edição de 1916/17.</p>{% endif %}
@@ -51,4 +55,16 @@
     {% if proximo %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:no' edicao.slug proximo.xml_id %}" title="{{ proximo.rotulo }} {{ proximo.titulo }}">{{ proximo.rotulo|default:proximo.titulo|default:"Próximo" }} &raquo;</a>{% else %}<span></span>{% endif %}
   </nav>
 </div>
+
+<button type="button" class="sg-flutuante print:hidden" data-sg-flutuante hidden>Sugerir correção</button>
+<dialog class="sg-dialogo print:hidden" data-sg-dialogo aria-labelledby="sg-titulo">
+  <form method="post" action="{% url 'obra:sugerir' edicao.slug no.xml_id %}">
+    <h2 id="sg-titulo" class="font-display text-lg tracking-[0.08em] text-crimson">Sugerir correção</h2>
+    {% include "publico/_form_sugestao.html" with p="dlg-" %}
+    <div class="mt-4 flex flex-wrap justify-end gap-3">
+      <button type="button" class="btn btn-secundario btn-sm" data-sg-cancelar>Cancelar</button>
+      <button type="submit" class="btn btn-primario btn-sm">Enviar sugestão</button>
+    </div>
+  </form>
+</dialog>
 {% endblock %}

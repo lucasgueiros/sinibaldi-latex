@@ -3,12 +3,15 @@ from django.urls import path
 
 from . import views_edicao as v
 from . import views_nova as n
+from . import views_sugestoes as sg
 
 urlpatterns = [
     path("", v.painel, name="painel"),
     path("converter/", v.converter, name="converter"),
     path("historico/", v.historico, name="historico"),
     path("bloco/<int:pk>/historico/", v.historico_bloco, name="historico_bloco"),
+    path("sugestoes/", sg.lista, name="sugestoes"),
+    path("sugestoes/<int:pk>/acao/", sg.acao, name="sugestao_acao"),
     path("1916/vol/<int:numero>/", v.paginas, name="paginas"),
     path("1916/vol/<int:numero>/pag/<sint:seq>/", v.revisar, name="revisar"),
     path("1916/vol/<int:numero>/pag/<sint:seq>/gravar/", v.gravar, name="gravar"),

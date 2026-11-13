@@ -19,7 +19,7 @@ from django.utils import timezone
 from django.views.decorators.http import require_POST
 
 from . import diffs, esquema, servicos, tei
-from .models import Bloco, Edicao, Pagina, Revisao, Volume
+from .models import Bloco, Edicao, Pagina, Revisao, Sugestao, Volume
 
 PERMISSAO = "obra.change_bloco"
 SLUG_REVISAO = "1916"
@@ -79,6 +79,7 @@ def _json_corpo(request):
 
 def render_area(request, modelo, contexto):
     contexto["volumes_nav"] = list(Volume.objects.all())
+    contexto["sugestoes_pendentes"] = Sugestao.objects.filter(estado=Sugestao.PENDENTE).count()
     return render(request, modelo, contexto)
 
 

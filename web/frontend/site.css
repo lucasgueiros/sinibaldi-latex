@@ -195,3 +195,15 @@
   .nova-parte { @apply flex flex-wrap items-center gap-x-3 border border-gold/40 bg-parchment px-3 py-2; }
   .nova-parte-falta { @apply border-crimson/50 bg-crimson/5; }
 }
+
+/* ===== Sugestões de leitores ===== */
+@layer components {
+  .sg-flutuante { @apply absolute z-40 rounded-sm bg-crimson px-3 py-1.5 font-display text-xs font-semibold tracking-[0.1em] text-parchment shadow-lg ring-1 ring-inset ring-gold/60 hover:bg-crimson-deep; }
+  .sg-flutuante[hidden] { display: none; }
+  .sg-dialogo { @apply border border-gold bg-parchment-light p-5 text-ink shadow-2xl; width: min(92vw, 36rem); max-height: 92vh; margin: auto; overflow-y: auto; }
+  .sg-dialogo::backdrop { background: rgba(42, 31, 26, 0.6); }
+  .sg-citacao { @apply border-l-4 border-gold bg-parchment-dark/60 px-3 py-2 text-base italic text-ink/85; }
+  .sg-trecho { @apply border-l-4 bg-parchment-dark/60 italic; }
+  /* campo-isca (honeypot): recortado a 1px, invisível para pessoas (sem deslocamento, que criaria rolagem) */
+  .sg-isca { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
