@@ -1,0 +1,44 @@
+{% comment %}Campos do formulário de sugestão, compartilhados entre a página e o diálogo.
+Contexto: `form` (opcional; ausente no diálogo), `editavel` (trecho editável, sem JS), `p` (prefixo dos ids).{% endcomment %}
+{% csrf_token %}
+{% if form.non_field_errors %}<div class="mensagem border-red-700 bg-red-50 text-red-900" role="alert">{% for e in form.non_field_errors %}<p>{{ e }}</p>{% endfor %}</div>{% endif %}
+<input type="hidden" name="bloco" value="{{ form.bloco.value|default_if_none:'' }}" data-sg="bloco">
+{% if form.bloco.errors %}<p class="text-sm text-red-800" role="alert">{{ form.bloco.errors.0 }}</p>{% endif %}
+
+<div class="mt-3">
+  <label class="text-sm font-semibold" for="{{ p }}trecho">{% if editavel %}Trecho com erro (opcional){% else %}Trecho selecionado{% endif %}</label>
+  <textarea id="{{ p }}trecho" name="trecho" rows="3" maxlength="2000" data-sg="trecho"
+    class="campo mt-1{% if not editavel %} sg-trecho{% endif %}"{% if not editavel %} readonly{% endif %}>{{ form.trecho.value|default_if_none:'' }}</textarea>
+  {% for e in form.trecho.errors %}<p class="text-sm text-red-800" role="alert">{{ e }}</p>{% endfor %}
+</div>
+
+<div class="mt-3">
+  <label class="text-sm font-semibold" for="{{ p }}sugestao">Como deveria estar</label>
+  <textarea id="{{ p }}sugestao" name="sugestao" rows="4" maxlength="5000" data-sg="sugestao" class="campo mt-1">{{ form.sugestao.value|default_if_none:'' }}</textarea>
+  {% for e in form.sugestao.errors %}<p class="text-sm text-red-800" role="alert">{{ e }}</p>{% endfor %}
+</div>
+
+<div class="mt-3">
+  <label class="text-sm font-semibold" for="{{ p }}comentario">Comentário (opcional)</label>
+  <textarea id="{{ p }}comentario" name="comentario" rows="2" maxlength="2000" class="campo mt-1">{{ form.comentario.value|default_if_none:'' }}</textarea>
+  {% for e in form.comentario.errors %}<p class="text-sm text-red-800" role="alert">{{ e }}</p>{% endfor %}
+</div>
+
+<div class="mt-3 grid gap-3 sm:grid-cols-2">
+  <div>
+    <label class="text-sm font-semibold" for="{{ p }}nome">Nome (opcional)</label>
+    <input id="{{ p }}nome" name="nome" maxlength="80" autocomplete="name" class="campo mt-1" value="{{ form.nome.value|default_if_none:'' }}">
+    {% for e in form.nome.errors %}<p class="text-sm text-red-800" role="alert">{{ e }}</p>{% endfor %}
+  </div>
+  <div>
+    <label class="text-sm font-semibold" for="{{ p }}email">E-mail (opcional)</label>
+    <input id="{{ p }}email" name="email" type="email" maxlength="254" autocomplete="email" class="campo mt-1" value="{{ form.email.value|default_if_none:'' }}">
+    {% for e in form.email.errors %}<p class="text-sm text-red-800" role="alert">{{ e }}</p>{% endfor %}
+  </div>
+</div>
+<p class="mt-1 text-xs text-ink/70">O e-mail é opcional: serve só para os editores entrarem em contato, não é publicado.</p>
+
+<div class="sg-isca" aria-hidden="true">
+  <label for="{{ p }}site">Não preencha este campo</label>
+  <input id="{{ p }}site" name="site" type="text" tabindex="-1" autocomplete="off">
+</div>

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sugestões de leitores{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="sugestoes" %}
+  <h1 class="font-display text-2xl text-crimson">Sugestões de leitores</h1>
+  <p class="mt-1 text-sm text-ink/70">Enviadas pela parte pública, sem login. Confira sempre contra o fac-símile antes de aplicar.</p>
+
+  <form method="get" class="mt-4 flex flex-wrap items-end gap-3">
+    <label class="text-sm">Estado
+      <select name="estado" class="campo mt-1 !w-auto">
+        {% for v, r in estados %}<option value="{{ v }}"{% if f_estado == v %} selected{% endif %}>{{ r }}</option>{% endfor %}
+        <option value="todas"{% if f_estado == "todas" %} selected{% endif %}>Todas</option>
+      </select>
+    </label>
+    <label class="text-sm">Edição
+      <select name="edicao" class="campo mt-1 !w-auto">
+        <option value="">Todas</option>
+        {% for e in edicoes %}<option value="{{ e.slug }}"{% if f_edicao == e.slug %} selected{% endif %}>{{ e.titulo }}</option>{% endfor %}
+      </select>
+    </label>
+    <button class="btn btn-primario btn-sm">Filtrar</button>
+  </form>
+
+  <div class="mt-6 space-y-6">
+  {% for it in itens %}{% with s=it.s %}
+    <article class="painel" id="s{{ s.pk }}">
+      <header class="painel-cabeca">
+        <span>#{{ s.pk }} &middot; {{ s.criado_em|date:"d/m/Y H:i" }} &middot; {% if s.nome %}{{ s.nome }}{% else %}anônimo{% endif %}{% if s.email %} &lt;{{ s.email }}&gt;{% endif %}</span>
+        <span>
+          {{ s.edicao.titulo }}
+          <span class="etiqueta {% if s.estado == 'pendente' %}etiqueta-ouro{% elif s.estado == 'aceita' %}etiqueta-neutra{% else %}etiqueta-carmim{% endif %} ml-2">{{ s.get_estado_display }}</span>
+        </span>
+      </header>
+      <div class="painel-corpo space-y-3">
+        <p class="text-sm">
+          <a class="text-crimson hover:underline" href="{{ it.url_publico }}">Ver no texto</a>
+          {% if it.url_editor %}&middot; <a class="text-crimson hover:underline" href="{{ it.url_editor }}">Abrir no editor</a>{% endif %}
+          {% if s.bloco_id %}&middot; <a class="text-crimson hover:underline" href="{% url 'obra:historico_bloco' s.bloco_id %}">bloco #{{ s.bloco_id }}</a>{% endif %}
+        </p>
+        {% if it.alterado %}<p class="mensagem border-amber-600 bg-amber-50 text-sm text-amber-900">O bloco foi alterado depois do envio (versão {{ s.bloco_versao }} &rarr; {{ s.bloco.versao }}); confira antes de aplicar.</p>{% endif %}
+        {% if it.sem_bloco %}<p class="mensagem border-amber-600 bg-amber-50 text-sm text-amber-900">{% if s.bloco_versao is None %}A sugestão não indica o bloco.{% else %}O bloco não existe mais.{% endif %}</p>{% endif %}
+        {% if it.diff %}<pre class="dif">{{ it.diff }}</pre>{% endif %}
+        {% if s.comentario %}<p class="italic">&ldquo;{{ s.comentario }}&rdquo;</p>{% endif %}
+        {% if s.estado != 'pendente' %}
+          <p class="text-sm text-ink/70">{{ s.get_estado_display }}{% if s.resolvida_por %} por {{ s.resolvida_por.get_full_name|default:s.resolvida_por.username }}{% endif %}{% if s.resolvida_em %} em {{ s.resolvida_em|date:"d/m/Y H:i" }}{% endif %}{% if s.resposta %}: {{ s.resposta }}{% endif %}</p>
+        {% endif %}
+        <form method="post" action="{% url 'obra:sugestao_acao' s.pk %}" class="flex flex-wrap items-end gap-2">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <label class="min-w-[12rem] flex-1 text-xs">Nota do editor (opcional)
+            <input name="resposta" maxlength="2000" class="campo mt-1 !py-1" value="{% if s.estado == 'pendente' %}{{ s.resposta }}{% endif %}">
+          </label>
+          {% if s.estado == 'pendente' %}
+            {% if it.pode_aplicar %}<button name="acao" value="aplicar" class="btn btn-primario btn-sm">Aplicar ao texto</button>{% endif %}
+            <button name="acao" value="aceitar" class="btn btn-secundario btn-sm" title="Já corrigido à mão no editor">Aceitar</button>
+            <button name="acao" value="rejeitar" class="btn btn-secundario btn-sm">Rejeitar</button>
+          {% else %}
+            <button name="acao" value="reabrir" class="btn btn-secundario btn-sm">Reabrir</button>
+          {% endif %}
+        </form>
+      </div>
+    </article>
+  {% endwith %}{% empty %}
+    <p class="text-center text-ink/60">Nenhuma sugestão {% if f_estado == "pendente" %}pendente{% else %}encontrada{% endif %}.</p>
+  {% endfor %}
+  </div>
+  {% include "includes/paginacao.html" with page_obj=page_obj querystring=querystring %}
+</div>
+{% endblock %}

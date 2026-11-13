@@ -15,6 +15,16 @@
   </section>
   {% endif %}
 
+  {% if sugestoes_pendentes %}
+  <section class="cartao flex flex-wrap items-center justify-between gap-4">
+    <div>
+      <h2 class="font-display text-lg text-crimson">Sugestões de leitores</h2>
+      <p class="text-ink/80">{{ sugestoes_pendentes }} sugest{{ sugestoes_pendentes|pluralize:"ão,ões" }} pendente{{ sugestoes_pendentes|pluralize }} de avaliação.</p>
+    </div>
+    <a class="btn btn-primario" href="{% url 'obra:sugestoes' %}">Ver sugestões</a>
+  </section>
+  {% endif %}
+
   {% if nova %}
   <section class="cartao" aria-labelledby="cartao-nova">
     <div class="flex flex-wrap items-baseline justify-between gap-2">

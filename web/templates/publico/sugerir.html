@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Sugerir correção · {{ titulo_no }}{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-2xl px-4 py-8 sm:px-6">
+  <nav aria-label="Você está em" class="migalhas">
+    <a href="{% url 'obra:edicao' edicao.slug %}">{{ edicao.titulo }}</a>
+    <span aria-hidden="true">›</span> <a href="{% url 'obra:no' edicao.slug no.xml_id %}{% if bloco %}#b{{ bloco.pk }}{% endif %}">{{ titulo_no }}</a>
+  </nav>
+  <h1 class="mt-4 font-display text-2xl font-semibold tracking-[0.05em] text-crimson">Sugerir correção</h1>
+  <p class="mt-2 text-ink/80">Encontrou um erro de leitura do OCR (letra trocada, palavra truncada, número errado)? Diga como o texto deve ficar.
+    Os editores conferem a sugestão contra o fac-símile antes de aplicá-la.</p>
+
+  {% if bloco %}
+  <section class="mt-4" aria-labelledby="ctx">
+    <h2 id="ctx" class="font-display text-xs tracking-[0.14em] text-crimson">PARÁGRAFO EM QUESTÃO</h2>
+    <blockquote class="sg-citacao mt-1">{{ texto_bloco }}</blockquote>
+  </section>
+  {% endif %}
+
+  <form method="post" action="{% url 'obra:sugerir' edicao.slug no.xml_id %}" class="mt-4">
+    {% include "publico/_form_sugestao.html" with editavel=True p="pg-" %}
+    <div class="mt-5 flex flex-wrap gap-3">
+      <button type="submit" class="btn btn-primario">Enviar sugestão</button>
+      <a class="btn btn-secundario" href="{% url 'obra:no' edicao.slug no.xml_id %}{% if bloco %}#b{{ bloco.pk }}{% endif %}">Voltar ao texto</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

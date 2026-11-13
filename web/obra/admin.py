@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Apresentacao, ApresentacaoRevisao, Bloco, Edicao, No, Pagina, Revisao, Volume
+from .models import Apresentacao, ApresentacaoRevisao, Bloco, Edicao, No, Pagina, Revisao, Sugestao, Volume
 
 
 @admin.register(Edicao)
@@ -39,6 +39,15 @@ class RevisaoAdmin(admin.ModelAdmin):
     list_display = ("pk", "criado_em", "edicao", "acao", "autor", "bloco", "lote")
     list_filter = ("edicao", "acao")
     raw_id_fields = ("bloco", "autor")
+    readonly_fields = ("criado_em",)
+
+
+@admin.register(Sugestao)
+class SugestaoAdmin(admin.ModelAdmin):
+    list_display = ("pk", "criado_em", "edicao", "no_xml_id", "estado", "nome", "resolvida_por")
+    list_filter = ("estado", "edicao")
+    search_fields = ("trecho", "sugestao", "comentario", "nome", "email")
+    raw_id_fields = ("bloco", "resolvida_por")
     readonly_fields = ("criado_em",)
 
 

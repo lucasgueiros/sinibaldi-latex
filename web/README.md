@@ -52,6 +52,8 @@ npm run build           # Tailwind (static/css), depois de mexer em templates
 | Rota | Nome (`obra:`) | O que é |
 |---|---|---|
 | `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`) |
+| `/edicao/<slug>/<xml_id>/sugerir/` | `sugerir` | Formulário público (sem login) de sugestão de correção; POST grava `Sugestao` |
+| `/edicao-colaborativa/sugestoes/` | `sugestoes` | Triagem das sugestões (login); `sugestoes/<pk>/acao/` (`sugestao_acao`, POST) |
 | `/fac-simile/<vol>/<seq>/` | `facsimile` | Imagem da página (JPEG 1600 px, link p/ PNG original) |
 | `/scan/<vol>/<seq>.png` | `scan` | PNG original da página (cache longo) |
 | `/scan/<vol>/<seq>.jpg?l=1000\|1600` | `scan_jpg` | JPEG reduzido em cache (`SINIBALDI_CACHE/scans/`); as telas usam `l=1600` e oferecem link "original" |
@@ -97,6 +99,28 @@ Proteção de estrutura no editor: marco (início de divisão) e `pb` nunca são
 colagem (com o marco selecionado, o texto vai para um parágrafo novo depois dele); Backspace/Delete junto a
 um marco primeiro o selecionam, e só com ele selecionado o removem. A seleção inicial é sempre um cursor de
 texto no primeiro bloco textual, sem roubar o foco.
+
+## Sugestões de leitores (`views_sugestoes.py`, `forms.py`, `servicos_sugestoes.py`, `static/js/sugestao.js`)
+
+Qualquer leitor pode sugerir uma correção sem login: na página de um trecho, seleciona o texto e clica no botão
+flutuante «Sugerir correção» (abre um `<dialog>` já preenchido com o bloco e o trecho), ou usa o link do cabeçalho
+(página `sugerir/`, que funciona sem JavaScript). O envio é um POST comum e cria uma `Sugestao` pendente, com a
+versão do bloco no momento do envio. O e-mail é opcional, visto só pelos editores e nunca publicado; **nenhum IP é
+gravado**.
+
+Anti-spam, sem dependências: CSRF; campo-isca `site` (preenchido: responde sucesso sem gravar); no máximo 10 envios
+por hora por IP (`django.core.cache`, chave = SHA-256 do `REMOTE_ADDR`; estouro: formulário com erro e HTTP 429).
+Em produção use um cache compartilhado entre processos (o padrão `locmem` conta por processo).
+Atrás de um proxy reverso o `REMOTE_ADDR` é o do proxy: o limite passa a valer para todos os leitores juntos, a
+menos que o proxy/servidor WSGI repasse o endereço real.
+
+Os editores triam em `/edicao-colaborativa/sugestoes/` (filtros por estado e edição; aba com a contagem de
+pendentes; cartão no painel). Ações: **Aplicar ao texto** (`servicos_sugestoes.aplicar`), **Aceitar** (já corrigido
+à mão), **Rejeitar**, **Reabrir**, todas com nota opcional. *Aplicar* troca `trecho` por `sugestao` no XML do bloco
+(espaços do trecho casam com qualquer espaço/quebra) e grava via `servicos.salvar_blocos` (nova versão, `Revisao`
+do editor, `volume`/`pagina` do bloco intactos). Recusa, sem alterar nada, quando o trecho não é encontrado, aparece
+mais de uma vez no bloco, atravessa elementos (itálico, nota, marca de página), o bloco sumiu ou houve conflito de
+versão; nesses casos corrija à mão no editor e use *Aceitar*. A lista avisa quando o bloco mudou depois do envio.
 
 ## Nova edição (`/edicao-colaborativa/nova/`, `views_nova.py`, `servicos_nova.py`, `partes.py`)
 

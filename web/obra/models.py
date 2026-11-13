@@ -233,3 +233,35 @@ class ApresentacaoRevisao(models.Model):
 
     def __str__(self):
         return f"{self.get_acao_display()} {self.edicao_id}/{self.xml_id} por {self.autor}"
+
+
+class Sugestao(models.Model):
+    """Correção proposta por um leitor anônimo na parte pública (não grava IP)."""
+
+    PENDENTE, ACEITA, REJEITADA = "pendente", "aceita", "rejeitada"
+    ESTADOS = [(PENDENTE, "Pendente"), (ACEITA, "Aceita"), (REJEITADA, "Rejeitada")]
+
+    edicao = models.ForeignKey(Edicao, on_delete=models.CASCADE, related_name="sugestoes")
+    bloco = models.ForeignKey(Bloco, null=True, blank=True, on_delete=models.SET_NULL, related_name="sugestoes")
+    no_xml_id = models.CharField(max_length=80, help_text="Trecho (nó) em que o leitor estava.")
+    bloco_versao = models.PositiveIntegerField(null=True, blank=True, help_text="Bloco.versao no momento do envio.")
+    trecho = models.TextField(blank=True, help_text="Texto selecionado (o que está errado).")
+    sugestao = models.TextField(blank=True, help_text="Texto proposto.")
+    comentario = models.TextField(blank=True)
+    nome = models.CharField(max_length=80, blank=True)
+    email = models.EmailField(blank=True, help_text="Só para os editores; não é publicado.")
+    estado = models.CharField(max_length=10, choices=ESTADOS, default=PENDENTE, db_index=True)
+    criado_em = models.DateTimeField(auto_now_add=True)
+    resolvida_por = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="+"
+    )
+    resolvida_em = models.DateTimeField(null=True, blank=True)
+    resposta = models.TextField(blank=True, help_text="Nota do editor.")
+
+    class Meta:
+        ordering = ["-criado_em", "-pk"]
+        verbose_name = "sugestão"
+        verbose_name_plural = "sugestões"
+
+    def __str__(self):
+        return f"Sugestão #{self.pk} ({self.get_estado_display()})"
