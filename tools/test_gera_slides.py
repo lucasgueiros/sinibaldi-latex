@@ -350,10 +350,127 @@ class Escapes(unittest.TestCase):
         self.assertEqual(g.inline_tex(raw).count("{"), g.inline_tex(raw).count("}"))
 
     def test_escape_de_asterisco_literal_na_geracao(self):
-        f = fonte_de(tese(1, '<p><label>1.</label> <hi rend="bold">T.</hi> — a*b ^ c \\ d.</p>'))
-        self.assertIn("a\\*b \\^ c \\\\ d.", f)
+        f = fonte_de(tese(1, '<p><label>1.</label> <hi rend="bold">T.</hi> — a*b^c\\d.</p>'))
+        self.assertIn("a\\*b\\^c\\\\d.", f)
         sl, _ = g._parse(f)
         self.assertEqual(g.validar(f), [])
+
+
+class Recalibragem(unittest.TestCase):
+    """orçamento em linhas, enunciado sem negrito, lixo do OCR, títulos curtos e página herdada."""
+
+    def test_enunciado_sem_negrito_picotado(self):
+        sl = slides_de(tese(30, '<p><label>30.</label> A <hi rend="bold">alma</hi> humana é '
+                                '<hi rend="bold">essencialmente</hi> simples, <hi rend="bold">isto</hi> é, não é '
+                                '<hi rend="bold">composta</hi>. |</p>'))
+        t = [s for s in sl if s.tipo == "tese"][0]
+        self.assertEqual(t.corpo[0].kind, "!")
+        self.assertFalse(any(f & g.BOLD for f in t.corpo[0].r.f))
+        self.assertNotIn("**", g._escreve_slides([t]))
+
+    def test_definicao_mantem_so_o_termo_em_negrito(self):
+        sl = slides_de(tese(29, '<p><label>29.</label> <hi rend="bold">Simplicidade da alma.</hi> — '
+                                '<hi rend="it">Simplicidade</hi> é a propriedade, pela qual a <hi rend="bold">alma</hi> '
+                                'não é composta de partes.</p>'))
+        d = [s for s in sl if s.tipo == "definicao"][0]
+        self.assertIn("! **Simplicidade** é a propriedade, pela qual a alma não", g._escreve_slides([d]))
+
+    def test_enunciado_acima_de_5_linhas_vira_paragrafo(self):
+        longo = "A alma humana é uma substancia espiritual " * 8 + "e simples."
+        sl = slides_de(tese(31, f'<p><label>31.</label> {longo}</p>'))
+        t = [s for s in sl if s.tipo == "tese"][0]
+        self.assertEqual(t.corpo[0].kind, "p")
+        curto = slides_de(tese(31, '<p><label>31.</label> A alma humana é simples e espiritual de verdade.</p>'))
+        self.assertEqual([s for s in curto if s.tipo == "tese"][0].corpo[0].kind, "!")
+
+    def test_lixo_do_ocr(self):
+        def lim(txt):
+            return g.limpa_lixo(g.r_de(txt)).plano
+        self.assertEqual(lim("partes essenciaes. |"), "partes essenciaes.")
+        self.assertEqual(lim("partes essenciaes.|"), "partes essenciaes.")
+        self.assertEqual(lim("a ¦ b"), "a b")
+        self.assertEqual(lim("a ~ b = c"), "a b c")
+        self.assertEqual(lim("| início"), "início")
+        # pontuação legítima isolada fica
+        self.assertEqual(lim("a — b ; c : d , e . f ? g ! h » i « j ) k ( l"), "a — b ; c : d , e . f ? g ! h » i « j ) k ( l")
+        # e nenhuma palavra muda
+        self.assertEqual(lim("o homem | é animal"), "o homem é animal")
+        f = fonte_de(tese(30, '<p><label>30.</label> A alma é simples. |</p><p>b) Texto da prova aqui. ¦</p>'))
+        self.assertNotIn("|", f.split("=== capa")[1])
+        self.assertNotIn("¦", f)
+
+    def test_titulos_curtos_de_subdivisao(self):
+        # tese com título curto em negrito
+        sl = slides_de(tese(30, '<p><label>30.</label> <hi rend="bold">Simplicidade da alma humana.</hi> — '
+                                'Texto qualquer da tese de teste, que é só uma frase.</p>'
+                                '<p>a) Se a alma fosse composta, seria divisível. Ora não é. Logo é simples.</p>'
+                                '<p>b) <hi rend="it">Segunda prova</hi> — Texto da segunda prova de teste.</p>'))
+        tits = [s.titulo for s in sl]
+        self.assertIn("30. Simplicidade da alma humana — a)", tits)
+        self.assertIn("30. Simplicidade da alma humana — b) Segunda prova", tits)
+        # tese-proposição: título completo só no slide `tese`; os demais, `n. 30 — a)`
+        sl = slides_de(tese(30, '<p><label>30.</label> A alma humana é essencialmente simples, isto é, não é '
+                                'composta de partes essenciaes.</p>'
+                                '<p>a) Se a alma fosse composta, seria divisível. Ora não é. Logo é simples.</p>'))
+        tits = [s.titulo for s in sl if s.tipo not in ("capa", "secao")]
+        self.assertTrue(tits[0].startswith("30. A alma humana é essencialmente simples"))
+        self.assertEqual(tits[1], "n. 30 — a)")
+        for s in sl:
+            if s.tipo not in ("capa", "secao", "tese"):
+                self.assertLessEqual(len(s.titulo), 70)
+
+    def test_titulo_de_continuacao_curto(self):
+        frases = " ".join(f"Frase de teste número {i} com bastante texto para ocupar linhas." for i in range(30))
+        sl = slides_de(tese(30, '<p><label>30.</label> A alma humana é essencialmente simples, isto é, não é composta '
+                                'de partes essenciaes e de partes integrantes.</p>'
+                                f'<p>a) <hi rend="it">Uma rubrica</hi> — {frases}</p>'))
+        conts = [s.titulo for s in sl if s.titulo.endswith("(cont.)")]
+        self.assertTrue(conts)
+        self.assertTrue(all(len(t) <= 70 for t in conts), conts)
+        self.assertIn("n. 30 — a) Uma rubrica (cont.)", conts)
+
+    def test_pagina_herdada_do_pb_anterior_ao_div(self):
+        xml = tei('<pb n="35"/><div type="artigo" xml:id="a"><head type="rotulo">Artigo I.</head><head>Simplicidade</head>'
+                  + tese(29, '<p><label>29.</label> <hi rend="bold">Simplicidade da alma.</hi> — '
+                             '<hi rend="it">Simplicidade</hi> é a propriedade, pela qual a alma não é composta.</p>')
+                  + tese(30, '<p><label>30.</label> A alma é simples e espiritual por natureza.</p>') + "</div>")
+        for kw in ({}, {"seletor_id": "a"}):
+            f = g.tei_para_fonte(xml, **kw)
+            self.assertIn("@ n. 29 · p. 35", f, kw)
+            self.assertIn("@ n. 30 · p. 35", f, kw)
+
+    def test_argumento_cabe_num_quadro(self):
+        # Maior + Menor + Conclusão = 9 linhas de ~64 caracteres: um quadro só
+        m = "A alma humana é uma substancia que subsiste por si mesma, " * 3
+        arg = f"<p>a) {m}. Ora a alma humana é substancia, como se vê. Logo a alma subsiste por si mesma.</p>"
+        sl = slides_de(tese(5, '<p><label>5.</label> <hi rend="bold">Tese de teste.</hi> — texto inicial.</p>' + arg))
+        arg_sl = [s for s in sl if s.tipo == "argumento"]
+        self.assertEqual(len(arg_sl), 1)
+        self.assertEqual([i.rot for i in arg_sl[0].corpo], ["Maior", "Menor", "Conclusão"])
+
+    def test_argumento_longo_parte_na_linha_mais_longa_e_conclusao_nao_fica_so(self):
+        longa = " ".join(f"A premissa maior tem a sua frase número {i} bem comprida e cheia de palavras." for i in range(9))
+        arg = f"<p>a) Curta maior. Ora {longa} Logo a conclusão curta vale.</p>"
+        sl = slides_de(tese(5, '<p><label>5.</label> <hi rend="bold">Tese de teste.</hi> — texto inicial.</p>' + arg))
+        arg_sl = [s for s in sl if s.tipo == "argumento"]
+        self.assertGreater(len(arg_sl), 1)
+        for s in arg_sl:
+            self.assertFalse(len(s.corpo) == 1 and s.corpo[0].rot.startswith("Conclus"), s.corpo)
+        self.assertTrue(any((i.rot or "").startswith("Menor (cont.)") for s in arg_sl for i in s.corpo))
+        self.assertTrue(arg_sl[-1].corpo[-1].rot.startswith("Conclus"))
+
+    def test_paragrafo_de_8_linhas_cabe_num_slide(self):
+        txt = ("Palavra " * 66).strip() + "."          # ~530 caracteres
+        sl = slides_de(tese(6, '<p><label>6.</label> <hi rend="bold">T teste.</hi> — a.</p>'
+                               f'<p>{txt}</p>'))
+        self.assertEqual(len([s for s in sl if s.tipo == "texto"]), 1)
+
+    def test_max_car_e_escala(self):
+        frases = " ".join(f"Esta é a frase número {i} do texto corrido de teste." for i in range(1, 30))
+        xml = tese(7, f'<p><label>7.</label> <hi rend="bold">Longa.</hi> — {frases}</p>')
+        n = lambda mc: len(slides_de(xml, max_car=mc))
+        self.assertGreater(n(272), n(544))
+        self.assertGreaterEqual(n(544), n(1088))
 
 
 class Determinismo(unittest.TestCase):

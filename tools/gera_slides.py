@@ -44,10 +44,17 @@ REGRAS TEI -> FONTE (resumo; detalhes no código)
   * texto corrido vira tópicos (nos ` — ` e nas frases); nada é parafraseado: todo o texto do corpo
     aparece, literal e em ordem, exceto os conectivos `Ora`/`Logo` que viram rótulo (`Menor`,
     `Conclusão`), a numeração/marcador de subdivisão e a rubrica (que vão para o título);
-  * paginação por orçamento (`--max-car`, padrão 455 = ~7 linhas de corpo do tema; cada item pesa pelas
-    linhas que ocupa na sua coluna) com `+continua` e título `(cont.)`; frase única maior que o orçamento
-    vai inteira; enunciado `!` com mais de 200 caracteres vira parágrafo (não cabe na caixa);
-    polissilogismo repete os rótulos `Menor`/`Conclusão`; premissa longa partida vira `Maior (cont.)`;
+  * paginação por orçamento ESTIMADO EM LINHAS (`--max-car` é a escala; padrão 544 = 8 linhas de parágrafo
+    do tema: parágrafo/tópicos 8 linhas, `rotulados` 10 (9 com título de 2 linhas), enunciado até 5 linhas);
+    o que couber num quadro fica num quadro (um argumento só é partido se Maior+Menor+Conclusão não couberem,
+    e então dentro da linha mais longa, `Menor (cont.)`, com a Conclusão junto da última premissa); `+continua`
+    e título `(cont.)`; frase única maior que o orçamento vai inteira; enunciado `!` de mais de 5 linhas vira
+    parágrafo; no `!` o negrito do OCR é removido (só o termo definido fica em negrito nas definições);
+    polissilogismo repete os rótulos `Menor`/`Conclusão`;
+  * lixo de fim de linha do OCR (`|`, `¦`, caractere não alfanumérico solto que não seja pontuação legítima)
+    é removido na leitura; são só caracteres não-palavra, então a conferência de texto integral não muda;
+  * títulos: o título completo só no slide `tese`; subdivisões e continuações usam título curto (~60
+    caracteres): `30. Título curto — a) rubrica` (tese com título em negrito) ou `n. 30 — a)`;
   * marcador de subdivisão + rubrica (itálico, ou cabeçalho curto `Pharinge. —`) vão para o título;
     fragmentos de linha do OCR (parágrafo sem pontuação final seguido de minúscula) são religados.
 Só stdlib + lxml; sem efeitos colaterais no import.
@@ -68,14 +75,23 @@ from lxml import etree
 RAIZ = Path(__file__).resolve().parent.parent
 
 # --------------------------------------------------------------------------- constantes
-UNIDADE = 65           # "caracteres equivalentes" por linha de corpo
-MAX_CAR = 455          # orçamento por slide (~7 linhas de corpo do tema; o contrato dizia ~520, mas 520 transborda)
-ENUNC_MAX = 200        # enunciado mais longo que isto não cabe na caixa de destaque: vira parágrafo
-RESERVA = 85           # espaço da linha "(continua)" nos slides que seguem no próximo
-# caracteres por linha, altura relativa da linha e espaço extra (em linhas) de cada tipo de item
-_CPL = {"p": 68, "-": 64, "--": 60, "rot": 56, "!": 52, ">": 62}
-_LH = {"p": 1.0, "-": 1.0, "--": 1.0, "rot": 1.0, "!": 1.22, ">": 1.03}
-_EXTRA = {"p": 0.35, "-": 0.25, "--": 0.2, "rot": 0.35, "!": 1.0, ">": 0.4}
+# Orçamento em LINHAS (tema academia-slides, medido): parágrafo 14/18 pt = 8 linhas de ~68 caracteres;
+# `rotulados` 12,5/15 pt = 10 linhas de ~64 (9 se o título tiver 2 linhas); tópicos ~66 por linha;
+# enunciado 16/20,5 pt ~56 por linha (até 5 linhas sem encolher). Pesos em "caracteres equivalentes"
+# (linhas de parágrafo x UNIDADE); `--max-car` é a escala (MAX_CAR = corpo só de parágrafo = 8 linhas).
+UNIDADE = 68
+MAX_CAR = 544
+CAP_P = 8.3            # capacidade (linhas de parágrafo) de um slide sem linhas rotuladas
+CAP_ROT1 = 9.1         # idem, com `rotulados` e título de 1 linha (<= 45 caracteres)
+CAP_ROT2 = 8.3         # idem, título de 2 linhas
+RESERVA_L = 1.2        # linha "(continua)" nos slides que seguem no próximo
+ENUNC_LINHAS = 5       # enunciado com mais linhas que isto encolhe a caixa: vira parágrafo
+TITULO_1LINHA = 45
+FOLGA_CAB = 0.0
+# caracteres por linha, altura da linha (em linhas de parágrafo) e espaço extra de cada tipo de item
+_CPL = {"p": 68, "-": 66, "--": 62, "rot": 64, "!": 56, ">": 62}
+_LH = {"p": 1.0, "-": 1.0, "--": 1.0, "rot": 0.833, "!": 1.14, ">": 1.05}
+_EXTRA = {"p": 0.35, "-": 0.33, "--": 0.25, "rot": 0.25, "!": 1.7, ">": 0.4}
 LIMITE_CORRIDO = 260   # parágrafo `texto` até este tamanho (sem travessão) fica como parágrafo
 PEQUENO = 28           # pedaço menor que isto é colado ao vizinho
 TITULO_MAX = 80        # truncamento do título derivado de enunciado
@@ -184,6 +200,29 @@ def junta(partes, sep=" "):
         s.append(p.s)
         f.extend(p.f)
     return R("".join(s), f)
+
+
+LEGITIMA = set("—–-;:,.?!»«)(\"'“”…§&")
+_JUNK_SOLTO = re.compile(r"(?:(?<=\s)|^)([^\w\s" + re.escape("".join(LEGITIMA)) + r"])(?=\s|$)")
+_JUNK_FIM = re.compile(r"[|¦]+(?=" + M + r"\s*$)")
+
+
+def limpa_lixo(r):
+    """tira do OCR as marcas isoladas de fim de linha: `|`, `¦` e qualquer caractere não alfanumérico sozinho
+    entre espaços que não seja pontuação legítima (`— – - ; : , . ? ! » « ) ( " ' § &`); também `|`/`¦`
+    colados ao fim do bloco. Só remove caracteres não-palavra: a comparação de palavras não muda."""
+    s = r.s
+    corte = [False] * len(s)
+    for rx in (_JUNK_SOLTO, _JUNK_FIM):
+        for m in rx.finditer(s):
+            for k in range(m.start(), m.end()):
+                if not MARC_RE.match(s[k]):
+                    corte[k] = True
+    if not any(corte):
+        return r
+    out = R("".join(c for c, x in zip(s, corte) if not x),
+            bytearray(f for f, x in zip(r.f, corte) if not x))
+    return normaliza(out)
 
 
 def r_de(txt, flag=0):
@@ -1024,15 +1063,15 @@ class Item:
     def __init__(self, kind, r, rot=None, grp=None):
         self.kind, self.r, self.rot, self.grp = kind, r, rot, grp
 
-    def peso(self):
-        """altura estimada em "caracteres equivalentes" (linhas de corpo x UNIDADE).
-
-        Calibrado no tema tex/slides/academia-slides.sty: ~68 caracteres por linha de parágrafo, colunas mais
-        estreitas para tópico / linha rotulada / enunciado (fonte maior) / citação, e ~7 linhas de corpo."""
+    def linhas(self):
         k = self.kind if self.kind in _CPL else "p"
-        n = len(self.r.plano)
-        linhas = max(1, -(-int(n * 1.07) // _CPL[k])) * _LH[k] + _EXTRA[k]
-        return int(linhas * UNIDADE)
+        return max(1, -(-int(len(self.r.plano) * 1.05) // _CPL[k]))
+
+    def peso(self):
+        """altura estimada em "caracteres equivalentes" (linhas de parágrafo x UNIDADE)."""
+        k = self.kind if self.kind in _CPL else "p"
+        extra = _EXTRA[k] + (0.2 if k == "rot" and (self.rot or "").startswith("Conclus") else 0)
+        return int((self.linhas() * _LH[k] + extra) * UNIDADE)
 
 
 class Slide:
@@ -1041,6 +1080,7 @@ class Slide:
         self.corpo = corpo if corpo is not None else []
         self.consumidos = consumidos if consumidos is not None else []
         self.cont, self.continua = cont, continua
+        self.titulo_cont = None
         self.ref = ""
         self.pagina = None
 
@@ -1096,17 +1136,17 @@ def marca_definido(r):
     return r
 
 
+def sem_negrito(r):
+    """tira TODO o negrito (o OCR marca palavras soltas do enunciado; a caixa já destaca)."""
+    return R(r.s, bytearray(fl & ~BOLD for fl in r.f))
+
+
 def destaque(r):
-    """enunciado em destaque (`!`), salvo se for longo demais para a caixa."""
-    return Item("!" if len(r.plano) <= ENUNC_MAX else "p", r)
-
-
-def sem_negrito_total(r):
-    """enunciado inteiro em negrito: tira o negrito (o tema já o destaca)."""
-    vis = [fl for ch, fl in zip(r.s, r.f) if not MARC_RE.match(ch) and not ch.isspace()]
-    if vis and all(fl & BOLD for fl in vis):
-        return R(r.s, bytearray(fl & ~BOLD for fl in r.f))
-    return r
+    """enunciado em destaque (`!`; quem chama já tirou o negrito), salvo se passar de ENUNC_LINHAS linhas (a caixa encolheria)."""
+    it = Item("!", r)
+    if it.linhas() > ENUNC_LINHAS:
+        return Item("p", r)
+    return it
 
 
 def itens_do_seg(tipo, r, definido=True):
@@ -1116,7 +1156,7 @@ def itens_do_seg(tipo, r, definido=True):
         fr = frases(r)
         if not fr:
             return []
-        primeira = marca_definido(fr[0]) if tipo == "definicao" and definido else fr[0]
+        primeira = marca_definido(sem_negrito(fr[0])) if tipo == "definicao" and definido else sem_negrito(fr[0])
         resto = junta(fr[1:], " ")
         return [destaque(primeira)] + topicos(resto)
     if tipo == "citacao":
@@ -1152,7 +1192,7 @@ def segmenta(r, forcado=None, cabeca=False, titulo_def=False):
             return segs + segmenta(resto, None, False)
     if forcado is not None and forcado != "argumento":
         if forcado == "tese":
-            return [Seg("tese", [destaque(sem_negrito_total(r))])]
+            return [Seg("tese", [destaque(sem_negrito(r))])]
         return [Seg(forcado, itens_do_seg(forcado, r))]
     if forcado == "argumento":
         return [Seg("argumento", topicos(r))]
@@ -1361,7 +1401,7 @@ class Conv:
     def par(self, p):
         pag0 = self.pagina
         ns = [] if self.notas else None
-        r = self.rico(p, ns)
+        r = limpa_lixo(self.rico(p, ns))
         if self.pend:
             r = R("".join(self.pend), bytearray(len(self.pend))) + r if not r.vazio() else r
             self.pend = []
@@ -1371,7 +1411,7 @@ class Conv:
         label = len(p) > 0 and isinstance(p[0].tag, str) and ln(p[0]) == "label" and not (p.text or "").strip()
         notas = []
         for nt in ns or []:
-            nr = self.rico(nt, None, em_nota=True)
+            nr = limpa_lixo(self.rico(nt, None, em_nota=True))
             if not nr.vazio():
                 notas.append(nr)
         self.eventos.append(Par(r, tipo, pag0, notas, label))
@@ -1591,7 +1631,7 @@ def _titulo_estilo(c):
     if re.search(r"[.!?]\s+\S", MARC_RE.sub("", pl)) and len(frases(t)) > 1:
         return None
     resto = c[m.end():]
-    pref = [ch for ch in s[m.start():m.end()] if MARC_RE.match(ch)]
+    pref = [ch for ch in s[:i] + s[m.start():m.end()] if MARC_RE.match(ch)]
     if pref:
         resto = R("".join(pref), bytearray(len(pref))) + resto
     return t, resto
@@ -1605,16 +1645,24 @@ def _base_titulo(n, titulo):
     return titulo
 
 
+TITULO_DERIVADO = 60
+
+
 def _titulo_sub(base, marc, rub):
+    """título curto de subdivisão: `base — a) rubrica`, no máximo ~60 caracteres."""
+    rub = trunc(rub, 30) if rub else ""
     suf = marc + (f" {rub}" if rub else "")
-    b = trunc(base, 60) if base else ""
-    return f"{b} — {suf}" if b else suf
+    if not base:
+        return suf
+    sobra = max(18, TITULO_DERIVADO - len(" — ") - len(suf))
+    return f"{trunc(base, sobra)} — {suf}"
 
 
 def slides_do_grupo(n, pars, titulo_ctx, usar_notas=False):
     """-> lista de Slide (sem paginar)."""
     slides = []
-    base = _base_titulo(n, "") if n is not None else (titulo_ctx or "")
+    base = f"n. {n}" if n is not None else trunc(titulo_ctx or "", TITULO_DERIVADO)
+    base_full = base
     cons_base = []
     primeira_letra = None
     if not pars:
@@ -1637,12 +1685,15 @@ def slides_do_grupo(n, pars, titulo_ctx, usar_notas=False):
         if ts is not None:
             tit_r, resto = ts
             tit_pl = tit_r.plano.strip().rstrip(".")
-            base = _base_titulo(n, tit_pl)
+            base = base_full = _base_titulo(n, trunc(tit_pl, 90))
+            base = trunc(base, TITULO_DERIVADO)
             cons += [tit_r.plano.strip()]
             segs = segmenta(resto, p0.tipo if p0.tipo not in (None, "enunciado") else None, cabeca=True,
                             titulo_def=bool(RX_TIT_DEF.match(tit_pl)))
             for sg in segs:
-                head_slides.append(novo(sg.tipo, base, sg.itens, sg.consumidos))
+                head_slides.append(novo(sg.tipo, base_full, sg.itens, sg.consumidos))
+            for hs_ in head_slides:
+                hs_.titulo_cont = base
             if head_slides:
                 head_slides[0].consumidos = cons + head_slides[0].consumidos
             elif len(pars) > 1:
@@ -1653,10 +1704,11 @@ def slides_do_grupo(n, pars, titulo_ctx, usar_notas=False):
             fr = frases(c)
             if p0.tipo in P_TIPOS and p0.tipo != "enunciado":
                 # tipo explícito no parágrafo da tese: o texto inteiro vai para o tipo pedido
-                base = _base_titulo(n, trunc(c.plano.strip(), TITULO_MAX))
+                base_full = _base_titulo(n, trunc(c.plano.strip(), 90))
                 segs = segmenta(c, p0.tipo, cabeca=True)
                 for sg in segs:
-                    head_slides.append(novo(sg.tipo, base, sg.itens, sg.consumidos))
+                    head_slides.append(novo(sg.tipo, base_full, sg.itens, sg.consumidos))
+                    head_slides[-1].titulo_cont = base
                 if head_slides:
                     head_slides[0].consumidos = cons + head_slides[0].consumidos
             else:
@@ -1668,14 +1720,15 @@ def slides_do_grupo(n, pars, titulo_ctx, usar_notas=False):
                 enun_pl = enun.plano.strip()
                 if len(frases(c)) > 1 and len(c.plano) <= 330 and p0.tipo == "enunciado":
                     enun, resto = c, R()
-                base = _base_titulo(n, trunc(enun_pl.rstrip(".")))
-                itens = [destaque(sem_negrito_total(enun))]
+                base_full = _base_titulo(n, trunc(enun_pl.rstrip("."), 90))
+                itens = [destaque(sem_negrito(enun))]
                 extra = segmenta(resto, None, cabeca=False) if not resto.vazio() else []
                 # o que sobra e é `texto` vai para o slide da tese
                 while extra and extra[0].tipo == "texto":
                     itens += extra[0].itens
                     extra = extra[1:]
-                hs = novo("tese", base, itens, cons)
+                hs = novo("tese", base_full, itens, cons)
+                hs.titulo_cont = base
                 head_slides.append(hs)
                 for sg in extra:
                     head_slides.append(novo(sg.tipo, base, sg.itens, sg.consumidos))
@@ -1782,36 +1835,58 @@ def _expande(it):
     return [it]
 
 
+def _titulo_cont(sl):
+    base = sl.titulo_cont or trunc(sl.titulo, 60)
+    base = base[:-len(" (cont.)")] if base.endswith(" (cont.)") else base
+    return (base + " (cont.)") if base else "(cont.)"
+
+
+def _capacidade(itens, titulo, max_car):
+    """capacidade do slide em caracteres equivalentes (escala = max_car / MAX_CAR)."""
+    f = max_car / MAX_CAR
+    if any(i.kind == "rot" for i in itens):
+        cap = CAP_ROT1 if len(titulo) <= TITULO_1LINHA else CAP_ROT2
+    else:
+        cap = CAP_P
+    return cap * f * UNIDADE
+
+
 def pagina_slide(sl, max_car):
-    """parte um slide em vários, ao longo de fronteiras de frase."""
+    """parte um slide em vários, ao longo de fronteiras de frase; o que couber num quadro fica num quadro."""
     if sl.tipo in ("capa", "secao"):
         return [sl]
     exp = []
     for it in sl.corpo:
         exp.extend(_expande(it))
+    # título das continuações pode ter 2 linhas: capacidade calculada com ele (pior caso)
+    tit_cont = _titulo_cont(sl)
+    cap = _capacidade(exp, tit_cont if len(exp) and len(tit_cont) > TITULO_1LINHA else sl.titulo, max_car)
+    reserva = RESERVA_L * (max_car / MAX_CAR) * UNIDADE
     paginas = [[]]
     soma = 0
-    for it in exp:
-        w = it.peso()
-        limite = max_car if it is exp[-1] else max_car - RESERVA
-        if paginas[-1] and soma + w > limite:
-            ult = paginas[-1]
-            mover = []
-            while len(ult) > 1 and ult[-1].kind == "!":
-                mover.insert(0, ult.pop())
-            # a conclusão não fica sozinha: leva consigo o último item da página anterior
-            if it.kind == "rot" and (it.rot or "").startswith("Conclus") and len(ult) > 1 and not mover:
-                mover.insert(0, ult.pop())
-            paginas.append(mover)
-            soma = sum(x.peso() for x in mover)
-        paginas[-1].append(it)
-        soma += w
+    if sum(x.peso() for x in exp) <= cap:            # cabe num quadro só
+        paginas = [list(exp)]
+    else:
+        for it in exp:
+            w = it.peso()
+            limite = cap if it is exp[-1] else cap - reserva
+            if paginas[-1] and soma + w > limite:
+                ult = paginas[-1]
+                mover = []
+                while len(ult) > 1 and ult[-1].kind == "!":
+                    mover.insert(0, ult.pop())
+                # a conclusão não fica sozinha: leva consigo o último item da página anterior
+                if it.kind == "rot" and (it.rot or "").startswith("Conclus") and len(ult) > 1 and not mover:
+                    mover.insert(0, ult.pop())
+                paginas.append(mover)
+                soma = sum(x.peso() for x in mover)
+            paginas[-1].append(it)
+            soma += w
     out = []
     ant_grp = None
     for k, itens in enumerate(paginas):
-        # reagrupa os pedaços do mesmo item
         fund = []
-        for it in itens:
+        for it in itens:                              # reagrupa os pedaços do mesmo item
             if fund and fund[-1].grp is not None and fund[-1].grp == it.grp and fund[-1].kind == it.kind \
                     and it.kind in ("p", ">", "rot"):
                 fund[-1] = Item(it.kind, junta([fund[-1].r, it.r], " "), fund[-1].rot, it.grp)
@@ -1821,12 +1896,11 @@ def pagina_slide(sl, max_car):
                 and "(cont.)" not in (fund[0].rot or ""):
             fund[0].rot = f"{fund[0].rot} (cont.)"
         ant_grp = fund[-1].grp if fund else None
-        tit = sl.titulo
-        if k > 0 and not tit.endswith("(cont.)"):
-            tit = (tit + " (cont.)") if tit else "(cont.)"
-        cabe_continua = sum(x.peso() for x in fund) <= max_car - RESERVA   # senão a linha (continua) transborda
+        tit = sl.titulo if k == 0 else tit_cont
+        cabe_continua = sum(x.peso() for x in fund) <= cap - reserva   # senão a linha (continua) transborda
         ns = Slide(sl.tipo, tit, sl.n, fund, sl.consumidos if k == 0 else [], sl.cont or k > 0,
                    k < len(paginas) - 1 and cabe_continua)
+        ns.titulo_cont = sl.titulo_cont
         out.append(ns)
     return out
 
@@ -1969,7 +2043,7 @@ def _constroi(xml, titulo=None, seletor_id=None, pagina_ini=None, pagina_fim=Non
             slides.extend(pagina_slide(s, max_car))
     # página/ref de cada slide
     cur = conv.tabela[0] if False else None
-    pag_cursor = pagina_inicial
+    pag_cursor = pagina_inicial or next((e.pag for e in evs if isinstance(e, Par) and e.pag), None)
     for sl in slides:
         if sl.tipo in ("capa", "secao"):
             continue
