@@ -1,23 +1,63 @@
-% Formato 2 — folha maior (170×240 mm): corpo 11 pt, notas de rodapé em corpo menor
-% e em DUAS colunas, numeradas por página «(1)».
+% Formato 2 — folha maior (A4, 210×297 mm): corpo 12 pt, notas de rodapé em 8,5 pt e em
+% DUAS colunas, numeradas por página «(1)».
+%
 % As notas são as «familiares» do reledmac (\footnoteA, arranjo twocol), porque o
-% dblfnote entra em laço (input stack exceeded) com notas maiores que meia página —
-% e as deste livro passam de uma página inteira.
-\documentclass[11pt,twoside]{book}
-\usepackage[paperwidth=170mm,paperheight=240mm,inner=20mm,outer=24mm,top=18mm,
-            bottom=20mm,includehead,headsep=6mm,footskip=9mm,marginparwidth=14mm]{geometry}
+% dblfnote entra em laço (input stack exceeded) com notas maiores que meia página.
+\documentclass[12pt,twoside]{book}
+\usepackage[a4paper,inner=24mm,outer=30mm,top=20mm,bottom=22mm,includehead,
+            headsep=7mm,footskip=10mm,marginparwidth=16mm]{geometry}
 \input{comum}
 \usepackage[nocritical,noeledsec,noend]{reledmac}
+% Altura máxima da área de notas (em «comprimento de coluna», por isso ×2): sem limite,
+% o corpo some de páginas inteiras.  Ajustado para corpo e notas acabarem juntos.
+\providecommand{\fracaonotas}{0.80}
 \arrangementX[A]{twocol}
+\dimen\csname footinsA\endcsname=\fracaonotas\textheight
+\dimen\csname footinsA\endcsname=2\dimen\csname footinsA\endcsname
+\AtEndDocument{\par\global\dimen\csname footinsA\endcsname=\maxdimen}
 \colalignX[A]{\leftskip=0pt \rightskip=0pt plus .3em}  % justificado (padrão: raggedright)
 \parindentX[A]                                       % recuo de parágrafo dentro da nota
-\afternoteX[A]{.4\baselineskip}                      % respiro entre notas
+\hsizetwocolX[A]{\dimexpr(\textwidth-6mm)/2\relax}   % 6 mm entre as colunas
+% Corpo das notas: 8,5/10,4 pt, com uma folga mínima de entrelinha e entre
+% parágrafos — é ela que permite igualar a altura das duas colunas (abaixo).
+\notefontsizeX[A]{\fontsize{8.5}{10.4}\selectfont
+  \baselineskip=10.4pt plus .35pt \parskip=0pt plus 1.5pt}
+\afternoteX[A]{0pt plus 2pt}
 \usepackage{perpage}\MakePerPage{footnoteA}
 \makeatletter
 \renewcommand*{\normalbodyfootmarkX}[1]{\hbox{\normalfont\,(\@nameuse{@thefnmark#1})}}
 \renewcommand*{\normalfootfootmarkX}[1]{(\@nameuse{@thefnmark#1})\enspace}
+
+% Balanceamento das duas colunas.  O \rigidbalance do reledmac corta em altura/2 e
+% preenche a coluna curta com \vfil: com número ímpar de linhas a direita fica com uma
+% linha a menos.  Aqui: corta, mede as duas e, se a diferença for até ~1,5 linha,
+% estica a mais curta (justificação vertical pela folga de entrelinha/parágrafo);
+% diferença maior (última página das notas) mantém o \vfil.
+\newdimen\colA \newdimen\colB \newdimen\colH
+\renewcommand*{\rigidbalance}[3]{%
+  \ifnum#2=2
+    \setbox0=\box#1 \@h=#3\relax
+    \splittopskip=\@h \vbadness=\@M \splitmaxdepth=\maxdepth
+    \dimen0=\ht0 \divide\dimen0 by 2 \advance\dimen0 by \@h
+    \setbox2=\vsplit0 to \dimen0
+    \setbox2=\vbox{\unvbox2}\setbox4=\vbox{\unvbox0}%
+    \colA=\ht2 \colB=\ht4
+    \colH=\ifdim\colA>\colB \colA\else\colB\fi
+    \@@line{\igualacol2\hfil\igualacol4}%
+  \else
+    \setbox0=\box#1 \@k=#2 \@h=#3%
+    \@@line{\splittopskip=\@h \vbadness=\@M \hfilneg
+      \valign{##\vfil\cr\dosplits}}%
+  \fi}
+\newcommand*{\igualacol}[1]{%
+  \dimen2=\colH \advance\dimen2 by -\ht#1
+  \ifdim\dimen2<1.5\baselineskip
+    \vbox to\colH{\unvbox#1}%
+  \else
+    \vbox to\colH{\unvbox#1\vfil}%
+  \fi}
 \makeatother
-\renewcommand\footnoteruleA{\vspace*{-3pt}\noindent\rule{.25\textwidth}{.4pt}\vspace*{2.6pt}}
+\renewcommand\footnoteruleA{\vspace*{-3pt}\noindent\rule{.2\textwidth}{.4pt}\vspace*{2.6pt}}
 \let\footnote\footnoteA
 \begin{document}
 \input{texto}
