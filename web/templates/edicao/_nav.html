@@ -5,6 +5,7 @@
   <a href="{% url 'obra:paginas' v.numero %}" class="{% if ativa == v.numero %}aba-ativa{% else %}aba{% endif %}">Vol. {{ v.numero }}</a>
   {% endfor %}
   <a href="{% url 'obra:historico' %}" class="{% if ativa == 'historico' %}aba-ativa{% else %}aba{% endif %}">Histórico</a>
+  <a href="{% url 'obra:citacoes' %}" class="{% if ativa == 'citacoes' %}aba-ativa{% else %}aba{% endif %}">Citações</a>
   <a href="{% url 'obra:slides_lista' %}" class="{% if ativa == 'slides' %}aba-ativa{% else %}aba{% endif %}">Slides</a>
   <a href="{% url 'obra:sugestoes' %}" class="{% if ativa == 'sugestoes' %}aba-ativa{% else %}aba{% endif %}">Sugestões{% if sugestoes_pendentes %} <span class="etiqueta etiqueta-carmim ml-1">{{ sugestoes_pendentes }}</span>{% endif %}</a>
   <a href="{% url 'obra:nova_estrutura' %}" class="aba">Nova edição &rarr;</a>

@@ -1363,6 +1363,10 @@ class Conv:
                     colar[0] = True
                 elif n == "hi":
                     walk(c, fl | REND.get((c.get("rend") or "").split()[0] if c.get("rend") else "", 0))
+                elif n == "quote" and c.get("type") in ("direta", "mencao"):
+                    add("«", fl)                # o texto da citação vem sem aspas (web/obra/esquema.py)
+                    walk(c, fl)
+                    add("»", fl)
                 elif n in ("foreign", "emph", "title", "quote"):
                     walk(c, fl | IT if n != "quote" else fl)
                 elif n == "lb":

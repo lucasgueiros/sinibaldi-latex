@@ -115,13 +115,80 @@ def _interno(el):
     return "".join(partes)
 
 
-def renderizar(blocos, *, impressas_, modo="web", url_facsimile=None, origens=None, prefixo_id="", volumes=None):
+_RE_CHAVE_CIT = re.compile(r'<(?:quote|bibl)\b[^>]*?\b(?:xml:id="([^"]+)"|corresp="#([^"]+)")')
+
+
+class DadosCitacoes:
+    """`Citacao` (com fonte e tradução) por xml_id, para a renderização; uma consulta por bloco
+    que traga chaves ainda não vistas."""
+
+    def __init__(self):
+        self._c = {}
+
+    def para(self, xml):
+        chaves = {a or b for a, b in _RE_CHAVE_CIT.findall(xml)}
+        faltam = chaves - set(self._c)
+        if faltam:
+            from .models import Citacao
+            for c in Citacao.objects.filter(xml_id__in=faltam).select_related("fonte", "traducao"):
+                self._c[c.xml_id] = c
+            for k in faltam:
+                self._c.setdefault(k, None)
+        return {k: self._c[k] for k in chaves if self._c.get(k) is not None}
+
+
+def _aplicar_citacoes(h, dados, nova):
+    """Referências precisas no HTML de um bloco. Na nova edição, a referência de Sinibaldi
+    (`cite[data-tei=bibl]`) dá lugar à precisa — a original fica no `title` —, ou ela é acrescentada
+    depois do último segmento quando Sinibaldi não deu nenhuma. Na 1916, só o `title`."""
+    from . import referencias
+    if not dados:
+        return
+    segs, bibls = {}, {}
+    for el in h.xpath('.//*[@data-tei="quote"]'):
+        k = el.get("data-xmlid") or (el.get("data-corresp") or "").lstrip("#")
+        segs.setdefault(k, []).append(el)
+    for el in h.xpath('.//*[@data-tei="bibl"]'):
+        bibls.setdefault((el.get("data-corresp") or "").lstrip("#"), []).append(el)
+    for k, c in dados.items():
+        partes = referencias.partes(c)
+        if not partes:
+            continue
+        txt = referencias.texto(partes)
+        for q in segs.get(k, []):
+            q.set("title", txt)
+        if not nova:
+            for b in bibls.get(k, []):
+                b.set("title", "Referência precisa: " + txt)
+                b.set("class", "ref-original")
+            continue
+        novo = lxml.html.fragment_fromstring(f'<span class="ref-precisa">{referencias.html(partes)}</span>')
+        if bibls.get(k):
+            b = bibls[k][0]
+            if b.text_content().strip():
+                novo.set("title", "Sinibaldi: " + " ".join(b.text_content().split()))
+            for filho in list(b):
+                b.remove(filho)
+            b.text = None
+            b.append(novo)
+            for extra in bibls[k][1:]:
+                _remover(extra)
+        elif segs.get(k):
+            ultimo = segs[k][-1]
+            novo.tail = ultimo.tail
+            ultimo.tail = " "
+            ultimo.addnext(novo)
+
+
+def renderizar(blocos, *, impressas_, modo="web", url_facsimile=None, origens=None, prefixo_id="", volumes=None,
+               citacoes=None, nova=False):
     """HTML de leitura de uma sequência de blocos.
 
     Retorna `(html, notas)`; `notas` é lista de (n, html). `modo`: 'web' (links, marcas de
     procedência, âncoras) ou 'offline' (autônomo: sem links). `url_facsimile(volume_id, seq)`
     devolve a URL do fac-símile. `origens`: {pk do bloco: (url do trecho na 1916)}.
-    `volumes`: {id: numero}."""
+    `volumes`: {id: numero}. `citacoes`: `DadosCitacoes` (referências precisas; `nova` = trocar as de
+    Sinibaldi por elas)."""
     partes, notas = [], []
     atual = None
     web = modo == "web"
@@ -141,6 +208,8 @@ def renderizar(blocos, *, impressas_, modo="web", url_facsimile=None, origens=No
         if b.tipo in (Bloco.CABECALHO,) or b.procedencia == Bloco.SUPRIMIDO:
             continue
         h = lxml.html.fragment_fromstring(tei.fragmento_para_html(b.xml))
+        if citacoes is not None and ("<quote" in b.xml or "<bibl" in b.xml):
+            _aplicar_citacoes(h, citacoes.para(b.xml), nova)
         for fw in h.xpath('.//*[@data-tei="fw"]'):
             _remover(fw)
         if h.get("data-tei") == "fw":

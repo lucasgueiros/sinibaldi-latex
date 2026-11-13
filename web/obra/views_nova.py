@@ -291,6 +291,7 @@ def _tela_editor(request, nova, *, blocos_qs, base_url, cabecalho, no=None, orde
         "tela": p, "telas": n_telas, "total": total, "base": base_url,
         "subnos": subnos,
         "urlConverter": reverse("obra:converter"),
+        "urlCitacao": reverse("obra:citacao_editar", args=["__ID__"]),
         "urlGravar": reverse("obra:nova_gravar"),
         "urlAcaoBloco": reverse("obra:nova_bloco_acao"),
         "urlHistoricoBloco": reverse("obra:historico_bloco", args=[0]),

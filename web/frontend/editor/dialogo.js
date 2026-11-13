@@ -2,7 +2,7 @@
 // dialogo({titulo, campos: [{nome, rotulo, tipo: "texto"|"select", valor, opcoes: [[valor, rótulo]], ajuda, obrigatorio}]})
 //   -> Promise<{nome: valor}|null>
 // `validar(valores) -> string|null`: mensagem de erro impede o fechamento.
-export function dialogo({ titulo, campos, confirmar = "OK", validar = null }) {
+export function dialogo({ titulo, campos, confirmar = "OK", validar = null, ajuda = "" }) {
   return new Promise((resolve) => {
     const d = document.createElement("dialog");
     d.className = "sn-dialogo";
@@ -11,6 +11,12 @@ export function dialogo({ titulo, campos, confirmar = "OK", validar = null }) {
     const h = document.createElement("h2");
     h.textContent = titulo;
     form.appendChild(h);
+    if (ajuda) {
+      const a = document.createElement("p");
+      a.className = "sn-dialogo-ajuda";
+      a.textContent = ajuda;
+      form.appendChild(a);
+    }
     const inputs = {};
     for (const c of campos) {
       const label = document.createElement("label");

@@ -5,6 +5,7 @@ Todas as views exigem login e a permissão `obra.change_bloco` (anônimo -> logi
 permissão -> 403). Endpoints JSON (`converter`, `gravar`) respondem 401/403 em JSON.
 """
 import json
+import re
 from functools import wraps
 
 from django.contrib.auth.views import redirect_to_login
@@ -18,7 +19,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
-from . import diffs, esquema, servicos, tei
+from . import citacoes, diffs, esquema, servicos, servicos_citacoes, tei
 from .models import Bloco, Edicao, Pagina, Revisao, Sugestao, Volume
 
 PERMISSAO = "obra.change_bloco"
@@ -61,6 +62,7 @@ def esquema_para_cliente():
         "tipos_paragrafo": esquema.TIPOS_PARAGRAFO,
         "rend": esquema.REND,
         "tipos_bloco": esquema.TIPOS_BLOCO,
+        "tipos_citacao": esquema.TIPOS_CITACAO,
         "prefixos_id": {"anexo": "anexo", "parte": "parte", "seccao": "sec", "capitulo": "cap", "artigo": "art", "tese": "t"},
     }
 
@@ -139,11 +141,34 @@ def converter(request):
         blocos = blocos_do_conteudo(dados["de"], dados.get("conteudo", ""))
     except servicos.ErroValidacao as e:
         return JsonResponse({"html": None, "xml": None, "erros": e.erros})
+    extra = {}
+    if dados.get("detectar"):
+        blocos, rel = _detectar_citacoes(blocos, str(dados.get("prefixo") or ""))
+        extra = {"marcadas": rel.total, "relatorio": ("Nenhum trecho novo entre aspas." if not rel.total else
+                                                       "Reconhecido: " + str(rel) + ".")}
     return JsonResponse({
         "html": tei.blocos_para_html(blocos),
         "xml": tei.blocos_para_texto_xml(blocos),
         "erros": [],
+        **extra,
     })
+
+
+def _detectar_citacoes(blocos, prefixo):
+    """Reconhecimento automático (obra/citacoes.py) nos blocos do editor; ids nunca repetidos."""
+    if not re.fullmatch(r"(v\d+\.)?", prefixo):
+        prefixo = ""
+    usados = servicos_citacoes.ids_em_uso()
+    for b in blocos:
+        usados.update(esquema.ids_do_fragmento(b["xml"]))
+    novo_id = citacoes.gerador_de_ids(prefixo, usados)
+    total = citacoes.Relatorio()
+    for b in blocos:
+        if b["xml"].startswith(("<milestone", "<fw", "<head")):
+            continue
+        b["xml"], rel = citacoes.marcar_xml(b["xml"], novo_id)
+        total += rel
+    return blocos, total
 
 
 # ------------------------------------------------------------------ painel
@@ -235,6 +260,7 @@ def revisar(request, numero, seq):
         "prefixoId": f"v{volume.numero}.",
         "estado": _estado_json(pagina),
         "urlConverter": reverse("obra:converter"),
+        "urlCitacao": reverse("obra:citacao_editar", args=["__ID__"]),
         "urlGravar": reverse("obra:gravar", args=[volume.numero, seq]),
         "urlHistoricoBloco": reverse("obra:historico_bloco", args=[0]),
         "csrf": get_token(request),

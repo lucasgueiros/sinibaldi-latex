@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Citações{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="citacoes" %}
+  {% include "includes/mensagens.html" %}
+  <div class="flex flex-wrap items-baseline justify-between gap-3">
+    <h1 class="font-display text-2xl text-crimson">Citações</h1>
+    <p class="text-sm">
+      <a class="text-crimson hover:underline" href="{% url 'obra:fontes' %}">Fontes ({{ n_fontes }})</a> &middot;
+      <a class="text-crimson hover:underline" href="{% url 'obra:fontes_bib' %}?usadas=1">.bib das fontes usadas</a>
+    </p>
+  </div>
+  <p class="mt-1 max-w-3xl text-sm text-ink/70">
+    Cada citação do texto (<q class="font-semibold">«…»</q> no editor, botão <b>«Cit»</b>) tem aqui a sua ficha. Preencha autor, obra,
+    lugar e a <b>fonte</b> (edição crítica) com a página: na nova edição, a referência de Sinibaldi é trocada pela precisa.
+    Para marcar de uma vez as citações de um volume: <code>manage.py marcar_citacoes --aplicar</code>.
+  </p>
+  <p class="mt-2 flex flex-wrap gap-2 text-xs">
+    {% for v, r, n in contagens %}<a href="?estado={{ v }}" class="etiqueta {% if v == 'referenciada' %}etiqueta-neutra{% elif v == 'revista' %}etiqueta-ouro{% else %}etiqueta-carmim{% endif %}">{{ r }}: {{ n }}</a>{% endfor %}
+  </p>
+
+  <form method="get" class="mt-4 flex flex-wrap items-end gap-3">
+    <label class="text-sm">Busca
+      <input name="q" value="{{ f.q }}" class="campo mt-1 !w-56" placeholder="texto, referência, autor, id">
+    </label>
+    <label class="text-sm">Estado
+      <select name="estado" class="campo mt-1 !w-auto">
+        <option value="">Todos</option>
+        {% for v, r in estados %}<option value="{{ v }}"{% if f.estado == v %} selected{% endif %}>{{ r }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="text-sm">Volume
+      <select name="volume" class="campo mt-1 !w-auto">
+        <option value="">Todos</option>
+        {% for v in volumes %}<option value="{{ v.numero }}"{% if f.volume == v.numero|stringformat:"s" %} selected{% endif %}>Vol. {{ v.numero }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="text-sm">Ref. de Sinibaldi
+      <select name="ref" class="campo mt-1 !w-auto">
+        <option value="">Tanto faz</option>
+        <option value="com"{% if f.ref == "com" %} selected{% endif %}>Com</option>
+        <option value="sem"{% if f.ref == "sem" %} selected{% endif %}>Sem</option>
+      </select>
+    </label>
+    <label class="text-sm">Fonte precisa
+      <select name="fonte" class="campo mt-1 !w-auto">
+        <option value="">Tanto faz</option>
+        <option value="com"{% if f.fonte == "com" %} selected{% endif %}>Com</option>
+        <option value="sem"{% if f.fonte == "sem" %} selected{% endif %}>Sem</option>
+      </select>
+    </label>
+    <label class="flex items-center gap-1 text-sm"><input type="checkbox" name="inativas" value="1"{% if f.inativas == "1" %} checked{% endif %}> incluir as que saíram do texto</label>
+    <button class="btn btn-primario btn-sm">Filtrar</button>
+  </form>
+
+  <form method="post" action="{% url 'obra:citacoes_lote' %}" class="mt-6">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <p class="text-sm text-ink/70">{{ total }} citação(ões).</p>
+    <div class="mt-2 overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead><tr class="border-b border-gold text-left font-display text-xs tracking-[0.08em] text-ink/70">
+        <th class="py-1 pr-2"><input type="checkbox" data-todas aria-label="Selecionar todas"></th>
+        <th class="py-1 pr-2">Pág.</th><th class="py-1 pr-2">Citação</th><th class="py-1 pr-2">Referência de Sinibaldi</th>
+        <th class="py-1 pr-2">Autor / obra / lugar</th><th class="py-1 pr-2">Fonte</th><th class="py-1">Estado</th>
+      </tr></thead>
+      <tbody>
+      {% for l in linhas %}
+        <tr class="border-b border-gold/30 align-top{% if not l.c.ativa %} opacity-50{% endif %}">
+          <td class="py-1 pr-2"><input type="checkbox" name="sel" value="{{ l.c.xml_id }}" aria-label="Selecionar {{ l.c.xml_id }}"></td>
+          <td class="whitespace-nowrap py-1 pr-2">{% if l.c.volume %}v. {{ l.c.volume.numero }}, p. {{ l.impressa }}{% endif %}</td>
+          <td class="py-1 pr-2"><a class="text-crimson hover:underline" href="{% url 'obra:citacao_editar' l.c.xml_id %}">{% if l.c.tipo == 'indireta' %}⟨{{ l.c.texto|truncatechars:110 }}⟩{% else %}«{{ l.c.texto|truncatechars:110 }}»{% endif %}</a></td>
+          <td class="py-1 pr-2 text-ink/80">{{ l.c.referencia_autor|default:"—" }}</td>
+          <td class="py-1 pr-2">{{ l.c.autor_citado }}{% if l.c.obra_citada %}, <i>{{ l.c.obra_citada }}</i>{% endif %}{% if l.c.lugar %}, {{ l.c.lugar }}{% endif %}</td>
+          <td class="py-1 pr-2">{% if l.c.fonte %}{{ l.c.fonte.abreviatura|default:l.c.fonte.titulo }}{% if l.c.pagina_fonte %}, p. {{ l.c.pagina_fonte }}{% endif %}{% endif %}</td>
+          <td class="whitespace-nowrap py-1"><span class="etiqueta {% if l.c.estado == 'referenciada' %}etiqueta-neutra{% elif l.c.estado == 'revista' %}etiqueta-ouro{% else %}etiqueta-carmim{% endif %}">{{ l.c.get_estado_display }}</span></td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="7" class="py-4 text-center text-ink/60">Nenhuma citação. Rode <code>manage.py marcar_citacoes --aplicar</code> ou marque no editor.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    {% include "includes/paginacao.html" with page_obj=pagina querystring=filtros|add:"&" %}
+
+    <fieldset class="painel mt-6">
+      <legend class="px-2 font-display text-sm text-crimson">Aplicar às selecionadas</legend>
+      <div class="painel-corpo grid gap-3 sm:grid-cols-3">
+        {% include "edicao/_campo.html" with f=lote.autor_citado %}
+        {% include "edicao/_campo.html" with f=lote.obra_citada %}
+        {% include "edicao/_campo.html" with f=lote.estado %}
+        {% include "edicao/_campo.html" with f=lote.fonte %}
+        {% include "edicao/_campo.html" with f=lote.traducao %}
+        <div class="flex items-end"><button class="btn btn-primario btn-sm">Aplicar</button></div>
+      </div>
+      <p class="px-4 pb-3 text-xs text-ink/60">Só os campos preenchidos mudam. A página na fonte é própria de cada citação: preencha na ficha.</p>
+    </fieldset>
+  </form>
+</div>
+<script>
+  document.querySelector("[data-todas]")?.addEventListener("change", (e) => {
+    document.querySelectorAll('input[name="sel"]').forEach((c) => (c.checked = e.target.checked));
+  });
+</script>
+{% endblock %}

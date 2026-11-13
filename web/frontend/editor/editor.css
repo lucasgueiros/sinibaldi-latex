@@ -97,3 +97,19 @@ pre.dif del.dif-del { background: #f6c9c9; color: #7f1d1d; text-decoration: line
 .sn-editor .sn-proc-suprimido { border-left-color: #991b1b; background: rgba(153, 27, 27, 0.07); opacity: 0.65; text-decoration: line-through; }
 .sn-editor .sn-proc-suprimido::after { color: #991b1b; text-decoration: none; }
 .nova-1916 .destaque-origem { background: rgba(217, 191, 140, 0.45); box-shadow: -4px 0 0 0 #8B1A1A; scroll-margin: 2rem; }
+
+/* ===== Citações no editor: aspas do CSS + cor por tipo (o texto guardado não tem aspas) ===== */
+.sn-editor q[data-tei="quote"] { quotes: "«" "»" "“" "”"; border-radius: 2px; }
+.sn-editor q[data-tei="quote"]::before, .sn-editor q[data-tei="quote"]::after { color: #8B1A1A; font-weight: 600; }
+.sn-editor q[data-tei="quote"][data-type="direta"] { background: rgba(139, 26, 26, 0.07); }
+.sn-editor q[data-tei="quote"][data-type="indireta"] { background: rgba(29, 78, 216, 0.07); border-bottom: 1px dashed rgba(29, 78, 216, 0.55); }
+.sn-editor q[data-tei="quote"][data-type="indireta"]::before { content: "⟨"; color: #1d4ed8; }
+.sn-editor q[data-tei="quote"][data-type="indireta"]::after { content: "⟩"; color: #1d4ed8; }
+.sn-editor q[data-tei="quote"][data-type="mencao"] { background: rgba(176, 141, 87, 0.12); }
+.sn-editor q[data-tei="quote"][data-corresp]::before { content: "…«"; }
+.sn-editor q[data-tei="quote"][data-type="indireta"][data-corresp]::before { content: "…⟨"; }
+.sn-editor cite[data-tei="bibl"] { font-style: normal; background: rgba(4, 120, 87, 0.09); border-bottom: 1px dotted #047857; }
+.sn-barra .sn-aviso { margin-left: auto; font-size: 0.72rem; color: rgba(42, 31, 26, 0.7); max-width: 28rem; }
+.sn-dialogo-ajuda { font-size: 0.8rem; color: rgba(42, 31, 26, 0.75); margin: -0.3rem 0 0.8rem; max-width: 26rem; }
+.ficha-contexto .destaque-citacao { outline: 2px solid #8B1A1A; outline-offset: 1px; }
+.ficha-contexto p[data-tei="p"] { text-indent: 0; }

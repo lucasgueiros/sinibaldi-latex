@@ -6,11 +6,22 @@ Cada bloco é UM elemento, sem prefixo nem declaração de namespace:
            <p [type] [xml:id]>         (paragrafo) <argument><p/>…</argument> (sumario)
            <fw type="header">          (cabecalho)
   inline   <hi rend>, <label>, <foreign xml:lang>, <pb n facs/>, <note place n xml:id>,
-           <fw type="header"> (cabeçalho corrente que o OCR deixou no meio de um parágrafo)
+           <fw type="header"> (cabeçalho corrente que o OCR deixou no meio de um parágrafo),
+           <quote type xml:id corresp> (citação; ver abaixo), <bibl corresp> (referência do autor)
+
+Citação (`<quote>`): o texto vai SEM aspas — quem as desenha é quem renderiza (`«»` nas diretas,
+nada nas indiretas). O 1º segmento leva `xml:id` (a chave de `Citacao`, onde ficam os dados
+estruturados); um segmento que continua a mesma citação depois de texto do autor («algo é
+assim», porém, «e assado») leva `corresp="#<id do 1º>"` e nenhum `xml:id`. `<bibl corresp>` marca
+a referência que o próprio Sinibaldi deu, «(Post. anal., l. I)», e liga-a à citação. Sem citação
+dentro de citação nem `<bibl>` dentro de `<bibl>`. `type="mencao"` (termo entre aspas, sem fonte)
+dispensa o `xml:id`.
 
 `<note>` contém só `<p>` (sem nota dentro de nota). Tudo é definido aqui; as telas
 montam barras de ferramentas a partir de `NIVEIS`, `TIPOS_PARAGRAFO`, `REND`.
 """
+import re
+
 from lxml import etree
 
 NS_XML = "http://www.w3.org/XML/1998/namespace"
@@ -42,6 +53,13 @@ TIPOS_PARAGRAFO = {
 
 REND = {"it": "Itálico", "bold": "Negrito", "sc": "Versalete"}
 
+TIPOS_CITACAO = {
+    "direta": "Citação direta",        # entre aspas; dados em Citacao
+    "indireta": "Citação indireta",    # paráfrase, sem aspas; dados em Citacao
+    "mencao": "Menção (termo entre aspas)",  # «racional», «arte das artes»: aspas sem fonte, sem dados
+}
+TIPOS_COM_DADOS = ("direta", "indireta")
+
 TIPOS_BLOCO = {
     "marco": "Marco de divisão",
     "titulo": "Título",
@@ -70,6 +88,8 @@ ATRIBUTOS = {
     "foreign": ("xml:lang",),
     "pb": ("n", "facs"),
     "note": ("place", "n", "xml:id"),
+    "quote": ("type", "xml:id", "corresp"),
+    "bibl": ("corresp",),
 }
 
 # Valores fechados de alguns atributos. None = qualquer valor não vazio.
@@ -80,10 +100,12 @@ VALORES = {
     ("fw", "type"): {"header"},
     ("hi", "rend"): set(REND),
     ("note", "place"): {"foot"},
+    ("quote", "type"): set(TIPOS_CITACAO),
 }
 
-INLINE = ("hi", "label", "foreign", "pb", "note", "fw")
-INLINE_EM_NOTA = ("hi", "label", "foreign", "pb", "fw")  # sem nota dentro de nota
+INLINE = ("hi", "label", "foreign", "pb", "note", "fw", "quote", "bibl")
+INLINE_EM_NOTA = ("hi", "label", "foreign", "pb", "fw", "quote", "bibl")  # sem nota dentro de nota
+SEM_AUTOANINHAR = ("quote", "bibl")  # nem citação dentro de citação, nem bibl dentro de bibl
 VAZIOS = ("milestone", "pb")  # elementos sem conteúdo
 
 
@@ -113,7 +135,7 @@ def permitidos_em(nome, contexto):
 
 def contexto_dos_filhos(nome, contexto):
     """Contexto de conteúdo dos filhos de `nome`, dado o contexto em que ele aparece."""
-    if nome in ("p", "head", "fw", "hi", "label", "foreign"):
+    if nome in ("p", "head", "fw", "hi", "label", "foreign", "quote", "bibl"):
         return "inline_nota" if contexto == "inline_nota" else "inline"
     return None
 
@@ -152,6 +174,29 @@ def _validar_atributos(el, nome, erros):
         erros.append('<note> exige place="foot".')
     if nome == "pb" and el.get("n") is None:
         erros.append('<pb> exige o atributo "n".')
+    if nome == "quote":
+        if el.get("type") is None:
+            erros.append('<quote> exige type="direta" ou "indireta".')
+        ident, corresp = el.get(qname_atributo("xml:id")), el.get("corresp")
+        if ident and corresp:
+            erros.append("<quote> tem xml:id (1º segmento) OU corresp (continuação), não os dois.")
+        elif not ident and not corresp and el.get("type") in TIPOS_COM_DADOS:
+            erros.append("<quote> sem xml:id nem corresp: toda citação precisa de identificador.")
+    if nome in ("quote", "bibl"):
+        corresp = el.get("corresp")
+        if corresp is not None and not re.fullmatch(r"#[A-Za-z_][\w.\-]*", corresp):
+            erros.append(f"corresp inválido em <{nome}>: {corresp!r} (esperado '#<xml:id da citação>').")
+
+
+def _dentro_de(el, nome):
+    """`el` tem um ancestral `nome` antes de qualquer <note> (a nota é outro texto)?"""
+    for a in el.iterancestors():
+        n = nome_local(a.tag)
+        if n == "note":
+            return False
+        if n == nome:
+            return True
+    return False
 
 
 def _validar_elemento(el, contexto, erros):
@@ -178,6 +223,10 @@ def _validar_elemento(el, contexto, erros):
         if nome != "p":
             erros.append(f"<note> só pode conter <p>, não <{nome}>.")
             return
+    elif nome in SEM_AUTOANINHAR and _dentro_de(el, nome):
+        erros.append("Citação dentro de citação não é permitida." if nome == "quote"
+                     else "<bibl> dentro de <bibl> não é permitido.")
+        return
     elif nome not in permitidos_em(nome, contexto):
         if nome == "note" and contexto == "inline_nota":
             erros.append("Nota dentro de nota não é permitida.")

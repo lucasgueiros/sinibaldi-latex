@@ -11,8 +11,13 @@
 //     pb        span[data-tei=pb][data-n][data-facs]                     (átomo)
 //     nota      span[data-tei=note][data-n][data-xmlid] > span[data-tei=note-p]+
 //     fwInline  span[data-tei=fw]
-//   marcas: negrito <b>, italico <i>, versalete span[data-tei=hi][data-rend=sc],
+//   marcas: citacao q[data-tei=quote][data-type][data-xmlid|data-corresp] (a mais externa),
+//           bibl cite[data-tei=bibl][data-corresp] (referência do autor),
+//           negrito <b>, italico <i>, versalete span[data-tei=hi][data-rend=sc],
 //           latim span[data-tei=foreign][lang], rotulo span[data-tei=label]
+//   A citação é uma MARCA (não um nó) para poder cobrir texto com itálico, notas e marcas de
+//   página no meio. Segmentos da mesma citação têm atributos diferentes (o 1º tem xmlid, os outros
+//   corresp) e por isso continuam elementos separados. As aspas vêm do CSS, não do texto.
 //
 // Todo bloco carrega data-bloco / data-versao (identidade e versão no servidor).
 import { Node, Mark, mergeAttributes } from "@tiptap/core";
@@ -235,6 +240,35 @@ export const CabecalhoInline = Node.create({
 
 // ---------------------------------------------------------------- marcas
 // A ordem de declaração define o aninhamento na saída (a primeira fica por fora).
+export const Citacao = Mark.create({
+  name: "citacao",
+  inclusive: false,   // digitar logo depois do fim não estende a citação
+  excludes: "citacao",
+  addAttributes() {
+    return { tipo: attr("tipo", "data-type"), xmlid: attr("xmlid", "data-xmlid"), corresp: attr("corresp", "data-corresp") };
+  },
+  parseHTML() {
+    return [{ tag: 'q[data-tei="quote"]' }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ["q", mergeAttributes({ "data-tei": "quote" }, HTMLAttributes), 0];
+  },
+});
+
+export const ReferenciaAutor = Mark.create({
+  name: "bibl",
+  inclusive: false,
+  addAttributes() {
+    return { corresp: attr("corresp", "data-corresp") };
+  },
+  parseHTML() {
+    return [{ tag: 'cite[data-tei="bibl"]' }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    return ["cite", mergeAttributes({ "data-tei": "bibl" }, HTMLAttributes), 0];
+  },
+});
+
 export const Negrito = Mark.create({
   name: "negrito",
   parseHTML() {
@@ -299,4 +333,4 @@ export const nosDoEsquema = [
   Paragrafo, Titulo, Sumario, ParagrafoSumario, Cabecalho, Marco,
   MarcaPagina, Nota, ParagrafoNota, CabecalhoInline,
 ];
-export const marcasDoEsquema = [Negrito, Italico, Versalete, Latim, Rotulo];
+export const marcasDoEsquema = [Citacao, ReferenciaAutor, Negrito, Italico, Versalete, Latim, Rotulo];

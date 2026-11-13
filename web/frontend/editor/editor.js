@@ -12,6 +12,7 @@ import { Decoration, DecorationSet } from "@tiptap/pm/view";
 
 import { nosDoEsquema, marcasDoEsquema } from "./esquema.js";
 import { dialogo } from "./dialogo.js";
+import * as cit from "./citacoes.js";
 import { postarJSON } from "./rede.js";
 
 const ESQUEMA_PADRAO = {
@@ -22,6 +23,7 @@ const ESQUEMA_PADRAO = {
     "anexo-titulo": "Título no anexo", indice: "Entrada do índice",
   },
   rend: { it: "Itálico", bold: "Negrito", sc: "Versalete" },
+  tipos_citacao: { direta: "Citação direta", indireta: "Citação indireta", mencao: "Menção (termo entre aspas)" },
   prefixos_id: { anexo: "anexo", parte: "parte", seccao: "sec", capitulo: "cap", artigo: "art", tese: "t" },
 };
 
@@ -266,6 +268,21 @@ function criarBarra(host, editor, cfg, api) {
     (v) => converterSelecao(editor, v),
   ).value = "-";
   sep();
+  const naCitacao = () => !!cit.marcaNoCursor(editor.state, "citacao");
+  const naBibl = () => !!cit.marcaNoCursor(editor.state, "bibl");
+  botao("«Cit»", "Citação: marca a seleção (direta, indireta, menção ou continuação de outra); no cursor de uma citação, muda o tipo ou desfaz. Digitar « … » também cria a citação.",
+    () => cit.citar(editor, cfg), { ativo: naCitacao, desativado: () => editor.state.selection.empty && !naCitacao() });
+  botao("(Ref.)", "Referência do autor: liga o trecho selecionado — ex.: (Sum. Th., I, q. 2) — a uma citação; no cursor de uma referência, desfaz",
+    () => cit.referenciar(editor), { ativo: naBibl, desativado: () => editor.state.selection.empty && !naBibl() });
+  if (cfg.urlCitacao) {
+    botao("Ficha", "Abre a ficha da citação sob o cursor (fonte, páginas, tradução, BibTeX) numa nova aba",
+      () => cit.abrirDados(editor, cfg), { desativado: () => !cit.chaveNoCursor(editor.state) });
+  }
+  if (cfg.urlConverter) {
+    botao("Aspas→cit.", "Reconhecer citações: transforma em citação todo trecho entre aspas desta tela (e a referência entre parênteses que vem logo depois). Desfazível com Ctrl+Z.",
+      () => api.detectarCitacoes());
+  }
+  sep();
   botao("Nota", "Inserir nota de rodapé", () => api.inserirNota(), { desativado: () => dentroDeNota(editor.state) });
   botao("[pág.]", "Inserir marca de página", () => api.inserirMarcaPagina());
   sep();
@@ -275,9 +292,19 @@ function criarBarra(host, editor, cfg, api) {
     (v) => api.iniciarDivisao(v),
   );
 
+  const aviso = document.createElement("span");
+  aviso.className = "sn-aviso";
+  aviso.setAttribute("role", "status");
+  barra.appendChild(aviso);
   host.appendChild(barra);
   const atualizar = () => itens.forEach((i) => i.atualizar());
-  return { atualizar, barra };
+  let relogio = null;
+  const avisar = (txt) => {
+    aviso.textContent = txt || "";
+    clearTimeout(relogio);
+    if (txt) relogio = setTimeout(() => (aviso.textContent = ""), 9000);
+  };
+  return { atualizar, barra, avisar };
 }
 
 // ------------------------------------------------------------------ montar
@@ -300,6 +327,7 @@ export function montar(elemento, opcoes = {}) {
           props: {
             // Marco/pb selecionados nunca são substituídos por digitação ou colagem.
             handleTextInput(view, _from, _to, texto) {
+              if (!colando && cit.regraDeDigitacao(view, texto, cfg)) return true;
               const at = atomoSelecionado(view.state);
               if (at) {
                 if (at.type.name === "marco") {
@@ -481,6 +509,13 @@ export function montar(elemento, opcoes = {}) {
       editor.view.dispatch(editor.state.tr.setNodeMarkup(pos, null, { ...atual.attrs, unit: r.unit, n: r.n || null, xmlid: r.xmlid || null }));
     },
   };
+  api.detectarCitacoes = async () => {
+    if (!editor.isEditable) return;
+    const r = await cit.detectar(editor, cfg, htmlParaDoc);
+    const msg = r.erros.length ? "Não foi possível reconhecer: " + r.erros.join(" ") : r.relatorio;
+    if (barra) barra.avisar(msg);
+    return r;
+  };
   editor.storage.sinibaldi.editarMarco = (pos) => api.editarMarco(pos);
 
   let barra = null;
@@ -543,6 +578,8 @@ export function montar(elemento, opcoes = {}) {
       editor.view.dispatch(editor.state.tr.setMeta("sn-redecorar", true));
     },
     focar: () => editor.commands.focus(),
+    /** Reconhece as citações pelas aspas (servidor). -> {relatorio, erros} */
+    detectarCitacoes: () => api.detectarCitacoes(),
     /** Converte o conteúdo atual via servidor: `{xml, erros}` (usa `urlConverter`). */
     async obterXml() {
       const r = await postarJSON(cfg.urlConverter, { de: "html", conteudo: editor.getHTML() }, cfg.csrf);

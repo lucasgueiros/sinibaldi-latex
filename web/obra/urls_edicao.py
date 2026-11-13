@@ -1,6 +1,7 @@
 """Área restrita: revisão da edição 1916/17 e telas da nova edição."""
 from django.urls import path
 
+from . import views_citacoes as ct
 from . import views_edicao as v
 from . import views_nova as n
 from . import views_slides as sl
@@ -16,6 +17,14 @@ urlpatterns = [
     path("1916/vol/<int:numero>/", v.paginas, name="paginas"),
     path("1916/vol/<int:numero>/pag/<sint:seq>/", v.revisar, name="revisar"),
     path("1916/vol/<int:numero>/pag/<sint:seq>/gravar/", v.gravar, name="gravar"),
+    # citações e fontes
+    path("citacoes/", ct.lista, name="citacoes"),
+    path("citacoes/lote/", ct.lote, name="citacoes_lote"),
+    path("citacoes/<str:xml_id>/", ct.editar, name="citacao_editar"),
+    path("fontes/", ct.fontes, name="fontes"),
+    path("fontes/nova/", ct.fonte, name="fonte_nova"),
+    path("fontes/<int:pk>/", ct.fonte, name="fonte_editar"),
+    path("fontes.bib", ct.fontes_bib, name="fontes_bib"),
     # slides
     path("slides/", sl.lista, name="slides_lista"),
     path("slides/<slug:slug>/<str:xml_id>/", sl.editor, name="slides_editor"),

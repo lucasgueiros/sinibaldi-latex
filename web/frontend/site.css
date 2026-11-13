@@ -138,6 +138,14 @@
   .obra-edicao [data-tei="note"] { @apply my-2 block rounded-sm border border-gold bg-parchment-dark px-3 py-1.5 text-sm leading-snug; }
   .obra-edicao [data-tei="note"]::before { content: "nota"; @apply mr-2 font-display text-[0.6rem] tracking-[0.12em] text-gold-dark; }
   .obra-edicao [data-tei="note-p"] { @apply block; text-indent: 0; }
+  /* Citações: o texto não tem aspas; «externas» e “internas” vêm daqui (padrão do projeto). Indireta: sem aspas. */
+  .obra q[data-tei="quote"] { quotes: "«" "»" "“" "”"; }
+  .obra q[data-tei="quote"][data-type="indireta"]::before, .obra q[data-tei="quote"][data-type="indireta"]::after { content: none; }
+  .obra q[data-tei="quote"] .ref-precisa { @apply not-italic; }
+  .obra cite[data-tei="bibl"] { font-style: normal; }
+  .obra .ref-precisa { font-style: normal; }
+  .obra .ref-precisa i { font-style: italic; }
+  .obra .ref-original { @apply cursor-help underline decoration-dotted decoration-gold-dark/60 underline-offset-2; }
 }
 
 @media print {

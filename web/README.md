@@ -38,6 +38,7 @@ Utilitários e testes:
 .venv/bin/python manage.py exportar_tei --edicao 1916 --volume 2 -o /tmp/vol2.xml   # [--forcar]
 .venv/bin/python manage.py sincronizar_nova_edicao [--aplicar]                       # ver "Pendências"
 .venv/bin/python manage.py aplicar_componentes [--aplicar] [--edicao 1916|nova]   # ver "Componentes"
+.venv/bin/python manage.py marcar_citacoes [--aplicar]                             # ver "Citações"
 .venv/bin/python manage.py test obra
 ```
 
@@ -166,6 +167,22 @@ inicial e final (última marca `[data-tei="pb"]` antes de cada ponta da seleçã
 
 Página fora do conjunto de páginas do volume é descartada (usa a do trecho); trecho acima de 5000 caracteres é recusado
 com 400, nunca truncado. Nada é gravado no banco.
+
+## Citações (`citacoes.py`, `servicos_citacoes.py`, `referencias.py`, `views_citacoes.py`, `frontend/editor/citacoes.js`)
+
+Detalhes e medições em `docs/10-citacoes.md`. No dialeto, `<quote type="direta|indireta|mencao" xml:id>`
+(continuação de citação interrompida: `corresp="#id"`) e `<bibl corresp>` (a referência que Sinibaldi deu); o
+texto não tem aspas — o CSS/LaTeX desenha `«»`. Os dados ficam em `Citacao` (chave = `xml:id`, comum às duas
+edições; indexada a cada `salvar_blocos`) e `Fonte` (entrada BibTeX).
+
+- `manage.py marcar_citacoes [--aplicar] [--edicao 1916|nova] [--volume N] [--exemplos N] [--reindexar]`:
+  reconhecimento pelas aspas; na nova, as cópias exatas herdam o xml marcado (mesmos ids).
+- Editor: botões **«Cit»** (marcar/continuar/mudar tipo/desfazer), **(Ref.)**, **Ficha**, **Aspas→cit.**
+  (`converter` com `{"detectar": true, "prefixo": "v2."}`); digitar `«…»` cria a citação.
+- `/edicao-colaborativa/citacoes/` (`citacoes`, `citacoes_lote`, `citacao_editar`), `/edicao-colaborativa/fontes/`
+  (`fontes`, `fonte_nova`, `fonte_editar`), `fontes.bib` (`fontes_bib`, `?usadas=1`).
+- Saídas: na nova, leitura, `.txt`, `.tex`/PDF (`tei2latex.py --citacoes precisa`) trocam a referência de
+  Sinibaldi pela precisa; o TEI exportado leva `<back><div type="citacoes">` com fontes e fichas.
 
 ## Nova edição (`/edicao-colaborativa/nova/`, `views_nova.py`, `servicos_nova.py`, `partes.py`)
 
