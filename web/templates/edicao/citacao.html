@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Citação {{ c.xml_id }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="citacoes" %}
+  {% include "includes/mensagens.html" %}
+  <p class="text-sm"><a class="text-crimson hover:underline" href="{% url 'obra:citacoes' %}">&larr; Citações</a>
+    {% if anterior %} &middot; <a class="text-crimson hover:underline" href="{% url 'obra:citacao_editar' anterior.xml_id %}">&lsaquo; anterior a conferir</a>{% endif %}
+    {% if proxima %} &middot; <a class="text-crimson hover:underline" href="{% url 'obra:citacao_editar' proxima.xml_id %}">próxima a conferir &rsaquo;</a>{% endif %}
+  </p>
+  <h1 class="mt-2 font-display text-2xl text-crimson">Citação <code class="text-lg">{{ c.xml_id }}</code></h1>
+  <p class="mt-1 text-sm text-ink/70">
+    {{ c.get_tipo_display }} &middot; <span class="etiqueta {% if c.estado == 'referenciada' %}etiqueta-neutra{% elif c.estado == 'revista' %}etiqueta-ouro{% else %}etiqueta-carmim{% endif %}">{{ c.get_estado_display }}</span>
+    {% if not c.ativa %}&middot; <b class="text-red-800">não está mais no texto</b>{% endif %}
+    {% if autor %}&middot; última alteração por {{ autor }} em {{ c.atualizado_em|date:"d/m/Y H:i" }}{% endif %}
+  </p>
+
+  <div class="mt-6 grid gap-6 lg:grid-cols-2">
+    <section class="space-y-4">
+      <div class="painel">
+        <header class="painel-cabeca"><span>Na edição de Sinibaldi</span>{% if c.volume %}<span>vol. {{ c.volume.numero }}, p. {{ impressa }}</span>{% endif %}</header>
+        <div class="painel-corpo space-y-2 text-sm">
+          {% if sinibaldi %}
+            <p>Chamada (ABNT): <code>{{ sinibaldi.chamada }}</code></p>
+            <p>BibTeX: <code>\cite[v.~{{ c.volume.numero }}, p.~{{ impressa }}]&#123;{{ sinibaldi.chave }}&#125;</code></p>
+            <details><summary class="cursor-pointer text-crimson">Entrada .bib da edição</summary><pre class="mt-1 overflow-x-auto rounded-sm bg-parchment-dark p-2 text-xs">{{ sinibaldi.bibtex }}</pre></details>
+          {% endif %}
+          <p>Referência dada pelo autor: {% if c.referencia_autor %}<b>{{ c.referencia_autor }}</b>{% else %}<i>nenhuma</i>{% endif %}</p>
+        </div>
+      </div>
+      {% for l in locais %}
+      <div class="painel">
+        <header class="painel-cabeca">
+          <span>{{ l.edicao.titulo }}{% if l.volume %} &middot; vol. {{ l.volume.numero }}, p. {{ l.impressa }}{% endif %}</span>
+          <span class="text-xs">
+            {% if l.url_publico %}<a class="hover:underline" href="{{ l.url_publico }}">texto</a>{% endif %}
+            {% if l.url_editor %} &middot; <a class="hover:underline" href="{{ l.url_editor }}">editor</a>{% endif %}
+            {% if l.url_scan %} &middot; <a class="hover:underline" href="{{ l.url_scan }}">fac-símile</a>{% endif %}
+          </span>
+        </header>
+        <div class="painel-corpo obra obra-edicao sn-editor ficha-contexto text-base">{{ l.html|safe }}</div>
+      </div>
+      {% empty %}
+      <p class="mensagem border-amber-600 bg-amber-50 text-sm text-amber-900">Esta citação não aparece em nenhum bloco (foi desfeita ou o texto mudou). A ficha fica guardada.</p>
+      {% endfor %}
+    </section>
+
+    <section>
+      <form method="post" class="painel">
+        {% csrf_token %}
+        <header class="painel-cabeca"><span>Dados da citação</span></header>
+        <div class="painel-corpo space-y-3">
+          {% if form.non_field_errors %}<div class="mensagem border-red-700 bg-red-50 text-red-900" role="alert">{% for e in form.non_field_errors %}<p>{{ e }}</p>{% endfor %}</div>{% endif %}
+          <div class="grid gap-3 sm:grid-cols-2">
+            {% include "edicao/_campo.html" with f=form.tipo %}
+            {% include "edicao/_campo.html" with f=form.estado %}
+          </div>
+          <h2 class="font-display text-sm tracking-[0.08em] text-crimson">O que Sinibaldi cita</h2>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {% include "edicao/_campo.html" with f=form.autor_citado %}
+            {% include "edicao/_campo.html" with f=form.obra_citada %}
+          </div>
+          {% include "edicao/_campo.html" with f=form.lugar %}
+          <h2 class="font-display text-sm tracking-[0.08em] text-crimson">Onde está (edição crítica)</h2>
+          <div class="grid gap-3 sm:grid-cols-3">
+            {% include "edicao/_campo.html" with f=form.fonte classe="sm:col-span-2" %}
+            {% include "edicao/_campo.html" with f=form.pagina_fonte %}
+          </div>
+          {% include "edicao/_campo.html" with f=form.texto_fonte %}
+          <h2 class="font-display text-sm tracking-[0.08em] text-crimson">Tradução recente</h2>
+          <div class="grid gap-3 sm:grid-cols-3">
+            {% include "edicao/_campo.html" with f=form.traducao classe="sm:col-span-2" %}
+            {% include "edicao/_campo.html" with f=form.pagina_traducao %}
+          </div>
+          {% include "edicao/_campo.html" with f=form.texto_traducao %}
+          {% include "edicao/_campo.html" with f=form.nota %}
+          <p class="text-xs">
+            <a class="text-crimson hover:underline" href="{% url 'obra:fonte_nova' %}?papel=critica&amp;volta={{ request.path|urlencode }}">+ nova edição crítica</a> &middot;
+            <a class="text-crimson hover:underline" href="{% url 'obra:fonte_nova' %}?papel=traducao&amp;volta={{ request.path|urlencode }}">+ nova tradução</a>
+            (grave antes o que já preencheu aqui)
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <button class="btn btn-primario btn-sm">Gravar</button>
+            <button class="btn btn-secundario btn-sm" name="seguir" value="1">Gravar e ir à próxima a conferir</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="painel mt-4">
+        <header class="painel-cabeca"><span>Referência na nova edição</span></header>
+        <div class="painel-corpo space-y-2 text-sm">
+          {% if ref_html %}
+            <p class="obra"><span class="ref-precisa">{{ ref_html|safe }}</span></p>
+            <p class="text-xs text-ink/60">Substitui {% if c.referencia_autor %}«{{ c.referencia_autor }}»{% else %}— (Sinibaldi não deu referência: é acrescentada depois da citação){% endif %} no site e no PDF da nova edição.</p>
+            <p>LaTeX: <code class="break-all">{{ ref_latex }}</code></p>
+            {% if autocite %}<p>biblatex: <code>{{ autocite }}</code></p>{% endif %}
+          {% else %}
+            <p class="text-ink/60">Preencha autor, obra, lugar ou a fonte para gerar a referência.</p>
+          {% endif %}
+          {% if bib %}<details open><summary class="cursor-pointer text-crimson">BibTeX das fontes</summary><pre class="mt-1 overflow-x-auto rounded-sm bg-parchment-dark p-2 text-xs">{{ bib }}</pre></details>{% endif %}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

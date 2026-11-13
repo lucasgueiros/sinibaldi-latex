@@ -4,6 +4,7 @@ O documento é uma **sequência plana de blocos** (`Bloco`, ordenados por `ordem
 dentro de uma `Edicao`); a hierarquia (`No`) é derivada dos blocos `marco`.
 """
 from django.conf import settings
+from django.core.validators import RegexValidator
 from django.db import models
 
 from . import esquema
@@ -265,3 +266,117 @@ class Sugestao(models.Model):
 
     def __str__(self):
         return f"Sugestão #{self.pk} ({self.get_estado_display()})"
+
+
+# ------------------------------------------------------------------ citações
+CHAVE_BIBTEX = r"^[A-Za-z][A-Za-z0-9_:.\-]*$"
+
+
+class Fonte(models.Model):
+    """Obra citada, como entrada bibliográfica (BibTeX): o original, uma edição crítica, uma tradução.
+
+    Os nomes seguem a convenção BibTeX («Sobrenome, Nome and Sobrenome, Nome»)."""
+
+    ENTRADAS = [("book", "Livro (book)"), ("incollection", "Capítulo em coletânea (incollection)"),
+                ("inbook", "Parte de livro (inbook)"), ("article", "Artigo (article)"),
+                ("online", "Recurso on-line (online)"), ("misc", "Outro (misc)")]
+    ORIGINAL, CRITICA, TRADUCAO, OUTRA = "original", "critica", "traducao", "outra"
+    PAPEIS = [(CRITICA, "Edição crítica"), (TRADUCAO, "Tradução"), (ORIGINAL, "Edição antiga / original"),
+              (OUTRA, "Outra")]
+
+    chave = models.CharField(max_length=80, unique=True, validators=[
+        RegexValidator(CHAVE_BIBTEX, "Chave BibTeX: letra inicial, depois letras, dígitos, _ : . -")],
+        help_text="Chave BibTeX (ex.: aquino-leonina-posteriora).")
+    entrada = models.CharField(max_length=14, choices=ENTRADAS, default="book")
+    papel = models.CharField(max_length=10, choices=PAPEIS, default=CRITICA)
+    abreviatura = models.CharField(max_length=80, blank=True,
+                                   help_text="Como aparece nas referências curtas (ex.: «ed. Leonina»).")
+    autor = models.CharField(max_length=300, blank=True, help_text="Ex.: Thomas Aquinas")
+    editor = models.CharField(max_length=300, blank=True, help_text="Organizador/editor crítico.")
+    tradutor = models.CharField(max_length=300, blank=True)
+    titulo = models.CharField(max_length=400)
+    subtitulo = models.CharField(max_length=400, blank=True)
+    titulo_maior = models.CharField(max_length=400, blank=True,
+                                    help_text="Obra/coletânea que contém esta (booktitle/maintitle; ex.: Opera omnia).")
+    serie = models.CharField(max_length=200, blank=True)
+    volume = models.CharField(max_length=40, blank=True)
+    edicao = models.CharField(max_length=40, blank=True, help_text="Número da edição (2, 3…).")
+    local = models.CharField(max_length=120, blank=True)
+    editora = models.CharField(max_length=200, blank=True)
+    ano = models.CharField(max_length=20, blank=True)
+    paginas = models.CharField(max_length=40, blank=True, help_text="Páginas do capítulo/artigo, se for o caso.")
+    periodico = models.CharField(max_length=200, blank=True, help_text="Só em artigo (journaltitle).")
+    idioma = models.CharField(max_length=40, blank=True)
+    isbn = models.CharField(max_length=40, blank=True)
+    doi = models.CharField(max_length=120, blank=True)
+    url = models.URLField(max_length=400, blank=True)
+    nota = models.TextField(blank=True)
+    traducao_de = models.ForeignKey("self", null=True, blank=True, on_delete=models.SET_NULL, related_name="traducoes",
+                                    help_text="Numa tradução: a edição (crítica) traduzida.")
+    criado_em = models.DateTimeField(auto_now_add=True)
+    atualizado_em = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["autor", "titulo", "ano"]
+
+    def __str__(self):
+        return f"{self.chave} — {self.titulo}"
+
+    def bibtex(self):
+        from . import referencias
+        return referencias.bibtex(self)
+
+
+class Citacao(models.Model):
+    """Dados estruturados de uma citação do texto (`<quote xml:id>`), comuns às duas edições.
+
+    Identificada pelo `xml:id` do 1º segmento (os blocos da nova copiam os ids da 1916). Os campos
+    `texto`, `referencia_autor`, `volume`/`pagina` e `ativa` são preenchidos pela indexação
+    (`servicos_citacoes.indexar`); os demais, pelo editor."""
+
+    DIRETA, INDIRETA = "direta", "indireta"
+    TIPOS = [(DIRETA, "Direta"), (INDIRETA, "Indireta")]
+    DETECTADA, REVISTA, REFERENCIADA = "detectada", "revista", "referenciada"
+    ESTADOS = [(DETECTADA, "Detectada (a conferir)"), (REVISTA, "Conferida no texto"),
+               (REFERENCIADA, "Com referência precisa")]
+
+    xml_id = models.CharField(max_length=80, unique=True)
+    tipo = models.CharField(max_length=10, choices=TIPOS, default=DIRETA)
+    estado = models.CharField(max_length=13, choices=ESTADOS, default=DETECTADA, db_index=True)
+    # o que Sinibaldi cita
+    autor_citado = models.CharField(max_length=200, blank=True, help_text="Ex.: Tomás de Aquino")
+    obra_citada = models.CharField(max_length=300, blank=True, help_text="Ex.: In Posteriorum Analyticorum")
+    lugar = models.CharField(max_length=200, blank=True,
+                             help_text="Lugar canônico, independente da edição (ex.: lib. I, lect. 1, n. 3).")
+    # o que está no texto (indexação)
+    texto = models.TextField(blank=True, help_text="Texto citado, como está na edição (segmentos unidos por […]).")
+    referencia_autor = models.CharField(max_length=400, blank=True,
+                                        help_text="Referência que Sinibaldi deu, como impressa.")
+    volume = models.ForeignKey(Volume, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
+    pagina = models.IntegerField(null=True, blank=True, help_text="seq do scan (edição de 1916/17) onde a citação começa.")
+    ativa = models.BooleanField(default=True, help_text="Falso se a citação não está mais em nenhum bloco.")
+    # referência precisa (nova edição)
+    fonte = models.ForeignKey(Fonte, null=True, blank=True, on_delete=models.SET_NULL, related_name="citacoes",
+                              help_text="Edição (crítica) onde o texto está.")
+    pagina_fonte = models.CharField(max_length=60, blank=True, help_text="Página(s) na fonte (ex.: 5 ou 5-6).")
+    texto_fonte = models.TextField(blank=True, help_text="O texto como está na fonte (ex.: o latim da Leonina).")
+    traducao = models.ForeignKey(Fonte, null=True, blank=True, on_delete=models.SET_NULL, related_name="citacoes_traduzidas")
+    pagina_traducao = models.CharField(max_length=60, blank=True)
+    texto_traducao = models.TextField(blank=True)
+    nota = models.TextField(blank=True, help_text="Nota do editor (não publicada).")
+    criado_em = models.DateTimeField(auto_now_add=True)
+    atualizado_em = models.DateTimeField(auto_now=True)
+    atualizado_por = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True,
+                                       on_delete=models.SET_NULL, related_name="+")
+
+    class Meta:
+        ordering = ["volume", "pagina", "xml_id"]
+        verbose_name = "citação"
+        verbose_name_plural = "citações"
+
+    def __str__(self):
+        return f"{self.xml_id}: {self.texto[:60]}"
+
+    @property
+    def tem_referencia(self):
+        return self.fonte_id is not None

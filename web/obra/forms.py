@@ -2,7 +2,7 @@
 from django import forms
 from django.core.validators import MaxLengthValidator
 
-from .models import Bloco, Sugestao
+from .models import Bloco, Citacao, Fonte, Sugestao
 
 LIMITE_TRECHO = 2000
 LIMITE_SUGESTAO = 5000
@@ -57,3 +57,70 @@ class SugestaoForm(forms.ModelForm):
         if commit:
             s.save()
         return s
+
+
+# ----------------------------------------------------------------------- citações (área restrita)
+class _ComCampos:
+    """Põe a classe `campo` (CSS do projeto) em todos os widgets."""
+
+    def _estilizar(self):
+        for f in self.fields.values():
+            f.widget.attrs["class"] = (f.widget.attrs.get("class", "") + " campo mt-1").strip()
+
+
+class FonteForm(_ComCampos, forms.ModelForm):
+    class Meta:
+        model = Fonte
+        fields = ["chave", "papel", "entrada", "abreviatura", "autor", "editor", "tradutor", "titulo", "subtitulo",
+                  "titulo_maior", "serie", "volume", "edicao", "local", "editora", "ano", "paginas", "periodico",
+                  "idioma", "isbn", "doi", "url", "traducao_de", "nota"]
+        widgets = {"nota": forms.Textarea(attrs={"rows": 2})}
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self.fields["traducao_de"].queryset = Fonte.objects.exclude(papel=Fonte.TRADUCAO)
+        if self.instance.pk:
+            self.fields["traducao_de"].queryset = self.fields["traducao_de"].queryset.exclude(pk=self.instance.pk)
+        self._estilizar()
+
+
+def _rotulo_fonte(f):
+    return f"{f.get_papel_display()}: {f.abreviatura or f.titulo} [{f.chave}]"
+
+
+class CitacaoForm(_ComCampos, forms.ModelForm):
+    class Meta:
+        model = Citacao
+        fields = ["tipo", "estado", "autor_citado", "obra_citada", "lugar", "fonte", "pagina_fonte", "texto_fonte",
+                  "traducao", "pagina_traducao", "texto_traducao", "nota"]
+        widgets = {"texto_fonte": forms.Textarea(attrs={"rows": 3}), "texto_traducao": forms.Textarea(attrs={"rows": 3}),
+                   "nota": forms.Textarea(attrs={"rows": 2})}
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self.fields["fonte"].queryset = Fonte.objects.order_by("papel", "autor", "titulo")
+        self.fields["traducao"].queryset = Fonte.objects.filter(papel=Fonte.TRADUCAO).order_by("autor", "titulo")
+        self.fields["fonte"].label_from_instance = _rotulo_fonte
+        self.fields["traducao"].label_from_instance = _rotulo_fonte
+        self._estilizar()
+
+    def clean(self):
+        d = super().clean()
+        if d.get("fonte"):   # com fonte, a citação está referenciada
+            d["estado"] = Citacao.REFERENCIADA
+        return d
+
+
+class CitacoesEmLoteForm(_ComCampos, forms.Form):
+    """Mesmos dados para várias citações (ex.: todas as da *Summa* recebem autor, obra e edição)."""
+    autor_citado = forms.CharField(required=False, max_length=200)
+    obra_citada = forms.CharField(required=False, max_length=300)
+    fonte = forms.ModelChoiceField(queryset=Fonte.objects.all(), required=False)
+    traducao = forms.ModelChoiceField(queryset=Fonte.objects.filter(papel=Fonte.TRADUCAO), required=False)
+    estado = forms.ChoiceField(choices=[("", "— manter —")] + Citacao.ESTADOS, required=False)
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self.fields["fonte"].label_from_instance = _rotulo_fonte
+        self.fields["traducao"].label_from_instance = _rotulo_fonte
+        self._estilizar()

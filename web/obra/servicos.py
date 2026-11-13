@@ -1,4 +1,5 @@
 """Operações de escrita sobre os blocos (sempre transacionais e com autoria)."""
+import logging
 import uuid
 from dataclasses import dataclass, field
 
@@ -12,6 +13,9 @@ from .models import PASSO_ORDEM, Bloco, Edicao, No, Pagina, Revisao
 
 
 XML_ID = esquema.qname_atributo("xml:id")
+
+
+logger = logging.getLogger(__name__)
 
 
 class ErroValidacao(Exception):
@@ -117,11 +121,18 @@ def salvar_blocos(edicao, ids_no_escopo, novos, autor, comentario="", volume=Non
         raise ErroValidacao(erros)
     _verificar_ids_livres(edicao, list(ids_no_escopo), novos)
     try:
-        return _salvar(edicao, list(ids_no_escopo), novos, autor, comentario, volume, pagina, ancora, 0)
+        res = _salvar(edicao, list(ids_no_escopo), novos, autor, comentario, volume, pagina, ancora, 0)
     except _Recomecar:
         with transaction.atomic():
             _renumerar(edicao)
-        return _salvar(edicao, list(ids_no_escopo), novos, autor, comentario, volume, pagina, ancora, 1)
+        res = _salvar(edicao, list(ids_no_escopo), novos, autor, comentario, volume, pagina, ancora, 1)
+    if res.alterou and any("<quote" in b.xml for b in res.blocos):
+        from . import servicos_citacoes
+        try:
+            servicos_citacoes.indexar_blocos(res.blocos)
+        except Exception:   # o texto já foi gravado; o cadastro se refaz com `marcar_citacoes --reindexar`
+            logger.exception("Falha ao indexar as citações do lote %s", res.lote)
+    return res
 
 
 def _verificar_ids_livres(edicao, ids_no_escopo, novos):

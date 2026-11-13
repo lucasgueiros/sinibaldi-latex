@@ -19,6 +19,13 @@ Mapeamento (preambulo.tex): <pb n> -> \\pg{n}  (dentro de nota -> \\pgn{n});  <f
 div tese com <label> + <hi rend="bold"> iniciais -> \\tese{n}{enunciado};  <hi rend="it"> ->
 \\emph;  bold -> \\textbf;  sc -> \\textsc;  <quote> em bloco -> ambiente latim.
 
+Citacoes (dialeto do site, web/obra/esquema.py): <quote type="direta|mencao"> -> «…» (o texto nao
+tem aspas; as internas ja vem como “ ”), type="indireta" -> sem aspas; <bibl corresp> e a referencia
+que Sinibaldi deu.  --citacoes escolhe o que sai no lugar dela, com os dados de
+<back>/<div type="citacoes"> (exportados pelo site): `original` (padrao: o texto de Sinibaldi),
+`precisa` (a referencia precisa entre parenteses; sem <bibl>, ela vem depois do ultimo segmento) ou
+`biblatex` (\autocite; --bib grava o .bib das fontes).
+
 A grafia nunca e modernizada aqui; --grafia atual so escolhe <reg>/<corr> em vez de <orig>/<sic>
 onde o TEI as marcou.  Elementos desconhecidos sao percorridos (texto preservado) e listados
 no fim, no stderr.
@@ -80,8 +87,33 @@ def ln(e):
     return etree.QName(e).localname
 
 
+def ler_citacoes(raiz):
+    """<back>/<div type=citacoes> -> ({chave: {'referencia': <note>, 'biblatex': str}}, [bibtex])."""
+    dados, bib = {}, []
+    for b in raiz.iter(T("bibl")):
+        lista = b.getparent()
+        if lista is None or ln(lista) != "listBibl":
+            continue
+        if lista.get("type") == "citacoes" and b.get("corresp"):
+            d = dados.setdefault(b.get("corresp").lstrip("#"), {})
+            for n in b.findall(T("note")):
+                if n.get("type") == "referencia":
+                    d["referencia"] = n
+                elif n.get("type") == "biblatex":
+                    d["biblatex"] = (n.text or "").strip()
+        elif lista.get("type") == "fontes":
+            for n in b.findall(T("note")):
+                if n.get("type") == "bibtex" and (n.text or "").strip():
+                    bib.append(n.text.strip())
+    return dados, bib
+
+
+def chave_cit(e):
+    return e.get(f"{{{XML}}}id") or (e.get("corresp") or "").lstrip("#") or None
+
+
 class Conv:
-    def __init__(self, grafia="original", de=None, ate=None):
+    def __init__(self, grafia="original", de=None, ate=None, citacoes="original", dados_cit=None, corpo=None):
         self.escolhe = ("reg", "corr") if grafia == "atual" else ("orig", "sic")
         self.de, self.ate = de, ate
         self.pagina = None          # n da ultima <pb> vista (impressa, int)
@@ -90,6 +122,26 @@ class Conv:
         self.desconhecidos = Counter()
         self.avisos = []
         self.contagem = Counter()
+        self.modo_cit = citacoes
+        self.dados_cit = dados_cit or {}
+        self.ultimo_seg, self.com_bibl = {}, set()
+        if corpo is not None:
+            for q in corpo.iter(T("quote")):
+                k = chave_cit(q)
+                if k:
+                    self.ultimo_seg[k] = q
+            self.com_bibl = {chave_cit(b) for b in corpo.iter(T("bibl"))}
+
+    def referencia(self, k):
+        """LaTeX da referência da citação `k` no modo pedido, ou None (fica a de Sinibaldi)."""
+        d = self.dados_cit.get(k)
+        if not d or self.modo_cit == "original":
+            return None
+        if self.modo_cit == "biblatex" and d.get("biblatex"):
+            return d["biblatex"]
+        if d.get("referencia") is not None:
+            return "(" + self.inline(d["referencia"]).strip() + ")"
+        return None
 
     def dentro(self):
         """a posicao atual esta na faixa de paginas pedida?"""
@@ -133,7 +185,22 @@ class Conv:
             return rf"\emph{{{corpo}}}" if (n == "emph" or c.get(f"{{{XML}}}lang")) else corpo
         if n == "quote":
             corpo = self.inline(c, em_nota)
-            return rf"\emph{{{corpo}}}" if c.get(f"{{{XML}}}lang") == "la" else rf"``{corpo}''"
+            tipo = c.get("type")
+            if tipo is None:                    # TEI antigo, sem o tipo do site
+                return rf"\emph{{{corpo}}}" if c.get(f"{{{XML}}}lang") == "la" else rf"``{corpo}''"
+            self.contagem["citacoes"] += 1
+            if c.get(f"{{{XML}}}lang") == "la":
+                corpo = rf"\emph{{{corpo}}}"
+            s = corpo if tipo == "indireta" else f"«{corpo}»"
+            k = chave_cit(c)
+            if k and k not in self.com_bibl and self.ultimo_seg.get(k) is c:
+                ref = self.referencia(k)
+                if ref:
+                    s += " " + ref
+            return s
+        if n == "bibl":
+            ref = self.referencia(chave_cit(c))
+            return ref if ref is not None else self.inline(c, em_nota)
         if n == "choice":
             for f in c:
                 if isinstance(f.tag, str) and ln(f) in self.escolhe:
@@ -337,6 +404,9 @@ def main():
     ap.add_argument("-l", "--ate", type=int, help="última página impressa")
     ap.add_argument("--grafia", choices=["original", "atual"], default="original",
                     help="original: <orig>/<sic> (padrão); atual: <reg>/<corr>")
+    ap.add_argument("--citacoes", choices=["original", "precisa", "biblatex"], default="original",
+                    help="referência das citações: a de Sinibaldi (padrão), a precisa do cadastro ou \\autocite")
+    ap.add_argument("--bib", help="grava aqui o .bib das fontes citadas (de <back>)")
     ap.add_argument("--puro", action="store_true",
                     help="sem as linhas de compilação avulsa (para \\input no livro)")
     a = ap.parse_args()
@@ -350,7 +420,10 @@ def main():
     if corpo is None:
         sys.exit(f"{a.xml}: TEI sem <text><body>")
 
-    c = Conv(a.grafia, a.de, a.ate)
+    dados_cit, bib = ler_citacoes(arv.getroot())
+    if a.bib:
+        Path(a.bib).write_text("\n\n".join(bib) + "\n", encoding="utf-8")
+    c = Conv(a.grafia, a.de, a.ate, a.citacoes, dados_cit, corpo)
     saida = []
     c.corpo(corpo, saida)
     c.notas_orfas(saida)
@@ -368,7 +441,8 @@ def main():
     else:
         sys.stdout.write(texto)
 
-    print(f"{c.contagem['p']} parágrafos, {c.contagem['notas']} notas", file=sys.stderr)
+    print(f"{c.contagem['p']} parágrafos, {c.contagem['notas']} notas, {c.contagem['citacoes']} citações",
+          file=sys.stderr)
     for av in c.avisos:
         print("aviso:", av, file=sys.stderr)
     if c.desconhecidos:

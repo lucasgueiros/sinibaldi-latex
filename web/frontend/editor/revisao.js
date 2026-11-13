@@ -50,6 +50,7 @@
     html: dados.html,
     esquema,
     urlConverter: dados.urlConverter,
+    urlCitacao: dados.urlCitacao,
     csrf: dados.csrf,
     prefixoId: dados.prefixoId,
     pagina: dados.pagina,

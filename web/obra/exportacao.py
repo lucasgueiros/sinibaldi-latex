@@ -23,7 +23,7 @@ from django.conf import settings
 from django.db.models import Count, Max
 from lxml import etree
 
-from . import leitura, tei
+from . import citacoes, leitura, referencias, tei
 from .models import Bloco, Pagina, Volume
 
 _ESP = re.compile(r"[ \t]+")
@@ -106,10 +106,102 @@ def _tei_de_blocos(edicao, blocos, titulo, volume=None, autores=(), paginas=None
     if volume is not None:
         arq = {s: a for s, a in Pagina.objects.filter(volume=volume).values_list("seq", "arquivo")}
     prefixo = f"v{volume.numero}." if volume is not None else ""
-    raiz = tei.aninhar(blocos, titulo=titulo, arquivos=arq, remover_prefixo=prefixo)
+    chaves = set()
+
+    def vistos(bs):   # junta as chaves de citação enquanto `aninhar` consome os blocos
+        for b in bs:
+            if "<quote" in b.xml:
+                chaves.update(citacoes.ocorrencias_xml(b.xml))
+            yield b
+
+    raiz = tei.aninhar(vistos(blocos), titulo=titulo, arquivos=arq, remover_prefixo=prefixo)
     antigo = raiz.find(f"{{{NS}}}teiHeader")
     raiz.replace(antigo, _cabecalho(edicao, titulo, autores, volume, paginas, escopo))
+    back = _back_citacoes(chaves, prefixo)
+    if back is not None:
+        raiz.find(f"{{{NS}}}text").append(back)
     return tei.serializar_tei(raiz)
+
+
+def _id_fonte(chave):
+    return "fonte-" + re.sub(r"[^\w.\-]", "_", chave)
+
+
+def _segmentos_tei(pai, seg):
+    """Segmentos (texto, itálico) como conteúdo misto TEI de `pai` (itálico = <hi rend="it">)."""
+    for t, it in seg:
+        if it:
+            _e(pai, "hi", t, rend="it")
+        elif len(pai):
+            pai[-1].tail = (pai[-1].tail or "") + t
+        else:
+            pai.text = (pai.text or "") + t
+
+
+def _back_citacoes(chaves, prefixo=""):
+    """`<back>` com as fontes (`listBibl type=fontes`) e os dados de cada citação
+    (`listBibl type=citacoes`, um `<bibl corresp>` por citação), ou None se não houver dados.
+    `note type=referencia` traz a referência precisa pronta (usada por tools/tei2latex.py)."""
+    from .models import Citacao
+    cs = list(Citacao.objects.filter(xml_id__in=chaves).select_related("fonte", "traducao").order_by("volume", "pagina"))
+    if not cs:
+        return None
+    back = etree.Element(f"{{{NS}}}back")
+    div = _e(back, "div", type="citacoes")
+    fontes = {}
+    for c in cs:
+        for f in (c.fonte, c.traducao):
+            if f is not None:
+                fontes[f.chave] = f
+    if fontes:
+        lb = _e(div, "listBibl", type="fontes")
+        for f in fontes.values():
+            b = _e(lb, "bibl", type=f.papel)
+            b.set(tei.XML_ID, _id_fonte(f.chave))
+            for attr, nome in (("autor", "author"), ("editor", "editor"), ("tradutor", "editor")):
+                for n in [x.strip() for x in (getattr(f, attr) or "").split(" and ") if x.strip()]:
+                    el = _e(b, nome, n)
+                    if attr == "tradutor":
+                        el.set("role", "translator")
+            _e(b, "title", f.titulo, level="m" if f.entrada == "book" else "a")
+            if f.titulo_maior:
+                _e(b, "title", f.titulo_maior, level="m" if f.entrada != "book" else "s")
+            for attr, nome in (("local", "pubPlace"), ("editora", "publisher"), ("ano", "date")):
+                if getattr(f, attr):
+                    _e(b, nome, getattr(f, attr))
+            if f.volume:
+                _e(b, "biblScope", f.volume, unit="volume")
+            _e(b, "idno", f.chave, type="bibtex")
+            _e(b, "note", f.bibtex(), type="bibtex")
+            if f.abreviatura:
+                _e(b, "abbr", f.abreviatura)
+            for attr in ("doi", "isbn", "url"):
+                if getattr(f, attr):
+                    _e(b, "idno", getattr(f, attr), type=attr.upper() if attr != "url" else "URI")
+    lc = _e(div, "listBibl", type="citacoes")
+    for c in cs:
+        alvo = c.xml_id[len(prefixo):] if prefixo and c.xml_id.startswith(prefixo) else c.xml_id
+        b = _e(lc, "bibl", type=c.tipo, corresp="#" + alvo, ana=c.estado)
+        if c.autor_citado:
+            _e(b, "author", c.autor_citado)
+        if c.obra_citada:
+            _e(b, "title", c.obra_citada)
+        if c.lugar:
+            _e(b, "citedRange", c.lugar, unit="lugar")
+        for papel, f, pag in (("fonte", c.fonte, c.pagina_fonte), ("traducao", c.traducao, c.pagina_traducao)):
+            if f is not None:
+                _e(b, "ptr", type=papel, target="#" + _id_fonte(f.chave))
+                if pag:
+                    _e(b, "citedRange", pag, unit="page", type=papel)
+        if c.referencia_autor:
+            _e(b, "note", c.referencia_autor, type="original")
+        seg = referencias.partes(c)
+        if seg:
+            _segmentos_tei(_e(b, "note", type="referencia"), seg)
+        cite = referencias.autocite(c)
+        if cite:
+            _e(b, "note", cite, type="biblatex")
+    return back
 
 
 def _paginas(no, imp):
@@ -137,8 +229,20 @@ def tei_do_volume(edicao, volume):
 
 
 # ---------------------------------------------------------------------------- texto
-def _texto_inline(el, notas, impressa):
+def _texto_inline(el, notas, impressa, dados=None, nova=False):
+    """Texto de um elemento. Citações diretas e menções entre «»; na nova edição (`nova`) com
+    `dados` ({xml_id: Citacao}), a referência de Sinibaldi dá lugar à precisa."""
     partes = []
+    refs = {}
+    if dados:
+        for k, c in dados.items():
+            seg = referencias.partes(c)
+            if seg:
+                refs[k] = referencias.texto(seg)
+    com_bibl = {(b.get("corresp") or "").lstrip("#") for b in el.iter("bibl")}
+    ultimos = {}
+    for q in el.iter("quote"):
+        ultimos[citacoes.chave(q)] = q
 
     def rec(e):
         if e.text:
@@ -153,8 +257,18 @@ def _texto_inline(el, notas, impressa):
             elif c.tag == "fw":
                 pass  # cabeçalho corrente que o OCR deixou no meio do parágrafo
             elif c.tag == "note":
-                notas.append(c)
+                notas.append((c, dados, nova))   # a nota leva os dados de citação do bloco
                 partes.append(f"[{len(notas)}]")
+            elif c.tag == "quote":
+                aspas = c.get("type") != "indireta"
+                partes.append("«" if aspas else "")
+                rec(c)
+                partes.append("»" if aspas else "")
+                k = citacoes.chave(c)
+                if nova and k in refs and k not in com_bibl and ultimos.get(k) is c:
+                    partes.append(" " + refs[k])
+            elif c.tag == "bibl" and nova and citacoes.chave(c) in refs:
+                partes.append(refs[citacoes.chave(c)])
             else:
                 rec(c)
             if c.tail:
@@ -178,6 +292,7 @@ def texto_do_no(no):
     `[pág. N]` (página impressa) a cada mudança de página."""
     mapa = leitura.impressas()
     saida, notas = [titulo_do_no(no), no.edicao.titulo + "\n"], []
+    cache, nova = leitura.DadosCitacoes(), no.edicao.tipo == no.edicao.NOVA
     atual = None
     for b in blocos_do_no(no).iterator(chunk_size=500):
         if b.tipo == Bloco.CABECALHO or b.tipo == Bloco.MARCO:
@@ -192,17 +307,20 @@ def texto_do_no(no):
         if b.pagina is not None and b.pagina != atual:
             saida.append(f"[pág. {impressa(b.pagina)}]")
             atual = b.pagina
+        dados = cache.para(b.xml) if "<quote" in b.xml else None
         if b.tipo == Bloco.SUMARIO:
-            saida.append("\n".join(_texto_inline(p, notas, impressa) for p in el))
+            saida.append("\n".join(_texto_inline(p, notas, impressa, dados, nova) for p in el))
         else:
-            saida.append(_texto_inline(el, notas, impressa))
+            saida.append(_texto_inline(el, notas, impressa, dados, nova))
         u = tei.ultima_pagina(el)
         if u is not None:
             atual = u
     if notas:
         saida.append("— Notas —")
         for i, n in enumerate(notas, 1):
-            corpo = " ".join(_texto_inline(p, [], lambda x: str(x)) for p in n) if len(n) else _texto_inline(n, [], str)
+            n, d, nv = n
+            corpo = (" ".join(_texto_inline(p, [], str, d, nv) for p in n) if len(n)
+                     else _texto_inline(n, [], str, d, nv))
             saida.append(f"[{i}] {corpo}")
     saida.append("—\n" + _rodape_texto(no))
     return "\n\n".join(s for s in saida if s) + "\n"
@@ -217,6 +335,7 @@ p[data-type]{text-indent:0;border-left:3px solid #c9a86a;padding-left:.7rem;marg
 [data-tei=pb]::before{content:"[" attr(data-n) "]";color:#8a6d2b;font:.72rem sans-serif;margin:0 .3rem}
 [data-tei=argument]{font-size:.95rem;text-align:justify;margin:1.5rem auto;max-width:36rem}[data-tei=argument]::before{content:"Summario:";font-variant:small-caps;letter-spacing:.08em}[data-tei=argument]>p{display:inline;margin:0;text-indent:0}[data-tei=argument]>p::before{content:" — "}p[data-type=anexo-titulo]{border:0;padding-left:0;text-align:center;font-variant:small-caps;margin:1.2rem 0 .3rem;text-indent:0}p[data-type=indice]{border:0;margin:.2rem 0;padding-left:1.5rem;text-indent:-1.5rem;text-align:left}
 [data-tei=milestone]{margin:1.6rem 0;border-top:1px solid #d9c9a3}
+q[data-tei=quote]{quotes:"«" "»" "“" "”"}q[data-type=indireta]::before,q[data-type=indireta]::after{content:none}cite[data-tei=bibl]{font-style:normal}
 sup a{text-decoration:none;color:#6b1414}.notas{font-size:.85rem;border-top:1px solid #bbb;margin-top:2rem;padding-top:.5rem}
 .fonte{font-size:.8rem;color:#666;border-top:1px solid #ddd;margin-top:2rem;padding-top:.6rem}"""
 
@@ -224,7 +343,8 @@ sup a{text-decoration:none;color:#6b1414}.notas{font-size:.85rem;border-top:1px 
 def html_do_no(no):
     """HTML autônomo (str) do nó, com as notas no fim e CSS embutido."""
     corpo, notas = leitura.renderizar(blocos_do_no(no).iterator(chunk_size=500), impressas_=leitura.impressas(),
-                                      modo="offline")
+                                      modo="offline", citacoes=leitura.DadosCitacoes(),
+                                      nova=no.edicao.tipo == no.edicao.NOVA)
     partes = [corpo]
     if notas:
         partes.append('<section class="notas"><h2>Notas</h2><ol>')
@@ -257,7 +377,7 @@ def dir_cache():
 def _versao(no):
     """Chave de invalidação: nó + contagem e última alteração dos blocos."""
     ag = blocos_do_no(no).aggregate(n=Count("id"), m=Max("atualizado_em"), v=Max("versao"))
-    bruto = f"{no.edicao.slug}|{no.xml_id}|{no.titulo}|{ag['n']}|{ag['m']}|{ag['v']}"
+    bruto = f"{no.edicao.slug}|{no.xml_id}|{no.titulo}|{ag['n']}|{ag['m']}|{ag['v']}|{_versao_citacoes()}"
     return hashlib.sha1(bruto.encode()).hexdigest()[:16]
 
 
@@ -294,7 +414,7 @@ class _Trava:
         self.f.close()
 
 
-def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT):
+def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT, opcoes=()):
     """Caminho do .tex autônomo (em cache, nome = `chave`) a partir do TEI de `gerar_tei()`."""
     cache = dir_cache()
     alvo = cache / f"{chave}.tex"
@@ -308,7 +428,7 @@ def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT):
             xml, frag = Path(tmp) / "trecho.xml", Path(tmp) / "trecho.frag.tex"
             xml.write_text(gerar_tei(), encoding="utf-8")
             try:
-                r = subprocess.run([sys.executable, str(script), str(xml), "-o", str(frag), "--puro"],
+                r = subprocess.run([sys.executable, str(script), str(xml), "-o", str(frag), "--puro", *opcoes],
                                    capture_output=True, text=True, timeout=timeout, cwd=str(_raiz_repo()))
             except subprocess.TimeoutExpired:
                 raise ErroExportacao("A conversão para LaTeX demorou demais. Tente um trecho menor.")
@@ -323,7 +443,7 @@ def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT):
 
 def latex_do_no(no):
     """Caminho do .tex autônomo do nó (em cache). Levanta ErroExportacao."""
-    return _latex(_versao(no), lambda: tei_do_no(no), titulo_do_no(no))
+    return _latex(_versao(no), lambda: tei_do_no(no), titulo_do_no(no), opcoes=_opcoes_citacao(no.edicao))
 
 
 def blocos_do_volume(edicao, volume):
@@ -332,14 +452,27 @@ def blocos_do_volume(edicao, volume):
 
 def _versao_volume(edicao, volume):
     ag = blocos_do_volume(edicao, volume).aggregate(n=Count("id"), m=Max("atualizado_em"), v=Max("versao"))
-    bruto = f"{edicao.slug}|vol{volume.numero}|{ag['n']}|{ag['m']}|{ag['v']}"
+    bruto = f"{edicao.slug}|vol{volume.numero}|{ag['n']}|{ag['m']}|{ag['v']}|{_versao_citacoes()}"
     return "vol-" + hashlib.sha1(bruto.encode()).hexdigest()[:16]
 
 
 def latex_do_volume(edicao, volume):
     """Caminho do .tex autônomo de um volume inteiro da edição (em cache). Levanta ErroExportacao."""
     return _latex(_versao_volume(edicao, volume), lambda: tei_do_volume(edicao, volume),
-                  f"{TITULO_OBRA}, vol. {volume.numero}", timeout=TEX_TIMEOUT_VOLUME)
+                  f"{TITULO_OBRA}, vol. {volume.numero}", timeout=TEX_TIMEOUT_VOLUME, opcoes=_opcoes_citacao(edicao))
+
+
+def _opcoes_citacao(edicao):
+    """Na nova edição, a referência de Sinibaldi dá lugar à precisa (ver `referencias.partes`)."""
+    return ("--citacoes", "precisa") if edicao.tipo == edicao.NOVA else ()
+
+
+def _versao_citacoes():
+    """Parte da chave de cache que muda quando qualquer ficha de citação/fonte muda."""
+    from .models import Citacao, Fonte
+    a = Citacao.objects.aggregate(n=Count("id"), m=Max("atualizado_em"))
+    f = Fonte.objects.aggregate(n=Count("id"), m=Max("atualizado_em"))
+    return f"{a['n']}|{a['m']}|{f['n']}|{f['m']}"
 
 
 def tempo_limite_pdf(n_blocos):

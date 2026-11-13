@@ -169,7 +169,8 @@ def no(request, slug, xml_id):
                         origens[b.pk] = _url_no("1916", alvo.xml_id, b.origem_id)
     volumes = {v.pk: v for v in Volume.objects.all()}
     html, notas = leitura.renderizar(blocos, impressas_=imp, modo="web", url_facsimile=_fabrica_url_fac(volumes), origens=origens,
-                                     volumes=({} if ed.tipo == Edicao.NOVA else None))
+                                     volumes=({} if ed.tipo == Edicao.NOVA else None),
+                                     citacoes=leitura.DadosCitacoes(), nova=ed.tipo == Edicao.NOVA)
     ctx = {
         "edicao": ed, "nova": ed.tipo == Edicao.NOVA, "no": n, "caminho": arv.caminho(n)[:-1], "titulo_no": leitura.titulo_do_no(n),
         "html": html, "notas": notas, "filhos": filhos, "inteiro": inteiro, "pode_tudo": pode_tudo,
@@ -239,7 +240,8 @@ def facsimile(request, volume, seq):
     html, notas = "", []
     if lado:
         html, notas = leitura.renderizar(blocos, impressas_=leitura.impressas(), modo="web",
-                                         url_facsimile=_fabrica_url_fac(), prefixo_id="f-")
+                                         url_facsimile=_fabrica_url_fac(), prefixo_id="f-",
+                                         citacoes=leitura.DadosCitacoes())
     return render(request, "publico/facsimile.html", {
         "volume": vol, "pag": pag, "anterior": anterior, "proxima": proxima, "no_pagina": no_p,
         "ed16": ed16, "lado": lado, "html": html, "notas": notas,

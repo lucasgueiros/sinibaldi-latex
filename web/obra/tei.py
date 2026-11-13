@@ -105,7 +105,25 @@ def _valido(nome, el):
         return el.get("rend") in esquema.REND
     if nome == "milestone":
         return el.get("unit") in NIVEIS
+    if nome == "quote":
+        t = el.get("type")
+        return t in esquema.TIPOS_CITACAO and (t == "mencao" or bool(el.get(XML_ID) or el.get("corresp")))
     return True
+
+
+def _autoaninhado(nome, dst):
+    """Citação dentro de citação (ou bibl em bibl), sem nota no meio: desembrulha."""
+    if nome not in esquema.SEM_AUTOANINHAR:
+        return False
+    e = dst
+    while e is not None:
+        n = nome_local(e.tag)
+        if n == "note":
+            return False
+        if n == nome:
+            return True
+        e = e.getparent()
+    return False
 
 
 def _copiar_conteudo(src, dst, ctx, rel, prefixo):
@@ -119,7 +137,7 @@ def _copiar_filho(c, dst, ctx, rel, prefixo):
     if not isinstance(c.tag, str):
         return
     nome = nome_local(c.tag)
-    if nome in permitidos_em(None, ctx) and _valido(nome, c):
+    if nome in permitidos_em(None, ctx) and _valido(nome, c) and not _autoaninhado(nome, dst):
         novo = etree.SubElement(dst, nome)
         _definir_attrs(novo, nome, c, rel, prefixo)
         if nome == "note":
@@ -337,6 +355,9 @@ def aninhar(blocos, *, titulo="Elementos de Philosophia", autores=(), revisoes=(
                     v = e.get(XML_ID)
                     if v and v.startswith(remover_prefixo):
                         e.set(XML_ID, v[len(remover_prefixo):])
+                    v = e.get("corresp")
+                    if v and v.startswith("#" + remover_prefixo):
+                        e.set("corresp", "#" + v[len(remover_prefixo) + 1:])
         nome = el.tag
         if nome == "milestone":
             idx = NIVEIS_ORDEM.index(el.get("unit"))
@@ -408,6 +429,10 @@ def _html_elemento(el, ctx):
         h = _h("span", tei="pb", data_n=g("n"), data_facs=g("facs"), contenteditable="false")
     elif nome == "anchor":
         h = _h("span", tei="anchor", data_type=g("type"), contenteditable="false")
+    elif nome == "quote":
+        h = _h("q", tei="quote", data_type=g("type"), data_xmlid=g(XML_ID), data_corresp=g("corresp"))
+    elif nome == "bibl":
+        h = _h("cite", tei="bibl", data_corresp=g("corresp"))
     else:  # não deveria ocorrer em fragmento válido
         h = _h("span", tei=f"desconhecido-{nome}")
     filho_ctx = "argumento" if nome == "argument" else "nota" if nome == "note" else "inline"
@@ -481,6 +506,10 @@ def _bruto(h):
         nome, attrs = "pb", {"n": g("data-n"), "facs": g("data-facs")}
     elif dt == "anchor":
         nome, attrs = "anchor", {"type": g("data-type")}
+    elif dt == "quote":
+        nome, attrs = "quote", {"type": g("data-type"), XML_ID: g("data-xmlid"), "corresp": g("data-corresp")}
+    elif dt == "bibl":
+        nome, attrs = "bibl", {"corresp": g("data-corresp")}
     elif tag == "p":
         nome, attrs = "p", {XML_ID: g("data-xmlid")}
     else:

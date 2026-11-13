@@ -1,0 +1,7 @@
+{# Um campo de formulário. Uso: {% include "edicao/_campo.html" with f=form.titulo %} #}
+<div class="{{ classe|default:'' }}">
+  <label class="text-sm font-semibold" for="{{ f.id_for_label }}">{{ f.label }}</label>
+  {{ f }}
+  {% if f.help_text %}<p class="mt-0.5 text-xs text-ink/60">{{ f.help_text }}</p>{% endif %}
+  {% for e in f.errors %}<p class="text-sm text-red-800" role="alert">{{ e }}</p>{% endfor %}
+</div>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{% if obj %}Fonte {{ obj.chave }}{% else %}Nova fonte{% endif %}{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="citacoes" %}
+  {% include "includes/mensagens.html" %}
+  <p class="text-sm"><a class="text-crimson hover:underline" href="{{ volta|default:'' }}{% if not volta %}{% url 'obra:fontes' %}{% endif %}">&larr; {% if volta %}Voltar{% else %}Fontes{% endif %}</a></p>
+  <h1 class="mt-2 font-display text-2xl text-crimson">{% if obj %}Fonte <code class="text-lg">{{ obj.chave }}</code>{% else %}Nova fonte{% endif %}</h1>
+  <p class="mt-1 text-sm text-ink/70">Nomes como no BibTeX: «Sobrenome, Nome and Sobrenome, Nome». A <b>abreviatura</b> é o que aparece nas referências curtas do texto (ex.: «ed. Leonina, t. 1*/2»).</p>
+  <div class="mt-6 grid gap-6 lg:grid-cols-3">
+    <form method="post" class="painel lg:col-span-2">
+      {% csrf_token %}
+      <input type="hidden" name="volta" value="{{ volta }}">
+      <div class="painel-corpo grid gap-3 sm:grid-cols-2">
+        {% if form.non_field_errors %}<div class="mensagem border-red-700 bg-red-50 text-red-900 sm:col-span-2" role="alert">{% for e in form.non_field_errors %}<p>{{ e }}</p>{% endfor %}</div>{% endif %}
+        {% for f in form %}
+          {% include "edicao/_campo.html" with f=f %}
+        {% endfor %}
+        <div class="sm:col-span-2"><button class="btn btn-primario btn-sm">Gravar</button></div>
+      </div>
+    </form>
+    <aside class="space-y-4">
+      {% if bib %}<div class="painel"><header class="painel-cabeca"><span>BibTeX</span></header><pre class="painel-corpo overflow-x-auto text-xs">{{ bib }}</pre></div>{% endif %}
+      {% if citacoes %}
+      <div class="painel"><header class="painel-cabeca"><span>Citações com esta fonte</span></header>
+        <ul class="painel-corpo space-y-1 text-sm">{% for c in citacoes %}<li><a class="text-crimson hover:underline" href="{% url 'obra:citacao_editar' c.xml_id %}">«{{ c.texto|truncatechars:60 }}»</a>{% if c.pagina_fonte %}, p. {{ c.pagina_fonte }}{% endif %}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+    </aside>
+  </div>
+</div>
+{% endblock %}

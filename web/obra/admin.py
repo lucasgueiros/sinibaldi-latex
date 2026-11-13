@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Apresentacao, ApresentacaoRevisao, Bloco, Edicao, No, Pagina, Revisao, Sugestao, Volume
+from .models import (Apresentacao, ApresentacaoRevisao, Bloco, Citacao, Edicao, Fonte, No, Pagina, Revisao, Sugestao,
+                     Volume)
 
 
 @admin.register(Edicao)
@@ -72,3 +73,18 @@ class ApresentacaoRevisaoAdmin(admin.ModelAdmin):
     list_display = ("pk", "criado_em", "edicao", "xml_id", "acao", "autor")
     list_filter = ("edicao", "acao")
     raw_id_fields = ("autor",)
+
+
+@admin.register(Fonte)
+class FonteAdmin(admin.ModelAdmin):
+    list_display = ("chave", "papel", "autor", "titulo", "ano")
+    list_filter = ("papel", "entrada")
+    search_fields = ("chave", "titulo", "autor", "abreviatura")
+
+
+@admin.register(Citacao)
+class CitacaoAdmin(admin.ModelAdmin):
+    list_display = ("xml_id", "tipo", "estado", "volume", "pagina", "autor_citado", "fonte", "ativa")
+    list_filter = ("estado", "tipo", "ativa", "volume")
+    search_fields = ("xml_id", "texto", "referencia_autor", "autor_citado", "obra_citada")
+    raw_id_fields = ("fonte", "traducao", "atualizado_por")
