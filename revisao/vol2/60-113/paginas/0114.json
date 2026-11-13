@@ -1,0 +1,27 @@
+{
+ "pagina": 114,
+ "paginas": [
+  114
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: \"lect. ID\" → \"lect. II\" (OCR de dígitos); removido \"|\" espúrio no fim do fragmento. Demais texto, itálicos e pontuação conferem com a imagem.\nFronteira corpo/nota: nenhuma mudança. A nota 1 começa no pé da p. 114 e termina em \"a. 5).\" dentro do trecho, como na imagem; o \"(1)\" do corpo está representado pelo atributo n, como exigido.\nDúvidas: nenhuma relevante; a fonte de \"De\" em \"(De Ver.)\" foi mantida itálica como no fragmento original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: \"lect. ID\" → \"lect. II\" (OCR de dígitos); removido \"|\" espúrio no fim do fragmento. Demais texto, itálicos e pontuação conferem com a imagem.\nFronteira corpo/nota: nenhuma mudança. A nota 1 começa no pé da p. 114 e termina em \"a. 5).\" dentro do trecho, como na imagem; o \"(1)\" do corpo está representado pelo atributo n, como exigido.\nDúvidas: nenhuma relevante; a fonte de \"De\" em \"(De Ver.)\" foi mantida itálica como no fragmento original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0027362000000000003,
+ "duration_ms": 15390,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9912,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 3490
+ },
+ "reparo": false
+}

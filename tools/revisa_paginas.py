@@ -274,6 +274,31 @@ class Contexto:
         k = self.idx[n]
         return self.textos[k + 1] if k + 1 < len(self.textos) else ""
 
+    def anterior(self, n, dirp=None):
+        """Texto do pedaço anterior (já revisado, se houver)."""
+        k = self.idx[n]
+        if k == 0:
+            return ""
+        if dirp is not None:
+            n_ant = [m for m, i in self.idx.items() if i == k - 1][0]
+            rev = dirp / f"{n_ant:04d}.revisado.xml"
+            if rev.exists():
+                return rev.read_text(encoding="utf-8")
+        return self.textos[k - 1]
+
+    def dica_ja_transcrito(self, n, dirp):
+        """Uma nota do pedaço anterior que chega à página n (pb dentro de <note>): o fim dessa nota, no pé da
+        página n, JÁ está transcrito lá.  Sem este aviso o modelo vê a página inteira, não acha o texto no
+        fragmento e o "repõe" no corpo (vol. 2 p. 90: 2,7 mil car. duplicados)."""
+        ant = self.anterior(n, dirp)
+        ate = max([int(x) for nt in re.findall(r"<note\b.*?</note>", ant, flags=re.S)
+                   for x in re.findall(r'<pb n="(\d+)"', nt)] or [0])
+        if ate < n:
+            return ""
+        return (f"Atenção: uma nota do trecho anterior continua até a página {ate}. O fim dessa nota (letra pequena, no "
+                f"alto da área de notas da página {n}, antes da nota \"(1)\" desta página) JÁ foi transcrito no trecho "
+                "anterior: NÃO o acrescente a este fragmento, nem ao corpo nem a nota.")
+
     def documento(self, n, novo):
         k = self.idx[n]
         return self.prefixo + "".join(self.textos[:k]) + novo + "".join(self.textos[k + 1:]) + self.sufixo
@@ -345,6 +370,11 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
     ga, gb, gs = ngramas(texto), ngramas(novo), ngramas(ctx.seguinte(n))
     dup = sum(1 for g, c in gb.items() if c > ga.get(g, 0) and ga.get(g, 0) > 0)
     copia = sum(1 for g in gb if g not in ga and g in gs)
+    ga_ant = ngramas(ctx.anterior(n))
+    copia_ant = sum(1 for g in gb if g not in ga and g in ga_ant)
+    if copia_ant > COPIA_MAX:
+        return (f"copiou ~{copia_ant + NGRAMA - 1} palavras que já estão no trecho anterior (fim de nota que "
+                "continua de lá e já foi transcrito)"), None
     if dup > DUP_MAX:
         return f"texto duplicado dentro do trecho (~{dup + NGRAMA - 1} palavras repetidas)", None
     if copia > COPIA_MAX:
@@ -531,6 +561,9 @@ def mensagem(n, texto, pags, args, ctx, aviso=""):
     if n in ctx.limites:
         extra += " " + ctx.limites[n]
     dica = ctx.dica_continuacao(n, args.saida / "paginas")
+    if dica:
+        extra += " " + dica
+    dica = ctx.dica_ja_transcrito(n, args.saida / "paginas")
     if dica:
         extra += " " + dica
     alertas = [f"  p. {p}: {m}" for p in pags for m in args.alertas.get(p, [])]

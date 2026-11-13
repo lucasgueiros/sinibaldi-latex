@@ -1,0 +1,29 @@
+{
+ "pagina": 74,
+ "paginas": [
+  74,
+  75,
+  76
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (um., apoia.se, plujsico, iarmonía, anünistas, Philüo, Lamarse, Ginther, investiear, \"1o homem\", \"q. (6\", \"IL\", \"eo\", \"a dotado\", \"completa, Esta\", \"&amp;\" → \"a\"), acentos e pontuação (\"intellectual?\", \"pergunta-se:\", \"intellectual. Logo\"), itálico/negrito (\"e\" não itálico, \"principaes\" sem negrito, título da nota 48 em negrito contínuo), cabeçalho \"ARTIGO II\" em caixa alta conforme a imagem, e \"á outra\" → \"a outra\".\nFronteiras corpo/nota: mantidas. A nota n74-1 (p. 74) fecha após \"que residem\" e continua em p. 75 (rodapé) até \"espirito.\"; a nota n75-1 (p. 75) continua em p. 76 (rodapé) até \"a. 3.\". O trecho \"ella, e todavia doveria… accidente.\" no alto da área de notas de p. 74 é continuação de nota anterior ao trecho e não foi acrescentado.\nDúvidas: grafia de \"séde\" e \"Nós admittimos\" (espaçamento irregular na imagem) mantidas como aparecem; \"ARTIGO II\" foi alterado de \"Artigo II.\" seguindo a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (um., apoia.se, plujsico, iarmonía, anünistas, Philüo, Lamarse, Ginther, investiear, \"1o homem\", \"q. (6\", \"IL\", \"eo\", \"a dotado\", \"completa, Esta\", \"&amp;\" → \"a\"), acentos e pontuação (\"intellectual?\", \"pergunta-se:\", \"intellectual. Logo\"), itálico/negrito (\"e\" não itálico, \"principaes\" sem negrito, título da nota 48 em negrito contínuo), cabeçalho \"ARTIGO II\" em caixa alta conforme a imagem, e \"á outra\" → \"a outra\".\nFronteiras corpo/nota: mantidas. A nota n74-1 (p. 74) fecha após \"que residem\" e continua em p. 75 (rodapé) até \"espirito.\"; a nota n75-1 (p. 75) continua em p. 76 (rodapé) até \"a. 3.\". O trecho \"ella, e todavia doveria… accidente.\" no alto da área de notas de p. 74 é continuação de nota anterior ao trecho e não foi acrescentado.\nDúvidas: grafia de \"séde\" e \"Nós admittimos\" (espaçamento irregular na imagem) mantidas como aparecem; \"ARTIGO II\" foi alterado de \"Artigo II.\" seguindo a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0155443,
+ "duration_ms": 96392,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24153,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 26258
+ },
+ "reparo": false
+}

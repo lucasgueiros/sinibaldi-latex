@@ -1,0 +1,27 @@
+{
+ "pagina": 62,
+ "paginas": [
+  62
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"Firmo\"→\"FILHO\", \"Dmgus\"→\"DEus\", \"4\"→\"á\", \"Eº\"→\"E'\", \"vé\"→\"vê\", \"differenca\"→\"differença\", versalete de FILHO/DEus) e cabeçalho \"45.\" passado a negrito inteiro, como na imagem.\nFronteira corpo/nota: sem alterações; a nota 1 (p. 62) está corretamente fechada após \"distinctas.\", e o texto abaixo do filete é todo nota.\nDúvidas: caixa/versalete de \"Jesus Christo\" e \"DEus\" e o itálico exato de \"um só\" na última linha podem divergir do impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"Firmo\"→\"FILHO\", \"Dmgus\"→\"DEus\", \"4\"→\"á\", \"Eº\"→\"E'\", \"vé\"→\"vê\", \"differenca\"→\"differença\", versalete de FILHO/DEus) e cabeçalho \"45.\" passado a negrito inteiro, como na imagem.\nFronteira corpo/nota: sem alterações; a nota 1 (p. 62) está corretamente fechada após \"distinctas.\", e o texto abaixo do filete é todo nota.\nDúvidas: caixa/versalete de \"Jesus Christo\" e \"DEus\" e o itálico exato de \"um só\" na última linha podem divergir do impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0055831,
+ "duration_ms": 34994,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10941,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8978
+ },
+ "reparo": false
+}

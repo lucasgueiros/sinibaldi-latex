@@ -1,0 +1,28 @@
+{
+ "pagina": 60,
+ "paginas": [
+  60,
+  61
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (\"corp»\", \"9a\"/\"80a\" espúrios, \"pes-/soa\" junto, \"Isto á\", \"ex —\", \"&amp;pplieadas\", \"conscencia\", \"xir\"→xiii, \"lib. 1v.\"→iv, \"1.\"/\"9.9)\"→1.º)/3.º), \"insuflicientes\", \"sô\", \"distineção\", ponto espúrio, \"Na verdade\" sem itálico), cabeçalho \"ARTIGO I\" e negrito das teses 43/44 e do título do artigo conforme a imagem.\nFronteira: nenhuma mudança de corpo/nota; a nota 1 (chamada \"pessoa\") atravessa p. 60→61 com o `<pb n=\"61\"/>` interno no ponto certo, e termina no rodapé da p. 61. Acrescentado (possível perda do pipeline) \"CAPITULO TERCEIRO\" e o sumário no início da p. 60, como `<p>`, pois não estavam no fragmento.\nDúvidas: itálico de \"fóra\" (segundo argumento) e de \"o eu\" em \"diz que o eu não é só a alma\" (p. 60, nota) não tenho certeza na imagem; mantive o que estava (exceto \"fóra\", tirei o itálico); se o pipeline já tiver o capítulo/sumário em outro fragmento, remover essas duas linhas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (\"corp»\", \"9a\"/\"80a\" espúrios, \"pes-/soa\" junto, \"Isto á\", \"ex —\", \"&amp;pplieadas\", \"conscencia\", \"xir\"→xiii, \"lib. 1v.\"→iv, \"1.\"/\"9.9)\"→1.º)/3.º), \"insuflicientes\", \"sô\", \"distineção\", ponto espúrio, \"Na verdade\" sem itálico), cabeçalho \"ARTIGO I\" e negrito das teses 43/44 e do título do artigo conforme a imagem.\nFronteira: nenhuma mudança de corpo/nota; a nota 1 (chamada \"pessoa\") atravessa p. 60→61 com o `<pb n=\"61\"/>` interno no ponto certo, e termina no rodapé da p. 61. Acrescentado (possível perda do pipeline) \"CAPITULO TERCEIRO\" e o sumário no início da p. 60, como `<p>`, pois não estavam no fragmento.\nDúvidas: itálico de \"fóra\" (segundo argumento) e de \"o eu\" em \"diz que o eu não é só a alma\" (p. 60, nota) não tenho certeza na imagem; mantive o que estava (exceto \"fóra\", tirei o itálico); se o pipeline já tiver o capítulo/sumário em outro fragmento, remover essas duas linhas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0121799,
+ "duration_ms": 77242,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17569,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 20846
+ },
+ "reparo": false
+}

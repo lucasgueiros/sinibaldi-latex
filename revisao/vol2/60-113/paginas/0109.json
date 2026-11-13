@@ -1,0 +1,31 @@
+{
+ "pagina": 109,
+ "paginas": [
+  109,
+  110,
+  111,
+  112,
+  113
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: restaurada a linha \"dições\" perdida no topo da p. 109; OCR (fac./fae., \"Il\", \"éndeterminadas\", \"Aypnotismo\", \"wasaes\", \"Da lus\", \"§ 3\", \"orgão amimado\", \"quo\", \"á\" por \"a\", etc.); removidos \"|\" espúrios, \"8 Vol. II\" e a letra/números errados em referências (p. I, q. 75, a. 3; q. 78, a. 3); corrigida formatação itálica. Fronteiras corpo/nota mantidas como estavam: nenhuma nota foi movida, criada ou fechada; as continuações (p. 110, 111, 112, 113) já estavam nas posições corretas.\nDúvidas: \"Alem d'isso\" (sem til) mantido como no impresso; se \"só\" (p. 111) é itálico na imagem, não foi marcado; \"a grandeza\"/\"a quietação\" tratados como \"a\" romano.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: restaurada a linha \"dições\" perdida no topo da p. 109; OCR (fac./fae., \"Il\", \"éndeterminadas\", \"Aypnotismo\", \"wasaes\", \"Da lus\", \"§ 3\", \"orgão amimado\", \"quo\", \"á\" por \"a\", etc.); removidos \"|\" espúrios, \"8 Vol. II\" e a letra/números errados em referências (p. I, q. 75, a. 3; q. 78, a. 3); corrigida formatação itálica. Fronteiras corpo/nota mantidas como estavam: nenhuma nota foi movida, criada ou fechada; as continuações (p. 110, 111, 112, 113) já estavam nas posições corretas.\nDúvidas: \"Alem d'isso\" (sem til) mantido como no impresso; se \"só\" (p. 111) é itálico na imagem, não foi marcado; \"a grandeza\"/\"a quietação\" tratados como \"a\" romano.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0237618,
+ "duration_ms": 139024,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 39648,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 39594
+ },
+ "reparo": false
+}

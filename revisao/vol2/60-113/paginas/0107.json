@@ -1,0 +1,27 @@
+{
+ "pagina": 107,
+ "paginas": [
+  107
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: \"Sum. th.\" (não \"t/.\"), \"F6\"→\"Fé\", \"Considerado'no\"→\"Considerado no\", \"E natural\"→\"E' natural\", \"e á vontade\"→\"e a vontade\", \"Pelo Habito\"→\"pelo habito\", \"d isso\"→\"d' isso\"; itálico ajustado (é/a romanos); \"Habito.\" e \"Sujeito do habito.\" em negrito conforme a imagem.\nFronteira corpo/nota: nenhuma mudança. Nota 1 (p. 107) e nota 2 (p. 107) já estavam nos lugares corretos; a nota 2 termina no fim da p. 107 (\"...na sua origem,\"), mas a frase continua na p. 108, fora do trecho, e foi mantida fechada.\nDúvidas: a chamada da nota 2 (\"Q habito\") pode ser \"O\" com marca de impressão; mantive \"O\" pela leitura mais provável e pela coerência com a nota 1.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: \"Sum. th.\" (não \"t/.\"), \"F6\"→\"Fé\", \"Considerado'no\"→\"Considerado no\", \"E natural\"→\"E' natural\", \"e á vontade\"→\"e a vontade\", \"Pelo Habito\"→\"pelo habito\", \"d isso\"→\"d' isso\"; itálico ajustado (é/a romanos); \"Habito.\" e \"Sujeito do habito.\" em negrito conforme a imagem.\nFronteira corpo/nota: nenhuma mudança. Nota 1 (p. 107) e nota 2 (p. 107) já estavam nos lugares corretos; a nota 2 termina no fim da p. 107 (\"...na sua origem,\"), mas a frase continua na p. 108, fora do trecho, e foi mantida fechada.\nDúvidas: a chamada da nota 2 (\"Q habito\") pode ser \"O\" com marca de impressão; mantive \"O\" pela leitura mais provável e pela coerência com a nota 1.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0059835,
+ "duration_ms": 36345,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11160,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9735
+ },
+ "reparo": false
+}

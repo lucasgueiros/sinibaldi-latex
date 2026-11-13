@@ -1,0 +1,28 @@
+{
+ "pagina": 104,
+ "paginas": [
+  104,
+  105
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: hifenização (\"necessaria-mente\", \"admitte\"), OCR (\"distineção\", \"distincgão\", \"procimo\", \"provimo\", \"Thomas\", \"Of.\"→\"Cf.\", \"dá\"→\"á\", \"pelkóon\", \"ndhira\"→\"adhira\", \"á vontade\"→\"a vontade\", \"Ora á\"→\"Ora a\"), vírgula em \"subsistir, quando\", \"ARTIGO III.\" em caixa alta e \"l. e.\"→\"l. c.\". Fronteira corpo/nota conferida: nota 1 correta (continua em 105 com `<pb n=\"105\"/>` interno e fecha após \"propriedades\"); nenhuma mudança de fronteira.\nDúvidas: o `<pb n=\"105\"/>` do corpo ficou depois da `</note>` e antes de `</div>`, como estava, sem mover; \"lógico\" aparece com e sem acento no original, mantido como no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: hifenização (\"necessaria-mente\", \"admitte\"), OCR (\"distineção\", \"distincgão\", \"procimo\", \"provimo\", \"Thomas\", \"Of.\"→\"Cf.\", \"dá\"→\"á\", \"pelkóon\", \"ndhira\"→\"adhira\", \"á vontade\"→\"a vontade\", \"Ora á\"→\"Ora a\"), vírgula em \"subsistir, quando\", \"ARTIGO III.\" em caixa alta e \"l. e.\"→\"l. c.\". Fronteira corpo/nota conferida: nota 1 correta (continua em 105 com `<pb n=\"105\"/>` interno e fecha após \"propriedades\"); nenhuma mudança de fronteira.\nDúvidas: o `<pb n=\"105\"/>` do corpo ficou depois da `</note>` e antes de `</div>`, como estava, sem mover; \"lógico\" aparece com e sem acento no original, mantido como no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0077383,
+ "duration_ms": 42245,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17703,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11936
+ },
+ "reparo": false
+}
