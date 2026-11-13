@@ -1,5 +1,11 @@
 % Preâmbulo comum ao livro e à pré-visualização de fragmentos (tex/_preview.tex).
 
+% Mancha em A5.  Sem isto vale o padrão da classe book (~105 mm de largura e margem
+% externa de ~25 mm em frente e verso), largo demais para o formato.  Aqui: ~118 mm de
+% largura, margem interna um pouco maior que a externa (encadernação).
+\usepackage[a5paper,inner=16mm,outer=14mm,top=14mm,bottom=16mm,
+            includehead,headsep=5mm,footskip=8mm]{geometry}
+
 % Títulos de secção sem justificar (evita linhas estouradas em \Large bold, p. ex.
 % «Demonstrabilidade») e um pouco de folga para enunciados de tese em negrito.
 \usepackage{sectsty}
