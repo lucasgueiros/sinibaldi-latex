@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Corrigir slides · {{ titulo_no }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/editor.css' %}"><link rel="stylesheet" href="{% static 'css/slides.css' %}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+  {% include "edicao/_nav.html" with ativa="slides" %}
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h1 class="font-display text-2xl text-crimson">Corrigir os slides <span class="text-lg text-ink/70">· {{ edicao.slug }} · {{ titulo_no }}</span></h1>
+    <p class="text-sm">
+      <a class="text-crimson hover:underline" href="{% url 'obra:slides' edicao.slug no.xml_id %}">Ver a página pública</a> ·
+      <a class="text-crimson hover:underline" href="{% url 'obra:no' edicao.slug no.xml_id %}">Texto do trecho</a> ·
+      <a class="text-crimson hover:underline" href="{% url 'obra:slides_lista' %}">Todas as apresentações</a>
+    </p>
+  </div>
+
+  {% if not disponivel %}
+  <section class="cartao mt-6">
+    <p>Este trecho é grande demais para gerar slides de uma vez (mais de {{ limite }} blocos). Abra uma de suas divisões:</p>
+    <ul class="mt-2 list-disc pl-6">
+      {% for f in filhos %}<li><a class="text-crimson hover:underline" href="{% url 'obra:slides_editor' edicao.slug f.xml_id %}">{{ f.rotulo }} {{ f.titulo }}</a></li>{% endfor %}
+    </ul>
+  </section>
+  {% else %}
+
+  {% if conflito %}
+  <section class="mensagem mt-4 border-amber-600 bg-amber-50 text-amber-900" role="alert" data-testid="conflito">
+    {% if conflito.descartada %}
+      <p><strong>As correções foram descartadas por outra pessoa enquanto você editava.</strong> Seu texto está preservado na caixa abaixo; salvar o recria.</p>
+    {% else %}
+      <p><strong>Outra pessoa gravou os slides{% if conflito.por %} ({{ conflito.por }}, {{ conflito.em }}){% endif %} enquanto você editava.</strong> Nada foi sobrescrito e o seu texto está preservado na caixa abaixo. Veja a diferença, ajuste o que quiser e salve de novo (isso substitui a versão dela).</p>
+      <details class="mt-2"><summary class="cursor-pointer">Diferença: versão gravada pela outra pessoa → seu texto</summary><pre class="dif">{{ conflito.diff }}</pre></details>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if erros %}
+  <section class="mensagem mt-4 border-red-700 bg-red-50 text-red-900" role="alert" data-testid="erros">
+    <div><p><strong>A fonte não foi salva.</strong> Corrija e salve de novo:</p>
+      <ul class="mt-1 list-disc pl-6">{% for e in erros %}<li>{{ e }}</li>{% endfor %}</ul></div>
+  </section>
+  {% endif %}
+
+  {% if mudou %}
+  <section class="mensagem mt-4 border-amber-600 bg-amber-50 text-amber-900" data-testid="texto-mudou">
+    <div>
+      <p><strong>O texto do livro mudou desde que estes slides foram gerados.</strong> Suas correções não foram tocadas. Para incorporar o texto novo use «Gerar de novo a partir do texto» (a versão atual fica no histórico).</p>
+      <details class="mt-2"><summary class="cursor-pointer">Ver o que mudou na fonte automática</summary><pre class="dif">{{ mudou.diff|default:"(sem diferença visível na fonte)" }}</pre></details>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if erro_compilacao %}
+  <section class="mensagem mt-4 border-red-700 bg-red-50 text-red-900" role="alert" data-testid="erro-compilacao">
+    <div class="min-w-0 flex-1">
+      <p><strong>{{ erro_compilacao.0 }}</strong> A fonte está salva, mas o PDF não saiu. Resumo do LaTeX:</p>
+      {% if erro_compilacao.1 %}<pre class="slides-log mt-2">{{ erro_compilacao.1 }}</pre>{% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="slides-editor mt-6">
+    <section aria-labelledby="h-fonte">
+      <p class="mb-2 text-sm text-ink/70">
+        {{ n_slides }} slide{{ n_slides|pluralize }} ·
+        {% if ap and ap.editada %}<span class="etiqueta etiqueta-ouro">corrigida{% if ap.atualizado_por %} por {{ ap.atualizado_por.get_full_name|default:ap.atualizado_por.get_username }}{% endif %} em {{ ap.atualizado_em|date:"d/m/Y H:i" }}</span>
+        {% elif ap %}<span class="etiqueta etiqueta-neutra">gerada e salva</span>
+        {% else %}<span class="etiqueta etiqueta-neutra">automática (ainda não salva)</span>{% endif %}
+      </p>
+      <form method="post" action="{% url 'obra:slides_salvar' edicao.slug no.xml_id %}">
+        {% csrf_token %}
+        <input type="hidden" name="versao" value="{{ versao }}">
+        <label id="h-fonte" for="fonte" class="sr-only">Fonte dos slides</label>
+        <textarea id="fonte" name="fonte" class="campo slides-fonte" spellcheck="false" autocomplete="off" data-testid="fonte">{{ fonte }}</textarea>
+        <div class="mt-3 flex flex-wrap items-center gap-3">
+          <button class="btn btn-primario">Salvar e recompilar</button>
+          <span class="text-xs text-ink/60">Compilar pode levar alguns segundos.</span>
+        </div>
+      </form>
+
+      <details class="slides-ajuda mt-5 text-sm">
+        <summary class="cursor-pointer font-display text-crimson">Resumo do formato</summary>
+        <div class="mt-2 space-y-2">
+          <p>Um slide por bloco. Cada um começa com <code>=== tipo</code>; depois, opcionais: <code># título</code> e <code>@ referência</code>; o resto é o corpo. Linhas começadas por <code>%</code> são comentário.</p>
+          <p>Tipos: {% for k, v in tipos.items %}<code>{{ k }}</code> ({{ v }}){% if not forloop.last %}, {% endif %}{% endfor %}.</p>
+          <dl>
+            <dt><code>! texto</code></dt><dd>enunciado em destaque</dd>
+            <dt><code>- item</code></dt><dd>tópico (<code>␣␣- subitem</code> aninha um nível)</dd>
+            <dt><code>&gt; texto</code></dt><dd>citação</dd>
+            <dt><code>Rótulo:: texto</code></dt><dd>linha rotulada (rótulo de até 20 caracteres)</dd>
+            <dt><code>+continua</code></dt><dd>sozinha na linha: o slide segue no próximo</dd>
+            <dt><code>*it*</code> <code>**neg**</code> <code>^sc^</code></dt><dd>itálico, negrito, versalete (<code>\*</code>, <code>\^</code>, <code>\\</code> são os literais)</dd>
+            <dt>linha em branco</dt><dd>separa parágrafos; outra linha qualquer é parágrafo</dd>
+          </dl>
+          <p>Tudo é tratado como texto: não se escreve LaTeX aqui.</p>
+        </div>
+      </details>
+
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        <form method="post" action="{% url 'obra:slides_regenerar' edicao.slug no.xml_id %}" class="cartao text-sm">
+          {% csrf_token %}<input type="hidden" name="versao" value="{{ versao }}">
+          <p>Substitui a fonte pela gerada do texto do livro. A versão atual fica no histórico.</p>
+          {% if ap and ap.editada %}<label class="mt-2 flex items-center gap-2"><input type="checkbox" name="confirmo" value="1"> Confirmo: substituir as correções</label>{% endif %}
+          <button class="btn btn-secundario btn-sm mt-2">Gerar de novo a partir do texto</button>
+        </form>
+        {% if ap %}
+        <form method="post" action="{% url 'obra:slides_descartar' edicao.slug no.xml_id %}" class="cartao text-sm">
+          {% csrf_token %}<input type="hidden" name="versao" value="{{ versao }}">
+          <p>Apaga o que está salvo e volta aos slides automáticos. A fonte descartada fica no histórico.</p>
+          <label class="mt-2 flex items-center gap-2"><input type="checkbox" name="confirmo" value="1"> Confirmo: descartar as correções</label>
+          <button class="btn btn-perigo btn-sm mt-2">Descartar correções</button>
+        </form>
+        {% endif %}
+      </div>
+
+      <details class="mt-5 text-sm" data-testid="historico">
+        <summary class="cursor-pointer font-display text-crimson">Histórico ({{ historico|length }})</summary>
+        <ul class="slides-hist mt-2">
+          {% for r in historico %}
+          <li class="flex flex-wrap items-center justify-between gap-2 py-2">
+            <span>{{ r.criado_em|date:"d/m/Y H:i" }} · {{ r.autor.get_full_name|default:r.autor.get_username|default:"—" }} · <span class="etiqueta etiqueta-neutra">{{ r.get_acao_display }}</span></span>
+            <form method="post" action="{% url 'obra:slides_restaurar' edicao.slug no.xml_id %}">
+              {% csrf_token %}<input type="hidden" name="versao" value="{{ versao }}"><input type="hidden" name="revisao" value="{{ r.pk }}">
+              <button class="btn btn-secundario btn-sm">Restaurar</button>
+            </form>
+          </li>
+          {% empty %}<li class="py-2 text-ink/60">Nenhuma revisão ainda.</li>{% endfor %}
+        </ul>
+      </details>
+    </section>
+
+    <section class="slides-direita" aria-label="Pré-visualização">
+      <div class="slides-quadro">
+        <iframe src="{% url 'obra:slides_pdf' edicao.slug no.xml_id %}?v={{ chave }}" title="Slides de {{ titulo_no }}"></iframe>
+      </div>
+      <p class="mt-2 text-xs text-ink/60">Mostra a versão salva. <a class="text-crimson hover:underline" href="{% url 'obra:slides_pdf' edicao.slug no.xml_id %}?baixar=1">Baixar PDF</a> ·
+        <a class="text-crimson hover:underline" href="{% url 'obra:slides_tex' edicao.slug no.xml_id %}?baixar=1">.tex</a> ·
+        <a class="text-crimson hover:underline" href="{% url 'obra:slides_txt' edicao.slug no.xml_id %}?baixar=1">fonte</a></p>
+    </section>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

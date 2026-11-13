@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Slides · {{ titulo_no }}{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/slides.css' %}">{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+  <nav aria-label="Você está em" class="migalhas">
+    <a href="{% url 'obra:edicao' edicao.slug %}">{{ edicao.titulo }}</a>
+    {% for c in caminho %}<span aria-hidden="true">›</span> <a href="{% url 'obra:no' edicao.slug c.xml_id %}">{{ c.rotulo|default:c.titulo|default:c.xml_id }}</a>{% endfor %}
+    <span aria-hidden="true">›</span> <a href="{% url 'obra:no' edicao.slug no.xml_id %}">{{ no.rotulo|default:no.titulo|default:no.xml_id }}</a>
+  </nav>
+
+  <header class="mt-4 text-center">
+    <p class="font-display text-xs tracking-[0.3em] text-gold-dark">SLIDES · {{ no.get_nivel_display|upper }}</p>
+    <h1 class="mt-2 font-display text-2xl font-semibold tracking-[0.05em] text-crimson sm:text-3xl">{{ titulo_no }}</h1>
+    {% include "includes/ornament.html" %}
+  </header>
+
+  {% if not disponivel %}
+    <section class="cartao mt-6">
+      <p class="text-lg">Este trecho tem {{ total }} blocos de texto, mais do que os {{ limite }} que cabem numa apresentação gerada de uma vez.</p>
+      {% if filhos %}
+        <p class="mt-3">Escolha uma de suas divisões para ver os slides:</p>
+        <ul class="arvore sumario mt-2">
+          {% for f in filhos %}<li><a href="{% url 'obra:slides' edicao.slug f.xml_id %}">{{ f.rotulo }} {{ f.titulo }}</a></li>{% endfor %}
+        </ul>
+      {% endif %}
+      <p class="mt-4"><a class="btn btn-secundario btn-sm" href="{% url 'obra:no' edicao.slug no.xml_id %}">Voltar ao texto</a></p>
+    </section>
+  {% else %}
+    <div class="mt-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <p>
+        {{ n_slides }} slide{{ n_slides|pluralize }}
+        {% if revisada %}<span class="etiqueta etiqueta-ouro ml-2">revisado{% if revisor %} por {{ revisor }}{% endif %} em {{ ap.atualizado_em|date:"d/m/Y" }}</span>
+        {% else %}<span class="etiqueta etiqueta-neutra ml-2">gerado automaticamente</span>{% endif %}
+      </p>
+      <p class="text-ink/60">{% for rotulo, n in por_tipo %}{{ rotulo }} {{ n }}{% if not forloop.last %} · {% endif %}{% endfor %}</p>
+    </div>
+
+    <div class="slides-quadro mt-3">
+      <iframe src="{% url 'obra:slides_pdf' edicao.slug no.xml_id %}?v={{ chave }}" title="Slides de {{ titulo_no }}" loading="lazy"></iframe>
+    </div>
+    <p class="mt-2 text-center text-xs text-ink/60">A primeira geração pode levar alguns segundos; depois o PDF fica guardado. O texto vem do OCR da edição e ainda está em revisão.</p>
+
+    <div class="mt-5 flex flex-wrap items-center justify-center gap-3 print:hidden">
+      <a class="btn btn-primario btn-sm" href="{% url 'obra:slides_pdf' edicao.slug no.xml_id %}?baixar=1">Baixar PDF</a>
+      <a class="btn btn-secundario btn-sm" href="{% url 'obra:slides_tex' edicao.slug no.xml_id %}?baixar=1">Baixar .tex</a>
+      <a class="btn btn-secundario btn-sm" href="{% url 'obra:slides_txt' edicao.slug no.xml_id %}?baixar=1">Baixar fonte (.txt)</a>
+      <a class="btn btn-secundario btn-sm" href="{% url 'obra:no' edicao.slug no.xml_id %}">Voltar ao texto</a>
+      {% if pode_corrigir %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:slides_editor' edicao.slug no.xml_id %}">Corrigir os slides</a>{% endif %}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

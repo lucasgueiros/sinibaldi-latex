@@ -13,6 +13,7 @@
     {% include "includes/ornament.html" %}
     <div class="flex flex-wrap items-center justify-center gap-3 print:hidden">
       {% include "publico/_baixar.html" with itens=baixar %}
+      {% if slides_url %}<a class="btn btn-secundario btn-sm" href="{{ slides_url }}">Slides</a>{% endif %}
       {% if no.pagina_ini is not None and volume %}<a class="btn btn-secundario btn-sm" href="{% url 'obra:facsimile' volume.numero no.pagina_ini %}">Fac-símile</a>{% endif %}
       <form method="get" action="{% url 'obra:busca' edicao.slug %}" class="inline-flex gap-1" role="search">
         <label class="sr-only" for="q">Buscar</label><input id="q" name="q" type="search" class="campo !w-40 !py-1" placeholder="Buscar…" required>

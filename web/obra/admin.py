@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Bloco, Edicao, No, Pagina, Revisao, Volume
+from .models import Apresentacao, ApresentacaoRevisao, Bloco, Edicao, No, Pagina, Revisao, Volume
 
 
 @admin.register(Edicao)
@@ -48,3 +48,18 @@ class NoAdmin(admin.ModelAdmin):
     list_filter = ("edicao", "nivel", "volume")
     search_fields = ("xml_id", "rotulo", "titulo")
     raw_id_fields = ("pai",)
+
+
+@admin.register(Apresentacao)
+class ApresentacaoAdmin(admin.ModelAdmin):
+    list_display = ("xml_id", "edicao", "titulo", "editada", "versao", "atualizado_por", "atualizado_em")
+    list_filter = ("edicao", "editada")
+    search_fields = ("xml_id", "titulo")
+    raw_id_fields = ("criado_por", "atualizado_por")
+
+
+@admin.register(ApresentacaoRevisao)
+class ApresentacaoRevisaoAdmin(admin.ModelAdmin):
+    list_display = ("pk", "criado_em", "edicao", "xml_id", "acao", "autor")
+    list_filter = ("edicao", "acao")
+    raw_id_fields = ("autor",)

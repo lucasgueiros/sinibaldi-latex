@@ -3,6 +3,7 @@ from django.urls import path
 
 from . import views_edicao as v
 from . import views_nova as n
+from . import views_slides as sl
 
 urlpatterns = [
     path("", v.painel, name="painel"),
@@ -12,6 +13,13 @@ urlpatterns = [
     path("1916/vol/<int:numero>/", v.paginas, name="paginas"),
     path("1916/vol/<int:numero>/pag/<sint:seq>/", v.revisar, name="revisar"),
     path("1916/vol/<int:numero>/pag/<sint:seq>/gravar/", v.gravar, name="gravar"),
+    # slides
+    path("slides/", sl.lista, name="slides_lista"),
+    path("slides/<slug:slug>/<str:xml_id>/", sl.editor, name="slides_editor"),
+    path("slides/<slug:slug>/<str:xml_id>/salvar/", sl.salvar, name="slides_salvar"),
+    path("slides/<slug:slug>/<str:xml_id>/regenerar/", sl.regenerar, name="slides_regenerar"),
+    path("slides/<slug:slug>/<str:xml_id>/descartar/", sl.descartar, name="slides_descartar"),
+    path("slides/<slug:slug>/<str:xml_id>/restaurar/", sl.restaurar, name="slides_restaurar"),
     # nova edição
     path("nova/", n.estrutura, name="nova_estrutura"),
     path("nova/partes/aplicar/", n.aplicar_ordem, name="nova_aplicar_ordem"),

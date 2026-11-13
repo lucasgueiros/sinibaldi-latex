@@ -176,3 +176,60 @@ class No(models.Model):
 
     def __str__(self):
         return " ".join(x for x in (self.rotulo, self.titulo) if x) or self.xml_id
+
+
+class Apresentacao(models.Model):
+    """Fonte dos slides de um trecho, salva depois de gerada ou corrigida pelo site.
+
+    Identifica o trecho por `(edicao, xml_id)` e NÃO por FK para `No`: os nós são um cache que
+    `arvore.reconstruir` apaga e recria. Sem registro, os slides são os automáticos (nada é gravado)."""
+
+    edicao = models.ForeignKey(Edicao, on_delete=models.CASCADE, related_name="apresentacoes")
+    xml_id = models.CharField(max_length=80)
+    titulo = models.CharField(max_length=300, blank=True, help_text="Título do trecho (para listagens).")
+    fonte = models.TextField(help_text="Fonte corrente dos slides (formato de tools/gera_slides.py).")
+    fonte_gerada = models.TextField(blank=True, help_text="Última fonte produzida automaticamente.")
+    chave_texto = models.CharField(max_length=40, blank=True,
+                                   help_text="`exportacao._versao` do nó quando a fonte foi gerada.")
+    editada = models.BooleanField(default=False, help_text="A fonte difere da gerada automaticamente.")
+    versao = models.PositiveIntegerField(default=1, help_text="+1 a cada gravação (concorrência otimista).")
+    criado_por = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
+    atualizado_por = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
+    criado_em = models.DateTimeField(auto_now_add=True)
+    atualizado_em = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-atualizado_em"]
+        constraints = [models.UniqueConstraint(fields=["edicao", "xml_id"], name="apresentacao_unica")]
+        verbose_name = "apresentação"
+        verbose_name_plural = "apresentações"
+
+    def __str__(self):
+        return f"Slides de {self.edicao.slug}/{self.xml_id}"
+
+
+class ApresentacaoRevisao(models.Model):
+    """Histórico da fonte dos slides. Também por `(edicao, xml_id)`: sobrevive a "descartar"."""
+
+    GERAR, EDITAR, REGENERAR, RESTAURAR, DESCARTAR = "gerar", "editar", "regenerar", "restaurar", "descartar"
+    ACOES = [(GERAR, "Gerar"), (EDITAR, "Editar"), (REGENERAR, "Gerar de novo"), (RESTAURAR, "Restaurar"),
+             (DESCARTAR, "Descartar")]
+
+    edicao = models.ForeignKey(Edicao, on_delete=models.CASCADE, related_name="+")
+    xml_id = models.CharField(max_length=80)
+    autor = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
+    criado_em = models.DateTimeField(auto_now_add=True)
+    acao = models.CharField(max_length=10, choices=ACOES)
+    fonte = models.TextField(help_text="Fonte resultante (em `descartar`, a fonte que foi descartada).")
+
+    class Meta:
+        ordering = ["-criado_em", "-pk"]
+        indexes = [models.Index(fields=["edicao", "xml_id"], name="apresrev_edicao_xml")]
+        verbose_name = "revisão de apresentação"
+        verbose_name_plural = "revisões de apresentações"
+
+    def __str__(self):
+        return f"{self.get_acao_display()} {self.edicao_id}/{self.xml_id} por {self.autor}"
