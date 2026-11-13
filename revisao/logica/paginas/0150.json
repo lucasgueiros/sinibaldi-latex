@@ -1,0 +1,27 @@
+{
+ "pagina": 150,
+ "paginas": [
+  150
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (tres-meios, \"porque os. bomens\", \"que: uma\", \"questaóPrelativa\", \"juiszo\", \"suppoe\", \"da^\", \"essa”\", \"^\", \"copveniencia\", \"Oo\", \")\" espúrio, \"Y\" por \"I\", \"méme\" por \"même\"), acentos (á, ã, ç) e pontuação; sem alteração de fronteira (nota 1 mantida no ponto da chamada).\nFronteira corpo/nota (p. 150): não houve mudança. Pelo alerta de \"vão grande\", o bloco em letra pequena abaixo do filete (\"dade divina… precede a fé\" e \"b) A auctoridade humana… problema.\") é continuação de nota iniciada na p. 149, fora do trecho, e por isso não foi incluído; a imagem mostra essa área como letra de nota (espaçamento ~36 px, igual ao da nota 1), não como corpo.\nDúvidas: \"Artigo V.\" (com ou sem ponto na versalete) mantido como no XML; \"(1854)\" parcialmente ilegível na imagem, lido como 1854.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (tres-meios, \"porque os. bomens\", \"que: uma\", \"questaóPrelativa\", \"juiszo\", \"suppoe\", \"da^\", \"essa”\", \"^\", \"copveniencia\", \"Oo\", \")\" espúrio, \"Y\" por \"I\", \"méme\" por \"même\"), acentos (á, ã, ç) e pontuação; sem alteração de fronteira (nota 1 mantida no ponto da chamada).\nFronteira corpo/nota (p. 150): não houve mudança. Pelo alerta de \"vão grande\", o bloco em letra pequena abaixo do filete (\"dade divina… precede a fé\" e \"b) A auctoridade humana… problema.\") é continuação de nota iniciada na p. 149, fora do trecho, e por isso não foi incluído; a imagem mostra essa área como letra de nota (espaçamento ~36 px, igual ao da nota 1), não como corpo.\nDúvidas: \"Artigo V.\" (com ou sem ponto na versalete) mantido como no XML; \"(1854)\" parcialmente ilegível na imagem, lido como 1854.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0081806,
+ "duration_ms": 62198,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9601,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 14441
+ },
+ "reparo": false
+}

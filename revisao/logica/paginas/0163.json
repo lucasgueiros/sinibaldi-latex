@@ -1,0 +1,28 @@
+{
+ "pagina": 163,
+ "paginas": [
+  163,
+  164
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (intrinsecos, intelligencia, ideas, unica, Th./Gent., c. 31, aa. 7, 8, a. 3, Thomaz, quidditatem, omnes, constituído, suppõe), hifenizações juntadas (intelligencia, verdade, indiscutivel), itálicos, numeração dos pontos \"189.\"→\"152.\" e \"AV.\"→\"IV.\", e frases truncadas (\"Podas\", \"estsr\", \"circumstanocias\").\nFronteira: o \"(1)\" do fim de p.163 ficou no corpo, com a nota n163-1 abrangendo o rodapé de p.163 e o de p.164 (texto do rodapé de p.163 fica dentro dela, incluindo \"A Logica…\" e \"As nossas…\", que estão em letra menor no pé — mantido); a nota n164-1 foi movida do fim de t151.p7 para a chamada \"parte (1)\" em t151.p2 (p.164) e o \"|\" espúrio foi removido; a linha \"propria sciencia divina…\" no rodapé de p.163 é continuação da nota 162-1, anterior ao trecho, e não foi incluída.\nDúvidas: os \"IV./V./VI.\" mantêm os xml:id originais de t151.p6/p7 e \"152.\" segue dentro da div t151 (não recriei a div); \"consciencia\" e \"espirituaes\" em itálico/romano podem não estar exatos na imagem; \"(De Ver.)\" foi italizado como no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (intrinsecos, intelligencia, ideas, unica, Th./Gent., c. 31, aa. 7, 8, a. 3, Thomaz, quidditatem, omnes, constituído, suppõe), hifenizações juntadas (intelligencia, verdade, indiscutivel), itálicos, numeração dos pontos \"189.\"→\"152.\" e \"AV.\"→\"IV.\", e frases truncadas (\"Podas\", \"estsr\", \"circumstanocias\").\nFronteira: o \"(1)\" do fim de p.163 ficou no corpo, com a nota n163-1 abrangendo o rodapé de p.163 e o de p.164 (texto do rodapé de p.163 fica dentro dela, incluindo \"A Logica…\" e \"As nossas…\", que estão em letra menor no pé — mantido); a nota n164-1 foi movida do fim de t151.p7 para a chamada \"parte (1)\" em t151.p2 (p.164) e o \"|\" espúrio foi removido; a linha \"propria sciencia divina…\" no rodapé de p.163 é continuação da nota 162-1, anterior ao trecho, e não foi incluída.\nDúvidas: os \"IV./V./VI.\" mantêm os xml:id originais de t151.p6/p7 e \"152.\" segue dentro da div t151 (não recriei a div); \"consciencia\" e \"espirituaes\" em itálico/romano podem não estar exatos na imagem; \"(De Ver.)\" foi italizado como no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0219451,
+ "duration_ms": 159360,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17456,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 40399
+ },
+ "reparo": false
+}

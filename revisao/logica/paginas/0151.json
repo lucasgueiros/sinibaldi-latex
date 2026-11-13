@@ -1,0 +1,58 @@
+{
+ "pagina": 151,
+ "paginas": [
+  151,
+  152,
+  153,
+  154
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2408,
+   2323
+  ],
+  "notas": [
+   10046,
+   9923
+  ],
+  "num_notas": [
+   3,
+   4
+  ],
+  "troca": 0
+ },
+ "notas": "Principais erros corrigidos: OCR (ideas/idea, \"ndo\"→\"não\", \"mesmus\", \"siniversaldirecta\", \"immediat&amp;mente\", \"veflexo\", \"identi\\\"ade\", \"abstrabhida\", pontuação e junções como \"Apontamos\"/\"as principaes\" e \"demons-: co tração\"), lixo removido (\"MILL E\", \"|\", \"9\", \"^ ,\", \"' 3 4 . . . L\", \"(1) .- -\"), itálicos e negritos ajustados à imagem; a numeração \"(1)\" literal do corpo p. 154 virou nota.\nFronteira: p. 154 — a nota \"(1) Além d'isso…\" estava dentro da nota 3 e foi separada: criada `<note n=\"1\" xml:id=\"n154-1\">` no chamado \"(1)\" após \"existe nos entes reaes\" (corpo), e a nota 3 fecha em \"…perceber.\" (p. 154 rodapé). p. 153 — o alerta \"vão grande\" é falso: abaixo do filete (p. 153) tudo é rodapé da nota 3 até o fim da página, sem retomada de corpo; mantido. p. 151/152 — nota 3 correta; corpo de 147 e das alíneas a) e b) mantido após a nota, com os `pb` do corpo intactos.\nDúvidas: itálicos de \"commum\", \"especie\", \"universal\" e \"actualmente\" foram lidos na imagem com incerteza; \"erro Quando\" sem ponto conforme a imagem; grafia \"suppoe-se\", \"juizo\", \"côr\" mantida como impressa.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2408,
+     2323
+    ],
+    "notas": [
+     10046,
+     9923
+    ],
+    "num_notas": [
+     3,
+     4
+    ],
+    "troca": 0
+   },
+   "notas": "Principais erros corrigidos: OCR (ideas/idea, \"ndo\"→\"não\", \"mesmus\", \"siniversaldirecta\", \"immediat&amp;mente\", \"veflexo\", \"identi\\\"ade\", \"abstrabhida\", pontuação e junções como \"Apontamos\"/\"as principaes\" e \"demons-: co tração\"), lixo removido (\"MILL E\", \"|\", \"9\", \"^ ,\", \"' 3 4 . . . L\", \"(1) .- -\"), itálicos e negritos ajustados à imagem; a numeração \"(1)\" literal do corpo p. 154 virou nota.\nFronteira: p. 154 — a nota \"(1) Além d'isso…\" estava dentro da nota 3 e foi separada: criada `<note n=\"1\" xml:id=\"n154-1\">` no chamado \"(1)\" após \"existe nos entes reaes\" (corpo), e a nota 3 fecha em \"…perceber.\" (p. 154 rodapé). p. 153 — o alerta \"vão grande\" é falso: abaixo do filete (p. 153) tudo é rodapé da nota 3 até o fim da página, sem retomada de corpo; mantido. p. 151/152 — nota 3 correta; corpo de 147 e das alíneas a) e b) mantido após a nota, com os `pb` do corpo intactos.\nDúvidas: itálicos de \"commum\", \"especie\", \"universal\" e \"actualmente\" foram lidos na imagem com incerteza; \"erro Quando\" sem ponto conforme a imagem; grafia \"suppoe-se\", \"juizo\", \"côr\" mantida como impressa.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.037802499999999996,
+ "duration_ms": 263458,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31065,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 69392
+ },
+ "reparo": false
+}

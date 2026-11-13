@@ -1,0 +1,27 @@
+{
+ "pagina": 140,
+ "paginas": [
+  140
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (ração→razão, affestada, Dist. 23, evidencia/intrinseca/conclusão, Sum. Th., Th., \"EL\"→\"Et\", \"declinaus\"→\"declinans\", \"objectivm\"→\"objectiva\", \"eorwm\"→\"eorum\"); hifenização \"fa-culdades\" unida; lixo removido (\"2M s\", \"|\", \"Hor\", aspas soltas no fim); negrito/itálico ajustados (negrito do título 140 e \"essa\" sem negrito; \"Sum. Th.\" em itálico). Fronteira corpo/nota: sem alteração — a nota 1 começa no corpo da p. 140 e continua no pé da mesma página, sem `<pb>` interno necessário.\nDúvidas: se o título \"140.\" inteiro é negrito (adotei que sim) e se as expressões latinas (\"ab ipso objecto\", \"aliud\", \"ab objecto\") são itálico ou romanas na imagem; manchas sobre \"determina\" e \"por\" na p. 140 inferior, lidas como \"determina\" e \"por\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (ração→razão, affestada, Dist. 23, evidencia/intrinseca/conclusão, Sum. Th., Th., \"EL\"→\"Et\", \"declinaus\"→\"declinans\", \"objectivm\"→\"objectiva\", \"eorwm\"→\"eorum\"); hifenização \"fa-culdades\" unida; lixo removido (\"2M s\", \"|\", \"Hor\", aspas soltas no fim); negrito/itálico ajustados (negrito do título 140 e \"essa\" sem negrito; \"Sum. Th.\" em itálico). Fronteira corpo/nota: sem alteração — a nota 1 começa no corpo da p. 140 e continua no pé da mesma página, sem `<pb>` interno necessário.\nDúvidas: se o título \"140.\" inteiro é negrito (adotei que sim) e se as expressões latinas (\"ab ipso objecto\", \"aliud\", \"ab objecto\") são itálico ou romanas na imagem; manchas sobre \"determina\" e \"por\" na p. 140 inferior, lidas como \"determina\" e \"por\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0077771,
+ "duration_ms": 50191,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10756,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13403
+ },
+ "reparo": false
+}

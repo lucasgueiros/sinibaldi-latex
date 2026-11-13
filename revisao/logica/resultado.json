@@ -1,10 +1,14 @@
 {
  "modelo": "haiku",
  "formato": "tei",
- "pedacos": 131,
- "feitos": 58,
+ "pedacos": 130,
+ "feitos": 88,
  "falhas": {
-  "71": "o texto mudou demais: de 2574 para 2077 caracteres (texto duplicado ou perdido?) Foi omitido o trecho de ~75 palavras que começa em “é reconhecida por sabios nolaveis e insuspeitos Leibnitz escreve N…”: se ele é a continuação de uma nota que começou numa página anterior, envolva-o em <note place=\"foot\" type=\"continuacao\">…</note> no lugar em que está, em vez de apagá-lo."
+  "113": "o texto mudou demais: de 3495 para 5492 caracteres (texto duplicado ou perdido?)",
+  "133": "o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 568776 (<string>, line 13)",
+  "145": "os <pb> do corpo mudaram: ['145', '146', '147', '148'] → ['145', '146', '147']",
+  "162": "<note> não fechado dentro do pedaço",
+  "173": "o texto mudou demais: de 6043 para 4643 caracteres (texto duplicado ou perdido?) Foi omitido o trecho de ~232 palavras que começa em “T UN objectivas que têm a sua expressio e realisação…”: se ele é a continuação de uma nota que começou numa página anterior, envolva-o em <note place=\"foot\" type=\"continuacao\">…</note> no lugar em que está, em vez de apagá-lo."
  },
  "fronteira": {
   "1": {
@@ -202,6 +206,21 @@
    ],
    "troca": 2
   },
+  "68": {
+   "corpo": [
+    2490,
+    1997
+   ],
+   "notas": [
+    9152,
+    9611
+   ],
+   "num_notas": [
+    3,
+    3
+   ],
+   "troca": 459
+  },
   "74": {
    "corpo": [
     3498,
@@ -291,16 +310,151 @@
     2
    ],
    "troca": 0
+  },
+  "116": {
+   "corpo": [
+    1994,
+    951
+   ],
+   "notas": [
+    11912,
+    12830
+   ],
+   "num_notas": [
+    1,
+    2
+   ],
+   "troca": 918
+  },
+  "126": {
+   "corpo": [
+    2750,
+    2685
+   ],
+   "notas": [
+    12651,
+    12572
+   ],
+   "num_notas": [
+    6,
+    8
+   ],
+   "troca": 0
+  },
+  "134": {
+   "corpo": [
+    1888,
+    1956
+   ],
+   "notas": [
+    3053,
+    3030
+   ],
+   "num_notas": [
+    4,
+    5
+   ],
+   "troca": 23
+  },
+  "136": {
+   "corpo": [
+    4523,
+    3641
+   ],
+   "notas": [
+    8291,
+    9006
+   ],
+   "num_notas": [
+    2,
+    4
+   ],
+   "troca": 715
+  },
+  "149": {
+   "corpo": [
+    2914,
+    1333
+   ],
+   "notas": [
+    0,
+    1510
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 1510
+  },
+  "151": {
+   "corpo": [
+    2408,
+    2323
+   ],
+   "notas": [
+    10046,
+    9923
+   ],
+   "num_notas": [
+    3,
+    4
+   ],
+   "troca": 0
+  },
+  "159": {
+   "corpo": [
+    716,
+    1040
+   ],
+   "notas": [
+    5572,
+    5163
+   ],
+   "num_notas": [
+    1,
+    1
+   ],
+   "troca": 324
+  },
+  "165": {
+   "corpo": [
+    5558,
+    2063
+   ],
+   "notas": [
+    7216,
+    10438
+   ],
+   "num_notas": [
+    3,
+    5
+   ],
+   "troca": 3222
+  },
+  "171": {
+   "corpo": [
+    3473,
+    2714
+   ],
+   "notas": [
+    0,
+    694
+   ],
+   "num_notas": [
+    0,
+    1
+   ],
+   "troca": 694
   }
  },
- "total_cost_usd": 0.9821,
- "num_turns": 71,
- "duration_ms": 6665543,
+ "total_cost_usd": 1.9296,
+ "num_turns": 118,
+ "duration_ms": 13356341,
  "usage": {
-  "input_tokens": 1240596,
+  "input_tokens": 2241417,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 1716033
+  "output_tokens": 3410996
  },
  "is_error": true
 }

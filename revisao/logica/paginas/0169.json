@@ -1,0 +1,27 @@
+{
+ "pagina": 169,
+ "paginas": [
+  169
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Removidos lixo do OCR (\".\", \"OD\", \"Ps\", \"Uv\", \"EN\", \"ua\", \"|\", \"^\" e fragmentos); corrigidos erros como \"alfirma\", \"sc\", \"habiluaes\", \"preiticado\", \"taufologia\", \"distinco\", \"mathemalicas\", \"synthelicos\", \"e'um\", \"o percepção\", \"a corpo\", e hifenizações de fim de linha (\"ob-servar\", \"seria-mente\", \"espon-taneo\"); restaurados itálicos e a frase \"petição de principio\" e \"c)\" em vez de \"e)\".\nNenhuma mudança de fronteira corpo/nota: a página 169 não tem notas de rodapé nem \"(n)\" no fragmento; o pe da página é todo corpo.\nDúvidas: a junção \"como disse— que uma demonstração\" (quebra de linha com travessão na imagem) e a forma exata de \"I.\" (ordinal \"Iª\" impresso) foram mantidas como lidas; \"p. 262\" lido como 262.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Removidos lixo do OCR (\".\", \"OD\", \"Ps\", \"Uv\", \"EN\", \"ua\", \"|\", \"^\" e fragmentos); corrigidos erros como \"alfirma\", \"sc\", \"habiluaes\", \"preiticado\", \"taufologia\", \"distinco\", \"mathemalicas\", \"synthelicos\", \"e'um\", \"o percepção\", \"a corpo\", e hifenizações de fim de linha (\"ob-servar\", \"seria-mente\", \"espon-taneo\"); restaurados itálicos e a frase \"petição de principio\" e \"c)\" em vez de \"e)\".\nNenhuma mudança de fronteira corpo/nota: a página 169 não tem notas de rodapé nem \"(n)\" no fragmento; o pe da página é todo corpo.\nDúvidas: a junção \"como disse— que uma demonstração\" (quebra de linha com travessão na imagem) e a forma exata de \"I.\" (ordinal \"Iª\" impresso) foram mantidas como lidas; \"p. 262\" lido como 262.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.007619,
+ "duration_ms": 48990,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10910,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13056
+ },
+ "reparo": false
+}

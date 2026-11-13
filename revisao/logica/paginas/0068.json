@@ -3,27 +3,56 @@
  "paginas": [
   68,
   69,
-  70
+  70,
+  71
  ],
  "falha": null,
- "fronteira": null,
- "notas": "Erros corrigidos: OCR (ffirina, Hacou, naterialistas, moriges/moríaes, Sfacrt, Ltriumphantemente, sensualismo etc.), pontuação e «» soltos, numeração dos parágrafos (83., 84., 85., não 89./S4.), \"(')\" e \"|\" removidos, \"ARTIGO III\" restaurado (faltava após pb 70), latim e itálicos conforme a imagem.\nFronteira: mantive a nota (1) como uma só `<note>` do p. 68 à p. 70 (texto de Mill, Spencer, Bacon fica nela); o `<pb 69>` interno marca a continuação; §4 e §5 permanecem como corpo, como no pipeline. Não movi texto entre corpo e nota, mas a imagem sugere que o corpo da p. 68 (\"Este dois principios…\", \"a) John Stuart Mill…\") pode estar em letra normal, e não em nota: dúvida não resolvida.\nDúvidas: se o texto em letra miúda da p. 69 (após o filete, \"depende…\") e o da p. 70 (abaixo do filete, \"dos syllogismos…\", \"c) Bacon…\") são de fato nota ou corpo; a ordem de §4 em relação à continuação da nota na p. 69 também ficou como no pipeline.",
+ "fronteira": {
+  "corpo": [
+   2490,
+   1997
+  ],
+  "notas": [
+   9152,
+   9611
+  ],
+  "num_notas": [
+   3,
+   3
+  ],
+  "troca": 459
+ },
+ "notas": "Erros corrigidos: OCR de letras e palavras (Hacou, Sfacrt, naterialistas, ffirina, dictun, segras, Iructo etc.), hifenizações, acentos, pontuação, \"§\" nas numerações, titulo \"ARTIGO III\" acrescentado, \"Regra\" e lista das oito regras, linhas perdidas; ortografia da época mantida.\nFronteira: a nota 1 de p. 68 continua até o fim de p. 71 — o trecho \"é reconhecida … argumentos physiologicos\" (p. 71, abaixo do filete) foi trazido do fim da nota 2 para o fim da nota 1 (com `<pb n=\"71\"/>` dentro dela); a nota 2 ficou só com \"Alem d'isso\". Não incluí \"exprimir a relação…\" do alto de p. 68 (continuação de nota anterior ao trecho).\nDúvidas: ornamento \"❊\" entre parágrafos de p. 68 omitido; etiqueta \"§3.\" (o div mantém n=\"89\"); pontuação de \"Ora isto não poderia acontecer;\" e de \"Incorruptivel;\" lida com incerteza.",
  "tentativas": [
   {
    "falha": null,
-   "fronteira": null,
-   "notas": "Erros corrigidos: OCR (ffirina, Hacou, naterialistas, moriges/moríaes, Sfacrt, Ltriumphantemente, sensualismo etc.), pontuação e «» soltos, numeração dos parágrafos (83., 84., 85., não 89./S4.), \"(')\" e \"|\" removidos, \"ARTIGO III\" restaurado (faltava após pb 70), latim e itálicos conforme a imagem.\nFronteira: mantive a nota (1) como uma só `<note>` do p. 68 à p. 70 (texto de Mill, Spencer, Bacon fica nela); o `<pb 69>` interno marca a continuação; §4 e §5 permanecem como corpo, como no pipeline. Não movi texto entre corpo e nota, mas a imagem sugere que o corpo da p. 68 (\"Este dois principios…\", \"a) John Stuart Mill…\") pode estar em letra normal, e não em nota: dúvida não resolvida.\nDúvidas: se o texto em letra miúda da p. 69 (após o filete, \"depende…\") e o da p. 70 (abaixo do filete, \"dos syllogismos…\", \"c) Bacon…\") são de fato nota ou corpo; a ordem de §4 em relação à continuação da nota na p. 69 também ficou como no pipeline.",
+   "fronteira": {
+    "corpo": [
+     2490,
+     1997
+    ],
+    "notas": [
+     9152,
+     9611
+    ],
+    "num_notas": [
+     3,
+     3
+    ],
+    "troca": 459
+   },
+   "notas": "Erros corrigidos: OCR de letras e palavras (Hacou, Sfacrt, naterialistas, ffirina, dictun, segras, Iructo etc.), hifenizações, acentos, pontuação, \"§\" nas numerações, titulo \"ARTIGO III\" acrescentado, \"Regra\" e lista das oito regras, linhas perdidas; ortografia da época mantida.\nFronteira: a nota 1 de p. 68 continua até o fim de p. 71 — o trecho \"é reconhecida … argumentos physiologicos\" (p. 71, abaixo do filete) foi trazido do fim da nota 2 para o fim da nota 1 (com `<pb n=\"71\"/>` dentro dela); a nota 2 ficou só com \"Alem d'isso\". Não incluí \"exprimir a relação…\" do alto de p. 68 (continuação de nota anterior ao trecho).\nDúvidas: ornamento \"❊\" entre parágrafos de p. 68 omitido; etiqueta \"§3.\" (o div mantém n=\"89\"); pontuação de \"Ora isto não poderia acontecer;\" e de \"Incorruptivel;\" lida com incerteza.",
    "resposta": ""
   }
  ],
- "total_cost_usd": 0.0244199,
- "duration_ms": 189680,
+ "total_cost_usd": 0.0328635,
+ "duration_ms": 228038,
  "num_turns": 1,
  "usage": {
-  "input_tokens": 24609,
+  "input_tokens": 31515,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 43918
+  "output_tokens": 59424
  },
  "reparo": false
 }

@@ -3,6 +3,22 @@ total  ouro   1680 ocr   1709  WER 12.32%  {'replace': 161, 'insert': 16, 'delet
 corpo  ouro    796 ocr    817  WER 10.43%  {'replace': 53, 'insert': 24, 'delete': 6}
 notas  ouro    884 ocr    893  WER  9.28%  {'replace': 75, 'delete': 1, 'insert': 6}
 == revisado
-total  ouro   1680 ocr   1687  WER  1.67%  {'replace': 10, 'delete': 6, 'insert': 12}
-corpo  ouro    796 ocr    803  WER  3.02%  {'replace': 6, 'delete': 6, 'insert': 12}
-notas  ouro    884 ocr    884  WER  0.45%  {'replace': 4}
+Traceback (most recent call last):
+  File "/home/lucas/workspace/sinibaldi-latex/.claude/worktrees/revisao-logica/tools/mede_wer.py", line 196, in <module>
+    main()
+  File "/home/lucas/workspace/sinibaldi-latex/.claude/worktrees/revisao-logica/tools/mede_wer.py", line 178, in main
+    ouro, tei = le_ouro(tex), le_tei(cache[xml], de, ate)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lucas/workspace/sinibaldi-latex/.claude/worktrees/revisao-logica/tools/mede_wer.py", line 91, in le_tei
+    raiz = etree.parse(str(caminho)).getroot()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/lxml/etree.pyx", line 3570, in lxml.etree.parse
+  File "src/lxml/parser.pxi", line 1952, in lxml.etree._parseDocument
+  File "src/lxml/parser.pxi", line 1978, in lxml.etree._parseDocumentFromURL
+  File "src/lxml/parser.pxi", line 1881, in lxml.etree._parseDocFromFile
+  File "src/lxml/parser.pxi", line 1200, in lxml.etree._BaseParser._parseDocFromFile
+  File "src/lxml/parser.pxi", line 633, in lxml.etree._ParserContext._handleParseResultDoc
+  File "src/lxml/parser.pxi", line 743, in lxml.etree._handleParseResult
+  File "src/lxml/parser.pxi", line 672, in lxml.etree._raiseParseError
+  File "/home/lucas/workspace/sinibaldi-latex/.claude/worktrees/revisao-logica/revisao/logica/revisado.xml", line 14
+lxml.etree.XMLSyntaxError: Opening and ending tag mismatch: p line 14 and note, line 14, column 362884

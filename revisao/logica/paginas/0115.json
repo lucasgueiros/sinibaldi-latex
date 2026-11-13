@@ -1,0 +1,27 @@
+{
+ "pagina": 115,
+ "paginas": [
+  115
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (acentos, \"mudança/mudanças\", \"conhecimento\", \"perfeições\", \"Concluimos\", \"substanciaes\", \"universalidade\"), palavras faltando (\"á\" inicial, \"a essencia\", \"a mudança\"), hifenizações de fim de linha, itálicos/negrito (\"passam\" sem negrito) e lixo (\"-- *\", \"^\", \"ele.,\", \"H\" solto no fim, que removi deixando o parágrafo vazio).\nFronteira corpo/nota: nenhuma mudança. A nota 1 começa após \"é immutavel (1).\" e contém todo o texto em letra menor abaixo do filete, até \"universaes e\" no fim da página.\nDúvidas: se \"Deus\" inicial e \"ella\" são versalete/itálico na imagem; mantive a leitura mais provável. O parágrafo vazio t123.p4 pode ser um resto do início da página 116; conferir no trecho seguinte.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (acentos, \"mudança/mudanças\", \"conhecimento\", \"perfeições\", \"Concluimos\", \"substanciaes\", \"universalidade\"), palavras faltando (\"á\" inicial, \"a essencia\", \"a mudança\"), hifenizações de fim de linha, itálicos/negrito (\"passam\" sem negrito) e lixo (\"-- *\", \"^\", \"ele.,\", \"H\" solto no fim, que removi deixando o parágrafo vazio).\nFronteira corpo/nota: nenhuma mudança. A nota 1 começa após \"é immutavel (1).\" e contém todo o texto em letra menor abaixo do filete, até \"universaes e\" no fim da página.\nDúvidas: se \"Deus\" inicial e \"ella\" são versalete/itálico na imagem; mantive a leitura mais provável. O parágrafo vazio t123.p4 pode ser um resto do início da página 116; conferir no trecho seguinte.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.007017000000000001,
+ "duration_ms": 44286,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10740,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11886
+ },
+ "reparo": false
+}

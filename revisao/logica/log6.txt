@@ -1,0 +1,46 @@
+>> haiku: 32 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 115 (1 pp.): ok  US$ 0.007  44s  ent 10740 saí 11886
+  p. 116 (5 pp.): ok  fronteira: troca 918 car., notas [1, 2]  US$ 0.026  179s  ent 36230 saí 45012
+  p. 68 (4 pp.): ok  fronteira: troca 459 car., notas [3, 3]  US$ 0.033  228s  ent 31515 saí 59424
+  p. 123 (1 pp.): ok  US$ 0.006  40s  ent 10864 saí 10373
+  p. 124 (2 pp.): ok  US$ 0.011  74s  ent 17381 saí 18759
+  p. 113 (2 pp.): FALHOU: o texto mudou demais: de 3495 para 5492 caracteres (texto duplicado ou perdido?)  US$ 0.058  430s  ent 48315 saí 106789
+  p. 131 (2 pp.): ok  US$ 0.012  83s  ent 17245 saí 20870
+  p. 120 (3 pp.): ok (2ª tentativa)  US$ 0.066  450s  ent 72470 saí 117823
+  p. 133 (1 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 568776 (<string>, line 13)  US$ 0.023  162s  ent 32828 saí 40386
+  p. 134 (2 pp.): ok  fronteira: troca 23 car., notas [4, 5]  US$ 0.020  133s  ent 17070 saí 35624
+  p. 140 (1 pp.): ok  US$ 0.008  50s  ent 10756 saí 13403
+  p. 141 (1 pp.): ok  US$ 0.006  40s  ent 10454 saí 9836
+  p. 126 (5 pp.): ok (2ª tentativa)  fronteira: troca 0 car., notas [6, 8]  US$ 0.080  564s  ent 75772 saí 145555
+  p. 142 (3 pp.): ok  US$ 0.020  131s  ent 24039 saí 34502
+  p. 149 (1 pp.): ok (2ª tentativa)  fronteira: troca 1510 car., notas [0, 1]  US$ 0.023  182s  ent 21334 saí 42410
+  p. 136 (4 pp.): ok (2ª tentativa)  fronteira: troca 715 car., notas [2, 4]  US$ 0.081  590s  ent 63278 saí 149881
+  p. 150 (1 pp.): ok  US$ 0.008  62s  ent 9601 saí 14441
+  p. 155 (4 pp.): ok  US$ 0.029  199s  ent 31051 saí 51456
+  p. 151 (4 pp.): ok  fronteira: troca 0 car., notas [3, 4]  US$ 0.038  263s  ent 31065 saí 69392
+  p. 145 (6 pp.): FALHOU: os <pb> do corpo mudaram: ['145', '146', '147', '148'] → ['145', '146', '147']  US$ 0.089  629s  ent 127198 saí 152555
+  p. 161 (1 pp.): ok  US$ 0.008  56s  ent 10873 saí 14814
+  p. 162 (1 pp.): FALHOU: <note> não fechado dentro do pedaço  US$ 0.027  202s  ent 31979 saí 47892
+  p. 163 (2 pp.): ok  US$ 0.022  159s  ent 17456 saí 40399
+  p. 169 (1 pp.): ok  US$ 0.008  49s  ent 10910 saí 13056
+  p. 159 (2 pp.): ok (2ª tentativa)  fronteira: troca 324 car., notas [1, 1]  US$ 0.048  353s  ent 53384 saí 85593
+  p. 170 (1 pp.): ok  US$ 0.007  47s  ent 10815 saí 12016
+  p. 172 (1 pp.): ok  US$ 0.005  33s  ent 10508 saí 8514
+  p. 171 (1 pp.): ok  fronteira: troca 694 car., notas [0, 1]  US$ 0.009  62s  ent 11046 saí 15991
+  p. 175 (1 pp.): ok  US$ 0.006  40s  ent 10589 saí 10759
+  p. 165 (4 pp.): ok (2ª tentativa)  fronteira: troca 3222 car., notas [3, 5]  US$ 0.074  529s  ent 62860 saí 135433
+  p. 173 (2 pp.): FALHOU: o texto mudou demais: de 6043 para 4643 caracteres (texto duplicado ou perdido?) Foi omitido o trecho de ~232 palavras que começa em “T UN objectivas que têm a sua expressio e realisação…”: se ele é a continuação de uma nota que começou numa página anterior, envolva-o em <note place="foot" type="continuacao">…</note> no lugar em que está, em vez de apagá-lo.  US$ 0.061  437s  ent 52845 saí 110724
+  p. 176 (5 pp.): ok (2ª tentativa)  US$ 0.078  562s  ent 76080 saí 140450
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 116: continuação de nota ligada à nota anterior (1008 car.)
+   montagem: p. 129: continuação de nota ligada à nota anterior (3198 car.)
+   montagem: p. 130: continuação de nota ligada à nota anterior (3228 car.)
+   montagem: p. 139: continuação de nota ligada à nota anterior (2861 car.)
+   montagem: p. 149: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 171: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: 2 nota(s) começavam com o número da chamada "(n)": tirado
+!! revisado.xml mal formado ao juntar os pedaços: Opening and ending tag mismatch: p line 14 and note, line 14, column 362884 (<string>, line 14)
+!! tei2latex falhou em revisao/logica/revisado.xml: revisao/logica/revisado.xml: Opening and ending tag mismatch: p line 14 and note, line 14, column 362884 (revisado.xml, line 14)
+
+>> 88/130 pedaços, 5 falha(s), 29 com fronteira mudada, US$ 1.93, 222.6 min de chamadas; tokens {'input_tokens': 2241417, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 3410996}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

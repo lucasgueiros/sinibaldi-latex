@@ -1,0 +1,56 @@
+{
+ "pagina": 134,
+ "paginas": [
+  134,
+  135
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1888,
+   1956
+  ],
+  "notas": [
+   3053,
+   3030
+  ],
+  "num_notas": [
+   4,
+   5
+  ],
+  "troca": 23
+ },
+ "notas": "Erros corrigidos: OCR (distinguem, consequencias, primeiros, á, intelligencia, Miserabilius, c. 18, etc.), hifenizações (\"conse-/quencias\"), lixo (\"”\", \"'\", \"=\", \"^\", \"*\", \"Ut tiom em\"), \"raciocinio\" e \"Artigo IV\" repostos, itálicos/negritos das ocorrências e títulos a) e b). Fronteira: n134-1 movida de \"fundamento\" para \"absurdo\" (p. 134, chamada 1); n134-2 movida para logo após \"fundamento\" (p. 134, chamada 2); nota 135 partida em n135-2 (chamada 2, \"verdade\") e n135-3 (chamada 3, \"verdades\"); \"(i)\" e \"C\" literais removidos. Parágrafos cortados no meio de frase (p. 134 \"existem e/duvidam\"; p. 136 \"conse-/quencias\") foram unidos, o que elimina os ids t134.p11 e t136.p2.\nDúvidas: não tenho certeza do itálico de \"é a razão, que\" (137) e de \"testemunha\" (138); o \"Artigo IV\" foi posto como <p> sem id; o \"Universal e supremo motivo da certeza\" pode ser negrito-itálico na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1888,
+     1956
+    ],
+    "notas": [
+     3053,
+     3030
+    ],
+    "num_notas": [
+     4,
+     5
+    ],
+    "troca": 23
+   },
+   "notas": "Erros corrigidos: OCR (distinguem, consequencias, primeiros, á, intelligencia, Miserabilius, c. 18, etc.), hifenizações (\"conse-/quencias\"), lixo (\"”\", \"'\", \"=\", \"^\", \"*\", \"Ut tiom em\"), \"raciocinio\" e \"Artigo IV\" repostos, itálicos/negritos das ocorrências e títulos a) e b). Fronteira: n134-1 movida de \"fundamento\" para \"absurdo\" (p. 134, chamada 1); n134-2 movida para logo após \"fundamento\" (p. 134, chamada 2); nota 135 partida em n135-2 (chamada 2, \"verdade\") e n135-3 (chamada 3, \"verdades\"); \"(i)\" e \"C\" literais removidos. Parágrafos cortados no meio de frase (p. 134 \"existem e/duvidam\"; p. 136 \"conse-/quencias\") foram unidos, o que elimina os ids t134.p11 e t136.p2.\nDúvidas: não tenho certeza do itálico de \"é a razão, que\" (137) e de \"testemunha\" (138); o \"Artigo IV\" foi posto como <p> sem id; o \"Universal e supremo motivo da certeza\" pode ser negrito-itálico na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.019519,
+ "duration_ms": 133304,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17070,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 35624
+ },
+ "reparo": false
+}

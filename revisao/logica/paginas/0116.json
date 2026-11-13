@@ -1,0 +1,59 @@
+{
+ "pagina": 116,
+ "paginas": [
+  116,
+  117,
+  118,
+  119,
+  120
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1994,
+   951
+  ],
+  "notas": [
+   11912,
+   12830
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 918
+ },
+ "notas": "Erros corrigidos: OCR (immutavel, relativistas, Cl. Bernard, \"2 mais 2\", \"e, por isso\", \"e independente\", \"coisa coisa\"), hifenização, ruído (\"^\", \"|\", \"-\", \". - * . \\\".\"), e um trecho omitido no p. 120 (\"não é o sujeito que forma ou modifica o objecto, mas é o objecto que modifica e\" foi reposto antes de \"fica e determina\").\nFronteira: a linha inicial de \"necessarias… p. 65).\" (continuação de nota vinda da p. 115) estava no corpo da p. 116; envolvi-a em `<note type=\"continuacao\">` e movi a nota n116-1 para o \"(1)\" após \"immutavel\". A nota n116-1 foi mantida até o fim real (p. 120, \"evolvitur»\"), pois as p. 117–119 em letra menor são sua continuação; o corpo da tese 124 (pp. 117–119) permanece fora da nota.\nDúvidas: a leitura de \"Come se vê… porque\" e do bloco \"Agora uma advertencia\" como letra menor (nota) foi inferida pelo tamanho da fonte; confirme se há algum trecho em letra normal nessas linhas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1994,
+     951
+    ],
+    "notas": [
+     11912,
+     12830
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 918
+   },
+   "notas": "Erros corrigidos: OCR (immutavel, relativistas, Cl. Bernard, \"2 mais 2\", \"e, por isso\", \"e independente\", \"coisa coisa\"), hifenização, ruído (\"^\", \"|\", \"-\", \". - * . \\\".\"), e um trecho omitido no p. 120 (\"não é o sujeito que forma ou modifica o objecto, mas é o objecto que modifica e\" foi reposto antes de \"fica e determina\").\nFronteira: a linha inicial de \"necessarias… p. 65).\" (continuação de nota vinda da p. 115) estava no corpo da p. 116; envolvi-a em `<note type=\"continuacao\">` e movi a nota n116-1 para o \"(1)\" após \"immutavel\". A nota n116-1 foi mantida até o fim real (p. 120, \"evolvitur»\"), pois as p. 117–119 em letra menor são sua continuação; o corpo da tese 124 (pp. 117–119) permanece fora da nota.\nDúvidas: a leitura de \"Come se vê… porque\" e do bloco \"Agora uma advertencia\" como letra menor (nota) foi inferida pelo tamanho da fonte; confirme se há algum trecho em letra normal nessas linhas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.026129000000000003,
+ "duration_ms": 179269,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 36230,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 45012
+ },
+ "reparo": false
+}

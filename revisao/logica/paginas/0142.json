@@ -1,0 +1,29 @@
+{
+ "pagina": 142,
+ "paginas": [
+  142,
+  143,
+  144
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (letras trocadas, \"vé\", \"etavam\", \"adberir\", \"Liriplice\", \"triplice\", \"muis\", \"efficac\"), acentos e crases (\"á\"), palavras perdidas (\"A evidencia, portanto…\", \"á\" em \"á faculdade perceptiva\"), itálicos e apóstrofos (\"E'\"), hifenização (\"exa-mina-se\", \"localisação\"), e pontuação (\"(¹):\" e \"(¹).\").\nFronteira corpo/nota: não alterei a estrutura. As notas 142-1 (inclui a, b, c e \"regras.\", que ficam abaixo do filete), 143-1 e 144-1 estão onde a imagem as coloca; a continuação no topo da p. 143 foi mantida dentro da nota 142-1 com `<pb n=\"143\"/>`.\nDúvidas: se \"excluír\" tem acento na imagem; se \"moral\" da lista na p. 143 é itálico; e se o ponto inicial \".\" (fim de \"livel.\") deve ficar, já que a palavra começou na página 141.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (letras trocadas, \"vé\", \"etavam\", \"adberir\", \"Liriplice\", \"triplice\", \"muis\", \"efficac\"), acentos e crases (\"á\"), palavras perdidas (\"A evidencia, portanto…\", \"á\" em \"á faculdade perceptiva\"), itálicos e apóstrofos (\"E'\"), hifenização (\"exa-mina-se\", \"localisação\"), e pontuação (\"(¹):\" e \"(¹).\").\nFronteira corpo/nota: não alterei a estrutura. As notas 142-1 (inclui a, b, c e \"regras.\", que ficam abaixo do filete), 143-1 e 144-1 estão onde a imagem as coloca; a continuação no topo da p. 143 foi mantida dentro da nota 142-1 com `<pb n=\"143\"/>`.\nDúvidas: se \"excluír\" tem acento na imagem; se \"moral\" da lista na p. 143 é itálico; e se o ponto inicial \".\" (fim de \"livel.\") deve ficar, já que a palavra começou na página 141.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0196549,
+ "duration_ms": 131372,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24039,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 34502
+ },
+ "reparo": false
+}

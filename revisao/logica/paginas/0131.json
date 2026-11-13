@@ -1,0 +1,28 @@
+{
+ "pagina": 131,
+ "paginas": [
+  131,
+  132
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (ex.: \"superior.a\", \"adherir 2\", \"intfelligencia\", \"scepéicos\", \"Gharron\", \"1041\"), hifenizações (\"du- vida\", \"evidente-mente\"), pontuação (\";\" e \"....\" trocados por \".\"), e itálicos/versalete; o cabeçalho \"ArTIGO [II\" virou \"Artigo III\" e \"4\" virou \"A\".\nFronteiras corpo/nota: conferidas e mantidas. A nota n131-1 (pág. 131) e a n131-2 (pág. 131→132, continuação \"todo o juizo… etc.\") estão corretas; as notas n132-1 e n132-2 também. Nenhuma mudança de fronteira foi feita.\nDúvidas: removi o parágrafo \"a ^ »\" no fim da nota n132-2, que não aparece na imagem de 132 (provável resíduo da página 133); mantive os dois `<pb n=\"132\"/>` (um na nota, outro no corpo) por estarem assim no fragmento. Não consegui confirmar se \"erro\" e \"alcançar\" eram itálico ou não na imagem; deixei sem itálico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (ex.: \"superior.a\", \"adherir 2\", \"intfelligencia\", \"scepéicos\", \"Gharron\", \"1041\"), hifenizações (\"du- vida\", \"evidente-mente\"), pontuação (\";\" e \"....\" trocados por \".\"), e itálicos/versalete; o cabeçalho \"ArTIGO [II\" virou \"Artigo III\" e \"4\" virou \"A\".\nFronteiras corpo/nota: conferidas e mantidas. A nota n131-1 (pág. 131) e a n131-2 (pág. 131→132, continuação \"todo o juizo… etc.\") estão corretas; as notas n132-1 e n132-2 também. Nenhuma mudança de fronteira foi feita.\nDúvidas: removi o parágrafo \"a ^ »\" no fim da nota n132-2, que não aparece na imagem de 132 (provável resíduo da página 133); mantive os dois `<pb n=\"132\"/>` (um na nota, outro no corpo) por estarem assim no fragmento. Não consegui confirmar se \"erro\" e \"alcançar\" eram itálico ou não na imagem; deixei sem itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0121595,
+ "duration_ms": 82609,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17245,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 20870
+ },
+ "reparo": false
+}

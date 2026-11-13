@@ -1,0 +1,30 @@
+{
+ "pagina": 155,
+ "paginas": [
+  155,
+  156,
+  157,
+  158
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (ex.: \"nivcersal:direcío\", \"indiniduaes\", \"reges\", \"rommuns\", \"cór\"), pontos espúrios, hifenizações rompidas e parágrafos partidos por quebra de linha (unidos), \"s\" isolado removido, \"(1)\" e \"«\" espúrios retirados das notas, grifos itálicos corrigidos.\nFronteira corpo/nota: mantida como estava. Verifiquei que a nota 155-1 é realmente longa e atravessa p. 155, 156 e 157 (letra menor contínua, sem separação de corpo); a nota 157-1 começa em p. 157 e continua em p. 158 (com a marca pb 158 interna). Nenhuma alteração de fronteira foi feita; o alerta de p. 156 é falso positivo.\nDúvidas: a palavra \"rea-\" no fim de p. 158 foi lida como \"realidade\" (já presente no fragmento); \"sabôr\"/\"sabor\" e \"elemente\" foram transcritos como impressos, sem certeza absoluta da grafia de cada ocorrência.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (ex.: \"nivcersal:direcío\", \"indiniduaes\", \"reges\", \"rommuns\", \"cór\"), pontos espúrios, hifenizações rompidas e parágrafos partidos por quebra de linha (unidos), \"s\" isolado removido, \"(1)\" e \"«\" espúrios retirados das notas, grifos itálicos corrigidos.\nFronteira corpo/nota: mantida como estava. Verifiquei que a nota 155-1 é realmente longa e atravessa p. 155, 156 e 157 (letra menor contínua, sem separação de corpo); a nota 157-1 começa em p. 157 e continua em p. 158 (com a marca pb 158 interna). Nenhuma alteração de fronteira foi feita; o alerta de p. 156 é falso positivo.\nDúvidas: a palavra \"rea-\" no fim de p. 158 foi lida como \"realidade\" (já presente no fragmento); \"sabôr\"/\"sabor\" e \"elemente\" foram transcritos como impressos, sem certeza absoluta da grafia de cada ocorrência.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0288331,
+ "duration_ms": 199014,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31051,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 51456
+ },
+ "reparo": false
+}

@@ -368,20 +368,22 @@ def liga_continuacoes(doc):
         txt_ant = palavras_brutas(antes[-400:])
         txt_cont = palavras_brutas(cont)
         emenda = not re.search(r'[.!?»"]\s*$', txt_ant) or (txt_cont[:1].islower())
-        c = cont.strip()
+        c = re.sub(r'^\s*<pb\b[^>]*/>\s*', "", cont)   # o <pb> é posto aqui; o que o modelo pôs sai
+        c = c.strip()
+        abre_p = re.match(r"<p[\s>]", c)
         if emenda and antes.rstrip().endswith("</p>"):
             k = antes.rstrip().rfind("</p>")
             if not txt_ant.endswith("-"):
                 pb = " " + pb
-            if c.startswith("<p"):
+            if abre_p:
                 c = c[c.index(">") + 1:]
                 novo = antes[:k] + pb + c
-            elif "<p" not in c:
+            elif not re.search(r"<p[\s>]", c):
                 novo = antes[:k] + pb + c + "</p>"
             else:
                 novo = antes + pb + c
         else:
-            novo = antes + pb + (c if c.startswith("<p") or "<p" in c or not antes.rstrip().endswith("</p>")
+            novo = antes + pb + (c if re.search(r"<p[\s>]", c) or not antes.rstrip().endswith("</p>")
                                  else f"<p>{c}</p>")
         resto = doc[alvo:m.start()] + doc[fim + len("</note>"):]
         avisos.append(f"p. {pag}: continuação de nota ligada à nota anterior ({len(txt_cont)} car.)")
@@ -733,6 +735,9 @@ def main():
         if vale and j.exists():
             todos.append(json.loads(j.read_text()))
     final, avisos_mont = liga_continuacoes(prefixo + "".join(partes) + sufixo)
+    if bem_formado(final) and not bem_formado(prefixo + "".join(partes) + sufixo):
+        avisos_mont.append(f"!! ligar continuações quebrou o XML ({bem_formado(final)}): ficaram sem ligar")
+        final = prefixo + "".join(partes) + sufixo
     for x in avisos_mont:
         print(f"   montagem: {x}", file=sys.stderr)
     erro = bem_formado(final)

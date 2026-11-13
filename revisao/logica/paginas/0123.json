@@ -1,0 +1,27 @@
+{
+ "pagina": 123,
+ "paginas": [
+  123
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de palavras (subjetiva, refleza, metaphysica/physica, pluysica, plujsicamente, \"uma: causa\", \"receio. de\", \"sujeito.e\", \"dc\", \"atiribue\", \"propriamevte\"), lixo (\"10\", \"«\", \"| :\", \"(9.\", \". ..\"), palavra faltando (\"no\" antes de modo), itálicos (moral, reflexa) e versalete em Deus.\nFronteiras: nota 1 movida de p. 123 (após \"impossivel\", no § \"a)\") para a chamada \"subjectiva (1)\" no fim do § a) \"Certeza subjectiva e objectiva\"; nota que estava como n=9 em p. 123 passa a n=2 (xml:id n123-2) e vai para a chamada \"absolutamente impossivel (2)\"; nota 3 já estava certa após \"physicamente impossivel (3)\". Nenhuma continuação de página envolvida.\nDúvidas: itálicos parciais na citação de Aquino (nota 1) e em \"é absoluta\"/\"immutavel\"; leitura \"baseia\" (imagem sugere \"basêa\"); negrito de \"Certeza\" só no § a), como no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de palavras (subjetiva, refleza, metaphysica/physica, pluysica, plujsicamente, \"uma: causa\", \"receio. de\", \"sujeito.e\", \"dc\", \"atiribue\", \"propriamevte\"), lixo (\"10\", \"«\", \"| :\", \"(9.\", \". ..\"), palavra faltando (\"no\" antes de modo), itálicos (moral, reflexa) e versalete em Deus.\nFronteiras: nota 1 movida de p. 123 (após \"impossivel\", no § \"a)\") para a chamada \"subjectiva (1)\" no fim do § a) \"Certeza subjectiva e objectiva\"; nota que estava como n=9 em p. 123 passa a n=2 (xml:id n123-2) e vai para a chamada \"absolutamente impossivel (2)\"; nota 3 já estava certa após \"physicamente impossivel (3)\". Nenhuma continuação de página envolvida.\nDúvidas: itálicos parciais na citação de Aquino (nota 1) e em \"é absoluta\"/\"immutavel\"; leitura \"baseia\" (imagem sugere \"basêa\"); negrito de \"Certeza\" só no § a), como no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0062729000000000005,
+ "duration_ms": 39908,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10864,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10373
+ },
+ "reparo": false
+}

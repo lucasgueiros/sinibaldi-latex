@@ -1,0 +1,28 @@
+{
+ "pagina": 124,
+ "paginas": [
+  124,
+  125
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros: OCR de letras e acentos (o/c em \"c)\", \"Balmes\", \"inconcusso\", \"violadas\", \"um fim\", \"pelo\" etc.), hifenizações de fim de linha, lixo (\"^\", \"UU\", \"| =\", \"(O. s\", \"(* y.\"), itálicos/negritos do original e dois `<pb n=\"125\"/>` duplicados (um agora dentro da nota 2, o corpo mantido).\nFronteiras: n124-1 movida de p15 para o ponto da chamada (1) em p14 (\"impossivel\"); n124-2 ancorada corretamente após \"principio\" em p15, com `<pb n=\"125\"/>` interno para a continuação no rodapé da p.125 (\"plenamente… (Lettres)\"); n125-1 movida de p19 para a chamada (1) em p16 (\"verdade\"); p19 ficou vazia e aberta no fim do fragmento.\nDúvidas: se a chamada (1) de p.124 e a (2) levam ponto antes/depois da marca; \"bem é preciso\" (OCR \"pem\"); negritos dos títulos \"c)/d)/128.\" e \"Se assim fosse\" sem negrito, conforme leitura da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros: OCR de letras e acentos (o/c em \"c)\", \"Balmes\", \"inconcusso\", \"violadas\", \"um fim\", \"pelo\" etc.), hifenizações de fim de linha, lixo (\"^\", \"UU\", \"| =\", \"(O. s\", \"(* y.\"), itálicos/negritos do original e dois `<pb n=\"125\"/>` duplicados (um agora dentro da nota 2, o corpo mantido).\nFronteiras: n124-1 movida de p15 para o ponto da chamada (1) em p14 (\"impossivel\"); n124-2 ancorada corretamente após \"principio\" em p15, com `<pb n=\"125\"/>` interno para a continuação no rodapé da p.125 (\"plenamente… (Lettres)\"); n125-1 movida de p19 para a chamada (1) em p16 (\"verdade\"); p19 ficou vazia e aberta no fim do fragmento.\nDúvidas: se a chamada (1) de p.124 e a (2) levam ponto antes/depois da marca; \"bem é preciso\" (OCR \"pem\"); negritos dos títulos \"c)/d)/128.\" e \"Se assim fosse\" sem negrito, conforme leitura da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.011117600000000002,
+ "duration_ms": 74443,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17381,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18759
+ },
+ "reparo": false
+}
