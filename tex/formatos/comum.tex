@@ -1,0 +1,71 @@
+% Macros comuns aos quatro formatos de exportação (tex/formatos/formato-*.tex), derivadas
+% de diagramacao/essencia-de-deus/comum.tex.  Cada mestre define a
+% geometria e o tratamento das notas ANTES de \input{comum}; aqui ficam fonte, títulos,
+% marcas de página e cabeçalhos.
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{portuguese}
+\setotherlanguage{latin}
+\setmainfont{EB Garamond}[Numbers={OldStyle,Proportional}]
+\usepackage{microtype}
+\usepackage{xcolor}
+\definecolor{marca}{gray}{0.45}
+\setlength{\emergencystretch}{1.5em}
+\frenchspacing
+
+% --- página do original ------------------------------------------------------
+% \pg{443}: virada de página do original no corpo -> na margem externa.
+% \pgn{444}: virada dentro de nota (marginpar é proibido ali) -> discreta no fluxo.
+% Em modo vertical (antes de um título ou parágrafo) a marca espera o próximo
+% parágrafo, senão cairia no pé da página anterior.
+% marginnote, não \marginpar: \marginpar é float e, com notas retidas de uma página
+% para outra (\dimen\footins limitado), o LaTeX aborta com «Float(s) lost».
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\footnotesize\color{marca}}
+\newcommand{\margempg}[1]{\marginnote{[#1]}}
+% Antes de \tese/\teseB/\subp (que fazem \par\medskip\noindent) a marca fica pendente
+% e é solta por eles (\soltapg) já dentro do parágrafo novo; antes de texto comum,
+% abre o parágrafo ali mesmo.  (Um hook para/begin com \marginnote comia o recuo de
+% parágrafo.)
+\gdef\pgpendente{}
+\newcommand{\soltapg}{\pgpendente\gdef\pgpendente{}}
+\newcommand{\pg}[1]{%
+  \ifvmode\def\pgarg{#1}\expandafter\pgvert
+  \else\margempg{#1}\expandafter\ignorespaces\fi}
+\newcommand{\pgvert}{\futurelet\pgprox\pgvertdecide}
+\newcommand{\pgvertdecide}{%
+  \ifx\pgprox\tese \pgadia\else\ifx\pgprox\sub \pgadia\else\ifx\pgprox\teseB \pgadia\else\ifx\pgprox\subp \pgadia
+  \else\leavevmode\margempg{\pgarg}\fi\fi\fi\fi}
+\newcommand{\pgadia}{%
+  \xdef\pgpendente{\unexpanded\expandafter{\pgpendente}\noexpand\margempg{\pgarg}}}
+\newcommand{\pgn}[1]{{\scriptsize\color{marca}[#1]}}
+% (classe book, twoside: \marginpar vai para a margem externa)
+\setlength{\marginparsep}{3mm}
+
+% --- estrutura do autor (mesmo dialeto de tex/preambulo.tex e de tools/tei2latex.py) ---
+% tese numerada que corre com o texto / em linha própria / subdivisão a), b)
+\newcommand{\tese}[2]{\par\medskip\noindent\soltapg#1.\enspace\textbf{#2}\;---\;}
+\newcommand{\teseB}[2]{\par\medskip\noindent\soltapg#1.\enspace\textbf{#2}\par}
+\newcommand{\sub}[2]{\par\medskip\noindent\soltapg#1)\enspace\emph{#2}\,---\;}
+\newcommand{\subp}[1]{\par\noindent\soltapg\hspace*{\parindent}#1)\enspace}
+% asterisco do original: abre um apêndice sem número dentro de uma nota
+\newcommand{\asterisco}{\par\smallskip{\centering$\ast$\par}\smallskip\noindent}
+
+% gravura recortada do fac-símile (<figure> do TEI)
+\usepackage{graphicx}
+\newcommand{\gravura}[3]{\par\medskip\begingroup\centering
+  \includegraphics[width=#2\linewidth,height=0.75\textheight,keepaspectratio]{#1}\par
+  \if\relax\detokenize{#3}\relax\else\smallskip{\small #3\par}\fi\endgroup\medskip\noindent}
+\newenvironment{latim}{\begin{quote}\itshape}{\end{quote}}
+
+% --- cabeçalho: título corrente (\def\titulocorrente{...} no -usepretex) ---------
+\providecommand{\titulocorrente}{elementos de philosophia}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\oldstylenums{\thepage}\quad\scshape\titulocorrente}
+\fancyhead[RO]{\small\scshape\titulocorrente\quad\oldstylenums{\thepage}}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\oldstylenums{\thepage}}}
+\usepackage{sectsty}\allsectionsfont{\raggedright}
+\providecommand{\fragmento}{build/vol2}

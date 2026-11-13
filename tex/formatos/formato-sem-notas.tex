@@ -1,0 +1,12 @@
+% Exportação — sem notas: só o corpo do texto (chamadas e conteúdo suprimidos).
+% Livro padrão 160×230 mm, corpo 11 pt, mesma mancha do formato de notas em 1 coluna.
+\documentclass[11pt,twoside]{book}
+\usepackage[paperwidth=160mm,paperheight=230mm,inner=20mm,outer=22mm,top=17mm,
+            bottom=19mm,includehead,headsep=6mm,footskip=9mm,marginparwidth=14mm]{geometry}
+\input{tex/formatos/comum}
+\renewcommand\footnote[2][]{}
+\renewcommand\footnotemark[1][]{}
+\renewcommand\footnotetext[2][]{}
+\begin{document}
+\input{\fragmento}
+\end{document}
