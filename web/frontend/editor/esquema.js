@@ -9,6 +9,7 @@
 //     cabecalho p[data-tei=fw]
 //   inline
 //     pb        span[data-tei=pb][data-n][data-facs]                     (átomo)
+//     asterisco span[data-tei=anchor][data-type=asterisco]               (átomo; vale também em nota)
 //     nota      span[data-tei=note][data-n][data-xmlid] > span[data-tei=note-p]+
 //     fwInline  span[data-tei=fw]
 //   marcas: negrito <b>, italico <i>, versalete span[data-tei=hi][data-rend=sc],
@@ -189,9 +190,24 @@ export const MarcaPagina = Node.create({
   },
 });
 
+// Componente semântico: o ∗ de divisão de assunto do original (<anchor type="asterisco"/>).
+export const Asterisco = Node.create({
+  name: "asterisco",
+  group: "inline",
+  inline: true,
+  atom: true,
+  selectable: true,
+  parseHTML() {
+    return [{ tag: 'span[data-tei="anchor"]' }];
+  },
+  renderHTML() {
+    return ["span", { "data-tei": "anchor", "data-type": "asterisco", contenteditable: "false" }];
+  },
+});
+
 export const ParagrafoNota = Node.create({
   name: "paragrafoNota",
-  content: "(text|pb|fwInline)*",
+  content: "(text|pb|asterisco|fwInline)*",
   addAttributes() {
     return {};
   },
@@ -297,6 +313,6 @@ export const Rotulo = Mark.create({
 // Ordem importa: o primeiro nó do grupo "bloco" é o bloco padrão (Enter no fim de um bloco).
 export const nosDoEsquema = [
   Paragrafo, Titulo, Sumario, ParagrafoSumario, Cabecalho, Marco,
-  MarcaPagina, Nota, ParagrafoNota, CabecalhoInline,
+  MarcaPagina, Asterisco, Nota, ParagrafoNota, CabecalhoInline,
 ];
 export const marcasDoEsquema = [Negrito, Italico, Versalete, Latim, Rotulo];

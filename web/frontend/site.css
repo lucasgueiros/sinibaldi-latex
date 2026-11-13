@@ -173,6 +173,7 @@
   .resultados mark { @apply bg-gold-light/60 px-0.5; }
   .resultados .pag { @apply font-display text-[0.65rem] tracking-[0.1em] text-ink/55; }
 
+  .obra [data-tei="anchor"][data-type="asterisco"]::before { content: "∗"; @apply my-2 block select-none text-center; }
   .obra a[data-tei="pb"] { @apply no-underline; }
   .obra sup.nref a { @apply px-0.5 font-display text-[0.7em] text-crimson no-underline hover:underline; }
   .obra :target, .notas-fim :target { @apply bg-gold-light/40; }

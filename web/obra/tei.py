@@ -406,6 +406,8 @@ def _html_elemento(el, ctx):
         h = _h("span", tei="note", data_n=g("n"), data_xmlid=g(XML_ID))
     elif nome == "pb":
         h = _h("span", tei="pb", data_n=g("n"), data_facs=g("facs"), contenteditable="false")
+    elif nome == "anchor":
+        h = _h("span", tei="anchor", data_type=g("type"), contenteditable="false")
     else:  # não deveria ocorrer em fragmento válido
         h = _h("span", tei=f"desconhecido-{nome}")
     filho_ctx = "argumento" if nome == "argument" else "nota" if nome == "note" else "inline"
@@ -477,6 +479,8 @@ def _bruto(h):
         nome, attrs = "foreign", {XML_LANG: g("lang") or "la"}
     elif dt == "pb":
         nome, attrs = "pb", {"n": g("data-n"), "facs": g("data-facs")}
+    elif dt == "anchor":
+        nome, attrs = "anchor", {"type": g("data-type")}
     elif tag == "p":
         nome, attrs = "p", {XML_ID: g("data-xmlid")}
     else:

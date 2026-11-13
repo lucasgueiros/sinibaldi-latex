@@ -6,6 +6,7 @@ Cada bloco é UM elemento, sem prefixo nem declaração de namespace:
            <p [type] [xml:id]>         (paragrafo) <argument><p/>…</argument> (sumario)
            <fw type="header">          (cabecalho)
   inline   <hi rend>, <label>, <foreign xml:lang>, <pb n facs/>, <note place n xml:id>,
+           <anchor type="asterisco"/> (componente semântico: o ∗ de divisão de assunto, no corpo ou em nota),
            <fw type="header"> (cabeçalho corrente que o OCR deixou no meio de um parágrafo)
 
 `<note>` contém só `<p>` (sem nota dentro de nota). Tudo é definido aqui; as telas
@@ -69,6 +70,7 @@ ATRIBUTOS = {
     "label": (),
     "foreign": ("xml:lang",),
     "pb": ("n", "facs"),
+    "anchor": ("type",),
     "note": ("place", "n", "xml:id"),
 }
 
@@ -80,11 +82,12 @@ VALORES = {
     ("fw", "type"): {"header"},
     ("hi", "rend"): set(REND),
     ("note", "place"): {"foot"},
+    ("anchor", "type"): {"asterisco"},
 }
 
-INLINE = ("hi", "label", "foreign", "pb", "note", "fw")
-INLINE_EM_NOTA = ("hi", "label", "foreign", "pb", "fw")  # sem nota dentro de nota
-VAZIOS = ("milestone", "pb")  # elementos sem conteúdo
+INLINE = ("hi", "label", "foreign", "pb", "anchor", "note", "fw")
+INLINE_EM_NOTA = ("hi", "label", "foreign", "pb", "anchor", "fw")  # sem nota dentro de nota
+VAZIOS = ("milestone", "pb", "anchor")  # elementos sem conteúdo
 
 
 def nome_atributo(qname):
@@ -150,6 +153,8 @@ def _validar_atributos(el, nome, erros):
             erros.append('<milestone> exige o atributo "unit".')
     if nome == "note" and el.get("place") is None:
         erros.append('<note> exige place="foot".')
+    if nome == "anchor" and not el.get("type"):
+        erros.append('<anchor> exige type="asterisco".')
     if nome == "pb" and el.get("n") is None:
         erros.append('<pb> exige o atributo "n".')
 

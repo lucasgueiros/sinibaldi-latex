@@ -49,6 +49,8 @@
 }
 .sn-editor span[data-tei="pb"] { cursor: default; }
 .sn-editor span[data-tei="pb"].ProseMirror-selectednode::before { background: #8B1A1A; color: #F6EFE0; }
+.sn-editor span[data-tei="anchor"][data-type="asterisco"]::before { content: "∗"; display: block; text-align: center; margin: 0.4em 0; color: #8B1A1A; cursor: default; }
+.sn-editor span[data-tei="anchor"].ProseMirror-selectednode::before { background: #8B1A1A; color: #F6EFE0; }
 .sn-editor [data-tei="label"] { color: #8B1A1A; }
 .sn-editor [data-tei="foreign"] { background: rgba(176, 141, 87, 0.12); }
 .sn-editor [data-tei="argument"] > p { margin: 0.2rem 0; }

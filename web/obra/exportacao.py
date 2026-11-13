@@ -148,6 +148,8 @@ def _texto_inline(el, notas, impressa):
                 pass
             elif c.tag == "pb":
                 partes.append(f" [pág. {impressa(int(c.get('n')))}] ")
+            elif c.tag == "anchor":
+                partes.append(" ∗ ")
             elif c.tag == "fw":
                 pass  # cabeçalho corrente que o OCR deixou no meio do parágrafo
             elif c.tag == "note":
@@ -211,6 +213,7 @@ _CSS = """body{font:18px/1.6 Georgia,'EB Garamond',serif;max-width:42rem;margin:
 h1{font-size:1.5rem;color:#6b1414}h3{text-align:center;margin:1.6rem 0 .6rem;color:#6b1414}p{text-align:justify;margin:.15rem 0;text-indent:1.4em}
 p[data-type]{text-indent:0;border-left:3px solid #c9a86a;padding-left:.7rem;margin:.5rem 0}
 [data-tei=label]{font-weight:bold}[data-tei=hi][data-rend=sc]{font-variant:small-caps}[data-tei=foreign]{font-style:italic}
+[data-tei=anchor]::before{content:"∗";display:block;text-align:center;margin:.5rem 0}
 [data-tei=pb]::before{content:"[" attr(data-n) "]";color:#8a6d2b;font:.72rem sans-serif;margin:0 .3rem}
 [data-tei=argument]{font-size:.95rem;text-align:justify;margin:1.5rem auto;max-width:36rem}[data-tei=argument]::before{content:"Summario:";font-variant:small-caps;letter-spacing:.08em}[data-tei=argument]>p{display:inline;margin:0;text-indent:0}[data-tei=argument]>p::before{content:" — "}p[data-type=anexo-titulo]{border:0;padding-left:0;text-align:center;font-variant:small-caps;margin:1.2rem 0 .3rem;text-indent:0}p[data-type=indice]{border:0;margin:.2rem 0;padding-left:1.5rem;text-indent:-1.5rem;text-align:left}
 [data-tei=milestone]{margin:1.6rem 0;border-top:1px solid #d9c9a3}

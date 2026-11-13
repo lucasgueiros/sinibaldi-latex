@@ -268,6 +268,7 @@ function criarBarra(host, editor, cfg, api) {
   sep();
   botao("Nota", "Inserir nota de rodapé", () => api.inserirNota(), { desativado: () => dentroDeNota(editor.state) });
   botao("[pág.]", "Inserir marca de página", () => api.inserirMarcaPagina());
+  botao("∗", "Inserir asterisco de divisão (também dentro de nota)", () => api.inserirAsterisco());
   sep();
   seletor(
     "Iniciar divisão: insere o marco antes do bloco atual",
@@ -415,6 +416,12 @@ export function montar(elemento, opcoes = {}) {
       const tr = state.tr.insert($to.pos, nota);
       tr.setSelection(TextSelection.near(tr.doc.resolve($to.pos + 2)));
       view.dispatch(tr.scrollIntoView());
+      editor.commands.focus();
+    },
+    inserirAsterisco() {
+      const { state, view } = editor;
+      if (!editor.isEditable || !state.selection.$to.parent.inlineContent) return;
+      view.dispatch(state.tr.replaceSelectionWith(state.schema.nodes.asterisco.create()));
       editor.commands.focus();
     },
     async inserirMarcaPagina() {

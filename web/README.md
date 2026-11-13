@@ -38,6 +38,7 @@ Utilitários e testes:
 .venv/bin/python manage.py exportar_tei --edicao 1916 --volume 2 -o /tmp/vol2.xml   # [--forcar]
 .venv/bin/python manage.py sincronizar_nova_edicao [--aplicar]                       # ver "Pendências"
 .venv/bin/python manage.py aplicar_componentes [--aplicar] [--edicao 1916|nova]   # ver "Componentes"
+.venv/bin/python manage.py aplicar_asteriscos [--aplicar] [--lista x.tsv]        # ver "Asterisco"
 .venv/bin/python manage.py test obra
 ```
 
@@ -58,6 +59,18 @@ Na nova, o aparato espalhado pela reordenação de partes é antes reunido no fi
 (`servicos_nova.reunir_anexos`), blocos editados à mão são pulados, e os resultantes voltam a ser
 `copia` ligados à 1916; `aplicar_ordem_partes` passou a manter os anexos no fim. Leva ~2 min (cada
 gravação reconstrói a árvore).
+
+### Componente asterisco (∗)
+
+O ∗ de divisão de assunto do original (centrado, entre parágrafos ou no meio de uma nota) é o
+componente semântico `<anchor type="asterisco"/>` (`obra/asteriscos.py`): inline, vale no corpo e
+dentro de `<note>`; no site é o botão **∗** da barra do editor; no LaTeX, `\asterisco`
+(`tools/tei2latex.py`). Para aplicar sem regerar nada: `aplicar_asteriscos` (sem `--aplicar` só relata,
+idempotente) converte os `<p>*</p>` soltos e, com `--lista`, insere onde o PDF tem ∗ e o texto não. TSV
+com cabeçalho `volume<TAB>pagina<TAB>depois_de<TAB>nota` (`pagina` = impressa; `depois_de` = trecho
+único que antecede o ∗; `nota` = nº da nota, vazio = corpo). Aplica na 1916, atualiza as cópias da nova
+(`atualizar_copias`) e repete a inserção nos blocos `adaptado` quando o trecho ainda existe — senão
+avisa para inserir à mão.
 
 Front-end (só para quem altera `frontend/` ou `templates/`; os bundles em `static/` já vêm commitados):
 

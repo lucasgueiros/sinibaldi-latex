@@ -143,7 +143,7 @@ class Conv:
             return self.inline(c, em_nota)
         if n == "lb":
             return " "
-        if n == "milestone" and c.get("unit") == "asterisco":
+        if (n == "anchor" and c.get("type") == "asterisco") or (n == "milestone" and c.get("unit") == "asterisco"):
             return r" \asterisco{} "
         if n == "p":                            # paragrafo dentro de nota
             corpo = self.inline(c, em_nota)
@@ -205,7 +205,7 @@ class Conv:
                 if t:
                     saida.append((self.flush_pg() + " " + t).strip())
                     self.contagem["p"] += 1
-            elif n == "milestone" and c.get("unit") == "asterisco":
+            elif (n == "anchor" and c.get("type") == "asterisco") or (n == "milestone" and c.get("unit") == "asterisco"):
                 saida.append(r"\asterisco{}")
             elif n in ("cit", "quote"):
                 saida.append(self.bloco_citacao(c))
