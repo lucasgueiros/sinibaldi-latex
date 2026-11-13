@@ -1,0 +1,200 @@
+% academia-slides.sty -- tema beamer da Academia Leão XIII (lualatex)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{academia-slides}[2026/11/12 tema de slides Academia Leao XIII]
+
+\RequirePackage{etoolbox}
+\RequirePackage{framed}
+\RequirePackage{fontspec}
+\RequirePackage{polyglossia}
+\setmainlanguage{portuges}
+
+\beamertemplatenavigationsymbolsempty
+\usefonttheme{serif}
+\setbeamertemplate{frametitle continuation}{}
+
+% ---------- cores ----------
+\definecolor{crimson}{HTML}{8B1A1A}
+\definecolor{crimsondeep}{HTML}{5E1010}
+\definecolor{crimsonlight}{HTML}{A83232}
+\definecolor{gold}{HTML}{B08D57}
+\definecolor{golddark}{HTML}{8A6A3B}
+\definecolor{goldlight}{HTML}{D9BF8C}
+\definecolor{parchment}{HTML}{F6EFE0}
+\definecolor{parchmentlight}{HTML}{FBF7EE}
+\definecolor{parchmentdark}{HTML}{EDE2CB}
+\definecolor{ink}{HTML}{2A1F1A}
+
+% ---------- fontes ----------
+\setmainfont{EBGaramond}[Extension=.otf,UprightFont=*-Regular,ItalicFont=*-Italic,
+  BoldFont=*-SemiBold,BoldItalicFont=*-SemiBoldItalic,Ligatures=TeX]
+\newfontfamily\slcinzel{Cinzel-Regular.ttf}[BoldFont=Cinzel-Bold.ttf,LetterSpace=6]
+\newfontfamily\slcinzelt{Cinzel-Regular.ttf}[BoldFont=Cinzel-Bold.ttf,LetterSpace=2]
+\newfontfamily\slcruz{DejaVu Sans}
+\newcommand\crux{{\slcruz\char"2720}}
+\newcommand\slromb{{\slcruz\char"25C6}}
+\renewcommand\normalsize{\fontsize{14}{18}\selectfont}
+\setbeamerfont{normal text}{}
+\setbeamercolor{normal text}{fg=ink,bg=parchment}
+\setbeamercolor{structure}{fg=crimson}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.42em plus 0.1em}
+\emergencystretch=2em
+\hbadness=3000
+
+% ---------- geometria (160 x 90 mm) ----------
+\setbeamersize{text margin left=13mm,text margin right=13mm}
+
+% ---------- estado ----------
+\newcommand\sl@obra{}\newcommand\sl@autor{}\newcommand\sl@trecho{}
+\newcommand\slidesmeta[3]{\gdef\sl@obra{#1}\gdef\sl@autor{#2}\gdef\sl@trecho{#3}}
+\gdef\sl@tit{}\gdef\sl@ref{}\gdef\sl@rotulo{}\gdef\sl@tipo{texto}
+
+% tipos: rotulo | cor da etiqueta | texto etiqueta | contorno | barra
+\newcommand\sl@deftipo[6]{\csdef{sl@t@#1}{\gdef\sl@rotulo{#2}\gdef\sl@tagfill{#3}\gdef\sl@tagtext{#4}\gdef\sl@tagline{#5}\gdef\sl@bar{#6}}}
+\sl@deftipo{texto}{}{parchment}{ink}{parchment}{parchment}
+\sl@deftipo{tese}{Tese}{crimson}{parchmentlight}{crimson}{crimson}
+\sl@deftipo{definicao}{Definição}{golddark}{parchmentlight}{golddark}{gold}
+\sl@deftipo{divisao}{Divisão}{parchment}{crimson}{crimson}{crimsonlight}
+\sl@deftipo{argumento}{Argumento}{crimsondeep}{parchmentlight}{crimsondeep}{crimsondeep}
+\sl@deftipo{objecao}{Objecção}{parchment}{crimsondeep}{crimsondeep}{crimsonlight}
+\sl@deftipo{resposta}{Resposta}{goldlight}{crimsondeep}{golddark}{goldlight}
+\sl@deftipo{corolario}{Corollario}{parchment}{golddark}{golddark}{gold}
+\sl@deftipo{escolio}{Escholio}{parchment}{golddark}{gold}{goldlight}
+\sl@deftipo{observacao}{Observação}{parchment}{ink}{gold}{goldlight}
+\sl@deftipo{citacao}{Citação}{ink}{parchmentlight}{ink}{golddark}
+\newcommand\sl@settipo[1]{\ifcsname sl@t@#1\endcsname\csname sl@t@#1\endcsname\gdef\sl@tipo{#1}\else\csname sl@t@texto\endcsname\gdef\sl@tipo{texto}\fi}
+\AtBeginDocument{\sl@settipo{texto}}
+
+% ---------- ornamento ----------
+\pgfdeclarehorizontalshading{sl@orn}{0.6pt}{color(0mm)=(parchment);color(14mm)=(gold)}
+\pgfdeclarehorizontalshading{sl@ornr}{0.6pt}{color(0mm)=(gold);color(14mm)=(parchment)}
+\pgfdeclarehorizontalshading{sl@ornd}{0.6pt}{color(0mm)=(crimsondeep);color(14mm)=(goldlight)}
+\pgfdeclarehorizontalshading{sl@orndr}{0.6pt}{color(0mm)=(goldlight);color(14mm)=(crimsondeep)}
+\newcommand\slornamento[1][]{\par\vskip.3em\centerline{%
+  \ifstrempty{#1}{\pgfuseshading{sl@orn}}{\pgfuseshading{sl@ornd}}\hskip.5em
+  {\ifstrempty{#1}{\color{crimson}}{\color{goldlight}}\large\crux}\hskip.5em
+  \ifstrempty{#1}{\pgfuseshading{sl@ornr}}{\pgfuseshading{sl@orndr}}}\par\vskip.3em}
+
+% ---------- fundo ----------
+\newcommand\sl@fundo[3]{\sl@fundox{#1}{#2}{#3}{}}
+\newcommand\sl@fundox[4]{%
+  \begin{pgfpicture}
+    \pgfsetfillcolor{#1}\pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\paperheight}}\pgfusepath{fill}
+    \pgfsetstrokecolor{#2}\pgfsetlinewidth{0.9pt}
+    \pgfpathrectangle{\pgfpoint{3.2mm}{3.2mm}}{\pgfpoint{\paperwidth-6.4mm}{\paperheight-6.4mm}}\pgfusepath{stroke}
+    \pgfsetstrokecolor{#3}\pgfsetlinewidth{0.35pt}
+    \pgfpathrectangle{\pgfpoint{4.6mm}{4.6mm}}{\pgfpoint{\paperwidth-9.2mm}{\paperheight-9.2mm}}\pgfusepath{stroke}
+    #4
+  \end{pgfpicture}}
+\newcommand\sl@fundoslide{\sl@fundox{parchment}{crimson}{gold}{\colorlet{sl@barc}{\sl@bar}\pgfsetfillcolor{sl@barc}\pgfpathrectangle{\pgfpoint{6.4mm}{6.4mm}}{\pgfpoint{1.4mm}{\paperheight-12.8mm}}\pgfusepath{fill}}}
+\setbeamertemplate{background canvas}{\sl@fundoslide}
+
+% ---------- cabeçalho (altura fixa 22mm) ----------
+\newsavebox\sl@tbox
+\newcommand\sl@titulo{%
+  \def\sl@try##1##2{\sbox\sl@tbox{\vbox{\hsize=\dimexpr\paperwidth-26mm\relax\raggedright\slcinzelt\fontsize{##1}{##2}\selectfont\color{crimson}\sl@tit\par}}%
+    \ifdim\dimexpr\ht\sl@tbox+\dp\sl@tbox\relax>11.5mm \else\let\sl@ok\relax\fi}%
+  \let\sl@ok\undefined
+  \sl@try{16}{19}\ifdefined\sl@ok\else\sl@try{14}{16.5}\fi
+  \ifdefined\sl@ok\else\sl@try{13}{15.5}\fi
+  \ifdefined\sl@ok\else\sl@try{12}{14}\fi
+  \ifdefined\sl@ok\else\sl@try{11}{12.5}\fi
+  \ifdefined\sl@ok\else\sl@try{9.5}{10.5}\fi
+  \usebox\sl@tbox}
+\newcommand\sl@etiqueta{%
+  \ifstrempty{\sl@rotulo}{}{%
+    \fcolorbox{\sl@tagline}{\sl@tagfill}{\strut\hspace{.4em}{\slcinzel\fontsize{8.5}{10}\selectfont\color{\sl@tagtext}\MakeUppercase{\sl@rotulo}}\hspace{.4em}\strut}}%
+  \ifnum\insertcontinuationcount>1 \hspace{.8em}{\itshape\color{golddark}\small continuação\ \insertcontinuationcount}\fi}
+\setbeamertemplate{headline}{%
+  \vbox to 24.4mm{\vskip 6mm
+    \hbox to \paperwidth{\hspace{13mm}\vbox to 5.9mm{\hbox{\sl@etiqueta}\vss}\hss}
+    \vskip .9mm
+    \hbox to \paperwidth{\hspace{13mm}\vbox to 11.6mm{\ifstrempty{\sl@tit}{}{\sl@titulo}\vss}\hss}
+    \vss}}
+% o número exibido é o da página física (cada continuação é uma página)
+\setbeamertemplate{footline}{%
+  \vbox to 11mm{\vss
+    \hbox to \paperwidth{\hspace{13mm}\color{gold}\vrule height .35pt width \dimexpr\paperwidth-26mm\relax\hss}\vskip 1.6mm
+    \hbox to \paperwidth{\hspace{13mm}\hbox to \dimexpr\paperwidth-26mm\relax{%
+      \raisebox{-.9mm}{\includegraphics[height=5mm]{logo.pdf}}\hspace{1.5mm}%
+      {\slcinzel\fontsize{6.5}{8}\selectfont\color{golddark}\MakeUppercase{\sl@obra}}\hfill
+      {\itshape\fontsize{9}{10}\selectfont\color{ink!75}\sl@ref}\hfill
+      {\slcinzel\fontsize{8}{10}\selectfont\color{crimson}\insertpagenumber}}\hss}%
+    \vskip 5.4mm}}
+
+% ---------- o ambiente slide ----------
+\newenvironment{slide}[3]{%
+  \sl@settipo{#1}\gdef\sl@tit{#2}\gdef\sl@ref{#3}%
+  \begin{frame}[environment=slide,allowframebreaks,t]%
+  \sl@corpo}{\end{frame}}
+\newcommand\sl@corpo{\raggedright\hyphenpenalty=200 \relax}
+
+% ---------- corpo ----------
+\newsavebox\sl@ebox
+\newenvironment{enunciado}{%
+  \par\vskip.35em
+  \begin{lrbox}{\sl@ebox}\begin{minipage}{\dimexpr\linewidth-27pt\relax}\fontsize{17.5}{22.5}\selectfont\color{ink}\strut\ignorespaces}%
+ {\strut\end{minipage}\end{lrbox}%
+  \noindent\fcolorbox{crimson}{parchmentlight}{\setlength{\fboxsep}{3pt}\fcolorbox{goldlight}{parchmentlight}{\setlength{\fboxsep}{6pt}\fcolorbox{parchmentlight}{parchmentlight}{\usebox\sl@ebox}}}%
+  \par\vskip.35em}
+
+\newcommand\sl@marca{\ifnum\@listdepth>1 {\color{gold}\fontsize{6}{6}\selectfont\slromb}\else{\color{crimson}\fontsize{10}{10}\selectfont\crux}\fi}
+\newenvironment{topicos}{%
+  \list{\sl@marca}{\setlength\labelwidth{1.2em}\setlength\leftmargin{1.6em}\setlength\labelsep{.4em}%
+    \setlength\itemsep{.2em}\setlength\parsep{.2em}\setlength\topsep{.2em}\setlength\partopsep{0pt}%
+    \ifnum\@listdepth>1 \setlength\topsep{.1em}\fi}}
+ {\endlist}
+
+\newenvironment{citacao}{%
+  \par\vskip.2em\begin{leftbar}\itshape\color{ink!90}\fontsize{15}{19}\selectfont\raggedright\hyphenpenalty=3000 }
+ {\end{leftbar}\par\vskip.2em}
+\renewenvironment{leftbar}{%
+  \def\FrameCommand{\vrule width 2.6pt \@width 0pt \hspace{10pt}}%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}}{\endMakeFramed}
+\renewcommand\FrameCommand{\textcolor{gold}{\vrule width 2.6pt}\hspace{10pt}}
+
+\newlength\sl@rotw \setlength\sl@rotw{25mm}
+\newenvironment{rotulados}{\par\vskip.2em
+  \list{}{\setlength\labelwidth{\sl@rotw}\setlength\labelsep{.6em}\setlength\leftmargin{\dimexpr\sl@rotw+.6em\relax}%
+    \setlength\itemsep{.25em}\setlength\parsep{0pt}\setlength\topsep{0pt}\setlength\partopsep{0pt}\setlength\listparindent{0pt}}}
+ {\endlist\par\vskip.2em}
+\newcommand\sl@concl[1]{\ifstrequal{#1}{Conclusão}{T}{\ifstrequal{#1}{Conclusao}{T}{\ifstrequal{#1}{Logo}{T}{F}}}}
+\newcommand\sl@lab[1]{\hfill{\slcinzelt\fontsize{8.5}{11}\selectfont\color{crimson}\MakeUppercase{#1}}}
+\newcommand\rot[2]{%
+  \ifboolexpr{test{\ifdefstring{\sl@tipo}{argumento}} and (test{\ifstrequal{#1}{Conclusão}} or test{\ifstrequal{#1}{Conclusao}} or test{\ifstrequal{#1}{Logo}})}%
+    {\par\vskip.3em\item[\sl@lab{#1}]{\bfseries #2}\par}%
+    {\item[\sl@lab{#1}]#2\par}}
+
+\newcommand\continua{\par\nopagebreak\hfill{\itshape\small\color{golddark}(continua)}\par}
+
+% ---------- telas sem corpo ----------
+\newcommand\slidecapa[3]{%
+  \begingroup
+  \setbeamertemplate{background canvas}{\sl@fundo{parchment}{crimson}{gold}}%
+  \begin{frame}[plain,c]
+  \centering
+  \hbox to \textwidth{\hss\includegraphics[height=50mm]{logo.pdf}\hspace{9mm}%
+    \begin{minipage}[c][62mm][c]{.56\textwidth}\raggedright
+      {\slcinzel\fontsize{9}{12}\selectfont\color{golddark}\MakeUppercase{\sl@autor}\par}\vskip 1mm
+      {\slcinzelt\fontsize{15}{18}\selectfont\color{crimsondeep}\sl@obra\par}\vskip 1mm
+      \centerline{\pgfuseshading{sl@orn}\hskip.4em{\color{crimson}\large\crux}\hskip.4em\pgfuseshading{sl@ornr}}\vskip 2mm
+      \ifstrempty{#1}{\ifstrempty{\sl@trecho}{}{{\slcinzelt\fontsize{17}{21}\selectfont\color{crimson}\sl@trecho\par}}}%
+        {{\slcinzelt\fontsize{17}{21}\selectfont\color{crimson}#1\par}}%
+      \ifstrempty{#2}{}{\vskip 1.5mm{\itshape\fontsize{14}{17}\selectfont\color{ink}#2\par}}%
+      \ifstrempty{#3}{}{\vskip 2mm{\slcinzel\fontsize{8}{10}\selectfont\color{golddark}\MakeUppercase{#3}\par}}%
+    \end{minipage}\hss}%
+  \end{frame}\endgroup}
+
+\newcommand\slidesecao[2]{%
+  \begingroup
+  \setbeamertemplate{background canvas}{\sl@fundo{crimsondeep}{goldlight}{gold}}%
+  \begin{frame}[plain,c]
+  \centering\color{parchment}
+  \ifstrempty{#1}{}{{\slcinzel\fontsize{11}{14}\selectfont\color{goldlight}\MakeUppercase{#1}\par}\vskip 1mm}
+  \slornamento[d]
+  \vskip 1mm
+  {\slcinzelt\fontsize{22}{27}\selectfont\color{parchmentlight}\hbox to 0pt{}\parbox{.8\textwidth}{\centering #2}\par}
+  \vfill{\includegraphics[height=7mm]{logo.pdf}}
+  \end{frame}\endgroup}
+
+\endinput
