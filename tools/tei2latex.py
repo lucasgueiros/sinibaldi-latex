@@ -15,9 +15,10 @@ Entende dois TEI:
     secao|tese">, <head>, <argument>, <label>, <hi rend>, <quote>/<cit>, <foreign>, <s>/<seg>,
     <choice>, <note> dentro de <p> (com <pb> dentro da nota), <list>.
 
-Gravura (<figure><graphic url="paginas/NNNN.png#xywh=x,y,l,a" width="60%"/><head>legenda</head></figure>):
-a caixa e recortada da imagem da pagina (resolvida contra --base, padrao: a pasta do XML) para
---dir-gravuras (padrao build/gravuras) com Pillow e vira \\gravura{arquivo}{0.60}{legenda}.
+Gravura (<figure><graphic url="paginas/NNNN.png#xywh=x,y,l,a" width="60%"/><head>legenda</head>
+<p>detalhes</p></figure>): a caixa e recortada da imagem da pagina (resolvida contra --base, padrao: a
+pasta do XML) para --dir-gravuras (padrao build/gravuras) com Pillow e vira
+\\gravura[detalhes]{arquivo}{0.60}{legenda} (sem detalhes, sem o argumento opcional).
 
 Mapeamento (preambulo.tex): <pb n> -> \\pg{n}  (dentro de nota -> \\pgn{n});  <fw> -> comentario;
 div tese com <label> + <hi rend="bold"> iniciais -> \\tese{n}{enunciado};  <hi rend="it"> ->
@@ -282,6 +283,9 @@ class Conv:
         g = e.find(T("graphic"))
         h = e.find(T("head"))
         leg = self.inline(h).strip() if h is not None else ""
+        d = e.find(T("p"))
+        det = self.inline(d).strip() if d is not None else ""
+        opc = f"[{{{det}}}]" if det else ""
         url = g.get("url") if g is not None else None
         larg = (g.get("width") or "100%") if g is not None else "100%"
         try:
@@ -294,8 +298,9 @@ class Conv:
             self.avisos.append(f"p. {self.pagina}: gravura sem imagem ({url!r})")
             return (r"\begin{center}\fbox{\footnotesize gravura indisponível}"
                     + (r"\\ {\small " + leg + "}" if leg else "")
+                    + (r"\\ {\footnotesize " + det + "}" if det else "")
                     + r"\end{center} % REVER: gravura " + esc(url or "sem url"))
-        return rf"\gravura{{{arq.as_posix()}}}{{{frac:.2f}}}{{{leg}}}"
+        return rf"\gravura{opc}{{{arq.as_posix()}}}{{{frac:.2f}}}{{{leg}}}"
 
     def p(self, e):
         txt = self.inline(e).strip()

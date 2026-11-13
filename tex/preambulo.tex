@@ -23,11 +23,15 @@
 \newcommand{\asterisco}{\par\medskip\centerline{\footnotesize$\ast$}\medskip\noindent}
 
 % Gravura recortada do fac-símile (<figure> do TEI; tools/tei2latex.py): fora de float, no ponto
-% exato do original.  \gravura{arquivo.png}{fração da largura do texto}{legenda (pode ser vazia)}.
+% exato do original.  \gravura[detalhes]{arquivo.png}{fração da largura do texto}{legenda}:
+% legenda principal centrada ("FIGURA VIII. — Côrte…"); os detalhes opcionais (<p> do <figure>:
+% "A, hemispherio…; — B, …") vão abaixo, em corpo menor e justificados.  Ambos podem ser vazios.
 \usepackage{graphicx}
-\newcommand{\gravura}[3]{\par\medskip\begingroup\centering
-  \includegraphics[width=#2\linewidth,height=0.75\textheight,keepaspectratio]{#1}\par
-  \if\relax\detokenize{#3}\relax\else\smallskip{\small #3\par}\fi\endgroup\medskip\noindent}
+\newcommand{\gravura}[4][]{\par\medskip\begingroup\centering
+  \includegraphics[width=#3\linewidth,height=0.75\textheight,keepaspectratio]{#2}\par
+  \if\relax\detokenize{#4}\relax\else\smallskip{\small #4\par}\fi
+  \if\relax\detokenize{#1}\relax\else\smallskip{\footnotesize\leftskip=1em\rightskip=1em
+    \parfillskip=0pt plus 1fil\noindent #1\par}\fi\endgroup\medskip\noindent}
 
 % Citações latinas de S. Tomás (o OCR erra muito aqui: sempre conferir na imagem).
 \newenvironment{latim}{\begin{quote}\itshape}{\end{quote}}

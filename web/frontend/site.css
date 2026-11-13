@@ -185,6 +185,7 @@
   .obra figure[data-tei="figure"] { @apply my-5 text-center; }
   .obra figure[data-tei="figure"] img { @apply mx-auto block h-auto max-w-full; }
   .obra figure[data-tei="figure"] figcaption { @apply mt-1.5 text-[0.9em]; }
+  .obra figure[data-tei="figure"] [data-parte="detalhes"] { @apply mx-auto mt-1 max-w-[34rem] text-justify text-[0.85em]; }
   .obra a[data-tei="pb"] { @apply no-underline; }
   .obra sup.nref a { @apply px-0.5 font-display text-[0.7em] text-crimson no-underline hover:underline; }
   .obra :target, .notas-fim :target { @apply bg-gold-light/40; }

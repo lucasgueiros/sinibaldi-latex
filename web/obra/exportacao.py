@@ -311,9 +311,11 @@ def texto_do_no(no):
         if b.tipo == Bloco.SUMARIO:
             saida.append("\n".join(_texto_inline(p, notas, impressa, dados, nova) for p in el))
         elif b.tipo == Bloco.GRAVURA:
-            cab = el.find("head")
+            cab, det = el.find("head"), el.find("p")
             leg = _texto_inline(cab, notas, impressa, dados, nova) if cab is not None else ""
             saida.append(f"[Gravura: {leg}]" if leg else "[Gravura]")
+            if det is not None:
+                saida.append(_texto_inline(det, notas, impressa, dados, nova))
         else:
             saida.append(_texto_inline(el, notas, impressa, dados, nova))
         u = tei.ultima_pagina(el)
@@ -340,7 +342,7 @@ p[data-type]{text-indent:0;border-left:3px solid #c9a86a;padding-left:.7rem;marg
 [data-tei=argument]{font-size:.95rem;text-align:justify;margin:1.5rem auto;max-width:36rem}[data-tei=argument]::before{content:"Summario:";font-variant:small-caps;letter-spacing:.08em}[data-tei=argument]>p{display:inline;margin:0;text-indent:0}[data-tei=argument]>p::before{content:" — "}p[data-type=anexo-titulo]{border:0;padding-left:0;text-align:center;font-variant:small-caps;margin:1.2rem 0 .3rem;text-indent:0}p[data-type=indice]{border:0;margin:.2rem 0;padding-left:1.5rem;text-indent:-1.5rem;text-align:left}
 [data-tei=milestone]{margin:1.6rem 0;border-top:1px solid #d9c9a3}
 q[data-tei=quote]{quotes:"«" "»" "“" "”"}q[data-type=indireta]::before,q[data-type=indireta]::after{content:none}cite[data-tei=bibl]{font-style:normal}
-figure[data-tei=figure]{margin:1.2rem 0;text-align:center}figure[data-tei=figure] img{max-width:100%}figure[data-tei=figure] figcaption{font-size:.9rem;margin-top:.3rem}
+figure[data-tei=figure]{margin:1.2rem 0;text-align:center}figure[data-tei=figure] img{max-width:100%}figure[data-tei=figure] figcaption{font-size:.9rem;margin-top:.3rem}figure[data-tei=figure] [data-parte=detalhes]{font-size:.8rem;text-align:justify;margin:.2rem auto 0;max-width:34rem}
 sup a{text-decoration:none;color:#6b1414}.notas{font-size:.85rem;border-top:1px solid #bbb;margin-top:2rem;padding-top:.5rem}
 .fonte{font-size:.8rem;color:#666;border-top:1px solid #ddd;margin-top:2rem;padding-top:.6rem}"""
 

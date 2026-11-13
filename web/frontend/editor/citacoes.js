@@ -274,7 +274,7 @@ export function regraDeDigitacao(view, ch, cfg) {
   const sel = state.selection;
   if (!sel.empty) return false;
   const $p = sel.$from;
-  if (!$p.parent.inlineContent || $p.parent.type.name === "cabecalho" || $p.parent.type.name === "titulo") return false;
+  if (!$p.parent.inlineContent || ["cabecalho", "titulo", "gravuraLegenda", "gravuraDetalhes"].includes($p.parent.type.name)) return false;
   const S = state.schema;
   if (S.marks.citacao.isInSet($p.marks())) return false;
   // procura para trás, no mesmo bloco de texto, a aspa de abertura (sem outra aspa nem citação no meio)

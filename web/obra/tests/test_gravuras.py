@@ -16,12 +16,17 @@ from .test_views_edicao import BaseViews
 
 FIG = ('<figure xml:id="v1.gravura-0002-ab"><graphic url="paginas/0002.png#xywh=10,20,30,40" width="50%"/>'
        '<head>Fig. <hi rend="it">1</hi></head></figure>')
+DETALHADA = ('<figure xml:id="v1.gravura-0002-ef"><graphic url="paginas/0002.png#xywh=10,20,30,40"/>'
+             '<head>FIGURA VIII. — Côrte vertical do cerebro humano.</head>'
+             '<p>A, hemispherio esquerdo; — B, corpo <hi rend="it">calloso</hi>.</p></figure>')
+SO_DETALHES = ('<figure xml:id="v1.gravura-0002-gh"><graphic url="paginas/0002.png#xywh=0,0,5,5"/>'
+               '<p>A, B, C.</p></figure>')
 SEM_LEGENDA = '<figure xml:id="v1.gravura-0002-cd"><graphic url="paginas/0002.png#xywh=0,0,5,5"/></figure>'
 
 
 class EsquemaTest(SimpleTestCase):
     def test_valido(self):
-        for x in (FIG, SEM_LEGENDA):
+        for x in (FIG, SEM_LEGENDA, DETALHADA, SO_DETALHES):
             self.assertEqual(esquema.validar_fragmento(x), [], x)
             self.assertEqual(esquema.tipo_do_fragmento(x), "gravura")
 
@@ -33,7 +38,11 @@ class EsquemaTest(SimpleTestCase):
             '<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,0,5"/></figure>': "zero",
             '<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,5,5" width="150%"/></figure>': "width",
             '<figure xml:id="a"><head>só legenda</head></figure>': "único <graphic>",
-            '<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,5,5"/><p>x</p></figure>': "só pode conter",
+            '<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,5,5"/><label>x</label></figure>': "só pode conter",
+            '<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,5,5"/><p>x</p><p>y</p></figure>': "no máximo um <p>",
+            '<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,5,5"/><p>x</p><head>y</head></figure>': "vem antes",
+            ('<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,5,5"/>'
+             '<p>a<pb n="3"/></p></figure>'): "não é permitido",
             '<figure xml:id="a">solto<graphic url="paginas/0002.png#xywh=0,0,5,5"/></figure>': "texto solto",
             ('<figure xml:id="a"><graphic url="paginas/0002.png#xywh=0,0,5,5"/>'
              '<head>a<note place="foot" n="1"><p>n</p></note></head></figure>'): "não é permitido",
@@ -52,14 +61,30 @@ class ConversoesTest(SimpleTestCase):
         h = tei.fragmento_para_html(FIG)
         self.assertIn('data-tei="figure"', h)
         self.assertIn('src="/gravura/1/0002/10,20,30,40.png"', h)
-        self.assertIn("<figcaption>Fig. <i>1</i></figcaption>", h)
+        self.assertIn('<figcaption><div data-parte="legenda">Fig. <i>1</i></div></figcaption>', h)
         self.assertEqual(tei.html_para_blocos(h)[0]["xml"], FIG)
         h2 = tei.fragmento_para_html(SEM_LEGENDA)
         self.assertEqual(tei.html_para_blocos(h2)[0]["xml"], SEM_LEGENDA)
 
+    def test_detalhes_ida_e_volta(self):
+        for x in (DETALHADA, SO_DETALHES):
+            h = tei.fragmento_para_html(x)
+            self.assertIn('<div data-parte="detalhes">', h)
+            self.assertEqual(tei.html_para_blocos(h)[0]["xml"], x)
+            self.assertEqual(tei.texto_xml_para_blocos(x)[0]["xml"], x)
+
     def test_legenda_vazia_some(self):
-        h = tei.fragmento_para_html(SEM_LEGENDA).replace("<figcaption></figcaption>", "<figcaption>  </figcaption>")
+        # o editor manda as duas partes sempre; vazias, somem do TEI
+        h = tei.fragmento_para_html(SEM_LEGENDA).replace(
+            '<figcaption><div data-parte="legenda"></div></figcaption>',
+            '<figcaption><div data-parte="legenda">  </div><div data-parte="detalhes"><br/></div></figcaption>')
+        self.assertIn('data-parte="detalhes"', h)
         self.assertEqual(tei.html_para_blocos(h)[0]["xml"], SEM_LEGENDA)
+
+    def test_figcaption_simples_e_legenda(self):
+        h = ('<figure data-tei="figure" data-xmlid="v1.gravura-0002-ab" data-url="paginas/0002.png#xywh=10,20,30,40" '
+             'data-width="50%"><img src=""/><figcaption>Fig. <i>1</i></figcaption></figure>')
+        self.assertEqual(tei.html_para_blocos(h)[0]["xml"], FIG)
 
     def test_texto_xml(self):
         self.assertEqual(tei.texto_xml_para_blocos(FIG)[0]["xml"], FIG)
@@ -186,6 +211,30 @@ class GravarTest(ComScan):
 
 
 class Tei2LatexTest(SimpleTestCase):
+    def _converter(self, figura, com_png=False):
+        t = ('<TEI xmlns="http://www.tei-c.org/ns/1.0"><text><body><div type="volume"><pb n="2"/>'
+             + figura + '</div></body></text></TEI>')
+        with tempfile.TemporaryDirectory() as d:
+            if com_png:
+                _png(Path(d) / "paginas" / "0002.png")
+            xml = Path(d) / "a.xml"
+            xml.write_text(t, encoding="utf-8")
+            r = subprocess.run([sys.executable, str(Path(settings.RAIZ_REPO) / "tools" / "tei2latex.py"), str(xml),
+                                "--puro", "--dir-gravuras", str(Path(d) / "g")], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        return r.stdout
+
+    def test_detalhes_no_argumento_opcional(self):
+        tex = self._converter(DETALHADA.replace("v1.", ""), com_png=True)
+        self.assertIn(r"\gravura[{A, hemispherio esquerdo; --- B, corpo \emph{calloso}.}]{", tex)
+        self.assertIn("}{1.00}{FIGURA VIII. --- Côrte vertical do cerebro humano.}", tex)
+        self.assertNotIn(r"\gravura[", self._converter(FIG.replace("v1.", ""), com_png=True))
+
+    def test_detalhes_sem_imagem(self):
+        tex = self._converter(DETALHADA.replace("v1.", ""))
+        self.assertIn("gravura indisponível", tex)
+        self.assertIn(r"{\footnotesize A, hemispherio", tex)
+
     def test_sem_imagem_marca_rever(self):
         t = ('<TEI xmlns="http://www.tei-c.org/ns/1.0"><text><body><div type="volume"><pb n="2"/>'
              '<figure xml:id="g"><graphic url="paginas/0002.png#xywh=1,1,5,5"/><head>Leg.</head></figure>'
