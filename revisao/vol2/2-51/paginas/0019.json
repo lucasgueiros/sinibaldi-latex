@@ -1,0 +1,27 @@
+{
+ "pagina": 19,
+ "paginas": [
+  19
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: erros de OCR (delegadas→delgadas, Pulmoóes→Pulmões, junetamente, oceupam, thoraeiea→thoracica, velas→veias, suleos→sulcos, 68→GG, |l→II, trachéa→trachêa), hifenizações de fim de linha (vesiculas-/bronchicas, su-perior, jugula-res), lixo (\"i\", hífen espúrio) e o negrito indevido em \"dividem\"; a legenda da figura, quebrada em vários <p>, foi reunida num só parágrafo e recebeu o ponto após \"FIGURA III\".\nFronteira corpo/nota: nenhuma nota neste trecho e nenhuma continuação no alto da p. 19 (o cabeçalho segue direto para o corpo), portanto não há `type=\"continuacao\"`; nada foi movido.\nDúvidas: se as letras da legenda (AA, B, GG etc.) e os títulos \"Bronchios.\" e \"Pulmões.\" são negrito na impressão (deixei sem `<hi>`); se \"dividem.\" tem ponto real após \"dividem\" em \"se dividem.\"; e se \"4º\" corresponde a \"4°\" impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: erros de OCR (delegadas→delgadas, Pulmoóes→Pulmões, junetamente, oceupam, thoraeiea→thoracica, velas→veias, suleos→sulcos, 68→GG, |l→II, trachéa→trachêa), hifenizações de fim de linha (vesiculas-/bronchicas, su-perior, jugula-res), lixo (\"i\", hífen espúrio) e o negrito indevido em \"dividem\"; a legenda da figura, quebrada em vários <p>, foi reunida num só parágrafo e recebeu o ponto após \"FIGURA III\".\nFronteira corpo/nota: nenhuma nota neste trecho e nenhuma continuação no alto da p. 19 (o cabeçalho segue direto para o corpo), portanto não há `type=\"continuacao\"`; nada foi movido.\nDúvidas: se as letras da legenda (AA, B, GG etc.) e os títulos \"Bronchios.\" e \"Pulmões.\" são negrito na impressão (deixei sem `<hi>`); se \"dividem.\" tem ponto real após \"dividem\" em \"se dividem.\"; e se \"4º\" corresponde a \"4°\" impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0038959999999999997,
+ "duration_ms": 25425,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10025,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5787
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 28,
+ "paginas": [
+  28
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (oeeipital→occipital, thalamos, pars→para, communiecar→communicar, aperfeicóüam→aperfeiçoam, eórte→córte, \"Be\"→\"Se\", \"//\" espúrio), pontuação (essencial,→essencial.), maiúsculas (É Por→É por), e a numeração \"5)\" → \"b)\" no corpo; sem mudança de fronteira corpo/nota (nota 1 mantida inteira no rodapé da p. 28).\nDúvida: \"transversal\" termina o trecho e a palavra está hifenizada (\"trans-\") no fim da p. 28; a continuação está na p. 29, fora do trecho. Mantive a palavra como transcrita no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (oeeipital→occipital, thalamos, pars→para, communiecar→communicar, aperfeicóüam→aperfeiçoam, eórte→córte, \"Be\"→\"Se\", \"//\" espúrio), pontuação (essencial,→essencial.), maiúsculas (É Por→É por), e a numeração \"5)\" → \"b)\" no corpo; sem mudança de fronteira corpo/nota (nota 1 mantida inteira no rodapé da p. 28).\nDúvida: \"transversal\" termina o trecho e a palavra está hifenizada (\"trans-\") no fim da p. 28; a continuação está na p. 29, fora do trecho. Mantive a palavra como transcrita no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0041856,
+ "duration_ms": 23462,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10586,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6254
+ },
+ "reparo": false
+}

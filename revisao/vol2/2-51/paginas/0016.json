@@ -1,0 +1,27 @@
+{
+ "pagina": 16,
+ "paginas": [
+  16
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (qd→d', orifieio→orificio, venirieulo→ventriculo, aoría→aorta, quegeontém→que contém, Às→As, baco→baço, cJ→c), acentos e pontuação (contem→contêm, vermelho-eseuro→escuro, \"!\" espúrio removido), \"chamar-se\"→\"chama-se\", \"e á\"→\"e a\", \"em:\"→\"em\"; separado c) e d) da nota 1 em parágrafos distintos, como na imagem.\nFronteira corpo/nota: sem alterações; a nota 1 (p. 16) começa e termina no rodapé desta página, e a chamada permanece após \"iliacas primitivas\".\nDúvidas: não tenho certeza se as letras a), b), c), d) da nota estão em itálico na imagem (mantive o marcado para b, c, d e sem itálico para a); e a leitura de \"iliacas\" em d) foi feita a partir da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (qd→d', orifieio→orificio, venirieulo→ventriculo, aoría→aorta, quegeontém→que contém, Às→As, baco→baço, cJ→c), acentos e pontuação (contem→contêm, vermelho-eseuro→escuro, \"!\" espúrio removido), \"chamar-se\"→\"chama-se\", \"e á\"→\"e a\", \"em:\"→\"em\"; separado c) e d) da nota 1 em parágrafos distintos, como na imagem.\nFronteira corpo/nota: sem alterações; a nota 1 (p. 16) começa e termina no rodapé desta página, e a chamada permanece após \"iliacas primitivas\".\nDúvidas: não tenho certeza se as letras a), b), c), d) da nota estão em itálico na imagem (mantive o marcado para b, c, d e sem itálico para a); e a leitura de \"iliacas\" em d) foi feita a partir da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0044668,
+ "duration_ms": 26030,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10773,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6779
+ },
+ "reparo": false
+}

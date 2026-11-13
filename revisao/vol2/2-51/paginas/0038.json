@@ -1,0 +1,27 @@
+{
+ "pagina": 38,
+ "paginas": [
+  38
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"ezstensivamente\"→\"exstensivamente\", \"circwmscriptivo\"→\"circumscriptivo\", \"énírinseca\"→\"intrinseca\"); acentos/crase (\"á\" por \"é\" em \"á essencial\", \"a forma á por si\", \"è essencial\"; \"á nossa alma\"→\"a nossa alma\"; \"a. que\"→\"a que\").\nFronteira corpo/nota: sem alterações. Na p. 38 o filete está logo abaixo de \"independente da\"; a nota 1 começa ali e vai até \"unida.\", todo abaixo do filete, e foi mantida inteira.\nDúvidas: leitura de \"que a nossa alma\" e de \"póde\"/\"pode\" em alguns pontos, que a imagem não permite distinguir com segurança.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"ezstensivamente\"→\"exstensivamente\", \"circwmscriptivo\"→\"circumscriptivo\", \"énírinseca\"→\"intrinseca\"); acentos/crase (\"á\" por \"é\" em \"á essencial\", \"a forma á por si\", \"è essencial\"; \"á nossa alma\"→\"a nossa alma\"; \"a. que\"→\"a que\").\nFronteira corpo/nota: sem alterações. Na p. 38 o filete está logo abaixo de \"independente da\"; a nota 1 começa ali e vai até \"unida.\", todo abaixo do filete, e foi mantida inteira.\nDúvidas: leitura de \"que a nossa alma\" e de \"póde\"/\"pode\" em alguns pontos, que a imagem não permite distinguir com segurança.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.005982299999999999,
+ "duration_ms": 39570,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10773,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9810
+ },
+ "reparo": false
+}

@@ -1,0 +1,29 @@
+{
+ "pagina": 13,
+ "paginas": [
+  13,
+  14,
+  15
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (E' lido como W/HU, ion→ilion, colom→colon, submacillares, parctidas, communiea, Deseriptos, Virsurg, sacco, ôco, vertice, auriculo-ventricular, \"I\" lido como \"|\", \"C\" lido como \"€\"), acentos indevidos, \"a\" grafado como \"á\" onde a imagem tem \"a\", itálicos ausentes (deglutição, Digestão, ventriculo) e espúrios (e, o), espaços e um \"D\" espúrio antes do pb 15, título \"FIGURA II\" corrigido.\nFronteira corpo/nota: nenhuma alteração. A nota 1 (p. 13) continua nas pp. 14 e 15 e o trecho \"Descriptos… para\" (p. 13) está em letra menor com entrelinhamento de nota (~38 px), por isso foi mantido dentro da nota; o corpo retoma na p. 14 após o filete, como já estava.\nDúvidas: \"parotidas\" (imagem pouco nítida), \"funcção\" e \"Virsurg\" transcritos como impressos; a legenda \"FIGURA I\" permanece num só parágrafo com a lista de letras.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (E' lido como W/HU, ion→ilion, colom→colon, submacillares, parctidas, communiea, Deseriptos, Virsurg, sacco, ôco, vertice, auriculo-ventricular, \"I\" lido como \"|\", \"C\" lido como \"€\"), acentos indevidos, \"a\" grafado como \"á\" onde a imagem tem \"a\", itálicos ausentes (deglutição, Digestão, ventriculo) e espúrios (e, o), espaços e um \"D\" espúrio antes do pb 15, título \"FIGURA II\" corrigido.\nFronteira corpo/nota: nenhuma alteração. A nota 1 (p. 13) continua nas pp. 14 e 15 e o trecho \"Descriptos… para\" (p. 13) está em letra menor com entrelinhamento de nota (~38 px), por isso foi mantido dentro da nota; o corpo retoma na p. 14 após o filete, como já estava.\nDúvidas: \"parotidas\" (imagem pouco nítida), \"funcção\" e \"Virsurg\" transcritos como impressos; a legenda \"FIGURA I\" permanece num só parágrafo com a lista de letras.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0171625,
+ "duration_ms": 124593,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23790,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 29567
+ },
+ "reparo": false
+}

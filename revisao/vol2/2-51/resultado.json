@@ -1,0 +1,36 @@
+{
+ "modelo": "sonnet",
+ "formato": "tei",
+ "pedacos": 30,
+ "feitos": 30,
+ "falhas": {
+  "47": "copiou ~40 palavras da página que ficam FORA do trecho (antes do começo ou depois do fim dele)"
+ },
+ "fronteira": {
+  "22": {
+   "corpo": [
+    2825,
+    3325
+   ],
+   "notas": [
+    1133,
+    610
+   ],
+   "num_notas": [
+    1,
+    1
+   ],
+   "troca": 500
+  }
+ },
+ "total_cost_usd": 1.0579,
+ "num_turns": 32,
+ "duration_ms": 1915393,
+ "usage": {
+  "input_tokens": 540851,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 460529
+ },
+ "is_error": false
+}

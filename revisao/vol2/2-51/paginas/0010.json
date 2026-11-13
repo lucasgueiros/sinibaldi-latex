@@ -1,0 +1,27 @@
+{
+ "pagina": 10,
+ "paginas": [
+  10
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: cabeçalho corrente (p t5.p2) e \"AA\" removidos; OCR (SUNMMARIO, thoraz, regioes, deseripção, á, nuirir, conjuncirvo, para ó, crameo, \"em. duas\"); \"Artigo I.\" lido como \"ARTIGO I\" conforme a imagem; o \"</div>\" inicial foi mantido.\nFronteira corpo/nota: nenhuma mudança. A nota (1) está inteira na p. 10, no ponto da chamada após \"descripção\".\nDúvida: o sumário foi mantido nas três <p> do fragmento, como vem no XML; a imagem não indica quebras de parágrafo entre elas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: cabeçalho corrente (p t5.p2) e \"AA\" removidos; OCR (SUNMMARIO, thoraz, regioes, deseripção, á, nuirir, conjuncirvo, para ó, crameo, \"em. duas\"); \"Artigo I.\" lido como \"ARTIGO I\" conforme a imagem; o \"</div>\" inicial foi mantido.\nFronteira corpo/nota: nenhuma mudança. A nota (1) está inteira na p. 10, no ponto da chamada após \"descripção\".\nDúvida: o sumário foi mantido nas três <p> do fragmento, como vem no XML; a imagem não indica quebras de parágrafo entre elas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0043304,
+ "duration_ms": 25958,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10634,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6534
+ },
+ "reparo": false
+}

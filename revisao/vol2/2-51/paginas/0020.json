@@ -1,0 +1,28 @@
+{
+ "pagina": 20,
+ "paginas": [
+  20,
+  21
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (l/t, u/n, c/e, 0/O, €/e, \"ewpirado\", \"vesicnlas\", \"sypplementar\", \"museulo\"), números (19,2→79,2; 16,08→16,03; 84→34; 48→43), hifenização e lixo (\"/\" espúrios, \"Dronchicas\"→\"bronchicas\", \"e\" solto em \"ecarbonico\"), \"c)\" em vez de \"0)\", pontuação e formatação <hi> conforme a imagem (negritos e itálicos indevidos removidos).\nFronteira corpo/nota: nenhuma mudança. A nota n20-1 começa na p. 20 e continua na p. 21 (com o pb 21 dentro da nota), o que está correto; o alerta de continuação na p. 21 é verdadeiro e já estava bem marcado.\nDúvidas: grafia \"choroidêa\" (acento circunflexo lido na imagem, podendo ser \"choroidéa\"); \"ARTIGO III\" transcrito em caixa alta sem ponto, conforme a imagem; \"volumes,.\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (l/t, u/n, c/e, 0/O, €/e, \"ewpirado\", \"vesicnlas\", \"sypplementar\", \"museulo\"), números (19,2→79,2; 16,08→16,03; 84→34; 48→43), hifenização e lixo (\"/\" espúrios, \"Dronchicas\"→\"bronchicas\", \"e\" solto em \"ecarbonico\"), \"c)\" em vez de \"0)\", pontuação e formatação <hi> conforme a imagem (negritos e itálicos indevidos removidos).\nFronteira corpo/nota: nenhuma mudança. A nota n20-1 começa na p. 20 e continua na p. 21 (com o pb 21 dentro da nota), o que está correto; o alerta de continuação na p. 21 é verdadeiro e já estava bem marcado.\nDúvidas: grafia \"choroidêa\" (acento circunflexo lido na imagem, podendo ser \"choroidéa\"); \"ARTIGO III\" transcrito em caixa alta sem ponto, conforme a imagem; \"volumes,.\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0109439,
+ "duration_ms": 68810,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17234,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18441
+ },
+ "reparo": false
+}

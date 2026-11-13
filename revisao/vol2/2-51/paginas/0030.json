@@ -1,0 +1,27 @@
+{
+ "pagina": 30,
+ "paginas": [
+  30
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"rachidiano\", \"ramificações\", \"funcção\", \"conserva\", \"transmittir\", \"trigemeos\", \"(11.º par)\", \"(12.º par)\", \"(4.º par.)\", \"I\" no lugar de \"|\", \"G\" no lugar de \"6\", \"C\" no lugar de \"€\"; hifenizações de fim de linha unidas (\"symetricamente\", \"oculares communs\", \"conserva\"). Fronteira corpo/nota: nenhuma alteração; a nota 1 (p. 30) já estava no lugar certo, após \"nervos\".\nDúvidas: o ponto isolado antes de \"— U\" na legenda foi removido como lixo do OCR; \"mente\" foi movido do fim da legenda para \"symetrica-\" (p. 30, corpo), e o restante do parágrafo ficou junto à legenda \"(12.º par).\" por não ser possível dividi-lo sem acrescentar parágrafo.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"rachidiano\", \"ramificações\", \"funcção\", \"conserva\", \"transmittir\", \"trigemeos\", \"(11.º par)\", \"(12.º par)\", \"(4.º par.)\", \"I\" no lugar de \"|\", \"G\" no lugar de \"6\", \"C\" no lugar de \"€\"; hifenizações de fim de linha unidas (\"symetricamente\", \"oculares communs\", \"conserva\"). Fronteira corpo/nota: nenhuma alteração; a nota 1 (p. 30) já estava no lugar certo, após \"nervos\".\nDúvidas: o ponto isolado antes de \"— U\" na legenda foi removido como lixo do OCR; \"mente\" foi movido do fim da legenda para \"symetrica-\" (p. 30, corpo), e o restante do parágrafo ficou junto à legenda \"(12.º par).\" por não ser possível dividi-lo sem acrescentar parágrafo.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0049099999999999994,
+ "duration_ms": 32367,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10230,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7774
+ },
+ "reparo": false
+}

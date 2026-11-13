@@ -1,0 +1,6 @@
+- p. 47: Erros de OCR corrigidos em todo o texto (letras trocadas, acentos, números das tabelas, itálicos/negritos espúrios, "49." → "42." no rótulo da tese, lixo como "4 Vor. II.", "*", "M" e linhas-ornamento removidos; parágrafo partido entre pp. 49–50 ("o saguim / e o canario") e entre pp. 55–56 ("Não / podemos") reunificado dentro da nota).
+Nenhuma mudança de fronteira corpo/nota: a nota n47-1 realmente atravessa as pp. 47–59 e os avisos de "vão nas notas" (pp. 48, 52, 54) eram falsos. O texto no topo do rodapé da p. 47 ("ser feita pela mesma faculdade… pag. 335)"), continuação de nota anterior ao trecho, não está no fragmento e não foi acrescentado.
+Dúvidas: ornamentos "* * *" omitidos (como já estavam); "produzirà" (p. 56) mantido como no original impresso.
+- p. 59: Corrigidos: "e á immortalidade" → "e a"; "ás suas formulas" → "as suas formulas"; "Conceluiremos" → "Concluiremos"; "JMargerie" → "Margerie"; "&amp;" → « ; "confianca" → "confiança"; "não ó mais" → "não é mais"; "philosophia, O" → "philosophia. O"; "pag, 216" → "pag. 216".
+Fronteira: sem mudanças. A nota 1 (p. 59) continua como estava, do "(1)" até "pag. 216"; o bloco "o cerebro… ALMA" no alto do rodapé da p. 59 é continuação de nota da p. 58 (antes do trecho), por isso não foi transcrito.
+Dúvida restante: se "e a immortalidade" tem "a" ou "á" na imagem; adotei "a" por leitura da imagem.

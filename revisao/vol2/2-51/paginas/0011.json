@@ -1,0 +1,27 @@
+{
+ "pagina": 11,
+ "paginas": [
+  11
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros de OCR corrigidos: \"verftebras\", \"fuce\"→\"face\", \"/ateraes\"→\"lateraes\" (2×), \"W'\"→\"E'\", \"trachéa\"→\"trachêa\", \"ante-brago\"→\"ante-braço\", \"ete.\"→\"etc.\", \"5)\"→\"b)\", \"á aorta\"→\"a aorta\", \"O canal\"/\"O pancreas\"→minúsculas, \"o\"→\"e\" na nota 1; \"ARTIGO II\" do rótulo transcrito em caixa alta como impresso, sem ponto.\nFronteira corpo/nota: nenhuma alteração; a nota 1 (p. 11) já estava corretamente fechada no rodapé, com a chamada após \"craneo\".\nDúvidas: nenhuma relevante; o último parágrafo (12.) fica aberto, como no fragmento, pois continua na página seguinte.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros de OCR corrigidos: \"verftebras\", \"fuce\"→\"face\", \"/ateraes\"→\"lateraes\" (2×), \"W'\"→\"E'\", \"trachéa\"→\"trachêa\", \"ante-brago\"→\"ante-braço\", \"ete.\"→\"etc.\", \"5)\"→\"b)\", \"á aorta\"→\"a aorta\", \"O canal\"/\"O pancreas\"→minúsculas, \"o\"→\"e\" na nota 1; \"ARTIGO II\" do rótulo transcrito em caixa alta como impresso, sem ponto.\nFronteira corpo/nota: nenhuma alteração; a nota 1 (p. 11) já estava corretamente fechada no rodapé, com a chamada após \"craneo\".\nDúvidas: nenhuma relevante; o último parágrafo (12.) fica aberto, como no fragmento, pois continua na página seguinte.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0038959,
+ "duration_ms": 20096,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11269,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5538
+ },
+ "reparo": false
+}

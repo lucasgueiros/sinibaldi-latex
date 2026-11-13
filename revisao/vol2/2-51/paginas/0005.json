@@ -1,0 +1,29 @@
+{
+ "pagina": 5,
+ "paginas": [
+  5,
+  6,
+  7
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (tomem, tintelligencia, swupremas, vasdo/razdo, yida, Pphlysiologicos, plysiologícos, volíções, Ihe &amp;ecrescenta, 92.º, eireumstaneias, conjuneção, anmaes, perfeicoes), hifenização (define-se, ra-cional), lixo do OCR (\"|\", \"; ;\", \"'\", \"s\" após \"irracionaes\", \"//\"), \"0)\" → \"b)\" e pontuação final da nota 7-1.\nFronteira corpo/nota: não alterada. Confirmei que o texto \"Pergunta-se… 3.º) porque esta\" (p. 5) está em letra pequena no pé da página, dentro da nota 5-1, que continua na p. 6 (`pb 6` já estava na posição certa); n6-1 continua na p. 7 e termina antes de \"(1) O homem…\" (n7-1), que está correta.\nDúvidas: \"simples iutuição\" (p. 5) lido como \"iutuição\"; \"Resposta.\" em negrito (p. 5) pode ser só carregado no traço; \"e.\" após \"faculdades\" (p. 6) mantido; \"suprema\" (p. 7) já completo no fragmento, embora na imagem seja \"su-\" com continuação na p. 8.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (tomem, tintelligencia, swupremas, vasdo/razdo, yida, Pphlysiologicos, plysiologícos, volíções, Ihe &amp;ecrescenta, 92.º, eireumstaneias, conjuneção, anmaes, perfeicoes), hifenização (define-se, ra-cional), lixo do OCR (\"|\", \"; ;\", \"'\", \"s\" após \"irracionaes\", \"//\"), \"0)\" → \"b)\" e pontuação final da nota 7-1.\nFronteira corpo/nota: não alterada. Confirmei que o texto \"Pergunta-se… 3.º) porque esta\" (p. 5) está em letra pequena no pé da página, dentro da nota 5-1, que continua na p. 6 (`pb 6` já estava na posição certa); n6-1 continua na p. 7 e termina antes de \"(1) O homem…\" (n7-1), que está correta.\nDúvidas: \"simples iutuição\" (p. 5) lido como \"iutuição\"; \"Resposta.\" em negrito (p. 5) pode ser só carregado no traço; \"e.\" após \"faculdades\" (p. 6) mantido; \"suprema\" (p. 7) já completo no fragmento, embora na imagem seja \"su-\" com continuação na p. 8.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.019439400000000003,
+ "duration_ms": 128511,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25084,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 33862
+ },
+ "reparo": false
+}

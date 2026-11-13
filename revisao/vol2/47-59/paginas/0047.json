@@ -1,0 +1,39 @@
+{
+ "pagina": 47,
+ "paginas": [
+  47,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57,
+  58,
+  59
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros de OCR corrigidos em todo o texto (letras trocadas, acentos, números das tabelas, itálicos/negritos espúrios, \"49.\" → \"42.\" no rótulo da tese, lixo como \"4 Vor. II.\", \"*\", \"M\" e linhas-ornamento removidos; parágrafo partido entre pp. 49–50 (\"o saguim / e o canario\") e entre pp. 55–56 (\"Não / podemos\") reunificado dentro da nota).\nNenhuma mudança de fronteira corpo/nota: a nota n47-1 realmente atravessa as pp. 47–59 e os avisos de \"vão nas notas\" (pp. 48, 52, 54) eram falsos. O texto no topo do rodapé da p. 47 (\"ser feita pela mesma faculdade… pag. 335)\"), continuação de nota anterior ao trecho, não está no fragmento e não foi acrescentado.\nDúvidas: ornamentos \"* * *\" omitidos (como já estavam); \"produzirà\" (p. 56) mantido como no original impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros de OCR corrigidos em todo o texto (letras trocadas, acentos, números das tabelas, itálicos/negritos espúrios, \"49.\" → \"42.\" no rótulo da tese, lixo como \"4 Vor. II.\", \"*\", \"M\" e linhas-ornamento removidos; parágrafo partido entre pp. 49–50 (\"o saguim / e o canario\") e entre pp. 55–56 (\"Não / podemos\") reunificado dentro da nota).\nNenhuma mudança de fronteira corpo/nota: a nota n47-1 realmente atravessa as pp. 47–59 e os avisos de \"vão nas notas\" (pp. 48, 52, 54) eram falsos. O texto no topo do rodapé da p. 47 (\"ser feita pela mesma faculdade… pag. 335)\"), continuação de nota anterior ao trecho, não está no fragmento e não foi acrescentado.\nDúvidas: ornamentos \"* * *\" omitidos (como já estavam); \"produzirà\" (p. 56) mantido como no original impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.50183,
+ "duration_ms": 193923,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 90770,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 32029
+ },
+ "reparo": false
+}

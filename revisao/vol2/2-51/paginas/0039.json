@@ -1,0 +1,27 @@
+{
+ "pagina": 39,
+ "paginas": [
+  39
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"Dilferenga\", \"differenga\", \"ewtrznsecamente\", \"Esclaregamos\", \"quo\", \"nao\", \"&amp;\" por \"a\", \"n&amp;o\" por \"não\"; acentos (É, á, não); pontuação (\"entende. —\", \"a. 2).\"); itálicos (\"e\" não é itálico; \"Intrinseca\" minúscula); \"que preciso\" → \"que é preciso\"; \"é subsistencia\" → \"á subsistencia\"; \"-- \" → \"—\".\nFronteira corpo/nota: nenhuma alteração. Toda a nota (1) está em letra pequena abaixo do filete (pp. 39 inferior e superior) e já estava inteira dentro da `<note>`; o \"(1)\" não foi escrito, como previsto.\nDúvida: a palavra \"simplicidade\" foi mantida inteira por causa da hifenização \"simplici-\" da linha final; o sufixo \"-dade\" estaria na página 40, fora do trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"Dilferenga\", \"differenga\", \"ewtrznsecamente\", \"Esclaregamos\", \"quo\", \"nao\", \"&amp;\" por \"a\", \"n&amp;o\" por \"não\"; acentos (É, á, não); pontuação (\"entende. —\", \"a. 2).\"); itálicos (\"e\" não é itálico; \"Intrinseca\" minúscula); \"que preciso\" → \"que é preciso\"; \"é subsistencia\" → \"á subsistencia\"; \"-- \" → \"—\".\nFronteira corpo/nota: nenhuma alteração. Toda a nota (1) está em letra pequena abaixo do filete (pp. 39 inferior e superior) e já estava inteira dentro da `<note>`; o \"(1)\" não foi escrito, como previsto.\nDúvida: a palavra \"simplicidade\" foi mantida inteira por causa da hifenização \"simplici-\" da linha final; o sufixo \"-dade\" estaria na página 40, fora do trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.006747,
+ "duration_ms": 42422,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11140,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11266
+ },
+ "reparo": false
+}
