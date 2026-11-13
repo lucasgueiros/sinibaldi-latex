@@ -1,0 +1,27 @@
+{
+ "pagina": 199,
+ "paginas": [
+  199
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"&amp;\"→\"a\", \"^\", \":\", \"EC\", \"di- recta\", \"nlernos\", \"qué\", \"exi-stem\", \"da.\" ), hífens de fim de linha, itálicos e ortografia conforme a imagem.\nFronteira p. 199: a nota \"Resumamos…\" estava presa a \"externos\" e foi movida para a chamada \"(1)\" em \"cada substancia\"; a nota \"Na Anthropologia…\", que estava no fim do parágrafo como n199-3, foi renumerada para 2 (n199-2) e colocada na chamada \"externos (²)\". O texto do topo do rodapé (\"pode acceitar-se…\" até \"…dos sentidos externos\") é continuação de nota da p. 198, fora do trecho, e não foi incluído.\nDúvidas: se \"e\" em \"e que só indirecta\" e \"sensações\" na nota 1 estão mesmo em itálico e se \"acerca\" leva acento (transcrevi \"acerca\", sem acento, como aparece na imagem).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"&amp;\"→\"a\", \"^\", \":\", \"EC\", \"di- recta\", \"nlernos\", \"qué\", \"exi-stem\", \"da.\" ), hífens de fim de linha, itálicos e ortografia conforme a imagem.\nFronteira p. 199: a nota \"Resumamos…\" estava presa a \"externos\" e foi movida para a chamada \"(1)\" em \"cada substancia\"; a nota \"Na Anthropologia…\", que estava no fim do parágrafo como n199-3, foi renumerada para 2 (n199-2) e colocada na chamada \"externos (²)\". O texto do topo do rodapé (\"pode acceitar-se…\" até \"…dos sentidos externos\") é continuação de nota da p. 198, fora do trecho, e não foi incluído.\nDúvidas: se \"e\" em \"e que só indirecta\" e \"sensações\" na nota 1 estão mesmo em itálico e se \"acerca\" leva acento (transcrevi \"acerca\", sem acento, como aparece na imagem).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0048698000000000005,
+ "duration_ms": 33573,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9713,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7797
+ },
+ "reparo": false
+}

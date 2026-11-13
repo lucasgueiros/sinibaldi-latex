@@ -1,0 +1,27 @@
+{
+ "pagina": 227,
+ "paginas": [
+  227
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras e acentos (li→III, \"distância\"→distincta, \"intel ligencia\", \"plirenomeno\", \"Phsl\"/\"Mod\", \"Na/No verdade\", \"impressão\"), pontuação e hífens, formatação itálico/negrito, e lixo (\"«\", \"M\", \"vM\", traços, \"Ó\" final).\nFronteira: o texto \"substituida pelos jogos do architectonico… inoffensivo.\" (t188.p71), no alto da área de notas da p. 227 e sem \"(n)\", foi envolvido em `<note place=\"foot\" type=\"continuacao\">` (continuação de nota da p. 226); \"d) As considerações…\" permanece como corpo.\nDúvidas: \"dizer-nos\" (lido na imagem como \"dizer-ou\"); \"ha\" mantido como impresso; grafia \"contradição\"; formatação exata de \"noumeno\" (negrito-itálico) e de \"abstracta\"; \"subjectivismo\" assumido a partir da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras e acentos (li→III, \"distância\"→distincta, \"intel ligencia\", \"plirenomeno\", \"Phsl\"/\"Mod\", \"Na/No verdade\", \"impressão\"), pontuação e hífens, formatação itálico/negrito, e lixo (\"«\", \"M\", \"vM\", traços, \"Ó\" final).\nFronteira: o texto \"substituida pelos jogos do architectonico… inoffensivo.\" (t188.p71), no alto da área de notas da p. 227 e sem \"(n)\", foi envolvido em `<note place=\"foot\" type=\"continuacao\">` (continuação de nota da p. 226); \"d) As considerações…\" permanece como corpo.\nDúvidas: \"dizer-nos\" (lido na imagem como \"dizer-ou\"); \"ha\" mantido como impresso; grafia \"contradição\"; formatação exata de \"noumeno\" (negrito-itálico) e de \"abstracta\"; \"subjectivismo\" assumido a partir da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0077445,
+ "duration_ms": 53398,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10665,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13356
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 231,
+ "paginas": [
+  231
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (subjecíivo, atlingir, Kantístas, Hberdade, erfe, Philosopbia, exirinseca, couclufmos), hifenização (pos-sivel, phe-nomenos, pri-meiros), pontuação e palavras soltas (\"P\", \"a\", \"os\\\"\", \"Theologia\" com aspas, \"Sc o . homem\"), e itálicos/negritos que não batem com a imagem; removido o cabeçalho corrente \"CAP. II — MEIOS PARA A ACQUISIÇÃO…\" (p. 231).\nFronteira corpo/nota: nenhuma alteração; todo o texto da p. 231 é corpo e, pela imagem, não há nota de rodapé nesta página.\nDúvidas: o trecho abaixo do filete curto (a partir de \"Tudo é, pois\") está em letra menor, mas sem \"(n)\" e sem área de notas no pé; mantive como corpo. Realces \"dever/bem/mal\" e \"moraes\" foram marcados só como itálico, a imagem sugere negrito-itálico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (subjecíivo, atlingir, Kantístas, Hberdade, erfe, Philosopbia, exirinseca, couclufmos), hifenização (pos-sivel, phe-nomenos, pri-meiros), pontuação e palavras soltas (\"P\", \"a\", \"os\\\"\", \"Theologia\" com aspas, \"Sc o . homem\"), e itálicos/negritos que não batem com a imagem; removido o cabeçalho corrente \"CAP. II — MEIOS PARA A ACQUISIÇÃO…\" (p. 231).\nFronteira corpo/nota: nenhuma alteração; todo o texto da p. 231 é corpo e, pela imagem, não há nota de rodapé nesta página.\nDúvidas: o trecho abaixo do filete curto (a partir de \"Tudo é, pois\") está em letra menor, mas sem \"(n)\" e sem área de notas no pé; mantive como corpo. Realces \"dever/bem/mal\" e \"moraes\" foram marcados só como itálico, a imagem sugere negrito-itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0072485,
+ "duration_ms": 49456,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10795,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12338
+ },
+ "reparo": false
+}

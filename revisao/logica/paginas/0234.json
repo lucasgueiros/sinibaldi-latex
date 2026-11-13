@@ -1,0 +1,55 @@
+{
+ "pagina": 234,
+ "paginas": [
+  234
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2438,
+   523
+  ],
+  "notas": [
+   0,
+   1874
+  ],
+  "num_notas": [
+   0,
+   1
+  ],
+  "troca": 1874
+ },
+ "notas": "Erros principais: OCR em palavras e acentos (ex.: \"conbecer\", \"escriplo\", \"lormado\", \"circumstanocias\", \"Zogico\"), pontuação e numeração (\"9*.)\"→\"2.º)\"), títulos (\"TERCERIO\", \"SUMNARIO\", \"ARTIGO [\") e lixo (\"ji\", \"B\", \"TU\", \"^\", ponto espúrio); itálicos/negrito corrigidos e parágrafos quebrados por linha reunidos.\nFronteira (p. 234): todo o texto abaixo do filete, sem \"(n)\" no alto (continuação de nota da p. 233), estava no corpo; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` (de \"dadeiro sentido…\" até \"…seu pensamento.\").\nDúvidas: pela posição e pelo tamanho uniforme das linhas, considerei também \"a) Para a interpretação…\" como letra menor de nota; \"Regras da hermeneutica.\" em negrito e o espaço em \"elementos :\" são leituras incertas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2438,
+     523
+    ],
+    "notas": [
+     0,
+     1874
+    ],
+    "num_notas": [
+     0,
+     1
+    ],
+    "troca": 1874
+   },
+   "notas": "Erros principais: OCR em palavras e acentos (ex.: \"conbecer\", \"escriplo\", \"lormado\", \"circumstanocias\", \"Zogico\"), pontuação e numeração (\"9*.)\"→\"2.º)\"), títulos (\"TERCERIO\", \"SUMNARIO\", \"ARTIGO [\") e lixo (\"ji\", \"B\", \"TU\", \"^\", ponto espúrio); itálicos/negrito corrigidos e parágrafos quebrados por linha reunidos.\nFronteira (p. 234): todo o texto abaixo do filete, sem \"(n)\" no alto (continuação de nota da p. 233), estava no corpo; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` (de \"dadeiro sentido…\" até \"…seu pensamento.\").\nDúvidas: pela posição e pelo tamanho uniforme das linhas, considerei também \"a) Para a interpretação…\" como letra menor de nota; \"Regras da hermeneutica.\" em negrito e o espaço em \"elementos :\" são leituras incertas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.010893300000000002,
+ "duration_ms": 80504,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10593,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 19668
+ },
+ "reparo": false
+}

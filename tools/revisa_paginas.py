@@ -54,7 +54,7 @@ MINIMO = 300             # pedaço com menos texto que isto vai junto com o ante
 MAX_CAR = 16000          # teto (texto) de um pedaço que junta páginas ligadas por nota (9000 deixava a
                          # fronteira da p. 46 do vol. 1 entre dois pedaços, sem conserto possível)
 TROCA_MAX = 2500         # passagem corpo→nota (caracteres) acima disto é recusada…
-TROCA_PAG = 1800         # …ou acima disto vezes as páginas de corpo do pedaço: um rodapé inteiro que
+TROCA_PAG = 3200         # …ou acima disto vezes as páginas de corpo do pedaço: um rodapé inteiro que
                          # ficou no corpo tem até ~2800 car. por página (vol. 1 p. 22)
 NOTA_CORPO_MAX = 800     # idem nota→corpo: ~8 linhas; o erro típico do modelo é esvaziar no corpo
                          # os parágrafos finais de uma nota longa (vol. 2 p. 441, 1567 car.)
@@ -188,6 +188,7 @@ class Contexto:
         self.elems = analisa(doc)["elems"]
         self.ids = collections.Counter(RE_ID.findall(doc))
         self.fora, self.limites = {}, {}
+        self.ocr = {}                                  # página → texto do OCR bruto (volN/paginas/NNNN.txt)
 
     def com_volume(self, volume, pedacos):
         """A entrada é um trecho recortado de `volume` (texto do volN.corrigido.xml): o começo e o fim
@@ -228,6 +229,47 @@ class Contexto:
         """xml:id usados no documento fora do pedaço n."""
         return +(self.ids - collections.Counter(RE_ID.findall(self.textos[self.idx[n]])))
 
+    def dica_continuacao(self, n, dirp):
+        """Se a última nota do pedaço anterior (revisado, se já houver) chega à página n-1, ela pode continuar
+        no alto do rodapé da página n — e o pipeline costuma deixar essa continuação no corpo."""
+        k = self.idx[n]
+        if k == 0:
+            return ""
+        n_ant = [m for m, i in self.idx.items() if i == k - 1][0]
+        rev = dirp / f"{n_ant:04d}.revisado.xml"
+        ant = rev.read_text(encoding="utf-8") if rev.exists() else self.textos[k - 1]
+        # a nota tem de ser longa (atravessa páginas) ou já uma continuação, e a 1ª página deste pedaço não
+        # pode ter nota nenhuma na entrada: é o sinal do rodapé inteiro que ficou no corpo (vol. 1 pp. 169–172,
+        # 221–233); sem essas condições a pista dispara em quase todo pedaço
+        texto = self.textos[k]
+        pos = analisa(texto)["pos_pb"]
+        fim1 = next((q for q, pn in pos if pn != pos[0][1]), len(texto)) if pos else len(texto)
+        if "<note" in texto[:fim1]:
+            return ""
+        pag, ult, longa = None, None, False
+        nivel = 0
+        for t in RE_TAG.finditer(ant):
+            if t[2] == "pb":
+                pn = (RE_N.findall(t[3] or "") or ["?"])[0]
+                if not nivel:
+                    pag = pn
+                elif ult is not None and pn.isdigit():
+                    ult, longa = max(ult, int(pn)), True
+            elif t[2] == "note" and not t[4]:
+                if not t[1]:
+                    if not nivel and pag and pag.isdigit():
+                        ult, longa = int(pag), 'continuacao' in (t[3] or "")
+                    nivel += 1
+                else:
+                    nivel -= 1
+        if ult != n - 1 or not longa:
+            return ""
+        return (f"Atenção: uma nota de rodapé do trecho anterior chega até a página {n - 1} e pode continuar no alto "
+                f"da área de notas da página {n} (letra pequena, logo abaixo do filete, sem \"(n)\"). Se esse texto "
+                "estiver no fragmento (como corpo ou como nota nova), ele é a continuação: envolva-o em "
+                "<note place=\"foot\" type=\"continuacao\">…</note> no lugar em que está; não o apague nem o deixe "
+                "no corpo.")
+
     def seguinte(self, n):
         k = self.idx[n]
         return self.textos[k + 1] if k + 1 < len(self.textos) else ""
@@ -235,6 +277,38 @@ class Contexto:
     def documento(self, n, novo):
         k = self.idx[n]
         return self.prefixo + "".join(self.textos[:k]) + novo + "".join(self.textos[k + 1:]) + self.sufixo
+
+
+def confere_ocr(texto, novo, pags, ctx):
+    """Fração dos trigramas de palavras ACRESCENTADAS pelo modelo que aparecem no OCR bruto das páginas."""
+    ocr = " ".join(ctx.ocr.get(p, "") for p in pags).lower()
+    ow = re.findall(r"\w+", ocr)
+    tri_ocr = {tuple(ow[i:i + 3]) for i in range(len(ow) - 2)}
+    pa, pn = palavras(texto), palavras(novo)
+    novas = []
+    for op, _, _, j1, j2 in difflib.SequenceMatcher(None, pa, pn, autojunk=False).get_opcodes():
+        if op in ("insert", "replace") and j2 - j1 >= 15:
+            novas += [tuple(pn[k:k + 3]) for k in range(j1, j2 - 2)]
+    return sum(t in tri_ocr for t in novas) / len(novas) if novas else 0.0
+
+
+def desduplica_ids(texto, novo, ctx, n):
+    """xml:id repetido pelo modelo: nota nova ganha letra (nP-Kb), parágrafo partido perde o id."""
+    usados = collections.Counter(ctx.ids_fora(n))
+    vistos = set()
+    def troca(m):
+        i = m[1]
+        if i not in vistos and not usados[i]:
+            vistos.add(i)
+            return m[0]
+        if re.fullmatch(r"n\d+-\d+[a-z]?", i):
+            for suf in "bcdefgh":
+                c = re.sub(r"[a-z]?$", suf, i, count=1)
+                if c not in vistos and not usados[c] and c not in ctx.ids:
+                    vistos.add(c)
+                    return f' xml:id="{c}"'
+        return ""
+    return re.sub(r' xml:id="([^"]*)"', troca, novo)
 
 
 def bem_formado(doc):
@@ -297,7 +371,10 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
                 pista = (f" Foi omitido o trecho de ~{k} palavras que começa em “{' '.join(pa[i1:i1 + 10])}…”: se ele é a "
                          "continuação de uma nota que começou numa página anterior, envolva-o em "
                          "<note place=\"foot\" type=\"continuacao\">…</note> no lugar em que está, em vez de apagá-lo.")
-        return f"o texto mudou demais: de {ta} para {tb} caracteres (texto duplicado ou perdido?){pista}", None
+        if tb > ta and confere_ocr(texto, novo, pags, ctx) >= 0.6:
+            pass       # o acréscimo está no OCR bruto das páginas: texto que o pipeline perdeu (vol. 1 p. 113)
+        else:
+            return f"o texto mudou demais: de {ta} para {tb} caracteres (texto duplicado ou perdido?){pista}", None
     dc, dn = b["corpo"] - a["corpo"], b["notas"] - a["notas"]
     fronteira = None
     troca = min(abs(dc), abs(dn)) if dc * dn < 0 else 0
@@ -453,6 +530,9 @@ def mensagem(n, texto, pags, args, ctx, aviso=""):
                   "trecho seguinte e não devem ser copiados.")
     if n in ctx.limites:
         extra += " " + ctx.limites[n]
+    dica = ctx.dica_continuacao(n, args.saida / "paginas")
+    if dica:
+        extra += " " + dica
     alertas = [f"  p. {p}: {m}" for p in pags for m in args.alertas.get(p, [])]
     if alertas:
         extra += ("\n\nAlertas do pipeline para estas páginas (pistas de onde a fronteira corpo/nota pode estar "
@@ -546,6 +626,7 @@ def tira_continuacoes_novas(texto, novo):
 def confere(n, texto, novo, pags, ctx, args):
     """valida(); se o XML vier mal formado, tenta repara() e valida de novo.  (falha, fronteira, novo, reparou)"""
     novo = tira_continuacoes_novas(texto, novo)
+    novo = desduplica_ids(texto, novo, ctx, n)
     falha, fronteira = valida(n, texto, novo, pags, ctx, args.troca_max, args.nota_corpo_max)
     if falha and ("mal formado" in falha or "não fechado" in falha or "sem <note> aberto" in falha):
         r = repara(texto, novo)
@@ -697,6 +778,11 @@ def main():
                                         principal / args.vol / f"{args.vol}.corrigido.xml") if c.exists()), "")
     if args.volume and Path(args.volume).resolve() != args.entrada.resolve():
         ctx.com_volume(Path(args.volume).read_text(encoding="utf-8"), pedacos)
+    for p in {p for _, _, pg in pedacos for p in pg}:
+        for base in (RAIZ / args.vol / "paginas", principal / args.vol / "paginas"):
+            if (base / f"{p:04d}.txt").exists():
+                ctx.ocr[p] = (base / f"{p:04d}.txt").read_text(encoding="utf-8", errors="replace")
+                break
     escolha = pedacos
     if args.so:
         quero = set()

@@ -1,0 +1,33 @@
+{
+ "pagina": 193,
+ "paginas": [
+  193,
+  194,
+  195,
+  196,
+  197,
+  198,
+  199
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de palavras (hypotheses/apparencias/noumenos, \"Thomas\"→\"Thomaz\", \"Dans\"/\"sulliciente\"/\"substalicias\"/\"nátpercepção\" etc.), acentos e cedilhas, \"&amp;\"→\"é\", \"a\"/\"à\" de regência, hífens de fim de linha, lixo (\"Vol. I 14\", \"^\", \"|\", \"! . . .\", \":\" soltos, cabeçalho \"ibo o Toei — Secção FUNDA\" removido), numeração das regras e teses (I.ª/II.ª/III.ª, 1.ª–3.ª, a)–c)), itálicos e negritos conforme a imagem.\nFronteira corpo/nota: conferida página a página; a estrutura do pipeline está correta e foi mantida (nota 193-1 cobre todo o pé de 193 a 199, com os pb 194–199 dentro dela; o corpo 177 vem depois da nota, na ordem do impresso). Única mudança estrutural: a continuação \"após a impressão…\" no início do pé de 194 foi unida ao parágrafo anterior da nota (é a mesma frase, cortada pela página), e o cabeçalho corrente de 194 foi removido. Nada foi movido entre corpo e nota.\nDúvidas: \"(De Anima, l. 2 …)\" (o pipeline dizia \"1. 8\"; na imagem li \"2\"); mantive \"Para termos ou escutarmos\"; não confirmei com certeza se \"bold\" em \"como o erro é\" e \"exclusivamente\" é realce real ou efeito da imagem; o alerta do pipeline para p. 195 (vão grande no pé) foi conferido e não indica corpo dentro da nota. Os pb 199 e as notas \"(1) Resumamos…\" e \"(2) Na Anthropologia\" pertencem ao trecho seguinte e não foram incluídos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de palavras (hypotheses/apparencias/noumenos, \"Thomas\"→\"Thomaz\", \"Dans\"/\"sulliciente\"/\"substalicias\"/\"nátpercepção\" etc.), acentos e cedilhas, \"&amp;\"→\"é\", \"a\"/\"à\" de regência, hífens de fim de linha, lixo (\"Vol. I 14\", \"^\", \"|\", \"! . . .\", \":\" soltos, cabeçalho \"ibo o Toei — Secção FUNDA\" removido), numeração das regras e teses (I.ª/II.ª/III.ª, 1.ª–3.ª, a)–c)), itálicos e negritos conforme a imagem.\nFronteira corpo/nota: conferida página a página; a estrutura do pipeline está correta e foi mantida (nota 193-1 cobre todo o pé de 193 a 199, com os pb 194–199 dentro dela; o corpo 177 vem depois da nota, na ordem do impresso). Única mudança estrutural: a continuação \"após a impressão…\" no início do pé de 194 foi unida ao parágrafo anterior da nota (é a mesma frase, cortada pela página), e o cabeçalho corrente de 194 foi removido. Nada foi movido entre corpo e nota.\nDúvidas: \"(De Anima, l. 2 …)\" (o pipeline dizia \"1. 8\"; na imagem li \"2\"); mantive \"Para termos ou escutarmos\"; não confirmei com certeza se \"bold\" em \"como o erro é\" e \"exclusivamente\" é realce real ou efeito da imagem; o alerta do pipeline para p. 195 (vão grande no pé) foi conferido e não indica corpo dentro da nota. Os pb 199 e as notas \"(1) Resumamos…\" e \"(2) Na Anthropologia\" pertencem ao trecho seguinte e não foram incluídos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0476112,
+ "duration_ms": 329712,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 49902,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 85242
+ },
+ "reparo": false
+}

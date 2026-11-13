@@ -1,0 +1,55 @@
+{
+ "pagina": 183,
+ "paginas": [
+  183
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1331,
+   1296
+  ],
+  "notas": [
+   851,
+   829
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 0
+ },
+ "notas": "Corrigidos: erros de OCR (Seutidas, exfermos, cór, \"68\" por \"os\", saleriaes, immuteriaes, mnateriaes, \"9)\" por \"2)\", \"ArtTIGO HJ\"), palavras perdidas (\"pelo qual\", \"o ouvido\", \"côres\"), \"passa-das\" juntado, itálicos e negritos conforme a imagem, e lixo (\"ao\", aspas).\nFronteira: a nota (1) estava anexada ao fim de 169 (chamada certa é \"externos (1)\" em 168) — movida para 168; o texto de 169 que estava nela, \"Na Anthropologia…\", era a nota (2), separada em <note n=\"2\"> no ponto \"resistencia (2)\". Página 183, sem continuação.\nDúvidas: se \"reconhece\", \"caso contrario\", o título \"Numero dos sentidos externos.\" e \"2.ª\" são negrito/forma exatas na imagem; \"na'\" transcrito como apóstrofo simples.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1331,
+     1296
+    ],
+    "notas": [
+     851,
+     829
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 0
+   },
+   "notas": "Corrigidos: erros de OCR (Seutidas, exfermos, cór, \"68\" por \"os\", saleriaes, immuteriaes, mnateriaes, \"9)\" por \"2)\", \"ArtTIGO HJ\"), palavras perdidas (\"pelo qual\", \"o ouvido\", \"côres\"), \"passa-das\" juntado, itálicos e negritos conforme a imagem, e lixo (\"ao\", aspas).\nFronteira: a nota (1) estava anexada ao fim de 169 (chamada certa é \"externos (1)\" em 168) — movida para 168; o texto de 169 que estava nela, \"Na Anthropologia…\", era a nota (2), separada em <note n=\"2\"> no ponto \"resistencia (2)\". Página 183, sem continuação.\nDúvidas: se \"reconhece\", \"caso contrario\", o título \"Numero dos sentidos externos.\" e \"2.ª\" são negrito/forma exatas na imagem; \"na'\" transcrito como apóstrofo simples.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0079407,
+ "duration_ms": 52663,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10337,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13814
+ },
+ "reparo": false
+}

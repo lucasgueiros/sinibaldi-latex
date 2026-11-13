@@ -1,0 +1,55 @@
+{
+ "pagina": 222,
+ "paginas": [
+  222
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3131,
+   2751
+  ],
+  "notas": [
+   0,
+   348
+  ],
+  "num_notas": [
+   0,
+   1
+  ],
+  "troca": 348
+ },
+ "notas": "Erros corrigidos: OCR (Malebeanche, Iuc&o, investivação, Balural, ilegituno, XT, Q espirito, talso, Oorganisar, \"intelligencia\" e outros), hifenização (\"evi-tar\" → \"evitar\"), pontuação e lixo (\"Monumentos .\", \"sciencia. .\", aspas soltas) e o ornamento \"※\" no lugar de \"M\".\nFronteira: o texto \"Deus; porque, se não se admittirem…\" até \"…da sciencia.\" (p. 222, metade superior, abaixo do filete, sem \"(n)\") é continuação de nota da p. 221; estava no corpo, foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no mesmo lugar. Nenhuma outra mudança de fronteira.\nDúvidas: se \"nada\" estava em negrito (adotei texto normal); se \"systema\" (linha 19) está em itálico; se é \"o nossa razão\" ou \"a nossa razão\" (mantive \"o\"); \"inexlicaveis\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3131,
+     2751
+    ],
+    "notas": [
+     0,
+     348
+    ],
+    "num_notas": [
+     0,
+     1
+    ],
+    "troca": 348
+   },
+   "notas": "Erros corrigidos: OCR (Malebeanche, Iuc&o, investivação, Balural, ilegituno, XT, Q espirito, talso, Oorganisar, \"intelligencia\" e outros), hifenização (\"evi-tar\" → \"evitar\"), pontuação e lixo (\"Monumentos .\", \"sciencia. .\", aspas soltas) e o ornamento \"※\" no lugar de \"M\".\nFronteira: o texto \"Deus; porque, se não se admittirem…\" até \"…da sciencia.\" (p. 222, metade superior, abaixo do filete, sem \"(n)\") é continuação de nota da p. 221; estava no corpo, foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no mesmo lugar. Nenhuma outra mudança de fronteira.\nDúvidas: se \"nada\" estava em negrito (adotei texto normal); se \"systema\" (linha 19) está em itálico; se é \"o nossa razão\" ou \"a nossa razão\" (mantive \"o\"); \"inexlicaveis\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046287,
+ "duration_ms": 28462,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10602,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7137
+ },
+ "reparo": false
+}

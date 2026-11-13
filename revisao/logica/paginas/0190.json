@@ -1,0 +1,29 @@
+{
+ "pagina": 190,
+ "paginas": [
+  190,
+  191,
+  192
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (Dão→não, sé→se, imperíeigüo, per cepcào, esternos, inditferentes, etc.), cabeçalhos e lixo removidos (p. 191), linha faltante restaurada na p. 190 (\"percepção do objecto proprio.\"), parágrafos e negritos/itálicos ajustados, hifenizações \"con-/venientemente\" e \"conve-/nientemente\" unidas, \"per accidens\" e \"figura/grandeza\" ajustados à imagem.\nFronteira corpo/nota: nenhuma mudança de texto entre corpo e nota. p. 190: nota n190-1 mantida, \"()\" literal removido e a nota colocada no ponto da chamada, antes do ponto final; quebra de parágrafo na nota em \"Se os sentidos…\". p. 191: nota n191-1 mantida, chamada \"(1)\" restaurada no fim de \"commum\" (o \"(3)\" do alerta era leitura errada); sua continuação em p. 192 foi unida no mesmo parágrafo (pb 192 dentro da nota); o parágrafo \"O engano pode dar-se…\" fica em novo <p> na nota.\nDúvidas: \"bôa\"/\"bóa\" e a minúscula de \"se podem\" (p. 191) lidas pela imagem; o traço sobre \"nem podem enganar-se na percepção do objecto commum;\" (p. 191) foi ignorado; a fragmentação em \"a)\"/\"b)\" em negrito segue a imagem, mas pode haver variação tipográfica; o fragmento termina aberto em \"de um modo\", como veio.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (Dão→não, sé→se, imperíeigüo, per cepcào, esternos, inditferentes, etc.), cabeçalhos e lixo removidos (p. 191), linha faltante restaurada na p. 190 (\"percepção do objecto proprio.\"), parágrafos e negritos/itálicos ajustados, hifenizações \"con-/venientemente\" e \"conve-/nientemente\" unidas, \"per accidens\" e \"figura/grandeza\" ajustados à imagem.\nFronteira corpo/nota: nenhuma mudança de texto entre corpo e nota. p. 190: nota n190-1 mantida, \"()\" literal removido e a nota colocada no ponto da chamada, antes do ponto final; quebra de parágrafo na nota em \"Se os sentidos…\". p. 191: nota n191-1 mantida, chamada \"(1)\" restaurada no fim de \"commum\" (o \"(3)\" do alerta era leitura errada); sua continuação em p. 192 foi unida no mesmo parágrafo (pb 192 dentro da nota); o parágrafo \"O engano pode dar-se…\" fica em novo <p> na nota.\nDúvidas: \"bôa\"/\"bóa\" e a minúscula de \"se podem\" (p. 191) lidas pela imagem; o traço sobre \"nem podem enganar-se na percepção do objecto commum;\" (p. 191) foi ignorado; a fragmentação em \"a)\"/\"b)\" em negrito segue a imagem, mas pode haver variação tipográfica; o fragmento termina aberto em \"de um modo\", como veio.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0214425,
+ "duration_ms": 147006,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23035,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 38278
+ },
+ "reparo": false
+}

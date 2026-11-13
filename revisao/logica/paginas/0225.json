@@ -1,0 +1,55 @@
+{
+ "pagina": 225,
+ "paginas": [
+  225
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3262,
+   2241
+  ],
+  "notas": [
+   0,
+   999
+  ],
+  "num_notas": [
+   0,
+   1
+  ],
+  "troca": 999
+ },
+ "notas": "Corrigidos OCR (ex.: \"Lermos\", \"idoces\", \"necessidados\", \"x julgar\", \"E. falso\", \"5)\" por \"b)\"), hifenizações (\"sensa-ções\", \"importantissi-ma\"), lixo (\"|\", \"...\" espúrios, \"Vol. 1 16\" removido), itálicos/negrito conforme a imagem (p. 225 e \"legitimas\" sem negrito) e linhas fundidas (e) + \"feitas…\" e a frase de \"extensão\" dividida em p37).\nFronteira: p. 225, o trecho \"tempo, a impressão sensivel… idea da extensão.\" (sob o filete, letra menor, sem \"(n)\") estava no corpo; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no lugar em que está, por ser continuação de nota da p. 224.\nDúvidas: a frase \"Não é a idea da extensão…\" tem trechos riscados na imagem, transcritos sem marcação (não há elemento permitido para isso); \"dás coisas\" transcrito como impresso; falta de ponto após \"experiencia\" mantida como no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3262,
+     2241
+    ],
+    "notas": [
+     0,
+     999
+    ],
+    "num_notas": [
+     0,
+     1
+    ],
+    "troca": 999
+   },
+   "notas": "Corrigidos OCR (ex.: \"Lermos\", \"idoces\", \"necessidados\", \"x julgar\", \"E. falso\", \"5)\" por \"b)\"), hifenizações (\"sensa-ções\", \"importantissi-ma\"), lixo (\"|\", \"...\" espúrios, \"Vol. 1 16\" removido), itálicos/negrito conforme a imagem (p. 225 e \"legitimas\" sem negrito) e linhas fundidas (e) + \"feitas…\" e a frase de \"extensão\" dividida em p37).\nFronteira: p. 225, o trecho \"tempo, a impressão sensivel… idea da extensão.\" (sob o filete, letra menor, sem \"(n)\") estava no corpo; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no lugar em que está, por ser continuação de nota da p. 224.\nDúvidas: a frase \"Não é a idea da extensão…\" tem trechos riscados na imagem, transcritos sem marcação (não há elemento permitido para isso); \"dás coisas\" transcrito como impresso; falta de ponto após \"experiencia\" mantida como no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0068468999999999995,
+ "duration_ms": 47468,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10659,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11562
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 223,
+ "paginas": [
+  223
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções: remoção de lixo do OCR (\"uma”\", \"*\", \". \", \"...\"); junção de palavras hifenizadas (\"ter-mo\", \"essen-cial\", \"conscien-cia\", \"identificam-se\"); OCR de letras (fer→ter, [also→falso, percepliva→perceptiva, interiores/inferiores, pa→na, jmperiosamente→imperiosamente, communicação, contradicção, umu→uma, \"a razão\", \"Se o\"); formatação itálico/negrito ajustada à imagem (\"para\" e \"os\" sem destaque; \"sentido commum\" e \"consciencia\" em itálico). Nenhuma fronteira corpo/nota alterada: não há notas neste trecho.\nDúvidas: no fim da p. 223, \"para que te-\" não se junta visivelmente a \"principio\" (que aparece como início de novo parágrafo), mantive a divisão do pipeline; \"hypothes\" lido como impresso; o \"o\" em \"<hi>o</hi> paciente\" pode não ser itálico na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções: remoção de lixo do OCR (\"uma”\", \"*\", \". \", \"...\"); junção de palavras hifenizadas (\"ter-mo\", \"essen-cial\", \"conscien-cia\", \"identificam-se\"); OCR de letras (fer→ter, [also→falso, percepliva→perceptiva, interiores/inferiores, pa→na, jmperiosamente→imperiosamente, communicação, contradicção, umu→uma, \"a razão\", \"Se o\"); formatação itálico/negrito ajustada à imagem (\"para\" e \"os\" sem destaque; \"sentido commum\" e \"consciencia\" em itálico). Nenhuma fronteira corpo/nota alterada: não há notas neste trecho.\nDúvidas: no fim da p. 223, \"para que te-\" não se junta visivelmente a \"principio\" (que aparece como início de novo parágrafo), mantive a divisão do pipeline; \"hypothes\" lido como impresso; o \"o\" em \"<hi>o</hi> paciente\" pode não ser itálico na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.005456,
+ "duration_ms": 35411,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10485,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8815
+ },
+ "reparo": false
+}

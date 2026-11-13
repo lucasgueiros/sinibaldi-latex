@@ -1,0 +1,58 @@
+{
+ "pagina": 241,
+ "paginas": [
+  241,
+  242,
+  243,
+  244
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   4436,
+   3862
+  ],
+  "notas": [
+   7043,
+   7518
+  ],
+  "num_notas": [
+   5,
+   6
+  ],
+  "troca": 475
+ },
+ "notas": "Principais erros corrigidos: OCR (I/II/III, \"malthematica\", \"Bosswei\", \"nacessario\", \"scienfificos\", \"vmmediatamente\", \"f&amp;culdades\", \"synihetico\", \"basêa\" etc.), hifenizações (\"attribuir- -se\", \"expe-\"), acentos, itálicos e lixo (\"|\", \"Vel, I Wo\", \"- ^ ^\", \"Artigo II.\", \":\" antes de 198).\nFronteira: n241-1 (nota \"(1)\" do §196, p. 241) foi movida do fim do \"Resposta\" para a chamada no §196; o trecho \"analyse. Por quanto…\" (rodapé p. 241, sem número, continuação de nota anterior) foi envolvido em `type=\"continuacao\"` no mesmo ponto, antes de n241-1; pb 242 mantido dentro de n241-1, pb 243 dentro de n242-1 e pb 244 dentro de n243-1 (sem outras mudanças de fronteira).\nDúvidas: \"Artigo II\" (se havia ponto final na imagem); \"baseia\" (lido como \"baséa\"/\"basêa\"); \"pelas seus principios\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     4436,
+     3862
+    ],
+    "notas": [
+     7043,
+     7518
+    ],
+    "num_notas": [
+     5,
+     6
+    ],
+    "troca": 475
+   },
+   "notas": "Principais erros corrigidos: OCR (I/II/III, \"malthematica\", \"Bosswei\", \"nacessario\", \"scienfificos\", \"vmmediatamente\", \"f&amp;culdades\", \"synihetico\", \"basêa\" etc.), hifenizações (\"attribuir- -se\", \"expe-\"), acentos, itálicos e lixo (\"|\", \"Vel, I Wo\", \"- ^ ^\", \"Artigo II.\", \":\" antes de 198).\nFronteira: n241-1 (nota \"(1)\" do §196, p. 241) foi movida do fim do \"Resposta\" para a chamada no §196; o trecho \"analyse. Por quanto…\" (rodapé p. 241, sem número, continuação de nota anterior) foi envolvido em `type=\"continuacao\"` no mesmo ponto, antes de n241-1; pb 242 mantido dentro de n241-1, pb 243 dentro de n242-1 e pb 244 dentro de n243-1 (sem outras mudanças de fronteira).\nDúvidas: \"Artigo II\" (se havia ponto final na imagem); \"baseia\" (lido como \"baséa\"/\"basêa\"); \"pelas seus principios\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.024658299999999998,
+ "duration_ms": 170460,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 30783,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 43160
+ },
+ "reparo": false
+}

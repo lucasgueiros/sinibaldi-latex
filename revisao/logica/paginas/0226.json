@@ -1,0 +1,55 @@
+{
+ "pagina": 226,
+ "paginas": [
+  226
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3258,
+   3009
+  ],
+  "notas": [
+   0,
+   173
+  ],
+  "num_notas": [
+   0,
+   1
+  ],
+  "troca": 173
+ },
+ "notas": "Erros corrigidos: OCR (inleiro, Saes, ullemão, nowmenos, nisacio, nio, letras e acentos), lixo de OCR (*, “—, «, E, |:, ii, €, DEN, PTT, INE, etc.), hifenizações de fim de linha reunidas (applicam-se, universaes, communicar, organisação, formular, architectonica, philosophia, consequencia, reflexão) e a forma \"á\" da crase.\nFronteira: página 226 — o texto \"existente entre o sujeito e o predicado… visão da verdade.\" está em letra menor abaixo do filete, é continuação de nota da página 225; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no lugar em que está. O restante da página é corpo, sem notas novas.\nDúvidas: p70 ficou como `<p>` aberto e vazio, sem texto, conforme a estrutura de fim de fragmento pedida; o \"d'\" de \"d' onde\" foi mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3258,
+     3009
+    ],
+    "notas": [
+     0,
+     173
+    ],
+    "num_notas": [
+     0,
+     1
+    ],
+    "troca": 173
+   },
+   "notas": "Erros corrigidos: OCR (inleiro, Saes, ullemão, nowmenos, nisacio, nio, letras e acentos), lixo de OCR (*, “—, «, E, |:, ii, €, DEN, PTT, INE, etc.), hifenizações de fim de linha reunidas (applicam-se, universaes, communicar, organisação, formular, architectonica, philosophia, consequencia, reflexão) e a forma \"á\" da crase.\nFronteira: página 226 — o texto \"existente entre o sujeito e o predicado… visão da verdade.\" está em letra menor abaixo do filete, é continuação de nota da página 225; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` no lugar em que está. O restante da página é corpo, sem notas novas.\nDúvidas: p70 ficou como `<p>` aberto e vazio, sem texto, conforme a estrutura de fim de fragmento pedida; o \"d'\" de \"d' onde\" foi mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0099779,
+ "duration_ms": 67225,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11024,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17751
+ },
+ "reparo": false
+}

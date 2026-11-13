@@ -1,0 +1,79 @@
+>> haiku: 3 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 133 (1 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 568799 (<string>, line 13)  US$ 0.026  189s  ent 32819 saí 45799
+  p. 162 (1 pp.): FALHOU: passou texto demais do corpo para as notas (~3003 caracteres; corpo 3327 → 298, notas 0 → 3003): o máximo é 2500  US$ 0.030  235s  ent 31970 saí 53711
+  p. 113 (2 pp.): FALHOU: o texto mudou demais: de 3495 para 5485 caracteres (texto duplicado ou perdido?)  US$ 0.058  432s  ent 48306 saí 106228
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 116: continuação de nota ligada à nota anterior (1008 car.)
+   montagem: p. 129: continuação de nota ligada à nota anterior (3198 car.)
+   montagem: p. 130: continuação de nota ligada à nota anterior (3228 car.)
+   montagem: p. 139: continuação de nota ligada à nota anterior (2861 car.)
+   montagem: 2 nota(s) começavam com o número da chamada "(n)": tirado
+>> 81/126 pedaços, 3 falha(s), 27 com fronteira mudada, US$ 1.73, 199.6 min de chamadas; tokens {'input_tokens': 1996734, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 3066401}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> haiku: 126 pedaço(s) de revisao/logica/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol1/paginas)
+  p. 174 (1 pp.): ok  fronteira: troca 0 car., notas [1, 2]  US$ 0.007  43s  ent 10368 saí 11331
+  p. 181 (1 pp.): ok  fronteira: troca 961 car., notas [1, 3]  US$ 0.011  79s  ent 11011 saí 20178
+  p. 182 (1 pp.): ok  US$ 0.009  57s  ent 10883 saí 15221
+  p. 183 (1 pp.): ok  fronteira: troca 0 car., notas [1, 2]  US$ 0.008  53s  ent 10337 saí 13814
+  p. 169 (6 pp.): ok  US$ 0.043  312s  ent 43527 saí 78273
+  p. 184 (2 pp.): ok  US$ 0.014  94s  ent 17361 saí 24896
+  p. 186 (1 pp.): ok  fronteira: troca 2233 car., notas [0, 1]  US$ 0.006  40s  ent 10844 saí 9631
+  p. 189 (1 pp.): ok  fronteira: troca 259 car., notas [0, 1]  US$ 0.009  62s  ent 10999 saí 16789
+  p. 190 (3 pp.): ok  US$ 0.021  147s  ent 23035 saí 38278
+  p. 187 (2 pp.): FALHOU: tirou texto demais das notas para o corpo (~2468 caracteres; notas 4612 → 2105, corpo 1349 → 3817; máximo 800). Notas longas têm vários parágrafos em letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo  US$ 0.044  316s  ent 52188 saí 78263
+  p. 199 (1 pp.): ok  US$ 0.005  34s  ent 9713 saí 7797
+  p. 145 (6 pp.): FALHOU: texto duplicado dentro do trecho (~41 palavras repetidas)  US$ 0.103  759s  ent 132611 saí 179083
+  p. 200 (1 pp.): ok (2ª tentativa)  US$ 0.016  105s  ent 22108 saí 27516
+  p. 201 (1 pp.): ok  US$ 0.007  44s  ent 10631 saí 11023
+  p. 193 (7 pp.): ok  US$ 0.048  330s  ent 49902 saí 85242
+  p. 209 (3 pp.): ok  US$ 0.011  86s  ent 18954 saí 19151
+  p. 202 (5 pp.): ok  US$ 0.033  251s  ent 37613 saí 58988
+  p. 212 (6 pp.): ok  US$ 0.029  182s  ent 41576 saí 49065
+  p. 217 (4 pp.): ok  US$ 0.028  209s  ent 30167 saí 50844
+  p. 222 (1 pp.): ok  fronteira: troca 348 car., notas [0, 1]  US$ 0.005  28s  ent 10602 saí 7137
+  p. 223 (1 pp.): ok  US$ 0.005  35s  ent 10485 saí 8815
+  p. 221 (1 pp.): ok (2ª tentativa)  US$ 0.024  167s  ent 32663 saí 42070
+  p. 225 (1 pp.): ok  fronteira: troca 999 car., notas [0, 1]  US$ 0.007  47s  ent 10659 saí 11562
+  p. 226 (1 pp.): ok  fronteira: troca 173 car., notas [0, 1]  US$ 0.010  67s  ent 11024 saí 17751
+  p. 227 (1 pp.): ok  US$ 0.008  53s  ent 10665 saí 13356
+  p. 207 (6 pp.): FALHOU: xml:id repetido: ['n212-1']  US$ 0.097  713s  ent 130623 saí 168278
+  p. 224 (1 pp.): FALHOU: xml:id repetido: ['t188.p34']  US$ 0.028  199s  ent 32956 saí 48633
+  p. 229 (1 pp.): ok  fronteira: troca 1974 car., notas [0, 1]  US$ 0.005  30s  ent 10378 saí 7295
+  p. 230 (1 pp.): ok  fronteira: troca 752 car., notas [0, 1]  US$ 0.006  41s  ent 10589 saí 10403
+  p. 231 (1 pp.): ok  US$ 0.007  49s  ent 10795 saí 12338
+  p. 228 (1 pp.): FALHOU: passou texto demais do corpo para as notas (~2694 caracteres; corpo 3315 → 619, notas 0 → 2694): o máximo é 2500  US$ 0.020  132s  ent 31563 saí 32867
+  p. 232 (1 pp.): ok (2ª tentativa)  fronteira: troca 642 car., notas [0, 1]  US$ 0.012  82s  ent 21559 saí 20252
+  p. 233 (1 pp.): ok  fronteira: troca 303 car., notas [0, 1]  US$ 0.008  54s  ent 11110 saí 13164
+  p. 240 (1 pp.): ok  fronteira: troca 1614 car., notas [1, 2]  US$ 0.010  71s  ent 10481 saí 18136
+  p. 234 (1 pp.): ok  fronteira: troca 1874 car., notas [0, 1]  US$ 0.011  81s  ent 10593 saí 19668
+  p. 245 (1 pp.): ok (2ª tentativa)  US$ 0.022  152s  ent 32618 saí 37087
+  p. 241 (4 pp.): ok  fronteira: troca 475 car., notas [5, 6]  US$ 0.025  170s  ent 30783 saí 43160
+  p. 246 (1 pp.): ok  fronteira: troca 574 car., notas [0, 1]  US$ 0.007  48s  ent 10731 saí 12217
+  p. 247 (1 pp.): ok  US$ 0.006  38s  ent 10638 saí 10082
+  p. 235 (5 pp.): ok (2ª tentativa)  fronteira: troca 123 car., notas [3, 3]  US$ 0.070  489s  ent 76104 saí 125701
+  p. 255 (1 pp.): FALHOU: erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)  US$ 0.000  2s  ent 0 saí 0
+  p. 256 (4 pp.): FALHOU: erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)  US$ 0.000  3s  ent 0 saí 0
+  p. 260 (1 pp.): FALHOU: erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)  US$ 0.000  2s  ent 0 saí 0
+  p. 252 (3 pp.): FALHOU: erro do claude: You've hit your 5-hour limit · resets 12:40am (America/Recife)  US$ 0.029  229s  ent 25056 saí 52331
+  p. 248 (4 pp.): ok  fronteira: troca 604 car., notas [2, 3]  US$ 0.037  273s  ent 31334 saí 68096
+   montagem: p. 11: continuação de nota ligada à nota anterior (1265 car.)
+   montagem: p. 116: continuação de nota ligada à nota anterior (1008 car.)
+   montagem: p. 129: continuação de nota ligada à nota anterior (3198 car.)
+   montagem: p. 130: continuação de nota ligada à nota anterior (3228 car.)
+   montagem: p. 139: continuação de nota ligada à nota anterior (2861 car.)
+   montagem: p. 181: continuação de nota ligada à nota anterior (334 car.)
+   montagem: p. 189: continuação de nota ligada à nota anterior (267 car.)
+   montagem: p. 222: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 225: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 226: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 229: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 230: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 232: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: p. 234: continuação de nota ligada à nota anterior (1899 car.)
+   montagem: p. 240: continuação de nota ligada à nota anterior (1647 car.)
+   montagem: p. 241: continuação de nota ligada à nota anterior (541 car.)
+   montagem: p. 246: continuação de nota ligada à nota anterior (588 car.)
+   montagem: p. 248: continuação de nota sem nota da p. anterior para ligar; ficou como nota à parte
+   montagem: 2 nota(s) começavam com o número da chamada "(n)": tirado
+>> 126/126 pedaços, 12 falha(s), 45 com fronteira mudada, US$ 2.64, 307.2 min de chamadas; tokens {'input_tokens': 3134571, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 4662183}
+>> revisao/logica/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

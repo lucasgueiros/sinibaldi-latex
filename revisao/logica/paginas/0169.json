@@ -1,27 +1,32 @@
 {
  "pagina": 169,
  "paginas": [
-  169
+  169,
+  170,
+  171,
+  172,
+  173,
+  174
  ],
  "falha": null,
  "fronteira": null,
- "notas": "Removidos lixo do OCR (\".\", \"OD\", \"Ps\", \"Uv\", \"EN\", \"ua\", \"|\", \"^\" e fragmentos); corrigidos erros como \"alfirma\", \"sc\", \"habiluaes\", \"preiticado\", \"taufologia\", \"distinco\", \"mathemalicas\", \"synthelicos\", \"e'um\", \"o percepção\", \"a corpo\", e hifenizações de fim de linha (\"ob-servar\", \"seria-mente\", \"espon-taneo\"); restaurados itálicos e a frase \"petição de principio\" e \"c)\" em vez de \"e)\".\nNenhuma mudança de fronteira corpo/nota: a página 169 não tem notas de rodapé nem \"(n)\" no fragmento; o pe da página é todo corpo.\nDúvidas: a junção \"como disse— que uma demonstração\" (quebra de linha com travessão na imagem) e a forma exata de \"I.\" (ordinal \"Iª\" impresso) foram mantidas como lidas; \"p. 262\" lido como 262.",
+ "notas": "Principais erros corrigidos: OCR (l/t, n/u, acentos, \"sc\"→\"se\", \"Iª\"/\"IIª\", \"c)\"→\"e)\" e vice-versa), hifenização de linha dentro da página (\"ob-servar\", \"intelli-gencia\", \"ver-dades\"), lixo do OCR (junk \"OD\", \"Ps\", \"|\", \"^\"), cabeçalhos correntes removidos (pp. 170 e 171) e linha perdida reposta no início da p. 173 (\"156. Razão. — Razão é a propria intelligencia, que, por\"), com o trecho \"dades…\" completado.\nFronteira corpo/nota: sem mudanças de estrutura. Os blocos em letra menor das pp. 169–172 foram mantidos como corpo (sem \"(n)\" e fora do pé da página); a nota (1) da p. 173 segue no ponto da chamada \"mediata\", com a continuação na p. 174 dentro dela.\nDúvidas: \"disse-/mos\" (pp. 169–170) e \"fa-/culdade\" (pp. 171–172) atravessam quebras de página e foram mantidos separados; leituras incertas: \"syntheticos\", \"subsistiriam\", \"indubitavel\", \"e\" (em \"primeiros principios e, em geral\") e o negrito de \"cognoscat\" e \"ser\" foram mantidos conforme a imagem.",
  "tentativas": [
   {
    "falha": null,
    "fronteira": null,
-   "notas": "Removidos lixo do OCR (\".\", \"OD\", \"Ps\", \"Uv\", \"EN\", \"ua\", \"|\", \"^\" e fragmentos); corrigidos erros como \"alfirma\", \"sc\", \"habiluaes\", \"preiticado\", \"taufologia\", \"distinco\", \"mathemalicas\", \"synthelicos\", \"e'um\", \"o percepção\", \"a corpo\", e hifenizações de fim de linha (\"ob-servar\", \"seria-mente\", \"espon-taneo\"); restaurados itálicos e a frase \"petição de principio\" e \"c)\" em vez de \"e)\".\nNenhuma mudança de fronteira corpo/nota: a página 169 não tem notas de rodapé nem \"(n)\" no fragmento; o pe da página é todo corpo.\nDúvidas: a junção \"como disse— que uma demonstração\" (quebra de linha com travessão na imagem) e a forma exata de \"I.\" (ordinal \"Iª\" impresso) foram mantidas como lidas; \"p. 262\" lido como 262.",
+   "notas": "Principais erros corrigidos: OCR (l/t, n/u, acentos, \"sc\"→\"se\", \"Iª\"/\"IIª\", \"c)\"→\"e)\" e vice-versa), hifenização de linha dentro da página (\"ob-servar\", \"intelli-gencia\", \"ver-dades\"), lixo do OCR (junk \"OD\", \"Ps\", \"|\", \"^\"), cabeçalhos correntes removidos (pp. 170 e 171) e linha perdida reposta no início da p. 173 (\"156. Razão. — Razão é a propria intelligencia, que, por\"), com o trecho \"dades…\" completado.\nFronteira corpo/nota: sem mudanças de estrutura. Os blocos em letra menor das pp. 169–172 foram mantidos como corpo (sem \"(n)\" e fora do pé da página); a nota (1) da p. 173 segue no ponto da chamada \"mediata\", com a continuação na p. 174 dentro dela.\nDúvidas: \"disse-/mos\" (pp. 169–170) e \"fa-/culdade\" (pp. 171–172) atravessam quebras de página e foram mantidos separados; leituras incertas: \"syntheticos\", \"subsistiriam\", \"indubitavel\", \"e\" (em \"primeiros principios e, em geral\") e o negrito de \"cognoscat\" e \"ser\" foram mantidos conforme a imagem.",
    "resposta": ""
   }
  ],
- "total_cost_usd": 0.007619,
- "duration_ms": 48990,
+ "total_cost_usd": 0.0434892,
+ "duration_ms": 312250,
  "num_turns": 1,
  "usage": {
-  "input_tokens": 10910,
+  "input_tokens": 43527,
   "cache_creation_input_tokens": 0,
   "cache_read_input_tokens": 0,
-  "output_tokens": 13056
+  "output_tokens": 78273
  },
  "reparo": false
 }

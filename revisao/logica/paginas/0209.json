@@ -1,0 +1,29 @@
+{
+ "pagina": 209,
+ "paginas": [
+  209,
+  210,
+  211
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (\"ceríeza\", \"sneta\", \"é.o\", \"Jhé/\", \"consi-\"/hifens de linha, traços espúrios), itálicos e negritos conforme a imagem (negritos indevidos removidos em \"Santidade\", \"reveladas\", \"Deus\", \"esclarecida\"), vírgula e ponto-e-vírgula em \"intelligencia\" e \"natural\".\nFronteira corpo/nota: nenhuma `<note>` existe no fragmento e nenhuma foi criada. O rodapé de 209 e o começo do de 210 (\"repugna ao sejeito…\" até \"…chama-dos modernistas… importante.\") são continuação de nota de antes do trecho, por isso não foram transcritos.\nDúvida: o rodapé de 211 (\"ste nas ideas, considerados isoladamente…\" até \"…caminho da verdade.\") não foi transcrito; não consegui determinar de qual nota ou chamada ele é, e não há chamada \"(n)\" visível. Pode ser o texto de corpo \"consi-ste\" de 210 impresso em letra menor. Conferir no fluxo completo do livro.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (\"ceríeza\", \"sneta\", \"é.o\", \"Jhé/\", \"consi-\"/hifens de linha, traços espúrios), itálicos e negritos conforme a imagem (negritos indevidos removidos em \"Santidade\", \"reveladas\", \"Deus\", \"esclarecida\"), vírgula e ponto-e-vírgula em \"intelligencia\" e \"natural\".\nFronteira corpo/nota: nenhuma `<note>` existe no fragmento e nenhuma foi criada. O rodapé de 209 e o começo do de 210 (\"repugna ao sejeito…\" até \"…chama-dos modernistas… importante.\") são continuação de nota de antes do trecho, por isso não foram transcritos.\nDúvida: o rodapé de 211 (\"ste nas ideas, considerados isoladamente…\" até \"…caminho da verdade.\") não foi transcrito; não consegui determinar de qual nota ou chamada ele é, e não há chamada \"(n)\" visível. Pode ser o texto de corpo \"consi-ste\" de 210 impresso em letra menor. Conferir no fluxo completo do livro.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.011470900000000001,
+ "duration_ms": 85863,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18954,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 19151
+ },
+ "reparo": false
+}

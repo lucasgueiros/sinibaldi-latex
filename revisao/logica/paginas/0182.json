@@ -1,0 +1,27 @@
+{
+ "pagina": 182,
+ "paginas": [
+  182
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (\"vão\"→\"não\", \"baver\"→\"haver\", \"Zafellectual\"→\"intellectual\", \"auxilial\", \"exauctidàao\", \"pr j tidao\", \"£enac\"), \"1º\"→\"I.ª\", hífens e pontuação, espaços e vírgulas espúrias, além de itálicos/negrito (p.ex. \"esta\" sem negrito, \"muito\" e \"e\" sem itálico). Lixo removido: nenhum.\nFronteira corpo/nota: sem alteração. A nota 1 contém corretamente todo o texto em letra menor, do \"(1) A memoria\" até \"celeridade.\"; o alerta \"chamada (4)\" é falso, pois a chamada no corpo é \"(¹)\", ou seja, nota 1.\nDúvidas: \"lição\" (lido como \"lieção\"); itálico de \"memoria\" em alguns pontos incertos; mantive \"bóa\", \"ás\" e \"ignorancia\" sem itálico conforme o original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (\"vão\"→\"não\", \"baver\"→\"haver\", \"Zafellectual\"→\"intellectual\", \"auxilial\", \"exauctidàao\", \"pr j tidao\", \"£enac\"), \"1º\"→\"I.ª\", hífens e pontuação, espaços e vírgulas espúrias, além de itálicos/negrito (p.ex. \"esta\" sem negrito, \"muito\" e \"e\" sem itálico). Lixo removido: nenhum.\nFronteira corpo/nota: sem alteração. A nota 1 contém corretamente todo o texto em letra menor, do \"(1) A memoria\" até \"celeridade.\"; o alerta \"chamada (4)\" é falso, pois a chamada no corpo é \"(¹)\", ou seja, nota 1.\nDúvidas: \"lição\" (lido como \"lieção\"); itálico de \"memoria\" em alguns pontos incertos; mantive \"bóa\", \"ás\" e \"ignorancia\" sem itálico conforme o original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0086988,
+ "duration_ms": 56912,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10883,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 15221
+ },
+ "reparo": false
+}

@@ -1,0 +1,28 @@
+{
+ "pagina": 184,
+ "paginas": [
+  184,
+  185
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (cedilhas, \"Cora\", \"íriplice\", \"nmunero\", \"quielagao\", \"meto\", \"orgáaos\", \"sifuacao\" etc.), hifenizações de fim de linha, linhas perdidas (continuação da nota 2 em 185: \"no seu estado normal…\"; título \"172. Os sentidos externos…\" em 185, reposto como `<p>` por não haver `<div>` permitido) e itálicos.\nFronteira: a nota \"(²)\" (A razão da natureza…) estava ligada ao fim do corpo de 184 com número \"(1)\" errado; movida para a chamada \"(²)\" no corpo da p. 184 (no §171), com `n=\"2\"`. Pontuação \".\" reposicionada após as chamadas.\nDúvidas: acentuação de \"côr/cór\" e \"funceções\", \"na centro\" e \"escholasticos\" lidos como impressos; o título 172 ficou como `<p>` dentro de `t171` porque não posso criar `<div>`.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (cedilhas, \"Cora\", \"íriplice\", \"nmunero\", \"quielagao\", \"meto\", \"orgáaos\", \"sifuacao\" etc.), hifenizações de fim de linha, linhas perdidas (continuação da nota 2 em 185: \"no seu estado normal…\"; título \"172. Os sentidos externos…\" em 185, reposto como `<p>` por não haver `<div>` permitido) e itálicos.\nFronteira: a nota \"(²)\" (A razão da natureza…) estava ligada ao fim do corpo de 184 com número \"(1)\" errado; movida para a chamada \"(²)\" no corpo da p. 184 (no §171), com `n=\"2\"`. Pontuação \".\" reposicionada após as chamadas.\nDúvidas: acentuação de \"côr/cór\" e \"funceções\", \"na centro\" e \"escholasticos\" lidos como impressos; o título 172 ficou como `<p>` dentro de `t171` porque não posso criar `<div>`.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.014184100000000002,
+ "duration_ms": 94379,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17361,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24896
+ },
+ "reparo": false
+}

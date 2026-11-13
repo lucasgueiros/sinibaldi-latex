@@ -1,0 +1,27 @@
+{
+ "pagina": 201,
+ "paginas": [
+  201
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (s entes→entes, Propriedades, faculdade, duplice, Quplice, intellecinal, \"| &amp;\"→\"a\", \"- -\" e \"^.\"/\"mM -\" espúrios), hifenizações de fim de linha (pas-sadas, per-cepções, d'a-quellas), e a nota 1 que estava com trecho ilegível/embaralhado (reconstruído a partir da imagem: \"etc. — Os entes…\"); nota 8 renumerada para 2 (xml:id n201-2) e acrescentados itálicos/negritos faltantes (títulos c) e d), \"damno\", \"natureza\", \"comparativos\", \"objectos\").\nFronteira corpo/nota: nenhuma alteração; as notas 1, 2 e 3 já estavam nos pontos corretos da página 201 e o rodapé está inteiro dentro delas.\nDúvidas: a linha horizontal que atravessa \"sentido commum. Por isso a imaginação suppõe o exercicio\" parece artefato de digitalização, transcrevi o texto; \"pára\"/\"para\" lido como \"para\"; a formatação negrito-itálico de \"comparativos\" e \"objectos\" é leitura aproximada da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (s entes→entes, Propriedades, faculdade, duplice, Quplice, intellecinal, \"| &amp;\"→\"a\", \"- -\" e \"^.\"/\"mM -\" espúrios), hifenizações de fim de linha (pas-sadas, per-cepções, d'a-quellas), e a nota 1 que estava com trecho ilegível/embaralhado (reconstruído a partir da imagem: \"etc. — Os entes…\"); nota 8 renumerada para 2 (xml:id n201-2) e acrescentados itálicos/negritos faltantes (títulos c) e d), \"damno\", \"natureza\", \"comparativos\", \"objectos\").\nFronteira corpo/nota: nenhuma alteração; as notas 1, 2 e 3 já estavam nos pontos corretos da página 201 e o rodapé está inteiro dentro delas.\nDúvidas: a linha horizontal que atravessa \"sentido commum. Por isso a imaginação suppõe o exercicio\" parece artefato de digitalização, transcrevi o texto; \"pára\"/\"para\" lido como \"para\"; a formatação negrito-itálico de \"comparativos\" e \"objectos\" é leitura aproximada da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0065746,
+ "duration_ms": 43619,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10631,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11023
+ },
+ "reparo": false
+}

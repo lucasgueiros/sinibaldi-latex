@@ -1,0 +1,55 @@
+{
+ "pagina": 230,
+ "paginas": [
+  230
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3376,
+   2610
+  ],
+  "notas": [
+   0,
+   752
+  ],
+  "num_notas": [
+   0,
+   1
+  ],
+  "troca": 752
+ },
+ "notas": "Corpo/nota (p. 230): o trecho \"quando se tem dito que Deus… (Vol. II, p. 430).\" estava no corpo, após \"quando refere os\"; é continuação, sem \"(n)\", de nota da p. 229 — envolvido em `<note place=\"foot\" type=\"continuacao\">` no ponto em que está. Removido o \".\" solto após \"p. 430)\".\nErros corrigidos: OCR (adaoequatione, desvictuaram, pPsychologia, mathemativas, experimeniaes, matureza, psycbologicos, \"no.systema\", \"da uma\", \"sc o homem\", \"consegquencias\", \"crilicistas\", \"raciccinasse\"), hifenizações/espaços (\"a. destruição\", \"D' ahi a' negação\"), \"€)\" → \"e)\", \"c\" → \"e\", \"Vol. Jf\" → \"Vol. II\"; itálicos completados conforme a imagem (logica, consistit…, loucura raciocinante, do que é).\nDúvidas: marcador \"e)\" lido na imagem como \"e)\"; pontuação exata da citação \"(Sum. Th.; p. I; q. 21, a. 2)\" e o \"e\" em itálico ou não em \"do que nos parece, e não do que é\" (adotei não itálico).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3376,
+     2610
+    ],
+    "notas": [
+     0,
+     752
+    ],
+    "num_notas": [
+     0,
+     1
+    ],
+    "troca": 752
+   },
+   "notas": "Corpo/nota (p. 230): o trecho \"quando se tem dito que Deus… (Vol. II, p. 430).\" estava no corpo, após \"quando refere os\"; é continuação, sem \"(n)\", de nota da p. 229 — envolvido em `<note place=\"foot\" type=\"continuacao\">` no ponto em que está. Removido o \".\" solto após \"p. 430)\".\nErros corrigidos: OCR (adaoequatione, desvictuaram, pPsychologia, mathemativas, experimeniaes, matureza, psycbologicos, \"no.systema\", \"da uma\", \"sc o homem\", \"consegquencias\", \"crilicistas\", \"raciccinasse\"), hifenizações/espaços (\"a. destruição\", \"D' ahi a' negação\"), \"€)\" → \"e)\", \"c\" → \"e\", \"Vol. Jf\" → \"Vol. II\"; itálicos completados conforme a imagem (logica, consistit…, loucura raciocinante, do que é).\nDúvidas: marcador \"e)\" lido na imagem como \"e)\"; pontuação exata da citação \"(Sum. Th.; p. I; q. 21, a. 2)\" e o \"e\" em itálico ou não em \"do que nos parece, e não do que é\" (adotei não itálico).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0062604,
+ "duration_ms": 40682,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10589,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10403
+ },
+ "reparo": false
+}

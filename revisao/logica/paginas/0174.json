@@ -1,0 +1,55 @@
+{
+ "pagina": 174,
+ "paginas": [
+  174
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   884,
+   870
+  ],
+  "notas": [
+   1387,
+   1373
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 0
+ },
+ "notas": "Corrigidos sobretudo OCR de palavras (leilor, racivcinio, enganasss, pruposição, mediaías, p emássas, \"158.\" lido como \"1508.\", \"(B)\" lido no lugar de \"(2)\"), itálicos/negrito, pontuação espúria e o \"]\" final; retirado o \"(1)\"/\"(2)\" literal do texto.\nFronteira: a nota 1 estava com a nota 2 coladas; separadas, e a nota 2 criada no ponto da chamada \"(2)\" em p. 174 (parágrafo a), com id n174-2. A nota 2 fecha dentro da p. 174.\nNão incluí a linha \"ta-se á percepção da verdade…\" no alto do rodapé da p. 174, por ser continuação de nota de página anterior ao trecho. Dúvida restante: itálicos de \"razão\"/\"intuitiva\"/\"discursiva\" lidos na imagem com pouca nitidez.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     884,
+     870
+    ],
+    "notas": [
+     1387,
+     1373
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 0
+   },
+   "notas": "Corrigidos sobretudo OCR de palavras (leilor, racivcinio, enganasss, pruposição, mediaías, p emássas, \"158.\" lido como \"1508.\", \"(B)\" lido no lugar de \"(2)\"), itálicos/negrito, pontuação espúria e o \"]\" final; retirado o \"(1)\"/\"(2)\" literal do texto.\nFronteira: a nota 1 estava com a nota 2 coladas; separadas, e a nota 2 criada no ponto da chamada \"(2)\" em p. 174 (parágrafo a), com id n174-2. A nota 2 fecha dentro da p. 174.\nNão incluí a linha \"ta-se á percepção da verdade…\" no alto do rodapé da p. 174, por ser continuação de nota de página anterior ao trecho. Dúvida restante: itálicos de \"razão\"/\"intuitiva\"/\"discursiva\" lidos na imagem com pouca nitidez.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0067023000000000004,
+ "duration_ms": 42880,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10368,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11331
+ },
+ "reparo": false
+}

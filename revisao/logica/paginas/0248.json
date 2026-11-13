@@ -1,0 +1,58 @@
+{
+ "pagina": 248,
+ "paginas": [
+  248,
+  249,
+  250,
+  251
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   4548,
+   3858
+  ],
+  "notas": [
+   7537,
+   8141
+  ],
+  "num_notas": [
+   2,
+   3
+  ],
+  "troca": 604
+ },
+ "notas": "Principais erros corrigidos: OCR (sciencias/ idea/ ç, \"lib. II\"→\"lib. III\", \"Newlon\", \"Arcbimedes\", \"toridade\", \"ocathematica\", \"coisab\", \"analytico-synihelico\"), junções de palavra, junk (\"U\", \"|\", \"!\", \"UR Z3\", \"LS\", \"EN\", \"«\" espúrio, \"$e\"→\"se\") e lixo de formatação; restituídos itálicos e acentos.\nFronteira: (a) nota n248-1 saiu do fim do parágrafo \"Logo o methodo…\" (p. 248) e foi para a chamada \"(1)\" em \"syllogismo\" (p. 248), a chamada \"(^)\" foi retirada; (b) \"diano do trabalho… nem pequenos ».\" (p. 248), continuação de nota de p. 247 solta no corpo, foi envolvida em <note type=\"continuacao\"> no mesmo lugar; (c) \"Façamos uma breve critica…\" e o restante de n250-1 mantidos na nota, pois a imagem mostra o filete e o texto em letra menor até \"etc.\" na p. 251; a nota n248-1 segue até \"verdadeiras.\" (p. 250), incluindo A)–V) (pp. 249–250), por decisão de conteúdo (\"reservando-nos tratar do methodo da Philosophia\").\nDúvidas: se A)–V) (pp. 249–250) são mesmo parte da nota (1) ou escólio do corpo do n.º 204 — a imagem não separa com filete; mantive como nota pelo texto \"Indicaremos brevemente…\". Também \"attribuir\" (imagem \"altri-\"/\"attri-\") e a pontuação final \"(1).\" de p. 250.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     4548,
+     3858
+    ],
+    "notas": [
+     7537,
+     8141
+    ],
+    "num_notas": [
+     2,
+     3
+    ],
+    "troca": 604
+   },
+   "notas": "Principais erros corrigidos: OCR (sciencias/ idea/ ç, \"lib. II\"→\"lib. III\", \"Newlon\", \"Arcbimedes\", \"toridade\", \"ocathematica\", \"coisab\", \"analytico-synihelico\"), junções de palavra, junk (\"U\", \"|\", \"!\", \"UR Z3\", \"LS\", \"EN\", \"«\" espúrio, \"$e\"→\"se\") e lixo de formatação; restituídos itálicos e acentos.\nFronteira: (a) nota n248-1 saiu do fim do parágrafo \"Logo o methodo…\" (p. 248) e foi para a chamada \"(1)\" em \"syllogismo\" (p. 248), a chamada \"(^)\" foi retirada; (b) \"diano do trabalho… nem pequenos ».\" (p. 248), continuação de nota de p. 247 solta no corpo, foi envolvida em <note type=\"continuacao\"> no mesmo lugar; (c) \"Façamos uma breve critica…\" e o restante de n250-1 mantidos na nota, pois a imagem mostra o filete e o texto em letra menor até \"etc.\" na p. 251; a nota n248-1 segue até \"verdadeiras.\" (p. 250), incluindo A)–V) (pp. 249–250), por decisão de conteúdo (\"reservando-nos tratar do methodo da Philosophia\").\nDúvidas: se A)–V) (pp. 249–250) são mesmo parte da nota (1) ou escólio do corpo do n.º 204 — a imagem não separa com filete; mantive como nota pelo texto \"Indicaremos brevemente…\". Também \"attribuir\" (imagem \"altri-\"/\"attri-\") e a pontuação final \"(1).\" de p. 250.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0371814,
+ "duration_ms": 273225,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31334,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 68096
+ },
+ "reparo": false
+}

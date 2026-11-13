@@ -1,0 +1,31 @@
+{
+ "pagina": 202,
+ "paginas": [
+  202,
+  203,
+  204,
+  205,
+  206
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais correções: OCR (infernos/internos, ax/as, numeração I.ª/II.ª/III.ª, \"3.9)\", \"ouwnum\", \"exactissimu\", \"Yonsegrive\", \"moderiistas\", \"autochtoro\", \"merega\", \"Dor isso\", \"ouwnum\" etc.), acentos e hifenizações (\"imputar se\", \"impru- dencia\", \"histo-\"); lixo removido: \"5\" e \"()\" literais, \"vv\", \"EE\", \"ete\", \"|\", \"!\", \"ó bé ^. LÓGICA — SECÇÃO SEGUNDA\" (cabeçalho da p. 206), \":\" final; parágrafos quebrados indevidamente foram reunidos (p. 203 \"4.º)\", nota 203-1 na p. 204, \"— é humano\" na p. 206); sumário \"Lépanto (¹)\" mantido como nota 2 conforme a imagem.\nFronteira corpo/nota: não alterei a estrutura. Confirmei que as notas 202-1 (rodapé de 202 e 203 até \"d) … não se engana.\"), 203-1 (rodapé de 203 e 204), 204-1 (rodapé de 204, 205 e 206 até \"Revelação christã\") e 206-2 estão no lugar certo; a chamada da p. 203 (\"externos\") e a da p. 204 (\"intrinsecos\") foram confirmadas, e os alertas \"nota-sem-chamada\" e \"numero-diverge\" (p. 204 e 206) parecem falsos. Mudança pontual: o \"pb 206\" do corpo, antes separado do parágrafo, ficou dentro do parágrafo de 184 a), pois o texto continua sem quebra.\nDúvidas: se o bloco \"Por isso é preciso…\" até \"Resposta…\" (p. 205) é rodapé (adotei que sim, por continuidade até \"historicos\" na p. 206); leituras \"duplicíter\", \"sobreracional\" e \"Fonsegrive\" são prováveis, não certas; o fragmento termina em \"é dotado\" sem o parágrafo vazio final.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais correções: OCR (infernos/internos, ax/as, numeração I.ª/II.ª/III.ª, \"3.9)\", \"ouwnum\", \"exactissimu\", \"Yonsegrive\", \"moderiistas\", \"autochtoro\", \"merega\", \"Dor isso\", \"ouwnum\" etc.), acentos e hifenizações (\"imputar se\", \"impru- dencia\", \"histo-\"); lixo removido: \"5\" e \"()\" literais, \"vv\", \"EE\", \"ete\", \"|\", \"!\", \"ó bé ^. LÓGICA — SECÇÃO SEGUNDA\" (cabeçalho da p. 206), \":\" final; parágrafos quebrados indevidamente foram reunidos (p. 203 \"4.º)\", nota 203-1 na p. 204, \"— é humano\" na p. 206); sumário \"Lépanto (¹)\" mantido como nota 2 conforme a imagem.\nFronteira corpo/nota: não alterei a estrutura. Confirmei que as notas 202-1 (rodapé de 202 e 203 até \"d) … não se engana.\"), 203-1 (rodapé de 203 e 204), 204-1 (rodapé de 204, 205 e 206 até \"Revelação christã\") e 206-2 estão no lugar certo; a chamada da p. 203 (\"externos\") e a da p. 204 (\"intrinsecos\") foram confirmadas, e os alertas \"nota-sem-chamada\" e \"numero-diverge\" (p. 204 e 206) parecem falsos. Mudança pontual: o \"pb 206\" do corpo, antes separado do parágrafo, ficou dentro do parágrafo de 184 a), pois o texto continua sem quebra.\nDúvidas: se o bloco \"Por isso é preciso…\" até \"Resposta…\" (p. 205) é rodapé (adotei que sim, por continuidade até \"historicos\" na p. 206); leituras \"duplicíter\", \"sobreracional\" e \"Fonsegrive\" são prováveis, não certas; o fragmento termina em \"é dotado\" sem o parágrafo vazio final.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0332553,
+ "duration_ms": 251121,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 37613,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 58988
+ },
+ "reparo": false
+}

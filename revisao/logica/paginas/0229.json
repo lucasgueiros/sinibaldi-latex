@@ -1,0 +1,55 @@
+{
+ "pagina": 229,
+ "paginas": [
+  229
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3483,
+   1485
+  ],
+  "notas": [
+   0,
+   1974
+  ],
+  "num_notas": [
+   0,
+   1
+  ],
+  "troca": 1974
+ },
+ "notas": "Corrigidos: lixo inicial (\"E\"), letras trocadas (inlerpolado, renlidade, tránscendenies, Éranscendentaes, mostre, francez, respondeu), acentos e cedilhas (côres, abraçaram, affecções, á/à), hifenizações/palavras grudadas (dasapparecer, admittindo-a, de-ideas, sahida da. ), pontuação e itálicos (postular, cidadão francez).\nFronteira: em p. 229 o trecho \"com côres aterradoras … cidadão francez!...\" está no corpo, mas é letra menor abaixo do filete e sem \"(n)\" — continuação da nota de p. 228; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` e o parágrafo p78 foi fechado após \"2º.) se\", reabrindo em t188.p79 (\"Se Kant\").\nDúvidas: o sinal após \"Se\" (grafado ”) pode ser artefato da imagem, mantido como lido; não consegui confirmar se a citação de Franchi fecha as aspas antes de \"Os postulados\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3483,
+     1485
+    ],
+    "notas": [
+     0,
+     1974
+    ],
+    "num_notas": [
+     0,
+     1
+    ],
+    "troca": 1974
+   },
+   "notas": "Corrigidos: lixo inicial (\"E\"), letras trocadas (inlerpolado, renlidade, tránscendenies, Éranscendentaes, mostre, francez, respondeu), acentos e cedilhas (côres, abraçaram, affecções, á/à), hifenizações/palavras grudadas (dasapparecer, admittindo-a, de-ideas, sahida da. ), pontuação e itálicos (postular, cidadão francez).\nFronteira: em p. 229 o trecho \"com côres aterradoras … cidadão francez!...\" está no corpo, mas é letra menor abaixo do filete e sem \"(n)\" — continuação da nota de p. 228; foi envolvido em `<note place=\"foot\" type=\"continuacao\">` e o parágrafo p78 foi fechado após \"2º.) se\", reabrindo em t188.p79 (\"Se Kant\").\nDúvidas: o sinal após \"Se\" (grafado ”) pode ser artefato da imagem, mantido como lido; não consegui confirmar se a citação de Franchi fecha as aspas antes de \"Os postulados\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046853,
+ "duration_ms": 29961,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10378,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7295
+ },
+ "reparo": true
+}

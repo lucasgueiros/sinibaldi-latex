@@ -1,0 +1,32 @@
+{
+ "pagina": 212,
+ "paginas": [
+  212,
+  213,
+  214,
+  215,
+  216,
+  217
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (melaphjsico, certêza, Áuctor, inel-lectual, sceplicismto, anti-intellectwalistas, diwtwrno, edude, etc.), hifenização (credendum, instincto intellectual, attenções), lixo removido (\"^. 7\", \"(^)\", \"|\", \"tol\", \"E\" final, \"!\", \"1:13\" → \"n. 13\"), itálicos e negritos ajustados à imagem (heading 188 em negrito só até \"verdade.\", \"porque\" sem negrito).\nFronteira: nota 213-1 (chamada \"(1)\" na p. 213, após \"senso commum\") estava anexada ao fim do parágrafo 187; movida para o ponto da chamada, com \"(^)\" apagado. Nota 212-1 mantida (continua na p. 213); nota 216-1 mantida, com continuação na p. 217 dentro dela. Removido o \"E\" solto no fim do trecho.\nDúvidas: o título 188 foi mantido em dois parágrafos (p1 negrito, p2 corpo) por não criar elementos; \"Deus\" em 187 foi deixado sem destaque; \"a)/b)/c)/d)\" da nota 216-1 foram mantidos num só parágrafo.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (melaphjsico, certêza, Áuctor, inel-lectual, sceplicismto, anti-intellectwalistas, diwtwrno, edude, etc.), hifenização (credendum, instincto intellectual, attenções), lixo removido (\"^. 7\", \"(^)\", \"|\", \"tol\", \"E\" final, \"!\", \"1:13\" → \"n. 13\"), itálicos e negritos ajustados à imagem (heading 188 em negrito só até \"verdade.\", \"porque\" sem negrito).\nFronteira: nota 213-1 (chamada \"(1)\" na p. 213, após \"senso commum\") estava anexada ao fim do parágrafo 187; movida para o ponto da chamada, com \"(^)\" apagado. Nota 212-1 mantida (continua na p. 213); nota 216-1 mantida, com continuação na p. 217 dentro dela. Removido o \"E\" solto no fim do trecho.\nDúvidas: o título 188 foi mantido em dois parágrafos (p1 negrito, p2 corpo) por não criar elementos; \"Deus\" em 187 foi deixado sem destaque; \"a)/b)/c)/d)\" da nota 216-1 foram mantidos num só parágrafo.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0286901,
+ "duration_ms": 182086,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 41576,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 49065
+ },
+ "reparo": false
+}
