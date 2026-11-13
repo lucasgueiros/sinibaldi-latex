@@ -1,0 +1,30 @@
+{
+ "pagina": 538,
+ "paginas": [
+  538,
+  539,
+  540,
+  541
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras como \"premocüo/premordo/premocdo\" (→ premoção), \"efficacissima\", \"indifferença\", \"natuvalmente\", \"immutabiliter\", \"liberlas\", \"unumquodque\", \"ens\", \"decretos\", \"difficuldades\", e referências de Sum. Th./De ver. (\"p. I, q. 83, a. 1 ad 3\"; \"a. 22 a. 8\"); também acentos (\"têm\", \"vê\", \"oppõe\", \"E' certo\") e pontuação; \"Deus\" uniformizado; \"« \" espúrio removido; \"Tendendo\" com travessão.\nFronteira corpo/nota: sem mudanças. Confirmei na imagem que a nota (1) de 538 é longa e vai até \"increada liberdade.\" (p. 540), que a nota (1) de 540 continua no topo da p. 541 (alerta da p. 541 resolvido) e que a nota 1 de 541 fica no rodapé da p. 541.\nDúvidas: o tamanho da letra de alguns trechos da nota de 538 é difícil de comparar com o corpo; mantive a leitura pelo filete de separação. Itálico de \"supremo\" e de \"a 1 ad 2\" foi deduzido da imagem com alguma incerteza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras como \"premocüo/premordo/premocdo\" (→ premoção), \"efficacissima\", \"indifferença\", \"natuvalmente\", \"immutabiliter\", \"liberlas\", \"unumquodque\", \"ens\", \"decretos\", \"difficuldades\", e referências de Sum. Th./De ver. (\"p. I, q. 83, a. 1 ad 3\"; \"a. 22 a. 8\"); também acentos (\"têm\", \"vê\", \"oppõe\", \"E' certo\") e pontuação; \"Deus\" uniformizado; \"« \" espúrio removido; \"Tendendo\" com travessão.\nFronteira corpo/nota: sem mudanças. Confirmei na imagem que a nota (1) de 538 é longa e vai até \"increada liberdade.\" (p. 540), que a nota (1) de 540 continua no topo da p. 541 (alerta da p. 541 resolvido) e que a nota 1 de 541 fica no rodapé da p. 541.\nDúvidas: o tamanho da letra de alguns trechos da nota de 538 é difícil de comparar com o corpo; mantive a leitura pelo filete de separação. Itálico de \"supremo\" e de \"a 1 ad 2\" foi deduzido da imagem com alguma incerteza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0237662,
+ "duration_ms": 150734,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32412,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 41050
+ },
+ "reparo": false
+}

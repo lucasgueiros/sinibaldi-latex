@@ -1,0 +1,28 @@
+{
+ "pagina": 487,
+ "paginas": [
+  487,
+  488
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: palavras mal lidas pelo OCR (comqum, t.º→1.º, comniuni, wniversalem, Dri, 98,76, T,-c., 8.*), \"convérh\", \"ewtrinscca\", \"Thy\", \"of.\", \"quanto\" restaurado no início de 487 e o ponto final de \"c. 5).\" reposto.\nFronteira: em 487, o texto em letra menor no alto do rodapé (\"indeterminado… um numero infinito.\") estava ausente; foi acrescentado como `<note type=\"continuacao\">` antes da nota (1), pois é continuação de nota iniciada em 486. A nota (1) foi mantida e continua até o fim do rodapé de 488, como no fragmento.\nDúvidas: o tamanho da letra das notas e a distinção itálico/romano de \"e,\" em \"objecto proprio, e, então,\" não ficam totalmente nítidos na imagem; mantive a leitura mais provável.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: palavras mal lidas pelo OCR (comqum, t.º→1.º, comniuni, wniversalem, Dri, 98,76, T,-c., 8.*), \"convérh\", \"ewtrinscca\", \"Thy\", \"of.\", \"quanto\" restaurado no início de 487 e o ponto final de \"c. 5).\" reposto.\nFronteira: em 487, o texto em letra menor no alto do rodapé (\"indeterminado… um numero infinito.\") estava ausente; foi acrescentado como `<note type=\"continuacao\">` antes da nota (1), pois é continuação de nota iniciada em 486. A nota (1) foi mantida e continua até o fim do rodapé de 488, como no fragmento.\nDúvidas: o tamanho da letra das notas e a distinção itálico/romano de \"e,\" em \"objecto proprio, e, então,\" não ficam totalmente nítidos na imagem; mantive a leitura mais provável.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.010960899999999999,
+ "duration_ms": 71297,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17369,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18448
+ },
+ "reparo": false
+}

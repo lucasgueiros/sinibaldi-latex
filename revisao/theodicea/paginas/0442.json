@@ -1,0 +1,27 @@
+{
+ "pagina": 442,
+ "paginas": [
+  442
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: \"inexplieaveis/inexplieavel\" (inexplicaveis/inexplicavel), \"phiL\" (phil.), \"cortezaos\" (cortezãos), \"enyenenar\" (envenenar), \"descanco\" (descanço), \"7.\" da nota 1 (») e removidos \"<p>/</p>\" (marca espúria) e \"— e s+e—\" (OCR do ornamento final), que não são texto.\nFronteira corpo/nota: nenhuma mudança; as notas (1) e (2) estão corretamente posicionadas nas chamadas e fecham na mesma página (442).\nDúvida restante: o fecho da citação de Voltaire foi lido como « (aspas de fecho) pela imagem; confirmar se é » ou outro sinal.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: \"inexplieaveis/inexplieavel\" (inexplicaveis/inexplicavel), \"phiL\" (phil.), \"cortezaos\" (cortezãos), \"enyenenar\" (envenenar), \"descanco\" (descanço), \"7.\" da nota 1 (») e removidos \"<p>/</p>\" (marca espúria) e \"— e s+e—\" (OCR do ornamento final), que não são texto.\nFronteira corpo/nota: nenhuma mudança; as notas (1) e (2) estão corretamente posicionadas nas chamadas e fecham na mesma página (442).\nDúvida restante: o fecho da citação de Voltaire foi lido como « (aspas de fecho) pela imagem; confirmar se é » ou outro sinal.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0029083,
+ "duration_ms": 16451,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10343,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 3748
+ },
+ "reparo": false
+}

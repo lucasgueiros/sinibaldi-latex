@@ -1,0 +1,28 @@
+{
+ "pagina": 436,
+ "paginas": [
+  436,
+  437
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções: OCR (ex.: \"wvealidade\", \"exeeutando\", \"tirra= cional\", \"adyertimos\", \"ereac&o\", \"sabía\", \"25)\"→\"b)\"), hifenizações unidas (\"intelli-gencia\", \"ne-cessario\"), letras-versalete (DEus→Deus), itálicos/negrito (\"Argumentos moraes\" em negrito), \":\" espúrio e \"a inteligencia\"→\"intelligencia\"; lixo de fim de linha removido.\nFronteira corpo/nota: nenhuma alteração; as notas 436-1, 436-2 (com continuação em 437 via pb), 437-1 e 437-2 já estavam nos lugares certos. A chamada \"(K)\" continua não escrita, conforme a convenção do pipeline.\nDúvidas: \"basêam-se\" lido com circunflexo; itálico em \"sabia\"/\"poderosa\" no fim do §13a mantido como estava no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções: OCR (ex.: \"wvealidade\", \"exeeutando\", \"tirra= cional\", \"adyertimos\", \"ereac&o\", \"sabía\", \"25)\"→\"b)\"), hifenizações unidas (\"intelli-gencia\", \"ne-cessario\"), letras-versalete (DEus→Deus), itálicos/negrito (\"Argumentos moraes\" em negrito), \":\" espúrio e \"a inteligencia\"→\"intelligencia\"; lixo de fim de linha removido.\nFronteira corpo/nota: nenhuma alteração; as notas 436-1, 436-2 (com continuação em 437 via pb), 437-1 e 437-2 já estavam nos lugares certos. A chamada \"(K)\" continua não escrita, conforme a convenção do pipeline.\nDúvidas: \"basêam-se\" lido com circunflexo; itálico em \"sabia\"/\"poderosa\" no fim do §13a mantido como estava no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0090423,
+ "duration_ms": 52738,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17678,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 14549
+ },
+ "reparo": false
+}

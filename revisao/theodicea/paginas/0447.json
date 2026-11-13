@@ -1,0 +1,29 @@
+{
+ "pagina": 447,
+ "paginas": [
+  447,
+  448,
+  449
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (ew/ex, 2/a, 4/á, sio/são, illiimitado, inürinseca, Guida→constituida, vv. 183→13, Qui/Ego sum, pontuação e acentos), fusão de palavras, itálicos/versalete (é em \"porque é o proprio ser\", \"Deus é aquelle que é\", \"é acto purissimo\"), e lixo \"29 : Vol. II\" removido do rodapé; \"*\" separador restaurado. Fronteira: nenhuma mudança de corpo/nota — as páginas 448 e 449 têm o corpo só no título \"26.\" e na frase final da p. 449; o restante abaixo do filete é nota 1.\nDúvidas: o bloco \"Todos os philosophos…\" (p. 449, após o \"*\") está abaixo do filete e em letra igual à da nota, então mantive-o dentro da nota 1 (o alerta do pipeline sugeria corpo; não confirmei). O texto no alto do rodapé da p. 447, antes do \"(1)\" (continuação de nota de p. 446, anterior ao trecho), não está no fragmento e não foi acrescentado.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (ew/ex, 2/a, 4/á, sio/são, illiimitado, inürinseca, Guida→constituida, vv. 183→13, Qui/Ego sum, pontuação e acentos), fusão de palavras, itálicos/versalete (é em \"porque é o proprio ser\", \"Deus é aquelle que é\", \"é acto purissimo\"), e lixo \"29 : Vol. II\" removido do rodapé; \"*\" separador restaurado. Fronteira: nenhuma mudança de corpo/nota — as páginas 448 e 449 têm o corpo só no título \"26.\" e na frase final da p. 449; o restante abaixo do filete é nota 1.\nDúvidas: o bloco \"Todos os philosophos…\" (p. 449, após o \"*\") está abaixo do filete e em letra igual à da nota, então mantive-o dentro da nota 1 (o alerta do pipeline sugeria corpo; não confirmei). O texto no alto do rodapé da p. 447, antes do \"(1)\" (continuação de nota de p. 446, anterior ao trecho), não está no fragmento e não foi acrescentado.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0214261,
+ "duration_ms": 153059,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23591,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 38134
+ },
+ "reparo": false
+}

@@ -1,0 +1,30 @@
+{
+ "pagina": 511,
+ "paginas": [
+  511,
+  512,
+  513,
+  514
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (sô→só, imumanente→immanente, Dzvus, creacüo/creacdo, \"a. 8\"/\"p. L\"→\"a. 3\"/\"p. I\" nas duas notas de Sum. Th., \"1.9)\"/\"2.0)\"→1.º/2.º, \"esta\"→\"está\", \"sus\"→\"sua\", \"88 VOL. II\" removido), hifenações juntas, itálicos e versalete nos títulos da p. 512; restaurada a linha \"CAPITULO QUARTO\" e o rótulo \"Summario:\" na p. 513, com o cabeçalho/sumário reordenado conforme a imagem.\nFronteira: p. 512 e p. 513 — notas n511-1, n512-2 e n513-1 mantidas como estão, com continuações nos rodapés (pb 512 e 513 dentro das notas); p. 514 — continuação de n513-1 (\"rege-as … aspecto activo.\") mantida e o parágrafo unido (\"conserva-as e / rege-as\"); a nota \"(1) Desenvolvamus…\" que começa no rodapé da p. 514 e o corpo dessa página não foram copiados (trecho seguinte).\nDúvidas: \"se babere\" (n511-1) mantido como impresso; itálicos de \"conservação\" e \"concurso\" (n513-1) seguem o XML original, sem confirmação segura pela imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (sô→só, imumanente→immanente, Dzvus, creacüo/creacdo, \"a. 8\"/\"p. L\"→\"a. 3\"/\"p. I\" nas duas notas de Sum. Th., \"1.9)\"/\"2.0)\"→1.º/2.º, \"esta\"→\"está\", \"sus\"→\"sua\", \"88 VOL. II\" removido), hifenações juntas, itálicos e versalete nos títulos da p. 512; restaurada a linha \"CAPITULO QUARTO\" e o rótulo \"Summario:\" na p. 513, com o cabeçalho/sumário reordenado conforme a imagem.\nFronteira: p. 512 e p. 513 — notas n511-1, n512-2 e n513-1 mantidas como estão, com continuações nos rodapés (pb 512 e 513 dentro das notas); p. 514 — continuação de n513-1 (\"rege-as … aspecto activo.\") mantida e o parágrafo unido (\"conserva-as e / rege-as\"); a nota \"(1) Desenvolvamus…\" que começa no rodapé da p. 514 e o corpo dessa página não foram copiados (trecho seguinte).\nDúvidas: \"se babere\" (n511-1) mantido como impresso; itálicos de \"conservação\" e \"concurso\" (n513-1) seguem o XML original, sem confirmação segura pela imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0240407,
+ "duration_ms": 153920,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31097,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 41862
+ },
+ "reparo": false
+}

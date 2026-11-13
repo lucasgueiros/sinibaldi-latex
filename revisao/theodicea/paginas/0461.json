@@ -1,0 +1,27 @@
+{
+ "pagina": 461,
+ "paginas": [
+  461
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (&amp;→á, €→c, \"vélig\"→\"rélig\", \"d'Zsrael\"→\"d'Israel\"), hifens espúrios (\"falso-pelas\", \"embora-seja\", \"-admittissem\"), pontuação (\"moral,\"→\"moral.\", \"nem universal,\"→\"nem universal.\", \"bom ;\"→\"bom;\", \"révél,,\"→\"révél.,\"), \"e\" tirado do itálico, e \"Princip\" com ponto em itálico.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (p. 461) está inteira no rodapé e fecha em \"deuses.\"; o \"(1).\" do corpo confere com a imagem.\nDúvida restante: o trecho \"Hooke, Princip. rélig. natural. et révél.,\" tem a pontuação exata incerta na imagem; mantive a leitura mais provável e a marcação de itálico aproximada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (&amp;→á, €→c, \"vélig\"→\"rélig\", \"d'Zsrael\"→\"d'Israel\"), hifens espúrios (\"falso-pelas\", \"embora-seja\", \"-admittissem\"), pontuação (\"moral,\"→\"moral.\", \"nem universal,\"→\"nem universal.\", \"bom ;\"→\"bom;\", \"révél,,\"→\"révél.,\"), \"e\" tirado do itálico, e \"Princip\" com ponto em itálico.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (p. 461) está inteira no rodapé e fecha em \"deuses.\"; o \"(1).\" do corpo confere com a imagem.\nDúvida restante: o trecho \"Hooke, Princip. rélig. natural. et révél.,\" tem a pontuação exata incerta na imagem; mantive a leitura mais provável e a marcação de itálico aproximada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0048872,
+ "duration_ms": 113084,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11282,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7518
+ },
+ "reparo": false
+}

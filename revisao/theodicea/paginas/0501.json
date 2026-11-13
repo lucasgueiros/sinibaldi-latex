@@ -1,0 +1,32 @@
+{
+ "pagina": 501,
+ "paginas": [
+  501,
+  502,
+  503,
+  504,
+  505,
+  506
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (ex.: \"Dzvus\", \"DEus\", \"divida\", \"differenga\", \"quelquer\", \"bóas\"→\"bôas\", \"dóar\"→\"dôar\", \"vão ser\"→\"não ser\", \"transfreiare\", \"boniiatem\", \"yult\", \"16.\"→\"76.\", \"Th\"→\"Th.\", \"q. 21\"→\"q. 27\", \"Pp: 1\"→\"p. I\", \"l. 1\"→\"v. I\"), \"&amp;\" OCR por \"a\"/\"não\"/\"acerca\", hifens de fim de linha juntados (\"pre-cisa\", \"conve-niente\", \"compa-tivel\", \"em-bora\", \"de-liberação\"), itálicos/versalete e \"bold\" errado em \"b) Deus\" (virou versalete) e \"\\\"ex necessitate\\\"/\\\"respectu illorum\\\" revistos.\nFronteira corpo/nota: nenhuma mudança. A nota 2 (pp. 501–506) foi mantida inteira, pois a imagem a mostra como nota longa em letra menor (com corpo de §76 em linhas soltas no topo de 502–505, reposto após a nota por necessidade de sequência); os \"*\" e corolários (505) também foram mantidos na nota, por serem letra pequena sem filete de corpo. Dúvida: a ordem sequencial do §76 em relação à nota longa não reproduz a intercalação exata da página impressa; o \"b)\" da p. 505–506 (\"essencia da liberdade,\" / \"mas, antes…\") também fica intercalado com o corpo da p. 506 que está fora do trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (ex.: \"Dzvus\", \"DEus\", \"divida\", \"differenga\", \"quelquer\", \"bóas\"→\"bôas\", \"dóar\"→\"dôar\", \"vão ser\"→\"não ser\", \"transfreiare\", \"boniiatem\", \"yult\", \"16.\"→\"76.\", \"Th\"→\"Th.\", \"q. 21\"→\"q. 27\", \"Pp: 1\"→\"p. I\", \"l. 1\"→\"v. I\"), \"&amp;\" OCR por \"a\"/\"não\"/\"acerca\", hifens de fim de linha juntados (\"pre-cisa\", \"conve-niente\", \"compa-tivel\", \"em-bora\", \"de-liberação\"), itálicos/versalete e \"bold\" errado em \"b) Deus\" (virou versalete) e \"\\\"ex necessitate\\\"/\\\"respectu illorum\\\" revistos.\nFronteira corpo/nota: nenhuma mudança. A nota 2 (pp. 501–506) foi mantida inteira, pois a imagem a mostra como nota longa em letra menor (com corpo de §76 em linhas soltas no topo de 502–505, reposto após a nota por necessidade de sequência); os \"*\" e corolários (505) também foram mantidos na nota, por serem letra pequena sem filete de corpo. Dúvida: a ordem sequencial do §76 em relação à nota longa não reproduz a intercalação exata da página impressa; o \"b)\" da p. 505–506 (\"essencia da liberdade,\" / \"mas, antes…\") também fica intercalado com o corpo da p. 506 que está fora do trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0334677,
+ "duration_ms": 225531,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 45582,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 57819
+ },
+ "reparo": false
+}

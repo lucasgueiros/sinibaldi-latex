@@ -1,0 +1,29 @@
+{
+ "pagina": 462,
+ "paginas": [
+  462,
+  463,
+  464
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (Dzvus→Deus, affrmam, intelligenecia, simplicissinia, vendade, \"&amp;\"→a, \"so\"→só, \"á\" por \"a\", \"c. 15\", \"a.a. 9 e 8\", \"p. T q. Ignem\"), títulos em negrito inteiro conforme a imagem, versalete de Deus, \"ARTIGO III.\", remoção do \"|\" espúrio; \"Deus é a verdade.\" agora em negrito inteiro.\nFronteira corpo/nota: nenhuma mudança de estrutura; a nota da chamada \"(3)\" de 462 estava com n=\"8\" e id n462-8 — corrigida para n=\"3\" e xml:id=\"n462-3\" (p. 462). Nota 3 continua na p. 463 (pb mantido dentro da nota) e nota 2 de 463 continua na p. 464 (pb mantido).\nDúvidas: se o versalete \"DEUS\" em caixa alta do original deve ser transcrito como \"Deus\" com rend=\"sc\" (adotado); a grafia \"bellezza\" (rodapé) e \"belleza\" (corpo) foi mantida como impressa.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (Dzvus→Deus, affrmam, intelligenecia, simplicissinia, vendade, \"&amp;\"→a, \"so\"→só, \"á\" por \"a\", \"c. 15\", \"a.a. 9 e 8\", \"p. T q. Ignem\"), títulos em negrito inteiro conforme a imagem, versalete de Deus, \"ARTIGO III.\", remoção do \"|\" espúrio; \"Deus é a verdade.\" agora em negrito inteiro.\nFronteira corpo/nota: nenhuma mudança de estrutura; a nota da chamada \"(3)\" de 462 estava com n=\"8\" e id n462-8 — corrigida para n=\"3\" e xml:id=\"n462-3\" (p. 462). Nota 3 continua na p. 463 (pb mantido dentro da nota) e nota 2 de 463 continua na p. 464 (pb mantido).\nDúvidas: se o versalete \"DEUS\" em caixa alta do original deve ser transcrito como \"Deus\" com rend=\"sc\" (adotado); a grafia \"bellezza\" (rodapé) e \"belleza\" (corpo) foi mantida como impressa.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0134763,
+ "duration_ms": 75240,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25108,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 21931
+ },
+ "reparo": false
+}

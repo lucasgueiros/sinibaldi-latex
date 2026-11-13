@@ -1,0 +1,27 @@
+{
+ "pagina": 519,
+ "paginas": [
+  519
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (ereou→creou, perfeicoes→perfeições, Zere→livre, DEus→Deus em versalete, \"p. L\"→\"p. I\", \"transeuntes.por\"), acentos (á como crase), itálicos e negrito do título da tese 89. Fronteira corpo/nota mantida: nota 1 (p. 519) e nota 2 (p. 519) estão nos lugares corretos.\nNão incluí a continuação no alto do rodapé (\"temporanea, creou o mundo com o tempo…\"), pois é nota da página 518, fora do trecho e não presente no fragmento.\nSem dúvidas relevantes; a formatação do \"·\" entre \"transeuntes\" e \"por\" foi lida como separador tipográfico e removida.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (ereou→creou, perfeicoes→perfeições, Zere→livre, DEus→Deus em versalete, \"p. L\"→\"p. I\", \"transeuntes.por\"), acentos (á como crase), itálicos e negrito do título da tese 89. Fronteira corpo/nota mantida: nota 1 (p. 519) e nota 2 (p. 519) estão nos lugares corretos.\nNão incluí a continuação no alto do rodapé (\"temporanea, creou o mundo com o tempo…\"), pois é nota da página 518, fora do trecho e não presente no fragmento.\nSem dúvidas relevantes; a formatação do \"·\" entre \"transeuntes\" e \"por\" foi lida como separador tipográfico e removida.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0035302,
+ "duration_ms": 19522,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10712,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4918
+ },
+ "reparo": false
+}
