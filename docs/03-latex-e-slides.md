@@ -148,7 +148,7 @@ versalete e negrito vêm de `tools/formatacao.py` (`<id>.fmt.tsv` → `<hi rend>
 
 ### Calibração por volume (resultado)
 
-| | vol. 1 (1897) | vol. 2 (1916) |
+| | vol. 1 (1927) | vol. 2 (1916) |
 |---|---|---|
 | entrelinha corpo / nota | 51 / 39 px | 53 / 43 px |
 | largura por caractere: limiar corpo × corpo menor | 18,3 (≈19,5 × ≈16,3) | 19,7 (≈21,5 × ≈17,5) |

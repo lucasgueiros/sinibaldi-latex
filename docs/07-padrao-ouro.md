@@ -7,7 +7,7 @@ Texto transcrito à mão da imagem da página, usado **só como teste**: nada é
 | volume | arquivo | págs. impressas | palavras (corpo / notas) |
 |---|---|---|---|
 | 2 (ed. 1916) | `vol2/02_parte_theodicea/01_cap_existencia-de-deus.tex` | 421–442 | 10 849 (2 140 / 8 709) |
-| 1 (ed. 1897) | `vol1/ouro/062-065_logica_raciocinio.tex` | 62–65 | 1 680 (796 / 884) |
+| 1 (ed. 1927) | `vol1/ouro/062-065_logica_raciocinio.tex` | 62–65 | 1 680 (796 / 884) |
 | 1 | `vol1/ouro/331-334_ontologia_ente-necessario.tex` | 331–334 | 2 139 (398 / 1 741) |
 | 1 | `vol1/ouro/577-580_cosmologia_existencia-do-mundo.tex` | 577–580 | 1 672 (662 / 1 010) |
 

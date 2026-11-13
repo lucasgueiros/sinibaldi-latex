@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Not a software project: this is a **book digitization / re-typesetting workspace**. The goal implied by the
 directory name (`sinibaldi-latex`) is to turn scanned PDFs of D. Thiago Sinibaldi's *Elementos de Philosophia*
-(Logica – Ontologia – Cosmologia, 5th ed., Roma, 1897, Portuguese) into LaTeX.
+(Logica – Ontologia – Cosmologia, 5th ed., Roma, 1927, Portuguese) into LaTeX.
 
 There is no build system, no test suite and no source tree yet — only scan inputs and OCR intermediates.
 Do not look for one; the "code" here is whatever ad-hoc shell/Python you write to process the PDFs.
