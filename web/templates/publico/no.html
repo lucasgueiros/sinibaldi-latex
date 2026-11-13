@@ -27,6 +27,8 @@
 
   {% if nova %}<p class="mt-4 text-center text-sm text-ink/70">As etiquetas à margem indicam a procedência de cada trecho (cópia, adaptado, novo); as que têm link levam ao trecho correspondente na edição de 1916/17.</p>{% endif %}
 
+  {% if sumario %}{% include "publico/_sumario_gerado.html" %}{% endif %}
+
   <article class="obra mt-6{% if nova %} obra-nova{% endif %}">{{ html|safe }}</article>
 
   {% if filhos and not inteiro %}

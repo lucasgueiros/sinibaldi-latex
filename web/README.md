@@ -36,8 +36,20 @@ Utilitários e testes:
 ```bash
 .venv/bin/python manage.py exportar_tei --edicao 1916 --volume 2 -o /tmp/vol2.xml   # [--forcar]
 .venv/bin/python manage.py sincronizar_nova_edicao [--aplicar]                       # ver "Pendências"
+.venv/bin/python manage.py ocultar_sumarios [--aplicar | --desfazer]                # ver "Sumários de capítulo"
 .venv/bin/python manage.py test obra
 ```
+
+### Sumários de capítulo
+
+O «Summario» do autor no começo de cada capítulo veio do OCR picotado e ilegível (`SussAnt0: — dia,
+sua definição…`). `ocultar_sumarios` acha esses sumários nos blocos da edição nova (`obra/sumarios.py`:
+o rótulo com as leituras do OCR, às vezes grudado no título, mais as linhas seguintes até a que fecha
+em ponto; e os `<argument>`), lista-os e, com `--aplicar`, marca-os **suprimidos** (registrado em
+`Revisao`, reversível no editor ou com `--desfazer`). A página pública de um capítulo da edição nova
+mostra no topo um sumário **gerado** dos artigos e teses (`publico/_sumario_gerado.html`), com links
+para as âncoras da própria página. Ele é tão bom quanto a árvore de nós: artigo sem título ou marco de
+capítulo faltando aparecem ali. Rodar de novo depois de `derivar_nova_edicao --recriar`.
 
 Front-end (só para quem altera `frontend/` ou `templates/`; os bundles em `static/` já vêm commitados):
 

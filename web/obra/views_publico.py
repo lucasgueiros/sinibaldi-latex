@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils.html import escape
 
-from . import exportacao, leitura, slides
+from . import exportacao, leitura, slides, sumarios
 from .models import Bloco, Edicao, No, Pagina, Volume
 
 LIMITE_BLOCOS = 400      # nó com filhos até este tamanho é mostrado inteiro
@@ -142,6 +142,7 @@ def no(request, slug, xml_id):
     html, notas = leitura.renderizar(blocos, impressas_=imp, modo="web", url_facsimile=_fabrica_url_fac(), origens=origens,
                                      volumes=({} if ed.tipo == Edicao.NOVA else None))
     ctx = {
+        "sumario": _sumario_gerado(ed, n, blocos, inteiro),
         "edicao": ed, "nova": ed.tipo == Edicao.NOVA, "no": n, "caminho": arv.caminho(n)[:-1], "titulo_no": leitura.titulo_do_no(n),
         "html": html, "notas": notas, "filhos": filhos, "inteiro": inteiro, "pode_tudo": pode_tudo,
         "total": total, "anterior": arv.vizinho(n, -1), "proximo": arv.vizinho(n, 1), "pai": n.pai_obj,
@@ -152,6 +153,26 @@ def no(request, slug, xml_id):
     }
     # tese cujo único conteúdo é o próprio texto: nada de sumário de filhos
     return render(request, "publico/no.html", ctx)
+
+
+def _sumario_gerado(ed, n, blocos, inteiro):
+    """Sumário do capítulo gerado dos artigos e teses (edição nova, onde o do autor é ocultado:
+    `ocultar_sumarios`). Com o capítulo inteiro na página, os links vão às âncoras dos marcos."""
+    if ed.tipo != Edicao.NOVA or n.nivel != "capitulo":
+        return []
+    grupos = sumarios.gerar(n)
+    ancoras = {b.ordem: b.pk for b in blocos if b.tipo == Bloco.MARCO} if inteiro else {}
+
+    def url(no):
+        pk = ancoras.get(no.ordem_ini)
+        return f"#b{pk}" if pk else reverse("obra:no", args=[ed.slug, no.xml_id])
+
+    for g in grupos:
+        if g["no"] is not None:
+            g["url"] = url(g["no"])
+        for t in g["teses"]:
+            t["url"] = url(t["no"])
+    return grupos
 
 
 def menu_baixar(ed, n, total=None):
