@@ -53,6 +53,7 @@ npm run build           # Tailwind (static/css), depois de mexer em templates
 |---|---|---|
 | `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`) |
 | | | Com login + `obra.change_bloco`, a página do trecho mostra **Editar**: na nova edição leva a `nova_no` do nó; na 1916, a `revisar` da página onde o trecho começa |
+| `/edicao/<slug>/<xml_id>/citar/` | `citar` | Citação ABNT (sem login) do trecho ou de uma passagem selecionada: chamada, referência, LaTeX; `formato=docx\|tex\|txt` baixa; ver "Citação ABNT" |
 | `/edicao/<slug>/<xml_id>/sugerir/` | `sugerir` | Formulário público (sem login) de sugestão de correção; POST grava `Sugestao` |
 | `/edicao-colaborativa/sugestoes/` | `sugestoes` | Triagem das sugestões (login); `sugestoes/<pk>/acao/` (`sugestao_acao`, POST) |
 | `/fac-simile/<vol>/<seq>/` | `facsimile` | Imagem da página (JPEG 1600 px, link p/ PNG original) |
@@ -122,6 +123,26 @@ pendentes; cartão no painel). Ações: **Aplicar ao texto** (`servicos_sugestoe
 do editor, `volume`/`pagina` do bloco intactos). Recusa, sem alterar nada, quando o trecho não é encontrado, aparece
 mais de uma vez no bloco, atravessa elementos (itálico, nota, marca de página), o bloco sumiu ou houve conflito de
 versão; nesses casos corrija à mão no editor e use *Aceitar*. A lista avisa quando o bloco mudou depois do envio.
+
+## Citação ABNT (`citacao.py`, `views_citacao.py`, `static/js/citacao*.js`)
+
+Na leitura, o leitor seleciona uma passagem e clica em «Citar (ABNT)» (botão flutuante à esquerda do «Sugerir
+correção»; o link do cabeçalho cita o trecho inteiro, sem JS). O JS manda por POST o trecho, a página impressa
+inicial e final (última marca `[data-tei="pb"]` antes de cada ponta da seleção) e o bloco; a tela `citar/` mostra:
+
+- **Citação direta** (NBR 10520, autor-data): até 300 caracteres vai entre aspas, no parágrafo (aspas internas
+  viram simples); acima disso é *longa* — recuo de 4 cm, corpo 10, espaço simples, sem aspas, chamada ao fim.
+  Chamada `(SINIBALDI, 1917, v. 1, p. 12-13)` e a forma «autor no texto».
+- **Referência** (NBR 6023): `SINIBALDI, Thiago. **Elementos de philosophia**: <título do volume>. 5. ed. Roma: [s. n.], 1917.
+  v. 1, p. 12. Disponível em: <URL do trecho>. Acesso em: <data>.` Na nova edição entra «Edição digital adaptada» no
+  lugar do número da edição. Autor, local, editora e edição por volume são constantes no topo de `citacao.py`.
+- **Word**: `.docx` gerado com `zipfile` (sem dependência) — A4, margens 3/2 cm, Times 12; citação longa e referência
+  formatadas como pede a ABNT; botão «Copiar para o Word» cola HTML formatado.
+- **LaTeX**: fragmento para `abntex2` + `abntex2cite` (`\begin{citacao}`/`\cite[v.~1, p.~12]{chave}`, `\citeonline`) e a
+  entrada `@book` para o `.bib`; `.tex` para baixar. Conferido compilando com `abntex2.cls`.
+
+Página fora do conjunto de páginas do volume é descartada (usa a do trecho); trecho acima de 5000 caracteres é recusado
+com 400, nunca truncado. Nada é gravado no banco.
 
 ## Nova edição (`/edicao-colaborativa/nova/`, `views_nova.py`, `servicos_nova.py`, `partes.py`)
 
