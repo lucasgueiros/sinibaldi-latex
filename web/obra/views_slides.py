@@ -32,6 +32,22 @@ def _nome(no, ext):
     return exportacao.nome_arquivo(no, "slides." + ext)
 
 
+ESPERA_RECOMPILAR = 15     # s que o POST de gravação espera pelo PDF antes de voltar ao editor
+ATUALIZAR = 5              # s entre recargas da página "preparando" dos slides
+
+
+def _preparando(request, ed, n, rotulo):
+    """PDF ainda na fila/compilando: 202 com recarga automática (leve se embutido num iframe)."""
+    embutido = request.headers.get("Sec-Fetch-Dest") == "iframe"
+    modelo = "publico/preparando_embutido.html" if embutido else "publico/preparando.html"
+    resp = render(request, modelo, {"edicao": ed, "no": n, "formato": rotulo, "atualizar": ATUALIZAR,
+                                    "voltar": (reverse("obra:slides", args=[ed.slug, n.xml_id]),
+                                               "Voltar aos slides")}, status=202)
+    resp["Retry-After"] = str(ATUALIZAR)
+    resp["Cache-Control"] = "no-store"
+    return resp
+
+
 # ====================================================================== pública
 def pagina(request, slug, xml_id):
     """Página dos slides: PDF embutido, nº de slides, selo, downloads. Não compila nada."""
@@ -86,7 +102,9 @@ def arquivo(request, slug, xml_id, formato):
         baixar = bool(request.GET.get("baixar"))
         nome = _nome(n, ext)
         if formato == "pdf":
-            caminho = slides.pdf_do_no(n, fonte)
+            estado, caminho = slides.pdf_em_segundo_plano(n, fonte)
+            if estado == "preparando":
+                return _preparando(request, ed, n, rotulo)
             resp = FileResponse(open(caminho, "rb"), content_type=tipo, as_attachment=baixar, filename=nome)
             return _com_cache(resp, etag)
         corpo = slides.tex_do_no(n, fonte) if formato == "tex" else fonte
@@ -168,11 +186,15 @@ def _renderizar_erro(request, ed, n, status, **kw):
 
 
 def _recompilar(request, n, ap):
-    """Compila o PDF da fonte salva logo após gravar; falha vira mensagem (a fonte já está salva)."""
+    """Pede a compilação da fonte salva ao worker e espera um pouco; falha vira mensagem (a fonte já
+    está salva). Se demorar, o PDF continua sendo gerado e o quadro do editor o mostra quando sair."""
     try:
-        slides.pdf_do_no(n, ap.fonte)
+        estado, _ = slides.pdf_em_segundo_plano(n, ap.fonte, espera=ESPERA_RECOMPILAR)
     except slides.ErroApresentacao as e:
         messages.error(request, f"A fonte foi salva, mas a compilação falhou: {e}")
+        return False
+    if estado == "preparando":   # sem o "recompilado" de quem chamou: só este aviso
+        messages.info(request, "A fonte foi salva; o PDF está sendo compilado e aparece aqui em instantes.")
         return False
     return True
 

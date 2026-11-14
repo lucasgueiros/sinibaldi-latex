@@ -73,6 +73,8 @@ vol*/paginas/*.medidas.pkl
 
 # editor web (Django)
 web/db.sqlite3
+web/db.sqlite3-wal
+web/db.sqlite3-shm
 web/node_modules/
 web/staticfiles/
 web/cache/

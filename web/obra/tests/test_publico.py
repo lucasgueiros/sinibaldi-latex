@@ -14,7 +14,7 @@ from lxml import etree
 from obra import arvore, leitura
 from obra.models import Bloco, Edicao, Revisao
 
-from .base import BaseBanco
+from .base import BaseBanco, fila_de_verdade
 
 TEI_NS = "{http://www.tei-c.org/ns/1.0}"
 
@@ -186,28 +186,59 @@ class DownloadTest(PublicoBase):
             self.baixar("1916", "v1.t1", "pdf")
 
     def test_pdf_demorado_mostra_preparando(self):
+        """Pela fila de verdade: 202 "preparando" enquanto o worker compila; um 2º pedido não
+        duplica a tarefa; quando ela termina, o arquivo sai."""
         import threading
         liberado = threading.Event()
+        chamadas = []
         pdf = os.path.join(tempfile.mkdtemp(), "x.pdf")
         with open(pdf, "wb") as f:
             f.write(b"%PDF-1.4 falso")
 
         def compila(tex, timeout):
+            chamadas.append(tex)
             liberado.wait(10)
             return pdf
 
-        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+        with fila_de_verdade(), \
+                mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
                 mock.patch("obra.exportacao.compilar_pdf", side_effect=compila), \
                 mock.patch("obra.exportacao.ESPERA_PADRAO", 0.05):
             r = self.baixar("1916", "v1.cap-1", "pdf", status=202)
             self.assertContains(r, "Preparando", status_code=202)
             self.assertContains(r, 'http-equiv="refresh"', status_code=202)
             self.assertEqual(r["Retry-After"], "15")
+            self.baixar("1916", "v1.cap-1", "pdf", status=202)
             liberado.set()
             with mock.patch("obra.exportacao.ESPERA_PADRAO", 5):
                 r = self.baixar("1916", "v1.cap-1", "pdf")
-        self.assertEqual(self.corpo(r), b"%PDF-1.4 falso")
+                self.assertEqual(self.corpo(r), b"%PDF-1.4 falso")
+                self.assertEqual(len(chamadas), 1)                 # uma só compilação para os 3 pedidos
+                self.baixar("1916", "v1.cap-1", "pdf")             # resultado reaproveitado
+                self.assertEqual(len(chamadas), 1)
         self.assertIn(".pdf", r["Content-Disposition"])
+
+    def test_pdf_em_cache_nao_passa_pela_fila(self):
+        from obra import exportacao
+        from obra.models import No
+        tex = exportacao.latex_do_no(No.objects.get(edicao=self.edicao, xml_id="v1.cap-1"))
+        tex.with_suffix(".pdf").write_bytes(b"%PDF-1.4 em cache" + b"0" * 64)
+        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                mock.patch("obra.exportacao.em_segundo_plano", side_effect=AssertionError("foi à fila")):
+            r = self.baixar("1916", "v1.cap-1", "pdf")
+        self.assertTrue(self.corpo(r).startswith(b"%PDF-1.4 em cache"))
+
+    def test_pdf_erro_pela_fila(self):
+        """Erro no worker vira a página amigável; lido, é esquecido e o próximo pedido tenta de novo."""
+        from obra.exportacao import ErroExportacao
+        with fila_de_verdade(), \
+                mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                mock.patch("obra.exportacao.compilar_pdf", side_effect=ErroExportacao("falhou na fila")) as comp, \
+                mock.patch("obra.exportacao.ESPERA_PADRAO", 5):
+            r = self.baixar("1916", "v1.cap-1", "pdf", status=503)
+            self.assertContains(r, "falhou na fila", status_code=503)
+            self.baixar("1916", "v1.cap-1", "pdf", status=503)
+            self.assertEqual(comp.call_count, 2)
 
     def test_pdf_erro_amigavel(self):
         from obra.exportacao import ErroExportacao

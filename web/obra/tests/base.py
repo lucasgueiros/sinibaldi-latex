@@ -1,4 +1,6 @@
 """Fixtures compartilhadas pelos testes."""
+import contextlib
+
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from lxml import etree
@@ -50,3 +52,19 @@ class BaseBanco(TestCase):
 
     def blocos(self, edicao=None):
         return list(Bloco.objects.filter(edicao=edicao or self.edicao).order_by("ordem"))
+
+
+@contextlib.contextmanager
+def fila_de_verdade():
+    """Desliga o modo eager e sobe um worker Celery numa thread (broker e backend em memória): os
+    pedidos passam pela fila como em produção. As tarefas não usam o banco, então a thread não
+    precisa da conexão do teste; os `mock.patch` do teste valem para ela."""
+    from celery.contrib.testing.worker import start_worker
+    from sinibaldi.celery import app
+    antes = app.conf.task_always_eager
+    app.conf.task_always_eager = False
+    try:
+        with start_worker(app, pool="solo", perform_ping_check=False, shutdown_timeout=10):
+            yield app
+    finally:
+        app.conf.task_always_eager = antes

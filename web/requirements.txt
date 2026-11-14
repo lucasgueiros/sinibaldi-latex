@@ -1,3 +1,5 @@
 Django>=5.2,<6
 lxml>=5
 Pillow>=10
+celery[redis]>=5.4,<6   # worker que gera PDFs, fac-símiles e slides (obra/tarefas.py)
+gunicorn>=22            # vários processos web: gunicorn sinibaldi.wsgi -w 4

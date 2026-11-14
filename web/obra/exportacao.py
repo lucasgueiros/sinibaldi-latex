@@ -5,9 +5,11 @@ com os contribuidores e data de geração). LaTeX: `tools/tei2latex.py` sobre o 
 num documento autônomo (preâmbulo de `tex/preambulo.tex` embutido). PDF: esse .tex compilado com
 `latexmk -lualatex`, com cache em disco em `SINIBALDI_CACHE` (padrão `web/cache/`).
 """
+import contextlib
 import fcntl
 import hashlib
 import html as _html
+import json
 import logging
 import os
 import re
@@ -15,7 +17,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
-import threading
+import time
 from datetime import date
 from pathlib import Path
 
@@ -38,7 +40,7 @@ TEX_TIMEOUT_VOLUME = 300
 PDF_TIMEOUT = 120              # base; somam-se PDF_SEGUNDOS_POR_BLOCO por bloco (ver tempo_limite_pdf)
 PDF_SEGUNDOS_POR_BLOCO = 0.2
 ESPERA_PADRAO = 20             # segundos que a requisição espera antes de mostrar "preparando"
-_semaforo_pdf = threading.Semaphore(2)
+FILA_TTL = 6 * 3600            # pedido na fila há mais que isso (worker parado/perdido): manda de novo
 logger = logging.getLogger(__name__)
 
 
@@ -440,6 +442,34 @@ class _Trava:
         self.f.close()
 
 
+@contextlib.contextmanager
+def vaga_pdf(timeout):
+    """Uma das `SINIBALDI_PDF_SIMULTANEOS` vagas de compilação da máquina (flock em
+    `cache/vagas/pdf-N.lock`): vale entre processos — workers, comandos, vários gunicorn.
+    Sem vaga em `timeout` segundos, levanta ErroExportacao."""
+    n = max(1, int(getattr(settings, "SINIBALDI_PDF_SIMULTANEOS", 2)))
+    d = dir_cache() / "vagas"
+    d.mkdir(exist_ok=True)
+    fim = time.monotonic() + timeout
+    while True:
+        for i in range(n):
+            f = open(d / f"pdf-{i}.lock", "w")
+            try:
+                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                f.close()
+                continue
+            try:
+                yield
+            finally:
+                fcntl.flock(f, fcntl.LOCK_UN)
+                f.close()
+            return
+        if time.monotonic() >= fim:
+            raise ErroExportacao("O servidor está ocupado gerando outros PDFs. Tente novamente em instantes.")
+        time.sleep(0.5)
+
+
 def _latex(chave, gerar_tei, titulo, timeout=TEX_TIMEOUT, opcoes=(), volume=None):
     """Caminho do .tex autônomo (em cache, nome = `chave`) a partir do TEI de `gerar_tei()`."""
     cache = dir_cache()
@@ -494,6 +524,28 @@ def latex_do_volume(edicao, volume):
                   volume=volume)
 
 
+def tex_do_volume_em_cache(edicao, volume):
+    """Caminho do .tex do volume se já está no cache e em dia (sem gerar nada), ou None."""
+    alvo = dir_cache() / f"{_versao_volume(edicao, volume)}.tex"
+    return alvo if alvo.is_file() and alvo.stat().st_size else None
+
+
+def pdf_em_cache(tex, formato=None):
+    """PDF já compilado e em dia com o .tex (`formato` = chave de FORMATOS_PDF ou None = A5), ou None."""
+    if tex is None:
+        return None
+    return pdf_pronto_formato(tex, formato) if formato else pdf_pronto(tex)
+
+
+def pdf_do_volume(edicao, volume, formato=None, limite=None):
+    """LaTeX do volume + compilação (no formato pedido). Usa o banco: roda no worker (`tarefas.pdf_volume`)."""
+    tex = latex_do_volume(edicao, volume)
+    limite = limite or tempo_limite_pdf(blocos_do_volume(edicao, volume).count())
+    if formato:
+        return compilar_pdf_formato(tex, formato, f"{TITULO_OBRA}, vol. {volume.numero}", limite)
+    return compilar_pdf(tex, limite)
+
+
 def _opcoes_citacao(edicao):
     """Na nova edição, a referência de Sinibaldi dá lugar à precisa (ver `referencias.partes`)."""
     return ("--citacoes", "precisa") if edicao.tipo == edicao.NOVA else ()
@@ -527,9 +579,7 @@ def compilar_pdf(tex, timeout=PDF_TIMEOUT):
     with _Trava(tex.with_suffix(".pdflock")):
         if pdf_pronto(tex):
             return pdf
-        if not _semaforo_pdf.acquire(timeout=timeout):
-            raise ErroExportacao("O servidor está ocupado gerando outros PDFs. Tente novamente em instantes.")
-        try:
+        with vaga_pdf(timeout):
             with tempfile.TemporaryDirectory(dir=dir_cache(), prefix="pdf-") as tmp:
                 job = tex.stem
                 try:
@@ -545,8 +595,6 @@ def compilar_pdf(tex, timeout=PDF_TIMEOUT):
                     raise ErroExportacao("A compilação do PDF falhou para este trecho (provável erro de leitura "
                                          "do OCR). Baixe o TEI ou o LaTeX.")
                 os.replace(saida, pdf)
-        finally:
-            _semaforo_pdf.release()
     return pdf
 
 
@@ -588,9 +636,7 @@ def compilar_pdf_formato(tex, formato, titulo, timeout=PDF_TIMEOUT):
     with _Trava(tex.with_suffix(f".{formato}.pdflock")):
         if pdf_pronto_formato(tex, formato):
             return pdf
-        if not _semaforo_pdf.acquire(timeout=timeout):
-            raise ErroExportacao("O servidor está ocupado gerando outros PDFs. Tente novamente em instantes.")
-        try:
+        with vaga_pdf(timeout):
             with tempfile.TemporaryDirectory(dir=dir_cache(), prefix="pdf-") as tmp:
                 job = f"{tex.stem}.{formato}"
                 frag = Path(tmp) / "frag.tex"
@@ -611,8 +657,6 @@ def compilar_pdf_formato(tex, formato, titulo, timeout=PDF_TIMEOUT):
                     raise ErroExportacao("A compilação do PDF falhou para este trecho (provável erro de leitura "
                                          "do OCR). Tente outro formato, ou baixe o TEI ou o LaTeX.")
                 os.replace(saida, pdf)
-        finally:
-            _semaforo_pdf.release()
     return pdf
 
 
@@ -624,41 +668,68 @@ def pdf_do_no(no):
 
 
 # ------------------------------------------------------------------- segundo plano
-_tarefas = {}
-_tarefas_trava = threading.Lock()
+ESTADO_FILA = "ENFILEIRADA"    # estado próprio gravado antes de enviar (o PENDING do Celery é "desconhecida")
 
 
-def em_segundo_plano(chave, funcao, espera=ESPERA_PADRAO):
-    """Roda `funcao()` (que devolve um Path e NÃO usa o banco) numa thread, uma por `chave` por processo,
-    e espera por ela até `espera` segundos.
+def id_tarefa(tarefa, args):
+    """Id determinístico da tarefa: o mesmo pedido, de qualquer processo, cai na mesma tarefa."""
+    bruto = json.dumps([tarefa.name, list(args)], sort_keys=True, default=str, ensure_ascii=False)
+    return "sinibaldi-" + hashlib.sha1(bruto.encode("utf-8")).hexdigest()[:32]
 
-    Devolve ("pronto", Path), ("preparando", None) ou ("erro", mensagem). Uma tarefa terminada é
-    esquecida quando alguém lê o resultado; quem pedir de novo roda `funcao` outra vez, que deve
-    ser idempotente e rápida quando o arquivo já está em cache."""
-    with _tarefas_trava:
-        t = _tarefas.get(chave)
-        if t is None:
-            t = {"resultado": None}
 
-            def corpo(t=t):
-                try:
-                    t["resultado"] = ("pronto", funcao())
-                except ErroExportacao as e:
-                    t["resultado"] = ("erro", str(e))
-                except Exception:  # noqa: BLE001 — a mensagem vai ao leitor; o traceback, ao log
-                    logger.exception("falha em segundo plano: %s", chave)
-                    t["resultado"] = ("erro", "Falha inesperada ao gerar o arquivo.")
+def em_segundo_plano(tarefa, args=(), espera=ESPERA_PADRAO):
+    """Pede `tarefa(*args)` ao worker Celery (`obra/tarefas.py`) e espera por ela até `espera` segundos.
 
-            t["thread"] = threading.Thread(target=corpo, name=f"sinibaldi-{chave}", daemon=True)
-            _tarefas[chave] = t
-            t["thread"].start()
-    t["thread"].join(max(0.0, espera))
-    if t["thread"].is_alive():
-        return ("preparando", None)
-    with _tarefas_trava:
-        if _tarefas.get(chave) is t:
-            del _tarefas[chave]
-    return t["resultado"]
+    A tarefa devolve ["pronto", caminho] ou ["erro", mensagem] e não usa o banco; os `args` têm de
+    ser JSON. O id é derivado de (tarefa, args) e o estado fica no backend de resultados, então
+    vários processos web veem o mesmo pedido e não o duplicam. Devolve ("pronto", Path),
+    ("preparando", None) ou ("erro", mensagem). Um erro é esquecido quando alguém o lê (o próximo
+    pedido tenta de novo); um "pronto" cujo arquivo sumiu do cache é refeito."""
+    tid = id_tarefa(tarefa, args)
+    if tarefa.app.conf.task_always_eager:      # testes / sem worker: roda aqui, sem passar pelo backend
+        return _resultado(tarefa.apply(args, task_id=tid), tid)
+    try:
+        d = dir_cache() / "pedidos"
+        d.mkdir(exist_ok=True)
+        with _Trava(d / f"{tid}.lock"):      # ler o estado e enfileirar: um processo por vez, por pedido
+            r = tarefa.AsyncResult(tid)
+            estado = r.state
+            if estado in ("SUCCESS", "FAILURE", "REVOKED"):
+                res = _resultado(r, tid)
+                if res[0] == "erro" or not res[1].is_file():
+                    r.forget()
+                if res[0] == "pronto" and not res[1].is_file():
+                    estado = "PENDING"
+                else:
+                    return res
+            if estado == "PENDING" or (estado == ESTADO_FILA
+                                       and time.time() - ((r.info or {}).get("desde") or 0) > FILA_TTL):
+                tarefa.backend.store_result(tid, {"desde": time.time()}, ESTADO_FILA)
+                r = tarefa.apply_async(args, task_id=tid)
+        if espera > 0 and not r.ready():
+            try:
+                r.get(timeout=espera, propagate=False, disable_sync_subtasks=False)
+            except Exception:  # noqa: BLE001 — TimeoutError: segue "preparando"
+                pass
+        if not r.ready():
+            return ("preparando", None)
+        res = _resultado(r, tid)
+    except Exception:  # noqa: BLE001 — broker/backend fora do ar
+        logger.exception("fila de tarefas indisponível: %s", tid)
+        return ("erro", "A fila de geração de arquivos está indisponível no momento. Tente novamente em instantes.")
+    if res[0] == "erro":
+        with contextlib.suppress(Exception):
+            r.forget()
+    return res
+
+
+def _resultado(r, tid):
+    if r.successful():
+        v = r.result
+        if isinstance(v, (list, tuple)) and len(v) >= 2 and v[0] in ("pronto", "erro"):
+            return ("pronto", Path(v[1])) if v[0] == "pronto" else ("erro", str(v[1]))
+    logger.error("tarefa %s terminou mal: %s %r", tid, r.state, r.result)
+    return ("erro", "Falha inesperada ao gerar o arquivo.")
 
 
 def nome_arquivo(no, extensao):

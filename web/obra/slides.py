@@ -213,33 +213,45 @@ def erro_da_fonte(fonte):
         return None
 
 
-def pdf_do_no(no, fonte=None):
-    """Caminho do PDF dos slides (em cache), compilando se preciso. Levanta `ErroApresentacao`."""
+def _pdf_da_chave(chave):
+    pdf = exportacao.dir_cache() / f"slides-{chave}.pdf"
+    return pdf if pdf.is_file() and pdf.stat().st_size else None
+
+
+def pdf_pronto(fonte):
+    """PDF já compilado desta fonte, ou None."""
+    return _pdf_da_chave(chave_da_fonte(fonte))
+
+
+def _verificar(no):
     if not disponivel(no):
         raise ErroApresentacao("Este trecho é grande demais para gerar slides de uma vez; "
                                "abra um dos seus capítulos, artigos ou teses.")
-    fonte = fonte if fonte is not None else fonte_do_no(no)
+
+
+def compilar_fonte(fonte, trecho=None):
+    """PDF (em cache) da fonte, compilando se preciso. Não usa o banco (roda no worker Celery,
+    `tarefas.slides_pdf`). `trecho` = título do nó no rodapé. Levanta `ErroApresentacao`."""
     chave = chave_da_fonte(fonte)
     cache = exportacao.dir_cache()
     pdf = cache / f"slides-{chave}.pdf"
-    if pdf.is_file() and pdf.stat().st_size:
+    if _pdf_da_chave(chave):
         return pdf
     with exportacao._Trava(cache / f"slides-{chave}.lock"):
-        if pdf.is_file() and pdf.stat().st_size:
+        if _pdf_da_chave(chave):
             return pdf
         arq_erro = _arquivo_erro(chave)
         anterior = erro_da_fonte(fonte)
         if anterior and time.time() - arq_erro.stat().st_mtime < ERRO_TTL:
             raise ErroApresentacao(*anterior)
-        if not exportacao._semaforo_pdf.acquire(timeout=ESPERA_VAGA):
-            raise ErroApresentacao("O servidor está ocupado gerando outros PDFs. Tente novamente em instantes.")
         g = gerador()
         try:
-            tex = tex_da_fonte(fonte, no)
-            with tempfile.TemporaryDirectory(dir=cache, prefix="tmp-slides-") as tmp:
-                saida = Path(tmp) / "slides.pdf"
-                g.compilar(tex, saida, timeout=COMPILAR_TIMEOUT)
-                os.replace(saida, pdf)
+            with exportacao.vaga_pdf(ESPERA_VAGA):
+                tex = g.fonte_para_tex(fonte, trecho=trecho)
+                with tempfile.TemporaryDirectory(dir=cache, prefix="tmp-slides-") as tmp:
+                    saida = Path(tmp) / "slides.pdf"
+                    g.compilar(tex, saida, timeout=COMPILAR_TIMEOUT)
+                    os.replace(saida, pdf)
         except g.ErroSlides as e:
             msg = "Não foi possível compilar os slides deste trecho."
             if "passou de" in e.mensagem:
@@ -249,10 +261,36 @@ def pdf_do_no(no, fonte=None):
             log = (e.log_resumido or e.mensagem).strip()
             arq_erro.write_text(json.dumps({"mensagem": msg, "log": log}), encoding="utf-8")
             raise ErroApresentacao(msg, log)
-        finally:
-            exportacao._semaforo_pdf.release()
+        except exportacao.ErroExportacao as e:   # sem vaga: não grava erro (tentar de novo é o certo)
+            raise ErroApresentacao(str(e))
         arq_erro.unlink(missing_ok=True)
     return pdf
+
+
+def pdf_do_no(no, fonte=None):
+    """Caminho do PDF dos slides (em cache), compilando aqui mesmo se preciso (comandos, testes).
+    Levanta `ErroApresentacao`. O site usa `pdf_em_segundo_plano`."""
+    _verificar(no)
+    fonte = fonte if fonte is not None else fonte_do_no(no)
+    return compilar_fonte(fonte, leitura.titulo_do_no(no))
+
+
+def pdf_em_segundo_plano(no, fonte=None, espera=None):
+    """Pede o PDF ao worker Celery e espera até `espera` s (padrão `exportacao.ESPERA_PADRAO`).
+    Devolve ("pronto", Path) ou ("preparando", None); erro vira `ErroApresentacao` (com o log)."""
+    from . import tarefas
+    _verificar(no)
+    fonte = fonte if fonte is not None else fonte_do_no(no)
+    pronto = pdf_pronto(fonte)
+    if pronto:
+        return ("pronto", pronto)
+    estado, valor = exportacao.em_segundo_plano(
+        tarefas.slides_pdf, [fonte, leitura.titulo_do_no(no), chave_da_fonte(fonte)],
+        exportacao.ESPERA_PADRAO if espera is None else espera)
+    if estado == "erro":
+        anterior = erro_da_fonte(fonte)
+        raise ErroApresentacao(*(anterior if anterior and anterior[0] == valor else (valor,)))
+    return (estado, valor)
 
 
 # ------------------------------------------------------------------ gravação
