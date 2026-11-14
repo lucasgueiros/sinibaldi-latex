@@ -37,7 +37,7 @@
  * window.SinibaldiEditor.postarJSON(url, corpo, csrf) -> Promise<{status, dados}>
  * window.SinibaldiEditor.dialogo({titulo, campos, confirmar, validar, imagem}) -> Promise<valores|null>
  *
- * Gravuras: editor.inserirGravura({xmlid, url, width, legenda, src}); o visualizador tem
+ * Gravuras: editor.inserirGravura({xmlid, url, width, legenda, detalhes, src}); o visualizador tem
  * selecionarCaixa() -> Promise<{x, y, l, a}|null> (pixels da imagem exibida) e limparCaixa().
  */
 import { montar } from "./editor.js";

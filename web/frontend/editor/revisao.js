@@ -190,7 +190,11 @@
       titulo: "Inserir gravura",
       imagem: src,
       campos: [
-        { nome: "legenda", rotulo: "Legenda", valor: "", ajuda: "Opcional; só a legenda impressa fora da imagem (pode ser editada depois, no texto)." },
+        { nome: "legenda", rotulo: "Legenda", valor: "",
+          ajuda: "Opcional: a legenda principal impressa fora da imagem (p.ex. «FIGURA VIII. — Côrte vertical…»)." },
+        { nome: "detalhes", rotulo: "Detalhes da legenda", valor: "",
+          ajuda: "Opcional: o texto menor abaixo da legenda (p.ex. «A, hemispherio esquerdo; — B, …»). "
+            + "Se o OCR já os pôs no texto, deixe vazio e use ↥ Legenda / ↥ Detalhes na gravura." },
         { nome: "largura", rotulo: "Largura no texto", tipo: "select", valor: "",
           opcoes: [["", "100%"], ["75%", "75%"], ["60%", "60%"], ["50%", "50%"], ["40%", "40%"], ["33%", "33%"], ["25%", "25%"]] },
       ],
@@ -206,10 +210,11 @@
       ok = editor.inserirGravura({
         xmlid: `${dados.prefixoId}gravura-${dados.arquivo}-${sufixo()}`,
         url: `paginas/${dados.arquivo}.png#xywh=${xywh}`,
-        width: r.largura || null, legenda: r.legenda, src,
+        width: r.largura || null, legenda: r.legenda, detalhes: r.detalhes, src,
       });
     }
-    mensagem(ok ? "Gravura inserida no texto (antes do bloco, se o cursor estava no início dele; senão, depois). Grave para salvar."
+    mensagem(ok ? "Gravura inserida no texto (antes do bloco, se o cursor estava no início dele; senão, depois). "
+      + "↥ Legenda / ↥ Detalhes trazem para ela o texto seguinte (a seleção ou o parágrafo inteiro). Grave para salvar."
       : "Não foi possível inserir a gravura.", !ok);
   }
   if (btnGravura) btnGravura.addEventListener("click", recortarGravura);

@@ -62,8 +62,18 @@
 .sn-editor .sn-gravura-barra .sn-select { height: 1.5rem; font: 0.72rem Georgia, serif; text-transform: none; letter-spacing: 0; }
 .sn-editor figure.sn-gravura img { display: block; margin: 0 auto; max-width: 100%; height: auto; background: #fff; }
 .sn-editor figure.sn-gravura img:not([src]), .sn-editor figure.sn-gravura img[src=""] { min-height: 4rem; width: 60%; border: 1px solid #B08D57; }
-.sn-editor figure.sn-gravura figcaption { margin-top: 0.35rem; font-size: 0.9em; min-height: 1.4em; }
-.sn-editor figure.sn-gravura-sem-legenda figcaption::before { content: "legenda (opcional)"; color: rgba(42, 31, 26, 0.4); font-style: italic; pointer-events: none; float: left; width: 100%; height: 0; }
+.sn-editor figure.sn-gravura figcaption { margin-top: 0.35rem; font-size: 0.9em; }
+.sn-editor figure.sn-gravura [data-parte] { min-height: 1.4em; }
+.sn-editor figure.sn-gravura [data-parte="detalhes"] { margin: 0.2rem auto 0; max-width: 34rem; font-size: 0.85em; text-align: justify; }
+.sn-editor figure.sn-gravura-sem-legenda [data-parte="legenda"]::before { content: "legenda (opcional)"; }
+.sn-editor figure.sn-gravura-sem-detalhes [data-parte="detalhes"]::before { content: "detalhes da legenda (opcional)"; text-align: center; }
+.sn-editor figure.sn-gravura-sem-legenda [data-parte="legenda"]::before,
+.sn-editor figure.sn-gravura-sem-detalhes [data-parte="detalhes"]::before { color: rgba(42, 31, 26, 0.4); font-style: italic; font-variant: normal; pointer-events: none; float: left; width: 100%; height: 0; }
+.sn-editor .sn-gravura-puxar { height: 1.5rem; padding: 0 0.45rem; border: 1px solid rgba(176, 141, 87, 0.8); border-radius: 3px; background: #fff; font: 0.7rem Georgia, serif; text-transform: none; letter-spacing: 0; color: #2A1F1A; cursor: pointer; }
+.sn-editor .sn-gravura-puxar:hover:not(:disabled) { border-color: #8B1A1A; color: #8B1A1A; }
+.sn-editor .sn-gravura-puxar:disabled { opacity: 0.4; cursor: default; }
+.sn-editor .sn-gravura-barra.sn-gravura-erro::after { content: attr(data-erro); font: italic 0.7rem Georgia, serif; text-transform: none; letter-spacing: 0; color: #8B1A1A; }
+.sn-editor .sn-gravura-barra { flex-wrap: wrap; }
 
 /* visualizador de scan */
 [data-visualizador] { cursor: grab; touch-action: none; outline: none; }

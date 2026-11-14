@@ -10,7 +10,7 @@ import { DOMParser as PMDOMParser, Fragment } from "@tiptap/pm/model";
 import { EditorState, Plugin, TextSelection, NodeSelection } from "@tiptap/pm/state";
 import { Decoration, DecorationSet } from "@tiptap/pm/view";
 
-import { nosDoEsquema, marcasDoEsquema } from "./esquema.js";
+import { nosDoEsquema, marcasDoEsquema, criarGravura } from "./esquema.js";
 import { dialogo } from "./dialogo.js";
 import * as cit from "./citacoes.js";
 import { postarJSON } from "./rede.js";
@@ -498,9 +498,9 @@ export function montar(elemento, opcoes = {}) {
       view.dispatch(editor.state.tr.insert(pos, marco).scrollIntoView());
       editor.commands.focus();
     },
-    /** Insere uma gravura ({xmlid, url, width, legenda, src}) antes do bloco atual se o cursor está no
-     *  início dele, senão depois. Devolve false se o xml:id já existe nesta tela. */
-    inserirGravura({ xmlid, url, width = null, legenda = "", src = "" }) {
+    /** Insere uma gravura ({xmlid, url, width, legenda, detalhes, src}) antes do bloco atual se o cursor
+     *  está no início dele, senão depois. Devolve false se o xml:id já existe nesta tela. */
+    inserirGravura({ xmlid, url, width = null, legenda = "", detalhes = "", src = "" }) {
       const { state, view } = editor;
       if (!editor.isEditable) return false;
       let repetido = false;
@@ -509,8 +509,7 @@ export function montar(elemento, opcoes = {}) {
       });
       if (repetido) return false;
       const S = state.schema;
-      const leg = (legenda || "").trim();
-      const node = S.nodes.gravura.create({ xmlid, url, width: width || null, src }, leg ? S.text(leg) : null);
+      const node = criarGravura(S, { xmlid, url, width: width || null, src }, legenda, detalhes);
       const { $from } = state.selection;
       let pos;
       if ($from.depth === 0) pos = state.selection.to;

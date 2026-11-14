@@ -77,21 +77,30 @@ avisa para inserir à mão.
 ### Componente gravura
 
 Ilustração recortada do fac-símile, como bloco próprio (`Bloco.tipo = "gravura"`):
-`<figure xml:id="v1.gravura-0034-ab12c"><graphic url="paginas/0034.png#xywh=x,y,l,a" width="60%"/><head>legenda</head></figure>`.
+`<figure xml:id="v1.gravura-0034-ab12c"><graphic url="paginas/0034.png#xywh=x,y,l,a" width="60%"/><head>legenda</head><p>detalhes</p></figure>`.
 A url é a imagem da página (relativa ao diretório do volume, como o `facs` do `<pb>`) + a caixa em pixels do
 PNG original (fragmento de mídia W3C); `width` (opcional, 1–100 %) é a largura no texto; `<head>` (opcional) é a
-legenda, só com itálico/negrito/versalete/latim/rótulo. O `xml:id` é obrigatório e seu prefixo `vN.` diz o
+legenda principal («FIGURA VIII. — Côrte vertical do cerebro humano.») e `<p>` (opcional, depois do `<head>`) os
+detalhes impressos abaixo dela em corpo menor («A, hemispherio esquerdo; — B, …»); ambos só com
+itálico/negrito/versalete/latim/rótulo. O `xml:id` é obrigatório e seu prefixo `vN.` diz o
 volume (`obra/esquema.py`).
 
 - **Marcar** (tela de revisão da 1916): botão **Gravura** na barra do scan → arraste uma caixa em volta da
   ilustração (Esc cancela; zoom e roda continuam valendo) → diálogo com a prévia do recorte, legenda e largura →
   **Inserir no texto**: o bloco entra antes do bloco do cursor (se o cursor está no início dele) ou depois. A
-  legenda se edita no próprio editor, a largura no seletor da gravura; Enter na legenda abre parágrafo novo e
-  Backspace no início dela seleciona a gravura (o 2º remove). Grave como de costume.
+  legenda e os detalhes se editam no próprio editor, a largura no seletor da gravura. Grave como de costume.
+- **Legenda a partir do texto seguinte** (o OCR costuma pôr a legenda como parágrafos logo depois da gravura):
+  os botões **↥ Legenda** e **↥ Detalhes** da gravura trazem para ela a seleção (se houver texto selecionado depois
+  dela) ou, sem seleção, o parágrafo seguinte inteiro — um por clique. O texto sai do lugar (parágrafos esvaziados
+  somem; marcas de página e notas ficam), as marcas não aceitas na legenda caem e o hífen de fim de linha é
+  desfeito («cere-» + «bello» → «cerebello»). **Enter** na legenda passa o que está depois do cursor para o início
+  dos detalhes (para separar «FIGURA VIII. …» de «A, hemispherio …»); Enter nos detalhes abre parágrafo novo;
+  Backspace no início dos detalhes volta à legenda e, no início da legenda, seleciona a gravura (o 2º remove).
 - **Recorte**: `/gravura/<vol>/<arquivo>/<x,y,l,a>.png` (`obra:gravura`, público, cache longo; PNG em
   `SINIBALDI_CACHE/gravuras/`; caixa além da borda é aparada).
 - **Saídas**: leitura pública e editor mostram o recorte; HTML para baixar embute a imagem (data URI); texto
-  puro dá `[Gravura: legenda]`; TEI exporta o `<figure>`; LaTeX/PDF usam `\gravura` (`tools/tei2latex.py`
+  puro dá `[Gravura: legenda]` + os detalhes; TEI exporta o `<figure>`; LaTeX/PDF usam
+  `\gravura[detalhes]{arquivo}{fração}{legenda}` (`tools/tei2latex.py`
   recorta do scan do volume para `SINIBALDI_CACHE/gravuras-tex/`).
 
 Front-end (só para quem altera `frontend/` ou `templates/`; os bundles em `static/` já vêm commitados):

@@ -176,29 +176,33 @@ def _normalizar_paragrafos(src, dst, ctx, rel, prefixo):
 
 
 def _converter_figura(src, dst, rel, prefixo):
-    """<figure>: o primeiro <graphic> e o primeiro <head> (legenda); o resto é descartado."""
-    graphic = head = None
+    """<figure>: o primeiro <graphic>, o primeiro <head> (legenda) e o primeiro <p> (detalhes da
+    legenda); o resto é descartado. Legenda/detalhes vazios somem."""
+    achados = {"graphic": None, "head": None, "p": None}
     for c in src:
         if not isinstance(c.tag, str):
             continue
         n = nome_local(c.tag)
-        if n == "graphic" and graphic is None:
-            graphic = c
-        elif n == "head" and head is None:
-            head = c
+        if n in achados and achados[n] is None:
+            achados[n] = c
         else:
             rel.descartados[f"<{n}> em <figure>"] += 1
-    if graphic is not None:
-        _definir_attrs(etree.SubElement(dst, "graphic"), "graphic", graphic, rel)
-    if head is not None and ((head.text or "").strip() or len(head)):
-        h = etree.SubElement(dst, "head")
-        _copiar_conteudo(head, h, "inline_legenda", rel, prefixo)
+    if achados["graphic"] is not None:
+        _definir_attrs(etree.SubElement(dst, "graphic"), "graphic", achados["graphic"], rel)
+    for nome in ("head", "p"):
+        orig = achados[nome]
+        if orig is None or not ((orig.text or "").strip() or len(orig)):
+            continue
+        h = etree.SubElement(dst, nome)
+        _copiar_conteudo(orig, h, "inline_legenda", rel, prefixo)
         h.text = (h.text or "").lstrip() or None
         if len(h):
             if h[-1].tail:
                 h[-1].tail = h[-1].tail.rstrip() or None
         elif h.text:
             h.text = h.text.rstrip() or None
+        if not len(h) and not h.text:
+            dst.remove(h)
 
 
 def converter_bloco(el, rel, prefixo=""):
@@ -436,8 +440,23 @@ def src_gravura(xml_id, url):
     return reverse("obra:gravura", args=[int(m.group(1)), arquivo, ",".join(map(str, caixa))])
 
 
+def _html_parte_legenda(origem, parte):
+    """<head>/<p> de <figure> -> <div data-parte="legenda"|"detalhes"> com o conteúdo inline em HTML."""
+    div = etree.Element("div")
+    div.set("data-parte", parte)
+    if origem is not None:
+        div.text = origem.text
+        for c in origem:
+            if isinstance(c.tag, str):
+                novo = _html_elemento(c, "inline")
+                novo.tail = c.tail
+                div.append(novo)
+    return div
+
+
 def _html_figura(el):
-    """<figure> -> <figure data-tei=figure data-xmlid data-url data-width><img><figcaption>…</figcaption></figure>."""
+    """<figure> -> <figure data-tei=figure data-xmlid data-url data-width><img><figcaption>
+    <div data-parte=legenda>…</div>[<div data-parte=detalhes>…</div>]</figcaption></figure>."""
     graphic = el.find("graphic")
     url = graphic.get("url") if graphic is not None else None
     largura = graphic.get("width") if graphic is not None else None
@@ -448,14 +467,11 @@ def _html_figura(el):
     if largura:
         img.set("style", f"width: {largura}")
     cap = etree.SubElement(h, "figcaption")
-    head = el.find("head")
+    head, det = el.find("head"), el.find("p")
+    cap.append(_html_parte_legenda(head, "legenda"))
+    if det is not None:
+        cap.append(_html_parte_legenda(det, "detalhes"))
     if head is not None:
-        cap.text = head.text
-        for c in head:
-            if isinstance(c.tag, str):
-                novo = _html_elemento(c, "inline")
-                novo.tail = c.tail
-                cap.append(novo)
         img.set("alt", "".join(head.itertext()).strip() or "Gravura")
     return h
 
@@ -539,7 +555,7 @@ _PARAGRAFOS_HTML = {"p", "li", "blockquote", "pre", "dd", "dt"}
 
 
 def _bruto_figura(h):
-    """<figure data-tei=figure> -> <figure><graphic/><head/></figure> (img é só apresentação)."""
+    """<figure data-tei=figure> -> <figure><graphic/><head/><p/></figure> (img é só apresentação)."""
     e = etree.Element("figure")
     if h.get("data-xmlid"):
         e.set(XML_ID, h.get("data-xmlid"))
@@ -548,11 +564,17 @@ def _bruto_figura(h):
         if h.get(k):
             gr.set(a, h.get(k))
     cap = next((c for c in h if isinstance(c.tag, str) and c.tag.lower() == "figcaption"), None)
-    if cap is not None:
-        cab = _bruto(cap)
-        cab.tag = "head"
-        cab.attrib.clear()
-        e.append(cab)
+    if cap is None:
+        return e
+    partes = {c.get("data-parte"): c for c in cap if isinstance(c.tag, str) and c.get("data-parte")}
+    if not partes:  # figcaption simples (HTML antigo/colado): tudo é a legenda
+        partes = {"legenda": cap}
+    for parte, nome in (("legenda", "head"), ("detalhes", "p")):
+        if parte in partes:
+            el = _bruto(partes[parte])
+            el.tag = nome
+            el.attrib.clear()
+            e.append(el)
     return e
 
 

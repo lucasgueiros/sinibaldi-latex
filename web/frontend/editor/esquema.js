@@ -7,7 +7,8 @@
 //     paragrafo p[data-tei=p][data-type?][data-xmlid?]
 //     sumario   div[data-tei=argument] > p[data-xmlid?]                  (argPara+)
 //     cabecalho p[data-tei=fw]
-//     gravura   figure[data-tei=figure][data-xmlid][data-url][data-width] > img + figcaption (legenda: text*)
+//     gravura   figure[data-tei=figure][data-xmlid][data-url][data-width] > img + figcaption >
+//                 div[data-parte=legenda] + div[data-parte=detalhes]   (gravuraLegenda/gravuraDetalhes: text*)
 //   inline
 //     pb        span[data-tei=pb][data-n][data-facs]                     (átomo)
 //     asterisco span[data-tei=anchor][data-type=asterisco]               (átomo; vale também em nota)
@@ -180,14 +181,149 @@ export const Marco = Node.create({
   },
 });
 
-// Componente semântico: gravura recortada do fac-símile (<figure><graphic url="…#xywh=…"/><head/></figure>).
-// A imagem é só apresentação (src vem do servidor ou de quem a inseriu); a legenda é o conteúdo editável.
+// Componente semântico: gravura recortada do fac-símile
+//   <figure><graphic url="…#xywh=…"/><head>legenda</head><p>detalhes</p></figure>.
+// A imagem é só apresentação (src vem do servidor ou de quem a inseriu). O conteúdo editável são dois
+// filhos sempre presentes: a legenda principal ("FIGURA VIII. — Côrte vertical…") e os detalhes, em
+// corpo menor ("A, hemispherio esquerdo; — B, …"); vazios, somem no TEI.
 const LARGURAS_GRAVURA = [["", "100%"], ["75%", "75%"], ["60%", "60%"], ["50%", "50%"], ["40%", "40%"], ["33%", "33%"], ["25%", "25%"]];
+const MARCAS_LEGENDA = "negrito italico versalete latim rotulo"; // = INLINE_EM_LEGENDA de obra/esquema.py
+const PARTES_GRAVURA = { legenda: 0, detalhes: 1 };
+
+const parteDaGravura = (name, parte) => Node.create({
+  name,
+  content: "text*",
+  marks: MARCAS_LEGENDA,
+  defining: true,
+  parseHTML() {
+    return [{ tag: `div[data-parte="${parte}"]`, priority: 60 }];
+  },
+  renderHTML() {
+    return ["div", { "data-parte": parte }, 0];
+  },
+});
+export const GravuraLegenda = parteDaGravura("gravuraLegenda", "legenda");
+export const GravuraDetalhes = parteDaGravura("gravuraDetalhes", "detalhes");
+
+/** Cria o nó gravura com legenda e detalhes (strings simples ou Fragment/array de nós de texto). */
+export function criarGravura(S, attrs, legenda = "", detalhes = "") {
+  const filho = (tipo, v) => S.nodes[tipo].create(null, typeof v === "string" ? (v.trim() ? S.text(v.trim()) : null) : v);
+  return S.nodes.gravura.create(attrs, [filho("gravuraLegenda", legenda || ""), filho("gravuraDetalhes", detalhes || "")]);
+}
+
+// Texto (com as marcas que a legenda aceita) de [from, to): só nós de texto; átomos e notas ficam onde
+// estão. Devolve {nos, faixas, blocos}: os pedaços (um espaço entre blocos), as faixas a apagar e as
+// posições dos blocos de topo tocados.
+function textoEntre(doc, from, to, tipoDestino) {
+  const S = tipoDestino.schema;
+  const nos = [];
+  const faixas = [];
+  const blocos = [];
+  let blocoAtual = null;
+  doc.nodesBetween(from, to, (n, p, pai) => {
+    if (pai === doc) blocos.push(p);
+    if (n.isText) {
+      const a = Math.max(from, p);
+      const b = Math.min(to, p + n.nodeSize);
+      if (b <= a) return false;
+      const bloco = doc.resolve(a).before(1);
+      const pedaco = n.cut(a - p, b - p).mark(n.marks.filter((m) => tipoDestino.allowsMarkType(m.type)));
+      if (blocoAtual !== null && bloco !== blocoAtual && nos.length) {
+        // fim de linha do OCR: «cere-» + «bello» -> «cerebello»; senão, um espaço entre os blocos
+        const ult = nos[nos.length - 1];
+        if (/\p{Ll}-\s*$/u.test(ult.text) && /^\p{Ll}/u.test(pedaco.text)) {
+          nos[nos.length - 1] = S.text(ult.text.replace(/-\s*$/, ""), ult.marks);
+        } else nos.push(S.text(" "));
+      }
+      blocoAtual = bloco;
+      nos.push(pedaco);
+      faixas.push([a, b]);
+      return false;
+    }
+    return !n.isInline; // pb, asterisco, nota (e o texto dentro dela) ficam no texto
+  });
+  // apara as pontas
+  const aparar = (i, re) => {
+    while (nos.length) {
+      const k = i < 0 ? nos.length - 1 : 0;
+      const t = nos[k].text.replace(re, "");
+      if (t) {
+        nos[k] = S.text(t, nos[k].marks);
+        return;
+      }
+      nos.splice(k, 1);
+    }
+  };
+  aparar(0, /^\s+/);
+  aparar(-1, /\s+$/);
+  return { nos, faixas, blocos };
+}
+
+/**
+ * Traz para a legenda (`parte` = "legenda") ou para os detalhes ("detalhes") da gravura em `pos` o
+ * texto que vem depois dela: a seleção, se houver uma seleção de texto depois da gravura; senão, o
+ * bloco de texto seguinte inteiro. O texto sai do lugar de origem (blocos esvaziados são removidos;
+ * marcas de página e notas ficam). Devolve uma mensagem de erro ou null.
+ */
+export function puxarParaGravura(editor, pos, parte) {
+  const { state, view } = editor;
+  const fig = state.doc.nodeAt(pos);
+  if (!fig || fig.type.name !== "gravura") return "Gravura não encontrada.";
+  const fim = pos + fig.nodeSize;
+  const sel = state.selection;
+  let from;
+  let to;
+  if (!sel.empty && sel.from >= fim && !(sel instanceof NodeSelection)) {
+    from = sel.from;
+    to = sel.to;
+  } else {
+    const prox = fim < state.doc.content.size ? state.doc.nodeAt(fim) : null;
+    if (!prox || !prox.isTextblock) return "Não há parágrafo logo depois da gravura (selecione o texto a trazer).";
+    from = fim + 1;
+    to = fim + 1 + prox.content.size;
+  }
+  const idx = PARTES_GRAVURA[parte];
+  const destino = fig.child(idx);
+  const { nos, faixas, blocos } = textoEntre(state.doc, from, to, destino.type);
+  if (!nos.length) return "Nada a trazer: o trecho não tem texto.";
+
+  const tr = state.tr;
+  for (const [a, b] of faixas.slice().reverse()) tr.delete(a, b);
+  // blocos que ficaram vazios (ou só com espaços) somem
+  for (const p of blocos.slice().reverse()) {
+    const m = tr.mapping.map(p);
+    const n = tr.doc.nodeAt(m);
+    let soTexto = true;
+    if (n) n.forEach((c) => { if (!c.isText) soTexto = false; });
+    if (n && n.isTextblock && soTexto && !n.textContent.trim()) {
+      tr.delete(m, m + n.nodeSize);
+    }
+  }
+  // fim do filho de destino (as remoções são todas depois da gravura: posições dela não mudam)
+  let p = pos + 1;
+  for (let i = 0; i < idx; i++) p += fig.child(i).nodeSize;
+  let fimDestino = p + 1 + destino.content.size;
+  const S = state.schema;
+  let conteudo = nos;
+  if (destino.content.size) {
+    const hifen = destino.textContent.match(/\p{Ll}(-\s*)$/u);
+    if (hifen && /^\p{Ll}/u.test(nos[0].text)) {  // «cere-» já na legenda + «bello» que chega
+      tr.delete(fimDestino - hifen[1].length, fimDestino);
+      fimDestino -= hifen[1].length;
+    } else if (!/\s$/.test(destino.textContent)) conteudo = [S.text(" "), ...nos];
+  }
+  tr.insert(fimDestino, conteudo);
+  const depois = fimDestino + conteudo.reduce((s, n) => s + n.nodeSize, 0);
+  tr.setSelection(TextSelection.create(tr.doc, depois));
+  view.dispatch(tr.scrollIntoView());
+  editor.commands.focus();
+  return null;
+}
 
 export const Gravura = Node.create({
   name: "gravura",
   group: "bloco",
-  content: "text*",
+  content: "gravuraLegenda gravuraDetalhes",
   defining: true,
   isolating: true,
   priority: 1000,
@@ -208,6 +344,7 @@ export const Gravura = Node.create({
     };
   },
   parseHTML() {
+    // figcaption sem data-parte (HTML antigo/colado): o texto solto cai na legenda
     return [{ tag: 'figure[data-tei="figure"]', contentElement: "figcaption", priority: 60 }];
   },
   renderHTML({ node, HTMLAttributes }) {
@@ -216,23 +353,60 @@ export const Gravura = Node.create({
     return ["figure", mergeAttributes({ "data-tei": "figure" }, HTMLAttributes), ["img", img], ["figcaption", 0]];
   },
   addKeyboardShortcuts() {
-    const naLegenda = (state) => state.selection.$from.parent.type.name === "gravura";
+    const parte = (state) => {
+      const n = state.selection.$from.parent.type.name;
+      return n === "gravuraLegenda" ? "legenda" : n === "gravuraDetalhes" ? "detalhes" : null;
+    };
     return {
-      // Enter na legenda abre um parágrafo depois da gravura (nunca a divide: o xml:id é único).
+      // Enter na legenda passa o resto dela (do cursor em diante) para o início dos detalhes e põe o
+      // cursor lá; nos detalhes, abre um parágrafo depois da gravura (nunca a divide: o xml:id é único).
       Enter: ({ editor }) => {
         const { state, view } = editor;
-        if (!naLegenda(state)) return false;
-        const fim = state.selection.$from.after(1);
+        const qual = parte(state);
+        if (!qual) return false;
+        const $f = state.selection.$from;
+        if (qual === "legenda") {
+          // o que está depois do cursor passa para o início dos detalhes
+          const tr = state.tr;
+          if (!state.selection.empty) tr.deleteSelection();
+          const $c = tr.selection.$from;
+          const resto = [];
+          tr.doc.slice($c.pos, $c.end()).content.forEach((c) => resto.push(c));
+          if (resto.length) tr.delete($c.pos, $c.end());
+          // espaços nas pontas: no fim da legenda e no início do resto
+          const $l = tr.doc.resolve($c.pos);
+          const antes = $l.parent.textContent.match(/\s+$/);
+          if (antes) tr.delete($l.end() - antes[0].length, $l.end());
+          while (resto.length && !resto[0].text.replace(/^\s+/, "")) resto.shift();
+          if (resto.length) resto[0] = state.schema.text(resto[0].text.replace(/^\s+/, ""), resto[0].marks);
+          const inicioDet = tr.doc.resolve(tr.mapping.map($c.pos)).after() + 1;
+          const det = tr.doc.resolve(inicioDet).parent;
+          if (resto.length) {
+            const ultimo = resto[resto.length - 1];
+            if (det.content.size && !/^\s/.test(det.textContent) && !/\s$/.test(ultimo.text)) resto.push(state.schema.text(" "));
+            tr.insert(inicioDet, resto);
+          }
+          tr.setSelection(TextSelection.create(tr.doc, inicioDet));
+          view.dispatch(tr.scrollIntoView());
+          return true;
+        }
+        const fim = $f.after(1);
         const tr = state.tr.insert(fim, state.schema.nodes.paragrafo.create());
         tr.setSelection(TextSelection.create(tr.doc, fim + 1));
         view.dispatch(tr.scrollIntoView());
         return true;
       },
-      // Backspace no início da legenda seleciona a gravura (não funde a legenda no bloco anterior).
+      // Backspace no início dos detalhes volta ao fim da legenda; no início da legenda seleciona a
+      // gravura (nada se funde com o bloco anterior nem entre as partes).
       Backspace: ({ editor }) => {
         const { state, view } = editor;
         const { selection: sel } = state;
-        if (!naLegenda(state) || !sel.empty || sel.$from.parentOffset !== 0) return false;
+        const qual = parte(state);
+        if (!qual || !sel.empty || sel.$from.parentOffset !== 0) return false;
+        if (qual === "detalhes") {
+          view.dispatch(state.tr.setSelection(TextSelection.create(state.doc, sel.$from.before() - 1)));
+          return true;
+        }
         view.dispatch(state.tr.setSelection(NodeSelection.create(state.doc, sel.$from.before(1))));
         return true;
       },
@@ -257,9 +431,31 @@ export const Gravura = Node.create({
         o.textContent = r;
         sel.appendChild(o);
       }
+      const botoes = [["legenda", "↥ Legenda"], ["detalhes", "↥ Detalhes"]].map(([parte, texto]) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "sn-gravura-puxar";
+        b.textContent = texto;
+        b.title = `Trazer para ${parte === "legenda" ? "a legenda" : "os detalhes da legenda"} o texto depois da gravura: `
+          + "a seleção, se houver; senão, o parágrafo seguinte inteiro";
+        // mousedown não tira o foco nem a seleção do editor
+        b.addEventListener("mousedown", (e) => e.preventDefault());
+        b.addEventListener("click", () => {
+          const pos = getPos();
+          if (typeof pos !== "number" || !editor.isEditable) return;
+          const erro = puxarParaGravura(editor, pos, parte);
+          if (erro) {
+            b.title = erro;
+            barra.dataset.erro = erro;
+            barra.classList.add("sn-gravura-erro");
+            setTimeout(() => barra.classList.remove("sn-gravura-erro"), 2500);
+          }
+        });
+        return b;
+      });
       const ident = document.createElement("span");
       ident.className = "sn-marco-id";
-      barra.append(rotulo, sel, ident);
+      barra.append(rotulo, sel, ...botoes, ident);
       const img = document.createElement("img");
       img.alt = "Gravura";
       img.draggable = false;
@@ -277,8 +473,10 @@ export const Gravura = Node.create({
         }
         sel.value = n.attrs.width || "";
         ident.textContent = n.attrs.xmlid || "";
-        dom.classList.toggle("sn-gravura-sem-legenda", n.content.size === 0);
+        dom.classList.toggle("sn-gravura-sem-legenda", !n.childCount || n.child(0).content.size === 0);
+        dom.classList.toggle("sn-gravura-sem-detalhes", n.childCount < 2 || n.child(1).content.size === 0);
         sel.disabled = !editor.isEditable;
+        for (const b of botoes) b.disabled = !editor.isEditable;
       };
       pintar(node);
       sel.addEventListener("change", () => {
@@ -470,7 +668,7 @@ export const Rotulo = Mark.create({
 
 // Ordem importa: o primeiro nó do grupo "bloco" é o bloco padrão (Enter no fim de um bloco).
 export const nosDoEsquema = [
-  Paragrafo, Titulo, Sumario, ParagrafoSumario, Cabecalho, Marco, Gravura,
+  Paragrafo, Titulo, Sumario, ParagrafoSumario, Cabecalho, Marco, Gravura, GravuraLegenda, GravuraDetalhes,
   MarcaPagina, Asterisco, Nota, ParagrafoNota, CabecalhoInline,
 ];
 export const marcasDoEsquema = [Citacao, ReferenciaAutor, Negrito, Italico, Versalete, Latim, Rotulo];

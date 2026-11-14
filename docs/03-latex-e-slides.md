@@ -18,9 +18,10 @@ Definida em `tex/preambulo.tex`:
 parágrafo e dentro de `\footnote{…}`. No TEI: `<milestone unit="asterisco"/>` (inline ou entre blocos) ou um
 `<p>*</p>`; `tools/tei2latex.py` converte ambos.
 
-`\gravura{arquivo.png}{0.60}{legenda}` põe uma gravura recortada do fac-símile no ponto exato do original
+`\gravura[detalhes]{arquivo.png}{0.60}{legenda}` põe uma gravura recortada do fac-símile no ponto exato do original
+(legenda principal centrada; detalhes opcionais — o `<p>` do `<figure>` — abaixo, em `\footnotesize` justificado)
 (sem float, centrada, fração da largura do texto, legenda opcional em corpo menor). No TEI:
-`<figure xml:id><graphic url="paginas/0034.png#xywh=x,y,l,a" width="60%"/><head>legenda</head></figure>` — a
+`<figure xml:id><graphic url="paginas/0034.png#xywh=x,y,l,a" width="60%"/><head>legenda</head><p>detalhes</p></figure>` — a
 caixa (fragmento de mídia W3C) é em pixels do PNG original da página. `tools/tei2latex.py` recorta a caixa com
 Pillow (`--base`: pasta contra a qual resolver a url, padrão a do XML; `--dir-gravuras`: onde gravar os
 recortes, padrão `build/gravuras`, caminho que o `.tex` cita). Sem a imagem, sai uma caixa «gravura

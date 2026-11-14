@@ -5,7 +5,7 @@ Cada bloco é UM elemento, sem prefixo nem declaração de namespace:
   blocos   <milestone unit n xml:id/>  (marco)     <head [type=rotulo]>  (titulo)
            <p [type] [xml:id]>         (paragrafo) <argument><p/>…</argument> (sumario)
            <fw type="header">          (cabecalho)
-           <figure xml:id><graphic url width/>[<head>legenda</head>]</figure>  (gravura)
+           <figure xml:id><graphic url width/>[<head>legenda</head>][<p>detalhes</p>]</figure>  (gravura)
   inline   <hi rend>, <label>, <foreign xml:lang>, <pb n facs/>, <note place n xml:id>,
            <anchor type="asterisco"/> (componente semântico: o ∗ de divisão de assunto, no corpo ou em nota),
            <fw type="header"> (cabeçalho corrente que o OCR deixou no meio de um parágrafo),
@@ -22,7 +22,9 @@ dispensa o `xml:id`.
 `<note>` contém só `<p>` (sem nota dentro de nota). Gravura (componente semântico): o recorte de uma
 ilustração do fac-símile. `graphic/@url` = `paginas/NNNN.png#xywh=x,y,l,a` (imagem da página, relativa
 ao diretório do volume, + fragmento de mídia W3C com a caixa em pixels do PNG original); `@width`
-opcional em % da largura do texto; `<head>` opcional = legenda (só itálico/versalete/negrito/latim/rótulo).
+opcional em % da largura do texto; `<head>` opcional = legenda principal ("FIGURA VIII. — Côrte…"); `<p>`
+opcional = detalhes impressos abaixo dela, em corpo menor ("A, hemispherio…; — B, …"). Ambos só com
+itálico/versalete/negrito/latim/rótulo.
 O `xml:id` (`vN.gravura-…`) é obrigatório: o prefixo do volume localiza a imagem. Tudo é definido aqui; as telas
 montam barras de ferramentas a partir de `NIVEIS`, `TIPOS_PARAGRAFO`, `REND`.
 """
@@ -272,8 +274,8 @@ def _validar_elemento(el, contexto, erros):
                      else "<bibl> dentro de <bibl> não é permitido.")
         return
     elif contexto == "figura":
-        if nome not in ("graphic", "head"):
-            erros.append(f"<figure> só pode conter <graphic> e <head>, não <{nome}>.")
+        if nome not in ("graphic", "head", "p"):
+            erros.append(f"<figure> só pode conter <graphic>, <head> e <p>, não <{nome}>.")
             return
     elif nome not in permitidos_em(nome, contexto):
         if nome == "note" and contexto == "inline_nota":
@@ -295,6 +297,10 @@ def _validar_elemento(el, contexto, erros):
             erros.append("<figure> exige um único <graphic>, como primeiro filho.")
         if nomes.count("head") > 1:
             erros.append("<figure> aceita no máximo um <head> (legenda).")
+        if nomes.count("p") > 1:
+            erros.append("<figure> aceita no máximo um <p> (detalhes da legenda).")
+        if [n for n in nomes if n in ("head", "p")] == ["p", "head"]:
+            erros.append("<figure>: a legenda (<head>) vem antes dos detalhes (<p>).")
         for filho in el:
             _validar_elemento(filho, "figura", erros)
         return
