@@ -1,0 +1,28 @@
+{
+ "pagina": 699,
+ "paginas": [
+  699,
+  700
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"2nnatos\", \"naatos\", \"và\", \"aperfeicoar\", \"basêam\", \"M verdade\", \"vé\", \"ordem. moral\", \"liberdade religiosa,\" → ponto), hifenização \"disse-mos\" (pb 700 reposto no meio da palavra), negrito/itálico dos títulos 143/144 e de \"Direito á liberdade religiosa\", parágrafos da nota 1 reunidos, travessão espúrio removido; reposto \"CAPITULO TERCEIRO\" (p. 699) e \"Summario:\", com o sumário reordenado após o título, como na imagem.\nFronteira corpo/nota: nenhuma mudança; a nota 1 (p. 699, continuação na p. 700) está como estava, e o corpo da p. 700 (\"a) Direito…\") permanece após ela.\nDúvidas: negrito do título \"DIREITOS E DEVERES DO HOMEM\" (na imagem parece sans comum; mantive o `<hi>` do pipeline apenas em parte, removi o negrito); acento de \"juridicos\" e \"basêam\" lidos como na imagem; \"a\" de \"têm a extensão\" sem acento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"2nnatos\", \"naatos\", \"và\", \"aperfeicoar\", \"basêam\", \"M verdade\", \"vé\", \"ordem. moral\", \"liberdade religiosa,\" → ponto), hifenização \"disse-mos\" (pb 700 reposto no meio da palavra), negrito/itálico dos títulos 143/144 e de \"Direito á liberdade religiosa\", parágrafos da nota 1 reunidos, travessão espúrio removido; reposto \"CAPITULO TERCEIRO\" (p. 699) e \"Summario:\", com o sumário reordenado após o título, como na imagem.\nFronteira corpo/nota: nenhuma mudança; a nota 1 (p. 699, continuação na p. 700) está como estava, e o corpo da p. 700 (\"a) Direito…\") permanece após ela.\nDúvidas: negrito do título \"DIREITOS E DEVERES DO HOMEM\" (na imagem parece sans comum; mantive o `<hi>` do pipeline apenas em parte, removi o negrito); acento de \"juridicos\" e \"basêam\" lidos como na imagem; \"a\" de \"têm a extensão\" sem acento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.013898500000000001,
+ "duration_ms": 91113,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17790,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24239
+ },
+ "reparo": false
+}

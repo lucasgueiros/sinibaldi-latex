@@ -1,0 +1,27 @@
+{
+ "pagina": 461,
+ "paginas": [
+  461
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: símbolos mal lidos (&amp; → á; \"€)\" → \"c)\"; \"Zsrael\" → \"Israel\"; \"-admittissem\" → \"admittissem\"), hifenizações (\"embora-seja\", \"falso-pelas\" → com espaço), itálicos errados (\"e\" de \"diluvio\" e a pontuação das referências), e \"uni-versal\" juntado.\nFronteira corpo/nota: nenhuma mudança; a nota 1 está inteira no pé da página 461, e a chamada \"(1)\" está no lugar certo.\nDúvidas: \"rélig.\" lido como \"rélig.\" na imagem (pode ser \"réligi.\"); \"póde\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: símbolos mal lidos (&amp; → á; \"€)\" → \"c)\"; \"Zsrael\" → \"Israel\"; \"-admittissem\" → \"admittissem\"), hifenizações (\"embora-seja\", \"falso-pelas\" → com espaço), itálicos errados (\"e\" de \"diluvio\" e a pontuação das referências), e \"uni-versal\" juntado.\nFronteira corpo/nota: nenhuma mudança; a nota 1 está inteira no pé da página 461, e a chamada \"(1)\" está no lugar certo.\nDúvidas: \"rélig.\" lido como \"rélig.\" na imagem (pode ser \"réligi.\"); \"póde\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0044467,
+ "duration_ms": 26144,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11312,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6631
+ },
+ "reparo": false
+}

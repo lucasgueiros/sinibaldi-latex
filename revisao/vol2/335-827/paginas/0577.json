@@ -1,0 +1,27 @@
+{
+ "pagina": 577,
+ "paginas": [
+  577
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras de latim/português (\"eapirito\", \"lanca-se\", \"énvoluntario\", \"e/citos\", \"úrresistivelmente\", \"Immediatamente\", \"n&o\"), artigo \"á moção\" → \"a moção\", linha inicial faltante (\"dirá\") reposta na página 577, negrito de \"Violencia\" (§43) e de todo o §44 conforme a imagem, e remoção do rodapé \"37 Vor. II\" (assinatura) da nota 2.\nFronteira corpo/nota: nenhuma alteração estrutural; as notas 1 e 2 da p. 577 já estavam nos pontos corretos e com a extensão correta (a nota 1 inclui o parágrafo \"D'onde se vê…\" em letra pequena, como na imagem).\nDúvidas: \"(Sum. Th., 1-2, q. 6, a. 6.\" aparece sem parêntese de fechamento na imagem e foi mantido assim; a palavra \"da von-\" fica hifenizada no fim do trecho e a continuação \"tade\" pertence à página 578, por isso não foi incluída.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras de latim/português (\"eapirito\", \"lanca-se\", \"énvoluntario\", \"e/citos\", \"úrresistivelmente\", \"Immediatamente\", \"n&o\"), artigo \"á moção\" → \"a moção\", linha inicial faltante (\"dirá\") reposta na página 577, negrito de \"Violencia\" (§43) e de todo o §44 conforme a imagem, e remoção do rodapé \"37 Vor. II\" (assinatura) da nota 2.\nFronteira corpo/nota: nenhuma alteração estrutural; as notas 1 e 2 da p. 577 já estavam nos pontos corretos e com a extensão correta (a nota 1 inclui o parágrafo \"D'onde se vê…\" em letra pequena, como na imagem).\nDúvidas: \"(Sum. Th., 1-2, q. 6, a. 6.\" aparece sem parêntese de fechamento na imagem e foi mantido assim; a palavra \"da von-\" fica hifenizada no fim do trecho e a continuação \"tade\" pertence à página 578, por isso não foi incluída.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0064888,
+ "duration_ms": 40858,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10803,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10817
+ },
+ "reparo": false
+}

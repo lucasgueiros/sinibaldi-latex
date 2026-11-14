@@ -1,0 +1,28 @@
+{
+ "pagina": 415,
+ "paginas": [
+  415,
+  416
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de \"e\"/\"9\", \"ultimo fino\", \"€\", \"Primeiro\", \"una\", \"trevae\", \"Oucamos\", \"condemnacao\", \"immutayel\", \"á\"/\"a\", \"Acerca\", \"Justiça\", \"(C£.\"; itálicos de \"em potencia\" e \"E'\"; pontuação (\"95),\" → \"95).\"; \"Além d'isso\" e \"XIX Cent.\"; linhas de OCR da nota 1 foram fundidas em parágrafos reais (sem mudança de fronteira).\nFronteira corpo/nota: conferida em 415 e 416; nota 1 (415–416) mantida como estava, com `<pb n=\"416\"/>` interno na divisão do rodapé; corpo de 415 (3 linhas) e de 416 (\"259. … Immutavel no bem, a\") mantidos; nenhuma mudança de fronteira.\nDúvidas: leitura de \"esserção\" (ç/ã) na nota 416; \"podo\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de \"e\"/\"9\", \"ultimo fino\", \"€\", \"Primeiro\", \"una\", \"trevae\", \"Oucamos\", \"condemnacao\", \"immutayel\", \"á\"/\"a\", \"Acerca\", \"Justiça\", \"(C£.\"; itálicos de \"em potencia\" e \"E'\"; pontuação (\"95),\" → \"95).\"; \"Além d'isso\" e \"XIX Cent.\"; linhas de OCR da nota 1 foram fundidas em parágrafos reais (sem mudança de fronteira).\nFronteira corpo/nota: conferida em 415 e 416; nota 1 (415–416) mantida como estava, com `<pb n=\"416\"/>` interno na divisão do rodapé; corpo de 415 (3 linhas) e de 416 (\"259. … Immutavel no bem, a\") mantidos; nenhuma mudança de fronteira.\nDúvidas: leitura de \"esserção\" (ç/ã) na nota 416; \"podo\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0131766,
+ "duration_ms": 82032,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17451,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 22863
+ },
+ "reparo": false
+}

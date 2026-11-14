@@ -1,0 +1,27 @@
+{
+ "pagina": 822,
+ "paginas": [
+  822
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: palavra faltante no início (\"rial\"), \"communicacdo\" → \"communicação\", \"CHnisTO\" → \"CHRISTO\", e lixo do OCR (\"ES be\") removido; a `<p>` final foi mantida aberta conforme o fragmento. Itálicos de \"independencia\", \"protecção\" ajustados pela imagem.\nNenhuma mudança de fronteira corpo/nota nesta página (não há notas no trecho).\nDúvidas: se \"protecção\" e \"independencia\" estão de fato em itálico na imagem (a resolução é baixa); \"&amp;\" mantido como no impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: palavra faltante no início (\"rial\"), \"communicacdo\" → \"communicação\", \"CHnisTO\" → \"CHRISTO\", e lixo do OCR (\"ES be\") removido; a `<p>` final foi mantida aberta conforme o fragmento. Itálicos de \"independencia\", \"protecção\" ajustados pela imagem.\nNenhuma mudança de fronteira corpo/nota nesta página (não há notas no trecho).\nDúvidas: se \"protecção\" e \"independencia\" estão de fato em itálico na imagem (a resolução é baixa); \"&amp;\" mantido como no impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0030007000000000002,
+ "duration_ms": 17536,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9572,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4087
+ },
+ "reparo": false
+}

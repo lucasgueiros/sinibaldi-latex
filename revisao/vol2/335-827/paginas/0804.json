@@ -1,0 +1,28 @@
+{
+ "pagina": 804,
+ "paginas": [
+  804,
+  805
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (contradiecüo, iémmunidade, Olerigos, offioios, Egrej&amp;, n&amp;o, &amp; lei, dà, auxiliaya, \"milicia)\" sem parêntese, \"mas tambem mas\"), acentos (é→á em \"protecção e á assistencia\"), pontuação (\"Ora: não\", \"fins).\" , \"A.\" → \"A\"), numeração \"T)\" → \"I)\"; itálico de \"Societates sunt ut fines earum\" e \"b\".\nFronteira corpo/nota: nenhuma alteração. Pág. 804: nota 1 (n804-1) mantém \"Dos principios…\" e \"Todavia…\" abaixo do filete, e continua na pág. 805 (pb 805 dentro da nota); pág. 805: nota 1 (n805-1) confere com o rodapé.\nDúvidas: grafia \"DEus\"/\"Deus\" em versalete foi mantida como no fragmento; \"pelo primeiros\" transcrito como impresso; \"assistencia\" fecha o fragmento, palavra hifenizada na pág. 805 (resto em 806 fora do trecho).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (contradiecüo, iémmunidade, Olerigos, offioios, Egrej&amp;, n&amp;o, &amp; lei, dà, auxiliaya, \"milicia)\" sem parêntese, \"mas tambem mas\"), acentos (é→á em \"protecção e á assistencia\"), pontuação (\"Ora: não\", \"fins).\" , \"A.\" → \"A\"), numeração \"T)\" → \"I)\"; itálico de \"Societates sunt ut fines earum\" e \"b\".\nFronteira corpo/nota: nenhuma alteração. Pág. 804: nota 1 (n804-1) mantém \"Dos principios…\" e \"Todavia…\" abaixo do filete, e continua na pág. 805 (pb 805 dentro da nota); pág. 805: nota 1 (n805-1) confere com o rodapé.\nDúvidas: grafia \"DEus\"/\"Deus\" em versalete foi mantida como no fragmento; \"pelo primeiros\" transcrito como impresso; \"assistencia\" fecha o fragmento, palavra hifenizada na pág. 805 (resto em 806 fora do trecho).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0100097,
+ "duration_ms": 59729,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17912,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 16437
+ },
+ "reparo": false
+}

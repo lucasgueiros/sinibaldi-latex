@@ -1,0 +1,28 @@
+{
+ "pagina": 782,
+ "paginas": [
+  782,
+  783
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (heril, innato, 2.º, escravidões, basêa, juridicas, lei natural), pontuação (classes., familias., individuos., social.), tem→têm, formatação (negrito dos títulos 187/188, e romano em \"perfeita, e porque\") e o rótulo \"Summario:\" restaurado no argumento.\nFronteira: a nota de chamada (3), em p. 782, estava numerada como 8 (n782-8); renumerada para n=\"3\" e xml:id=\"n782-3\", sem mudar o conteúdo nem a posição no corpo. Nenhuma outra fronteira corpo/nota foi alterada; o pb 783 dentro da nota continua correto.\nDúvidas: a inclusão de \"Summario:\" como <hi rend=\"sc\"> e a extensão do negrito dos títulos foram leituras da imagem, não confirmadas no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (heril, innato, 2.º, escravidões, basêa, juridicas, lei natural), pontuação (classes., familias., individuos., social.), tem→têm, formatação (negrito dos títulos 187/188, e romano em \"perfeita, e porque\") e o rótulo \"Summario:\" restaurado no argumento.\nFronteira: a nota de chamada (3), em p. 782, estava numerada como 8 (n782-8); renumerada para n=\"3\" e xml:id=\"n782-3\", sem mudar o conteúdo nem a posição no corpo. Nenhuma outra fronteira corpo/nota foi alterada; o pb 783 dentro da nota continua correto.\nDúvidas: a inclusão de \"Summario:\" como <hi rend=\"sc\"> e a extensão do negrito dos títulos foram leituras da imagem, não confirmadas no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.008652,
+ "duration_ms": 51025,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17420,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13820
+ },
+ "reparo": false
+}

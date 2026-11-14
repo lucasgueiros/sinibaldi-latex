@@ -1,0 +1,29 @@
+{
+ "pagina": 740,
+ "paginas": [
+  740,
+  741,
+  742
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (necessario/hecessarios, servos, natural, aceitam, distincção, Thomaz, Malthus, França, progressão e números de Malthus, \"Sum. Th.\", \"c. 123\", \"Deus\"/\"Christo\" em versalete), \"n&amp;o\" → \"não\", \"80\" → \"só\", \"a,\" → \"a\", letras de alínea (a–d) em romano, \"4)\"/\"0)\" → \"d)\"/\"c)\", \"mos\" restaurado no início da p. 740, itálico de \"necessario\" e \"immediatamente\" e \"é\" ajustado, cabeçalhos em negrito.\nFronteira corpo/nota: conferida e mantida sem alteração. Nota 740-2 continua na p. 741 (pb inserido na nota) e na p. 742 (pb 742 na nota, com \"d)\" como última parte); nota 742-1 começa na chamada \"(1)\" da p. 742. Nenhuma nota foi criada, movida ou fechada.\nDúvidas: uso de negrito nos títulos \"a) A unidade…\" e de versalete em \"Jesus Christo\" é inferido da imagem; a grafia \"póde\" e a itálica de \"matrimonio é anterior\" foram mantidas como vêm no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (necessario/hecessarios, servos, natural, aceitam, distincção, Thomaz, Malthus, França, progressão e números de Malthus, \"Sum. Th.\", \"c. 123\", \"Deus\"/\"Christo\" em versalete), \"n&amp;o\" → \"não\", \"80\" → \"só\", \"a,\" → \"a\", letras de alínea (a–d) em romano, \"4)\"/\"0)\" → \"d)\"/\"c)\", \"mos\" restaurado no início da p. 740, itálico de \"necessario\" e \"immediatamente\" e \"é\" ajustado, cabeçalhos em negrito.\nFronteira corpo/nota: conferida e mantida sem alteração. Nota 740-2 continua na p. 741 (pb inserido na nota) e na p. 742 (pb 742 na nota, com \"d)\" como última parte); nota 742-1 começa na chamada \"(1)\" da p. 742. Nenhuma nota foi criada, movida ou fechada.\nDúvidas: uso de negrito nos títulos \"a) A unidade…\" e de versalete em \"Jesus Christo\" é inferido da imagem; a grafia \"póde\" e a itálica de \"matrimonio é anterior\" foram mantidas como vêm no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0207559,
+ "duration_ms": 132977,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25574,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 36397
+ },
+ "reparo": false
+}

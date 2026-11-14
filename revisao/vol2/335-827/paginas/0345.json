@@ -1,0 +1,27 @@
+{
+ "pagina": 345,
+ "paginas": [
+  345
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (harmonieamente, /omo, J/aeckel, indieios, deduoção, affirmacao, 11/111 → II/III, «u»/«7» → « / », Dórwin → Darwin), acentos e maiúsculas (acerca), e a chamada \"(3)\" que estava ligada à nota 8 — renumerada para n=\"3\" (xml:id n345-3). Nenhuma fronteira corpo/nota foi alterada: as notas 1, 2 e 3 já estão no rodapé correto da p. 345.\nDúvidas: \"Darwin\" foi lido como nome próprio (a imagem está pouco nítida); o alcance do negrito do título \"216.\" foi estendido a \"O corpo humano não derivou…\", sem o número.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (harmonieamente, /omo, J/aeckel, indieios, deduoção, affirmacao, 11/111 → II/III, «u»/«7» → « / », Dórwin → Darwin), acentos e maiúsculas (acerca), e a chamada \"(3)\" que estava ligada à nota 8 — renumerada para n=\"3\" (xml:id n345-3). Nenhuma fronteira corpo/nota foi alterada: as notas 1, 2 e 3 já estão no rodapé correto da p. 345.\nDúvidas: \"Darwin\" foi lido como nome próprio (a imagem está pouco nítida); o alcance do negrito do título \"216.\" foi estendido a \"O corpo humano não derivou…\", sem o número.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.004133700000000001,
+ "duration_ms": 23409,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10812,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6105
+ },
+ "reparo": false
+}

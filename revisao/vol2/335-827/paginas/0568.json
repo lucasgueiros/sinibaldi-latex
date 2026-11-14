@@ -1,0 +1,27 @@
+{
+ "pagina": 568,
+ "paginas": [
+  568
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções de OCR e ortografia: \"ires\"→\"tres\", \"peceado\"→\"peccado\", \"2ndifferentes\"→\"indifferentes\", \"tomem\"→\"homem\", \"Awmeanos\"→\"humanos\", \"communm\"→\"commum\", \"alias\"→\"aliás\", \"Humano\"→\"humano\", \"podem -ser\"→\"podem ser\", \";\" espúrio removido, ponto final da nota 2; \"SuwwaRr0\" lido como Summario em versalete. Nenhuma mudança de fronteira corpo/nota: as notas 1 e 2 já estavam no lugar certo na página 568.\nDúvida: \"estes-males\" lido como \"estes males\" (o traço na imagem parece ruído); \"o o senso commum\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções de OCR e ortografia: \"ires\"→\"tres\", \"peceado\"→\"peccado\", \"2ndifferentes\"→\"indifferentes\", \"tomem\"→\"homem\", \"Awmeanos\"→\"humanos\", \"communm\"→\"commum\", \"alias\"→\"aliás\", \"Humano\"→\"humano\", \"podem -ser\"→\"podem ser\", \";\" espúrio removido, ponto final da nota 2; \"SuwwaRr0\" lido como Summario em versalete. Nenhuma mudança de fronteira corpo/nota: as notas 1 e 2 já estavam no lugar certo na página 568.\nDúvida: \"estes-males\" lido como \"estes males\" (o traço na imagem parece ruído); \"o o senso commum\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0037388000000000005,
+ "duration_ms": 20394,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10718,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5334
+ },
+ "reparo": false
+}

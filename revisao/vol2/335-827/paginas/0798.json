@@ -1,0 +1,27 @@
+{
+ "pagina": 798,
+ "paginas": [
+  798
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: \"&amp;\" lido por \"a\" (lei evangelica), \"4\" por \"á\", \"deriva ;\" com espaço, \"e\" em itálico indevido, \"juizos\" → \"juizes\" (2×), \"Julgar\" → \"julgar\", e itálicos faltando em \"executivo\" e \"coacção juridica\" (d). Nenhuma mudança de fronteira corpo/nota: as notas 1 e 2 estão corretamente no pé da página 798.\nNão acrescentei \"sario\" no topo da p. 798: é o fim de palavra hifenizada vinda da página 797, fora do trecho.\nDúvida: \"A Egreja\" em c) parece em negrito na imagem, como em d); no TEI só \"Egreja\" de d) está em <hi rend=\"bold\">. Mantive como estava.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: \"&amp;\" lido por \"a\" (lei evangelica), \"4\" por \"á\", \"deriva ;\" com espaço, \"e\" em itálico indevido, \"juizos\" → \"juizes\" (2×), \"Julgar\" → \"julgar\", e itálicos faltando em \"executivo\" e \"coacção juridica\" (d). Nenhuma mudança de fronteira corpo/nota: as notas 1 e 2 estão corretamente no pé da página 798.\nNão acrescentei \"sario\" no topo da p. 798: é o fim de palavra hifenizada vinda da página 797, fora do trecho.\nDúvida: \"A Egreja\" em c) parece em negrito na imagem, como em d); no TEI só \"Egreja\" de d) está em <hi rend=\"bold\">. Mantive como estava.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0049785,
+ "duration_ms": 28571,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11210,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7715
+ },
+ "reparo": false
+}

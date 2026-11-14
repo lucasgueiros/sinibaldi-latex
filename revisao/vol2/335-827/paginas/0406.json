@@ -1,0 +1,31 @@
+{
+ "pagina": 406,
+ "paginas": [
+  406,
+  407,
+  408,
+  409,
+  410
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos sobretudo erros de OCR (l/t, rn/m, \"n&amp;o\", \"zntellectwaes\", \"Jtosmini\", \"Zmmateriaes\", \"/oc.\", \"Th\" lido como \"TA\"/\"T\"), acentos, hifenização (\"se-/parada\" já unida), \"é\"→\"e\", \"s muda\"→\"só muda\", \"prop. 28\"→\"prop. 23\", \"a. 1V\"→\"a. 17\", \"Sum. Th.\" e \"De verit.,\" e \"&amp;\"→\"á/a\", e pontuação (\"(Cf. … loc. cit.).\" e \"admiravel.\"); removido o \"Todavia\" entre aspas.\nFronteiras corpo/nota conferidas e mantidas: nota 406-1 inclui S. Thomaz, Rosmini e a continuação em 407 (letra pequena, pois a medida confirma); nota 407-1 atravessa 408–409 até \"resurreição dos corpos\"; nota 409-1 vai até \"loc. cit.\" em 410. Nenhuma mudança de estrutura; \"ções\" no alto de 406 deixado de fora (palavra hifenizada da página anterior).\nDúvidas: \"p. I\" versus \"p. 1\" em algumas citações da Sum. Th. (lido como I); \"pode\"/\"póde\" alternando na imagem, mantive a grafia do XML.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos sobretudo erros de OCR (l/t, rn/m, \"n&amp;o\", \"zntellectwaes\", \"Jtosmini\", \"Zmmateriaes\", \"/oc.\", \"Th\" lido como \"TA\"/\"T\"), acentos, hifenização (\"se-/parada\" já unida), \"é\"→\"e\", \"s muda\"→\"só muda\", \"prop. 28\"→\"prop. 23\", \"a. 1V\"→\"a. 17\", \"Sum. Th.\" e \"De verit.,\" e \"&amp;\"→\"á/a\", e pontuação (\"(Cf. … loc. cit.).\" e \"admiravel.\"); removido o \"Todavia\" entre aspas.\nFronteiras corpo/nota conferidas e mantidas: nota 406-1 inclui S. Thomaz, Rosmini e a continuação em 407 (letra pequena, pois a medida confirma); nota 407-1 atravessa 408–409 até \"resurreição dos corpos\"; nota 409-1 vai até \"loc. cit.\" em 410. Nenhuma mudança de estrutura; \"ções\" no alto de 406 deixado de fora (palavra hifenizada da página anterior).\nDúvidas: \"p. I\" versus \"p. 1\" em algumas citações da Sum. Th. (lido como I); \"pode\"/\"póde\" alternando na imagem, mantive a grafia do XML.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.027198,
+ "duration_ms": 169281,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 37725,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 46851
+ },
+ "reparo": false
+}

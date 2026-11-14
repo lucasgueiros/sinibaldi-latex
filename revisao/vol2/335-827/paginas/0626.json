@@ -1,0 +1,31 @@
+{
+ "pagina": 626,
+ "paginas": [
+  626,
+  627,
+  628,
+  629,
+  630
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (theorica, effeitos, escolher, necessariamente, Thomasio 1728, De l'esprit, c. 2, Sum. Th. 1-2, q. 93, ecclesiastico, racionaes, Deus/Dzvus, hifens e palavras como \"let\"/\"lei\", \"á\"/\"a\", \"o\"/\"c\"); formatação (negrito dos títulos numerados e \"Summario:\" em versalete); \"CAPITULO QUARTO\" reposto e ordem REGRAS/argumento ajustada à imagem; \"4\" e \":\" de lixo removidos; \"civil\" de 628 unido ao parágrafo anterior.\nFronteira corpo/nota: não alterei nenhuma fronteira; as notas 626-2, 628-1, 628-2, 629-1 e 630-1 já estavam corretas (629-1 e 626-2 continuam em 627/628/630 conforme a imagem).\nDúvidas: em 627 nota 2, \"pois não liberdade physica\" pode ter palavra perdida (carimbo sobre o texto); \"2.°)\" manteve-se como no fragmento; a edição de \"Summario:\" e a inserção de \"CAPITULO QUARTO\" em `<p>` são reposições de linhas que o pipeline omitiu.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (theorica, effeitos, escolher, necessariamente, Thomasio 1728, De l'esprit, c. 2, Sum. Th. 1-2, q. 93, ecclesiastico, racionaes, Deus/Dzvus, hifens e palavras como \"let\"/\"lei\", \"á\"/\"a\", \"o\"/\"c\"); formatação (negrito dos títulos numerados e \"Summario:\" em versalete); \"CAPITULO QUARTO\" reposto e ordem REGRAS/argumento ajustada à imagem; \"4\" e \":\" de lixo removidos; \"civil\" de 628 unido ao parágrafo anterior.\nFronteira corpo/nota: não alterei nenhuma fronteira; as notas 626-2, 628-1, 628-2, 629-1 e 630-1 já estavam corretas (629-1 e 626-2 continuam em 627/628/630 conforme a imagem).\nDúvidas: em 627 nota 2, \"pois não liberdade physica\" pode ter palavra perdida (carimbo sobre o texto); \"2.°)\" manteve-se como no fragmento; a edição de \"Summario:\" e a inserção de \"CAPITULO QUARTO\" em `<p>` são reposições de linhas que o pipeline omitiu.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0260997,
+ "duration_ms": 162805,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 39417,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 44316
+ },
+ "reparo": false
+}

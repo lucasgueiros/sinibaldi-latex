@@ -1,0 +1,28 @@
+{
+ "pagina": 355,
+ "paginas": [
+  355,
+  356
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (Dzvus, distineta, Astoria, differenca, producções, \"o doença\", \"prosimo\", \"creacüo\", \"1b.\"), acentos, pontuação (\"perfeito. E\"), itálicos/negrito (218 em negrito, \"Ib\", \"Dist\"), \"*\" espúrio, numeração \"218.\" como <label>, cabeçalho \"Origem da alma humana.\". Sem mudança de fronteira corpo/nota: a nota 355-1 continua corretamente em 356 e a 356-1 está ancorada em \"vida (1).\"; as linhas \"tirados…\", \"Apezar…\", \"Haeckel…\" e \"O fanatismo…\" do alto da área de notas da p. 355 não foram acrescentadas, por pertencerem à nota anterior.\nDúvidas: \"por um operação natural\" mantido como impresso; a leitura de \"Deus\" em sc/normal no nota 355-1 (§2) é incerta.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (Dzvus, distineta, Astoria, differenca, producções, \"o doença\", \"prosimo\", \"creacüo\", \"1b.\"), acentos, pontuação (\"perfeito. E\"), itálicos/negrito (218 em negrito, \"Ib\", \"Dist\"), \"*\" espúrio, numeração \"218.\" como <label>, cabeçalho \"Origem da alma humana.\". Sem mudança de fronteira corpo/nota: a nota 355-1 continua corretamente em 356 e a 356-1 está ancorada em \"vida (1).\"; as linhas \"tirados…\", \"Apezar…\", \"Haeckel…\" e \"O fanatismo…\" do alto da área de notas da p. 355 não foram acrescentadas, por pertencerem à nota anterior.\nDúvidas: \"por um operação natural\" mantido como impresso; a leitura de \"Deus\" em sc/normal no nota 355-1 (§2) é incerta.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.014280600000000001,
+ "duration_ms": 97928,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16871,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 25187
+ },
+ "reparo": false
+}

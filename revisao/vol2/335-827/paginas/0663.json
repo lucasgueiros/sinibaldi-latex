@@ -1,0 +1,38 @@
+{
+ "pagina": 663,
+ "paginas": [
+  663,
+  664,
+  665,
+  666,
+  667,
+  668,
+  669,
+  670,
+  671,
+  672,
+  673,
+  674
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigido OCR (acentos, letras trocadas, hifenização, ª/º dos ordinais, itálicos/negritos, cabeçalhos \"A) Eschola…\" em negrito). Removidos lixo \"48 Vor. IL.\" (junção \"da<pb 674/>lei\" dentro da nota), \"j\", \";\", \":\" e \"á:\" espúrios; separado \"b) Bentham\" (p. 665) em novo parágrafo. Fronteira corpo/nota: nenhuma mudança — a nota n663-1 é de fato a longa nota que atravessa as pp. 663–674 e o corpo são só as 2 linhas do topo de cada página; alertas das pp. 664 e 674 eram falsos. Dúvida: \"que\" em \"condições, que são necessarias\" (p. 671, manchado).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigido OCR (acentos, letras trocadas, hifenização, ª/º dos ordinais, itálicos/negritos, cabeçalhos \"A) Eschola…\" em negrito). Removidos lixo \"48 Vor. IL.\" (junção \"da<pb 674/>lei\" dentro da nota), \"j\", \";\", \":\" e \"á:\" espúrios; separado \"b) Bentham\" (p. 665) em novo parágrafo. Fronteira corpo/nota: nenhuma mudança — a nota n663-1 é de fato a longa nota que atravessa as pp. 663–674 e o corpo são só as 2 linhas do topo de cada página; alertas das pp. 664 e 674 eram falsos. Dúvida: \"que\" em \"condições, que são necessarias\" (p. 671, manchado).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.502934,
+ "duration_ms": 162413,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 90462,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 32201
+ },
+ "reparo": false
+}

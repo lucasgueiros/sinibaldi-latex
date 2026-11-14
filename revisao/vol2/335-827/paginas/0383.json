@@ -1,0 +1,27 @@
+{
+ "pagina": 383,
+ "paginas": [
+  383
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (cruzando, causa, Concluimos, raças, espaços, mestiços, perduravel, Scherzer, Agassiz, differenças, \"As cores\"), ano da citação de Flourens (1863), hífen de quebra de linha em \"Saint-Hillaire\" e aspas espúrias em \"um só par\"; Waitz passou a itálico, como os demais nomes da lista.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (pág. 383) já estava corretamente fechada após \"especie\", e o corpo seguinte confere com a imagem.\nDúvidas: grafia \"Herper\" mantida como impressa; itálico de \"Waitz\" e de \"Novo Canadá\" inferido da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (cruzando, causa, Concluimos, raças, espaços, mestiços, perduravel, Scherzer, Agassiz, differenças, \"As cores\"), ano da citação de Flourens (1863), hífen de quebra de linha em \"Saint-Hillaire\" e aspas espúrias em \"um só par\"; Waitz passou a itálico, como os demais nomes da lista.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (pág. 383) já estava corretamente fechada após \"especie\", e o corpo seguinte confere com a imagem.\nDúvidas: grafia \"Herper\" mantida como impressa; itálico de \"Waitz\" e de \"Novo Canadá\" inferido da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0041257,
+ "duration_ms": 21744,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10957,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6060
+ },
+ "reparo": false
+}

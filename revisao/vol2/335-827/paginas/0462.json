@@ -1,0 +1,29 @@
+{
+ "pagina": 462,
+ "paginas": [
+  462,
+  463,
+  464
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (Dzvus→Deus, Bssencia→Essencia, arehetypas, intelligenecia, LoGICA, vendade, simplicissinia, mon solum, \"a, intelligencia\", \"partecipado\", \"a essencia\"/\"á substancia\", \"/\" espúrio, \"|\" removido), pontuação do título, numeração de notas (nota do fim de \"Logo Deus é verdadeiro\" era n=\"8\", corrigida para n=\"3\"/xml:id n462-3) e números/datas da nota (2) de 462 (\"p. T q. Ignem… 9 e 8\" → \"p. I, q. 16… 2 e 3\"); negrito dos títulos 42–44 e 41 conforme a imagem.\nFronteira corpo/nota: nenhuma mudança de texto entre corpo e nota; a continuação da nota (3) de 462 no pé de 463 (\"a menos perfeita…\") já estava corretamente ligada por pb 463 interno à nota, e a nota (2) de 463 continua corretamente no pé de 464.\nDúvidas: o pb 463 dentro da nota (3) traz facs, diferente do formato `<pb n=\"N\"/>` indicado; mantido por não ser correção de fronteira. Não tenho certeza se \"partecipado\" ou \"participado\" é a grafia impressa; segui a imagem (\"partecipado\"). Caixa alta de \"DEUS\" nas citações foi mantida como impressa.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (Dzvus→Deus, Bssencia→Essencia, arehetypas, intelligenecia, LoGICA, vendade, simplicissinia, mon solum, \"a, intelligencia\", \"partecipado\", \"a essencia\"/\"á substancia\", \"/\" espúrio, \"|\" removido), pontuação do título, numeração de notas (nota do fim de \"Logo Deus é verdadeiro\" era n=\"8\", corrigida para n=\"3\"/xml:id n462-3) e números/datas da nota (2) de 462 (\"p. T q. Ignem… 9 e 8\" → \"p. I, q. 16… 2 e 3\"); negrito dos títulos 42–44 e 41 conforme a imagem.\nFronteira corpo/nota: nenhuma mudança de texto entre corpo e nota; a continuação da nota (3) de 462 no pé de 463 (\"a menos perfeita…\") já estava corretamente ligada por pb 463 interno à nota, e a nota (2) de 463 continua corretamente no pé de 464.\nDúvidas: o pb 463 dentro da nota (3) traz facs, diferente do formato `<pb n=\"N\"/>` indicado; mantido por não ser correção de fronteira. Não tenho certeza se \"partecipado\" ou \"participado\" é a grafia impressa; segui a imagem (\"partecipado\"). Caixa alta de \"DEUS\" nas citações foi mantida como impressa.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0120283,
+ "duration_ms": 64755,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25138,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 19029
+ },
+ "reparo": false
+}

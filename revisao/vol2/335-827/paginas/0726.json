@@ -1,0 +1,28 @@
+{
+ "pagina": 726,
+ "paginas": [
+  726,
+  727
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (Vésito, inoraes, s&amp;o, Oreador, Bemaventwurados, soecorrer, commanicacdo, JDiligite, /onestidade, \"g generosas\", \"a um -cego\", \"á)\"), hifenizações de fim de linha (conjugal, Creador, formula), itálicos/versalete (Jesus Christo em sc, communicação e \"amemos o proximo como a nós mesmos\" em itálico), \"Mesmo\"→\"mesmo\", \"(Matth.,\" com ponto, aspas « » normalizadas.\nFronteira corpo/nota: conferida e mantida. Nota 2 de p. 726 segue, sem número, pela área de notas de p. 727 (\"virtude. Silvio Pellico…\" até \"amar o proprio Deus\"), e o corpo de p. 727 (\"a) Deveres…\", \"b) Deveres…\") vem depois dela, como na imagem; nada movido. Notas 1 e 2 de p. 727 corretas.\nDúvidas: caixa alta/versalete em \"Jesus Christo\" e a negrito de \"de humanidade\"/\"do homem\" no título; e o \"n\" que aparece após algumas aspas (726 \"beneficios\", 727 \"es\") foi lido como « » fechando a citação.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (Vésito, inoraes, s&amp;o, Oreador, Bemaventwurados, soecorrer, commanicacdo, JDiligite, /onestidade, \"g generosas\", \"a um -cego\", \"á)\"), hifenizações de fim de linha (conjugal, Creador, formula), itálicos/versalete (Jesus Christo em sc, communicação e \"amemos o proximo como a nós mesmos\" em itálico), \"Mesmo\"→\"mesmo\", \"(Matth.,\" com ponto, aspas « » normalizadas.\nFronteira corpo/nota: conferida e mantida. Nota 2 de p. 726 segue, sem número, pela área de notas de p. 727 (\"virtude. Silvio Pellico…\" até \"amar o proprio Deus\"), e o corpo de p. 727 (\"a) Deveres…\", \"b) Deveres…\") vem depois dela, como na imagem; nada movido. Notas 1 e 2 de p. 727 corretas.\nDúvidas: caixa alta/versalete em \"Jesus Christo\" e a negrito de \"de humanidade\"/\"do homem\" no título; e o \"n\" que aparece após algumas aspas (726 \"beneficios\", 727 \"es\") foi lido como « » fechando a citação.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0139515,
+ "duration_ms": 96401,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17735,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24356
+ },
+ "reparo": false
+}

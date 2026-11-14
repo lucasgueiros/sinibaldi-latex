@@ -1,0 +1,27 @@
+{
+ "pagina": 506,
+ "paginas": [
+  506
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: linha inicial de p. 506 reposta (\"liberação\"); na nota (1), \"a. 8\"→\"a. 3\", \"erear\"→\"crear\", \"indifferenca\"→\"indifferença\", \"P. I\"→\"p. I\"; no corpo, negrito estendido a \"divino.\" e \"E'\" lido corretamente.\nFronteira corpo/nota: nenhuma mudança. A continuação de nota do alto da área de notas da p. 506 (\"mas, antes, é um seu defeito…\") não foi acrescentada, conforme instrução.\nDúvidas: mantive \"DEus\" (maiúsculas) como impresso na nota e \"á\" como crase, conforme a convenção da edição.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: linha inicial de p. 506 reposta (\"liberação\"); na nota (1), \"a. 8\"→\"a. 3\", \"erear\"→\"crear\", \"indifferenca\"→\"indifferença\", \"P. I\"→\"p. I\"; no corpo, negrito estendido a \"divino.\" e \"E'\" lido corretamente.\nFronteira corpo/nota: nenhuma mudança. A continuação de nota do alto da área de notas da p. 506 (\"mas, antes, é um seu defeito…\") não foi acrescentada, conforme instrução.\nDúvidas: mantive \"DEus\" (maiúsculas) como impresso na nota e \"á\" como crase, conforme a convenção da edição.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0037472,
+ "duration_ms": 22082,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10132,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5468
+ },
+ "reparo": false
+}

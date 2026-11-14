@@ -1,0 +1,34 @@
+{
+ "pagina": 599,
+ "paginas": [
+  599,
+  600,
+  601,
+  602,
+  603,
+  604,
+  605,
+  606
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (á/a, n&amp;o, Dus/DEUS, rasdo, éncosciente, 1188, bsz*da, \"L\" espúrio, letras trocadas como \"maxvimas\", \"Sc/Aérer\", \"V)\" por \"7)\", \"8)\" por \"3)\", \"é á\" por \"é a\") e formatação (negrito dos títulos I–VII, A., II., III., IV., V., 51.; itálicos \"objectiva é intrinseca\", \"e\"); reuni \"como a / vida\" e \"dif- / ferentes\".\nFronteira corpo/nota: mantida sem alteração. A nota n599-1 vai de 599 até o fim de 606 (\"Schérer\"), como na imagem; os trechos \"52. Corollario\" e \"I. A regra…\" (topo de 600–605) continuam no corpo. Há dois pb 600 (um dentro da nota, outro no corpo) — mantidos por serem estruturais.\nDúvida: na imagem as linhas de corpo do topo de 600–605 caem entre partes da nota; o XML as põe depois da nota, invertendo a ordem física. Não reestruturei para não dividir a nota.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (á/a, n&amp;o, Dus/DEUS, rasdo, éncosciente, 1188, bsz*da, \"L\" espúrio, letras trocadas como \"maxvimas\", \"Sc/Aérer\", \"V)\" por \"7)\", \"8)\" por \"3)\", \"é á\" por \"é a\") e formatação (negrito dos títulos I–VII, A., II., III., IV., V., 51.; itálicos \"objectiva é intrinseca\", \"e\"); reuni \"como a / vida\" e \"dif- / ferentes\".\nFronteira corpo/nota: mantida sem alteração. A nota n599-1 vai de 599 até o fim de 606 (\"Schérer\"), como na imagem; os trechos \"52. Corollario\" e \"I. A regra…\" (topo de 600–605) continuam no corpo. Há dois pb 600 (um dentro da nota, outro no corpo) — mantidos por serem estruturais.\nDúvida: na imagem as linhas de corpo do topo de 600–605 caem entre partes da nota; o XML as põe depois da nota, invertendo a ordem física. Não reestruturei para não dividir a nota.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.042157900000000005,
+ "duration_ms": 278329,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 61179,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 72080
+ },
+ "reparo": false
+}

@@ -1,0 +1,28 @@
+{
+ "pagina": 763,
+ "paginas": [
+  763,
+  764
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: numeração das teses no texto (278→178, 279→179); OCR (civi→civil, Immediatamente, Znalienavel, envolyem→envolvem, successdo→successão, \"ó\"→\"é\", \"á victoria\"→\"a victoria\", etc.); \"x\" espúrio antes do pb 764; \"(1)\" já ausente da nota; itálicos das alíneas a) a f); vírgula em \"deriva, de Deus\"; parágrafo \"deve conformar-se…\" (d) unido ao anterior, pois continua sem recuo na imagem.\nFronteira corpo/nota: conferida e NÃO alterada. A nota 1 começa em 763 (após o filete), continua no rodapé de 764 e fecha após \"destruição da sociedade.\"; o corpo de 764 (179 e \"D'ahi as varias e\") está acima do filete. O alerta do pipeline para 764 é falso positivo.\nDúvidas: os atributos n=\"278\" e n=\"279\" das divs foram mantidos conforme a regra, mas parecem divergir da numeração impressa (178/179); \"DEus\" e \"a. DEus\" mantidos como impressos; \"seja a somma\" lido sem acento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: numeração das teses no texto (278→178, 279→179); OCR (civi→civil, Immediatamente, Znalienavel, envolyem→envolvem, successdo→successão, \"ó\"→\"é\", \"á victoria\"→\"a victoria\", etc.); \"x\" espúrio antes do pb 764; \"(1)\" já ausente da nota; itálicos das alíneas a) a f); vírgula em \"deriva, de Deus\"; parágrafo \"deve conformar-se…\" (d) unido ao anterior, pois continua sem recuo na imagem.\nFronteira corpo/nota: conferida e NÃO alterada. A nota 1 começa em 763 (após o filete), continua no rodapé de 764 e fecha após \"destruição da sociedade.\"; o corpo de 764 (179 e \"D'ahi as varias e\") está acima do filete. O alerta do pipeline para 764 é falso positivo.\nDúvidas: os atributos n=\"278\" e n=\"279\" das divs foram mantidos conforme a regra, mas parecem divergir da numeração impressa (178/179); \"DEus\" e \"a. DEus\" mantidos como impressos; \"seja a somma\" lido sem acento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0110712,
+ "duration_ms": 68936,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18227,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18497
+ },
+ "reparo": false
+}

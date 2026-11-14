@@ -1,0 +1,31 @@
+{
+ "pagina": 378,
+ "paginas": [
+  378,
+  379,
+  380,
+  381,
+  382
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de palavras (transfurmistas, semelbantes, anatonico, émmediatos, cireumyoluções, Bwrmeister, eruzando-se, Flourens, estayam, Bär/Br, Proecuraremos, unitam, q. 9→q. 3), acentos e cedilhas, “ &amp; ”→“a”, “5)”/“€)”→“b)”/“c)”, junção de “ı” isolado, “r” e “n” soltos removidos, “0”→“O” no título de 229, itálicos e minúsculas corrigidos, linhas faltantes/palavras (“etc.”, “E isto basta”), e “/iomem”→“homem”.\nFronteiras corpo/nota: conferidas e mantidas (nota 1 e nota 2 do p. 378 com continuação em 379–380; nota 380-1 com continuação em 381–382); nenhuma mudança de fronteira feita. Nenhum “(n)” literal encontrado no corpo.\nDúvidas restantes: “c. 89” na citação de S. Thomaz, “85º e 70º” da conformação do craneo, e a “r” removida de t230.p2 (apaguei o parágrafo inteiro por ser lixo).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de palavras (transfurmistas, semelbantes, anatonico, émmediatos, cireumyoluções, Bwrmeister, eruzando-se, Flourens, estayam, Bär/Br, Proecuraremos, unitam, q. 9→q. 3), acentos e cedilhas, “ &amp; ”→“a”, “5)”/“€)”→“b)”/“c)”, junção de “ı” isolado, “r” e “n” soltos removidos, “0”→“O” no título de 229, itálicos e minúsculas corrigidos, linhas faltantes/palavras (“etc.”, “E isto basta”), e “/iomem”→“homem”.\nFronteiras corpo/nota: conferidas e mantidas (nota 1 e nota 2 do p. 378 com continuação em 379–380; nota 380-1 com continuação em 381–382); nenhuma mudança de fronteira feita. Nenhum “(n)” literal encontrado no corpo.\nDúvidas restantes: “c. 89” na citação de S. Thomaz, “85º e 70º” da conformação do craneo, e a “r” removida de t230.p2 (apaguei o parágrafo inteiro por ser lixo).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0208039,
+ "duration_ms": 118211,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38994,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 33809
+ },
+ "reparo": false
+}

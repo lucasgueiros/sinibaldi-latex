@@ -1,0 +1,33 @@
+{
+ "pagina": 734,
+ "paginas": [
+  734
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR e de acentuação na nota 1 (“80”→“só”, “ihdicar”→“indicar”, “a necessario”→“é necessario”, “animal,logo”, “n&amp;o”→“não”, “Sciencia”→“sciencia”, “fa/lar”→“fallar”, “sociavel ;”), letras de enumeração (“5)”→“b)”) e itálicos faltantes (“moraes” final da nota e da alínea c); “e as artes” no lugar de “o as artes”.\nNenhuma mudança de fronteira corpo/nota na p. 734: a nota 1 começa após “sociavel” e termina em “moraes.” no pé da página, como na imagem; os <pb> do corpo permanecem inalterados.\nDúvidas: “a misericordia” lido sem crase (a imagem não mostra acento); o ponto em “meios . de defeza” interpretado como sujeira da digitalização; o sublinhado sob “proficiencia” tratado como artefato, mantendo só o itálico.",
+ "tentativas": [
+  {
+   "falha": "os <pb> do corpo mudaram: ['734'] → []",
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (“80”→“só”, “ihdicar”→“indicar”, “a necessario”→“é necessario”, “fa/lar”→“fallar”, “n&amp;o”→“não”, “o as artes”→“e as artes”, “Sciencia”→“sciencia”, “á misericordia”→“a misericordia”, “5)”→“b)”), espaçamento e “social ;”→“social;”.\nFronteira corpo/nota: sem alterações; a nota 1 (pp. 734) já estava corretamente fechada após “moraes.” e a chamada “(1)” no corpo está correta.\nDúvidas: itálico de “a)”, “b)” e “c)” no rodapé, e a grafia “sua necessidades”, foram mantidos como aparecem na imagem; a tag <entrada> de embrulho do envio não foi reproduzida.",
+   "resposta": "<xml>\n<p>os seus semelhantes, a satisfação de todas essas necessidades. — Encontra a satisfação das suas necessidades <hi rend=\"it\">corporaes</hi>; pois, quando nasce, não possue os meios necessarios para a sua conservação e desenvolvimento, nem os póde adquirir só pelos seus esforços. — Encontra a satisfação das suas necessidades <hi rend=\"it\">intellectuaes</hi>; pois a sciencia e as artes só se apprehendem depois de muito tempo e estudo, sob a disciplina de pessoas sabias. — Encontra a satisfação das suas necessidades <hi rend=\"it\">moraes</hi>; pois a virtude tem o seu estimulo no exemplo e conselho dos bons. Logo o homem é <hi rend=\"it\">naturalmente</hi> sociavel <note place=\"foot\" n=\"1\" xml:id=\"n734-1\"><p>Desenvolvamos as partes, que constituem a proposição <hi rend=\"it\">menor</hi> do syllogismo, exposto no texto.</p><p>a) O homem só na sociedade póde encontrar a satisfação das suas necessidades <hi rend=\"it\">corporaes</hi>. Porquanto, ao passo que o animal, logo no seu nascimento, recebe da natureza o alimento, o vestido, os meios de defeza, que são as unhas, as pontas, os dentes, ou, ao menos, a velocidade para fugir dos males e perigos, o homem não recebeu da natureza nenhum d'esses meios, mas só a razão. Ora o homem não póde, só por si, desenvolver a sua razão de modo que esta possa indicar-lhe tudo o que é necessario para a sustentação e conservação da sua vida. Logo o homem só na sociedade póde encontrar a satisfação das suas necessidades <hi rend=\"it\">corporaes</hi>.</p><p>b) O homem só na sociedade póde encontrar a satisfação das sua necessidades <hi rend=\"it\">intellectuaes</hi>. Porquanto, as sciencias e as artes são necessarias para o desenvolvimento <hi rend=\"it\">intellectual</hi> do homem. Mas o homem, só por si, não póde cultivar, com a relativa <hi rend=\"it\">proficiencia</hi>, as sciencias e as artes; pois toda a vida do homem não basta para a <hi rend=\"it\">descoberta</hi> das verdades relativas a uma só sciencia ou a uma só arte. Por isso é preciso que sabios experimentados communiquem aos outros o fructo dos seus trabalhos e das suas lucubrações. Este ensino só é possivel na sociedade. Logo o homem só na sociedade póde encontrar a satisfação das suas necessidades <hi rend=\"it\">intellectuaes</hi>.</p><p><hi rend=\"it\">c</hi>) O homem só na sociedade póde encontrar a satisfação das suas necessidades moraes. Porquanto a pratica da virtude só na sociedade encontra o seu estimulo, que consiste no exemplo e na exhortação das pessoas boas, na direcção das leis <hi rend=\"it\">positivas</hi>, divinas e humanas, etc. — Além d'isso, ha muitas virtudes, como a justiça, a misericordia, a caridade, a esmola, que só na sociedade podem praticar-se e desenvolver-se. — Logo o homem só na sociedade póde encontrar a satisfação das suas necessidades moraes.</p></note>.</p><p>b) O homem será <hi rend=\"it\">naturalmente</hi> sociavel, se a natureza o tiver dotado de faculdades, que têm uma relação <hi rend=\"it\">intrinseca</hi> e <hi rend=\"it\">necessaria</hi> com a vida social; pois repugna que a natureza não relacione um ser com uma coisa, com a qual se relacionam essencialmente as faculdades do proprio ser. Ora a natureza dotou o homem das faculdades de <hi rend=\"it\">fallar</hi> e de <hi rend=\"it\">ouvir</hi>, e estas têm uma relação <hi rend=\"it\">intrinseca</hi> e <hi rend=\"it\">necessaria</hi> com a vida social; pois é absurdo dizer que o homem tem o dom da <hi rend=\"it\">linguagem</hi>, só\n</xml>\n<notas>\nCorrigidos: OCR (“80”→“só”, “ihdicar”→“indicar”, “a necessario”→“é necessario”, “fa/lar”→“fallar”, “n&amp;o”→“não”, “o as artes”→“e as artes”, “Sciencia”→“sciencia”, “á misericordia”→“a misericordia”, “5)”→“b)”), espaçamento e “social ;”→“social;”.\nFronteira corpo/nota: sem alterações; a nota 1 (pp. 734) já estava corretamente fechada após “moraes.” e a chamada “(1)” no corpo está correta.\nDúvidas: itálico de “a)”, “b)” e “c)” no rodapé, e a grafia “sua necessidades”, foram mantidos como aparecem na imagem; a tag <entrada> de embrulho do envio não foi reproduzida.\n</notas>"
+  },
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR e de acentuação na nota 1 (“80”→“só”, “ihdicar”→“indicar”, “a necessario”→“é necessario”, “animal,logo”, “n&amp;o”→“não”, “Sciencia”→“sciencia”, “fa/lar”→“fallar”, “sociavel ;”), letras de enumeração (“5)”→“b)”) e itálicos faltantes (“moraes” final da nota e da alínea c); “e as artes” no lugar de “o as artes”.\nNenhuma mudança de fronteira corpo/nota na p. 734: a nota 1 começa após “sociavel” e termina em “moraes.” no pé da página, como na imagem; os <pb> do corpo permanecem inalterados.\nDúvidas: “a misericordia” lido sem crase (a imagem não mostra acento); o ponto em “meios . de defeza” interpretado como sujeira da digitalização; o sublinhado sob “proficiencia” tratado como artefato, mantendo só o itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0074377,
+ "duration_ms": 41898,
+ "num_turns": 2,
+ "usage": {
+  "input_tokens": 21282,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10619
+ },
+ "reparo": false
+}

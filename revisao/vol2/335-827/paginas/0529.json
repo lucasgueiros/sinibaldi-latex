@@ -1,0 +1,30 @@
+{
+ "pagina": 529,
+ "paginas": [
+  529,
+  530,
+  531,
+  532
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (immediatamente, volitivo, determinarem, «, ex/ut/ita, \"a quo habet…\", Th., referências De pot. etc.), lixo \"54 Vor. II.\" removido, parágrafos indevidos fundidos (nota 2 em 530 e corpo em 531), negrito do título 99 e itálicos ajustados. Fronteira corpo/nota: nenhuma mudança; a nota 2 (n529-2) realmente continua por 530, 531 e até o fim de \"V.\" em 532 (letra pequena no pé), conforme as imagens. Dúvida menor: \"contraría\" (com acento) mantido como impresso; \"diversamante\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (immediatamente, volitivo, determinarem, «, ex/ut/ita, \"a quo habet…\", Th., referências De pot. etc.), lixo \"54 Vor. II.\" removido, parágrafos indevidos fundidos (nota 2 em 530 e corpo em 531), negrito do título 99 e itálicos ajustados. Fronteira corpo/nota: nenhuma mudança; a nota 2 (n529-2) realmente continua por 530, 531 e até o fim de \"V.\" em 532 (letra pequena no pé), conforme as imagens. Dúvida menor: \"contraría\" (com acento) mantido como impresso; \"diversamante\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.160284,
+ "duration_ms": 59151,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 30352,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9958
+ },
+ "reparo": false
+}

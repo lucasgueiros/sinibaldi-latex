@@ -1,0 +1,27 @@
+{
+ "pagina": 725,
+ "paginas": [
+  725
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (ageressão→aggressão, nggredido→aggredido, Aypnotismo→hypnotismo, juvenís→juvenis, etoc.→etc., \"08\"→\"os\", \"*\"espúrio, \"&amp;\"→\"a\"/\"á\", collisüo→collisão, prohibicio→prohibição, fruetos→fructos, \"£)\"→\"g)\"), pontuação (ponto em \"independencia.\" e \"associação.\", \";\"→\",\" em \"etc.,\" e \"impor-se,\"), \"de.adquirir\" e \"Justa\"; itálico acrescentado em \"usura\".\nFronteira corpo/nota: nenhuma mudança de texto entre corpo e nota; apenas renumeração da nota da p. 725 de n=\"8\"/xml:id=\"n725-8\" para n=\"3\"/xml:id=\"n725-3\", ligada à chamada (3) já existente no corpo.\nDúvidas: \"defeza\" mantido como impresso; negrito de \"Dever\" em g) deixado como nas alíneas e) e f) (não verifiquei se o original tem negrito ali).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (ageressão→aggressão, nggredido→aggredido, Aypnotismo→hypnotismo, juvenís→juvenis, etoc.→etc., \"08\"→\"os\", \"*\"espúrio, \"&amp;\"→\"a\"/\"á\", collisüo→collisão, prohibicio→prohibição, fruetos→fructos, \"£)\"→\"g)\"), pontuação (ponto em \"independencia.\" e \"associação.\", \";\"→\",\" em \"etc.,\" e \"impor-se,\"), \"de.adquirir\" e \"Justa\"; itálico acrescentado em \"usura\".\nFronteira corpo/nota: nenhuma mudança de texto entre corpo e nota; apenas renumeração da nota da p. 725 de n=\"8\"/xml:id=\"n725-8\" para n=\"3\"/xml:id=\"n725-3\", ligada à chamada (3) já existente no corpo.\nDúvidas: \"defeza\" mantido como impresso; negrito de \"Dever\" em g) deixado como nas alíneas e) e f) (não verifiquei se o original tem negrito ali).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046744,
+ "duration_ms": 27875,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10949,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7159
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 723,
+ "paginas": [
+  723
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções: OCR (&amp; lido como \"á\", acentos, \"Acerca\"→\"ácerca\", \"Jurídicos\"→\"juridicos\" conforme impresso), pontuação (\"Direito á beneficencia,\" → ponto), e formatação dos títulos 146 e 147 e de \"b) Direito á beneficencia.\" em negrito; \"ARTIGO II.\" em maiúsculas como impresso.\nFronteiras corpo/nota: nenhuma alteração; nota 1 (p. 723, rodapé) e nota 2 (p. 723, rodapé) já estavam corretamente posicionadas e fechadas.\nDúvidas: se \"b) Direito á beneficencia.\" e os títulos 146/147 estão mesmo todos em negrito e se \"ARTIGO II.\" é versal ou apenas o estilo do rótulo; mantive a leitura visual da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções: OCR (&amp; lido como \"á\", acentos, \"Acerca\"→\"ácerca\", \"Jurídicos\"→\"juridicos\" conforme impresso), pontuação (\"Direito á beneficencia,\" → ponto), e formatação dos títulos 146 e 147 e de \"b) Direito á beneficencia.\" em negrito; \"ARTIGO II.\" em maiúsculas como impresso.\nFronteiras corpo/nota: nenhuma alteração; nota 1 (p. 723, rodapé) e nota 2 (p. 723, rodapé) já estavam corretamente posicionadas e fechadas.\nDúvidas: se \"b) Direito á beneficencia.\" e os títulos 146/147 estão mesmo todos em negrito e se \"ARTIGO II.\" é versal ou apenas o estilo do rótulo; mantive a leitura visual da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0054364999999999995,
+ "duration_ms": 32856,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10805,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8712
+ },
+ "reparo": false
+}

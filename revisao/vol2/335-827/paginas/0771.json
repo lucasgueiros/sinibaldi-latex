@@ -1,0 +1,27 @@
+{
+ "pagina": 771,
+ "paginas": [
+  771
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (\"funeção\"→\"função\", \"jerarchéa\", \"multiddo\", \"rasãoe &amp;\"→\"razão e a\", \"&amp;\"→\"a\", \"tém\"→\"têm\", \"á\"→\"a\", \"A\" espúrio antes de \"ao fim ultimo\", \". :\" após a nota 2, pontuação e itálicos); \"funceções\"→\"funcções\".\nFronteira corpo/nota: nenhuma alteração de nota; a nota 1 (p. 771, pé) e a nota 2 (p. 771, pé) ficam como estavam. Único ajuste estrutural: removi a quebra \"</p><p>\" no meio da frase do §181 (\"…subordinado / ao fim ultimo\"), que o impresso mostra como parágrafo contínuo.\nDúvidas: \"razão\" e \"natureza\" foram marcados em itálico por leitura incerta da imagem; \"ARTIGO II.\" mantido como \"Artigo II.\" por ser o marcado no XML.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (\"funeção\"→\"função\", \"jerarchéa\", \"multiddo\", \"rasãoe &amp;\"→\"razão e a\", \"&amp;\"→\"a\", \"tém\"→\"têm\", \"á\"→\"a\", \"A\" espúrio antes de \"ao fim ultimo\", \". :\" após a nota 2, pontuação e itálicos); \"funceções\"→\"funcções\".\nFronteira corpo/nota: nenhuma alteração de nota; a nota 1 (p. 771, pé) e a nota 2 (p. 771, pé) ficam como estavam. Único ajuste estrutural: removi a quebra \"</p><p>\" no meio da frase do §181 (\"…subordinado / ao fim ultimo\"), que o impresso mostra como parágrafo contínuo.\nDúvidas: \"razão\" e \"natureza\" foram marcados em itálico por leitura incerta da imagem; \"ARTIGO II.\" mantido como \"Artigo II.\" por ser o marcado no XML.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.006049,
+ "duration_ms": 37661,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11325,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9833
+ },
+ "reparo": false
+}

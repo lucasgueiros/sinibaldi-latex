@@ -1,0 +1,27 @@
+{
+ "pagina": 637,
+ "paginas": [
+  637
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (sanccüo/sancgão/sanecüo → sancção, dó → dê, lrangressão → transgressão, ete. → etc., aleancasse, ewtrinseca, vinganca, peceados/peceadores, ó → é, &amp; → á, \"DEus\"/\"DEUS\" → small caps Deus, 1. TIT → l. III), além de remover o \"n\" itálico e aspas espúrias e o `<p>` que partia o parágrafo \"experiencia/attesta\".\nFronteira corpo/nota: nenhuma mudança; as notas 1 (pp. 637, com continuação no rodapé) e 2 já estavam na posição e no conteúdo corretos.\nDúvidas: o título \"93.\" aparece todo em negrito na imagem, então envolvi o título inteiro em negrito; não tenho certeza se \"insufficiente\" em \"b)\" também é negrito, mantive só \"Esta\"; e \"peccados\" foi lido assim na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (sanccüo/sancgão/sanecüo → sancção, dó → dê, lrangressão → transgressão, ete. → etc., aleancasse, ewtrinseca, vinganca, peceados/peceadores, ó → é, &amp; → á, \"DEus\"/\"DEUS\" → small caps Deus, 1. TIT → l. III), além de remover o \"n\" itálico e aspas espúrias e o `<p>` que partia o parágrafo \"experiencia/attesta\".\nFronteira corpo/nota: nenhuma mudança; as notas 1 (pp. 637, com continuação no rodapé) e 2 já estavam na posição e no conteúdo corretos.\nDúvidas: o título \"93.\" aparece todo em negrito na imagem, então envolvi o título inteiro em negrito; não tenho certeza se \"insufficiente\" em \"b)\" também é negrito, mantive só \"Esta\"; e \"peccados\" foi lido assim na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0061123,
+ "duration_ms": 38277,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10908,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10043
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 815,
+ "paginas": [
+  815
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (e/feitos, metuphysicos, p/iysicos, vais, IL, €/0/&amp;, AttRIBUTOS, EssENciA), numerais das enumerações (8.9/4.9/5.9/2.9 → 3.º/4.º/5.º/2.º), letras de alínea (D→b, 0→c), itálicos e versalete, ponto final, \"|\" espúrio e \"a.\" / \"e á\" → \"a\". Acentos e ortografia de época mantidos.\nFronteira corpo/nota: não há notas neste trecho; nenhuma mudança de fronteira. Estrutura: removi o parágrafo espúrio `<p>;</p>` (OCR de \"Deus é immutavel\", linha que continua o parágrafo) e juntei o texto ao parágrafo anterior (p. 815, metade inferior).\nDúvidas: itálico exato de \"é\" e \"isto\" em algumas frases e de \"moraes\" foi lido pela imagem com alguma incerteza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (e/feitos, metuphysicos, p/iysicos, vais, IL, €/0/&amp;, AttRIBUTOS, EssENciA), numerais das enumerações (8.9/4.9/5.9/2.9 → 3.º/4.º/5.º/2.º), letras de alínea (D→b, 0→c), itálicos e versalete, ponto final, \"|\" espúrio e \"a.\" / \"e á\" → \"a\". Acentos e ortografia de época mantidos.\nFronteira corpo/nota: não há notas neste trecho; nenhuma mudança de fronteira. Estrutura: removi o parágrafo espúrio `<p>;</p>` (OCR de \"Deus é immutavel\", linha que continua o parágrafo) e juntei o texto ao parágrafo anterior (p. 815, metade inferior).\nDúvidas: itálico exato de \"é\" e \"isto\" em algumas frases e de \"moraes\" foi lido pela imagem com alguma incerteza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0073112,
+ "duration_ms": 42784,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11817,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12259
+ },
+ "reparo": false
+}

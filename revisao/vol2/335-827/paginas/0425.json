@@ -1,0 +1,31 @@
+{
+ "pagina": 425,
+ "paginas": [
+  425,
+  426,
+  427,
+  428,
+  429
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (ecistencia, vieioso, Dus, Leibnits, 0)/1) para c)/b), subjeclivos, swbjectivos, ewístencia, ejfeíto, larmonia, viuo, &amp; Deus, rasdo, apparct, Dist. 8→3, \"o todo\" e itálicos de Santo Anselmo/a parte); \"esta contido\"→\"está\", \"successdo\"→\"successão\", pb 426 duplicado mantido por ser de nota e de corpo.\nFronteiras corpo/nota: nenhuma alterada — a estrutura de notas (n425-1 com continuação na p. 426; n426-1 com continuação nas pp. 427–429) foi mantida, pois o tipo de letra no pé das páginas 425–429 é ambíguo e a regra manda manter na dúvida.\nDúvidas restantes: se \"Os mais celebres…\" (p. 425) e os blocos b)/c) da p. 426 são de fato letra menor (nota) ou corpo; a posição exata do filete e o tamanho da fonte não ficaram inequívocos na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (ecistencia, vieioso, Dus, Leibnits, 0)/1) para c)/b), subjeclivos, swbjectivos, ewístencia, ejfeíto, larmonia, viuo, &amp; Deus, rasdo, apparct, Dist. 8→3, \"o todo\" e itálicos de Santo Anselmo/a parte); \"esta contido\"→\"está\", \"successdo\"→\"successão\", pb 426 duplicado mantido por ser de nota e de corpo.\nFronteiras corpo/nota: nenhuma alterada — a estrutura de notas (n425-1 com continuação na p. 426; n426-1 com continuação nas pp. 427–429) foi mantida, pois o tipo de letra no pé das páginas 425–429 é ambíguo e a regra manda manter na dúvida.\nDúvidas restantes: se \"Os mais celebres…\" (p. 425) e os blocos b)/c) da p. 426 são de fato letra menor (nota) ou corpo; a posição exata do filete e o tamanho da fonte não ficaram inequívocos na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0326517,
+ "duration_ms": 231228,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38322,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 57639
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 799,
+ "paginas": [
+  799
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: \"hypoeritas\" → \"hypocritas\"; \"III)\" → \"III).\" como impresso; removido negrito indevido em \"peiores\" e \"mais\" (no impresso são versais normais).\nFronteira: a nota (1) estava fechada depois do ponto final do parágrafo; movida para a chamada logo após \"executivo\" (pág. 799), antes do \".\". Nota continua inteira até o fim da página, sem alteração de estrutura.\nSem dúvidas restantes nesta página.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: \"hypoeritas\" → \"hypocritas\"; \"III)\" → \"III).\" como impresso; removido negrito indevido em \"peiores\" e \"mais\" (no impresso são versais normais).\nFronteira: a nota (1) estava fechada depois do ponto final do parágrafo; movida para a chamada logo após \"executivo\" (pág. 799), antes do \".\". Nota continua inteira até o fim da página, sem alteração de estrutura.\nSem dúvidas restantes nesta página.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0043455,
+ "duration_ms": 23915,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11055,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6480
+ },
+ "reparo": false
+}

@@ -1,0 +1,28 @@
+{
+ "pagina": 780,
+ "paginas": [
+  780,
+  781
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em palavras (compairiotas, occasiüo, maturesa, oü, desobsdece, Estarüo, enearnando, \"&\" por \"á/a\", \"É\" lido como \"ti\", hífens de fim de linha e barras \"|\" removidos), pontuação (ponto em \"fidelidade.\") e itálicos de \"veneração, obediencia e fidelidade\" na nota 1.\nFronteiras: (p. 780) o parágrafo \"Nada mais grandioso…\" saiu da nota 1 e virou nota n780-2, presa à chamada (2) em \"veneração dos subditos\"; a nota que começava com \"Derivando de Deus…revesti-\" (estava presa à chamada 2 como n780-8) foi reunida à nota n780-3 (chamada 3), com a continuação da p. 781 no rodapé; (p. 781) a nota n781-8 foi renumerada para n781-3, chamada (3). Não houve mudança de texto de corpo para nota nem o inverso.\nDúvidas: mantive \"tornarém\" como impresso; a leitura do itálico em \"veneração, obediencia e fidelidade\" pode estar errada; \"revesti-/dos\" fica separado pelo <pb> da p. 781.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em palavras (compairiotas, occasiüo, maturesa, oü, desobsdece, Estarüo, enearnando, \"&\" por \"á/a\", \"É\" lido como \"ti\", hífens de fim de linha e barras \"|\" removidos), pontuação (ponto em \"fidelidade.\") e itálicos de \"veneração, obediencia e fidelidade\" na nota 1.\nFronteiras: (p. 780) o parágrafo \"Nada mais grandioso…\" saiu da nota 1 e virou nota n780-2, presa à chamada (2) em \"veneração dos subditos\"; a nota que começava com \"Derivando de Deus…revesti-\" (estava presa à chamada 2 como n780-8) foi reunida à nota n780-3 (chamada 3), com a continuação da p. 781 no rodapé; (p. 781) a nota n781-8 foi renumerada para n781-3, chamada (3). Não houve mudança de texto de corpo para nota nem o inverso.\nDúvidas: mantive \"tornarém\" como impresso; a leitura do itálico em \"veneração, obediencia e fidelidade\" pode estar errada; \"revesti-/dos\" fica separado pelo <pb> da p. 781.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0118188,
+ "duration_ms": 72555,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18173,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 20003
+ },
+ "reparo": false
+}

@@ -1,0 +1,55 @@
+{
+ "pagina": 450,
+ "paginas": [
+  450
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   2175,
+   351
+  ],
+  "notas": [
+   857,
+   2674
+  ],
+  "num_notas": [
+   1,
+   2
+  ],
+  "troca": 1817
+ },
+ "notas": "Erros corrigidos: OCR (qu?escentes, inaeceitavel, Znfrinseca, Drxus, differenca, perfeigóes, \"q. 18\" → \"q. 13\"), acentos (á → a), pontuação (espaços antes de \";\" e \"?\", \"ec.\" → \"etc.\", \"ens a se\" fora de ordem), itálicos e versalete (Deus), e um \" .\" espúrio na alínea b).\nFronteira: \"Todas estas opiniões…\" e as alíneas a) a d) estavam no corpo, mas na imagem estão no pé da pág. 450, abaixo do filete (continuação da nota da pág. 449); envolvi-as em `<note place=\"foot\" type=\"continuacao\">` no mesmo lugar. A nota (1) já estava bem posicionada.\nDúvidas: normalizei \"DEUS\"/\"DEus\" para `<hi rend=\"sc\">Deus</hi>`; mantive \"Sum. Th.\" em itálico conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     2175,
+     351
+    ],
+    "notas": [
+     857,
+     2674
+    ],
+    "num_notas": [
+     1,
+     2
+    ],
+    "troca": 1817
+   },
+   "notas": "Erros corrigidos: OCR (qu?escentes, inaeceitavel, Znfrinseca, Drxus, differenca, perfeigóes, \"q. 18\" → \"q. 13\"), acentos (á → a), pontuação (espaços antes de \";\" e \"?\", \"ec.\" → \"etc.\", \"ens a se\" fora de ordem), itálicos e versalete (Deus), e um \" .\" espúrio na alínea b).\nFronteira: \"Todas estas opiniões…\" e as alíneas a) a d) estavam no corpo, mas na imagem estão no pé da pág. 450, abaixo do filete (continuação da nota da pág. 449); envolvi-as em `<note place=\"foot\" type=\"continuacao\">` no mesmo lugar. A nota (1) já estava bem posicionada.\nDúvidas: normalizei \"DEUS\"/\"DEus\" para `<hi rend=\"sc\">Deus</hi>`; mantive \"Sum. Th.\" em itálico conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0062582,
+ "duration_ms": 39065,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11027,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10311
+ },
+ "reparo": false
+}

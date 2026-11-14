@@ -1,0 +1,56 @@
+{
+ "pagina": 693,
+ "paginas": [
+  693,
+  694
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   1392,
+   1864
+  ],
+  "notas": [
+   4763,
+   4294
+  ],
+  "num_notas": [
+   4,
+   4
+  ],
+  "troca": 469
+ },
+ "notas": "Erros corrigidos: OCR (Intelligencia/ntelligencia, aperfeicoar, esta→está, ete.→etc., pernieiosos, diffieil, /é→fé, 1.9)→1.º), T'roplong, \"4\" e \"i\" espúrios, \"0 homem\"→\"O homem\"), itálicos/negritos e versalete de Deus conforme a imagem, e \"DEus\" padronizado para sc.\nFronteira: em 693, a nota (1) foi fechada após \"catecismo ».\" (antes estava engolindo dois parágrafos de corpo, \"Pelo mesmo motivo…\" e \"Ao dever…\", que a imagem mostra em letra normal entre as notas (1) e (2)); esses parágrafos foram para o corpo logo após o fim da 136 e antes do pb 694. Nenhuma outra fronteira alterada.\nDúvidas: a posição exata dos dois parágrafos de corpo (impressos entre as notas, sem ligação clara com o texto da 136) é uma inferência; \"»\" no fim da citação de Troplong foi lido como aspas (a imagem é ambígua, podia ser \"n.\"); \"proporcionados\" permanece inteiro antes do pb 694 apesar da hifenização \"pro-\" no fim da página 693.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     1392,
+     1864
+    ],
+    "notas": [
+     4763,
+     4294
+    ],
+    "num_notas": [
+     4,
+     4
+    ],
+    "troca": 469
+   },
+   "notas": "Erros corrigidos: OCR (Intelligencia/ntelligencia, aperfeicoar, esta→está, ete.→etc., pernieiosos, diffieil, /é→fé, 1.9)→1.º), T'roplong, \"4\" e \"i\" espúrios, \"0 homem\"→\"O homem\"), itálicos/negritos e versalete de Deus conforme a imagem, e \"DEus\" padronizado para sc.\nFronteira: em 693, a nota (1) foi fechada após \"catecismo ».\" (antes estava engolindo dois parágrafos de corpo, \"Pelo mesmo motivo…\" e \"Ao dever…\", que a imagem mostra em letra normal entre as notas (1) e (2)); esses parágrafos foram para o corpo logo após o fim da 136 e antes do pb 694. Nenhuma outra fronteira alterada.\nDúvidas: a posição exata dos dois parágrafos de corpo (impressos entre as notas, sem ligação clara com o texto da 136) é uma inferência; \"»\" no fim da citação de Troplong foi lido como aspas (a imagem é ambígua, podia ser \"n.\"); \"proporcionados\" permanece inteiro antes do pb 694 apesar da hifenização \"pro-\" no fim da página 693.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.013475,
+ "duration_ms": 91514,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17720,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 23406
+ },
+ "reparo": false
+}

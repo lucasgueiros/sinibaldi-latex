@@ -1,0 +1,27 @@
+{
+ "pagina": 762,
+ "paginas": [
+  762
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: label 277→177; \"Humbold\"→\"Humboldt\"; \"contmum\"→\"commum\"; \"atAew\"→\"atheu\"; \"do todas\"→\"de todas\"; \"opponha.\" sem ponto; \"ultimo,\" → \"ultimo.\"; itálicos de \"bem commum e externo\", \"ao fim ultimo\" e das letras \"a)\" e \"c)\" ajustados à imagem.\nFronteira corpo/nota: nenhuma alteração; a nota (1) começa e termina na pág. 762 e está corretamente ligada à chamada.\nDúvidas: os atributos `n=\"277\"` e `xml:id=\"t277\"` da tese foram mantidos conforme a regra, mas provavelmente devem ser 177/t177 — verificar no pipeline.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: label 277→177; \"Humbold\"→\"Humboldt\"; \"contmum\"→\"commum\"; \"atAew\"→\"atheu\"; \"do todas\"→\"de todas\"; \"opponha.\" sem ponto; \"ultimo,\" → \"ultimo.\"; itálicos de \"bem commum e externo\", \"ao fim ultimo\" e das letras \"a)\" e \"c)\" ajustados à imagem.\nFronteira corpo/nota: nenhuma alteração; a nota (1) começa e termina na pág. 762 e está corretamente ligada à chamada.\nDúvidas: os atributos `n=\"277\"` e `xml:id=\"t277\"` da tese foram mantidos conforme a regra, mas provavelmente devem ser 177/t177 — verificar no pipeline.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046344,
+ "duration_ms": 26224,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11044,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7060
+ },
+ "reparo": false
+}

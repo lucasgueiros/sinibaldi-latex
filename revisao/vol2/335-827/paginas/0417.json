@@ -1,0 +1,28 @@
+{
+ "pagina": 417,
+ "paginas": [
+  417,
+  418
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (iémmutabilidade, principio eo, nao, Mas entro, differenga, C£, immareescivel, CurISTO), acentos e a linha de \"(Cf.\" na nota 1; removido o rodapé \"27 Vol. II\" que estava como parágrafo dentro da nota.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (p. 417) termina no pé da página 417 e o corpo retoma na tese 260; o alerta de \"vão grande\" é falso. A página 418 está em branco e o `<pb n=\"418\"/>` final foi mantido.\nDúvida restante: se \"Jesus\" deve ser versalete ou não; mantive como estava, pois a imagem não deixa claro.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (iémmutabilidade, principio eo, nao, Mas entro, differenga, C£, immareescivel, CurISTO), acentos e a linha de \"(Cf.\" na nota 1; removido o rodapé \"27 Vol. II\" que estava como parágrafo dentro da nota.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (p. 417) termina no pé da página 417 e o corpo retoma na tese 260; o alerta de \"vão grande\" é falso. A página 418 está em branco e o `<pb n=\"418\"/>` final foi mantido.\nDúvida restante: se \"Jesus\" deve ser versalete ou não; mantive como estava, pois a imagem não deixa claro.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0045608,
+ "duration_ms": 22971,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 15638,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5994
+ },
+ "reparo": false
+}

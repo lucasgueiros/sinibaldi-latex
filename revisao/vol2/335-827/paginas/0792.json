@@ -1,0 +1,29 @@
+{
+ "pagina": 792,
+ "paginas": [
+  792,
+  793,
+  794
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (embaizadores, Denevolencia, Chistianismo, presereveu, soffrerà, 1.9)/9.9), Eoreja, fm, communhao, Ds, &amp;cerca, Immediato, Zmmedi?ato, Christo em versalete), acentos (têm, juridico, circumstancias), pontuação (casos., dotados, emquanto; \"j\" espúrio removido) e negrito dos títulos.\nFronteira: nota (3) de p. 794 renumerada de 8 para 3 (id n794-3), pois o pipeline a ligou à chamada (3) corretamente no corpo; nenhuma outra mudança de fronteira — a nota 2 de p. 792 já continha corretamente os parágrafos e a continuação em p. 793.\nDúvidas: versalete de \"Jesus\" (mantido em romana, como no restante do fragmento) e o negrito exato dos títulos a)/b)/197/198 são leituras pela imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (embaizadores, Denevolencia, Chistianismo, presereveu, soffrerà, 1.9)/9.9), Eoreja, fm, communhao, Ds, &amp;cerca, Immediato, Zmmedi?ato, Christo em versalete), acentos (têm, juridico, circumstancias), pontuação (casos., dotados, emquanto; \"j\" espúrio removido) e negrito dos títulos.\nFronteira: nota (3) de p. 794 renumerada de 8 para 3 (id n794-3), pois o pipeline a ligou à chamada (3) corretamente no corpo; nenhuma outra mudança de fronteira — a nota 2 de p. 792 já continha corretamente os parágrafos e a continuação em p. 793.\nDúvidas: versalete de \"Jesus\" (mantido em romana, como no restante do fragmento) e o negrito exato dos títulos a)/b)/197/198 são leituras pela imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.015960000000000002,
+ "duration_ms": 100741,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25010,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 26918
+ },
+ "reparo": false
+}

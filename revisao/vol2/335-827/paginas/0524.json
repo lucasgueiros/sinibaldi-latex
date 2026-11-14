@@ -1,0 +1,28 @@
+{
+ "pagina": 524,
+ "paginas": [
+  524,
+  525
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em palavras (mafturaes, Áuetor, mumediatamente, univer=sal, palayras, applica, efficas, ewtrinsecamente, Sao, Eº), acentos e pontuação (vírgula em \"outro),\", ponto em \"mediato.\", parágrafo 'a. 8' → 'a. 3', aspas e apóstrofos espúrios, \"quod. sit\"), hifenizações unidas (universal, independentemente) e \"DEus\" normalizado para \"Deus\" em versalete; pb 525 dentro da nota 524-2 movido para antes de \"temente\", na continuação real.\nFronteiras corpo/nota: nenhuma mudança estrutural; notas 524-1, 524-2 (continuação na p. 525) e 525-1 conferidas e mantidas.\nDúvidas: negrito dos subtítulos \"a) Concurso immediato ou mediato.\" e \"b) Concurso previo ou simultaneo.\" inferido pela aparência tipográfica da imagem; no parágrafo b) de 97 o trecho termina em \"adquirir uma\" conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em palavras (mafturaes, Áuetor, mumediatamente, univer=sal, palayras, applica, efficas, ewtrinsecamente, Sao, Eº), acentos e pontuação (vírgula em \"outro),\", ponto em \"mediato.\", parágrafo 'a. 8' → 'a. 3', aspas e apóstrofos espúrios, \"quod. sit\"), hifenizações unidas (universal, independentemente) e \"DEus\" normalizado para \"Deus\" em versalete; pb 525 dentro da nota 524-2 movido para antes de \"temente\", na continuação real.\nFronteiras corpo/nota: nenhuma mudança estrutural; notas 524-1, 524-2 (continuação na p. 525) e 525-1 conferidas e mantidas.\nDúvidas: negrito dos subtítulos \"a) Concurso immediato ou mediato.\" e \"b) Concurso previo ou simultaneo.\" inferido pela aparência tipográfica da imagem; no parágrafo b) de 97 o trecho termina em \"adquirir uma\" conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0085786,
+ "duration_ms": 49879,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17851,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13587
+ },
+ "reparo": false
+}

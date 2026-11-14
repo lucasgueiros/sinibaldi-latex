@@ -1,0 +1,32 @@
+{
+ "pagina": 429,
+ "paginas": [
+  429,
+  430,
+  431,
+  432,
+  433,
+  434
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (irracionaes, methaphysicos, Nào→Não, contradicções, Cap. I, \"a. 3\"/\"c. 13\", \"ad 3\", \"t. XXI\", \"inexhaurivel\", \"teleologico\", \"universal\", \"todo acto\", \"na intelligencia\", \"conv\"→\"com\", \"lh'o\", \"essencial\" e \"attracção\" sem hífen, \"e então lhe é essencial\" + \"cial,\" em p. 433), pontuação, italicos e \"a\"/\"e\" que não deveriam estar em itálico, e lixo (\"A.\", \".\", \"28 Vol. II.\", aspas soltas, \"e &amp;\" → \"e a\"). Fronteira corpo/nota: nenhuma mudança estrutural; a nota n430-1 segue até o fim de p. 434 (rodapé: \"identificar-se… innumeraveis problemas\"), e a continuação foi mantida dentro dela; \"deve | identificar-se\" foi unido num só parágrafo através do pb 434 (havia um `</p><p>` falso).\nDúvidas: grafia \"baséam\" (acento incerto na imagem) mantida como no fragmento; itálicos de \"a)\", \"b)\", \"d)\", \"e)\" e \"necessario\" (p. 429) e \"Na Cosmologia geral\" lidos com alguma incerteza; \"ad 3\" lido com pouca nitidez.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (irracionaes, methaphysicos, Nào→Não, contradicções, Cap. I, \"a. 3\"/\"c. 13\", \"ad 3\", \"t. XXI\", \"inexhaurivel\", \"teleologico\", \"universal\", \"todo acto\", \"na intelligencia\", \"conv\"→\"com\", \"lh'o\", \"essencial\" e \"attracção\" sem hífen, \"e então lhe é essencial\" + \"cial,\" em p. 433), pontuação, italicos e \"a\"/\"e\" que não deveriam estar em itálico, e lixo (\"A.\", \".\", \"28 Vol. II.\", aspas soltas, \"e &amp;\" → \"e a\"). Fronteira corpo/nota: nenhuma mudança estrutural; a nota n430-1 segue até o fim de p. 434 (rodapé: \"identificar-se… innumeraveis problemas\"), e a continuação foi mantida dentro dela; \"deve | identificar-se\" foi unido num só parágrafo através do pb 434 (havia um `</p><p>` falso).\nDúvidas: grafia \"baséam\" (acento incerto na imagem) mantida como no fragmento; itálicos de \"a)\", \"b)\", \"d)\", \"e)\" e \"necessario\" (p. 429) e \"Na Cosmologia geral\" lidos com alguma incerteza; \"ad 3\" lido com pouca nitidez.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0246588,
+ "duration_ms": 144202,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44363,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 40445
+ },
+ "reparo": false
+}

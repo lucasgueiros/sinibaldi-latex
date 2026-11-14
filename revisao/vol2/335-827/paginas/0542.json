@@ -1,0 +1,27 @@
+{
+ "pagina": 542,
+ "paginas": [
+  542
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (participação sem ponto espúrio; desenvolvido, Theodicéa, efficazes, dicimus, Ultima, Pp→p. I, q. 103 em vez de 108, \"l. I\" e \"suprema\" em minúscula); hifenização de fim de linha (\"Ul-tima\", \"de-senvolvido\") desfeita; negrito do título 103 ajustado.\nFronteira corpo/nota: nenhuma nota foi movida ou recortada; a nota ligada à chamada (3) estava numerada como 8 (alerta numero-diverge) e foi renumerada para n=\"3\" (xml:id n542-3), que é a chamada \"(3)\" do corpo, confirmada na imagem.\nDúvidas: a extensão exata do negrito no título \"103.\" (se \"o fim.\" está todo em negrito) foi lida pela imagem com alguma incerteza; a nota 1 e a nota 3 não apresentam continuação na metade inferior, portanto não há `<pb>` interno nas notas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (participação sem ponto espúrio; desenvolvido, Theodicéa, efficazes, dicimus, Ultima, Pp→p. I, q. 103 em vez de 108, \"l. I\" e \"suprema\" em minúscula); hifenização de fim de linha (\"Ul-tima\", \"de-senvolvido\") desfeita; negrito do título 103 ajustado.\nFronteira corpo/nota: nenhuma nota foi movida ou recortada; a nota ligada à chamada (3) estava numerada como 8 (alerta numero-diverge) e foi renumerada para n=\"3\" (xml:id n542-3), que é a chamada \"(3)\" do corpo, confirmada na imagem.\nDúvidas: a extensão exata do negrito no título \"103.\" (se \"o fim.\" está todo em negrito) foi lida pela imagem com alguma incerteza; a nota 1 e a nota 3 não apresentam continuação na metade inferior, portanto não há `<pb>` interno nas notas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0035406000000000005,
+ "duration_ms": 19965,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10661,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4949
+ },
+ "reparo": false
+}

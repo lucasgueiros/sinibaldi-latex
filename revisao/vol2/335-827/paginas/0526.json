@@ -1,0 +1,30 @@
+{
+ "pagina": 526,
+ "paginas": [
+  526,
+  527,
+  528,
+  529
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais correções: OCR em palavras (Dus→Deus, \"Nào\", \"altribuir\", \"fofaes\"→totaes, \"indivisiyel\", \"immediatameute\", \"partieipando\", \"modwm\", \"ct\"→et, \"exerçem\" mantido), números de referência (De pot. q. 8→q. 3; c. 10→c. 70; \"ad 8\"→\"ad 3\"; \"a. Tad 5\"→\"a. 7 ad 5\"; \"l. L\"→\"l. I\"), pontuação e hifenização (\"abso- Tutamente\", \"de,outra\", \"si' mesmas\"), itálicos e negrito do título \"98.\" e de \"Deus\" em versalete padronizado.\nFronteira corpo/nota: conferida em 526–529; mantida. A nota (1) de p. 526 começa em \"(1) Estes…\" e continua em 527, 528 e 529 até \"(De verit. … ad 5).\" (fim real); \"Demonstrada…\", \"I.\", \"II.\", \"III.\", \"IV.\" e \"V.\" estão abaixo do filete, portanto dentro da nota. Corpo de 526–528 (incluindo \"98.\" e \"a) …\") fica fora. Nenhuma mudança de fronteira feita; pb de nota (527, 528, 529) e pb de corpo (527, 528) mantidos.\nDúvidas: grafia \"insufficiencia\" (mantida como no TEI) e possível itálico em \"cuja\" (mantido como no TEI); \"98.\" foi colocado em negrito inteiro, conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais correções: OCR em palavras (Dus→Deus, \"Nào\", \"altribuir\", \"fofaes\"→totaes, \"indivisiyel\", \"immediatameute\", \"partieipando\", \"modwm\", \"ct\"→et, \"exerçem\" mantido), números de referência (De pot. q. 8→q. 3; c. 10→c. 70; \"ad 8\"→\"ad 3\"; \"a. Tad 5\"→\"a. 7 ad 5\"; \"l. L\"→\"l. I\"), pontuação e hifenização (\"abso- Tutamente\", \"de,outra\", \"si' mesmas\"), itálicos e negrito do título \"98.\" e de \"Deus\" em versalete padronizado.\nFronteira corpo/nota: conferida em 526–529; mantida. A nota (1) de p. 526 começa em \"(1) Estes…\" e continua em 527, 528 e 529 até \"(De verit. … ad 5).\" (fim real); \"Demonstrada…\", \"I.\", \"II.\", \"III.\", \"IV.\" e \"V.\" estão abaixo do filete, portanto dentro da nota. Corpo de 526–528 (incluindo \"98.\" e \"a) …\") fica fora. Nenhuma mudança de fronteira feita; pb de nota (527, 528, 529) e pb de corpo (527, 528) mantidos.\nDúvidas: grafia \"insufficiencia\" (mantida como no TEI) e possível itálico em \"cuja\" (mantido como no TEI); \"98.\" foi colocado em negrito inteiro, conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.024548200000000003,
+ "duration_ms": 166942,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 30347,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 43027
+ },
+ "reparo": false
+}

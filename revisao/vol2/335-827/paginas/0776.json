@@ -1,0 +1,30 @@
+{
+ "pagina": 776,
+ "paginas": [
+  776,
+  777,
+  778,
+  779
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (classer→classes, conjunctos→conjuntos, prodwctoras, Cawwés→Cauwès, Aypothecas→hypothecas, «suras→usuras, 3892→339, deprayar→depravar, deyemos→devemos, numeração 9.º→3.º/2.º/5.º, &amp;→a, hífens/acentos), pontuação e itálicos/negritos trocados; removidos negritos que são apenas sublinhados a lápis na imagem (pp. 778, 779), e tornado negrito o cabeçalho \"Deveres para com as familias/os individuos\".\nFronteiras corpo/nota conferidas e mantidas (nota 776-1 atravessa 777–778; 778-1 atravessa 779; 779-1 e 779-2 fechadas na própria página); nenhum texto movido entre corpo e nota. Não acrescentei \"volvimento\" (palavra hifenizada da página anterior) nem o fim da nota de antes do trecho.\nDúvidas: \"se contém\" (776) lido como \"contém\"; \"tem á obediencia\" (779) mantido; grafia de \"moyen-âge\"/\"á la fin\" conferida só pela leitura da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (classer→classes, conjunctos→conjuntos, prodwctoras, Cawwés→Cauwès, Aypothecas→hypothecas, «suras→usuras, 3892→339, deprayar→depravar, deyemos→devemos, numeração 9.º→3.º/2.º/5.º, &amp;→a, hífens/acentos), pontuação e itálicos/negritos trocados; removidos negritos que são apenas sublinhados a lápis na imagem (pp. 778, 779), e tornado negrito o cabeçalho \"Deveres para com as familias/os individuos\".\nFronteiras corpo/nota conferidas e mantidas (nota 776-1 atravessa 777–778; 778-1 atravessa 779; 779-1 e 779-2 fechadas na própria página); nenhum texto movido entre corpo e nota. Não acrescentei \"volvimento\" (palavra hifenizada da página anterior) nem o fim da nota de antes do trecho.\nDúvidas: \"se contém\" (776) lido como \"contém\"; \"tem á obediencia\" (779) mantido; grafia de \"moyen-âge\"/\"á la fin\" conferida só pela leitura da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0184089,
+ "duration_ms": 110297,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31284,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 30561
+ },
+ "reparo": false
+}

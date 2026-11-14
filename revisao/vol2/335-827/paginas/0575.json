@@ -1,0 +1,27 @@
+{
+ "pagina": 575,
+ "paginas": [
+  575
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"nvoluntario\", \"solieita\", \"Sum. TÀ.\", \"Logo a ignorancia.\", \"Z\" espúrio, \"&amp;\" por \"a\", \"2.\")\" por \"2.º)\"), negrito do título \"39. Concupiscencia.\" e junção de um parágrafo partido indevidamente em \"porque, / sem ella\".\nNumeração: a nota da chamada (3) estava marcada como n=\"8\" (xml:id n575-8); corrigida para n=\"3\" e xml:id=\"n575-3\", conforme o alerta numero-diverge.\nFronteira corpo/nota: nenhuma mudança; as três notas (1, 2 e 3) estão no pé da página 575 e foram mantidas nos pontos das chamadas. Dúvidas: o traço \"—-\" de nota 2 e a grafia exata dos ordinais \"1.º/2.º\" são leitura aproximada da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"nvoluntario\", \"solieita\", \"Sum. TÀ.\", \"Logo a ignorancia.\", \"Z\" espúrio, \"&amp;\" por \"a\", \"2.\")\" por \"2.º)\"), negrito do título \"39. Concupiscencia.\" e junção de um parágrafo partido indevidamente em \"porque, / sem ella\".\nNumeração: a nota da chamada (3) estava marcada como n=\"8\" (xml:id n575-8); corrigida para n=\"3\" e xml:id=\"n575-3\", conforme o alerta numero-diverge.\nFronteira corpo/nota: nenhuma mudança; as três notas (1, 2 e 3) estão no pé da página 575 e foram mantidas nos pontos das chamadas. Dúvidas: o traço \"—-\" de nota 2 e a grafia exata dos ordinais \"1.º/2.º\" são leitura aproximada da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0037545,
+ "duration_ms": 20214,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10945,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5320
+ },
+ "reparo": false
+}

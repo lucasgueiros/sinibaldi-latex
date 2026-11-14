@@ -1,0 +1,30 @@
+{
+ "pagina": 729,
+ "paginas": [
+  729,
+  730,
+  731,
+  732
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de palavras (união, ideal, consecução, laço, cohesão, sera→ser a, «uctoridade→auctoridade, commwum, evistencia, etc.), acentos (á/a, citámos, é), \"&amp;\"→\"a\", \"[\" e \"/\" espúrios, hífens de fim de linha (mo-ralmente), letras de item (D→b, o→c na nota 1 e no corpo 731), e \"Em regra,-as\"; acrescentada a formatação de versalete em \"Proposição\" e negrito/itálico ajustados.\nFronteira: mantida a nota (1) de 729 como nota longa até o fim de 732 (texto do rodapé de 730–732 e \"é determinado…\" ficam nela, pois a continuação é de rodapé); na p. 732, a nota de chamada (3) estava marcada como n=\"8\" e foi renumerada para n=\"3\" (xml:id n732-3).\nDúvidas: a fronteira de 731/732 (texto em letra menor sob o filete, \"é determinado…\" e \"minada…\") é ambígua; se for corpo, a nota (1) deve ser repartida. Em 151 d) mantive \"egual\" conforme a leitura da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de palavras (união, ideal, consecução, laço, cohesão, sera→ser a, «uctoridade→auctoridade, commwum, evistencia, etc.), acentos (á/a, citámos, é), \"&amp;\"→\"a\", \"[\" e \"/\" espúrios, hífens de fim de linha (mo-ralmente), letras de item (D→b, o→c na nota 1 e no corpo 731), e \"Em regra,-as\"; acrescentada a formatação de versalete em \"Proposição\" e negrito/itálico ajustados.\nFronteira: mantida a nota (1) de 729 como nota longa até o fim de 732 (texto do rodapé de 730–732 e \"é determinado…\" ficam nela, pois a continuação é de rodapé); na p. 732, a nota de chamada (3) estava marcada como n=\"8\" e foi renumerada para n=\"3\" (xml:id n732-3).\nDúvidas: a fronteira de 731/732 (texto em letra menor sob o filete, \"é determinado…\" e \"minada…\") é ambígua; se for corpo, a nota (1) deve ser repartida. Em 151 d) mantive \"egual\" conforme a leitura da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0257009,
+ "duration_ms": 177239,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 33219,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 44758
+ },
+ "reparo": false
+}

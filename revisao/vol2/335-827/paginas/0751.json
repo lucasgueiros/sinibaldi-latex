@@ -1,0 +1,30 @@
+{
+ "pagina": 751,
+ "paginas": [
+  751,
+  752,
+  753,
+  754
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos sobretudo: OCR de letras (heril, á/&amp;/4, desegualdade→mantido, accordo, victimas, faça-se, christã, fazer, illicita), ordinais \"1.9)\"→\"1.º)\", \"d\"→\"á\", \"5)\"→\"b)\", \"8.º)\"→\"3.º)\"; negritos dos títulos a)/b)/c)/d); removidos \"48 Vol. II\" e a quebra de parágrafo na nota; reposto \"CAPITULO SEGUNDO\" e o Summario no p. 752; \"272.\"/\"273.\" → \"172.\"/\"173.\" e \"ARTIGO I.\", \"immediatamente\" minúscula.\nFronteira corpo/nota: conferida e mantida em todas as páginas (nota 1 e 2 do p. 751, nota 2 até \"anarchica.\" no p. 754, nota 1 do p. 754); nada movido. Atributos n/xml:id de div 272/273 deixados como vieram (o n ainda diz 272/273).\nDúvidas: asterisco \"*\" entre as notas 1 e 2 mantido como está impresso; leitura de \"heril\", \"sao\"→\"são\" e \"póde\" na última linha; formatação de \"DEVERES E DIREITOS CIVIS\" (negrito parcial no XML, normal na imagem).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos sobretudo: OCR de letras (heril, á/&amp;/4, desegualdade→mantido, accordo, victimas, faça-se, christã, fazer, illicita), ordinais \"1.9)\"→\"1.º)\", \"d\"→\"á\", \"5)\"→\"b)\", \"8.º)\"→\"3.º)\"; negritos dos títulos a)/b)/c)/d); removidos \"48 Vol. II\" e a quebra de parágrafo na nota; reposto \"CAPITULO SEGUNDO\" e o Summario no p. 752; \"272.\"/\"273.\" → \"172.\"/\"173.\" e \"ARTIGO I.\", \"immediatamente\" minúscula.\nFronteira corpo/nota: conferida e mantida em todas as páginas (nota 1 e 2 do p. 751, nota 2 até \"anarchica.\" no p. 754, nota 1 do p. 754); nada movido. Atributos n/xml:id de div 272/273 deixados como vieram (o n ainda diz 272/273).\nDúvidas: asterisco \"*\" entre as notas 1 e 2 mantido como está impresso; leitura de \"heril\", \"sao\"→\"são\" e \"póde\" na última linha; formatação de \"DEVERES E DIREITOS CIVIS\" (negrito parcial no XML, normal na imagem).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0191133,
+ "duration_ms": 120126,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31443,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 31938
+ },
+ "reparo": false
+}

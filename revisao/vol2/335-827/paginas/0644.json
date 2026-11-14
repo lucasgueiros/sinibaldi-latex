@@ -1,0 +1,30 @@
+{
+ "pagina": 644,
+ "paginas": [
+  644,
+  645,
+  646,
+  647
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (aleangar, eseurecida, cireumstancias, Aypothetica, positivohumana, postitivo, lumana, conclus&amp;o, derogagão, assentimanto, laza, \"q. 19, a. 18\"→\"q. 79, a. 13\", \"a. 8\"→\"a. 3\" nas duas notas, \"8.º)\"→\"3.ª)\", \"1.9)\"→\"1.ª)\", \"DrEus\", \"&amp;\" por \"ou\"), pontuação e lixo (\"T/D/r]\", \" ;\"), \"dieta\"→\"dicta\", \"que\" restaurado em \"dicta que elle\" (mancha na imagem), negrito dos títulos 97–102 conforme a imagem; \"Of.\"→\"Cf.\".\nFronteira corpo/nota: nenhuma alteração; conferidas as notas 644-1, 644-2, 645-1, 645-2, 646-1, 646-2, 647-1, 647-2 e as continuações nos rodapés de 645, 646 e 647 (o trecho \"O que deixamos escripto…\" foi mantido dentro da nota 647-1 por ser letra pequena no pé da página).\nDúvidas: \"nocessaria\" (nota 645-2) lido como impresso, confirme; \"praticar\" no fim do trecho termina a palavra que na imagem está hifenizada (\"pra-\"), a continuação está na página 648; a mancha na linha da p. 647 pode ocultar outra palavra além de \"que\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (aleangar, eseurecida, cireumstancias, Aypothetica, positivohumana, postitivo, lumana, conclus&amp;o, derogagão, assentimanto, laza, \"q. 19, a. 18\"→\"q. 79, a. 13\", \"a. 8\"→\"a. 3\" nas duas notas, \"8.º)\"→\"3.ª)\", \"1.9)\"→\"1.ª)\", \"DrEus\", \"&amp;\" por \"ou\"), pontuação e lixo (\"T/D/r]\", \" ;\"), \"dieta\"→\"dicta\", \"que\" restaurado em \"dicta que elle\" (mancha na imagem), negrito dos títulos 97–102 conforme a imagem; \"Of.\"→\"Cf.\".\nFronteira corpo/nota: nenhuma alteração; conferidas as notas 644-1, 644-2, 645-1, 645-2, 646-1, 646-2, 647-1, 647-2 e as continuações nos rodapés de 645, 646 e 647 (o trecho \"O que deixamos escripto…\" foi mantido dentro da nota 647-1 por ser letra pequena no pé da página).\nDúvidas: \"nocessaria\" (nota 645-2) lido como impresso, confirme; \"praticar\" no fim do trecho termina a palavra que na imagem está hifenizada (\"pra-\"), a continuação está na página 648; a mancha na linha da p. 647 pode ocultar outra palavra além de \"que\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.026983800000000002,
+ "duration_ms": 173951,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32608,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 47446
+ },
+ "reparo": false
+}

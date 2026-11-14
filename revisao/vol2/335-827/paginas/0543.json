@@ -1,0 +1,27 @@
+{
+ "pagina": 543,
+ "paginas": [
+  543
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"DEus\", \"Jrsus\", \"simplieissimo\", \"ib. X, 29-81\", \"XII, 21-29\", \"e)\" por \"a)\" no §105; vírgula espúria em \"O cuidado, que,\" e lixo \"egfífsas\" em \"das coisas\"; formatação em negrito dos títulos 104 e 105 conforme a imagem.\nFronteira corpo/nota: nenhuma alteração; as notas (1) e (2) da p. 543 já estavam corretamente posicionadas e fechadas.\nDúvidas: mantive \"sería\" e \"incorruptibilium\" como impressos; o negrito de \"a\" e \"uma\" no título 104 foi estendido ao título inteiro pela leitura da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"DEus\", \"Jrsus\", \"simplieissimo\", \"ib. X, 29-81\", \"XII, 21-29\", \"e)\" por \"a)\" no §105; vírgula espúria em \"O cuidado, que,\" e lixo \"egfífsas\" em \"das coisas\"; formatação em negrito dos títulos 104 e 105 conforme a imagem.\nFronteira corpo/nota: nenhuma alteração; as notas (1) e (2) da p. 543 já estavam corretamente posicionadas e fechadas.\nDúvidas: mantive \"sería\" e \"incorruptibilium\" como impressos; o negrito de \"a\" e \"uma\" no título 104 foi estendido ao título inteiro pela leitura da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0038266000000000003,
+ "duration_ms": 20599,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10581,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5537
+ },
+ "reparo": false
+}

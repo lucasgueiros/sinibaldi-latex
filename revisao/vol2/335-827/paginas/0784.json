@@ -1,0 +1,29 @@
+{
+ "pagina": 784,
+ "paginas": [
+  784,
+  785,
+  786
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros: OCR (n/u, \"&amp;\" por \"á\", \"Dus\" por \"DEUS\", \"inznatos\", \"cireumstancia\", \"Vor. II\" removido como assinatura), hífens e acentos, pontuação e \"n\" espúrio em nota; itálicos e negritos de títulos ajustados à imagem.\nFronteira corpo/nota (p. 784–785): o número da nota estava errado (chamada (3) ligada à nota 8). Renumerada para n=\"3\" (xml:id n784-3). \"Pergunta-se\", \"Antes de respondermos…\" e o trecho de 785 em letra menor são continuação da nota 3 e foram mantidos nela; o parágrafo \"sobre toda a / Egreja\" (785→786) foi unido num só `<p>` dentro da nota. Nenhuma nota foi criada, partida ou movida.\nDúvidas: se \"basêam\", \"allemã\", \"têm\" e os itálicos de \"nação\" estão exatamente como impressos; \"ellas\"/\"ethnografico\" seguem o fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros: OCR (n/u, \"&amp;\" por \"á\", \"Dus\" por \"DEUS\", \"inznatos\", \"cireumstancia\", \"Vor. II\" removido como assinatura), hífens e acentos, pontuação e \"n\" espúrio em nota; itálicos e negritos de títulos ajustados à imagem.\nFronteira corpo/nota (p. 784–785): o número da nota estava errado (chamada (3) ligada à nota 8). Renumerada para n=\"3\" (xml:id n784-3). \"Pergunta-se\", \"Antes de respondermos…\" e o trecho de 785 em letra menor são continuação da nota 3 e foram mantidos nela; o parágrafo \"sobre toda a / Egreja\" (785→786) foi unido num só `<p>` dentro da nota. Nenhuma nota foi criada, partida ou movida.\nDúvidas: se \"basêam\", \"allemã\", \"têm\" e os itálicos de \"nação\" estão exatamente como impressos; \"ellas\"/\"ethnografico\" seguem o fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.020353200000000002,
+ "duration_ms": 139122,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23577,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 35991
+ },
+ "reparo": false
+}

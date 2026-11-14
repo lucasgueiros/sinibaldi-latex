@@ -1,0 +1,28 @@
+{
+ "pagina": 436,
+ "paginas": [
+  436,
+  437
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\":\" espúrio, \"ntelligencia\", \"wvealidade\", \"tirra\", \"exeeutando\", \"ereac&amp;o\", \"basóam\", \"adyertimos\", \"DEus\"), hifenização (\"intelli-gencia\", \"tirra-cional\"), letra \"25)\" trocada por \"b)\", \"SÓ\"/\"sabía\" e itálicos de \"sabia\"/\"poderosa\", \":\" final espúrio em nota 1 de 436; estrutura de notas e pb 437 dentro da nota 436-2 mantidas (continuação no rodapé de 437).\nNenhuma mudança de fronteira corpo/nota.\nDúvidas: itálico de \"sabia\" e \"poderosa\" na p. 436 (lidos como itálicos na imagem); espaço em \"objectivas ;\" foi removido; \"basêam-se\" lido como \"basêam-se\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\":\" espúrio, \"ntelligencia\", \"wvealidade\", \"tirra\", \"exeeutando\", \"ereac&amp;o\", \"basóam\", \"adyertimos\", \"DEus\"), hifenização (\"intelli-gencia\", \"tirra-cional\"), letra \"25)\" trocada por \"b)\", \"SÓ\"/\"sabía\" e itálicos de \"sabia\"/\"poderosa\", \":\" final espúrio em nota 1 de 436; estrutura de notas e pb 437 dentro da nota 436-2 mantidas (continuação no rodapé de 437).\nNenhuma mudança de fronteira corpo/nota.\nDúvidas: itálico de \"sabia\" e \"poderosa\" na p. 436 (lidos como itálicos na imagem); espaço em \"objectivas ;\" foi removido; \"basêam-se\" lido como \"basêam-se\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0071418,
+ "duration_ms": 37681,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17708,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10742
+ },
+ "reparo": false
+}
