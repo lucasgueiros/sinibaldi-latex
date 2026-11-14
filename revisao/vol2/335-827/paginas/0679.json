@@ -1,0 +1,27 @@
+{
+ "pagina": 679,
+ "paginas": [
+  679
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"a/á\", \"diffieil\", \"peecam\", \"athews\", \"dé\", \"&amp;\" (lido no lugar de \"á\"), hífen espúrio em \"193.-0\" (agora \"123. O\"), dois-pontos espúrio em \"um:\", \";\" trocado por \",\" em \"natural, que só obriga\"; \"DEUS\" normalizado para versalete `Deus`.\nFronteira corpo/nota: nenhuma mudança; a nota 1 já estava no ponto certo e fecha na própria página 679, sem continuação na página seguinte.\nDúvidas: se a \"a\" de \"e a vontade\" é mesmo sem acento na imagem (transcrevi sem acento); se o título \"123.\" deve ficar todo em negrito (apliquei negrito à frase inteira, como na imagem); \"ecceitar\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"a/á\", \"diffieil\", \"peecam\", \"athews\", \"dé\", \"&amp;\" (lido no lugar de \"á\"), hífen espúrio em \"193.-0\" (agora \"123. O\"), dois-pontos espúrio em \"um:\", \";\" trocado por \",\" em \"natural, que só obriga\"; \"DEUS\" normalizado para versalete `Deus`.\nFronteira corpo/nota: nenhuma mudança; a nota 1 já estava no ponto certo e fecha na própria página 679, sem continuação na página seguinte.\nDúvidas: se a \"a\" de \"e a vontade\" é mesmo sem acento na imagem (transcrevi sem acento); se o título \"123.\" deve ficar todo em negrito (apliquei negrito à frase inteira, como na imagem); \"ecceitar\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0049765,
+ "duration_ms": 30126,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10895,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7774
+ },
+ "reparo": false
+}

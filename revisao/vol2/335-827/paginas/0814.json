@@ -1,0 +1,27 @@
+{
+ "pagina": 814,
+ "paginas": [
+  814
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR de letras (diver:o→diverso, em 8i→em si, evtrinsecamente→extrinsecamente, lus→luz, ewcellencia→excellencia, DEus/Dus→Deus, DEMONSTIRABILIDADE→DEMONSTRABILIDADE), \"&amp;\"→\"á\", algarismos das divisões (l.?, 2.9, 9.9, 4.0 → 1.º, 2.º, 3.º, 4.º), \"TuEopicEA\"/\"TuxopicEA\" e \"pA\" nos títulos, e \"á)\" → \"a)\"; removidos \". . .\" e \"0)\" trocado por \"c)\".\nEstrutura: separado o parágrafo \"c) Operações da alma separada\" do \"b)\", que estava no mesmo <p>. Nenhuma fronteira corpo/nota alterada (não há notas neste trecho).\nDúvidas: grafia em versalete (\"DEUS\" x \"Deus\") mantida como no OCR; o separador \"—————\" e o título \"SYNOPSE DA THEODICEA\" foram mantidos como estão.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR de letras (diver:o→diverso, em 8i→em si, evtrinsecamente→extrinsecamente, lus→luz, ewcellencia→excellencia, DEus/Dus→Deus, DEMONSTIRABILIDADE→DEMONSTRABILIDADE), \"&amp;\"→\"á\", algarismos das divisões (l.?, 2.9, 9.9, 4.0 → 1.º, 2.º, 3.º, 4.º), \"TuEopicEA\"/\"TuxopicEA\" e \"pA\" nos títulos, e \"á)\" → \"a)\"; removidos \". . .\" e \"0)\" trocado por \"c)\".\nEstrutura: separado o parágrafo \"c) Operações da alma separada\" do \"b)\", que estava no mesmo <p>. Nenhuma fronteira corpo/nota alterada (não há notas neste trecho).\nDúvidas: grafia em versalete (\"DEUS\" x \"Deus\") mantida como no OCR; o separador \"—————\" e o título \"SYNOPSE DA THEODICEA\" foram mantidos como estão.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0051623,
+ "duration_ms": 29332,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10968,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8131
+ },
+ "reparo": false
+}

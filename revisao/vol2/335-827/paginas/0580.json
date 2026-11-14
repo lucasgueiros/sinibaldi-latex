@@ -1,0 +1,45 @@
+{
+ "pagina": 580,
+ "paginas": [
+  580,
+  581,
+  582,
+  583,
+  584,
+  585,
+  586,
+  587,
+  588,
+  589,
+  590,
+  591,
+  592,
+  593,
+  594,
+  595,
+  596,
+  597,
+  598
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções de OCR: acentos/cedilhas, letras trocadas, itálicos/negritos/versalete (títulos \"Prop.\", \"I./II./III./IV.\", \"Deus\"), \"A=A\", pontuação, hifenizações, lixo (\"38 Vor. II.\" removido; \"E\" espúrio virou o separador \"*\"), \"para\" no fim da p. 596 e \"as necessidades\" na junção 583/584.\nFronteira corpo/nota: não alterei nenhuma. Pelas imagens, o texto miúdo abaixo do filete (a partir de \"(1)\" na p. 580 até o fim da p. 598) forma uma única área contínua, então mantive a nota n580-1 inteira e os pb internos. Só a abertura da nota seguinte \"(1) Esta tambem…\" na p. 598 não foi copiada.\nDúvida: o trecho \"Os systemas…\" da p. 580 em diante (depois do \"*\") talvez seja escólio de corpo em letra miúda e não nota. Deixei dentro da nota por precaução.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções de OCR: acentos/cedilhas, letras trocadas, itálicos/negritos/versalete (títulos \"Prop.\", \"I./II./III./IV.\", \"Deus\"), \"A=A\", pontuação, hifenizações, lixo (\"38 Vor. II.\" removido; \"E\" espúrio virou o separador \"*\"), \"para\" no fim da p. 596 e \"as necessidades\" na junção 583/584.\nFronteira corpo/nota: não alterei nenhuma. Pelas imagens, o texto miúdo abaixo do filete (a partir de \"(1)\" na p. 580 até o fim da p. 598) forma uma única área contínua, então mantive a nota n580-1 inteira e os pb internos. Só a abertura da nota seguinte \"(1) Esta tambem…\" na p. 598 não foi copiada.\nDúvida: o trecho \"Os systemas…\" da p. 580 em diante (depois do \"*\") talvez seja escólio de corpo em letra miúda e não nota. Deixei dentro da nota por precaução.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.8806639999999999,
+ "duration_ms": 333326,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 140402,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 59986
+ },
+ "reparo": false
+}

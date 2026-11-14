@@ -1,0 +1,27 @@
+{
+ "pagina": 827,
+ "paginas": [
+  827
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"OAPITULO\" → CAPITULO, \"Jamidnos\" → humanos, \"o fundamento\" → \"e fundamento\", traço \"-\" espúrio) e restauração de texto perdido na tabela de índice (rótulos \"Art.\", números de página e a linha \"PARTE SEGUNDA / DIREITO NATURAL / Prologo 653\"); cada entrada do índice virou um `<p>`. Nenhuma fronteira corpo/nota alterada (não há notas neste trecho); `<pb>` e divisões mantidos.\nDúvidas: o cabeçalho impresso da página marcada 827 diz \"826\" (possível defasagem de paginação, pb mantido); pontilhados do índice foram omitidos; \"Direito\" em negrito em \"SECÇÃO PRIMEIRA\" é incerto; \"Art. I/II\" das seções foram transcritos sem versalete.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"OAPITULO\" → CAPITULO, \"Jamidnos\" → humanos, \"o fundamento\" → \"e fundamento\", traço \"-\" espúrio) e restauração de texto perdido na tabela de índice (rótulos \"Art.\", números de página e a linha \"PARTE SEGUNDA / DIREITO NATURAL / Prologo 653\"); cada entrada do índice virou um `<p>`. Nenhuma fronteira corpo/nota alterada (não há notas neste trecho); `<pb>` e divisões mantidos.\nDúvidas: o cabeçalho impresso da página marcada 827 diz \"826\" (possível defasagem de paginação, pb mantido); pontilhados do índice foram omitidos; \"Direito\" em negrito em \"SECÇÃO PRIMEIRA\" é incerto; \"Art. I/II\" das seções foram transcritos sem versalete.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0040549,
+ "duration_ms": 25706,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9864,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6137
+ },
+ "reparo": false
+}

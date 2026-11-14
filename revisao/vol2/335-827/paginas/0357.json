@@ -1,0 +1,33 @@
+{
+ "pagina": 357,
+ "paginas": [
+  357,
+  358,
+  359,
+  360,
+  361,
+  362,
+  363
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras (ntelligencia, aima, Sao, transform/istas, bronse, Creuser, Orimusd, ouro, Hissarlik, Troada, Études, immutavel, zmmateriaes, emquamto), acentos, hifenizações, \"|\" e \"^\" espúrios, numeração de chamadas (\"9)\", \"6)\", \"4)\", \"5)\") e referências de S. Thomaz (q. 118, a. 2; q. 3, a. 9; pag. 360); \"materia\" → \"material\" na alma de 220 b).\nFronteira corpo/nota: nenhuma alteração. Nota 1 (357) e nota 2 (357–363) confirmadas; os alertas do pipeline para 358 eram falsos positivos (todo o trecho 358 abaixo do filete é nota). Pb 361 agora dentro de \"imma-/terial\" (palavra hifenizada entre 360 e 361).\nDúvidas: \"1.º\" vs \"1.ª\" nas enumerações; \"accrescenta\" (mantido como impresso, pode ser \"acrescenta\"); \"tem concedido\" mantido como impresso; itálicos de \"a do animal\" e \"força estimativa\" conferidos só aproximadamente.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras (ntelligencia, aima, Sao, transform/istas, bronse, Creuser, Orimusd, ouro, Hissarlik, Troada, Études, immutavel, zmmateriaes, emquamto), acentos, hifenizações, \"|\" e \"^\" espúrios, numeração de chamadas (\"9)\", \"6)\", \"4)\", \"5)\") e referências de S. Thomaz (q. 118, a. 2; q. 3, a. 9; pag. 360); \"materia\" → \"material\" na alma de 220 b).\nFronteira corpo/nota: nenhuma alteração. Nota 1 (357) e nota 2 (357–363) confirmadas; os alertas do pipeline para 358 eram falsos positivos (todo o trecho 358 abaixo do filete é nota). Pb 361 agora dentro de \"imma-/terial\" (palavra hifenizada entre 360 e 361).\nDúvidas: \"1.º\" vs \"1.ª\" nas enumerações; \"accrescenta\" (mantido como impresso, pode ser \"acrescenta\"); \"tem concedido\" mantido como impresso; itálicos de \"a do animal\" e \"força estimativa\" conferidos só aproximadamente.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0310824,
+ "duration_ms": 191635,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 52309,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 51703
+ },
+ "reparo": false
+}

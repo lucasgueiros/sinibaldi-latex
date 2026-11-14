@@ -1,0 +1,31 @@
+{
+ "pagina": 631,
+ "paginas": [
+  631,
+  632,
+  633,
+  634,
+  635
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (ex.: \"applieada\", \"Huie\", \"moyet\", \"cireumstancias\", \"Anthropología\", \"wuniversalissimo\", \"EØ\"), acentos e pontuação, latim e itálicos/versalete (\"Deus\", \"Cicero\", \"Thomasio\"), numeração \"2.º)\" e \"I, 13\", \"cap. III\", \"christãos\", \"dôr\"; \"nem Znvencivelmente\" → \"invencivelmente\"; negritos dos títulos \"88.\", \"a)/b)\" e \"Pratica o bem e evita o mal\" ajustados à imagem.\nFronteiras corpo/nota: conferidas e mantidas. A nota 2 (631→634, \"Os atheus…\" até \"cap. III\") é letra menor abaixo do filete e foi preservada inteira; a nota 634-1 continua em 635 (\"d'esta opinião…\") e a 635-1 começa após \"(1)\" no corpo. Nenhuma mudança estrutural.\nDúvidas: se \"sujeito\" (634, nota 2) é negrito no original; se \"dôr\" leva circunflexo; se os títulos a)/b) e \"Pratica o bem…\" são negrito inteiro ou só parte. \"mario\" (início de 631) pertence a palavra de fora do trecho e não foi acrescentado.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (ex.: \"applieada\", \"Huie\", \"moyet\", \"cireumstancias\", \"Anthropología\", \"wuniversalissimo\", \"EØ\"), acentos e pontuação, latim e itálicos/versalete (\"Deus\", \"Cicero\", \"Thomasio\"), numeração \"2.º)\" e \"I, 13\", \"cap. III\", \"christãos\", \"dôr\"; \"nem Znvencivelmente\" → \"invencivelmente\"; negritos dos títulos \"88.\", \"a)/b)\" e \"Pratica o bem e evita o mal\" ajustados à imagem.\nFronteiras corpo/nota: conferidas e mantidas. A nota 2 (631→634, \"Os atheus…\" até \"cap. III\") é letra menor abaixo do filete e foi preservada inteira; a nota 634-1 continua em 635 (\"d'esta opinião…\") e a 635-1 começa após \"(1)\" no corpo. Nenhuma mudança estrutural.\nDúvidas: se \"sujeito\" (634, nota 2) é negrito no original; se \"dôr\" leva circunflexo; se os títulos a)/b) e \"Pratica o bem…\" são negrito inteiro ou só parte. \"mario\" (início de 631) pertence a palavra de fora do trecho e não foi acrescentado.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0278335,
+ "duration_ms": 176867,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 39320,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 47803
+ },
+ "reparo": false
+}

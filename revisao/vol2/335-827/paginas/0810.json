@@ -1,0 +1,27 @@
+{
+ "pagina": 810,
+ "paginas": [
+  810
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (€/0→c, á→d, 4)/5)→a)/b), \"sô\", \"Nào\", \"espiritwdes\", \"ihe\", etc.), pontuação, itálicos e hifenização final. Não houve notas de rodapé nem mudança de fronteira corpo/nota. Dúvida: o hífen final \"materia-\" mantido como no impresso (palavra cortada).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (€/0→c, á→d, 4)/5)→a)/b), \"sô\", \"Nào\", \"espiritwdes\", \"ihe\", etc.), pontuação, itálicos e hifenização final. Não houve notas de rodapé nem mudança de fronteira corpo/nota. Dúvida: o hífen final \"materia-\" mantido como no impresso (palavra cortada).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.051788,
+ "duration_ms": 14382,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11664,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 2846
+ },
+ "reparo": false
+}

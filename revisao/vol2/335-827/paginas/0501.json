@@ -1,0 +1,32 @@
+{
+ "pagina": 501,
+ "paginas": [
+  501,
+  502,
+  503,
+  504,
+  505,
+  506
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (ex.: \"Dzvus\"→Deus, \"ec necessitate\"→ex necessitate, \"Aypothetica\"→hypothetica, \"Serdo\"→Sendo, \"v. l\"→v. I, \"q. 21\"→q. 27, \"ad 8\"→ad 3, \"p- T\"→p. I, \"16.\"→76.), cedilhas e acentos (\"indifferenga\", \"differenga\", \"bóas\"→bôas), pontuação, \"A. infinita\", \"as.creaturas\", \"livremente\" e a palavra hifenizada \"embora\"/\"precisa\" reposicionada junto ao pb 505/502; \"Deus\" em versalete uniforme; trecho de 503 \"Ora\" mantido.\nFronteira corpo/nota: nenhuma mudança estrutural. A nota 2 (p. 501) foi mantida até \"não-creação.\" e incluindo \"*\", os corolários e a continuação de 506 (\"mas, antes… a. 9).\"), com pb 503, 504, 505 e 506 internos; o corpo da p. 502–505 (enunciado do § 76) permanece após a nota, sem o trecho de 506 (\"liberação… (1)\" e \"77.\"), que pertence ao trecho seguinte.\nDúvidas restantes: se o bloco \"*\" e os corolários (a–c, letra menor sem filete, após o asterisco na p. 505) são corpo em letra menor ou continuação de nota — mantive na nota por \"na dúvida\"; e a p. 506 (continuação de nota \"mas, antes…\") pode ser corpo ligado a \"essencia da liberdade,\" — não verifiquei com certeza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (ex.: \"Dzvus\"→Deus, \"ec necessitate\"→ex necessitate, \"Aypothetica\"→hypothetica, \"Serdo\"→Sendo, \"v. l\"→v. I, \"q. 21\"→q. 27, \"ad 8\"→ad 3, \"p- T\"→p. I, \"16.\"→76.), cedilhas e acentos (\"indifferenga\", \"differenga\", \"bóas\"→bôas), pontuação, \"A. infinita\", \"as.creaturas\", \"livremente\" e a palavra hifenizada \"embora\"/\"precisa\" reposicionada junto ao pb 505/502; \"Deus\" em versalete uniforme; trecho de 503 \"Ora\" mantido.\nFronteira corpo/nota: nenhuma mudança estrutural. A nota 2 (p. 501) foi mantida até \"não-creação.\" e incluindo \"*\", os corolários e a continuação de 506 (\"mas, antes… a. 9).\"), com pb 503, 504, 505 e 506 internos; o corpo da p. 502–505 (enunciado do § 76) permanece após a nota, sem o trecho de 506 (\"liberação… (1)\" e \"77.\"), que pertence ao trecho seguinte.\nDúvidas restantes: se o bloco \"*\" e os corolários (a–c, letra menor sem filete, após o asterisco na p. 505) são corpo em letra menor ou continuação de nota — mantive na nota por \"na dúvida\"; e a p. 506 (continuação de nota \"mas, antes…\") pode ser corpo ligado a \"essencia da liberdade,\" — não verifiquei com certeza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0330282,
+ "duration_ms": 225004,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 45612,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 56934
+ },
+ "reparo": false
+}

@@ -1,0 +1,29 @@
+{
+ "pagina": 606,
+ "paginas": [
+  606,
+  607,
+  608
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (IT→II, 58→53, \"0)\"→\"c)\", \"4)\"→\"d)\", \"rusão\"→\"razão\", \"Jou/froy\"→\"Jouffroy\", \"nàáo\"→\"não\", \"Acerca\"→\"ácerca\", \"é á negação\"→\"é a negação\", \"livre .arbitrio\", espaço antes de \";\"); formatação (título do art. 53 em negrito inteiro, \"é racional\" e itálicos das regras corrigidos).\nFronteira corpo/nota: nenhuma alteração; as notas n606-1 (pp. 606–608) e n608-1/n608-2 já estavam nos lugares certos, e o fim da nota da p. 605 não foi acrescentado.\nDúvidas: o \"n\" após \"essencia\" (p. 606) e o \"n\" da citação de Krause foram lidos como « » (aspas de fechamento), não como letra; \"que. a norma\" (p. 607) e \"fê\" (p. 608) mantidos como impressos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (IT→II, 58→53, \"0)\"→\"c)\", \"4)\"→\"d)\", \"rusão\"→\"razão\", \"Jou/froy\"→\"Jouffroy\", \"nàáo\"→\"não\", \"Acerca\"→\"ácerca\", \"é á negação\"→\"é a negação\", \"livre .arbitrio\", espaço antes de \";\"); formatação (título do art. 53 em negrito inteiro, \"é racional\" e itálicos das regras corrigidos).\nFronteira corpo/nota: nenhuma alteração; as notas n606-1 (pp. 606–608) e n608-1/n608-2 já estavam nos lugares certos, e o fim da nota da p. 605 não foi acrescentado.\nDúvidas: o \"n\" após \"essencia\" (p. 606) e o \"n\" da citação de Krause foram lidos como « » (aspas de fechamento), não como letra; \"que. a norma\" (p. 607) e \"fê\" (p. 608) mantidos como impressos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.013198600000000001,
+ "duration_ms": 82050,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23831,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 21631
+ },
+ "reparo": false
+}

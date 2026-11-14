@@ -1,0 +1,27 @@
+{
+ "pagina": 819,
+ "paginas": [
+  819
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras (laca→laxa, énvencivelmente, pára, Drs., DEus, ap»rfeigoar→aperfeiçoar, dá→á, po/no→do, 8.º→3.º, 2»→2.º, B,→B.), \"&amp;\" lido no lugar de \"a\" e \"á\", ordinais (1.ª, 2.ª), itálicos em \"natural\" e \"collisão\".\nFronteira corpo/nota: nenhuma nota neste trecho (não há \"(n)\" nem `<note>`); nenhuma mudança de fronteira feita.\nDúvidas: a formatação de caixa-alta/versalete dos títulos (\"DIREITO NATURAL\", \"DIVISÃO\", \"DEVERES DO HOMEM…\") foi mantida como estava no fragmento; o \"A.\" de \"A. DEVERES\" não ficou claro se é itálico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras (laca→laxa, énvencivelmente, pára, Drs., DEus, ap»rfeigoar→aperfeiçoar, dá→á, po/no→do, 8.º→3.º, 2»→2.º, B,→B.), \"&amp;\" lido no lugar de \"a\" e \"á\", ordinais (1.ª, 2.ª), itálicos em \"natural\" e \"collisão\".\nFronteira corpo/nota: nenhuma nota neste trecho (não há \"(n)\" nem `<note>`); nenhuma mudança de fronteira feita.\nDúvidas: a formatação de caixa-alta/versalete dos títulos (\"DIREITO NATURAL\", \"DIVISÃO\", \"DEVERES DO HOMEM…\") foi mantida como estava no fragmento; o \"A.\" de \"A. DEVERES\" não ficou claro se é itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0052674,
+ "duration_ms": 28911,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11654,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8204
+ },
+ "reparo": false
+}

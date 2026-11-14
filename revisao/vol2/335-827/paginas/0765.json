@@ -1,0 +1,31 @@
+{
+ "pagina": 765,
+ "paginas": [
+  765,
+  766,
+  767,
+  768,
+  769
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (auoctoridade, deéterminada, constituigüo, oceupação, effusüó, imperéum, verifioava, Aereditaria, arístocratica, \"&amp;\" por \"a\"/\"á\", funeção/funec&amp;o por funcção, \"sub- ditos\" e \"su-jeito\" reunidos, \"2.3)\" e \"1.º)\" por \"2.ª)\" e \"1.ª)\"), pontuação espúria (\":\" em \"vencido:\", ponto em \"mandatur.\", \"quizerem.\"), itálicos indevidos (\"e\", \"a\") e \"E \" por \"E' \", \"A.\" por \"A\", \"t. L l. XI\" por \"t. I, l. XI\", \"Pessoa\" minúscula.\nFronteiras corpo/nota: conferidas e mantidas. Nota 765-1 vai de 765 até \"motivo de discordias.\" (767); continuação em 766 e 767 com pb dentro da nota; \"179\" (766) e \"sociedade…executiva (1).\" (767) ficam no corpo; n767-1 continua em 768 (\"mas julgamos…\") como indicado pelo alerta, e n768-1 continua em 769 (\"do Direito…\"). Nenhuma mudança de fronteira feita.\nDúvidas: \"su-/jeito\" (765→766) mantido com pb após a palavra inteira, como no original do pipeline; \"regendum ».\" e grafia \"pode/póde\" conferidas só por leitura da imagem; nota 768-1 sem &lt;p&gt;, mantida como estava.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (auoctoridade, deéterminada, constituigüo, oceupação, effusüó, imperéum, verifioava, Aereditaria, arístocratica, \"&amp;\" por \"a\"/\"á\", funeção/funec&amp;o por funcção, \"sub- ditos\" e \"su-jeito\" reunidos, \"2.3)\" e \"1.º)\" por \"2.ª)\" e \"1.ª)\"), pontuação espúria (\":\" em \"vencido:\", ponto em \"mandatur.\", \"quizerem.\"), itálicos indevidos (\"e\", \"a\") e \"E \" por \"E' \", \"A.\" por \"A\", \"t. L l. XI\" por \"t. I, l. XI\", \"Pessoa\" minúscula.\nFronteiras corpo/nota: conferidas e mantidas. Nota 765-1 vai de 765 até \"motivo de discordias.\" (767); continuação em 766 e 767 com pb dentro da nota; \"179\" (766) e \"sociedade…executiva (1).\" (767) ficam no corpo; n767-1 continua em 768 (\"mas julgamos…\") como indicado pelo alerta, e n768-1 continua em 769 (\"do Direito…\"). Nenhuma mudança de fronteira feita.\nDúvidas: \"su-/jeito\" (765→766) mantido com pb após a palavra inteira, como no original do pipeline; \"regendum ».\" e grafia \"pode/póde\" conferidas só por leitura da imagem; nota 768-1 sem &lt;p&gt;, mantida como estava.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0266007,
+ "duration_ms": 167664,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38107,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 45580
+ },
+ "reparo": false
+}

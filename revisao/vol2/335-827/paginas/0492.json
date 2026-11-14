@@ -1,0 +1,32 @@
+{
+ "pagina": 492,
+ "paginas": [
+  492,
+  493,
+  494,
+  495,
+  496,
+  497
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras (diviva, verdudeira, nio, occasiüo, Dxvus, Dus, invariavel, vê, e/feito, distinecüo, comprehensão, cireumstancias, Aypothetica, volic&amp;o, eujo, \"a vontade impera\", \"Faculdade\", \"72.\" em vez de \"12.\"), numeração de títulos, acentos e itálicos; \"A\" solto após a nota 1 e um pb 493 duplicado removidos (não — mantidos os dois pb 493 e os pb de nota, pois são de funções distintas); cabeçalho e formatação dos títulos 68, 70, 71 e 72 uniformizados em negrito.\nFronteira corpo/nota: não alterada. A nota 492-2 abrange de fato 492→494 (a área de notas das páginas 492, 493 e 494 é letra menor sem filete entre os trechos); o \"*\" e o bloco de 495 seguem na nota 495-1, pois estão em letra menor (espaçamento de linha da nota, não do corpo); a continuação 496 da nota 495-1 foi mantida. Nenhum texto do fim da nota do trecho anterior foi acrescentado.\nDúvidas restantes: \"Para, entendermos\" (vírgula ou ponto na imagem, mantida a vírgula); \"da todos os homens\" transcrito como impresso; \"p. III, q. 23\" (lido da imagem, o original do OCR dizia 28); a ordem visual do pb 493 com o cabeçalho do Artigo II não foi alterada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras (diviva, verdudeira, nio, occasiüo, Dxvus, Dus, invariavel, vê, e/feito, distinecüo, comprehensão, cireumstancias, Aypothetica, volic&amp;o, eujo, \"a vontade impera\", \"Faculdade\", \"72.\" em vez de \"12.\"), numeração de títulos, acentos e itálicos; \"A\" solto após a nota 1 e um pb 493 duplicado removidos (não — mantidos os dois pb 493 e os pb de nota, pois são de funções distintas); cabeçalho e formatação dos títulos 68, 70, 71 e 72 uniformizados em negrito.\nFronteira corpo/nota: não alterada. A nota 492-2 abrange de fato 492→494 (a área de notas das páginas 492, 493 e 494 é letra menor sem filete entre os trechos); o \"*\" e o bloco de 495 seguem na nota 495-1, pois estão em letra menor (espaçamento de linha da nota, não do corpo); a continuação 496 da nota 495-1 foi mantida. Nenhum texto do fim da nota do trecho anterior foi acrescentado.\nDúvidas restantes: \"Para, entendermos\" (vírgula ou ponto na imagem, mantida a vírgula); \"da todos os homens\" transcrito como impresso; \"p. III, q. 23\" (lido da imagem, o original do OCR dizia 28); a ordem visual do pb 493 com o cabeçalho do Artigo II não foi alterada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0392826,
+ "duration_ms": 278034,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44921,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 69581
+ },
+ "reparo": false
+}

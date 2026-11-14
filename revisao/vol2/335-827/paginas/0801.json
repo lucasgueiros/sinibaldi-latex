@@ -1,0 +1,29 @@
+{
+ "pagina": 801,
+ "paginas": [
+  801,
+  802,
+  803
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: erros de OCR (Hgreja, Cunisto, organisacaão, confiseado, sugerioridade, instruccüo, excercicio, abtribuições, S8., jurisdicg&amp;o, n&amp;o, E/Eigreja), acentos, sc para \"Jesus Christo\", lixo (51/VOL. II, \"802 MORAL…\", \"*\", \"z\", \"= MAN\", \"ieio\"), numeração de tese 283→203 no label, e fusão de parágrafos quebrados por pb/rodapé (n801-3, n803-1, parágrafo \"Pergunta-se\" separado de n802-1).\nFronteira corpo/nota: nenhuma nota foi movida ou recriada; n801-3 continua em 802 (rodapé) e n802-2 em 803 já estavam certas; o alerta de p. 802 era falso.\nDúvidas: o atributo n/xml:id do div (\"283\", \"t283\") foi mantido por instrução, apesar de o rótulo ser 203; \"subordinado\" no fim do trecho lê-se \"subor-\" na imagem (palavra completa-se na p. 804, fora do trecho).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: erros de OCR (Hgreja, Cunisto, organisacaão, confiseado, sugerioridade, instruccüo, excercicio, abtribuições, S8., jurisdicg&amp;o, n&amp;o, E/Eigreja), acentos, sc para \"Jesus Christo\", lixo (51/VOL. II, \"802 MORAL…\", \"*\", \"z\", \"= MAN\", \"ieio\"), numeração de tese 283→203 no label, e fusão de parágrafos quebrados por pb/rodapé (n801-3, n803-1, parágrafo \"Pergunta-se\" separado de n802-1).\nFronteira corpo/nota: nenhuma nota foi movida ou recriada; n801-3 continua em 802 (rodapé) e n802-2 em 803 já estavam certas; o alerta de p. 802 era falso.\nDúvidas: o atributo n/xml:id do div (\"283\", \"t283\") foi mantido por instrução, apesar de o rótulo ser 203; \"subordinado\" no fim do trecho lê-se \"subor-\" na imagem (palavra completa-se na p. 804, fora do trecho).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0161994,
+ "duration_ms": 99511,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24459,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 27507
+ },
+ "reparo": false
+}

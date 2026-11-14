@@ -1,0 +1,31 @@
+{
+ "pagina": 451,
+ "paginas": [
+  451,
+  452,
+  453,
+  454,
+  455
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (simpicidade, inmensidade, exelue, Dszus, DEus/DEUS, Dus, Panne/Figo/EsPmrro, \"8.\" por \"S.\", \"a. 8)\" por \"a. 3)\", \"q. 8/q. 9\" em referências, \"&\" por a/á, \"rusão\", \"nobresa\", \"distincção\", acentos e hífens); numeração \"4)\" corrigida para \"a)\" e \"(I Sent. ... a. 8 ad 6\" completada; grafias do original (\"philosophia\", \"Paternidade\", \"merece,a\", \"synonymos:\") mantidas.\nFronteira corpo/nota: conferida página a página; a nota 452-1 é longa e atravessa 452–455 (continuações marcadas com pb 453, 454 e 455 dentro da nota) e foi mantida como estava; a nota 455-1 e a 451-2 (que continua em 452) também estão corretas. Nenhuma mudança de fronteira.\nDúvidas: a itálico de \"a)\" e de \"dependente\" em 452 não pude confirmar com segurança; mantive o que o fragmento trazia.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (simpicidade, inmensidade, exelue, Dszus, DEus/DEUS, Dus, Panne/Figo/EsPmrro, \"8.\" por \"S.\", \"a. 8)\" por \"a. 3)\", \"q. 8/q. 9\" em referências, \"&\" por a/á, \"rusão\", \"nobresa\", \"distincção\", acentos e hífens); numeração \"4)\" corrigida para \"a)\" e \"(I Sent. ... a. 8 ad 6\" completada; grafias do original (\"philosophia\", \"Paternidade\", \"merece,a\", \"synonymos:\") mantidas.\nFronteira corpo/nota: conferida página a página; a nota 452-1 é longa e atravessa 452–455 (continuações marcadas com pb 453, 454 e 455 dentro da nota) e foi mantida como estava; a nota 455-1 e a 451-2 (que continua em 452) também estão corretas. Nenhuma mudança de fronteira.\nDúvidas: a itálico de \"a)\" e de \"dependente\" em 452 não pude confirmar com segurança; mantive o que o fragmento trazia.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.031589,
+ "duration_ms": 195620,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 42275,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 54723
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 557,
+ "paginas": [
+  557
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (//umanos, iwmanos, iumanos, /im, orale→morale, ionesto, praser, TA→Th, \"z\" espúrio, \"0\"→\"O\", \"em\"→\"bem\", \"SuMmMARIO\", \"ARTIGO I.\"); \"(1)\" removido do início do texto da nota; formatação: negrito da frase inicial dos §§ 9 e 10, itálicos em \"bem\" e \"fim\" de \"Dissemos que o bem é fim\"; reposta a linha \"CAPITULO PRIMEIRO\" (faltava no alto da p. 557).\nFronteira corpo/nota: sem alteração; a nota 1 começa e termina na p. 557, como no impresso.\nDúvidas: \"Summario\" em versalete foi transcrito como a imagem sugere; o negrito de \"FIM DOS ACTOS HUMANOS\" e a numeração \"9.\"/\"10.\" em negrito ou não não ficaram claros na imagem e foram mantidos como estavam.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (//umanos, iwmanos, iumanos, /im, orale→morale, ionesto, praser, TA→Th, \"z\" espúrio, \"0\"→\"O\", \"em\"→\"bem\", \"SuMmMARIO\", \"ARTIGO I.\"); \"(1)\" removido do início do texto da nota; formatação: negrito da frase inicial dos §§ 9 e 10, itálicos em \"bem\" e \"fim\" de \"Dissemos que o bem é fim\"; reposta a linha \"CAPITULO PRIMEIRO\" (faltava no alto da p. 557).\nFronteira corpo/nota: sem alteração; a nota 1 começa e termina na p. 557, como no impresso.\nDúvidas: \"Summario\" em versalete foi transcrito como a imagem sugere; o negrito de \"FIM DOS ACTOS HUMANOS\" e a numeração \"9.\"/\"10.\" em negrito ou não não ficaram claros na imagem e foram mantidos como estavam.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046235,
+ "duration_ms": 26280,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10720,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7103
+ },
+ "reparo": false
+}

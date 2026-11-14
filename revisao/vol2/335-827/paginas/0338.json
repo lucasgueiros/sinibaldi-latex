@@ -1,0 +1,29 @@
+{
+ "pagina": 338,
+ "paginas": [
+  338,
+  339,
+  340
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (Il→II, \"á lingua\"→\"a lingua\", \"progresiva\", \"Mas/Mac Müller\"→\"Max\", \"Nadallac\", \"gloitica\", \"vocalisagüo\", \"civilisagão\", \"5)\"→\"b)\", \"2 formar\", \"&\"→\"a\", \"idéas\", itálicos de \"a faculdade\"), hifenizações e pontuação; removido \"e\" solto no fim da nota.\nFronteira: mantida a nota n338-1 como única, atravessando as páginas 339 e 340 (todo o texto em letra pequena do rodapé de 339 e 340 pertence a ela); não houve mudança de fronteira. Mantidos \"è\" tipográficos do original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (Il→II, \"á lingua\"→\"a lingua\", \"progresiva\", \"Mas/Mac Müller\"→\"Max\", \"Nadallac\", \"gloitica\", \"vocalisagüo\", \"civilisagão\", \"5)\"→\"b)\", \"2 formar\", \"&\"→\"a\", \"idéas\", itálicos de \"a faculdade\"), hifenizações e pontuação; removido \"e\" solto no fim da nota.\nFronteira: mantida a nota n338-1 como única, atravessando as páginas 339 e 340 (todo o texto em letra pequena do rodapé de 339 e 340 pertence a ela); não houve mudança de fronteira. Mantidos \"è\" tipográficos do original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.11831799999999999,
+ "duration_ms": 41474,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24234,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6985
+ },
+ "reparo": false
+}

@@ -1,0 +1,29 @@
+{
+ "pagina": 366,
+ "paginas": [
+  366,
+  367,
+  368
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR de palavras (Pythagoras, Cf., thorax, dá, S. Escriptura, que, creação, distincção, compleição, etc.), número de tese \"2238.\" → \"223.\", \"Zmmedtatamente\", \"Drs/DEkus\", \"E' a doutrina… -Ào\", \"a. 8\"/\"c. 81\" nas citações, \"5.9)\"/\"8.º)\" e pontuação; \"pb 367\" e \"pb 368\" mantidos onde estavam.\nFronteira corpo/nota NÃO alterada: deixei a nota n366-2 aberta até o fim do fragmento (inclui \"Obiectam\", \"Pergunta-se\" e os parágrafos de 368), por dúvida real. A imagem sugere que o bloco de \"Obiectam… Pergunta-se… Uns dizem… diversidade… ad 6)\" pode ser corpo (letra pequena, sem filete e sem \"(n)\"), o que pediria fechar a nota após \"Gen., II, 7).\" (p. 367) e mover esses parágrafos para o corpo; não fiz porque o filete em 368 e a ordem de 224/a) não se reconciliam claramente com as imagens.\nDúvidas restantes: se a nota (1) de 368 (\"Apresentamos…\") pertence a este trecho (suponho que não); se o duplicado <pb n=\"367\"> ao fim de t221 está na posição certa; \"vitae »\" lido como \"»\" no fim da citação do Gênesis.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR de palavras (Pythagoras, Cf., thorax, dá, S. Escriptura, que, creação, distincção, compleição, etc.), número de tese \"2238.\" → \"223.\", \"Zmmedtatamente\", \"Drs/DEkus\", \"E' a doutrina… -Ào\", \"a. 8\"/\"c. 81\" nas citações, \"5.9)\"/\"8.º)\" e pontuação; \"pb 367\" e \"pb 368\" mantidos onde estavam.\nFronteira corpo/nota NÃO alterada: deixei a nota n366-2 aberta até o fim do fragmento (inclui \"Obiectam\", \"Pergunta-se\" e os parágrafos de 368), por dúvida real. A imagem sugere que o bloco de \"Obiectam… Pergunta-se… Uns dizem… diversidade… ad 6)\" pode ser corpo (letra pequena, sem filete e sem \"(n)\"), o que pediria fechar a nota após \"Gen., II, 7).\" (p. 367) e mover esses parágrafos para o corpo; não fiz porque o filete em 368 e a ordem de 224/a) não se reconciliam claramente com as imagens.\nDúvidas restantes: se a nota (1) de 368 (\"Apresentamos…\") pertence a este trecho (suponho que não); se o duplicado <pb n=\"367\"> ao fim de t221 está na posição certa; \"vitae »\" lido como \"»\" no fim da citação do Gênesis.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0308943,
+ "duration_ms": 248141,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24533,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 56882
+ },
+ "reparo": false
+}

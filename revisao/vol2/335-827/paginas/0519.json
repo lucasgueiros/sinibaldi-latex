@@ -1,0 +1,27 @@
+{
+ "pagina": 519,
+ "paginas": [
+  519
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (ereou→creou, perfeicoes→perfeições, \"transeuntes.por\"→espaço, \"Zere\"→livre, \"p. L\"→p. I, \"DEus\"→Deus em versalete), \"(1)\" e \"(2)\" removidos do texto das notas, título \"ARTIGO II.\" em caixa alta e negrito ampliado em \"89\" e \"91\".\nFronteira corpo/nota: nenhuma alteração. Nota 1 (p. 519) e nota 2 (p. 519) estão completas no rodapé; a continuação do topo da página (\"temporanea, creou o mundo…\") não foi incluída, conforme instruído.\nDúvidas: \"l. III\" lido como \"l.\" (livro) e não \"1.\"; mantive \"creou\" como impresso; havia um glifo incerto após \"a\" em \"senão a communicação\", transcrito como \"a\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (ereou→creou, perfeicoes→perfeições, \"transeuntes.por\"→espaço, \"Zere\"→livre, \"p. L\"→p. I, \"DEus\"→Deus em versalete), \"(1)\" e \"(2)\" removidos do texto das notas, título \"ARTIGO II.\" em caixa alta e negrito ampliado em \"89\" e \"91\".\nFronteira corpo/nota: nenhuma alteração. Nota 1 (p. 519) e nota 2 (p. 519) estão completas no rodapé; a continuação do topo da página (\"temporanea, creou o mundo…\") não foi incluída, conforme instruído.\nDúvidas: \"l. III\" lido como \"l.\" (livro) e não \"1.\"; mantive \"creou\" como impresso; havia um glifo incerto após \"a\" em \"senão a communicação\", transcrito como \"a\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.004907,
+ "duration_ms": 28527,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10855,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7643
+ },
+ "reparo": false
+}

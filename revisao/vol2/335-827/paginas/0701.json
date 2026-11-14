@@ -1,0 +1,31 @@
+{
+ "pagina": 701,
+ "paginas": [
+  701,
+  702,
+  703,
+  704,
+  705
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (á/é, \"d vida\", \"Ahrens\", \"pela auctoridade\", \"Deus\"/\"DEus\", \"aggressüo\", \"2,3)\", \"5)\" → \"b)\", \"4.3)\" → \"4.ª)\"), hifenização, ordinais \"1.ª)\" em vez de \"1.º)\", \"passada\"/\"fama\" e outros acentos; removidos \"1\" espúrio em \"e 1 dispor\", \"*\" em \"injusta *aggressão\" e \"m(\" em \"razão »(Nouvelle Hél.)\"; \"»\" de fecho restaurado no Franklin; bold removido de \"verdade\"/\"exito\" (sublinhado manuscrito, não impresso); bold restaurado nos títulos \"b)–e)\", \"defeza\" em vez de \"defesa\" onde a imagem mostra \"defeza\".\nFronteira corpo/nota: nenhuma alteração. A nota 1 de p. 703 (que atravessa 704 e 705) e a nota 2 de p. 701 (que atravessa 702) já estavam corretas conforme as imagens; a nota 1 de p. 702 continua em 703.\nDúvidas: se \"b) Direito á dignidade pessoal\" e \"a) Escravatura\" são em negrito/itálico; se \"o.desprezo\" e \"em .duello\" tinham ponto impresso (tratei como ruído); se \"defeza\"/\"defesa\" varia no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (á/é, \"d vida\", \"Ahrens\", \"pela auctoridade\", \"Deus\"/\"DEus\", \"aggressüo\", \"2,3)\", \"5)\" → \"b)\", \"4.3)\" → \"4.ª)\"), hifenização, ordinais \"1.ª)\" em vez de \"1.º)\", \"passada\"/\"fama\" e outros acentos; removidos \"1\" espúrio em \"e 1 dispor\", \"*\" em \"injusta *aggressão\" e \"m(\" em \"razão »(Nouvelle Hél.)\"; \"»\" de fecho restaurado no Franklin; bold removido de \"verdade\"/\"exito\" (sublinhado manuscrito, não impresso); bold restaurado nos títulos \"b)–e)\", \"defeza\" em vez de \"defesa\" onde a imagem mostra \"defeza\".\nFronteira corpo/nota: nenhuma alteração. A nota 1 de p. 703 (que atravessa 704 e 705) e a nota 2 de p. 701 (que atravessa 702) já estavam corretas conforme as imagens; a nota 1 de p. 702 continua em 703.\nDúvidas: se \"b) Direito á dignidade pessoal\" e \"a) Escravatura\" são em negrito/itálico; se \"o.desprezo\" e \"em .duello\" tinham ponto impresso (tratei como ruído); se \"defeza\"/\"defesa\" varia no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0216381,
+ "duration_ms": 133985,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 37146,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 35847
+ },
+ "reparo": false
+}

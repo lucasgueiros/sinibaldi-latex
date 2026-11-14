@@ -1,0 +1,31 @@
+{
+ "pagina": 368,
+ "paginas": [
+  368,
+  369,
+  370,
+  371,
+  372
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (ex.: \"Leibnits\", \"preewistencia\", \"conceicio\", \"physiologia\", \"«\" por \"a\", \"»ue\", \"communiocou\", \"ató\", \"p/Aysiologia\"), acentos e crases, hifenização de \"dif-/ferem\" mantida como \"differem\", numeração \"1.º/2.º/3.º\", e lixo \"24 Vor. II.\" removido da nota.\nFronteira corpo/nota: mantida sem alteração. A nota n368-1 continua de 368 até o fim em 372 (texto \"de vida vegetativa… inferior\" em notas de 371); os parágrafos \"A alma humana, pois…\" e \"Diremos… dotado\" (370) foram tratados como notas, pois a sequência \"dotado / de vida vegetativa\" exige isso. Alerta de 370 (vão/corpo retomado) considerado falso alarme.\nDúvidas: o asterisco central de 370 não foi transcrito; \"é razão\" (370) lido como está na imagem, mas pode ser \"á\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (ex.: \"Leibnits\", \"preewistencia\", \"conceicio\", \"physiologia\", \"«\" por \"a\", \"»ue\", \"communiocou\", \"ató\", \"p/Aysiologia\"), acentos e crases, hifenização de \"dif-/ferem\" mantida como \"differem\", numeração \"1.º/2.º/3.º\", e lixo \"24 Vor. II.\" removido da nota.\nFronteira corpo/nota: mantida sem alteração. A nota n368-1 continua de 368 até o fim em 372 (texto \"de vida vegetativa… inferior\" em notas de 371); os parágrafos \"A alma humana, pois…\" e \"Diremos… dotado\" (370) foram tratados como notas, pois a sequência \"dotado / de vida vegetativa\" exige isso. Alerta de 370 (vão/corpo retomado) considerado falso alarme.\nDúvidas: o asterisco central de 370 não foi transcrito; \"é razão\" (370) lido como está na imagem, mas pode ser \"á\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.021268,
+ "duration_ms": 138432,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 36800,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 35176
+ },
+ "reparo": false
+}

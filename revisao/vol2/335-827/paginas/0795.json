@@ -1,0 +1,27 @@
+{
+ "pagina": 795,
+ "paginas": [
+  795
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em nomes (Dzvus, Onnisro, Cungisro, Jrsus Cnnisro, DEus, An/Aropologia, distinecio, meos), versalete de Deus/CHRISTO, itálicos (\"o\" de \"o homem\" não é itálico), pontuação (\"sociedade juridica.\" e \"sobrenatural.\"), \"tem\"→\"têm\", \"visto. que\", e hífen de fim de linha em \"na— tureza\" (→ natureza); \"consecução\" mantido por ser palavra inteira no trecho.\nFronteira corpo/nota: conferida em 795 (notas 1, 2 e 3 já estavam corretas, com continuações no pé da mesma página); nenhuma mudança estrutural.\nDúvidas: acentos de \"juridicos\"/\"juridica\" e a fonte de \"A Egreja\" (itálico ou negrito) não são totalmente legíveis na imagem; mantive a marcação original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em nomes (Dzvus, Onnisro, Cungisro, Jrsus Cnnisro, DEus, An/Aropologia, distinecio, meos), versalete de Deus/CHRISTO, itálicos (\"o\" de \"o homem\" não é itálico), pontuação (\"sociedade juridica.\" e \"sobrenatural.\"), \"tem\"→\"têm\", \"visto. que\", e hífen de fim de linha em \"na— tureza\" (→ natureza); \"consecução\" mantido por ser palavra inteira no trecho.\nFronteira corpo/nota: conferida em 795 (notas 1, 2 e 3 já estavam corretas, com continuações no pé da mesma página); nenhuma mudança estrutural.\nDúvidas: acentos de \"juridicos\"/\"juridica\" e a fonte de \"A Egreja\" (itálico ou negrito) não são totalmente legíveis na imagem; mantive a marcação original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.005942,
+ "duration_ms": 35869,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11165,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9651
+ },
+ "reparo": false
+}

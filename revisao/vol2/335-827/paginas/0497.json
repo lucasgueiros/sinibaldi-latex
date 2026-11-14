@@ -1,0 +1,27 @@
+{
+ "pagina": 497,
+ "paginas": [
+  497
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções: \"Dzuvs\" → <hi rend=\"sc\">Deus</hi>; \"«nico\" → <hi rend=\"it\">unico</hi>; removido o rodapé \"32 Vor. II\" que estava dentro da nota 1 (e a nota 1 agora não traz \"(1)\" no texto).\nFronteira (pág. 497): nota 1 mantida no ponto da chamada após \"fim\"; o trecho \"verdadeira causalidade… outros entes\" e \"Advirta-se que Deus… beatifico\" não foi incluído, por ser continuação da nota da pág. 496 já transcrita no trecho anterior.\nDúvida: na imagem a linha \"b) Deus quer ou ama as outras coisas como meios\" aparece em tipo sans, semelhante ao título; mantive a formatação do fragmento, sem `<hi>` adicional.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções: \"Dzuvs\" → <hi rend=\"sc\">Deus</hi>; \"«nico\" → <hi rend=\"it\">unico</hi>; removido o rodapé \"32 Vor. II\" que estava dentro da nota 1 (e a nota 1 agora não traz \"(1)\" no texto).\nFronteira (pág. 497): nota 1 mantida no ponto da chamada após \"fim\"; o trecho \"verdadeira causalidade… outros entes\" e \"Advirta-se que Deus… beatifico\" não foi incluído, por ser continuação da nota da pág. 496 já transcrita no trecho anterior.\nDúvida: na imagem a linha \"b) Deus quer ou ama as outras coisas como meios\" aparece em tipo sans, semelhante ao título; mantive a formatação do fragmento, sem `<hi>` adicional.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0037291,
+ "duration_ms": 22960,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10081,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5442
+ },
+ "reparo": false
+}

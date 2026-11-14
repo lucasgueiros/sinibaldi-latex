@@ -1,0 +1,30 @@
+{
+ "pagina": 511,
+ "paginas": [
+  511,
+  512,
+  513,
+  514
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras (sô→só, Dzvus→Deus, creacdo/creacüo→creação, producção, preewista→preexista, simplieissimo, imnmanente, éransewnte, circa, artefice, \"a\" lido como \"&amp;\"), numerais e referências (a. 8→a. 3, P-I/L→I, 45. ad L→Ib. ad 1., 1.9)/2.0)→1.º)/2.º)), hifenização e pontuação, itálicos indevidos; removido o lixo \"88 VOL. Il.\" (com quebra de parágrafo indevida dentro da nota 513-1); reposto \"CAPITULO QUARTO\" e \"Summario:\" na página 513 e corrigida a ordem (título, OPERAÇÕES, sumário).\nFronteira corpo/nota: nenhuma mudança de fronteira. Confirmado que a nota n511-1 continua na p. 512 (rodapé, \"Unde, licet…\", ad fim em a. 3) e que n512-2 continua na p. 513 (alto do rodapé, \"na propria casa…\"); a nota n513-1 continua na p. 514 até \"activo.\", sem incluir a nota 1 de 86 que começa lá. Corpo 511–513 não alterado em fronteira.\nDúvidas: a leitura do corpo da p. 513 (\"CAPITULO QUARTO\" e \"Summario:\") baseia-se na imagem, mas a posição exata de \"Summario:\" (como rótulo em versalete) é inferida; nas notas, \"babere\" foi mantido como impresso; a ortografia de \"DEus\"/\"DEUS\" e \"Deus\" segue o original de forma aproximada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras (sô→só, Dzvus→Deus, creacdo/creacüo→creação, producção, preewista→preexista, simplieissimo, imnmanente, éransewnte, circa, artefice, \"a\" lido como \"&amp;\"), numerais e referências (a. 8→a. 3, P-I/L→I, 45. ad L→Ib. ad 1., 1.9)/2.0)→1.º)/2.º)), hifenização e pontuação, itálicos indevidos; removido o lixo \"88 VOL. Il.\" (com quebra de parágrafo indevida dentro da nota 513-1); reposto \"CAPITULO QUARTO\" e \"Summario:\" na página 513 e corrigida a ordem (título, OPERAÇÕES, sumário).\nFronteira corpo/nota: nenhuma mudança de fronteira. Confirmado que a nota n511-1 continua na p. 512 (rodapé, \"Unde, licet…\", ad fim em a. 3) e que n512-2 continua na p. 513 (alto do rodapé, \"na propria casa…\"); a nota n513-1 continua na p. 514 até \"activo.\", sem incluir a nota 1 de 86 que começa lá. Corpo 511–513 não alterado em fronteira.\nDúvidas: a leitura do corpo da p. 513 (\"CAPITULO QUARTO\" e \"Summario:\") baseia-se na imagem, mas a posição exata de \"Summario:\" (como rótulo em versalete) é inferida; nas notas, \"babere\" foi mantido como impresso; a ortografia de \"DEus\"/\"DEUS\" e \"Deus\" segue o original de forma aproximada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0257907,
+ "duration_ms": 168502,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31127,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 45356
+ },
+ "reparo": false
+}

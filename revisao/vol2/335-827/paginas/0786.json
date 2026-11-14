@@ -1,0 +1,30 @@
+{
+ "pagina": 786,
+ "paginas": [
+  786,
+  787,
+  788,
+  789
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções de OCR (acentos, cedilhas, ª/º, z/s em \"paz\", \"Gazette\", \"ethnarchia\", \"Bluntschli\"), negritos dos títulos, itálicos, lixo \"[93] [5]\" removido.\nFronteira p. 786: a nota 2 estava colada à nota 3; separei — a nota 2 termina em \"outras nações.\" e a \"(3) E' triplice…\", a) e b) passaram para o início da nota n786-3, que continua pelas pp. 787–789 com o pb interno (a nota 3 fica ancorada no fim do § 191). Não acrescentei o \"dir\" inicial (fim de palavra da página anterior). Dúvida: itálico de \"uso\" em \"o uso ou o costume\" (assumido).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções de OCR (acentos, cedilhas, ª/º, z/s em \"paz\", \"Gazette\", \"ethnarchia\", \"Bluntschli\"), negritos dos títulos, itálicos, lixo \"[93] [5]\" removido.\nFronteira p. 786: a nota 2 estava colada à nota 3; separei — a nota 2 termina em \"outras nações.\" e a \"(3) E' triplice…\", a) e b) passaram para o início da nota n786-3, que continua pelas pp. 787–789 com o pb interno (a nota 3 fica ancorada no fim do § 191). Não acrescentei o \"dir\" inicial (fim de palavra da página anterior). Dúvida: itálico de \"uso\" em \"o uso ou o costume\" (assumido).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.18980399999999997,
+ "duration_ms": 72870,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31802,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12620
+ },
+ "reparo": false
+}

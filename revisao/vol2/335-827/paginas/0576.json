@@ -1,0 +1,27 @@
+{
+ "pagina": 576,
+ "paginas": [
+  576
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"concupiscencia\" (coneupiscencia/oconeupisceencia), \"imminente\", \"Sum. Th.\" e \"ad 3\", \"considerar-se\", \"acto voluntario\", números de parágrafo (49→42) e de chamada (nota 8→3, conforme \"(3)\" no corpo); itálicos/negritos ajustados à imagem; ponto em \"Pode augmentar.\".\nFronteira corpo/nota: não alterada; as notas 1, 2 e 3 ficam nos pontos de chamada certos. Só a numeração da nota 8 foi trocada para 3 (n e xml:id n576-3), conforme o alerta do pipeline, que a imagem confirma.\nDúvidas: o parágrafo 42 termina em \"impe-\" (a palavra continua na página 577, fora do trecho, e a leitura \"impedirá\" não é verificável aqui); o heading \"40.\"/\"42.\" foi transcrito todo em negrito, conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"concupiscencia\" (coneupiscencia/oconeupisceencia), \"imminente\", \"Sum. Th.\" e \"ad 3\", \"considerar-se\", \"acto voluntario\", números de parágrafo (49→42) e de chamada (nota 8→3, conforme \"(3)\" no corpo); itálicos/negritos ajustados à imagem; ponto em \"Pode augmentar.\".\nFronteira corpo/nota: não alterada; as notas 1, 2 e 3 ficam nos pontos de chamada certos. Só a numeração da nota 8 foi trocada para 3 (n e xml:id n576-3), conforme o alerta do pipeline, que a imagem confirma.\nDúvidas: o parágrafo 42 termina em \"impe-\" (a palavra continua na página 577, fora do trecho, e a leitura \"impedirá\" não é verificável aqui); o heading \"40.\"/\"42.\" foi transcrito todo em negrito, conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.005196500000000001,
+ "duration_ms": 32804,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11095,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8174
+ },
+ "reparo": false
+}

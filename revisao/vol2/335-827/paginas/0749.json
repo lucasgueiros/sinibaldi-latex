@@ -1,0 +1,28 @@
+{
+ "pagina": 749,
+ "paginas": [
+  749,
+  750
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (Aeril/Zeri/eriado → heril/criado, énnato → innato, luetado → luctado, Christa → Christã, servicos → serviços, proporeionar, \"instruil-os Sobre\", \"&amp;\" → a, \"DEus\" → Deus, \"que,oppunham\"), e numeração das teses no texto (\"267.\"→167. etc.) e chamada/nota (3) que estava ligada à nota 8 (n=\"8\" → n=\"3\", id n749-3).\nFronteira corpo/nota: revisada e mantida; \"O criado differe…\" (p. 749) está em letra pequena (espaçamento de nota), então fica na nota 2; nenhuma mudança de fronteira.\nDúvidas: o <argument> do artigo (p. 749) não aparece na imagem, mantido por ser texto do fragmento; os atributos n/xml:id dos teses (267–271) mantidos, embora impressos como 167–171; \"desegualdade\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (Aeril/Zeri/eriado → heril/criado, énnato → innato, luetado → luctado, Christa → Christã, servicos → serviços, proporeionar, \"instruil-os Sobre\", \"&amp;\" → a, \"DEus\" → Deus, \"que,oppunham\"), e numeração das teses no texto (\"267.\"→167. etc.) e chamada/nota (3) que estava ligada à nota 8 (n=\"8\" → n=\"3\", id n749-3).\nFronteira corpo/nota: revisada e mantida; \"O criado differe…\" (p. 749) está em letra pequena (espaçamento de nota), então fica na nota 2; nenhuma mudança de fronteira.\nDúvidas: o <argument> do artigo (p. 749) não aparece na imagem, mantido por ser texto do fragmento; os atributos n/xml:id dos teses (267–271) mantidos, embora impressos como 167–171; \"desegualdade\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.012784,
+ "duration_ms": 85702,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18015,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 21965
+ },
+ "reparo": false
+}

@@ -1,0 +1,31 @@
+{
+ "pagina": 560,
+ "paginas": [
+  560,
+  561,
+  562,
+  563,
+  564
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de palavras (krausistas, kantistas, prazer, extrinsecos, distincção, \"E' directo\", \"e\" fora de itálico, \"imtelligencia\", \"differença\", referências Sum. Th. q. 3), letras de alínea (d) e e)), lixo removido (\"36 Vol. II\", \"”\" antes de pb 562, \":\" após \"natureza\"), divisão de parágrafo em 562-1 e títulos 15, 16 e 17 inteiramente em negrito.\nFronteira corpo/nota: conferida e mantida como estava. A nota n560-1 segue por 561 e 562 (continuação \"virtude…\" e \"espirito…\" sem número) e termina em \"pantheismo\"; a n562-1 continua em 563 (sem número) e a n563-1 em 564 (sem número); a \"(1) Sum. Th., q. 5\" da p. 564 não pertence ao trecho e não foi copiada.\nDúvidas: leitura de \"basêa-se\" e de \"a\" (sem itálico) em \"a pintura, a musica\"; \"entitade\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de palavras (krausistas, kantistas, prazer, extrinsecos, distincção, \"E' directo\", \"e\" fora de itálico, \"imtelligencia\", \"differença\", referências Sum. Th. q. 3), letras de alínea (d) e e)), lixo removido (\"36 Vol. II\", \"”\" antes de pb 562, \":\" após \"natureza\"), divisão de parágrafo em 562-1 e títulos 15, 16 e 17 inteiramente em negrito.\nFronteira corpo/nota: conferida e mantida como estava. A nota n560-1 segue por 561 e 562 (continuação \"virtude…\" e \"espirito…\" sem número) e termina em \"pantheismo\"; a n562-1 continua em 563 (sem número) e a n563-1 em 564 (sem número); a \"(1) Sum. Th., q. 5\" da p. 564 não pertence ao trecho e não foi copiada.\nDúvidas: leitura de \"basêa-se\" e de \"a\" (sem itálico) em \"a pintura, a musica\"; \"entitade\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.023047699999999997,
+ "duration_ms": 135886,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 39097,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 38276
+ },
+ "reparo": false
+}

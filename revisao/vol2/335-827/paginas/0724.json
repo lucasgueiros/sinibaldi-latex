@@ -1,0 +1,27 @@
+{
+ "pagina": 724,
+ "paginas": [
+  724
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"4\"→\"á\", \"erer\"→\"crer\", \"meto\"→\"meio\", \"&amp;\"→\"á\", \"DEus\"→\"Deus\" em versalete), acentos (\"juridicos\" sem acento, como impresso), pontuação (ponto após \"religiosa\", \"vida\" e \"dignidade pessoal\" nas alíneas) e itálico indevido (\"e\" em \"sobre ella, e é um dom\" não é itálico).\nFronteira corpo/nota: sem mudança de conteúdo; a nota da chamada (3) estava rotulada como n=\"8\" (id n724-8) e foi renumerada para n=\"3\" (id n724-3), pois a chamada impressa na p. 724 é (3). As notas 1, 2 e 4 já estavam corretas no pé da p. 724.\nDúvidas: nenhuma relevante; a formatação em negrito de \"religiosa\" e \"defeza\" foi mantida conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"4\"→\"á\", \"erer\"→\"crer\", \"meto\"→\"meio\", \"&amp;\"→\"á\", \"DEus\"→\"Deus\" em versalete), acentos (\"juridicos\" sem acento, como impresso), pontuação (ponto após \"religiosa\", \"vida\" e \"dignidade pessoal\" nas alíneas) e itálico indevido (\"e\" em \"sobre ella, e é um dom\" não é itálico).\nFronteira corpo/nota: sem mudança de conteúdo; a nota da chamada (3) estava rotulada como n=\"8\" (id n724-8) e foi renumerada para n=\"3\" (id n724-3), pois a chamada impressa na p. 724 é (3). As notas 1, 2 e 4 já estavam corretas no pé da p. 724.\nDúvidas: nenhuma relevante; a formatação em negrito de \"religiosa\" e \"defeza\" foi mantida conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0047285,
+ "duration_ms": 27458,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10805,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7296
+ },
+ "reparo": false
+}

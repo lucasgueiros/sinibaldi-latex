@@ -1,0 +1,27 @@
+{
+ "pagina": 567,
+ "paginas": [
+  567
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (DEus/descancar/TA→Th/n&o→não/&→á/\"intelli- ' gencia\" juntado), dígito (a. 1→a. 7), pontuação (dois pontos→um; \"..\"→\".\"), guillemets « » no trecho de Agostinho, \"e á nossa\"→\"e a nossa\", e \"do,\" →\"do\" no primeiro parágrafo; versalete de Deus normalizado.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (pág. 567) está inteira no pé da página, como no fragmento.\nDúvidas: \"u\"/\"n\" lidos como « » e » pela forma da imagem; \"no amor Deus\" mantido sem \"de\", como impresso; \"proximo\" mantido sem acento, como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (DEus/descancar/TA→Th/n&o→não/&→á/\"intelli- ' gencia\" juntado), dígito (a. 1→a. 7), pontuação (dois pontos→um; \"..\"→\".\"), guillemets « » no trecho de Agostinho, \"e á nossa\"→\"e a nossa\", e \"do,\" →\"do\" no primeiro parágrafo; versalete de Deus normalizado.\nNenhuma mudança de fronteira corpo/nota: a nota 1 (pág. 567) está inteira no pé da página, como no fragmento.\nDúvidas: \"u\"/\"n\" lidos como « » e » pela forma da imagem; \"no amor Deus\" mantido sem \"de\", como impresso; \"proximo\" mantido sem acento, como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.004262500000000001,
+ "duration_ms": 23970,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11080,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6309
+ },
+ "reparo": false
+}

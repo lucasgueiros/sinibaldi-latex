@@ -1,0 +1,30 @@
+{
+ "pagina": 640,
+ "paginas": [
+  640,
+  641,
+  642,
+  643
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (Pezzani, gaulezes, Strabão, renatis/597, crença, peccado, supposição, letras c)/d), \"de Deus\" sc etc.), negritos dos títulos A), B), b); removidos \"41 Vor. II.\" e o \"-\" espúrio; unidos os parágrafos cortados pelas quebras de página nas notas (p. 640/641 e 641/642). Nenhuma mudança de fronteira corpo/nota: a nota n640-1 é de fato longa e abrange todo o texto pequeno do pé das páginas 640–643, e o corpo são só as linhas do topo de cada página. Dúvida pequena: \"nfelix\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (Pezzani, gaulezes, Strabão, renatis/597, crença, peccado, supposição, letras c)/d), \"de Deus\" sc etc.), negritos dos títulos A), B), b); removidos \"41 Vor. II.\" e o \"-\" espúrio; unidos os parágrafos cortados pelas quebras de página nas notas (p. 640/641 e 641/642). Nenhuma mudança de fronteira corpo/nota: a nota n640-1 é de fato longa e abrange todo o texto pequeno do pé das páginas 640–643, e o corpo são só as linhas do topo de cada página. Dúvida pequena: \"nfelix\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.184016,
+ "duration_ms": 71654,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32493,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11903
+ },
+ "reparo": false
+}

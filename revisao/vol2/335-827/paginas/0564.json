@@ -1,0 +1,29 @@
+{
+ "pagina": 564,
+ "paginas": [
+  564,
+  565,
+  566
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (a. 8→3, \"'l'al\"→Tal, creagão→creação, ua→uma, oceupar, comecam, prowimo/provimo→proximo, exelua→exclua, destruetivel, \"&amp;\"→á, ê→é, \"DEus\"/\"BonDADE\"→Deus/Bondade em versalete); \"-b)\"→\"b)\"; \". :\"→\".\"; \"29.\"→\"22.\"; \"é ele\"→\"é meio\"; itálicos e negritos dos títulos 18–22 conforme a imagem (títulos inteiros em negrito).\nFronteira corpo/nota: nenhuma alteração. A nota (1) de 564 continua em 565 (pb 565 dentro da nota; \"realidade\" juntado); a nota (2) de 565 e a (1) de 566 mantidas como estão; a continuação \"da nossa alma\" (566) pertence à nota (2) de 565.\nDúvidas: \"Repetimos…\" e \"Objectam/Resposta\" tratados como parte da nota (1) de 564, conforme a sequência do rodapé; acentuação de \"constituido\", \"possivel\" e \"especie\" conferida pela imagem com pouca nitidez.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (a. 8→3, \"'l'al\"→Tal, creagão→creação, ua→uma, oceupar, comecam, prowimo/provimo→proximo, exelua→exclua, destruetivel, \"&amp;\"→á, ê→é, \"DEus\"/\"BonDADE\"→Deus/Bondade em versalete); \"-b)\"→\"b)\"; \". :\"→\".\"; \"29.\"→\"22.\"; \"é ele\"→\"é meio\"; itálicos e negritos dos títulos 18–22 conforme a imagem (títulos inteiros em negrito).\nFronteira corpo/nota: nenhuma alteração. A nota (1) de 564 continua em 565 (pb 565 dentro da nota; \"realidade\" juntado); a nota (2) de 565 e a (1) de 566 mantidas como estão; a continuação \"da nossa alma\" (566) pertence à nota (2) de 565.\nDúvidas: \"Repetimos…\" e \"Objectam/Resposta\" tratados como parte da nota (1) de 564, conforme a sequência do rodapé; acentuação de \"constituido\", \"possivel\" e \"especie\" conferida pela imagem com pouca nitidez.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0189499,
+ "duration_ms": 130388,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24189,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 33062
+ },
+ "reparo": false
+}

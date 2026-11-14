@@ -1,0 +1,27 @@
+{
+ "pagina": 817,
+ "paginas": [
+  817
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (procimo, consecugüo, inteligencia→intelligencia, esta→está, o)→c), Monar→Moral, \"no 8.º\"→3.º, \"no 2.\"→2.º), hífen de fim de linha em \"con-secução\"), pontuação (\":\" finais→\".\"), versalete e itálicos, linhas da metade superior reordenadas num único parágrafo, \"al\" e \"&amp;\" espúrios, \"3\" e rodapé \"52 / VOL. II.\" removidos.\nFronteira corpo/nota: nenhuma nota neste trecho; nenhuma mudança de fronteira feita.\nDúvidas: mantive o filete decorativo como parágrafo \"———————\" e o título \"SYNOPSE DA MORAL\" como parágrafo em negrito, sem convertê-lo em `<head>`; a capitalização de \"A. FIM DOS ACTOS HUMANOS.\" e \"B. ESSENCIA...\" foi mantida como impressa.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (procimo, consecugüo, inteligencia→intelligencia, esta→está, o)→c), Monar→Moral, \"no 8.º\"→3.º, \"no 2.\"→2.º), hífen de fim de linha em \"con-secução\"), pontuação (\":\" finais→\".\"), versalete e itálicos, linhas da metade superior reordenadas num único parágrafo, \"al\" e \"&amp;\" espúrios, \"3\" e rodapé \"52 / VOL. II.\" removidos.\nFronteira corpo/nota: nenhuma nota neste trecho; nenhuma mudança de fronteira feita.\nDúvidas: mantive o filete decorativo como parágrafo \"———————\" e o título \"SYNOPSE DA MORAL\" como parágrafo em negrito, sem convertê-lo em `<head>`; a capitalização de \"A. FIM DOS ACTOS HUMANOS.\" e \"B. ESSENCIA...\" foi mantida como impressa.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0050825,
+ "duration_ms": 29329,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11365,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7892
+ },
+ "reparo": false
+}

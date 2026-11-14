@@ -1,0 +1,28 @@
+{
+ "pagina": 569,
+ "paginas": [
+  569,
+  570
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (Sec. IT→II, differenca, inmediata→immediata, prosima→proxima, basiam→bastam, raso→razão, intelligncia, dé→dê, eZicito→elicito, \"e.só\"→\"e só\", \"Humano\"→\"humano\", \"O seu\"→\"o seu\", \"etc.\"), capitalização e acentos, cabeçalho \"570 MORAL — PARTE PRIMEIRA — ETHICA\" e linha-lixo \"Poa ao NUES ORT…\" removidos do topo da p. 570, ponto solto antes de \"28.\", e negritos/itálicos dos títulos 25–28 e de \"Elicito e imperado\"/\"Perfeito e imperfeito\" conforme a imagem.\nFronteiras corpo/nota: nenhuma alterada. Confirmado que o parágrafo \"Note-se que…\" da p. 570 está abaixo do filete (letra pequena), portanto permanece dentro da nota 570-1; e a nota 569-3 continua corretamente na p. 570.\nDúvidas: grafia \"voluntario\" sem acento (adotei a imagem) e \"pode excercer\" / \"póde\" mantidos como impressos; ficaram os `facs` nos `<pb n=\"570\">` dentro da nota 569-3 como vieram.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (Sec. IT→II, differenca, inmediata→immediata, prosima→proxima, basiam→bastam, raso→razão, intelligncia, dé→dê, eZicito→elicito, \"e.só\"→\"e só\", \"Humano\"→\"humano\", \"O seu\"→\"o seu\", \"etc.\"), capitalização e acentos, cabeçalho \"570 MORAL — PARTE PRIMEIRA — ETHICA\" e linha-lixo \"Poa ao NUES ORT…\" removidos do topo da p. 570, ponto solto antes de \"28.\", e negritos/itálicos dos títulos 25–28 e de \"Elicito e imperado\"/\"Perfeito e imperfeito\" conforme a imagem.\nFronteiras corpo/nota: nenhuma alterada. Confirmado que o parágrafo \"Note-se que…\" da p. 570 está abaixo do filete (letra pequena), portanto permanece dentro da nota 570-1; e a nota 569-3 continua corretamente na p. 570.\nDúvidas: grafia \"voluntario\" sem acento (adotei a imagem) e \"pode excercer\" / \"póde\" mantidos como impressos; ficaram os `facs` nos `<pb n=\"570\">` dentro da nota 569-3 como vieram.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0112837,
+ "duration_ms": 68734,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18532,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18861
+ },
+ "reparo": false
+}

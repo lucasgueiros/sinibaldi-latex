@@ -1,0 +1,31 @@
+{
+ "pagina": 400,
+ "paginas": [
+  400,
+  401,
+  402,
+  403,
+  404
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (nortos→mortos, T'raduz, lindif→l'indif., Tele→Tiele, Hacc→Haec, Jano/nmmano→humano, Rosmini \"vé\"→\"vê\", \"p. 8\"→\"p. 3\", \"matéria\", \"7»1ato\"→\"innato\", \"'(5, &\"→\"q. 75, a. 3\", \"resurreigio\", \"indestruetiveis\", \"1.9)/2.9)\"→\"1.º)/2.º)\", \"t humana\", \"É\", \"26 Vor. I.\") e lixo de pontuação/acentos (\"á\"→\"a\" em \"que á alma\"/\"admittir á\", \"forgoso\"→\"forçoso\", \"2. 20 corpo\"→\"ao corpo\", \"a. 9\"/\"q. 19\" das referências); \"Duas\" deixou de ser versalete; \"Artigo III.\"→\"ARTIGO III.\", negrito estendido a \"A alma separada é sempre individua.\" (248).\nFronteira corpo/nota: nenhuma mudança estrutural. Continuação de \"se-\"/\"paratarum\" (401→402) unida em \"separatarum\" com o pb 402 no meio da palavra; a nota 401-1 segue até \"animal.\" (402) e a 402-1 até o fim da 403 (sem chamada na 404 dentro do trecho); a 403-1 termina no fim do trecho.\nDúvidas: \"pode\" vs \"póde\" em \"pode ser separada\"/\"pode permanecer\" e \"poude formar\" lidos como impressos; \"naturalmente\" (402-1) pode não estar em itálico no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (nortos→mortos, T'raduz, lindif→l'indif., Tele→Tiele, Hacc→Haec, Jano/nmmano→humano, Rosmini \"vé\"→\"vê\", \"p. 8\"→\"p. 3\", \"matéria\", \"7»1ato\"→\"innato\", \"'(5, &\"→\"q. 75, a. 3\", \"resurreigio\", \"indestruetiveis\", \"1.9)/2.9)\"→\"1.º)/2.º)\", \"t humana\", \"É\", \"26 Vor. I.\") e lixo de pontuação/acentos (\"á\"→\"a\" em \"que á alma\"/\"admittir á\", \"forgoso\"→\"forçoso\", \"2. 20 corpo\"→\"ao corpo\", \"a. 9\"/\"q. 19\" das referências); \"Duas\" deixou de ser versalete; \"Artigo III.\"→\"ARTIGO III.\", negrito estendido a \"A alma separada é sempre individua.\" (248).\nFronteira corpo/nota: nenhuma mudança estrutural. Continuação de \"se-\"/\"paratarum\" (401→402) unida em \"separatarum\" com o pb 402 no meio da palavra; a nota 401-1 segue até \"animal.\" (402) e a 402-1 até o fim da 403 (sem chamada na 404 dentro do trecho); a 403-1 termina no fim do trecho.\nDúvidas: \"pode\" vs \"póde\" em \"pode ser separada\"/\"pode permanecer\" e \"poude formar\" lidos como impressos; \"naturalmente\" (402-1) pode não estar em itálico no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0234453,
+ "duration_ms": 144950,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38698,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 39151
+ },
+ "reparo": false
+}

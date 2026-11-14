@@ -1,0 +1,29 @@
+{
+ "pagina": 507,
+ "paginas": [
+  507,
+  508,
+  509
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (sieut→sicut, bóas→bôas, Zb→Ib e a. 8→a. 3, 8.º→3.º, inmmanentes, e/fectivo, nefficas→inefficaz, dilewit, Dri→DEI, p. 1→p. I, &amp;→a, 0→o), hífen de linha IN-FUNDENS juntado, \"pergunta\" com a quebra de página interna, \"|\" espúrio removido, linhas soltas de \"d)\" e \"78.\" reunidas em parágrafos, vírgula após a nota (2) trocada por ponto.\nFronteiras corpo/nota: nenhuma alterada. n507-1 continua em 508 (pb 508 dentro da nota); n508-2 já estava unida e continua em 509 (pb 509 dentro da nota); n509-1 está no lugar da chamada \"natureza (1)\".\nDúvidas: removi o negrito de \"algum merito\", \"dispõe\" e \"esse\" por parecerem texto normal na imagem; \"Deus\" passou a versalete onde o original usa; não sei se \"78.\", \"79.\" e \"80.\" são negritos na impressão; mantive \"un\" e \"on\" como impressos; o fragmento veio sem o wrapper &lt;entrada&gt;.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (sieut→sicut, bóas→bôas, Zb→Ib e a. 8→a. 3, 8.º→3.º, inmmanentes, e/fectivo, nefficas→inefficaz, dilewit, Dri→DEI, p. 1→p. I, &amp;→a, 0→o), hífen de linha IN-FUNDENS juntado, \"pergunta\" com a quebra de página interna, \"|\" espúrio removido, linhas soltas de \"d)\" e \"78.\" reunidas em parágrafos, vírgula após a nota (2) trocada por ponto.\nFronteiras corpo/nota: nenhuma alterada. n507-1 continua em 508 (pb 508 dentro da nota); n508-2 já estava unida e continua em 509 (pb 509 dentro da nota); n509-1 está no lugar da chamada \"natureza (1)\".\nDúvidas: removi o negrito de \"algum merito\", \"dispõe\" e \"esse\" por parecerem texto normal na imagem; \"Deus\" passou a versalete onde o original usa; não sei se \"78.\", \"79.\" e \"80.\" são negritos na impressão; mantive \"un\" e \"on\" como impressos; o fragmento veio sem o wrapper &lt;entrada&gt;.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.021633299999999998,
+ "duration_ms": 143591,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25508,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 38165
+ },
+ "reparo": false
+}

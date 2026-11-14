@@ -1,0 +1,27 @@
+{
+ "pagina": 733,
+ "paginas": [
+  733
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"cducac&amp;o\" → \"educação\", \"mo\" → \"no\", \"autra\" → \"outra\", \"á civil\" → \"a civil\" com só \"civil\" em itálico, ponto em vez de vírgula em \"imperfeita.\"); formatação: títulos e) e f) e \"152.\" postos em negrito conforme a imagem. Nenhuma mudança de fronteira corpo/nota: as notas 1 (p. 733, rodapé) e 2 (p. 733, rodapé) estão inteiras nos seus lugares.\nDúvidas: o negrito dos títulos e) e f) foi inferido da aparência da imagem (fonte mais grossa); se o original for só itálico/normal, reverter. O fragmento termina no meio da frase \"...na união com\", como no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"cducac&amp;o\" → \"educação\", \"mo\" → \"no\", \"autra\" → \"outra\", \"á civil\" → \"a civil\" com só \"civil\" em itálico, ponto em vez de vírgula em \"imperfeita.\"); formatação: títulos e) e f) e \"152.\" postos em negrito conforme a imagem. Nenhuma mudança de fronteira corpo/nota: as notas 1 (p. 733, rodapé) e 2 (p. 733, rodapé) estão inteiras nos seus lugares.\nDúvidas: o negrito dos títulos e) e f) foi inferido da aparência da imagem (fonte mais grossa); se o original for só itálico/normal, reverter. O fragmento termina no meio da frase \"...na união com\", como no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0045759,
+ "duration_ms": 25743,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11039,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6944
+ },
+ "reparo": false
+}

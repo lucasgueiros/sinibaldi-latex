@@ -1,0 +1,27 @@
+{
+ "pagina": 698,
+ "paginas": [
+  698
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em palavras (eowtraordinarios/ewtraordinarios→extraordinarios, insupportayel→insupportavel, effieazes→efficazes, inculeou→inculcou, arrüinar→arruinar, chrisià/christa→christã, mortificacdo→mortificação); \"deveres E porque\"→\"deveres; porque\"; removido o \"3\" espúrio após \"pratica.\"; removido itálico indevido em \"a\" de \"a vida eterna\"; negrito dos títulos 141 e 142 ajustado à imagem (frase inteira em negrito).\nFronteira corpo/nota: nenhuma mudança; as notas (1) e (2) estão corretamente posicionadas no pé da página 698 e não há texto de corpo nem continuação de nota no fragmento.\nDúvidas: a marca de apóstrofo em \"faça' que\" (p. 698, corpo) foi tratada como ruído do scan e não transcrita; a fronteira das notas é clara na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em palavras (eowtraordinarios/ewtraordinarios→extraordinarios, insupportayel→insupportavel, effieazes→efficazes, inculeou→inculcou, arrüinar→arruinar, chrisià/christa→christã, mortificacdo→mortificação); \"deveres E porque\"→\"deveres; porque\"; removido o \"3\" espúrio após \"pratica.\"; removido itálico indevido em \"a\" de \"a vida eterna\"; negrito dos títulos 141 e 142 ajustado à imagem (frase inteira em negrito).\nFronteira corpo/nota: nenhuma mudança; as notas (1) e (2) estão corretamente posicionadas no pé da página 698 e não há texto de corpo nem continuação de nota no fragmento.\nDúvidas: a marca de apóstrofo em \"faça' que\" (p. 698, corpo) foi tratada como ruído do scan e não transcrita; a fronteira das notas é clara na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0035623,
+ "duration_ms": 18785,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10558,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5013
+ },
+ "reparo": false
+}

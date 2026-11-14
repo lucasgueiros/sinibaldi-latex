@@ -1,0 +1,58 @@
+{
+ "pagina": 685,
+ "paginas": [
+  685,
+  686,
+  687,
+  688
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   3514,
+   4277
+  ],
+  "notas": [
+   8128,
+   7362
+  ],
+  "num_notas": [
+   8,
+   8
+  ],
+  "troca": 763
+ },
+ "notas": "Erros corrigidos: OCR (fé/esperança/obediência sem \"á\"; \"coni\", \"diffieil\", \"d^istas\", \"Aypocrita\", \"fór\", \"dieto\", \"Oblagão\", \"t. IT\", \"testumunho\", \"iémperado\", \"&amp;\" por \"á\", \"as leis\" etc.), acentos, itálicos e negritos dos títulos 127/128/129, junção de \"diffi-cil\", e lixo (\"i\", aspas soltas).\nFronteira: p. 685 — \"Kant nega…\", \"O erro do philosopho…\" e \"As razões de Kant…\" estavam dentro da nota n685-2 e foram para o corpo (a nota agora fecha em \"concupiscencia.\"); a continuação sem número no rodapé da p. 686 (\"Deus é invisivel…\") ficou dentro de n685-2 com <pb n=\"686\"/>. p. 687 — chamada \"(3)\" renumerada: nota n=\"8\"/xml:id n687-8 passou a n=\"3\"/n687-3.\nDúvida: a continuação \"Deus é invisivel…\" da p. 686 não tem início identificável (nenhuma nota da p. 685 a encerra); liguei-a a n685-2 pela regra do pipeline, mas pode pertencer a uma chamada perdida em \"E' falso que\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     3514,
+     4277
+    ],
+    "notas": [
+     8128,
+     7362
+    ],
+    "num_notas": [
+     8,
+     8
+    ],
+    "troca": 763
+   },
+   "notas": "Erros corrigidos: OCR (fé/esperança/obediência sem \"á\"; \"coni\", \"diffieil\", \"d^istas\", \"Aypocrita\", \"fór\", \"dieto\", \"Oblagão\", \"t. IT\", \"testumunho\", \"iémperado\", \"&amp;\" por \"á\", \"as leis\" etc.), acentos, itálicos e negritos dos títulos 127/128/129, junção de \"diffi-cil\", e lixo (\"i\", aspas soltas).\nFronteira: p. 685 — \"Kant nega…\", \"O erro do philosopho…\" e \"As razões de Kant…\" estavam dentro da nota n685-2 e foram para o corpo (a nota agora fecha em \"concupiscencia.\"); a continuação sem número no rodapé da p. 686 (\"Deus é invisivel…\") ficou dentro de n685-2 com <pb n=\"686\"/>. p. 687 — chamada \"(3)\" renumerada: nota n=\"8\"/xml:id n687-8 passou a n=\"3\"/n687-3.\nDúvida: a continuação \"Deus é invisivel…\" da p. 686 não tem início identificável (nenhuma nota da p. 685 a encerra); liguei-a a n685-2 pela regra do pipeline, mas pode pertencer a uma chamada perdida em \"E' falso que\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0246778,
+ "duration_ms": 158518,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32753,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 42805
+ },
+ "reparo": false
+}

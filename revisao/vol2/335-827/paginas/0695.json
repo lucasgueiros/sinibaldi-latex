@@ -1,0 +1,29 @@
+{
+ "pagina": 695,
+ "paginas": [
+  695,
+  696,
+  697
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (SO→Só, Heprovamos→Reprovamos, eujo→cujo, üm→um, ceustar→custar, irreligido→irreligião, \"&amp;\"→á, n&amp;o→não, \"2.9)/8.9)\"→2.º)/3.º), peceado→peccado, pratieada→praticada, communm→commum, dispor della→d'ella, \"a”\"→a), acentos e ponctuação, \"Deus\" padronizado em versalete, negrito dos títulos 138–140 conforme a imagem, \": \" espúrio ao fim.\nFronteira corpo/nota: conferida em 695, 696 e 697; nenhuma mudança necessária — a continuação da nota 2 (topo do rodapé de 696) e da nota 696-1 (rodapé de 697) já estavam corretamente ligadas; \"Os defensores…\", \"Estes argumentos…\" e \"A causa ordinaria…\" são rodapé de 696, não corpo.\nDúvidas: \"conservar a saude\" lido como \"a\" sem acento (a imagem está pouco nítida); versalete de \"Jesus Christo\" criado como <hi rend=\"sc\"> por não haver marcação no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (SO→Só, Heprovamos→Reprovamos, eujo→cujo, üm→um, ceustar→custar, irreligido→irreligião, \"&amp;\"→á, n&amp;o→não, \"2.9)/8.9)\"→2.º)/3.º), peceado→peccado, pratieada→praticada, communm→commum, dispor della→d'ella, \"a”\"→a), acentos e ponctuação, \"Deus\" padronizado em versalete, negrito dos títulos 138–140 conforme a imagem, \": \" espúrio ao fim.\nFronteira corpo/nota: conferida em 695, 696 e 697; nenhuma mudança necessária — a continuação da nota 2 (topo do rodapé de 696) e da nota 696-1 (rodapé de 697) já estavam corretamente ligadas; \"Os defensores…\", \"Estes argumentos…\" e \"A causa ordinaria…\" são rodapé de 696, não corpo.\nDúvidas: \"conservar a saude\" lido como \"a\" sem acento (a imagem está pouco nítida); versalete de \"Jesus Christo\" criado como <hi rend=\"sc\"> por não haver marcação no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0144882,
+ "duration_ms": 86040,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24302,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24116
+ },
+ "reparo": false
+}

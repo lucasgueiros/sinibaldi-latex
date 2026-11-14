@@ -1,0 +1,27 @@
+{
+ "pagina": 636,
+ "paginas": [
+  636
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (sanccüo→sancção, p/iysiea→physica, le?→lei, insuficiente→insufficiente, E'º→E', &→a), acentos (têm, a norma) e formatação (negrito dos títulos 91 e 92 e itálicos em \"A sancção\" da nota 2); removido o \"A\" solto ao final da nota 2 (lixo do OCR).\nFronteira corpo/nota: nenhuma alteração; nota 1 (p. 636) e nota 2 (p. 636) já estavam corretamente delimitadas e posicionadas nas chamadas (1) e (2).\nDúvida restante: aspas tipográficas em \"'os que\" e \"bem 'preceituado,'\" na imagem foram ignoradas por serem ruído de impressão; o último parágrafo do corpo termina em \"ha providencia\", conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (sanccüo→sancção, p/iysiea→physica, le?→lei, insuficiente→insufficiente, E'º→E', &→a), acentos (têm, a norma) e formatação (negrito dos títulos 91 e 92 e itálicos em \"A sancção\" da nota 2); removido o \"A\" solto ao final da nota 2 (lixo do OCR).\nFronteira corpo/nota: nenhuma alteração; nota 1 (p. 636) e nota 2 (p. 636) já estavam corretamente delimitadas e posicionadas nas chamadas (1) e (2).\nDúvida restante: aspas tipográficas em \"'os que\" e \"bem 'preceituado,'\" na imagem foram ignoradas por serem ruído de impressão; o último parágrafo do corpo termina em \"ha providencia\", conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0043937,
+ "duration_ms": 25205,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11022,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6583
+ },
+ "reparo": false
+}

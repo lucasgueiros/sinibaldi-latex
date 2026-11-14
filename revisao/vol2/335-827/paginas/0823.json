@@ -1,0 +1,27 @@
+{
+ "pagina": 823,
+ "paginas": [
+  823
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros: OCR destruiu o índice (números de página trocados, ditto „ e leaders de pontos), faltavam \"Prologo\", os rótulos \"Art.\" e as linhas \"Corpo humano\"/\"Alma humana\"/\"União da alma com o corpo\"; restaurei tudo, separei cada entrada em `<p>` e removi o \";\" espúrio e lixo como \"Anas\", \"RED\", \"Miu ES\".\nFronteira corpo/nota: não há notas nesta página; nenhuma mudança de fronteira.\nDúvidas: os títulos \"INDICE DAS MATERIAS\" e \"METAPHYSICA\" mantêm o `<hi rend=\"bold\">` do pipeline (a imagem mostra caixa-alta grande, não nitidamente negrito); o símbolo de repetição foi transcrito como „ e os pontilhados de chamada foram simplificados.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros: OCR destruiu o índice (números de página trocados, ditto „ e leaders de pontos), faltavam \"Prologo\", os rótulos \"Art.\" e as linhas \"Corpo humano\"/\"Alma humana\"/\"União da alma com o corpo\"; restaurei tudo, separei cada entrada em `<p>` e removi o \";\" espúrio e lixo como \"Anas\", \"RED\", \"Miu ES\".\nFronteira corpo/nota: não há notas nesta página; nenhuma mudança de fronteira.\nDúvidas: os títulos \"INDICE DAS MATERIAS\" e \"METAPHYSICA\" mantêm o `<hi rend=\"bold\">` do pipeline (a imagem mostra caixa-alta grande, não nitidamente negrito); o símbolo de repetição foi transcrito como „ e os pontilhados de chamada foram simplificados.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0043405,
+ "duration_ms": 28885,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9845,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6712
+ },
+ "reparo": false
+}

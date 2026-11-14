@@ -1,0 +1,31 @@
+{
+ "pagina": 657,
+ "paginas": [
+  657,
+  658,
+  659,
+  660,
+  661
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras e acentos (easa, Aypothetico, maturaes, erueldade, vacionaes, collisüo, p/ysico, \"a. um\", \"&amp;\", \"e. o\", \"Dus\", \"princi pio\", \"1.9)\"/\"2.9)\" → 1.º/2.º), hifenização \"dos-direitos\", \":\" e \"qualquer. outra\"; lixo \"49 Vor. II.\" removido e o \"</p><p>\" que ele causava foi desfeito (texto contínuo). Acrescentados itálicos visíveis na imagem (p. 660, \"coacção legal\", \"physico\", \"violação\").\nFronteira: nota da chamada (3) da p. 659 estava numerada como 9 → renumerada para n=\"3\" (xml:id n659-3); nota da chamada (3) da p. 660 estava numerada como 8 → renumerada para n=\"3\" (xml:id n660-3). Continuação da nota 657-1 na p. 658 e da 658-2 na p. 659 confirmadas e mantidas; nenhuma nota ou corpo movido. A continuação da nota 660-3 na p. 661 foi mantida só como \"dever; pois, repetimos…\"; não copiei a nota (1) que começa na p. 661.\nDúvidas: mantive \"Materia da direito\" como impresso; \"juridico\" sem acento segue o impresso; \"Duas\" em caixa normal (não versalete) conforme a imagem; \"ha\" e \"póde\" mantidos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras e acentos (easa, Aypothetico, maturaes, erueldade, vacionaes, collisüo, p/ysico, \"a. um\", \"&amp;\", \"e. o\", \"Dus\", \"princi pio\", \"1.9)\"/\"2.9)\" → 1.º/2.º), hifenização \"dos-direitos\", \":\" e \"qualquer. outra\"; lixo \"49 Vor. II.\" removido e o \"</p><p>\" que ele causava foi desfeito (texto contínuo). Acrescentados itálicos visíveis na imagem (p. 660, \"coacção legal\", \"physico\", \"violação\").\nFronteira: nota da chamada (3) da p. 659 estava numerada como 9 → renumerada para n=\"3\" (xml:id n659-3); nota da chamada (3) da p. 660 estava numerada como 8 → renumerada para n=\"3\" (xml:id n660-3). Continuação da nota 657-1 na p. 658 e da 658-2 na p. 659 confirmadas e mantidas; nenhuma nota ou corpo movido. A continuação da nota 660-3 na p. 661 foi mantida só como \"dever; pois, repetimos…\"; não copiei a nota (1) que começa na p. 661.\nDúvidas: mantive \"Materia da direito\" como impresso; \"juridico\" sem acento segue o impresso; \"Duas\" em caixa normal (não versalete) conforme a imagem; \"ha\" e \"póde\" mantidos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0226878,
+ "duration_ms": 132804,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 39123,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 37551
+ },
+ "reparo": false
+}

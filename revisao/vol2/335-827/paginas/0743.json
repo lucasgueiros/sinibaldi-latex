@@ -1,0 +1,32 @@
+{
+ "pagina": 743,
+ "paginas": [
+  743,
+  744,
+  745,
+  746,
+  747,
+  748
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (c/e, n/u, l/t, \"tam\"→\"tiram\", \"Kwrth\"→\"Kurth\", \"Tewlon\"→\"Teulon\", \"Alemana\"→\"Allemanha\", \"Z/mmediatamente\"→\"immediatamente\", \"énnato\"→\"innato\", \"Onmisro\"→\"Christo\", \"fumilia\", \"rais\"→\"raiz\", hifenizações \"Por-quanto\" etc.), acentos/cedilhas, numeração de teses (261–265 → 161–165) e de nota (746: chamada (3) passou de n=\"8\" para n=\"3\", id n746-3); \"ARTIGO II.\" em maiúsculas; negrito dos subtítulos a) e b) conforme a imagem; notas 746-1, 746-2 e 746-3 e 743-1 envolvidas em <p>.\nFronteiras: conferidas as páginas 743–747 e não houve mudança de fronteira corpo/nota; apenas a renumeração da nota da p. 746 (chamada (3)). A continuação de 744-1 em 745 e de 745-1 em 746 foram mantidas como estavam.\nDúvidas: posição do <pb n=\"744\"/> e do <pb n=\"748\"/> em meio a palavras hifenizadas (\"Christia-/nismo\", \"Por-/quanto\") mantida como veio; grafia \"a etade\" mantida conforme a imagem; atributos n das teses (261–265) mantidos como vieram.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (c/e, n/u, l/t, \"tam\"→\"tiram\", \"Kwrth\"→\"Kurth\", \"Tewlon\"→\"Teulon\", \"Alemana\"→\"Allemanha\", \"Z/mmediatamente\"→\"immediatamente\", \"énnato\"→\"innato\", \"Onmisro\"→\"Christo\", \"fumilia\", \"rais\"→\"raiz\", hifenizações \"Por-quanto\" etc.), acentos/cedilhas, numeração de teses (261–265 → 161–165) e de nota (746: chamada (3) passou de n=\"8\" para n=\"3\", id n746-3); \"ARTIGO II.\" em maiúsculas; negrito dos subtítulos a) e b) conforme a imagem; notas 746-1, 746-2 e 746-3 e 743-1 envolvidas em <p>.\nFronteiras: conferidas as páginas 743–747 e não houve mudança de fronteira corpo/nota; apenas a renumeração da nota da p. 746 (chamada (3)). A continuação de 744-1 em 745 e de 745-1 em 746 foram mantidas como estavam.\nDúvidas: posição do <pb n=\"744\"/> e do <pb n=\"748\"/> em meio a palavras hifenizadas (\"Christia-/nismo\", \"Por-/quanto\") mantida como veio; grafia \"a etade\" mantida conforme a imagem; atributos n das teses (261–265) mantidos como vieram.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.024880100000000002,
+ "duration_ms": 149515,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44941,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 40772
+ },
+ "reparo": false
+}

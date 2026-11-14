@@ -1,0 +1,27 @@
+{
+ "pagina": 824,
+ "paginas": [
+  824
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros principais: linhas do sumário agrupadas num só `<p>` sem rótulos \"ART.\", números de página e pontuação perdidos, e OCR corrompido (\"lins\", \"5 d\", \"Immortalidade\"); reconstruí cada entrada em seu próprio `<p>` com `<label>`. Não há notas nesta página; nenhuma fronteira corpo/nota foi alterada.\nDúvidas: o sinal de repetição usado nos números de página (\"»\") é uma leitura aproximada da imagem; o destaque de \"SECÇÃO QUARTA\" foi mantido como estava, com \"Origem e destino do homem\" inteiro em negrito, como aparece na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros principais: linhas do sumário agrupadas num só `<p>` sem rótulos \"ART.\", números de página e pontuação perdidos, e OCR corrompido (\"lins\", \"5 d\", \"Immortalidade\"); reconstruí cada entrada em seu próprio `<p>` com `<label>`. Não há notas nesta página; nenhuma fronteira corpo/nota foi alterada.\nDúvidas: o sinal de repetição usado nos números de página (\"»\") é uma leitura aproximada da imagem; o destaque de \"SECÇÃO QUARTA\" foi mantido como estava, com \"Origem e destino do homem\" inteiro em negrito, como aparece na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0037540000000000004,
+ "duration_ms": 23059,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9920,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5524
+ },
+ "reparo": false
+}

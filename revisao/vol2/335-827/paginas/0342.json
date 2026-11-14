@@ -1,0 +1,28 @@
+{
+ "pagina": 342,
+ "paginas": [
+  342,
+  343
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de volições (\"voligües\", \"volicoes\"), \"9M.\" → \"211.\" (com novo parágrafo próprio), \"219.\" → \"212.\", \"paicües\", \"paéaoes\", \"tra\", \"tinmmaterial\", \"temperanca\", \"sensiítivo\", \"senso commun\", \"á inveja\", \"á temperança/á fortaleza\", \"E/icitas\", \"ete.\", \"n.os\", além de pontuação (\"livres,\" → \"livres.\") e da fusão de parágrafos na nota.\nFronteira: página 342 — a nota que estava marcada como n=\"8\" foi renomeada para n=\"3\" (id n342-3) e fica no ponto da chamada \"(3)\" após \"fuga do mal\", continuando no pé da 343 (pb 343 interno mantido); o texto de \"211.\" foi separado como parágrafo do corpo, após a chamada \"(2)\". Página 343 — as notas de rodapé de 343 permanecem como estavam.\nDúvidas: o atributo n e o xml:id da tese (ainda \"219\"/\"t219\") foram mantidos, pois a regra proíbe alterar atributos; a tese da página 343 é a 212. O pb 343 do corpo ficou no fim da div 210, como veio.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de volições (\"voligües\", \"volicoes\"), \"9M.\" → \"211.\" (com novo parágrafo próprio), \"219.\" → \"212.\", \"paicües\", \"paéaoes\", \"tra\", \"tinmmaterial\", \"temperanca\", \"sensiítivo\", \"senso commun\", \"á inveja\", \"á temperança/á fortaleza\", \"E/icitas\", \"ete.\", \"n.os\", além de pontuação (\"livres,\" → \"livres.\") e da fusão de parágrafos na nota.\nFronteira: página 342 — a nota que estava marcada como n=\"8\" foi renomeada para n=\"3\" (id n342-3) e fica no ponto da chamada \"(3)\" após \"fuga do mal\", continuando no pé da 343 (pb 343 interno mantido); o texto de \"211.\" foi separado como parágrafo do corpo, após a chamada \"(2)\". Página 343 — as notas de rodapé de 343 permanecem como estavam.\nDúvidas: o atributo n e o xml:id da tese (ainda \"219\"/\"t219\") foram mantidos, pois a regra proíbe alterar atributos; a tese da página 343 é a 212. O pb 343 do corpo ficou no fim da div 210, como veio.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0122701,
+ "duration_ms": 76288,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18051,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 20930
+ },
+ "reparo": false
+}

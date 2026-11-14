@@ -1,0 +1,30 @@
+{
+ "pagina": 675,
+ "paginas": [
+  675,
+  676,
+  677,
+  678
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras e acentos (Dzvus/DEus/Dus→Deus em versalete, sancgão→sanção, Ahirens→Ahrens, Obsequiod→obsequios, simplieissima, Verdede, c. 8→c. 3, \"por ei\"→\"por si\", \"&amp;ornar\"→\"tornar\", \"éntelligencia\"→\"intelligencia\"); remoção de lixo (\"A\" solto, \"|\", \"*\", \"1\" espúrio, aspas, hífen de \"sobrenatural-\", \"med?atamente\"); \"Summario:\" e \"ARTIGO I.\" restaurados conforme a imagem.\nFronteiras corpo/nota: nenhuma alterada. Confirmado que a nota 675-1 continua no rodapé de 676 e 677 (até \"Cf. Sum. Th.\"), que a 677-1 e a 677-2 começam no rodapé de 677 e a 677-2 segue no rodapé de 678; o corpo de 676 se restringe ao §120 inicial e o de 678 termina em \"intelligencia\".\nDúvidas: se \"e\" entre \"material\" e \"directo\" deve ser itálico (deixei romano); se \"sô\" da imagem é \"só\" (usei \"só\"); manchas em 676 e 677 sobre \"ARTIGO\" e \"sobrenatural\" podem ter outra leitura.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras e acentos (Dzvus/DEus/Dus→Deus em versalete, sancgão→sanção, Ahirens→Ahrens, Obsequiod→obsequios, simplieissima, Verdede, c. 8→c. 3, \"por ei\"→\"por si\", \"&amp;ornar\"→\"tornar\", \"éntelligencia\"→\"intelligencia\"); remoção de lixo (\"A\" solto, \"|\", \"*\", \"1\" espúrio, aspas, hífen de \"sobrenatural-\", \"med?atamente\"); \"Summario:\" e \"ARTIGO I.\" restaurados conforme a imagem.\nFronteiras corpo/nota: nenhuma alterada. Confirmado que a nota 675-1 continua no rodapé de 676 e 677 (até \"Cf. Sum. Th.\"), que a 677-1 e a 677-2 começam no rodapé de 677 e a 677-2 segue no rodapé de 678; o corpo de 676 se restringe ao §120 inicial e o de 678 termina em \"intelligencia\".\nDúvidas: se \"e\" entre \"material\" e \"directo\" deve ser itálico (deixei romano); se \"sô\" da imagem é \"só\" (usei \"só\"); manchas em 676 e 677 sobre \"ARTIGO\" e \"sobrenatural\" podem ter outra leitura.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.019686099999999998,
+ "duration_ms": 122612,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32676,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 32837
+ },
+ "reparo": false
+}

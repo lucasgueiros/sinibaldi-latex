@@ -1,0 +1,30 @@
+{
+ "pagina": 538,
+ "paginas": [
+  538,
+  539,
+  540,
+  541
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras (premocüo/premocao/premordo, movela→mo-vel-a, natuvalmente, opevatur, liberlas, unwmquodque, émmutabiliter), citações latinas (Sum. Th. p. I, q. 83, a. 1 ad 3; De ver. a. 22; \"Peccatum nominat ens\"; \"Ad providentiae curam\"), acentos (têm, é seguida, sem \"á\" indevido, \"Deus\" em sc), pontuação (pr. 6). ; \"crear o mundo\"; \"Tendendo\" sem aspas), e um \"1 2\"/\"«\"/\".\" espúrios; \"decretes\"→\"decretos\"; \"difficuldades\".\nFronteira corpo/nota: conferida e mantida como estava — a nota 538-1 abrange todo o pé de 538, 539 e 540 até \"increada liberdade.\"; a nota 540-1 (chamada \"temporanea\") continua no pé de 541 com `<pb n=\"541\"/>` interno, já corretamente unida; a 541-1 está no ponto da chamada \"um fim\". Nenhuma mudança de fronteira feita.\nDúvida restante: \"Algumas dificuldades\", \"a) Dizem\", \"Resposta…\" de 538–540 parecem ter o mesmo corpo de letra das notas (espaçamento de linha ~38px, abaixo do filete), por isso ficaram dentro de 538-1; se o original os tiver em letra normal, a fronteira deve ser revista.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras (premocüo/premocao/premordo, movela→mo-vel-a, natuvalmente, opevatur, liberlas, unwmquodque, émmutabiliter), citações latinas (Sum. Th. p. I, q. 83, a. 1 ad 3; De ver. a. 22; \"Peccatum nominat ens\"; \"Ad providentiae curam\"), acentos (têm, é seguida, sem \"á\" indevido, \"Deus\" em sc), pontuação (pr. 6). ; \"crear o mundo\"; \"Tendendo\" sem aspas), e um \"1 2\"/\"«\"/\".\" espúrios; \"decretes\"→\"decretos\"; \"difficuldades\".\nFronteira corpo/nota: conferida e mantida como estava — a nota 538-1 abrange todo o pé de 538, 539 e 540 até \"increada liberdade.\"; a nota 540-1 (chamada \"temporanea\") continua no pé de 541 com `<pb n=\"541\"/>` interno, já corretamente unida; a 541-1 está no ponto da chamada \"um fim\". Nenhuma mudança de fronteira feita.\nDúvida restante: \"Algumas dificuldades\", \"a) Dizem\", \"Resposta…\" de 538–540 parecem ter o mesmo corpo de letra das notas (espaçamento de linha ~38px, abaixo do filete), por isso ficaram dentro de 538-1; se o original os tiver em letra normal, a fronteira deve ser revista.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.024540199999999998,
+ "duration_ms": 158157,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32442,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 42592
+ },
+ "reparo": false
+}

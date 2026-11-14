@@ -1,0 +1,27 @@
+{
+ "pagina": 473,
+ "paginas": [
+  473
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: acentos (\"è\" em \"e è acto purissimo\"), \"como á nossa\"→\"como a nossa\", \"Logo á intelligencia\"→\"Logo a intelligencia\", \"so admitte\"→\"se admitte\", \"DEus\"→\"Deus\" em versalete, \"Th\"→\"Th.\", ponto em lugar de vírgula após \"Coisa\", e negrito dos títulos 61 e 62 ajustado ao impresso (frase inteira em negrito).\nFronteira corpo/nota: sem mudanças. As notas 1 (p. 473, pé da página, após \"intelligencia\") e 2 (p. 473, pé da página, após \"infinito\") estão corretamente posicionadas e fechadas; não há continuação de nota nesta página.\nDúvidas: o \"E\" de \"E' acto\" aparece com grafia especial na imagem; mantive \"E'\" como no OCR.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: acentos (\"è\" em \"e è acto purissimo\"), \"como á nossa\"→\"como a nossa\", \"Logo á intelligencia\"→\"Logo a intelligencia\", \"so admitte\"→\"se admitte\", \"DEus\"→\"Deus\" em versalete, \"Th\"→\"Th.\", ponto em lugar de vírgula após \"Coisa\", e negrito dos títulos 61 e 62 ajustado ao impresso (frase inteira em negrito).\nFronteira corpo/nota: sem mudanças. As notas 1 (p. 473, pé da página, após \"intelligencia\") e 2 (p. 473, pé da página, após \"infinito\") estão corretamente posicionadas e fechadas; não há continuação de nota nesta página.\nDúvidas: o \"E\" de \"E' acto\" aparece com grafia especial na imagem; mantive \"E'\" como no OCR.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0042144,
+ "duration_ms": 22341,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10964,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6236
+ },
+ "reparo": false
+}

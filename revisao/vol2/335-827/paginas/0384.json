@@ -1,0 +1,30 @@
+{
+ "pagina": 384,
+ "paginas": [
+  384,
+  385,
+  386,
+  387
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras (Heitsig/Heitzig, Waits/Waitz, Lamarch, conto→como, pAilologicamente, cireumcisüo, immigracao, memorias.e, 939→232, 1861→1867, \"0 fim\"→\"O fim\", \"b\"/\"Historia\"/\"linguistica\" em minúscula, \"d mesma\"→\"á mesma\", \"uin\"/\"constitue\" etc.), acentos, hifenização, \"25 Vol. II.\" e \":\" removidos, \"&\" trocado por \"*\" (ornamento), \"DEus\" em versalete padronizado, e \"CAPITULO SEGUNDO\" + sumário reposto na p. 387 (estavam faltando).\nFronteira: nenhuma mudança de fronteira corpo/nota. Nota 384-1 mantida com continuação nas pp. 385 e 386; nota 386-1 mantida com continuação na p. 387 (rodapé após o filete).\nDúvidas: (a) os trechos Burmeister/Müller/Quatrefages/\"Seguem…\" no rodapé da p. 384, antes do \"(1)\", foram mantidos no corpo por não haver \"(n)\" nem continuação; (b) \"necessariamente\" no fim do trecho (p. 387) é palavra hifenizada que se completa na p. 388, fora do trecho; (c) \"Blumembach\", \"allemães\" e \"Müller\" em itálico/ortografia não verificados com segurança.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras (Heitsig/Heitzig, Waits/Waitz, Lamarch, conto→como, pAilologicamente, cireumcisüo, immigracao, memorias.e, 939→232, 1861→1867, \"0 fim\"→\"O fim\", \"b\"/\"Historia\"/\"linguistica\" em minúscula, \"d mesma\"→\"á mesma\", \"uin\"/\"constitue\" etc.), acentos, hifenização, \"25 Vol. II.\" e \":\" removidos, \"&\" trocado por \"*\" (ornamento), \"DEus\" em versalete padronizado, e \"CAPITULO SEGUNDO\" + sumário reposto na p. 387 (estavam faltando).\nFronteira: nenhuma mudança de fronteira corpo/nota. Nota 384-1 mantida com continuação nas pp. 385 e 386; nota 386-1 mantida com continuação na p. 387 (rodapé após o filete).\nDúvidas: (a) os trechos Burmeister/Müller/Quatrefages/\"Seguem…\" no rodapé da p. 384, antes do \"(1)\", foram mantidos no corpo por não haver \"(n)\" nem continuação; (b) \"necessariamente\" no fim do trecho (p. 387) é palavra hifenizada que se completa na p. 388, fora do trecho; (c) \"Blumembach\", \"allemães\" e \"Müller\" em itálico/ortografia não verificados com segurança.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0234944,
+ "duration_ms": 156431,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31564,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 40676
+ },
+ "reparo": false
+}

@@ -1,0 +1,203 @@
+>> haiku: 183 pedaço(s) de revisao/vol2/335-827/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 333 (2 pp.): ok  US$ 0.003  15s  ent 14585 saí 2906
+  p. 341 (1 pp.): ok  US$ 0.005  29s  ent 11007 saí 7630
+  p. 335 (4 pp.): ok  US$ 0.019  123s  ent 30194 saí 32686
+  p. 342 (2 pp.): ok  US$ 0.012  76s  ent 18051 saí 20930
+  p. 345 (1 pp.): ok  US$ 0.004  23s  ent 10812 saí 6105
+  p. 344 (1 pp.): ok  US$ 0.005  29s  ent 10286 saí 7702
+  p. 346 (3 pp.): ok  fronteira: troca 0 car., notas [1, 2]  US$ 0.018  122s  ent 23830 saí 30638
+  p. 355 (2 pp.): ok  US$ 0.014  98s  ent 16871 saí 25187
+  p. 338 (3 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 25743 (<string>, line 13)  US$ 0.056  423s  ent 48688 saí 101370
+  p. 363 (3 pp.): ok  US$ 0.017  108s  ent 25187 saí 28011
+  p. 357 (7 pp.): ok  US$ 0.031  192s  ent 52309 saí 51703
+  p. 348 (8 pp.): ok (2ª tentativa)  US$ 0.076  496s  ent 116480 saí 129517
+  p. 368 (5 pp.): ok  US$ 0.021  138s  ent 36800 saí 35176
+  p. 377 (1 pp.): ok  US$ 0.005  30s  ent 11135 saí 8037
+  p. 366 (3 pp.): ok  US$ 0.031  248s  ent 24533 saí 56882
+  p. 383 (1 pp.): ok  US$ 0.004  22s  ent 10957 saí 6060
+  p. 378 (5 pp.): ok  US$ 0.021  118s  ent 38994 saí 33809
+  p. 388 (1 pp.): ok  US$ 0.005  25s  ent 11030 saí 6802
+  p. 384 (4 pp.): ok  US$ 0.023  156s  ent 31564 saí 40676
+  p. 389 (3 pp.): ok  US$ 0.019  127s  ent 25389 saí 33199
+  p. 372 (5 pp.): ok (2ª tentativa)  US$ 0.056  394s  ent 76758 saí 96040
+  p. 392 (6 pp.): ok  US$ 0.027  157s  ent 44920 saí 44080
+  p. 404 (2 pp.): ok  US$ 0.006  34s  ent 16692 saí 9246
+  p. 400 (5 pp.): ok  US$ 0.023  145s  ent 38698 saí 39151
+  p. 397 (3 pp.): ok (2ª tentativa)  US$ 0.031  198s  ent 49208 saí 51248
+  p. 415 (2 pp.): ok  US$ 0.013  82s  ent 17451 saí 22863
+  p. 410 (5 pp.): ok  US$ 0.022  130s  ent 38607 saí 36958
+  p. 406 (5 pp.): ok  US$ 0.027  169s  ent 37725 saí 46851
+  p. 417 (2 pp.): ok  US$ 0.005  23s  ent 15638 saí 5994
+  p. 424 (1 pp.): ok  US$ 0.004  29s  ent 10013 saí 6962
+  p. 419 (6 pp.): ok  US$ 0.028  175s  ent 44958 saí 47560
+  p. 429 (6 pp.): ok  US$ 0.025  144s  ent 44363 saí 40445
+  p. 436 (2 pp.): ok  US$ 0.007  38s  ent 17708 saí 10742
+  p. 434 (2 pp.): ok  US$ 0.009  47s  ent 18454 saí 13678
+  p. 425 (5 pp.): ok  US$ 0.033  231s  ent 38322 saí 57639
+  p. 441 (1 pp.): ok  US$ 0.005  29s  ent 11014 saí 7613
+  p. 442 (1 pp.): ok  US$ 0.003  17s  ent 10373 saí 4363
+  p. 447 (3 pp.): ok  fronteira: troca 770 car., notas [1, 1]  US$ 0.015  93s  ent 23734 saí 24425
+  p. 450 (1 pp.): ok  fronteira: troca 1817 car., notas [1, 2]  US$ 0.006  39s  ent 11027 saí 10311
+  p. 438 (3 pp.): ok  US$ 0.025  181s  ent 25184 saí 44396
+  p. 456 (2 pp.): ok  US$ 0.015  104s  ent 18269 saí 26536
+  p. 451 (5 pp.): ok  US$ 0.032  196s  ent 42275 saí 54723
+  p. 443 (5 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: p line 13 and note, line 13, column 453829 (<string>, line 13)  US$ 0.055  366s  ent 78515 saí 95103
+  p. 461 (1 pp.): ok  US$ 0.004  26s  ent 11312 saí 6631
+  p. 465 (1 pp.): ok  US$ 0.004  25s  ent 11043 saí 6593
+  p. 462 (3 pp.): ok  US$ 0.012  65s  ent 25138 saí 19029
+  p. 466 (1 pp.): ok  US$ 0.006  38s  ent 10794 saí 10347
+  p. 467 (1 pp.): ok  US$ 0.006  40s  ent 10919 saí 10366
+  p. 468 (2 pp.): ok  US$ 0.011  63s  ent 17872 saí 17452
+  p. 473 (1 pp.): ok  US$ 0.004  22s  ent 10964 saí 6236
+  p. 458 (3 pp.): ok (2ª tentativa)  US$ 0.042  279s  ent 51486 saí 73848
+  p. 470 (3 pp.): ok  US$ 0.018  118s  ent 24791 saí 31365
+  p. 474 (4 pp.): ok  US$ 0.018  109s  ent 30003 saí 29774
+  p. 487 (2 pp.): ok  US$ 0.012  80s  ent 17512 saí 20779
+  p. 477 (11 pp.): ok  US$ 0.034  195s  ent 80722 saí 51526
+  p. 497 (1 pp.): ok  US$ 0.004  23s  ent 10081 saí 5442
+  p. 498 (3 pp.): ok  US$ 0.015  87s  ent 24834 saí 24402
+  p. 492 (6 pp.): ok  US$ 0.039  278s  ent 44921 saí 69581
+  p. 506 (1 pp.): ok  US$ 0.004  22s  ent 10132 saí 5468
+  p. 489 (4 pp.): ok (2ª tentativa)  US$ 0.052  351s  ent 61986 saí 92342
+  p. 510 (1 pp.): ok  US$ 0.007  45s  ent 11217 saí 12527
+  p. 501 (6 pp.): ok  US$ 0.033  225s  ent 45612 saí 56934
+  p. 507 (3 pp.): ok  US$ 0.022  144s  ent 25508 saí 38165
+  p. 519 (1 pp.): ok  US$ 0.005  29s  ent 10855 saí 7643
+  p. 511 (4 pp.): ok  US$ 0.026  169s  ent 31127 saí 45356
+  p. 520 (4 pp.): ok  US$ 0.017  98s  ent 31698 saí 27417
+  p. 524 (2 pp.): ok  US$ 0.009  50s  ent 17851 saí 13587
+  p. 526 (4 pp.): ok  US$ 0.025  167s  ent 30347 saí 43027
+  p. 514 (6 pp.): FALHOU: tirou texto demais das notas para o corpo (~4136 caracteres; notas 12529 → 8393, corpo 2227 → 6382; máximo 800). Notas longas têm vários parágrafos em letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo  US$ 0.066  440s  ent 89376 saí 114986
+  p. 529 (4 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: div line 13 and p, line 13, column 847379 (<string>, line 13)  US$ 0.051  365s  ent 60924 saí 90202
+  p. 542 (1 pp.): ok  US$ 0.004  20s  ent 10661 saí 4949
+  p. 543 (1 pp.): ok  US$ 0.004  21s  ent 10581 saí 5537
+  p. 538 (4 pp.): ok  US$ 0.025  158s  ent 32442 saí 42592
+  p. 544 (5 pp.): ok  US$ 0.025  162s  ent 38444 saí 42225
+  p. 532 (6 pp.): ok (2ª tentativa)  US$ 0.068  460s  ent 90812 saí 117601
+  p. 556 (1 pp.): ok  US$ 0.004  19s  ent 10961 saí 4973
+  p. 548 (3 pp.): FALHOU: copiou ~369 palavras que já estão no trecho anterior (fim de nota que continua de lá e já foi transcrito)  US$ 0.032  221s  ent 46120 saí 54723
+  p. 557 (1 pp.): ok  US$ 0.005  26s  ent 10720 saí 7103
+  p. 558 (1 pp.): ok  US$ 0.004  25s  ent 11016 saí 6574
+  p. 559 (1 pp.): ok  US$ 0.004  25s  ent 10784 saí 6181
+  p. 551 (5 pp.): ok  US$ 0.022  133s  ent 39228 saí 36982
+  p. 567 (1 pp.): ok  US$ 0.004  24s  ent 11080 saí 6309
+  p. 568 (1 pp.): ok  US$ 0.004  20s  ent 10718 saí 5334
+  p. 560 (5 pp.): ok  US$ 0.023  136s  ent 39097 saí 38276
+  p. 564 (3 pp.): ok  US$ 0.019  130s  ent 24189 saí 33062
+  p. 569 (2 pp.): ok  US$ 0.011  69s  ent 18532 saí 18861
+  p. 575 (1 pp.): ok  US$ 0.004  20s  ent 10945 saí 5320
+  p. 576 (1 pp.): ok  US$ 0.005  33s  ent 11095 saí 8174
+  p. 577 (1 pp.): ok  US$ 0.006  41s  ent 10803 saí 10817
+  p. 578 (2 pp.): ok  US$ 0.011  72s  ent 17639 saí 19341
+  p. 598 (2 pp.): ok (2ª tentativa)  US$ 0.016  94s  ent 31980 saí 24994
+  p. 571 (4 pp.): ok (2ª tentativa)  US$ 0.045  276s  ent 64992 saí 76233
+  p. 606 (3 pp.): ok  US$ 0.013  82s  ent 23831 saí 21631
+  p. 609 (1 pp.): ok  US$ 0.005  26s  ent 11014 saí 6818
+  p. 599 (8 pp.): ok  US$ 0.042  278s  ent 61179 saí 72080
+  p. 614 (1 pp.): ok  US$ 0.006  35s  ent 11327 saí 9507
+  p. 610 (4 pp.): ok  US$ 0.026  163s  ent 32469 saí 45342
+  p. 615 (2 pp.): ok  US$ 0.010  61s  ent 18182 saí 16517
+  p. 620 (2 pp.): ok  US$ 0.010  59s  ent 19091 saí 16470
+  p. 580 (19 pp.): FALHOU: os <pb> do corpo mudaram: ['580', '581', '582', '583', '584', '585', '586', '587', '588', '589', '590', '591', '592', '593', '594', '595', '596', '597'] → ['580', '581', '582', '583', '584', '585', '586', '587', '588', '589', '590', '591', '592', '593', '594', '595', '596', '597', '598']  US$ 0.585  633s  ent 281017 saí 177979
+  p. 626 (5 pp.): ok  US$ 0.026  163s  ent 39417 saí 44316
+  p. 617 (3 pp.): ok (2ª tentativa)  US$ 0.053  379s  ent 52528 saí 96142
+  p. 636 (1 pp.): ok  US$ 0.004  25s  ent 11022 saí 6583
+  p. 637 (1 pp.): ok  US$ 0.006  38s  ent 10908 saí 10043
+  p. 631 (5 pp.): ok  US$ 0.028  177s  ent 39320 saí 47803
+  p. 638 (3 pp.): ok  US$ 0.014  92s  ent 23338 saí 23494
+  p. 622 (4 pp.): ok (2ª tentativa)  US$ 0.062  433s  ent 64740 saí 110270
+  p. 648 (3 pp.): ok  US$ 0.014  85s  ent 25852 saí 23344
+  p. 644 (4 pp.): ok  US$ 0.027  174s  ent 32608 saí 47446
+  p. 651 (2 pp.): ok  US$ 0.013  84s  ent 17302 saí 23475
+  p. 640 (4 pp.): FALHOU: elementos que o TEI não usa: ['notas']  US$ 0.048  322s  ent 65208 saí 83910
+  p. 653 (4 pp.): ok  US$ 0.022  130s  ent 33085 saí 36654
+  p. 657 (5 pp.): ok  US$ 0.023  133s  ent 39123 saí 37551
+  p. 661 (2 pp.): ok  US$ 0.010  58s  ent 18446 saí 15897
+  p. 679 (1 pp.): ok  US$ 0.005  30s  ent 10895 saí 7774
+  p. 675 (4 pp.): ok  US$ 0.020  123s  ent 32676 saí 32837
+  p. 680 (5 pp.): ok  US$ 0.030  198s  ent 39734 saí 52488
+  p. 685 (4 pp.): ok  fronteira: troca 763 car., notas [8, 8]  US$ 0.025  159s  ent 32753 saí 42805
+  p. 693 (2 pp.): ok  fronteira: troca 469 car., notas [4, 4]  US$ 0.013  92s  ent 17720 saí 23406
+  p. 695 (3 pp.): ok  US$ 0.014  86s  ent 24302 saí 24116
+  p. 689 (4 pp.): ok  US$ 0.028  197s  ent 32145 saí 50347
+  p. 698 (1 pp.): ok  US$ 0.004  19s  ent 10558 saí 5013
+  p. 663 (12 pp.): FALHOU: os <pb> do corpo mudaram: ['663', '664', '665', '666', '667', '668', '669', '670', '671', '672', '673', '674'] → ['663', '664', '665', '667', '668', '669', '670', '671', '672', '673', '674']  US$ 0.097  552s  ent 181119 saí 157428
+  p. 699 (2 pp.): ok  US$ 0.014  91s  ent 17790 saí 24239
+  p. 701 (5 pp.): ok  US$ 0.022  134s  ent 37146 saí 35847
+  p. 723 (1 pp.): ok  US$ 0.005  33s  ent 10805 saí 8712
+  p. 724 (1 pp.): ok  US$ 0.005  27s  ent 10805 saí 7296
+  p. 725 (1 pp.): ok  US$ 0.005  28s  ent 10949 saí 7159
+  p. 721 (2 pp.): ok (2ª tentativa)  US$ 0.025  161s  ent 33846 saí 42557
+  p. 728 (1 pp.): ok  US$ 0.004  18s  ent 10769 saí 4999
+  p. 726 (2 pp.): ok  US$ 0.014  96s  ent 17735 saí 24356
+  p. 733 (1 pp.): ok  US$ 0.005  26s  ent 11039 saí 6944
+  p. 734 (1 pp.): ok (2ª tentativa)  US$ 0.007  42s  ent 21282 saí 10619
+  p. 729 (4 pp.): ok  US$ 0.026  177s  ent 33219 saí 44758
+  p. 705 (17 pp.): ok (2ª tentativa)  US$ 0.412  396s  ent 242477 saí 116467
+  p. 740 (3 pp.): ok  US$ 0.021  133s  ent 25574 saí 36397
+  p. 748 (1 pp.): ok  US$ 0.004  25s  ent 10870 saí 6695
+  p. 735 (5 pp.): ok  US$ 0.030  203s  ent 38930 saí 51391
+  p. 743 (6 pp.): ok  US$ 0.025  150s  ent 44941 saí 40772
+  p. 749 (2 pp.): ok  US$ 0.013  86s  ent 18015 saí 21965
+  p. 759 (1 pp.): ok  US$ 0.005  27s  ent 10799 saí 6993
+  p. 751 (4 pp.): ok  US$ 0.019  120s  ent 31443 saí 31938
+  p. 762 (1 pp.): ok  US$ 0.005  26s  ent 11044 saí 7060
+  p. 760 (2 pp.): ok  US$ 0.011  76s  ent 18226 saí 18858
+  p. 763 (2 pp.): ok  US$ 0.011  69s  ent 18227 saí 18497
+  p. 755 (4 pp.): ok  US$ 0.031  226s  ent 32587 saí 55636
+  p. 769 (2 pp.): ok  US$ 0.010  58s  ent 18013 saí 16611
+  p. 771 (1 pp.): ok  US$ 0.006  38s  ent 11325 saí 9833
+  p. 765 (5 pp.): ok  US$ 0.027  168s  ent 38107 saí 45580
+  p. 776 (4 pp.): ok  US$ 0.018  110s  ent 31284 saí 30561
+  p. 780 (2 pp.): ok  US$ 0.012  73s  ent 18173 saí 20003
+  p. 772 (5 pp.): ok  US$ 0.023  146s  ent 37525 saí 39139
+  p. 782 (2 pp.): ok  US$ 0.009  51s  ent 17420 saí 13820
+  p. 790 (2 pp.): ok  US$ 0.017  114s  ent 17990 saí 29900
+  p. 784 (3 pp.): ok  US$ 0.020  139s  ent 23577 saí 35991
+  p. 795 (1 pp.): ok  US$ 0.006  36s  ent 11165 saí 9651
+  p. 792 (3 pp.): ok  US$ 0.016  101s  ent 25010 saí 26918
+  p. 796 (2 pp.): ok  US$ 0.011  65s  ent 18333 saí 17442
+  p. 799 (1 pp.): ok  US$ 0.004  24s  ent 11055 saí 6480
+  p. 798 (1 pp.): ok  US$ 0.005  29s  ent 11210 saí 7715
+  p. 800 (1 pp.): ok  US$ 0.005  28s  ent 11011 saí 7456
+  p. 786 (4 pp.): FALHOU: tirou texto demais das notas para o corpo (~7414 caracteres; notas 11191 → 3777, corpo 1389 → 8831; máximo 800). Notas longas têm vários parágrafos em letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo  US$ 0.049  325s  ent 63882 saí 84253
+  p. 804 (2 pp.): ok  US$ 0.010  60s  ent 17912 saí 16437
+  p. 801 (3 pp.): ok  US$ 0.016  100s  ent 24459 saí 27507
+  p. 809 (1 pp.): ok  US$ 0.005  29s  ent 10872 saí 7252
+  p. 811 (1 pp.): ok  US$ 0.005  27s  ent 11287 saí 7107
+  p. 810 (1 pp.): FALHOU: o XML ficou mal formado: Opening and ending tag mismatch: p line 13 and div, line 13, column 2015983 (<string>, line 13)  US$ 0.012  70s  ent 23549 saí 19079
+  p. 812 (1 pp.): ok  US$ 0.006  33s  ent 11580 saí 9177
+  p. 813 (1 pp.): ok  US$ 0.005  32s  ent 11520 saí 8528
+  p. 814 (1 pp.): ok  US$ 0.005  29s  ent 10968 saí 8131
+  p. 806 (3 pp.): ok  US$ 0.023  162s  ent 24585 saí 41117
+  p. 817 (1 pp.): ok  US$ 0.005  29s  ent 11365 saí 7892
+  p. 815 (1 pp.): ok  US$ 0.007  43s  ent 11817 saí 12259
+  p. 816 (1 pp.): ok  US$ 0.006  35s  ent 11671 saí 9885
+  p. 818 (1 pp.): ok  US$ 0.005  24s  ent 11748 saí 6773
+  p. 819 (1 pp.): ok  US$ 0.005  29s  ent 11654 saí 8204
+  p. 820 (1 pp.): ok  US$ 0.005  31s  ent 11958 saí 8579
+  p. 822 (1 pp.): ok  US$ 0.003  18s  ent 9572 saí 4087
+  p. 821 (1 pp.): ok  US$ 0.006  34s  ent 11807 saí 9649
+  p. 823 (1 pp.): ok  US$ 0.004  29s  ent 9845 saí 6712
+  p. 824 (1 pp.): ok  US$ 0.004  23s  ent 9920 saí 5524
+  p. 825 (2 pp.): ok  US$ 0.004  23s  ent 15152 saí 5512
+  p. 827 (1 pp.): ok  US$ 0.004  26s  ent 9864 saí 6137
+   montagem: p. 347: continuação de nota ligada à nota anterior (4180 car.)
+   montagem: p. 450: continuação de nota ligada à nota anterior (1862 car.)
+>> 183/183 pedaços, 10 falha(s), 5 com fronteira mudada, US$ 4.14, 353.2 min de chamadas; tokens {'input_tokens': 5350084, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 5605681}
+>> revisao/vol2/335-827/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 10 pedaço(s) de revisao/vol2/335-827/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 338 (3 pp.): ok  US$ 0.118  41s  ent 24234 saí 6985
+  p. 443 (5 pp.): ok  US$ 0.241  94s  ent 39154 saí 16246
+  p. 514 (6 pp.): ok  US$ 0.270  104s  ent 44578 saí 18057
+  p. 529 (4 pp.): ok  US$ 0.160  59s  ent 30352 saí 9958
+  p. 548 (3 pp.): ok  US$ 0.108  39s  ent 22954 saí 6235
+  p. 640 (4 pp.): ok  US$ 0.184  72s  ent 32493 saí 11903
+  p. 786 (4 pp.): ok  US$ 0.190  73s  ent 31802 saí 12620
+  p. 810 (1 pp.): ok  US$ 0.052  14s  ent 11664 saí 2846
+  p. 663 (12 pp.): ok  US$ 0.503  162s  ent 90462 saí 32201
+  p. 580 (19 pp.): ok  US$ 0.881  333s  ent 140402 saí 59986
+   montagem: p. 347: continuação de nota ligada à nota anterior (4180 car.)
+   montagem: p. 450: continuação de nota ligada à nota anterior (1862 car.)
+>> 183/183 pedaços, 0 falha(s), 5 com fronteira mudada, US$ 5.79, 307.8 min de chamadas; tokens {'input_tokens': 4879781, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 4803685}
+>> revisao/vol2/335-827/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

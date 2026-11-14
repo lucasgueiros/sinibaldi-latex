@@ -1,0 +1,29 @@
+{
+ "pagina": 638,
+ "paginas": [
+  638,
+  639,
+  640
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (sanccüo, sufliciente/su/ficiente, Aereditario, diffieuldade, indistinetamente, sanecüo, ea→e a, \"á observancia\"→\"a observancia\", \"á culpa\"), pontuação (ponto após \"agente)\"), \"pois á sociedade\"→\"a sociedade\", \"e\" de \"conseguil-a\" passou a romano, títulos 94 e 95 inteiramente em negrito, \"continuídade\"→\"continuidade\".\nFronteiras: nenhuma mudança; nota 1 (p.638) e nota 2 (p.638→639), nota 639-1 (p.639→640) mantidas como estavam; o pb 640 dentro da nota 639-1 e o término em \"as obras.\" conferem com a imagem.\nDúvidas: \"Gonzalez\" sem acento, lido da imagem; \"Todavia…\" e \"Como os que…\" (p.639 inferior) tratados como continuação da nota 639-1 por estarem abaixo do filete; se forem corpo, a fronteira precisa de revisão.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (sanccüo, sufliciente/su/ficiente, Aereditario, diffieuldade, indistinetamente, sanecüo, ea→e a, \"á observancia\"→\"a observancia\", \"á culpa\"), pontuação (ponto após \"agente)\"), \"pois á sociedade\"→\"a sociedade\", \"e\" de \"conseguil-a\" passou a romano, títulos 94 e 95 inteiramente em negrito, \"continuídade\"→\"continuidade\".\nFronteiras: nenhuma mudança; nota 1 (p.638) e nota 2 (p.638→639), nota 639-1 (p.639→640) mantidas como estavam; o pb 640 dentro da nota 639-1 e o término em \"as obras.\" conferem com a imagem.\nDúvidas: \"Gonzalez\" sem acento, lido da imagem; \"Todavia…\" e \"Como os que…\" (p.639 inferior) tratados como continuação da nota 639-1 por estarem abaixo do filete; se forem corpo, a fronteira precisa de revisão.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.014080800000000001,
+ "duration_ms": 91919,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23338,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 23494
+ },
+ "reparo": false
+}

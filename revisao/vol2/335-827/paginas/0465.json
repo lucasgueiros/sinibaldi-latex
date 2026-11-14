@@ -1,0 +1,27 @@
+{
+ "pagina": 465,
+ "paginas": [
+  465
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"&amp;\" por \"a\", \"seffeito\", \"Dzvus\", \"dom\"), \"A.\" por \"A\", \"Vor. IL.\" e \"30\" removidos como lixo, versalete em \"Deus\" e itálicos/negritos das manchetes ajustados à imagem (45–47 em negrito inteiro); número da nota \"8\" corrigido para \"3\" (alerta numero-diverge), com id n465-3.\nFronteira corpo/nota: nenhuma alteração de posição; as notas 1 e 2 estão corretas e a nota 1 já contém sua continuação na metade inferior; a nota 3 ficou no ponto da chamada (3) após \"attrahil-a\".\nDúvida restante: a extensão do negrito nas manchetes 45–47 foi lida pela imagem como negrito integral; \"é e diz-se\" em 47 foi mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"&amp;\" por \"a\", \"seffeito\", \"Dzvus\", \"dom\"), \"A.\" por \"A\", \"Vor. IL.\" e \"30\" removidos como lixo, versalete em \"Deus\" e itálicos/negritos das manchetes ajustados à imagem (45–47 em negrito inteiro); número da nota \"8\" corrigido para \"3\" (alerta numero-diverge), com id n465-3.\nFronteira corpo/nota: nenhuma alteração de posição; as notas 1 e 2 estão corretas e a nota 1 já contém sua continuação na metade inferior; a nota 3 ficou no ponto da chamada (3) após \"attrahil-a\".\nDúvida restante: a extensão do negrito nas manchetes 45–47 foi lida pela imagem como negrito integral; \"é e diz-se\" em 47 foi mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0044008,
+ "duration_ms": 25358,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11043,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6593
+ },
+ "reparo": false
+}

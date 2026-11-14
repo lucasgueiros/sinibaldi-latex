@@ -1,0 +1,28 @@
+{
+ "pagina": 825,
+ "paginas": [
+  825,
+  826
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR das siglas \"Art.\" (Anr., ArT., Amr., AnT.), \"Ecistencia\", \"proprisdades\", \"existencia o natureza\" → \"e natureza\", \"Intelligencia de DEus\" → sc. Restaurados números de página do sumário (Prologo 419; Proemio 551; 421–565) e o \"Art. IV\", que faltavam; ponto-e-vírgula de leitura e dígitos espúrios removidos.\nNenhuma mudança de fronteira corpo/nota: o fragmento não contém notas. A página 826 está em branco (apenas o pb foi mantido).\nDúvidas: os pontilhados guia foram simplificados; as linhas do sumário seguem agrupadas num só <p>, como no original, sem separar em parágrafos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR das siglas \"Art.\" (Anr., ArT., Amr., AnT.), \"Ecistencia\", \"proprisdades\", \"existencia o natureza\" → \"e natureza\", \"Intelligencia de DEus\" → sc. Restaurados números de página do sumário (Prologo 419; Proemio 551; 421–565) e o \"Art. IV\", que faltavam; ponto-e-vírgula de leitura e dígitos espúrios removidos.\nNenhuma mudança de fronteira corpo/nota: o fragmento não contém notas. A página 826 está em branco (apenas o pb foi mantido).\nDúvidas: os pontilhados guia foram simplificados; as linhas do sumário seguem agrupadas num só <p>, como no original, sem separar em parágrafos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0042712,
+ "duration_ms": 22712,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 15152,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5512
+ },
+ "reparo": false
+}

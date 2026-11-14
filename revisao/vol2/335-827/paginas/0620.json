@@ -1,0 +1,28 @@
+{
+ "pagina": 620,
+ "paginas": [
+  620,
+  621
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: erros de OCR (é/i em \"irascivel\", \"temperanca\", \"bóa\", \"wnivocas\", \"dà\", \"religido\", \"preseripeóes\", \"cireumstancias\", \"promptidao\", \"A!\"→\"A'\"), numeração de alíneas (1.º→1.ª, \"ph)\", \"bp)\", \"€)\", \"0)\", \"6.3)\" etc.), \"&amp;\"→\"a\", \"e\" romano em \"e é a temperança\", \"a\" espúrio em \"a. intelligencia\", \"Prudencia,\" → \"Prudencia.\" e títulos em negrito; removidos o lixo \"yp-— EO A ao J…\" e o cabeçalho corrente \"CAPITULO III … 621\".\nFronteira corpo/nota: conferida e mantida. A nota 620-2 continua no rodapé de 621 (pb dentro da nota, já correto); notas 621-1 e 621-2 estão nos lugares certos. Nenhuma mudança estrutural.\nDúvidas: o negrito dos títulos \"Prudencia./Justiça./Temperança.\" é leitura da imagem (fonte mais pesada), não confirmada; \"1.ª\" lido como ª sobrescrito.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: erros de OCR (é/i em \"irascivel\", \"temperanca\", \"bóa\", \"wnivocas\", \"dà\", \"religido\", \"preseripeóes\", \"cireumstancias\", \"promptidao\", \"A!\"→\"A'\"), numeração de alíneas (1.º→1.ª, \"ph)\", \"bp)\", \"€)\", \"0)\", \"6.3)\" etc.), \"&amp;\"→\"a\", \"e\" romano em \"e é a temperança\", \"a\" espúrio em \"a. intelligencia\", \"Prudencia,\" → \"Prudencia.\" e títulos em negrito; removidos o lixo \"yp-— EO A ao J…\" e o cabeçalho corrente \"CAPITULO III … 621\".\nFronteira corpo/nota: conferida e mantida. A nota 620-2 continua no rodapé de 621 (pb dentro da nota, já correto); notas 621-1 e 621-2 estão nos lugares certos. Nenhuma mudança estrutural.\nDúvidas: o negrito dos títulos \"Prudencia./Justiça./Temperança.\" é leitura da imagem (fonte mais pesada), não confirmada; \"1.ª\" lido como ª sobrescrito.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0101441,
+ "duration_ms": 58568,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 19091,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 16470
+ },
+ "reparo": false
+}

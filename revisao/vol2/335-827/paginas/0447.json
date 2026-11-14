@@ -1,0 +1,57 @@
+{
+ "pagina": 447,
+ "paginas": [
+  447,
+  448,
+  449
+ ],
+ "falha": null,
+ "fronteira": {
+  "corpo": [
+   808,
+   1578
+  ],
+  "notas": [
+   6393,
+   5609
+  ],
+  "num_notas": [
+   1,
+   1
+  ],
+  "troca": 770
+ },
+ "notas": "Erros corrigidos: OCR (con/com, Ex/Ew, ab/sb, illimitado, intrinseca, JEHOVAH, homem/tomem, attribuo, affirmar, é/ó, differença, Ouçamos, Lê-se, sum/sux, vv. 13, constituida, hu-manitate), versalete e itálicos, pontuação, e o \"4\" espúrio antes de pb 449; removido o \"29 VOL. II\" do rodapé.\nFronteira: nota 1 fecha após \"(De pot., q. 7, a. 2 ad 5)\" (p. 449); o bloco \"Todos os philosophos…\" até \"possue\" e a lista a)–d) estavam dentro da nota e foram movidos para o corpo, após o §26 (p. 449); incluído o asterisco separador como &lt;p&gt;*&lt;/p&gt;.\nDúvidas: \"e não e ser\" lido como \"e não o ser\"; itálico de \"são\" e das letras a)–d) inferido da imagem; asterisco incluído como parágrafo.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": {
+    "corpo": [
+     808,
+     1578
+    ],
+    "notas": [
+     6393,
+     5609
+    ],
+    "num_notas": [
+     1,
+     1
+    ],
+    "troca": 770
+   },
+   "notas": "Erros corrigidos: OCR (con/com, Ex/Ew, ab/sb, illimitado, intrinseca, JEHOVAH, homem/tomem, attribuo, affirmar, é/ó, differença, Ouçamos, Lê-se, sum/sux, vv. 13, constituida, hu-manitate), versalete e itálicos, pontuação, e o \"4\" espúrio antes de pb 449; removido o \"29 VOL. II\" do rodapé.\nFronteira: nota 1 fecha após \"(De pot., q. 7, a. 2 ad 5)\" (p. 449); o bloco \"Todos os philosophos…\" até \"possue\" e a lista a)–d) estavam dentro da nota e foram movidos para o corpo, após o §26 (p. 449); incluído o asterisco separador como &lt;p&gt;*&lt;/p&gt;.\nDúvidas: \"e não e ser\" lido como \"e não o ser\"; itálico de \"são\" e das letras a)–d) inferido da imagem; asterisco incluído como parágrafo.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.014585899999999999,
+ "duration_ms": 92802,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23734,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24425
+ },
+ "reparo": false
+}

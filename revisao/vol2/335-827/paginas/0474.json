@@ -1,0 +1,30 @@
+{
+ "pagina": 474,
+ "paginas": [
+  474,
+  475,
+  476,
+  477
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (distineta→distincta, Dro→Deo, essentía, Applieando, Nào, ésinfinitamente, \"1.9)\"→\"1.º)\", \"8.9)\"→\"3.º)\", \"&amp;\"→\"a\", \"6\"→\"é\", \"Drus/Dkvs/'lanta\"→Deus/Tanta, \"ua\"→\"«a\", \"fundam--se\"→\"fundam-se\", \"|\" espúrio), citação \"c. 41\"→\"c. 47\" e \"a. 8\"→\"a. 3\", \"l. T\"→\"l. I\", \"inteligencia\"→\"intelligencia\", acentos e pontuação (\"ser,\"→\"ser.\"), itálico indevido em \"a\" na n. 2; negrito em \"Conhece o proprio ser.\" (a) e \"b) Conhece perfeitamente o proprio ser.\" (duvidoso, pode ser só tipografia do cabeçalho).\nFronteiras corpo/nota: conferidas e mantidas sem alteração. A n. 1 de p. 474 segue no rodapé de 474, 475 e 476 até \"ad 3).\"; a n. 2 de p. 476 continua em p. 477 até \"primario da intelligencia divina.\"; \"(1) E' o argumento…\" de p. 477 é outra nota e não foi copiada.\nDúvidas: se \"um DEUS\"/\"Deus\" em versalete e \"DEI\" estão corretos (ambíguo na imagem); se \"a. 3\" é mesmo \"a. 3\" (pode ser 8 com baixa resolução).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (distineta→distincta, Dro→Deo, essentía, Applieando, Nào, ésinfinitamente, \"1.9)\"→\"1.º)\", \"8.9)\"→\"3.º)\", \"&amp;\"→\"a\", \"6\"→\"é\", \"Drus/Dkvs/'lanta\"→Deus/Tanta, \"ua\"→\"«a\", \"fundam--se\"→\"fundam-se\", \"|\" espúrio), citação \"c. 41\"→\"c. 47\" e \"a. 8\"→\"a. 3\", \"l. T\"→\"l. I\", \"inteligencia\"→\"intelligencia\", acentos e pontuação (\"ser,\"→\"ser.\"), itálico indevido em \"a\" na n. 2; negrito em \"Conhece o proprio ser.\" (a) e \"b) Conhece perfeitamente o proprio ser.\" (duvidoso, pode ser só tipografia do cabeçalho).\nFronteiras corpo/nota: conferidas e mantidas sem alteração. A n. 1 de p. 474 segue no rodapé de 474, 475 e 476 até \"ad 3).\"; a n. 2 de p. 476 continua em p. 477 até \"primario da intelligencia divina.\"; \"(1) E' o argumento…\" de p. 477 é outra nota e não foi copiada.\nDúvidas: se \"um DEUS\"/\"Deus\" em versalete e \"DEI\" estão corretos (ambíguo na imagem); se \"a. 3\" é mesmo \"a. 3\" (pode ser 8 com baixa resolução).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0178873,
+ "duration_ms": 108940,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 30003,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 29774
+ },
+ "reparo": false
+}

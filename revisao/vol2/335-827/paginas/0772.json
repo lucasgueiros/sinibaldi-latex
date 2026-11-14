@@ -1,0 +1,31 @@
+{
+ "pagina": 772,
+ "paginas": [
+  772,
+  773,
+  774,
+  775,
+  776
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (ex.: \"2\"→\"a\", \"9)\"→\"3.º)\", \"impis\", \"PAilostrato\", \"Macchiavelli\", \"uomo\", \"instrucco/insiruccüo\", \"tecnhicos\", \"materia?\", \"innato\", \"&\"→\"a/á\"), acentos e cedilhas, hífens de fim de linha (já unidos), e \"Deus\" uniformizado em versalete; removidos \"A\" e \",\" sobrando, e itálicos indevidos em \"é injusta\" e \"o\".\nFronteiras corpo/nota conferidas e mantidas: n772-1 vai de 772 até 773 (inclui \"Tendo a sociedade…\" e \"O culto…\", que são de letra pequena no pé de 772); n773-1 vai de 773 até 776 (top), com o \"c)\" de 774 e o \"e a industrial\" de 775 no corpo; sem alterações de fronteira.\nDúvidas: \"Garofalo\" lido como tal (a imagem é pequena); o fragmento termina em \"desenvolvimento\", que a imagem mostra hifenizado (\"desen-\"/\"volvimento\", continuado em 776), mantido como está no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (ex.: \"2\"→\"a\", \"9)\"→\"3.º)\", \"impis\", \"PAilostrato\", \"Macchiavelli\", \"uomo\", \"instrucco/insiruccüo\", \"tecnhicos\", \"materia?\", \"innato\", \"&\"→\"a/á\"), acentos e cedilhas, hífens de fim de linha (já unidos), e \"Deus\" uniformizado em versalete; removidos \"A\" e \",\" sobrando, e itálicos indevidos em \"é injusta\" e \"o\".\nFronteiras corpo/nota conferidas e mantidas: n772-1 vai de 772 até 773 (inclui \"Tendo a sociedade…\" e \"O culto…\", que são de letra pequena no pé de 772); n773-1 vai de 773 até 776 (top), com o \"c)\" de 774 e o \"e a industrial\" de 775 no corpo; sem alterações de fronteira.\nDúvidas: \"Garofalo\" lido como tal (a imagem é pequena); o fragmento termina em \"desenvolvimento\", que a imagem mostra hifenizado (\"desen-\"/\"volvimento\", continuado em 776), mantido como está no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.023322000000000002,
+ "duration_ms": 146156,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 37525,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 39139
+ },
+ "reparo": false
+}

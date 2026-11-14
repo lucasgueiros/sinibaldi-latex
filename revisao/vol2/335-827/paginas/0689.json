@@ -1,0 +1,30 @@
+{
+ "pagina": 689,
+ "paginas": [
+  689,
+  690,
+  691,
+  692
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais correções: palavras mal lidas (natural, DEus, infinita, prozimamente, iminediata, mechanica, juridico, Vaux, vigarios, prescriptos, serviço, religião, a/á), itálico e negrito conforme a imagem (títulos a)–f), 130, 131–134), hifenização \"ho- mem\", lixo \"44 VOL. II\" e \";\" removidos, \"Summario:\" reposto.\nFronteira corpo/nota: conferida e mantida (nota 2 do p. 689 segue até \"Simplesmente triste!\", p. 691, pela área de notas de 689–690; nota 1 do p. 691 continua em 692). Reordenei no p. 690 o título \"DEVERES DO HOMEM PARA COMSIGO\" para antes do sumário e repus \"CAPITULO SEGUNDO\" como <p>, sem criar <head>.\nDúvidas: \"testemunho\" no início do p. 689 (só \"stemunho\" visível); \"espiritualidade\" no fim do trecho (a palavra se parte em \"espirituali-\" no p. 692 e não vejo o p. 693); \"uniformade\" mantido como impresso; o ornamento \"❊\" entre a nota 2 e \"Depois de termos\" não foi transcrito.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais correções: palavras mal lidas (natural, DEus, infinita, prozimamente, iminediata, mechanica, juridico, Vaux, vigarios, prescriptos, serviço, religião, a/á), itálico e negrito conforme a imagem (títulos a)–f), 130, 131–134), hifenização \"ho- mem\", lixo \"44 VOL. II\" e \";\" removidos, \"Summario:\" reposto.\nFronteira corpo/nota: conferida e mantida (nota 2 do p. 689 segue até \"Simplesmente triste!\", p. 691, pela área de notas de 689–690; nota 1 do p. 691 continua em 692). Reordenei no p. 690 o título \"DEVERES DO HOMEM PARA COMSIGO\" para antes do sumário e repus \"CAPITULO SEGUNDO\" como <p>, sem criar <head>.\nDúvidas: \"testemunho\" no início do p. 689 (só \"stemunho\" visível); \"espiritualidade\" no fim do trecho (a palavra se parte em \"espirituali-\" no p. 692 e não vejo o p. 693); \"uniformade\" mantido como impresso; o ornamento \"❊\" entre a nota 2 e \"Depois de termos\" não foi transcrito.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.028388000000000004,
+ "duration_ms": 197169,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32145,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 50347
+ },
+ "reparo": false
+}

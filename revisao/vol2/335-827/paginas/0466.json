@@ -1,0 +1,27 @@
+{
+ "pagina": 466,
+ "paginas": [
+  466
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de acentos e til (perfeigóes→perfeições, nao→não, addieionada→addicionada, immoyel,o→immovel, o), citação \"e. 1\"→\"c. 1\" e \"l. T, c. 38 e 89\"→\"l. I, c. 38 e 39\", itálicos (bondade em 48, summa na nota 1) e negrito do título 49, que estava parcial.\nFronteira corpo/nota: sem alterações. As notas 1 (p. 466, continua no rodapé inferior com sobreposição) e 2 estão corretamente ligadas às chamadas; não há `<pb>` dentro das notas.\nDúvida: \"infinita\" é o início de palavra hifenizada (\"infi-\"/\"nita\") que continua na p. 467; mantive a palavra inteira como está no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de acentos e til (perfeigóes→perfeições, nao→não, addieionada→addicionada, immoyel,o→immovel, o), citação \"e. 1\"→\"c. 1\" e \"l. T, c. 38 e 89\"→\"l. I, c. 38 e 39\", itálicos (bondade em 48, summa na nota 1) e negrito do título 49, que estava parcial.\nFronteira corpo/nota: sem alterações. As notas 1 (p. 466, continua no rodapé inferior com sobreposição) e 2 estão corretamente ligadas às chamadas; não há `<pb>` dentro das notas.\nDúvida: \"infinita\" é o início de palavra hifenizada (\"infi-\"/\"nita\") que continua na p. 467; mantive a palavra inteira como está no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0062529000000000005,
+ "duration_ms": 38209,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10794,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10347
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 388,
+ "paginas": [
+  388
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: \"á virtude\" → \"a virtude\" (itálico só em \"virtude\") e a chamada (3) estava ligada à nota n=\"8\" — renumerada para n=\"3\" (xml:id n388-3), sem mudança de fronteira corpo/nota na p. 388.\nNão acrescentei \"mente\" no início: é o fim da palavra hifenizada \"necessaria-mente\" vinda da p. 387, conforme a regra do trecho; o \".\" inicial foi mantido.\nDúvida restante: nenhuma relevante; o itálico de \"a\" em \"a virtude\" foi inferido da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: \"á virtude\" → \"a virtude\" (itálico só em \"virtude\") e a chamada (3) estava ligada à nota n=\"8\" — renumerada para n=\"3\" (xml:id n388-3), sem mudança de fronteira corpo/nota na p. 388.\nNão acrescentei \"mente\" no início: é o fim da palavra hifenizada \"necessaria-mente\" vinda da p. 387, conforme a regra do trecho; o \".\" inicial foi mantido.\nDúvida restante: nenhuma relevante; o itálico de \"a\" em \"a virtude\" foi inferido da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.004504,
+ "duration_ms": 24715,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11030,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6802
+ },
+ "reparo": false
+}

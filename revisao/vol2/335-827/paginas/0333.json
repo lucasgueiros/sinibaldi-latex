@@ -1,0 +1,28 @@
+{
+ "pagina": 333,
+ "paginas": [
+  333,
+  334
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correção de fronteira de palavra/página: \"pa-\" fica no fim da p. 333 e \"lavras\" abre a p. 334; o pb 334 estava depois de \"palavras\", fazendo a p. 334 começar em \"não\", e foi movido para dentro da palavra (\"pa<pb/>lavras\"). Nenhuma nota neste fragmento; o alerta n331-1 refere-se a texto fora do trecho. Não há outras divergências visíveis; restou apenas a dúvida sobre um possível sinal (\"'\") após \"lavras\" na p. 334, que foi ignorado.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correção de fronteira de palavra/página: \"pa-\" fica no fim da p. 333 e \"lavras\" abre a p. 334; o pb 334 estava depois de \"palavras\", fazendo a p. 334 começar em \"não\", e foi movido para dentro da palavra (\"pa<pb/>lavras\"). Nenhuma nota neste fragmento; o alerta n331-1 refere-se a texto fora do trecho. Não há outras divergências visíveis; restou apenas a dúvida sobre um possível sinal (\"'\") após \"lavras\" na p. 334, que foi ignorado.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0029115,
+ "duration_ms": 14505,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14585,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 2906
+ },
+ "reparo": false
+}

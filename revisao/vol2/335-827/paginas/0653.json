@@ -1,0 +1,30 @@
+{
+ "pagina": 653,
+ "paginas": [
+  653,
+  654,
+  655,
+  656
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras (jus, \"da leis\"→\"da lei\", \"Outras vozes\"→\"vezes\", \"a8\"→\"as\", \"2mmediato\"→\"immediato\", \"natura?\"→\"natural\", \"E)\"→\"E'\", \"prosimamente\", \"ma\"→\"mas\", \"1.º)/2.º)\"→\"1.ª)/2.ª)\", \"énviolavel\"→\"inviolavel\", \"von- 4\" e \"|\" espúrios removidos), acentos/Juridico sem acento como impresso, formatação itálico/negrito, \"111.\" em negrito e \"Deus\" em versalete unificado.\nFronteira corpo/nota: nenhuma alteração de fronteira; conferidas as notas 653-2, 654-2, 655-1, 655-2 (com continuação em 656) e 656-1 — já estavam corretas. Mudança de numeração: a nota da chamada \"(3)\" em 656 estava com n=\"8\"; corrigida para n=\"3\" (xml:id n656-3), posição mantida após \"deriva de Deus\".\nDúvidas: se o título \"110.\" é todo em negrito ou só parte (ajustei para negrito contínuo); se \"e\" em \"comsigo, e para com\" é itálico (deixei romano); \"distincta\" e \"justiça\" lidos com pouca nitidez.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras (jus, \"da leis\"→\"da lei\", \"Outras vozes\"→\"vezes\", \"a8\"→\"as\", \"2mmediato\"→\"immediato\", \"natura?\"→\"natural\", \"E)\"→\"E'\", \"prosimamente\", \"ma\"→\"mas\", \"1.º)/2.º)\"→\"1.ª)/2.ª)\", \"énviolavel\"→\"inviolavel\", \"von- 4\" e \"|\" espúrios removidos), acentos/Juridico sem acento como impresso, formatação itálico/negrito, \"111.\" em negrito e \"Deus\" em versalete unificado.\nFronteira corpo/nota: nenhuma alteração de fronteira; conferidas as notas 653-2, 654-2, 655-1, 655-2 (com continuação em 656) e 656-1 — já estavam corretas. Mudança de numeração: a nota da chamada \"(3)\" em 656 estava com n=\"8\"; corrigida para n=\"3\" (xml:id n656-3), posição mantida após \"deriva de Deus\".\nDúvidas: se o título \"110.\" é todo em negrito ou só parte (ajustei para negrito contínuo); se \"e\" em \"comsigo, e para com\" é itálico (deixei romano); \"distincta\" e \"justiça\" lidos com pouca nitidez.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.021635500000000002,
+ "duration_ms": 130224,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 33085,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 36654
+ },
+ "reparo": false
+}

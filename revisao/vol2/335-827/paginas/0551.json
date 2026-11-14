@@ -1,0 +1,31 @@
+{
+ "pagina": 551,
+ "paginas": [
+  551,
+  552,
+  553,
+  554,
+  555
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (emanagóes, realizum, fat&amp;l, p/iysica, esperimental, Aistoricos, Astoria, Be→Se, applieando, applioaremos, refutàmos, todÜs, \"&amp;\"→\"a\"), acentos (constituído, á/é, Logica/Metaphysica sem artigo), \"DEUS\"→versalete, \"2.º\"→\"2.ª\", linhas/pontuação espúrias (\"|\", \"!\", \"8)\", \"5)\", \"0)\", \"—d\", \"é\" solto, \"Ethica\" intacta), notas com \"(n)\" removido do texto e \"Sirvam\", \"intelligencia\", \"jurístas\" etc.\nFronteiras corrigidas: (p. 552–553) o texto \"(1) D'onde se vê a utilidade… social.\" estava dentro da n552-1 (fechada tarde); foi movido para a nota n553-1, no ponto da chamada \"posse do proprio Deus (1)\", e n552-1 termina em \"(Crit. Judic., pag. 442).\" (p. 553) o \"movimento da epocha actual… b) Os racionalistas…\" estava dentro da n553-1; foi movido para o fim da n553-2, com <pb n=\"554\"/> no ponto de continuação. Nada mais de fronteira alterado.\nDúvidas: \"impoitar\" (p. 553) lido como \"importar\"; \"»\" de fechamento da citação de Kant (p. 553) mantido; \"pode\" em \"não pode deixar\" (p. 554) mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (emanagóes, realizum, fat&amp;l, p/iysica, esperimental, Aistoricos, Astoria, Be→Se, applieando, applioaremos, refutàmos, todÜs, \"&amp;\"→\"a\"), acentos (constituído, á/é, Logica/Metaphysica sem artigo), \"DEUS\"→versalete, \"2.º\"→\"2.ª\", linhas/pontuação espúrias (\"|\", \"!\", \"8)\", \"5)\", \"0)\", \"—d\", \"é\" solto, \"Ethica\" intacta), notas com \"(n)\" removido do texto e \"Sirvam\", \"intelligencia\", \"jurístas\" etc.\nFronteiras corrigidas: (p. 552–553) o texto \"(1) D'onde se vê a utilidade… social.\" estava dentro da n552-1 (fechada tarde); foi movido para a nota n553-1, no ponto da chamada \"posse do proprio Deus (1)\", e n552-1 termina em \"(Crit. Judic., pag. 442).\" (p. 553) o \"movimento da epocha actual… b) Os racionalistas…\" estava dentro da n553-1; foi movido para o fim da n553-2, com <pb n=\"554\"/> no ponto de continuação. Nada mais de fronteira alterado.\nDúvidas: \"impoitar\" (p. 553) lido como \"importar\"; \"»\" de fechamento da citação de Kant (p. 553) mantido; \"pode\" em \"não pode deixar\" (p. 554) mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0224138,
+ "duration_ms": 133062,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 39228,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 36982
+ },
+ "reparo": false
+}

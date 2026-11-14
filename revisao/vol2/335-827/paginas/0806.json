@@ -1,0 +1,29 @@
+{
+ "pagina": 806,
+ "paginas": [
+  806,
+  807,
+  808
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (letras trocadas, \"Ihe\"→\"lhe\", \"dº\"→\"d'\", \"2\"→\"a\", \"Christa\"→\"Christã\", \"Jontesquieu\", \"CarISTO\"), acentos e pontuação (ex.: \"á\", \"conflicto\", \"juridicos\"), hífen/espaço espúrios, \"284.\"→\"204.\" (rótulo do tese; os atributos n/xml:id mantidos), \"cia,\" faltante no início da pág. 806, \"a\" de \"a Egreja\" sem itálico, \"cap. 1V\"→\"IV\".\nFronteira corpo/nota: conferida e mantida. Nota 806-1 (chamada \"altissimo (1)\") ocupa o pé de 806, 807 e o alto de 808 após a regra, com <pb> 807 e 808 internos; nota 808-1 começa no pé de 808. Corpo: 204 (806), \"a) Deveres negativos\" (807), \"b) Deveres positivos\" (808). Nenhuma alteração estrutural.\nDúvidas: \"n\" no fim da citação de Macchiavelli lido como \"»\"; se o tamanho da letra em \"A verdadeira doutrina\"/\"Para a harmonia\" em 807 for corpo e não nota, a fronteira deve ser revista.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (letras trocadas, \"Ihe\"→\"lhe\", \"dº\"→\"d'\", \"2\"→\"a\", \"Christa\"→\"Christã\", \"Jontesquieu\", \"CarISTO\"), acentos e pontuação (ex.: \"á\", \"conflicto\", \"juridicos\"), hífen/espaço espúrios, \"284.\"→\"204.\" (rótulo do tese; os atributos n/xml:id mantidos), \"cia,\" faltante no início da pág. 806, \"a\" de \"a Egreja\" sem itálico, \"cap. 1V\"→\"IV\".\nFronteira corpo/nota: conferida e mantida. Nota 806-1 (chamada \"altissimo (1)\") ocupa o pé de 806, 807 e o alto de 808 após a regra, com <pb> 807 e 808 internos; nota 808-1 começa no pé de 808. Corpo: 204 (806), \"a) Deveres negativos\" (807), \"b) Deveres positivos\" (808). Nenhuma alteração estrutural.\nDúvidas: \"n\" no fim da citação de Macchiavelli lido como \"»\"; se o tamanho da letra em \"A verdadeira doutrina\"/\"Para a harmonia\" em 807 for corpo e não nota, a fronteira deve ser revista.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.023017,
+ "duration_ms": 161801,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24585,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 41117
+ },
+ "reparo": false
+}

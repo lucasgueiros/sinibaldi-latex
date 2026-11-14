@@ -1,0 +1,31 @@
+{
+ "pagina": 544,
+ "paginas": [
+  544,
+  545,
+  546,
+  547,
+  548
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"euidado\", \"creacüo\", \"pessimo\"/\"peior\" mantidos; \"dos snimaes\", \"HE?\", \"Eº\", \"&&\", \"furtwitos\", \"providentis\", \"geral!\" etc.), acentos, hifenizações e formatação <hi> (versalete \"Deus\" padronizado; \"é\" fora do itálico em \"deismo, é absoluto\"). Removido o lixo \"35 Vol. II\" no rodapé de 545 e desfeito o parágrafo indevido entre \"Fichte,\" e \"o absoluto\" (mesma frase, pb 546); \"106. Propriedades…\" em negrito conforme a imagem.\nFronteira corpo/nota: mantida como está. Os filetes curtos em 545–548 ficam sob o título argumentativo em letra grande e separam o corpo da área de notas; todo o bloco em letra pequena abaixo deles (545 \"governadas…\" até 548 \"…perdidos.\") segue dentro da nota 2, e a nota 2 começa em 544 com \"(2) Que Deus…\". Nenhuma mudança de fronteira feita.\nDúvidas: a leitura de \"deixaria de se dar ou de existir\" e o itálico de \"Taine\"/\"premio eterno\" são incertos; o alerta de n544-2 em 546 parece falso alarme (a nota continua corretamente até 548).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"euidado\", \"creacüo\", \"pessimo\"/\"peior\" mantidos; \"dos snimaes\", \"HE?\", \"Eº\", \"&&\", \"furtwitos\", \"providentis\", \"geral!\" etc.), acentos, hifenizações e formatação <hi> (versalete \"Deus\" padronizado; \"é\" fora do itálico em \"deismo, é absoluto\"). Removido o lixo \"35 Vol. II\" no rodapé de 545 e desfeito o parágrafo indevido entre \"Fichte,\" e \"o absoluto\" (mesma frase, pb 546); \"106. Propriedades…\" em negrito conforme a imagem.\nFronteira corpo/nota: mantida como está. Os filetes curtos em 545–548 ficam sob o título argumentativo em letra grande e separam o corpo da área de notas; todo o bloco em letra pequena abaixo deles (545 \"governadas…\" até 548 \"…perdidos.\") segue dentro da nota 2, e a nota 2 começa em 544 com \"(2) Que Deus…\". Nenhuma mudança de fronteira feita.\nDúvidas: a leitura de \"deixaria de se dar ou de existir\" e o itálico de \"Taine\"/\"premio eterno\" são incertos; o alerta de n544-2 em 546 parece falso alarme (a nota continua corretamente até 548).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0249569,
+ "duration_ms": 162480,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38444,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 42225
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 728,
+ "paginas": [
+  728
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: linha \"SECÇÃO SEGUNDA\" reposta (estava faltando no topo da página); OCR em \"etc.,\", \"&amp;\" → \"á\", \"desejos.e\", \"commum;,\", \"união. moral\", \"É\"→\"é\"; \"pelos seus actos\" passou a itálico inteiro, como na imagem; parágrafos da nota 1 unidos num só.\nFronteira corpo/nota: nenhuma nota foi movida; a nota com n=\"8\" foi renumerada para n=\"3\" (id n728-3), pois a chamada (3) está no corpo e a imagem confirma o texto da nota (3) no rodapé.\nDúvidas: \"SECÇÃO SEGUNDA\" foi posta como <p> em negrito, por analogia com \"DIREITO SOCIAL\", já que não há elemento de título no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: linha \"SECÇÃO SEGUNDA\" reposta (estava faltando no topo da página); OCR em \"etc.,\", \"&amp;\" → \"á\", \"desejos.e\", \"commum;,\", \"união. moral\", \"É\"→\"é\"; \"pelos seus actos\" passou a itálico inteiro, como na imagem; parágrafos da nota 1 unidos num só.\nFronteira corpo/nota: nenhuma nota foi movida; a nota com n=\"8\" foi renumerada para n=\"3\" (id n728-3), pois a chamada (3) está no corpo e a imagem confirma o texto da nota (3) no rodapé.\nDúvidas: \"SECÇÃO SEGUNDA\" foi posta como <p> em negrito, por analogia com \"DIREITO SOCIAL\", já que não há elemento de título no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0035764000000000004,
+ "duration_ms": 18188,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10769,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4999
+ },
+ "reparo": false
+}

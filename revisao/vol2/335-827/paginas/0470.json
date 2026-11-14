@@ -1,0 +1,29 @@
+{
+ "pagina": 470,
+ "paginas": [
+  470,
+  471,
+  472
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de letras (erystaes, us→luz, immaeuladas, CuRISTO, Ihe→lhe, ntellectwal, Zmmaterialitas, émmianente, ransewnte, t. 91→37, q. 9 e 9→2 e 3, pulehritudo, Der fins, TT→II), acentos, \"&amp;\" trocado por vírgula, formatação de títulos em negrito e do \"Summario:\", e reposição das linhas \"CAPITULO TERCEIRO\" e \"ARTIGO I.\" (reordenando o sumário para a posição impressa).\nFronteira corpo/nota: p. 470, a nota ligada à chamada (3) estava com n=\"8\"; renumerada para n=\"3\" (id n470-3), mantendo o texto que continua em p. 471. Nenhum texto mudou de corpo para nota ou vice-versa; o alerta de p. 471 (\"chamada (9)\") não se confirmou, pois as chamadas impressas são (1), (2) e (3).\nDúvidas: removi o ponto espúrio em \"para que. estas\" (p. 470); não tenho certeza se \"materia\" em a) de p. 471 é itálico nem se \"Deus\" em alguns pontos está em versalete.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de letras (erystaes, us→luz, immaeuladas, CuRISTO, Ihe→lhe, ntellectwal, Zmmaterialitas, émmianente, ransewnte, t. 91→37, q. 9 e 9→2 e 3, pulehritudo, Der fins, TT→II), acentos, \"&amp;\" trocado por vírgula, formatação de títulos em negrito e do \"Summario:\", e reposição das linhas \"CAPITULO TERCEIRO\" e \"ARTIGO I.\" (reordenando o sumário para a posição impressa).\nFronteira corpo/nota: p. 470, a nota ligada à chamada (3) estava com n=\"8\"; renumerada para n=\"3\" (id n470-3), mantendo o texto que continua em p. 471. Nenhum texto mudou de corpo para nota ou vice-versa; o alerta de p. 471 (\"chamada (9)\") não se confirmou, pois as chamadas impressas são (1), (2) e (3).\nDúvidas: removi o ponto espúrio em \"para que. estas\" (p. 470); não tenho certeza se \"materia\" em a) de p. 471 é itálico nem se \"Deus\" em alguns pontos está em versalete.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0181616,
+ "duration_ms": 117783,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24791,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 31365
+ },
+ "reparo": false
+}

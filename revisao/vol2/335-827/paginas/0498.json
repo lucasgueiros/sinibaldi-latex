@@ -1,0 +1,29 @@
+{
+ "pagina": 498,
+ "paginas": [
+  498,
+  499,
+  500
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (conyém, dieit, pér, Sibi, Dist. 4b→45, P- 1, Obj. 8.º→3.ª, «Sum. TA.», seeundum, serye→serve, «&amp;»→e, indifferenca→indifferença), ordinais Obj. 1.º/2.º/4.4→1.ª/2.ª/4.ª, small caps padronizadas em «Deus», remoção de pontos espúrios e de `<hi>` indevido em «a» (vontade creada).\nFronteira: nenhuma alterada. A nota n498-1 (começa em 498, inclui todo o pé de 499 e o pé de 500) foi mantida inteira, com `<pb n=\"499\"/>` e `<pb n=\"500\"/>` dentro dela nos pontos de continuação; o corpo de 499 (§75, a)) e o início do corpo de 500 ficam depois da nota, como já estava.\nDúvidas: se o «a)» inicial de 499 tem «Deus» em negrito (mantido como estava); se a palavra «convêm» deve ser «convém» (mantido «convêm», conforme a imagem); a palavra «produz» está dividida pelo `<pb n=\"500\"/>` (mantido o pb depois da palavra inteira).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (conyém, dieit, pér, Sibi, Dist. 4b→45, P- 1, Obj. 8.º→3.ª, «Sum. TA.», seeundum, serye→serve, «&amp;»→e, indifferenca→indifferença), ordinais Obj. 1.º/2.º/4.4→1.ª/2.ª/4.ª, small caps padronizadas em «Deus», remoção de pontos espúrios e de `<hi>` indevido em «a» (vontade creada).\nFronteira: nenhuma alterada. A nota n498-1 (começa em 498, inclui todo o pé de 499 e o pé de 500) foi mantida inteira, com `<pb n=\"499\"/>` e `<pb n=\"500\"/>` dentro dela nos pontos de continuação; o corpo de 499 (§75, a)) e o início do corpo de 500 ficam depois da nota, como já estava.\nDúvidas: se o «a)» inicial de 499 tem «Deus» em negrito (mantido como estava); se a palavra «convêm» deve ser «convém» (mantido «convêm», conforme a imagem); a palavra «produz» está dividida pelo `<pb n=\"500\"/>` (mantido o pb depois da palavra inteira).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0146844,
+ "duration_ms": 86892,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24834,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 24402
+ },
+ "reparo": false
+}

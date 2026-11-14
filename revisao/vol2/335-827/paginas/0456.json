@@ -1,0 +1,28 @@
+{
+ "pagina": 456,
+ "paginas": [
+  456,
+  457
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (Dus→Deus, DEus→Deus, eseriptor, ewistentes, stimultaneidade, Loche→Locke, Oum→Cum, hoe→hoc, eádem→eâdem, reium, S,→S., \"82.\"→\"32.\"), hifenização/acentos (dà→dá, Analysemos, se vê, póde mantido), `comprehens&amp;o`→comprehensão, \"deixar do realizar\"→\"deixar de realizar\", citação \"a. 7).\" restaurada, \"1. V\"→\"l. V\", \"Dist, 8\"/\"q.2, a. 1 e 9\"/\"p. T\"→\"p. I\" e stray \" :\" removido, \"mas .para\"→\"mas para\", \"ao acto\" em vez de \"no acto\"; \"DEus\" sc→Deus.\nFronteira corpo/nota: nenhuma alteração estrutural. Mantive o bloco \"Deus quer verdadeiramente… verdadeiro.\" (continuação de \"Por isso\", p. 456→457, com pb 457 dentro da nota n456-1) e a nota n457-1 como estão, pois na imagem essa área de notas começa abaixo do filete de 457; a tipografia desse bloco parece próxima do corpo, mas a continuidade da frase \"Por isso / Deus quer\" indica nota.\nDúvidas: tamanho exato de letra do bloco \"Deus quer…\" em 457 (corpo ou nota); a grafia \"reium\" foi transcrita como impressa.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (Dus→Deus, DEus→Deus, eseriptor, ewistentes, stimultaneidade, Loche→Locke, Oum→Cum, hoe→hoc, eádem→eâdem, reium, S,→S., \"82.\"→\"32.\"), hifenização/acentos (dà→dá, Analysemos, se vê, póde mantido), `comprehens&amp;o`→comprehensão, \"deixar do realizar\"→\"deixar de realizar\", citação \"a. 7).\" restaurada, \"1. V\"→\"l. V\", \"Dist, 8\"/\"q.2, a. 1 e 9\"/\"p. T\"→\"p. I\" e stray \" :\" removido, \"mas .para\"→\"mas para\", \"ao acto\" em vez de \"no acto\"; \"DEus\" sc→Deus.\nFronteira corpo/nota: nenhuma alteração estrutural. Mantive o bloco \"Deus quer verdadeiramente… verdadeiro.\" (continuação de \"Por isso\", p. 456→457, com pb 457 dentro da nota n456-1) e a nota n457-1 como estão, pois na imagem essa área de notas começa abaixo do filete de 457; a tipografia desse bloco parece próxima do corpo, mas a continuidade da frase \"Por isso / Deus quer\" indica nota.\nDúvidas: tamanho exato de letra do bloco \"Deus quer…\" em 457 (corpo ou nota); a grafia \"reium\" foi transcrita como impressa.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.015094900000000001,
+ "duration_ms": 103916,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18269,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 26536
+ },
+ "reparo": false
+}

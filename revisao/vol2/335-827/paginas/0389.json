@@ -1,0 +1,29 @@
+{
+ "pagina": 389,
+ "paginas": [
+  389,
+  390,
+  391
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras e acentos (p. ex. \"6\"→\"é\", \"0)\"→\"c)\", \"p)\"→\"b)\", \"Zegel\"→\"Hegel\", \"paru\"→\"para\", \"praser\"→\"prazer\", \"ewtrinseca\", \"not&mos\", \"creaste\", \"descançar\", \"d'isso\"), hifenização (\"basta-\", \"servirnos\"→\"servir-nos\"), \"á sciencia\"/\"&\" trocados por \"a\", \"Systema\"/\"Idea\" e itálicos, e a numeração \"239.\" (virou `<label>` com o título em negrito, sem mudar as divisões); \"1.º)\"/\"9.)\" lidos como \"1.ª)\"/\"2.ª)\" (dúvida na ordinal).\nFronteiras: nenhuma mudança. A nota 389-1 segue correta até \"Ontologia.\" no pé da p. 391 (inclui o texto sob o filete nas pp. 390–391, que está em margem de nota); a nota 391-1 começa em \"(1) Quanta verdade\" na p. 391. O alerta da p. 390 não procede. Os `<pb>` 390 e 391 dentro de nota são continuações legítimas.\nDúvidas: \"p. 3, a. 1\" (lido como 3, possivelmente 8); ordinais \"1.ª)/2.ª)\"; a grafia exata de \"DEUS\" em versalete.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras e acentos (p. ex. \"6\"→\"é\", \"0)\"→\"c)\", \"p)\"→\"b)\", \"Zegel\"→\"Hegel\", \"paru\"→\"para\", \"praser\"→\"prazer\", \"ewtrinseca\", \"not&mos\", \"creaste\", \"descançar\", \"d'isso\"), hifenização (\"basta-\", \"servirnos\"→\"servir-nos\"), \"á sciencia\"/\"&\" trocados por \"a\", \"Systema\"/\"Idea\" e itálicos, e a numeração \"239.\" (virou `<label>` com o título em negrito, sem mudar as divisões); \"1.º)\"/\"9.)\" lidos como \"1.ª)\"/\"2.ª)\" (dúvida na ordinal).\nFronteiras: nenhuma mudança. A nota 389-1 segue correta até \"Ontologia.\" no pé da p. 391 (inclui o texto sob o filete nas pp. 390–391, que está em margem de nota); a nota 391-1 começa em \"(1) Quanta verdade\" na p. 391. O alerta da p. 390 não procede. Os `<pb>` 390 e 391 dentro de nota são continuações legítimas.\nDúvidas: \"p. 3, a. 1\" (lido como 3, possivelmente 8); ordinais \"1.ª)/2.ª)\"; a grafia exata de \"DEUS\" em versalete.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0191384,
+ "duration_ms": 126679,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25389,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 33199
+ },
+ "reparo": false
+}

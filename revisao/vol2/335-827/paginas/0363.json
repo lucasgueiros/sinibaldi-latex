@@ -1,0 +1,29 @@
+{
+ "pagina": 363,
+ "paginas": [
+  363,
+  364,
+  365
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (I?→E', Avicenua→Avicenna, communieando/communiecar, producção, apparicao, semplicissiBTo, illuminaudo, accidentalimente, compjsto, Jb→Ib, idea!, tomem→homem, n. 819→812, e. 98→c. 23, u/« nas citações, 8.→S., ^→ponto, 1.→l.), hífen de \"substan-cia\" (heading 222 unido num só `<p>`, `p6` removido por conter só a continuação e lixo \"HM\"), \"p\" solto no início do trecho e \"-\" solto antes do pb 365, pontuação e `<hi>` de citações (ut ipsa eadem, scilicet Dei).\nFronteira corpo/nota: verificada e mantida em todas as páginas (363, 364, 365). A nota 2 continua corretamente até o rodapé de 364 e 365; o texto solto no alto do rodapé de 363 (fim da nota anterior) não foi incluído, conforme instruído. Nenhuma fronteira alterada.\nDúvidas: acentuação de \"póde/pode\", \"já/ja\" e \"é/e\" em alguns pontos do rodapé de 365 é leitura provável; `<pb n=\"364\">` aparece duas vezes (dentro da nota 2 e no corpo), como no original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (I?→E', Avicenua→Avicenna, communieando/communiecar, producção, apparicao, semplicissiBTo, illuminaudo, accidentalimente, compjsto, Jb→Ib, idea!, tomem→homem, n. 819→812, e. 98→c. 23, u/« nas citações, 8.→S., ^→ponto, 1.→l.), hífen de \"substan-cia\" (heading 222 unido num só `<p>`, `p6` removido por conter só a continuação e lixo \"HM\"), \"p\" solto no início do trecho e \"-\" solto antes do pb 365, pontuação e `<hi>` de citações (ut ipsa eadem, scilicet Dei).\nFronteira corpo/nota: verificada e mantida em todas as páginas (363, 364, 365). A nota 2 continua corretamente até o rodapé de 364 e 365; o texto solto no alto do rodapé de 363 (fim da nota anterior) não foi incluído, conforme instruído. Nenhuma fronteira alterada.\nDúvidas: acentuação de \"póde/pode\", \"já/ja\" e \"é/e\" em alguns pontos do rodapé de 365 é leitura provável; `<pb n=\"364\">` aparece duas vezes (dentro da nota 2 e no corpo), como no original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.016524200000000003,
+ "duration_ms": 107592,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25187,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 28011
+ },
+ "reparo": false
+}

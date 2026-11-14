@@ -1,0 +1,29 @@
+{
+ "pagina": 438,
+ "paginas": [
+  438,
+  439,
+  440
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos sobretudo: letras mal lidas (incalculavel, Esforçei-me, Annaes/Fé, L'espèce humaine, pag. 355/1877, pag. 94, Agassiz, raças, \"mortificar\", \"levar\", \"toda\", \"crença\", \"esforçam\"), pontuação da lista de naturalistas, itálicos (sacerdotes é effeito), títulos \"ARTIGO III.\" e \"A existencia de Deus e o atheismo.\", e o lixo \"EI\" removido; o \"(1)\" e \"Bayle diz\" ficaram como estão.\nFronteira mantida: a nota 438-1 foi considerada longa e contínua (rodapés das pp. 438–440, incluindo o \"De resto\", a lista de objeções a)–e) e a citação de Herschel/Bacon) e não foi fechada nem partida; o vão com asterisco na p. 438 foi tratado como separador interno à nota, não como retomada do corpo. Não foi acrescentado o asterisco ornamental.\nDúvidas: a p. 438 (texto de Objectam a Linneu) e a p. 439 (Kepler, Os mesmos sentimentos) poderiam ser corpo em letra menor; a imagem não deixa isso inequívoco, e o pb 439 duplicado (dentro e fora da nota) foi mantido por ser do corpo.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos sobretudo: letras mal lidas (incalculavel, Esforçei-me, Annaes/Fé, L'espèce humaine, pag. 355/1877, pag. 94, Agassiz, raças, \"mortificar\", \"levar\", \"toda\", \"crença\", \"esforçam\"), pontuação da lista de naturalistas, itálicos (sacerdotes é effeito), títulos \"ARTIGO III.\" e \"A existencia de Deus e o atheismo.\", e o lixo \"EI\" removido; o \"(1)\" e \"Bayle diz\" ficaram como estão.\nFronteira mantida: a nota 438-1 foi considerada longa e contínua (rodapés das pp. 438–440, incluindo o \"De resto\", a lista de objeções a)–e) e a citação de Herschel/Bacon) e não foi fechada nem partida; o vão com asterisco na p. 438 foi tratado como separador interno à nota, não como retomada do corpo. Não foi acrescentado o asterisco ornamental.\nDúvidas: a p. 438 (texto de Objectam a Linneu) e a p. 439 (Kepler, Os mesmos sentimentos) poderiam ser corpo em letra menor; a imagem não deixa isso inequívoco, e o pb 439 duplicado (dentro e fora da nota) foi mantido por ser do corpo.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0247164,
+ "duration_ms": 181139,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25184,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 44396
+ },
+ "reparo": false
+}

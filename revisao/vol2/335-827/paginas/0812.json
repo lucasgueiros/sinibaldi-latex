@@ -1,0 +1,27 @@
+{
+ "pagina": 812,
+ "paginas": [
+  812
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (o→c, \"&amp;\"→\"á\", \"iéntelligencia\", \"vos\"→\"voz\", \"O.\"→\"C.\", \"Immaterial\"→\"immaterial\"), pontuação (\"Vocal,\"→\"vocal.\", \"espiritual, Não\"→\"espiritual. Não\", \"diminuem,\"→\"diminuem.\"), ponto espúrio \"em .\" e itálicos indevidos (\"a\" em \"No homem a faculdade\", \"a imaginação\", \"materiaes\" final, \"Vontade.\" em \"b)\"). Numeração \"o)\"→\"c)\".\nFronteira corpo/nota: nenhuma alteração; não há notas neste trecho (pág. 812 inteira é corpo).\nDúvidas: o cabeçalho \"SECÇÃO III — OPERAÇÕES DO HOMEM\" está em dois `<head>` sem o travessão; mantive a estrutura. \"Divisão DA SECÇÃO TERCEIRA\" mantido sem versalete, como o resto do livro.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (o→c, \"&amp;\"→\"á\", \"iéntelligencia\", \"vos\"→\"voz\", \"O.\"→\"C.\", \"Immaterial\"→\"immaterial\"), pontuação (\"Vocal,\"→\"vocal.\", \"espiritual, Não\"→\"espiritual. Não\", \"diminuem,\"→\"diminuem.\"), ponto espúrio \"em .\" e itálicos indevidos (\"a\" em \"No homem a faculdade\", \"a imaginação\", \"materiaes\" final, \"Vontade.\" em \"b)\"). Numeração \"o)\"→\"c)\".\nFronteira corpo/nota: nenhuma alteração; não há notas neste trecho (pág. 812 inteira é corpo).\nDúvidas: o cabeçalho \"SECÇÃO III — OPERAÇÕES DO HOMEM\" está em dois `<head>` sem o travessão; mantive a estrutura. \"Divisão DA SECÇÃO TERCEIRA\" mantido sem versalete, como o resto do livro.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0057465,
+ "duration_ms": 33069,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11580,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9177
+ },
+ "reparo": false
+}

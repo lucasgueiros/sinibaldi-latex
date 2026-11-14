@@ -1,0 +1,27 @@
+{
+ "pagina": 467,
+ "paginas": [
+  467
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (in unoquoque, differença, é substancial, multiplicada, E', Deus em versalete no lugar de \"Dxzus\", verdadeiras, intelligencia, extrinsecamente), vírgula após \"necessaria\", e títulos 50 e 51 inteiramente em negrito conforme a imagem. Nenhuma mudança de fronteira corpo/nota: as notas 1 e 2 estão corretas, e o parágrafo \"Advertimos…\" permanece dentro da nota 2 por estar em letra menor abaixo do filete.\nDúvidas: \"nita\" (fim de palavra hifenizada da página 466) não foi acrescentado, por regra; não sei se \"50.\" e \"51.\" também estão em negrito na imagem (mantidos fora do negrito); \"por que\" mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (in unoquoque, differença, é substancial, multiplicada, E', Deus em versalete no lugar de \"Dxzus\", verdadeiras, intelligencia, extrinsecamente), vírgula após \"necessaria\", e títulos 50 e 51 inteiramente em negrito conforme a imagem. Nenhuma mudança de fronteira corpo/nota: as notas 1 e 2 estão corretas, e o parágrafo \"Advertimos…\" permanece dentro da nota 2 por estar em letra menor abaixo do filete.\nDúvidas: \"nita\" (fim de palavra hifenizada da página 466) não foi acrescentado, por regra; não sei se \"50.\" e \"51.\" também estão em negrito na imagem (mantidos fora do negrito); \"por que\" mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0062749,
+ "duration_ms": 39596,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10919,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 10366
+ },
+ "reparo": false
+}

@@ -1,0 +1,28 @@
+{
+ "pagina": 468,
+ "paginas": [
+  468,
+  469
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: removido o lixo do OCR e o cabeçalho corrente no topo da p. 468; correções de acento e grafia (vê, é a, al. 63, pulchrum est, perfeições, immutavel, Deus em versalete, \"e intuitiva\", \"esperanças\"); \"&amp;\" espúrio eliminado.\nFronteira: a nota da chamada (3) na p. 468 estava com n=\"8\"; renumerada para n=\"3\" (xml:id n468-3), pois a imagem mostra a chamada (3) após \"Logo Deus é bello\". A continuação da nota 3 na p. 469 (\"a belleza, que se admira...\") já estava dentro dela e foi mantida; nenhuma outra mudança de fronteira.\nDúvidas: o sinal \"e·\" antes de \"intuitiva\" foi lido como \"e\"; o negrito dos títulos 55 não foi alterado; o último parágrafo permanece sem fechamento, como no fragmento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: removido o lixo do OCR e o cabeçalho corrente no topo da p. 468; correções de acento e grafia (vê, é a, al. 63, pulchrum est, perfeições, immutavel, Deus em versalete, \"e intuitiva\", \"esperanças\"); \"&amp;\" espúrio eliminado.\nFronteira: a nota da chamada (3) na p. 468 estava com n=\"8\"; renumerada para n=\"3\" (xml:id n468-3), pois a imagem mostra a chamada (3) após \"Logo Deus é bello\". A continuação da nota 3 na p. 469 (\"a belleza, que se admira...\") já estava dentro dela e foi mantida; nenhuma outra mudança de fronteira.\nDúvidas: o sinal \"e·\" antes de \"intuitiva\" foi lido como \"e\"; o negrito dos títulos 55 não foi alterado; o último parágrafo permanece sem fechamento, como no fragmento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0105132,
+ "duration_ms": 62727,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17872,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17452
+ },
+ "reparo": false
+}

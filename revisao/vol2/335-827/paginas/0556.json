@@ -1,0 +1,27 @@
+{
+ "pagina": 556,
+ "paginas": [
+  556
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"Etica\"→Ethica, \"Hthica\"→Ethica, \"Mora!\"→Moral, \"definico\"→definição, \"pluysico\"→physico, \"/im\"→fim, \"=\" espúrio, \"quatro.\" → \"quatro\"), pontuação (\"consequencias,\" → \"consequencias.\", \")\" → \").\") e a numeração da nota de \"8\" para \"3\" (chamada \"(3)\" ligada corretamente, id n556-3).\nFronteira corpo/nota: nenhuma alteração de posição; as notas 1, 2 e 3 já estavam nos pontos certos da página 556, e nenhum texto foi movido entre corpo e rodapé.\nDúvida restante: acentuação exata de \"dispôr\" na nota 2 e \"tambem\" na nota 1 (lidos como impressos).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"Etica\"→Ethica, \"Hthica\"→Ethica, \"Mora!\"→Moral, \"definico\"→definição, \"pluysico\"→physico, \"/im\"→fim, \"=\" espúrio, \"quatro.\" → \"quatro\"), pontuação (\"consequencias,\" → \"consequencias.\", \")\" → \").\") e a numeração da nota de \"8\" para \"3\" (chamada \"(3)\" ligada corretamente, id n556-3).\nFronteira corpo/nota: nenhuma alteração de posição; as notas 1, 2 e 3 já estavam nos pontos certos da página 556, e nenhum texto foi movido entre corpo e rodapé.\nDúvida restante: acentuação exata de \"dispôr\" na nota 2 e \"tambem\" na nota 1 (lidos como impressos).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0035826,
+ "duration_ms": 18588,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10961,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4973
+ },
+ "reparo": false
+}

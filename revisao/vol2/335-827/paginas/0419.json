@@ -1,0 +1,32 @@
+{
+ "pagina": 419,
+ "paginas": [
+  419,
+  420,
+  421,
+  422,
+  423,
+  424
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (TTheodicea, Leibnits, Dxzvs→DEUS, deseanco, diffieuldades, Boutrouz, Kent, positipismo, ómmanentismo, cadóa, ineognitas, nowmeno, r«dicionalismo, c. 19→13, Drum→Deum, \"B?\"/\"B'\"→\"E'\", \"á\"→\"a\" em vários pontos), acentos, hifenização e lixo do OCR (\"j\", \" -\", aspas soltas); itálicos e versalete corrigidos; negrito restaurado nos títulos 2 e 3; \"Summario:\" e \"ARTIGO I.\" restituídos conforme a imagem.\nFronteira corpo/nota: a nota da chamada (3) do p. 419 estava numerada como 8 (xml:id n419-8); corrigido para n=\"3\" e xml:id=\"n419-3\". Nenhuma outra mudança de fronteira; as notas 3 (419→420), 1 (420→421), 1 e 2 (421→424) estavam corretas.\nDúvidas: mantive \"defeza\" e \"o-fim\" como impressos; a pontuação exata após \"anathema sit\" (\".»\") e a leitura de \"a psychologia\" (sem acento) são as mais prováveis.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (TTheodicea, Leibnits, Dxzvs→DEUS, deseanco, diffieuldades, Boutrouz, Kent, positipismo, ómmanentismo, cadóa, ineognitas, nowmeno, r«dicionalismo, c. 19→13, Drum→Deum, \"B?\"/\"B'\"→\"E'\", \"á\"→\"a\" em vários pontos), acentos, hifenização e lixo do OCR (\"j\", \" -\", aspas soltas); itálicos e versalete corrigidos; negrito restaurado nos títulos 2 e 3; \"Summario:\" e \"ARTIGO I.\" restituídos conforme a imagem.\nFronteira corpo/nota: a nota da chamada (3) do p. 419 estava numerada como 8 (xml:id n419-8); corrigido para n=\"3\" e xml:id=\"n419-3\". Nenhuma outra mudança de fronteira; as notas 3 (419→420), 1 (420→421), 1 e 2 (421→424) estavam corretas.\nDúvidas: mantive \"defeza\" e \"o-fim\" como impressos; a pontuação exata após \"anathema sit\" (\".»\") e a leitura de \"a psychologia\" (sem acento) são as mais prováveis.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0282758,
+ "duration_ms": 174893,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44958,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 47560
+ },
+ "reparo": false
+}
