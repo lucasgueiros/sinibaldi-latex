@@ -1,3 +1,6 @@
 Django>=5.2,<6
 lxml>=5
 Pillow>=10
+# produção (deploy/): servidor WSGI e PostgreSQL
+gunicorn>=23.0
+psycopg[binary]>=3.2

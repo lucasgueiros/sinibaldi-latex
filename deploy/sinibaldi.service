@@ -1,0 +1,34 @@
+# Modelo da unidade systemd. O bootstrap troca os marcadores (instância e usuário) e instala em
+# /etc/systemd/system/<instância>.service (produção: sinibaldi; homologação: sinibaldi-hml).
+[Unit]
+Description=Elementos de Philosophia (Sinibaldi) - __INSTANCE__ (gunicorn)
+After=network.target postgresql.service
+
+[Service]
+Type=notify
+User=__APP_USER__
+Group=www-data
+# O grupo principal (www-data) dá ao nginx acesso ao socket. O grupo do próprio usuário precisa vir
+# explícito: o systemd não o inclui quando Group= é outro, e sem ele o gunicorn não lê
+# /etc/__INSTANCE__/ (root:__APP_USER__ 750).
+SupplementaryGroups=__APP_USER__
+WorkingDirectory=/srv/__INSTANCE__/current/web
+EnvironmentFile=/etc/__INSTANCE__/env
+Environment=GUNICORN_BIND=unix:/run/__INSTANCE__/gunicorn.sock
+# cache de fontes do LuaTeX (luaotfload) em /srv/<instância>, gravável
+Environment=HOME=/srv/__INSTANCE__
+RuntimeDirectory=__INSTANCE__
+RuntimeDirectoryMode=0755
+ExecStart=/srv/__INSTANCE__/venv/bin/gunicorn sinibaldi.wsgi:application -c /srv/__INSTANCE__/current/deploy/gunicorn.conf.py
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+Restart=on-failure
+RestartSec=5
+UMask=0007
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/srv/__INSTANCE__
+
+[Install]
+WantedBy=multi-user.target

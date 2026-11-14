@@ -30,7 +30,12 @@ O grupo (add/change/delete de `Bloco`) é criado pela migração `0002`; as tela
 `obra.change_bloco`. Superusuários passam sem o grupo.
 
 Variáveis de ambiente: `SINIBALDI_DADOS` (imagens e o PDF original do scan, para o fac-símile), `SINIBALDI_CACHE` (padrão `web/cache/`: PDFs gerados e
-`scans/` com os JPEG reduzidos), `SECRET_KEY`, `DEBUG` (`0` desliga), `ALLOWED_HOSTS`.
+`scans/` com os JPEG reduzidos), `SECRET_KEY`, `DEBUG` (`0` desliga), `ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS`,
+`DJANGO_HTTPS` (atrás do nginx), `STATIC_ROOT`; com `DB_NAME` definido usa PostgreSQL (`DB_USER`, `DB_PASSWORD`,
+`DB_HOST`, `DB_PORT`, `DB_SCHEMA`, padrão `sinibaldi`), senão `db.sqlite3`. Referência: `deploy/env.example`.
+
+**Deploy e CI/CD**: na VM do site da Academia, no mesmo banco, em esquema próprio; publicação automática
+pelo GitHub Actions (`master` → produção, `homolog` → homologação). Ver `deploy/README.md`.
 
 Utilitários e testes:
 

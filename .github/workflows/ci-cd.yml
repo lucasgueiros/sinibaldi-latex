@@ -1,0 +1,149 @@
+# CI/CD do editor de *Elementos de Philosophia* (web/).
+#
+# - Pull requests e pushes: testes (runner hospedado pelo GitHub, isolado da VM), em SQLite e em
+#   PostgreSQL com o esquema próprio (como no servidor, que usa o banco do site da Academia).
+# - Push na master (merge de PR): publica a PRODUÇÃO na VM pelo runner "self-hosted" deste
+#   repositório, que roda na própria VM. Pré-requisito: deploy/bootstrap-vm.sh executado uma vez.
+# - Push na homolog: publica a HOMOLOGAÇÃO (instância separada na mesma VM, com esquema, serviço
+#   e diretórios próprios). Pré-requisito: deploy/bootstrap-hml.sh executado uma vez na VM.
+#
+# Só web/, tools/, tex/ e deploy/ interessam ao site: o checkout é parcial (sem os PDFs de scan
+# e a árvore de OCR, centenas de MB) e a publicação leva só essas pastas.
+
+name: CI/CD
+
+on:
+  push:
+    branches: [master, homolog]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SPARSE: |
+    /web/
+    /tools/
+    /tex/
+    /deploy/
+    /vol*/vol*.corrigido.xml
+    /vol*/paginas/paginas.tsv
+
+jobs:
+  test:
+    name: Testes
+    runs-on: ubuntu-22.04
+    services:
+      postgres:
+        image: postgres:14          # versão do Ubuntu 22.04 da VM
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: academia
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ env.SPARSE }}
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"   # mesma versão do Ubuntu 22.04 da VM
+          cache: pip
+          cache-dependency-path: web/requirements.txt
+      - run: pip install -r requirements.txt
+      - run: python manage.py check
+      - run: python manage.py makemigrations --check --dry-run
+      - name: Testes (SQLite)
+        run: python manage.py test obra
+      - name: Testes (PostgreSQL, esquema próprio no banco do site)
+        env:
+          DB_NAME: academia
+          DB_USER: sinibaldi
+          DB_PASSWORD: sinibaldi
+          DB_HOST: localhost
+          DB_PORT: "5432"
+          DB_SCHEMA: sinibaldi
+          PGPASSWORD: postgres
+        run: |
+          # o mesmo que deploy/bootstrap-vm.sh faz no servidor (o banco de teste é criado pelo
+          # Django como cópia vazia, por isso o papel precisa de CREATEDB e o search_path vem da conexão)
+          psql -h localhost -U postgres -d academia -v ON_ERROR_STOP=1 -q <<'SQL'
+          CREATE ROLE sinibaldi LOGIN CREATEDB PASSWORD 'sinibaldi';
+          CREATE SCHEMA sinibaldi AUTHORIZATION sinibaldi;
+          REVOKE ALL ON SCHEMA sinibaldi FROM PUBLIC;
+          ALTER ROLE sinibaldi IN DATABASE academia SET search_path = sinibaldi;
+          CREATE TABLE public.tabela_do_site (id int);  -- o editor não pode tocá-la
+          SQL
+          python manage.py migrate --noinput
+          test "$(psql -h localhost -U postgres -d academia -tAc "SELECT count(*) FROM pg_tables WHERE schemaname='public'")" = 1
+          test "$(psql -h localhost -U postgres -d academia -tAc "SELECT count(*) FROM pg_tables WHERE schemaname='sinibaldi' AND tablename='django_migrations'")" = 1
+          # o banco de teste é outro (test_academia); o esquema precisa existir nele também
+          psql -h localhost -U postgres -d template1 -q -c "CREATE SCHEMA IF NOT EXISTS sinibaldi AUTHORIZATION sinibaldi"
+          python manage.py test obra --noinput
+      - name: Checagem com as configurações de produção
+        env:
+          DEBUG: "0"
+          DJANGO_HTTPS: "true"
+          SECRET_KEY: ci-only-not-secret-ci-only-not-secret-ci-only-not-secret-0123456789
+          ALLOWED_HOSTS: sinibaldi.example.org
+          STATIC_ROOT: ${{ runner.temp }}/static
+        run: |
+          python manage.py collectstatic --noinput --verbosity 0
+          python manage.py check --deploy --fail-level WARNING
+      - run: for f in ../deploy/*.sh; do bash -n "$f"; done
+      - run: python -m py_compile ../deploy/gunicorn.conf.py ../tools/tei2latex.py ../tools/gera_slides.py
+
+  deploy:
+    name: Publicar na VM
+    needs: test
+    if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: self-hosted
+    environment:
+      name: production
+      url: https://sinibaldi.familiagueiros.com.br
+    concurrency:
+      group: production
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ env.SPARSE }}
+          sparse-checkout-cone-mode: false
+      - name: Conferir script de publicação instalado
+        run: |
+          if ! cmp -s deploy/release.sh /srv/sinibaldi/bin/release; then
+            echo "::warning::deploy/release.sh mudou; rode novamente 'sudo bash deploy/bootstrap-vm.sh' na VM para instalá-lo."
+          fi
+      - name: Publicar
+        run: git archive --format=tar "$GITHUB_SHA" web tools tex deploy | sudo -n -u sinibaldi /srv/sinibaldi/bin/release "$GITHUB_SHA"
+
+  deploy-hml:
+    name: Publicar na homologação
+    needs: test
+    if: github.ref == 'refs/heads/homolog' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: self-hosted
+    environment:
+      name: homolog
+      url: https://hml.sinibaldi.familiagueiros.com.br
+    concurrency:
+      group: homolog
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ env.SPARSE }}
+          sparse-checkout-cone-mode: false
+      - name: Conferir script de publicação instalado
+        run: |
+          if ! cmp -s deploy/release.sh /srv/sinibaldi-hml/bin/release; then
+            echo "::warning::deploy/release.sh mudou; rode novamente 'sudo bash deploy/bootstrap-hml.sh' na VM para instalá-lo."
+          fi
+      - name: Publicar
+        run: git archive --format=tar "$GITHUB_SHA" web tools tex deploy | sudo -n -u sinibaldi-hml /srv/sinibaldi-hml/bin/release "$GITHUB_SHA"
