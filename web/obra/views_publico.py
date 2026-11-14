@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils.html import escape
 
-from . import exportacao, fac_simile, leitura, slides
+from . import exportacao, fac_simile, leitura, slides, tarefas
 from .models import Bloco, Edicao, No, Pagina, Volume, edicao_visivel_ou_404
 
 LIMITE_BLOCOS = 400      # nó com filhos até este tamanho é mostrado inteiro
@@ -261,10 +261,15 @@ def _resposta_arquivo(corpo, tipo, nome):
     return resp
 
 
-def _entregar(request, chave, funcao, tipo, nome, rotulo, voltar, espera=None):
-    """Gera em segundo plano (esperando um pouco) e entrega o arquivo, a página "preparando" ou o erro."""
-    estado, valor = exportacao.em_segundo_plano(
-        chave, funcao, exportacao.ESPERA_PADRAO if espera is None else espera)
+def _entregar(request, tarefa, args, tipo, nome, rotulo, voltar, espera=None, pronto=None):
+    """Pede `tarefa(*args)` ao worker Celery (esperando um pouco) e entrega o arquivo, a página
+    "preparando" ou o erro. `args` em JSON (caminhos como str). `pronto`: arquivo já em cache —
+    sai direto, sem passar pela fila."""
+    if pronto is not None:
+        estado, valor = "pronto", pronto
+    else:
+        estado, valor = exportacao.em_segundo_plano(
+            tarefa, args, exportacao.ESPERA_PADRAO if espera is None else espera)
     if estado == "pronto":
         resp = FileResponse(open(valor, "rb"), content_type=tipo)
         resp["Content-Disposition"] = f'attachment; filename="{nome}"'
@@ -309,11 +314,11 @@ def baixar(request, slug, xml_id, formato):
             fmt = _formato_pdf(request)
             if fmt:
                 titulo = exportacao.titulo_do_no(n)
-                return _entregar(request, ("pdf", str(tex), fmt),
-                                 lambda: exportacao.compilar_pdf_formato(tex, fmt, titulo, limite), tipo,
-                                 nome[:-4] + f"-{fmt}.pdf", rotulo, _voltar_no(ed, n))
-            return _entregar(request, ("pdf", str(tex)), lambda: exportacao.compilar_pdf(tex, limite), tipo, nome,
-                             rotulo, _voltar_no(ed, n))
+                return _entregar(request, tarefas.pdf_formato, [str(tex), fmt, titulo, limite], tipo,
+                                 nome[:-4] + f"-{fmt}.pdf", rotulo, _voltar_no(ed, n),
+                                 pronto=exportacao.pdf_em_cache(tex, fmt))
+            return _entregar(request, tarefas.pdf, [str(tex), limite], tipo, nome, rotulo, _voltar_no(ed, n),
+                             pronto=exportacao.pdf_em_cache(tex))
         caminho = exportacao.latex_do_no(n)
     except exportacao.ErroExportacao as e:
         return render(request, "publico/erro_baixar.html", {"erro": str(e), "formato": rotulo,
@@ -346,14 +351,9 @@ def baixar_volume_formato(request, slug, numero, formato):
         return _resposta_arquivo(exportacao.texto_do_volume(ed, vol), tipo, nome)
     if formato == "html":
         return _resposta_arquivo(exportacao.html_do_volume(ed, vol), tipo, nome)
-    try:
-        caminho = exportacao.latex_do_volume(ed, vol)
-    except exportacao.ErroExportacao as e:
-        return render(request, "publico/erro_baixar.html", {"erro": str(e), "formato": rotulo,
-                                                             "voltar": _voltar_sumario(ed)}, status=503)
-    resp = FileResponse(open(caminho, "rb"), content_type=tipo)
-    resp["Content-Disposition"] = f'attachment; filename="{nome}"'
-    return resp
+    # o LaTeX do volume leva minutos: gerado pelo worker (a requisição só espera um pouco)
+    return _entregar(request, tarefas.latex_volume, [ed.slug, vol.numero, exportacao._versao_volume(ed, vol)],
+                     tipo, nome, rotulo, _voltar_sumario(ed), pronto=exportacao.tex_do_volume_em_cache(ed, vol))
 
 
 def _voltar_no(ed, n):
@@ -372,22 +372,18 @@ def baixar_volume_pdf(request, slug, numero):
     if not blocos.exists():
         raise Http404("Volume sem texto nesta edição.")
     rotulo = "PDF"
-    try:
-        if not exportacao.pdf_disponivel():
-            raise exportacao.ErroExportacao("A geração de PDF não está disponível nesta instalação; baixe o TEI.")
-        tex = exportacao.latex_do_volume(ed, vol)
-    except exportacao.ErroExportacao as e:
-        return render(request, "publico/erro_baixar.html", {"erro": str(e), "formato": rotulo,
-                                                             "voltar": _voltar_sumario(ed)}, status=503)
-    limite = exportacao.tempo_limite_pdf(blocos.count())
+    if not exportacao.pdf_disponivel():
+        return render(request, "publico/erro_baixar.html", {
+            "erro": "A geração de PDF não está disponível nesta instalação; baixe o TEI.", "formato": rotulo,
+            "voltar": _voltar_sumario(ed)}, status=503)
     fmt = _formato_pdf(request)
-    if fmt:
-        titulo = f"{exportacao.TITULO_OBRA}, vol. {vol.numero}"
-        return _entregar(request, ("pdf", str(tex), fmt),
-                         lambda: exportacao.compilar_pdf_formato(tex, fmt, titulo, limite), FORMATOS["pdf"][1],
-                         f"sinibaldi-{ed.slug}-vol{vol.numero}-{fmt}.pdf", rotulo, _voltar_sumario(ed))
-    return _entregar(request, ("pdf", str(tex)), lambda: exportacao.compilar_pdf(tex, limite), FORMATOS["pdf"][1],
-                     f"sinibaldi-{ed.slug}-vol{vol.numero}.pdf", rotulo, _voltar_sumario(ed))
+    nome = f"sinibaldi-{ed.slug}-vol{vol.numero}" + (f"-{fmt}" if fmt else "") + ".pdf"
+    # LaTeX + compilação no worker (o .tex do volume sozinho leva minutos)
+    pronto = exportacao.pdf_em_cache(exportacao.tex_do_volume_em_cache(ed, vol), fmt)
+    return _entregar(request, tarefas.pdf_volume,
+                     [ed.slug, vol.numero, fmt or "", exportacao.tempo_limite_pdf(blocos.count()),
+                      exportacao._versao_volume(ed, vol)],
+                     FORMATOS["pdf"][1], nome, rotulo, _voltar_sumario(ed), pronto=pronto)
 
 
 def baixar_fac_simile(request, slug, xml_id):
@@ -400,7 +396,8 @@ def baixar_fac_simile(request, slug, xml_id):
     except fac_simile.ErroFacSimile as e:
         return render(request, "publico/erro_baixar.html", {"erro": str(e), "formato": rotulo,
                                                              "voltar": _voltar_no(ed, n)}, status=503)
-    return _entregar(request, ("fac", str(destino)), lambda: fac_simile.preparar_trecho(partes, destino),
+    partes = [[str(origem), str(dvol), total, list(indices)] for origem, dvol, total, indices in partes]
+    return _entregar(request, tarefas.fac_simile_trecho, [partes, str(destino)],
                      FORMATOS["pdf"][1], exportacao.nome_arquivo(n, "pdf")[:-4] + "-fac-simile.pdf", rotulo,
                      _voltar_no(ed, n))
 
@@ -415,5 +412,5 @@ def baixar_fac_simile_volume(request, volume):
     except fac_simile.ErroFacSimile as e:
         return render(request, "publico/erro_baixar.html", {"erro": str(e), "formato": rotulo, "voltar": voltar},
                       status=503)
-    return _entregar(request, ("fac", str(destino)), lambda: fac_simile.preparar_volume(origem, destino, total),
+    return _entregar(request, tarefas.fac_simile_volume, [str(origem), str(destino), total],
                      FORMATOS["pdf"][1], f"sinibaldi-fac-simile-vol{vol.numero}.pdf", rotulo, voltar)

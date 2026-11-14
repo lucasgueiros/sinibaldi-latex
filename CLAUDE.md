@@ -22,8 +22,8 @@ Do not look for one; the "code" here is whatever ad-hoc shell/Python you write t
 | `vol1_lat.txt` | OCR `por_best+lat` etiquetado — **nunca foi gerado** para o vol. 1 (ver `docs/04`). |
 | `tessdata/` | tessdata local, git-ignored (links do sistema + `lat` best + `por_best`). `export TESSDATA_PREFIX=$PWD/tessdata`. |
 | `vol2/` | Vol. 2 (Psicologia). `vol2.pdf` (413 pp.) → `vol2_div.pdf` (826 pp., `mutool poster -y 2`) → `vol2_div_ocr.pdf` (`ocrmypdf -l por_best+lat`). Árvore por nó: `docs/05`. |
-| `web/` | Aplicação Django de edição colaborativa (revisão da 1916, nova edição, parte pública); ver `web/README.md`. Citações (`<quote>`/`<bibl>`, fichas, fontes BibTeX, `manage.py marcar_citacoes`): `docs/10`. |
-| `deploy/`, `.github/workflows/ci-cd.yml` | Deploy do `web/` na VM do site da Academia (mesmo banco, esquema `sinibaldi`) e CI/CD: testes em SQLite e PostgreSQL; `master` → produção, `homolog` → homologação. Scans/TEI vão por `deploy/envia-dados.sh`. Ver `deploy/README.md`. |
+| `web/` | Aplicação Django de edição colaborativa (revisão da 1916, nova edição, parte pública); ver `web/README.md`. PDFs/slides/fac-símiles saem de um worker Celery (`celery -A sinibaldi worker`, `obra/tarefas.py`); suporta vários processos web. Citações (`<quote>`/`<bibl>`, fichas, fontes BibTeX, `manage.py marcar_citacoes`): `docs/10`. |
+| `deploy/`, `.github/workflows/ci-cd.yml` | Deploy do `web/` na VM do site da Academia (mesmo banco, esquema `sinibaldi`) e CI/CD: testes em SQLite e PostgreSQL; `master` → produção, `homolog` → homologação. Worker Celery + Redis (`deploy/sinibaldi-worker.service`). Scans/TEI vão por `deploy/envia-dados.sh`. Ver `deploy/README.md`. |
 | `.python-version` | pyenv pin: Python 3.12. `.venv/` (git-ignored) tem `ocrmypdf` e `python-pptx`. |
 
 The large PDFs (80–210 MB) are the only copy of the source material — never overwrite them in place; write

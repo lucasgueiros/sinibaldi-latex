@@ -1,0 +1,22 @@
+<!doctype html>
+{# PDF (slides) sendo gerado pelo worker, dentro do iframe da página/editor de slides: só o aviso e a recarga. #}
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="{{ atualizar }}">
+  <title>Preparando o {{ formato }}</title>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; align-items: center; justify-content: center; text-align: center;
+           font: 1rem/1.5 Georgia, "Times New Roman", serif; color: #3b2f2f; background: #faf7f2; padding: 1rem; }
+    h1 { font-size: 1.25rem; color: #8b1e2d; margin: 0 0 .5rem; }
+    p { margin: 0; }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Preparando o {{ formato }}…</h1>
+    <p>Os slides estão sendo compilados; este quadro se atualiza sozinho a cada {{ atualizar }} segundos.</p>
+  </div>
+</body>
+</html>

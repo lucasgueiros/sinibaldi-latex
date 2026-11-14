@@ -5,7 +5,7 @@ importação/exportação. As telas ficam em `templates/`, `static/` e `frontend
 
 ## Como rodar (máquina limpa)
 
-Requisitos: Python 3.12+ (Django 5.2, lxml, Pillow). Node só para quem mexe no front.
+Requisitos: Python 3.12+ (Django 5.2, lxml, Pillow, Celery; gunicorn e Redis em produção). Node só para quem mexe no front.
 
 ```bash
 cd web
@@ -19,6 +19,7 @@ export SINIBALDI_DADOS=/caminho/do/checkout       # raiz com volN/paginas/*.png 
 .venv/bin/python manage.py derivar_nova_edicao    # edição "nova" (nasce oculta) [--recriar]
 .venv/bin/python manage.py createsuperuser
 .venv/bin/python manage.py runserver              # http://127.0.0.1:8000/
+.venv/bin/celery -A sinibaldi worker -l info -c 2  # noutro terminal: gera PDFs, slides e fac-símiles
 ```
 
 `importar_tei` lê `volN/volN.corrigido.xml` (`--fonte estruturado` para o outro) em `SINIBALDI_DADOS` ou, se não achar, na raiz do repo; a ordem importar → derivar é obrigatória (a nova edição copia a de 1916).
@@ -29,10 +30,46 @@ e ponha-o no grupo `editores` (admin › Usuários › Grupos, ou
 O grupo (add/change/delete de `Bloco`) é criado pela migração `0002`; as telas de edição exigem login +
 `obra.change_bloco`. Superusuários passam sem o grupo.
 
+### Geração em segundo plano (Celery) e vários processos
+
+PDFs (do nó, do volume, por formato de notas), o `.tex` do volume, fac-símiles e slides são gerados
+por um **worker Celery** (`obra/tarefas.py`), não pelo processo web. A requisição pede a tarefa,
+espera até 20 s (`exportacao.ESPERA_PADRAO`) e, se não ficou pronta, responde 202 com a página
+«Preparando…» (recarrega sozinha; no `<iframe>` dos slides, uma versão leve). Sem worker rodando,
+os pedidos ficam na fila e só a página «Preparando…» aparece. Arquivo já no cache sai direto,
+sem passar pela fila.
+
+- **Id determinístico** por (tarefa, argumentos) e estado no backend de resultados: qualquer
+  processo web vê o mesmo pedido, e um `flock` por id em `cache/pedidos/` evita enfileirá-lo duas
+  vezes. Um erro é mostrado e esquecido (o próximo pedido tenta de novo).
+- **Limite de compilações** LaTeX simultâneas na máquina: `SINIBALDI_PDF_SIMULTANEOS` (padrão 2),
+  por `flock` em `cache/vagas/` — vale para o worker, os comandos (`preparar_downloads`,
+  `gerar_slides`) e qualquer número de processos.
+- **Broker**: sem configuração, fila e resultados ficam em arquivos (`SINIBALDI_CACHE/celery/`;
+  uma máquina, nada para instalar). Em produção use Redis: `CELERY_BROKER_URL=redis://localhost:6379/0`
+  (o resultado vai para o mesmo Redis; `CELERY_RESULT_BACKEND` muda isso). Web e worker precisam
+  da **mesma** configuração e do **mesmo** `SINIBALDI_CACHE`.
+- **SQLite** em modo WAL com `timeout` de 30 s e transações `IMMEDIATE` (`settings.py`): vários
+  processos leem enquanto um grava. Os caches em memória de `leitura` se invalidam pelo banco.
+
+Produção (vários processos):
+
+```bash
+export CELERY_BROKER_URL=redis://localhost:6379/0 DEBUG=0 SECRET_KEY=… ALLOWED_HOSTS=…
+.venv/bin/gunicorn sinibaldi.wsgi -w 4 -k gthread --threads 4 -b 127.0.0.1:8000 --timeout 60
+.venv/bin/celery -A sinibaldi worker -l info -c 2
+```
+
+Use `gthread` (ou mais workers): cada pedido «preparando» segura uma thread por até 20 s. Com
+`DEBUG=0` os estáticos (`collectstatic` → `staticfiles/`) são servidos pelo proxy (nginx etc.).
+Nos testes as tarefas rodam na hora (eager); `tests/base.py:fila_de_verdade()` sobe um worker em
+thread para exercitar a fila (`test_tarefas.py`, `test_publico.py`).
+
 Variáveis de ambiente: `SINIBALDI_DADOS` (imagens e o PDF original do scan, para o fac-símile), `SINIBALDI_CACHE` (padrão `web/cache/`: PDFs gerados e
 `scans/` com os JPEG reduzidos), `SECRET_KEY`, `DEBUG` (`0` desliga), `ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS`,
 `DJANGO_HTTPS` (atrás do nginx), `STATIC_ROOT`; com `DB_NAME` definido usa PostgreSQL (`DB_USER`, `DB_PASSWORD`,
-`DB_HOST`, `DB_PORT`, `DB_SCHEMA`, padrão `sinibaldi`), senão `db.sqlite3`. Referência: `deploy/env.example`.
+`DB_HOST`, `DB_PORT`, `DB_SCHEMA`, padrão `sinibaldi`), senão `db.sqlite3`; `CELERY_BROKER_URL`,
+`CELERY_RESULT_BACKEND`, `SINIBALDI_PDF_SIMULTANEOS`. Referência: `deploy/env.example`.
 
 **Deploy e CI/CD**: na VM do site da Academia, no mesmo banco, em esquema próprio; publicação automática
 pelo GitHub Actions (`master` → produção, `homolog` → homologação). Ver `deploy/README.md`.
@@ -313,8 +350,9 @@ O menu **Baixar** de cada trecho (na página do trecho e em partes/secções/cap
 HTML, LaTeX, **PDF (LaTeX)** e **Fac-símile (PDF do scan)**; o topo do sumário oferece os mesmos formatos para o
 **volume inteiro**, e a página de fac-símile linka o volume inteiro.
 
-- **PDF (LaTeX)**: `tools/tei2latex.py --puro` sobre o TEI do banco (na própria requisição) e `latexmk -lualatex`
-  em segundo plano (`exportacao.em_segundo_plano`: uma thread por arquivo e processo, que não toca o banco). A
+- **PDF (LaTeX)**: `tools/tei2latex.py --puro` sobre o TEI do banco (na requisição para um nó; no worker para o
+  volume inteiro, que leva minutos) e `latexmk -lualatex` no worker Celery (`exportacao.em_segundo_plano` →
+  `obra/tarefas.py`; ver «Geração em segundo plano»). A
   requisição espera até `ESPERA_PADRAO` (20 s); se não terminou, responde 202 com a página «Preparando…», que se
   recarrega a cada 15 s e baixa o arquivo quando fica pronto. Sem limite de tamanho: o tempo máximo de compilação
   é `tempo_limite_pdf` (120 s + 0,2 s por bloco; ~25 s medidos para 584 blocos). Cache em `SINIBALDI_CACHE`,
@@ -331,8 +369,9 @@ HTML, LaTeX, **PDF (LaTeX)** e **Fac-símile (PDF do scan)**; o topo do sumário
 
 O gerador é `tools/gera_slides.py` (TEI do nó → *fonte* `.slides.txt` → beamer → PDF). Qualquer nó de até
 400 blocos tem slides: a página pública (`…/slides/`) só embute o PDF; quem compila é `slides.pdf`
-(`latexmk`, cache em `SINIBALDI_CACHE`, chave = hash da fonte + do gerador + de `tex/slides/academia-slides.sty`,
-semáforo compartilhado com o PDF do texto). Sem registro, os slides são os automáticos e nada vai ao banco.
+(`latexmk` no worker Celery, tarefa `obra.slides`; cache em `SINIBALDI_CACHE`, chave = hash da fonte + do gerador
++ de `tex/slides/academia-slides.sty`; mesmas vagas de compilação do PDF do texto). Enquanto compila, o `<iframe>`
+mostra «Preparando…» e recarrega a cada 5 s; *Salvar* espera até 15 s e, se não deu, avisa que o PDF vem em seguida. Sem registro, os slides são os automáticos e nada vai ao banco.
 Quem tem `obra.change_bloco` corrige a fonte em `…/edicao-colaborativa/slides/<slug>/<xml_id>/`: *Salvar e
 recompilar* (valida com `validar`; `versao` dá controle otimista, conflito = 409 sem perder o texto), *Gerar de
 novo a partir do texto*, *Descartar correções* e *Histórico*/restaurar (`ApresentacaoRevisao`, que sobrevive
