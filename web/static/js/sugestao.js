@@ -26,9 +26,9 @@
     var el = no && no.nodeType === 1 ? no : no && no.parentElement;
     while (el) {
       if (el.id && /^b\d+$/.test(el.id)) return el.id.slice(1);
-      var m = el.id && /^nota-(\d+)$/.exec(el.id);
+      var m = el.id && /^(f-)?nota-(\d+)$/.exec(el.id);
       if (m) {
-        var ref = document.getElementById("ref-" + m[1]);
+        var ref = document.getElementById((m[1] || "") + "ref-" + m[2]);
         return ref ? blocoDe(ref) : "";
       }
       el = el.parentElement;
@@ -78,7 +78,8 @@
     var a = atual;
     esconder();
     if (!temDialogo) {
-      if (link) window.location.href = link.getAttribute("href") + (a.bloco ? "?bloco=" + a.bloco : "");
+      var destino = link ? link.getAttribute("href") : dialogo && dialogo.querySelector("form").getAttribute("action");
+      if (destino) window.location.href = destino + (a.bloco ? "?bloco=" + a.bloco : "");
       return;
     }
     var texto = a.texto.slice(0, LIMITE_TRECHO);

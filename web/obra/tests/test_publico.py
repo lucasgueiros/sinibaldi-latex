@@ -125,6 +125,10 @@ class RotasTest(PublicoBase):
         self.assertContains(r, "Lado a lado")
         r = self.get("facsimile", 1, 2, lado=1)
         self.assertContains(r, "transcricao")
+        self.assertContains(r, "data-sg-dialogo")
+        self.assertContains(r, "js/sugestao.js")
+        r = self.get("facsimile", 1, 2)
+        self.assertNotContains(r, "data-sg-dialogo")
         self.get("facsimile", 1, 999, status=404)
         self.get("facsimile", 9, 1, status=404)
 
