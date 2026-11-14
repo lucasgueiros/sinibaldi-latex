@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Fac-símile, vol. {{ volume.numero }}, p. {{ pag.impressa|default:pag.seq }}{% endblock %}
+{% block extra_js %}{% if lado and no_pagina %}<script src="{% static 'js/sugestao.js' %}" defer></script>{% endif %}{% endblock %}
 {% block content %}
 <div class="mx-auto px-4 py-6 sm:px-6 {% if lado %}max-w-7xl{% else %}max-w-3xl{% endif %}">
   <header class="text-center">
@@ -21,13 +22,27 @@
       <figcaption class="mt-2 text-center text-xs"><a class="text-crimson hover:underline" href="{% url 'obra:scan' volume.numero pag.seq %}" target="_blank" rel="noopener">original (PNG)</a>{% if baixar_volume %} · <a class="text-crimson hover:underline" href="{{ baixar_volume }}">volume inteiro (PDF{% if baixar_volume_mb %}, ~{{ baixar_volume_mb }} MB{% endif %})</a>{% endif %}</figcaption>
     </figure>
     {% if lado %}
-      <section class="obra transcricao" aria-label="Transcrição">
-        <p class="font-display text-xs tracking-[0.14em] text-gold-dark">TRANSCRIÇÃO (SOMENTE LEITURA)</p>
+      <article class="obra transcricao" aria-label="Transcrição">
+        <p class="font-display text-xs tracking-[0.14em] text-gold-dark">TRANSCRIÇÃO{% if not no_pagina %} (SOMENTE LEITURA){% endif %}</p>
+        {% if no_pagina %}<p class="text-sm text-ink/70 print:hidden">Achou um erro? Selecione o trecho e clique em «Sugerir correção».</p>{% endif %}
         {% if continua %}<p class="text-sm italic text-ink/70">O primeiro parágrafo começa na página anterior.</p>{% endif %}
         {% if html %}{{ html|safe }}{% else %}<p class="italic text-ink/70">Nenhum bloco de texto começa nesta página.</p>{% endif %}
         {% if notas %}<ol class="notas-fim">{% for n, h in notas %}<li id="f-nota-{{ n }}" value="{{ n }}">{{ h|safe }}</li>{% endfor %}</ol>{% endif %}
-      </section>
+      </article>
     {% endif %}
   </div>
 </div>
+{% if lado and no_pagina %}
+<button type="button" class="sg-flutuante print:hidden" data-sg-flutuante hidden>Sugerir correção</button>
+<dialog class="sg-dialogo print:hidden" data-sg-dialogo aria-labelledby="sg-titulo">
+  <form method="post" action="{% url 'obra:sugerir' ed16.slug no_pagina.xml_id %}">
+    <h2 id="sg-titulo" class="font-display text-lg tracking-[0.08em] text-crimson">Sugerir correção</h2>
+    {% include "publico/_form_sugestao.html" with p="dlg-" %}
+    <div class="mt-4 flex flex-wrap justify-end gap-3">
+      <button type="button" class="btn btn-secundario btn-sm" data-sg-cancelar>Cancelar</button>
+      <button type="submit" class="btn btn-primario btn-sm">Enviar sugestão</button>
+    </div>
+  </form>
+</dialog>
+{% endif %}
 {% endblock %}
