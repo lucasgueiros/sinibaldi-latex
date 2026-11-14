@@ -120,7 +120,7 @@ def definir_supressao(edicao, ordem_ini, ordem_fim, suprimir, autor=None, coment
     """Marca `suprimido` (ou restaura a procedência natural) os blocos com
     `ordem_ini <= ordem < ordem_fim`. Nada é apagado. Retorna quantos blocos mudaram."""
     exige_nova(edicao)
-    blocos = list(Bloco.objects.select_for_update().select_related("origem")
+    blocos = list(Bloco.objects.select_for_update(of=("self",)).select_related("origem")
                   .filter(edicao=edicao, ordem__gte=ordem_ini, ordem__lt=ordem_fim).order_by("ordem"))
     lote = uuid.uuid4()
     texto = comentario or ("Suprimido." if suprimir else "Restaurado (deixou de estar suprimido).")
@@ -150,7 +150,7 @@ def restaurar_texto_1916(edicao, ids, autor=None, comentario=""):
     """Volta xml e tipo dos blocos aos da `origem` atual e a procedência a `copia` (isso também tira
     a supressão). Ignora blocos sem origem. Retorna os blocos alterados."""
     exige_derivada(edicao)
-    blocos = list(Bloco.objects.select_for_update().select_related("origem")
+    blocos = list(Bloco.objects.select_for_update(of=("self",)).select_related("origem")
                   .filter(edicao=edicao, pk__in=list(ids), origem__isnull=False).order_by("ordem"))
     lote = uuid.uuid4()
     agora = timezone.now()
@@ -228,7 +228,7 @@ def adaptados_pendentes(edicao):
 def marcar_origem_vista(edicao, ids, autor=None):
     """Registra a versão atual da origem como já conferida. Retorna quantos blocos."""
     exige_derivada(edicao)
-    blocos = list(Bloco.objects.select_for_update().select_related("origem")
+    blocos = list(Bloco.objects.select_for_update(of=("self",)).select_related("origem")
                   .filter(edicao=edicao, pk__in=list(ids), origem__isnull=False))
     for b in blocos:
         b.origem_versao_vista = b.origem.versao

@@ -9,6 +9,13 @@ from obra.models import PASSO_ORDEM, Bloco, Edicao, No, Pagina, Revisao
 from .base import BaseBanco
 
 
+def _fecha(r):
+    """Fecha uma resposta em arquivo consumindo-a: assim o test client a fecha com o sinal
+    request_finished desligado. Um r.close() direto dispara close_old_connections, que no
+    PostgreSQL fecha a conexão no meio da transação do teste."""
+    b"".join(r.streaming_content)
+
+
 def dado(b, xml=None):
     return {"id": b.pk, "versao": b.versao, "xml": xml if xml is not None else b.xml}
 
@@ -320,7 +327,7 @@ class OutrosTest(BaseBanco):
                 self.assertEqual(r.status_code, 200)
                 self.assertEqual(r["Content-Type"], "image/png")
                 self.assertIn("max-age", r["Cache-Control"])
-                r.close()
+                _fecha(r)
                 self.assertEqual(self.client.get(reverse("obra:scan", args=[1, 3])).status_code, 404)
         self.assertEqual(reverse("obra:scan", args=[1, -14]), "/scan/1/-14.png")
 
@@ -339,7 +346,7 @@ class OutrosTest(BaseBanco):
                 self.assertEqual(r["Content-Type"], "image/jpeg")
                 self.assertIn("max-age", r["Cache-Control"])
                 corpo = b"".join(r.streaming_content)
-                r.close()
+                _fecha(r)
                 import io
                 im = Image.open(io.BytesIO(corpo))
                 self.assertEqual((im.format, im.width, im.height, im.mode), ("JPEG", 1000, 1250, "L"))
@@ -352,11 +359,11 @@ class OutrosTest(BaseBanco):
                 with mock.patch("obra.scans._gera_jpg", side_effect=AssertionError("regerou")):
                     r = self.client.get(url, {"l": 1000})
                     self.assertEqual(r.status_code, 200)
-                    r.close()
+                    _fecha(r)
                 self.assertEqual(cache.stat().st_mtime_ns, m)
                 r = self.client.get(url, {"l": 1600})
                 self.assertEqual(r.status_code, 200)
-                r.close()
+                _fecha(r)
                 self.assertTrue((Path(c) / "scans" / "v1_0002_1600.jpg").is_file())
                 # inexistente, largura não permitida ou ausente
                 self.assertEqual(self.client.get(reverse("obra:scan_jpg", args=[1, 3]), {"l": 1000}).status_code, 404)
@@ -366,7 +373,7 @@ class OutrosTest(BaseBanco):
                 # o PNG continua
                 r = self.client.get(reverse("obra:scan", args=[1, 2]))
                 self.assertEqual(r["Content-Type"], "image/png")
-                r.close()
+                _fecha(r)
 
     def test_grupo_editores(self):
         from django.contrib.auth.models import Group

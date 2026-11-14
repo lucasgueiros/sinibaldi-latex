@@ -332,9 +332,11 @@ class FacSimileTest(PublicoBase):
 
     @classmethod
     def setUpClass(cls):
-        super().setUpClass()
+        # pular ANTES do super(): depois dele a transação da classe já está aberta e, sem
+        # tearDownClass, ficaria aberta para as classes seguintes (usuário "ana" duplicado)
         if not shutil.which("mutool"):
             raise __import__("unittest").SkipTest("mutool ausente")
+        super().setUpClass()
         from PIL import Image, ImageDraw
         cls.dados = tempfile.mkdtemp()
         cls.cache = tempfile.mkdtemp()
