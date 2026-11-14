@@ -1,0 +1,27 @@
+{
+ "pagina": 288,
+ "paginas": [
+  288
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (mmediatamente, tintelligencia, opeções, São, volicao, inmmaterial, &amp; por \"a\" e \"Deus\" em versalete), além de hifenização e acentos; estrutura e pb mantidos.\nFronteira corpo/nota: a chamada \"(3)\" de 176 estava ligada à nota n=\"8\"; corrigido para n=\"3\" (id n288-3), pois a imagem mostra \"(3)\" e o texto da nota bate com o rodapé. Demais notas (1 e 2) estavam corretas e não foram alteradas.\nDúvida: mantive \"pela o homem\" e \"Divide-se em\" como impressos; a forma \"Deus\" em versalete foi transcrita a partir da imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (mmediatamente, tintelligencia, opeções, São, volicao, inmmaterial, &amp; por \"a\" e \"Deus\" em versalete), além de hifenização e acentos; estrutura e pb mantidos.\nFronteira corpo/nota: a chamada \"(3)\" de 176 estava ligada à nota n=\"8\"; corrigido para n=\"3\" (id n288-3), pois a imagem mostra \"(3)\" e o texto da nota bate com o rodapé. Demais notas (1 e 2) estavam corretas e não foram alteradas.\nDúvida: mantive \"pela o homem\" e \"Divide-se em\" como impressos; a forma \"Deus\" em versalete foi transcrita a partir da imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0034238999999999997,
+ "duration_ms": 17017,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10884,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4671
+ },
+ "reparo": false
+}

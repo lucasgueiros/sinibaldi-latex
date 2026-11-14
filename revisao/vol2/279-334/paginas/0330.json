@@ -1,0 +1,31 @@
+{
+ "pagina": 330,
+ "paginas": [
+  330,
+  331,
+  332,
+  333,
+  334
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (zaturesa→natureza, ezistencia, inunediata, Auéusmodi→huiusmodi, actwm, acíus, Z5., Aomonyma, instinectos, predisposicües, proeure→procure, Dzxvus→Deus, idea/dia, e aecrescenta→accrescenta, e outros), acentos, pontuação, títulos e itálicos (Habito, Habitos, \"ARTIGO IV.\", título do artigo em negrito contínuo), \"0)\"→\"c)\", \"&amp;\"→\"a\", \"EX)\"→\"e só\", \"?\" e \"5)\" por letras. Faltava o \"*\" entre a nota 331-1 e o corpo na p. 333: incluído como parágrafo.\nFronteira corpo/nota: conferida página a página e NÃO alterada. Na p. 333 o texto \"Depois de termos fallado…\" até \"…hereditariedade.\" (p. 334 inferior) está em letra pequena no pé das páginas, abaixo do filete, e \"su-\"/\"stentam\" comprova a continuação na mesma nota; a nota 331-1 termina em \"hereditariedade.\", não antes. O alerta do pipeline é falso positivo. Notas 330-1 e 331-1 corretas.\nDúvidas: a p. 335 não veio nas imagens (texto mantido como estava); o parágrafo 204 a) foi mantido, embora a instrução diga que pertence a outro trecho, porque já está no fragmento e a parte visível (p. 333–334) é corpo; o pb 334 fica depois de \"sustentam\" (palavra partida na imagem); itálico de \"natureza\" e \"juízo\" em algumas passagens não pôde ser verificado com certeza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (zaturesa→natureza, ezistencia, inunediata, Auéusmodi→huiusmodi, actwm, acíus, Z5., Aomonyma, instinectos, predisposicües, proeure→procure, Dzxvus→Deus, idea/dia, e aecrescenta→accrescenta, e outros), acentos, pontuação, títulos e itálicos (Habito, Habitos, \"ARTIGO IV.\", título do artigo em negrito contínuo), \"0)\"→\"c)\", \"&amp;\"→\"a\", \"EX)\"→\"e só\", \"?\" e \"5)\" por letras. Faltava o \"*\" entre a nota 331-1 e o corpo na p. 333: incluído como parágrafo.\nFronteira corpo/nota: conferida página a página e NÃO alterada. Na p. 333 o texto \"Depois de termos fallado…\" até \"…hereditariedade.\" (p. 334 inferior) está em letra pequena no pé das páginas, abaixo do filete, e \"su-\"/\"stentam\" comprova a continuação na mesma nota; a nota 331-1 termina em \"hereditariedade.\", não antes. O alerta do pipeline é falso positivo. Notas 330-1 e 331-1 corretas.\nDúvidas: a p. 335 não veio nas imagens (texto mantido como estava); o parágrafo 204 a) foi mantido, embora a instrução diga que pertence a outro trecho, porque já está no fragmento e a parte visível (p. 333–334) é corpo; o pb 334 fica depois de \"sustentam\" (palavra partida na imagem); itálico de \"natureza\" e \"juízo\" em algumas passagens não pôde ser verificado com certeza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0355273,
+ "duration_ms": 252329,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 40333,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 62988
+ },
+ "reparo": false
+}
