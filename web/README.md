@@ -106,7 +106,7 @@ npm run build           # Tailwind (static/css), depois de mexer em templates
 
 | Rota | Nome (`obra:`) | O que é |
 |---|---|---|
-| `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`: xml, txt, html, tex, pdf) |
+| `/`, `/edicao/<slug>/`, `…/<xml_id>/`, `…/busca/` | `inicio`, `edicao`, `no`, `busca` | Parte pública: sumário, leitura por nó, busca; `…/baixar/<formato>/` (`baixar`: xml, txt, html, tex, pdf; o PDF aceita `?notas=sem-notas\|1col\|2col\|corpo`, diagramação de `tex/formatos/`, sem ele A5 padrão; o menu «Baixar» é um painel Formato + Notas) |
 | | | Com login + `obra.change_bloco`, a página do trecho mostra **Editar**: na nova edição leva a `nova_no` do nó; na 1916, a `revisar` da página onde o trecho começa |
 | `/edicao/<slug>/<xml_id>/citar/` | `citar` | Citação ABNT (sem login) do trecho ou de uma passagem selecionada: chamada, referência, LaTeX; `formato=docx\|tex\|txt` baixa; ver "Citação ABNT" |
 | `/edicao/<slug>/<xml_id>/baixar/fac-simile/` | `baixar_fac_simile` | Fac-símile do trecho: as páginas do scan original em PDF |

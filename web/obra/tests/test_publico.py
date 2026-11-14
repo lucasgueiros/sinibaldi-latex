@@ -1,5 +1,7 @@
 """Parte pública: rotas, leitura, busca, fac-símile e downloads."""
 import os
+import subprocess
+import re
 import shutil
 import tempfile
 import uuid
@@ -225,6 +227,46 @@ class DownloadTest(PublicoBase):
         self.assertIn("IDEA", tex)                               # parte 1…
         self.assertIn("COSMOLOGIA", tex)                         # …e parte 2
         self.assertEqual(self.client.get(reverse("obra:baixar_volume_pdf", args=["1916", 7])).status_code, 404)
+
+    def test_pdf_por_formato_de_notas(self):
+        """?notas= escolhe a diagramação (tex/formatos/); desconhecida -> 404; sem ela, o PDF padrão."""
+        pdf = os.path.join(tempfile.mkdtemp(), "x.pdf")
+        with open(pdf, "wb") as f:
+            f.write(b"%PDF-1.4 falso")
+        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                mock.patch("obra.exportacao.compilar_pdf_formato", return_value=pdf) as comp:
+            for k in ("sem-notas", "1col", "2col", "corpo"):
+                r = self.client.get(reverse("obra:baixar", args=["1916", "v1.cap-1", "pdf"]), {"notas": k})
+                self.assertEqual(r.status_code, 200)
+                self.assertIn(f"-{k}.pdf", r["Content-Disposition"])
+                self.assertEqual(comp.call_args[0][1], k)
+            r = self.client.get(reverse("obra:baixar_volume_pdf", args=["1916", 1]), {"notas": "2col"})
+            self.assertIn("vol1-2col.pdf", r["Content-Disposition"])
+            r = self.client.get(reverse("obra:baixar", args=["1916", "v1.cap-1", "pdf"]), {"notas": "x"})
+            self.assertEqual(r.status_code, 404)
+
+    def test_pdf_formatos_compilam(self):
+        if not shutil.which("latexmk"):
+            self.skipTest("latexmk ausente")
+        for k, papel in (("sem-notas", 453), ("2col", 595)):
+            r = self.client.get(reverse("obra:baixar", args=["1916", "v1.t1", "pdf"]), {"notas": k})
+            corpo = self.corpo(r)
+            self.assertTrue(corpo.startswith(b"%PDF"), k)
+            arq = os.path.join(tempfile.mkdtemp(), "f.pdf")
+            with open(arq, "wb") as f:
+                f.write(corpo)
+            info = subprocess.run(["pdfinfo", arq], capture_output=True, text=True).stdout
+            m = re.search(r"Page size:\s+(\d+)", info)
+            self.assertTrue(m and abs(int(m.group(1)) - papel) <= 1, (k, info))
+
+    def test_painel_baixar_tem_formato_e_notas(self):
+        with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \
+                override_settings(SINIBALDI_DADOS=tempfile.mkdtemp()):
+            r = self.get("edicao", "1916")
+        self.assertContains(r, 'name="formato"')
+        for rotulo in ("Sem notas", "Notas de rodapé, 1 coluna", "Notas de rodapé, 2 colunas", "A4",
+                       "Notas no corpo do texto"):
+            self.assertContains(r, rotulo)
 
     def test_sumario_oferece_pdf_do_trecho_e_do_volume(self):
         with mock.patch("obra.exportacao.pdf_disponivel", return_value=True), \

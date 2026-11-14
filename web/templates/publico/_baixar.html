@@ -1,7 +1,24 @@
-{# Menu "Baixar" de um trecho. Contexto: `itens` = [{formato, nome, url}]. #}
-<details class="baixar">
-  <summary class="btn btn-secundario btn-sm">Baixar</summary>
-  <ul class="baixar-lista">
-    {% for i in itens %}<li><a href="{{ i.url }}"{% if i.formato != 'pdf' and i.formato != 'fac-simile' %} download{% endif %}>{{ i.nome }}</a></li>{% endfor %}
-  </ul>
+{% comment %}Painel "Baixar": escolhe o formato do arquivo e, para PDF, as notas.
+   Contexto: `itens` = [{formato, nome, url}]; `compacto` (opcional) para o sumário.
+   Sem JS o formulário baixa o PDF (GET ?notas=…); com JS (site.js) segue o URL do formato escolhido.{% endcomment %}
+{% load baixar %}{% opcoes_notas_pdf as notas_pdf %}
+<details class="baixar{% if compacto %} baixar-compacto{% endif %}">
+  <summary{% if not compacto %} class="btn btn-secundario btn-sm"{% else %} title="Baixar este trecho"{% endif %}>Baixar</summary>
+  <form class="baixar-painel" method="get" data-baixar{% for i in itens %}{% if i.formato == 'pdf' %} action="{{ i.url }}"{% endif %}{% endfor %}>
+    <fieldset>
+      <legend>Formato</legend>
+      {% for i in itens %}
+      <label><input type="radio" name="formato" value="{{ i.formato }}" data-url="{{ i.url }}"{% if i.formato == 'pdf' %} checked{% endif %}> {{ i.nome }}</label>
+      {% endfor %}
+    </fieldset>
+    {% for i in itens %}{% if i.formato == 'pdf' %}
+    <fieldset data-so-pdf>
+      <legend>Notas</legend>
+      {% for k, rotulo, papel in notas_pdf %}
+      <label><input type="radio" name="notas" value="{{ k }}"{% if k == '1col' %} checked{% endif %}> {{ rotulo }} <span class="papel">{{ papel }}</span></label>
+      {% endfor %}
+    </fieldset>
+    {% endif %}{% endfor %}
+    <button type="submit" class="btn btn-primario btn-sm">Baixar</button>
+  </form>
 </details>
