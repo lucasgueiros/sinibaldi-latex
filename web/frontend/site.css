@@ -126,6 +126,14 @@
   /* aparato do fim do volume (nó anexo): divisões citadas e entradas do índice */
   .obra p[data-tei="p"][data-type="anexo-titulo"] { @apply mb-1 mt-5 border-0 pl-0 text-center font-display text-sm tracking-[0.1em] text-crimson; text-indent: 0; }
   .obra p[data-tei="p"][data-type="indice"] { @apply my-1 border-0 pl-6 text-left text-base leading-snug; text-indent: -1.5rem; }
+  /* índice gerado dos títulos (obra/indice.py): um tipo por nível, página à direita (<label>) com pontilhado */
+  .obra p[data-tei="p"][data-type^="indice-"] { @apply my-1 flex items-baseline gap-2 border-0 pl-0 text-left text-base leading-snug; text-indent: 0; }
+  .obra p[data-tei="p"][data-type^="indice-"]::after { content: ""; order: 1; @apply min-w-4 flex-1 border-b border-dotted border-ink/40; }
+  .obra p[data-type^="indice-"] > [data-tei="label"] { order: 2; @apply tabular-nums; }
+  .obra p[data-tei="p"][data-type="indice-parte"] { @apply mt-6 font-display font-semibold tracking-[0.08em] text-crimson; }
+  .obra p[data-tei="p"][data-type="indice-seccao"] { @apply mt-4 pl-3 font-display tracking-[0.06em] text-crimson; }
+  .obra p[data-tei="p"][data-type="indice-capitulo"] { @apply mt-2 pl-6 font-medium; }
+  .obra p[data-tei="p"][data-type="indice-artigo"] { @apply pl-12 text-[0.95em]; }
   .obra-edicao p[data-type="anexo-titulo"]::before { content: "Título no anexo"; @apply text-ink/50; }
   .obra-edicao p[data-type="indice"]::before { content: "Entrada do índice"; @apply text-ink/50; text-indent: 0; }
   .sumario a.item-anexo { @apply font-display text-crimson/80; }

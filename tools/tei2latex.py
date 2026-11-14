@@ -302,12 +302,33 @@ class Conv:
                     + r"\end{center} % REVER: gravura " + esc(url or "sem url"))
         return rf"\gravura{opc}{{{arq.as_posix()}}}{{{frac:.2f}}}{{{leg}}}"
 
+    RECUO_INDICE = {"indice-parte": 0, "indice-seccao": 0.8, "indice-capitulo": 1.6, "indice-artigo": 2.8}
+
+    def entrada_indice(self, e):
+        """<p type=indice-NIVEL>rótulo — título<label>pág.</label></p> -> linha pontilhada até a página."""
+        lab = e.find(T("label"))
+        pag = self.inline(lab).strip() if lab is not None else ""
+        corpo = etree.Element(T("p"))
+        corpo.text = e.text
+        corpo.extend([c for c in e if c is not lab])
+        txt = self.inline(corpo).strip()
+        tipo = e.get("type")
+        recuo = self.RECUO_INDICE.get(tipo, 0)
+        if tipo == "indice-parte":
+            txt = r"\textbf{" + txt + "}"
+        antes = {"indice-parte": r"\vspace{0.8em}", "indice-seccao": r"\vspace{0.3em}"}.get(tipo, "")
+        fim = (r"\nobreak\dotfill\nobreak\ " + pag) if pag else ""
+        return (antes + r"{\small\parindent=0pt\leftskip=" + f"{recuo}em" + r"\relax\hangindent=1.2em\hangafter=1 "
+                + txt + fim + r"\par}")
+
     def p(self, e):
         txt = self.inline(e).strip()
         if txt and e.get("type") == "anexo-titulo":     # divisão citada na Synopse/Índice
             return r"\begin{center}\small\textsc{" + txt + r"}\end{center}"
         if txt and e.get("type") == "indice":           # entrada do índice: recuo pendente
             return r"{\small\noindent\hangindent=1.5em " + txt + r"\par}"
+        if txt and (e.get("type") or "").startswith("indice-"):   # índice gerado dos títulos (obra/indice.py)
+            return self.entrada_indice(e)
         if txt == "*":                          # parágrafo que é só o asterisco do original
             txt = r"\asterisco{}"
         if self.notas_pag and txt:              # TEI bruto: liga "(n)" a nota da pagina

@@ -57,6 +57,11 @@ TIPOS_PARAGRAFO = {
     "observacao": "Observação",
     "anexo-titulo": "Título no anexo",   # divisão citada na Synopse/Índice (não é estrutura)
     "indice": "Entrada do índice",
+    # entradas do índice GERADO dos títulos (obra/indice.py), uma por nível; a página vai em <label>
+    "indice-parte": "Índice: parte",
+    "indice-seccao": "Índice: secção",
+    "indice-capitulo": "Índice: capítulo",
+    "indice-artigo": "Índice: artigo",
 }
 
 REND = {"it": "Itálico", "bold": "Negrito", "sc": "Versalete"}
