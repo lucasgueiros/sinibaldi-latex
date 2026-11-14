@@ -53,8 +53,8 @@ class Edicao(models.Model):
     @property
     def titulo_curto(self):
         """Rótulo do menu do cabeçalho."""
-        return {self.DIPLOMATICA: "Texto de 1916/17", self.ATUALIZADA: "Edição atualizada",
-                self.NOVA: "Nova edição"}.get(self.tipo, self.titulo)
+        return {self.DIPLOMATICA: "Ed. Original", self.ATUALIZADA: "Ed. Atualizada",
+                self.NOVA: "Ed. Nova"}.get(self.tipo, self.titulo)
 
     @property
     def derivada(self):
