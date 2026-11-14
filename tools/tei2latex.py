@@ -70,6 +70,11 @@ SECIONAMENTO = {  # div@type -> comando
     "parte": "part", "livro": "part", "seccao": "part", "capitulo": "chapter", "artigo": "section",
     "secao": "subsection", "subsecao": "subsubsection",
     "anexo": "chapter",   # aparato do fim do volume (Synopse, Indice das materias)
+    "pretextual": "chapter",   # folha de rosto, imprimatur, cartas de aprovação, prefácio
+}
+PRETEXTUAIS_P = {  # p@type pré-textual -> macro de tex/preambulo.tex e tex/formatos/comum.tex
+    "titulo-obra": "preTituloObra", "centro": "preCentro", "enderecamento": "preEnderecamento",
+    "saudacao": "preSaudacao", "data-local": "preDataLocal", "fecho": "preFecho",
 }
 HI = {"it": r"\emph{%s}", "italic": r"\emph{%s}", "i": r"\emph{%s}",
       "bold": r"\textbf{%s}", "b": r"\textbf{%s}",
@@ -90,6 +95,28 @@ def esc(s):
 
 def ln(e):
     return etree.QName(e).localname
+
+
+ROMANO_PRETEXTUAL = 16     # vol. 1: o pré-textual tem seq <= 0 e é numerado em romano; impressa = seq + 16
+                           # (conferido na imagem: as cartas de Bento XV são as pp. XV–XVI, seq -1 e 0)
+
+
+def rotulo_pagina(n):
+    """Rótulo impresso da página: romano maiúsculo no pré-textual (seq <= 0), senão o próprio número."""
+    try:
+        v = int(n)
+    except (TypeError, ValueError):
+        return n
+    if v > 0:
+        return n
+    v += ROMANO_PRETEXTUAL
+    if v <= 0:
+        return n
+    out = ""
+    for valor, letras in ((10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")):
+        while v >= valor:
+            out, v = out + letras, v - valor
+    return out
 
 
 def ler_citacoes(raiz):
@@ -212,7 +239,7 @@ class Conv:
         n = ln(c)
         if n == "pb":
             if em_nota:
-                return rf"\pgn{{{c.get('n', '?')}}}"
+                return rf"\pgn{{{rotulo_pagina(c.get('n', '?'))}}}"
             self.avanca_pagina(c)               # <pb> no meio do paragrafo: \pg ali mesmo
             return (" " + self.flush_pg() + " ") if self.dentro() else ""
         if n == "note":
@@ -271,7 +298,7 @@ class Conv:
             self.avisos.append(f"<pb n={pb.get('n')!r}> não numérico")
             return
         if self.dentro():
-            self.pend_pg.append(rf"\pg{{{self.pagina}}}")
+            self.pend_pg.append(rf"\pg{{{rotulo_pagina(self.pagina)}}}")
 
     def nota(self, e):
         self.contagem["notas"] += 1
@@ -308,6 +335,8 @@ class Conv:
             return r"\begin{center}\small\textsc{" + txt + r"}\end{center}"
         if txt and e.get("type") == "indice":           # entrada do índice: recuo pendente
             return r"{\small\noindent\hangindent=1.5em " + txt + r"\par}"
+        if txt and e.get("type") in PRETEXTUAIS_P:      # peça pré-textual: cada linha com a sua função
+            return "\\%s{%s}" % (PRETEXTUAIS_P[e.get("type")], txt)
         if txt == "*":                          # parágrafo que é só o asterisco do original
             txt = r"\asterisco{}"
         if self.notas_pag and txt:              # TEI bruto: liga "(n)" a nota da pagina
@@ -403,10 +432,17 @@ class Conv:
         if not self.dentro():
             self.corpo(d, saida)                # so para achar o <pb> de entrada na faixa
             return
-        if xid and tipo in ("tese", "artigo", "capitulo", "parte", "anexo"):
+        if xid and tipo in ("tese", "artigo", "capitulo", "parte", "anexo", "pretextual"):
             saida.append(f"%%>>> {xid}")        # marcador de tools/trecho.py
         if tipo == "tese":
             self.tese(d, saida)
+            return
+        if tipo == "pretextual" and re.search(r"(^|\.)pre-(rosto|dedicatoria|capa|contracapa)(-\d+)?$", xid or ""):
+            # peças sem título impresso: o <head> é só o nome do nó (sumário do site); aqui só entra no sumário
+            t = " ".join(self.inline(h).strip() for h in d.findall(T("head")))
+            saida.append("\\clearpage\n" + (f"\\addcontentsline{{toc}}{{chapter}}{{{t}}}" if t else ""))
+            self.corpo(d, saida)
+            saida.append("\\clearpage")
             return
         if tipo in SECIONAMENTO:
             t = self.titulo(d, SECIONAMENTO[tipo])

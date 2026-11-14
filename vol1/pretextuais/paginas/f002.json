@@ -1,0 +1,100 @@
+{
+ "id": "f002",
+ "pagina": -13,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Anotação a mão no alto («…D. Teodoro O.S.B.») e carimbo da Bibliotheca Monasterii omitidos. No ano, «1297» está riscado e corrigido a mão para «1927»; transcrevi 1927 (ano da quinta edição). A vinheta do Sagrado Coração não é texto. Corrigi o erro anterior: cada linha agora é um bloco próprio, sem &lt;br/&gt;.",
+ "tentativas": [
+  {
+   "segundos": 6.7,
+   "erros": [
+    "<p type=\"centro\">BISPO TITULAR DE TIBERIADES<br/>DOUTOR EM P…: Elemento <br> fora do vocabulário.",
+    "<p type=\"centro\">BISPO TITULAR DE TIBERIADES<br/>DOUTOR EM P…: Elemento <br> fora do vocabulário.",
+    "<p type=\"centro\">BISPO TITULAR DE TIBERIADES<br/>DOUTOR EM P…: Elemento <br> fora do vocabulário."
+   ]
+  },
+  {
+   "segundos": 6.5,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.063518,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "rosto",
+    "titulo": "FOLHA DE ROSTO"
+   }
+  },
+  {
+   "rotulo": "f002.1",
+   "continua": "",
+   "xml": "<p type=\"centro\">D. THIAGO SINIBALDI</p>"
+  },
+  {
+   "rotulo": "f002.2",
+   "continua": "",
+   "xml": "<p type=\"centro\">BISPO TITULAR DE TIBERIADES</p>"
+  },
+  {
+   "rotulo": "f002.3",
+   "continua": "",
+   "xml": "<p type=\"centro\">DOUTOR EM PHILOSOPHIA, THEOLOGIA E DIREITO CANONICO</p>"
+  },
+  {
+   "rotulo": "f002.4",
+   "continua": "",
+   "xml": "<p type=\"centro\">MEMBRO DA ACADEMIA ROMANA DE S. THOMAZ D'AQUINO</p>"
+  },
+  {
+   "rotulo": "f002.5",
+   "continua": "",
+   "xml": "<p type=\"centro\">SECRETARIO DA S. C. DOS SEMINARIOS E DAS UNIVERSIDADES DOS ESTUDOS</p>"
+  },
+  {
+   "rotulo": "f002.6",
+   "continua": "",
+   "xml": "<p type=\"titulo-obra\">ELEMENTOS</p>"
+  },
+  {
+   "rotulo": "f002.7",
+   "continua": "",
+   "xml": "<p type=\"titulo-obra\">DE</p>"
+  },
+  {
+   "rotulo": "f002.8",
+   "continua": "",
+   "xml": "<p type=\"titulo-obra\">PHILOSOPHIA</p>"
+  },
+  {
+   "rotulo": "f002.9",
+   "continua": "",
+   "xml": "<p type=\"centro\">VOLUME I</p>"
+  },
+  {
+   "rotulo": "f002.10",
+   "continua": "",
+   "xml": "<p type=\"centro\">LOGICA - ONTOLOGIA - COSMOLOGIA</p>"
+  },
+  {
+   "rotulo": "f002.11",
+   "continua": "",
+   "xml": "<p type=\"centro\">QUINTA EDIÇÃO</p>"
+  },
+  {
+   "rotulo": "f002.12",
+   "continua": "",
+   "xml": "<p type=\"centro\">ROMA</p>"
+  },
+  {
+   "rotulo": "f002.13",
+   "continua": "",
+   "xml": "<p type=\"centro\">Via del Banco S. Spirito, 12</p>"
+  },
+  {
+   "rotulo": "f002.14",
+   "continua": "",
+   "xml": "<p type=\"centro\">1927</p>"
+  }
+ ]
+}

@@ -1,0 +1,214 @@
+{
+ "volume": 1,
+ "modelo": "sonnet",
+ "pecas": [
+  {
+   "tipo": "rosto",
+   "titulo": "FOLHA DE ROSTO",
+   "xml_id": "v1.pre-rosto",
+   "blocos": [
+    "<p type=\"centro\">D. THIAGO SINIBALDI</p>",
+    "<p type=\"centro\">BISPO TITULAR DE TIBERIADES</p>",
+    "<p type=\"centro\">DOUTOR EM PHILOSOPHIA, THEOLOGIA E DIREITO CANONICO</p>",
+    "<p type=\"centro\">MEMBRO DA ACADEMIA ROMANA DE S. THOMAZ D'AQUINO</p>",
+    "<p type=\"centro\">SECRETARIO DA S. C. DOS SEMINARIOS E DAS UNIVERSIDADES DOS ESTUDOS</p>",
+    "<p type=\"titulo-obra\">ELEMENTOS</p>",
+    "<p type=\"titulo-obra\">DE</p>",
+    "<p type=\"titulo-obra\">PHILOSOPHIA</p>",
+    "<p type=\"centro\">VOLUME I</p>",
+    "<p type=\"centro\">LOGICA - ONTOLOGIA - COSMOLOGIA</p>",
+    "<p type=\"centro\">QUINTA EDIÇÃO</p>",
+    "<p type=\"centro\">ROMA</p>",
+    "<p type=\"centro\">Via del Banco S. Spirito, 12</p>",
+    "<p type=\"centro\">1927</p>"
+   ],
+   "pag_blocos": [
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13,
+    -13
+   ],
+   "paginas": [
+    -13
+   ]
+  },
+  {
+   "tipo": "imprimatur",
+   "titulo": "IMPRIMATUR",
+   "xml_id": "v1.pre-imprimatur",
+   "blocos": [
+    "<p type=\"data-local\"><hi rend=\"it\">Sublaci ad S.ᵗᵃᵉ Scholasticae, die 15 Augusti anno 1927.</hi></p>",
+    "<p type=\"fecho\">† SIMON LAURENTIUS SALVI O. S. B.</p>",
+    "<p type=\"fecho\"><hi rend=\"sc\">ABBAS ET ORDINARIUS</hi></p>",
+    "<p type=\"centro\">Subiaco — Tipografia dei Monasteri</p>"
+   ],
+   "pag_blocos": [
+    -12,
+    -12,
+    -12,
+    -12
+   ],
+   "paginas": [
+    -12
+   ]
+  },
+  {
+   "tipo": "dedicatoria",
+   "titulo": "DEDICATÓRIA",
+   "xml_id": "v1.pre-dedicatoria",
+   "blocos": [
+    "<p type=\"centro\">Sacratissimo</p>",
+    "<p type=\"centro\">CORDI JESU</p>"
+   ],
+   "pag_blocos": [
+    -11,
+    -11
+   ],
+   "paginas": [
+    -11
+   ]
+  },
+  {
+   "tipo": "prefacio",
+   "titulo": "AOS BENEVOLOS LEITORES (da IV edição)",
+   "xml_id": "v1.pre-prefacio",
+   "blocos": [
+    "<p type=\"centro\"><hi rend=\"it\">(da IV edição).</hi></p>",
+    "<p><hi rend=\"it\">No dia da festa do Sagrado Coração de </hi><hi rend=\"bold\">Jesus,</hi><hi rend=\"it\"> no anno de 1886, o Summo-Pontifice Leão XIII, de veneranda memoria, dignou-se destinar-nos a Professor de Philosophia thomista no Seminario de Coimbra, satisfazendo assim ao pedido do Exc.mo e Rev.mo Snr. Bispo-Conde, D. Manuel Correia de Bastos Pina. Conscios da nossa pouquidade e da importancia da missão, que circumstancias especiaes tornavam ainda mais difficil e delicada, pedimos que nos dispensassem do encargo; mas, não sendo attendidos os nossos votos, abandonamos, um mez depois, a nossa patria e, na vigilia da Natividade da Santissima Virgem, demos entrada no predicto Seminario, onde haviamos de permanecer pelo espaço de quatorze annos.</hi></p>",
+    "<p><hi rend=\"it\">Reconhecendo a vontade de Deus na vontade do seu augusto Vigario, entregámo-nos de alma e de coração ao comprimento dos nossos novos deveres, e concebemos immediatamente o designio de redigir um Compendio de Philosophia, baseado na doutrina de S.to Thomaz de Aquino. No mes de Maio de 1889, publicámos, pela Imprensa do Seminario, a primeira parte da Logica, escripta em lingua latina. E teriamos continuado a escrever nessa lingua, se pessoas auctorizadas e amigas não nos tivessem ponderado que, tendo nós recebido a missão de vulgarizar a doutrina thomista em Portugal, a nossa acção seria mais efficax e o fructo do nosso trabalho mais abundante, se o livro fosse escripto em lingua portugueza, não havendo no paiz um bom tratado, que traduzisse essa excellente doutrina na lingua de Camões</hi><note place=\"foot\" n=\"1\"><p>Não podemos deixar de recordar, e com immensa saudade e gratidão, um dedicadissimo Amigo, que Nosso Senhor nos deu, desde os primeiros dias da nossa chegada a Portugal, na pessoa do Doutor <hi rend=\"bold\">José Joaquim Lopes Praça,</hi> um dos mais illustrados Lentes cathedraticos da Faculdade de Direito na Universidade de Coimbra. Foi elle, quem nos deu a inspiração e o impulso para escrever, quem nos auxiliou com os seus sabios conselhos, quem elogiou e defendeu o nosso livro sempre e em toda a parte, e, sobretudo, perante o Conselho superior de Instrucção publica, e o adoptou como texto das suas lições ao malogrado Principe Real, D. Luiz Filippe. Nosso Senhor tenha aquella alma, tão boa e virtuosa, no seio da sua misericordia, e lhe dê a recompensa do muito bem, que nos quiz e nos fez!</p></note><hi rend=\"it\">.</hi></p>",
+    "<p><hi rend=\"it\">As razões adduzidas eram convincentes ; mas as difficuldades para nós augmentavam ; não só porque deviamos escrever numa lingua, que só tarde estudamos e que os extrangeiros aprendem com difficuldade, mas tambem porque, segundo o testemunho de auctoridades competentes, não é sempre facil encontrar no vocabulario portuguez, aliás muito rico, os termos precisos para exprimir as ideas especulativas e abstractas da sciencia philosophica. Comtudo não desanimámos. Confiados na infinita bondade do Sagrado Coração, pedimos-lhe encarecidamente que, pelos merecimentos de S.ta Margarida M.a Alacoque, nos assistisse com a sua graça e nos concedesse luzes e forças, para levarmos ao termo tão arduo commettimento, para a gloria d' Elle e para o bem das almas.</hi></p>",
+    "<p><hi rend=\"it\">O Compendio viu a luz, pela primeira vez, em Março de 1893, ha mais de trinta annos. Recebido com muita benevolencia em Portugal e no Brazil, foi reimpresso, em segunda e terceira edição, sempre na cidade de Coimbra. Exgottada a terceira edição, quizemos curar a quarta aqui na Italia, sob os nossos olhos, para que assim podessemos completar algumas partes, refundir outras, e approveitar mais facilmente as obras dos philosophos e dos naturalistas, publicadas no ultimo trentennio. O trabalho tem sido muito intenso e muito longo, devendo, para isso, utilizar, durante uma duzia de annos, os retalhos do tempo, que nos deixavam livres as imprescindiveis occupações dos nossos cargos. Mas o desejo de agradarmos a</hi> Jesus <hi rend=\"it\">e de sermos util ao proximo nos tornou doce a fadiga e suave o cançaço.</hi></p>",
+    "<p><hi rend=\"it\">A doutrina, que professamos, é, como dissemos, a de S.to Thomaz de Aquino, — em harmonia com o actual progresso da sciencia. A Egreja fez</hi> sua <hi rend=\"it\">essa doutrina, e, durante sete seculos, nunca tem deixado de a recomendar e inculcar a seus filhos, como a unica capaz de defender as verdades, tanto da ordem natural como da sobrenatural, e de confutar os erros, que, contra essas verdades, se têm propalado com tanto prejuizo das almas e da sociedade. Essas recomendações e prescripções acham-se resumidas no Codigo de Direito Canonico por estas palavras : « Os estudos de Philosophia racional e de Theologia, para a formação dos alumnos nestas disciplinas, sejam absolutamente tratados pelos professores conforme o methodo, a doutrina e os principios do Angelico Doutor, e estes sejam religiosamente mantidos » (Can. 1366, § 2).</hi></p>",
+    "<p>A nossa obra sahiu volumosa, muito volumosa. Mas obedecemos ao proposito de fazer uma exposição clara, profunda e possivelmente completa das principaes questões philosophicas, de modo que o espirito dos leitores, no fim de cada tratado, ficasse esclarecido e plenamente satisfeito. Levado sempre pelo mesmo proposito e sinceramente convencido de que o espiritualismo e a Religião não devem ter e não têm medo da luz, nem receio de novos combates, encetamos a lucta, sem aspereza, mas tambem sem transigencias, acompanhando os falsos systemas nas suas mais recentes manifestações, atravez dos livros dos seus representantes mais famigerados. Para isso, estudamos attentamente as obras dos naturalistas mais modernos, mais imparciaes e acreditados, e pudemos verificar que os factos, citados pelos adversarios em defeza de seus erros, eram — ou imaginarios, — ou falsamente interpretados. — Nem deixamos, nos logares proprios, de indicar as relações entre as verdades philosophicas e as verdades theologicas, e de mostrar que entre a Razão e a Fé, não só não ha a mais leve sombra de contraste, mas reina a mais perfeita e admiravel harmonia, sendo ellas duas luzes, que emanam do mesmo Sol de verdade infinita.</p>",
+    "<p>Como, porém, não é possivel esgotar toda a materia, nem sequer no espaço de dois annos, tivemos o cuidado de expôr no texto os pontos principaes, as verdades fundamentaes, que constituem a sciencia philosophica, reservando para as notas o ulterior desenvolvimento da doutrina exarada no texto, a resposta ás principaes difficuldades, como tambem a exposição e a confutação dos systemas contrarios. D'este modo, o livro adquiriu uma certa elasticidade, e os Professores podem facilmente escolher o que melhor se adaptar á intelligencia dos discipulos e o que mais convier ao programma dos estudos. — O nosso voto é que este livro aproveite não só aos alumnos dos Seminarios ecclesiasticos, mas tambem aos dos Collegios seculares, aos leigos cultos, que se interessam pelas coisas da sciencia e da Religião, e, sobretudo, aos Sacerdotes, que, tendo feito seus estudos philosophicos em edade juvenil, precisam de um estudo mais reflexivo e aturado, a fim de adquirir a cultura indispensavel para o digno e decoroso exercicio do seu altissimo ministerio.</p>",
+    "<p>Não seria desculpavel que deixassemos de consignar aqui o <pb n=\"-6\" facs=\"paginas/f009.png\"/><hi rend=\"it\">nosso vivo e profundo agradecimento — aos Exc.mos e Rev.mos Bispos de Portugal e do Brazil, que logo acolheram com tanta benevolencia o nosso trabalho, — aos illustrados Professores, que o adoptaram como texto das suas lições, — aos bondosos Auctores das lisonjeiras apreciações, que apparecceram em revistas e jornaes, e a quantos nos confortaram com suas amaveis referencias</hi><note place=\"foot\" n=\"1\"><p>A <hi rend=\"it\">Civiltà Cattolica</hi>, no seu caderno 1043, de 2 de dezembro de 1893, publicou, ácerca do nosso trabalho, o seguinte artigo, devido á penna do P. Francisco Xavier Rondina, nome muito conhecido dos portuguezes.</p><p>« <hi rend=\"it\">Thiago Sinibaldi,</hi> Arcediago da Sé Cathedral de Coimbra e Professor no Seminario da mesma cidade — <hi rend=\"it\">Elementos de Philosophia</hi> — Coimbra, typographia das Instituições Christãs, 1891 e 1892.</p><p>« D' estes dois volumes um abrange a logica, a ontologia, e a cosmologia geral; o outro, a cosmologia especial, a psycologia e a theodicea.</p><p>« É pois, um curso completo de philosophia theorica, que encerra tudo o que se ensina nas melhores escholas e seminarios; e está escripto em portuguez, para facilitar aos mancebos d' aquella nação o estudo de materias por si arduas, que se tornariam ainda mais difficeis se não fossem expostas em lingua vulgar. Foi este o escopo que teve em vista o Auctor, empregando nos seus <hi rend=\"it\">Elementos de philosophia</hi> a lingua portugueza, ainda que extrangeira para elle, e um estylo conciso, facil, plano e despido de todo o ornamento superfluo e inutil. — A ordem e a distribuição das materias é a que o bom senso, a tradição escholastica e a propria experiencia suggeriram aos nossos antepassados. Por terem abandonado este caminho, muitos dos philosophos modernos por tal forma desordenaram o methodo de ensino que as suas obras constituem um montão de materias, sem ordem, sem precisão, sem estructura scientifica. Pelo contrario, na obra de Sinibaldi tudo está no seu logar, tudo procede com grande ordem e clareza, começando pela arte de bem raciocinar, ou pela logica; em seguida, passando da ordem logica para a ontologica, do subjectivo para o objectivo, dos conceitos mais simples para os mais compostos, dos abstractos para os concretos, dos universaes para os particulares, ou da metaphysica geral, chamada tambem <hi rend=\"it\">ontologia,</hi> para a metaphysica especial. E aqui o Auctor, seguindo a ordem natural dos nossos conhecimentos, sobe da consideração do mundo, ou da <hi rend=\"it\">cosmologia,</hi> ao estudo do homem, rei da creação, ou á <hi rend=\"it\">psychologia,</hi> e d' esta á contemplação de Deus, principio e fim de todas as creaturas, ou á <hi rend=\"it\">theodicea.</hi> Todos vêm que este <hi rend=\"it\">methodo synthetico,</hi> seguido pelo Sinibaldi, e em geral pelos professores de maior criterio e experiencia, é o mais facil e o mais accommodado á intelligencia dos jovens estudantes.</p><p>« Á bondade do methodo o Auctor une uma admiravel solidez e profundidade de doutrina, toda extrahida das puras fontes do Aquinate, e das obras de que, entre os modernos escriptores, melhor souberam interpretar e desenvolver as sabias theorias do Anjo das Escholas, — theorias que foram o fundamento sobre que foi já levantado, e hoje está sendo restaurado, o grandioso edificio da philosophia e theologia escholastica. E, como não basta affirmar a verdade, mas é preciso demonstra-la, o Auctor nada <pb n=\"-5\" facs=\"paginas/f010.png\"/>affirma que não prove com abundancia de razões. No que é tão feliz, que não poderia proceder melhor, quer quanto á escolha dos argumentos, quer quanto á concisão e clareza com que os expõe.</p><p>« Nem isto é tudo; com bôas e fortes razões refuta tambem os argumentos dos adversarios, cujos systemas primeiramente expõe com brevidade e clareza, e depois aprecia com uma critica sã, a fim de pôr a descoberto os erros. O que elle consegue sobretudo nas copiosas notas, que acompanham o texto, para não distrahir d'este a attenção dos estudantes e para não produzir confusão nas suas intelligencias. Bom systema, que deveria servir de exemplo para quem escreve cursos de philosophia para principiantes.</p><p>« A refutação dos falsos systemas comparados com as doutrinas escholasticas, fundada na razão e na experiencia, tem, na obra de Sinibaldi, o merecimento de encerrar o muito no pouco e de accrescentar ao velho o novo, isto é, é uma refutação quanto mais breve na forma, tanto mais ampla na materia, abrangendo os erroneos principios e as falsas theorias não só dos antigos, mas tambem do mais recentes philosophos idealistas, ontologistas e materialistas. Por isso os discipulos sahem da sua eschola bem couraçados contra os erros modernos, e capazes de confundir e reduzir ao silencio os espiritos presumpçosos e superficiaes.</p><p>« Do que deixamos escripto julguem os nossos leitores quão vantajosa se ha de tornar, para os jovens clerigos, e em geral para a mocidade portugueza, a obra d'este douto e zeloso Professor, que, para corresponder aos santos designios do Summo Pontifice Leão XIII, insigne restaurador e promotor das disciplinas philosophicas, abandonou a patria, e foi viver em paiz extrangeiro; onde, para tornar o seu ministerio util a todos, se applicou com ardor a aprender a lingua de Camões, e a escrever n'ella uma obra, em que á difficuldade da materia se une a da forma, não tendo a lingua portugueza, aliás muito rica e bella, uma terminologia tão propria, como a latina, para o ensino da philosophia escholastica. Por isto lhe hão de ser agradecidos todos os que amam o verdadeiro progresso da religião e da sciencia, e principalmente os que, á semelhança de quem escreve estas paginas, vivendo muito tempo entre os portuguezes, poderam formar <pb n=\"-4\" facs=\"paginas/f011.png\"/>uma verdadeira idea das necessidades d' aquella illustre nação e das suas felizes disposições para tudo o que diz respeito á cultura intellectual, e intimamente se liga com a Fé Catholica, de que ella, por muitos seculos, foi além dos mares o palladio e a gloria ».</p><p>O Rev.mo P. <hi rend=\"it\">Luiz Gonzaga Cabral</hi>, no seu <hi rend=\"it\">Vieira pregador</hi>, na pag. 377, do t. I, em nota, escreve: « Entre nós os estudos philosophicos, outr' ora tão florescentes, passaram para uma decadencia, cujas funestas consequencias são tão manifestas, que me parece inutil enumera-las. A philosophia Conimbricense foi outr' ora um titulo de gloria para Portugal... Felizmente parece ter chegado tambem para isto o momento do renascimento; e foi tambem de Coimbra, como outr' ora, que começou o impulso. Uma obra excellente, cheia de erudição e de solidez de doutrina, foi publicada ha poucos annos pelo Exc.mo e Rev.mo Sñr. Dr. Thiago Sinibaldi: <hi rend=\"it\">Elementos de Philosophia</hi> (Coimbra, Imprensa do Seminario, 2 vol.). Nestes dois preciosos volumes condensou o auctor com notavel clareza e brevidade os principios da verdadeira philosophia e discutiu com imparcialidade e vigor os diversos systemas e theorias das escholas modernas. Os <hi rend=\"it\">Elementos de Philosophia</hi> são um livro de grande alcance e ao mesmo tempo de muita actualidade. O clero particularmente encontrará nelles abundantes materiaes para a solução dos problemas philosophicos mais debatidos em nossos dias ».</p></note><hi rend=\"it\">. —</hi></p>",
+    "<p><hi rend=\"it\">Mas seja-nos permittido referir dois factos, que nos encheram de consolação o espirito. Um Missionario Lazarista, Professor num dos mais acreditados Institutos do Brazil, escreveu-nos o seguinte: «Gosto muito do seu livro, como tambem gostam d'elle os meus discipulos, que, além de aprenderem a mais segura doutrina thomista, aprendem tambem a amar a Jesus, de quem V. fala com tanta veneração». Em Julho de 1900, em Paray-le-Monial, um bom leigo, que fazia parte de uma peregrinação brazileira, disse-nos estas precisas palavras: « V. não imagina o bem, que o seu livro tem feito ás almas em S. Paulo». — O nosso pobre trabalho tinha, pois, alcançado, ao menos em parte, o seu duplice escopo, que constituiu tambem o unico premio por nós desejado :</hi></p>",
+    "<p><hi rend=\"it\">a gloria de </hi><hi rend=\"bold\">Deus</hi><hi rend=\"it\"> e o bem das almas !... Entrámos no Santuario das Apparições, e prostrado aos pés do Altar, diante da Urna de S.ta Margarida Maria, agradecemos ao divino Coração todas as graças, que nos tinha dispensado... </hi><hi rend=\"bold\">Jesus</hi><hi rend=\"it\"> quiz dar-nos outra prova do seu agrado, mais authentica e mais solemne, na Benção Apostolica, que nos concederam os Summos Pontifices Leão XIII e Bento XV. Essa benção nos deu a convicção de que </hi><hi rend=\"bold\">Deus</hi><hi rend=\"it\"> tinha abençoado as nossas intenções e os nossos esforços.</hi></p>",
+    "<p type=\"data-local\"><hi rend=\"it\">Roma, 18 de Julho de 1923, Sexto centenario da Canonização de S. Thomaz de Aquino.</hi></p>",
+    "<p type=\"fecho\">+ THIAGO SINIBALDI</p>",
+    "<p type=\"fecho\"><hi rend=\"sc\">BISPO DE TIBERIADES</hi></p>",
+    "<p><anchor type=\"asterisco\"/></p>"
+   ],
+   "pag_blocos": [
+    -9,
+    -9,
+    -9,
+    -8,
+    -8,
+    -8,
+    -7,
+    -7,
+    -7,
+    -5,
+    -4,
+    -4,
+    -4,
+    -4,
+    -4
+   ],
+   "paginas": [
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4
+   ]
+  },
+  {
+   "tipo": "carta",
+   "titulo": "CARTA DE LEÃO XIII",
+   "xml_id": "v1.pre-carta",
+   "blocos": [
+    "<p type=\"enderecamento\">VENERABILI FRATRI EMMANUELI EPISCOPO CONIMBRICENSI</p>",
+    "<p type=\"enderecamento\">LEO PP. XIII</p>",
+    "<p type=\"saudacao\">Venerabilis Frater, Salutem et Apostolicam Benedictionem.</p>",
+    "<p><hi rend=\"it\">Satis novisti probari Nobis vehementer curam quam geris ut impense colantur in tua dioecesi philosophicae disciplinae iuxta rationem ac methodum divi Thomae explicatae. Hinc facile intelligis quo animo exceptum a Nobis sit novum eiusdem studii tui testimonium, quod litterae a Te die III Aprilis datae Nobis praebuere. Namque dum merita exornas laude, ac diligenter Nobis commendas opus a dilecto Filio Iacobo Sinibaldi conscriptum</hi> de Elementis philosophiae, <hi rend=\"it\">praeclare ostendis studium quo fereris ad eas disciplinas provehendas, quantique facias eorum industriam, qui illas novis illustrant luminibus operamque navant ut pronis alumnorum auribus animisque excipiantur. Quod quidem laboris genus opportunum ac frugiferum semper rati sumus ac palam edíximus ab ipsis Nostri Pontificatus exordiis. Nam quo latius thesauri effundantur sanae doctrinae a summo Viro Aquinate traditae animisque discentium penitius insederint, eo vulgatior ac receptior</hi> <pb n=\"-2\" facs=\"paginas/f013.png\"/><hi rend=\"it\">erit solida scientia rerum maximarum ac facilior fiet errorum reiectio qui fidei sinceritatem corrumpunt ac depravant mores. Quoniam vero dilectus Filius, quem diximus, exemplar operis sui dono Nobis obtulit obsequiosis ornatum litteris, pergratum Nobis facies si eidem Nostro nomine significaveris magnopere Nos esse delectatos quum eius ingenio et doctrina, tum officio Nobis exhibito quod benevolo gratoque animo prosequimur. Hosce interea fructus eximio eius labori ominamur ut legentibus quamplurimis salutaris sit, ut debitam pariat auctori suo prudentium virorum existimationem et laudem, eosque qui pari praestant rerum scientia et ingenio, exemplo proposito, ad imitandum alliciat. Sperantes denique fore ut Deus, ministerio et ope tua aliorumque in Lusitano episcopatu Fratrum, nobilibus hisce studiis alia atque alia det incrementa, Tibi ac praedicto libri auctori, ceterisque e clero et populo tuae vigilantiae commisso, Apostolicam Benedictionem peramanter impertimus.</hi></p>",
+    "<p type=\"enderecamento\">AO VENERAVEL IRMÃO MANUEL BISPO DE COIMBRA</p>",
+    "<p type=\"enderecamento\">LEÃO XIII, PAPA</p>",
+    "<p type=\"saudacao\">Veneravel Irmão, Saude e Benção Apostolica.</p>",
+    "<p>Bem sabeis que vivamente approvamos o vosso zelo pela profunda cultura que promoveis na vossa dioecese das doutrinas philosophicas, explicadas segundo a mente e o methodo de Santo Thomaz. Por isso facilmente deveis entender a satisfação com que recebemos o novo testemunho que a vossa carta de 3 de abril Nos dá da continuação dos vossos esforços. Por quanto, ao passo que realçaes com merecido louvor e Nos recommendaes encarecidamente a obra que o dilecto Filho Thiago Sinibaldi escreveu — <hi rend=\"it\">Elementos de philosophia,</hi> bem claramente demonstraes o empenho com que promoveis o estudo d'essas doutrinas, e o grande apreço em que tendes o trabalho dos que as illustram com luzes novas e se esforçam para que ellas sejam com facilidade aprendidas pelos seus alumnos. Em verdade sempre julgamos opportuno e fructifero este genero de trabalhos, e assim o manifestámos desde os primordios do Nosso Pontificado. Pois quanto mais largamente se diffundirem <pb n=\"-2\" facs=\"paginas/f013.png\"/>os thesouros da sã doutrina ensinada pelo eminente Santo Aquinatense, e mais profundamente assentarem nos animos dos que aprendem, tanto mais vulgarisada e recebida será a solida sciencia das grandes coisas, e mais facil se tornará a rejeição dos erros, que corrompem a sinceridade da Fé e depravam os costumes. E visto que o dilecto Filho, que nomeámos, Nos offereceu um exemplar da sua obra acompanhada de uma respeitosa carta, será para Nós muito agradavel se em Nosso nome lhe significardes que muita satisfação Nos causou não só o seu engenho e doutrina, mas tambem a demonstração do seu obsequio para com Nosco, o qual acceitamos com animo benevolo e grato. Entretando que seja a sua obra salutar ao maximo numero de leitores, que o seu auctor lucre por ella a devida estimação e louvor dos homens sensatos, e que o seu exemplo seja imitado por outros egualmente prestantes pelo engenho e sciencia das coisas: taes são os fructos que desejamos ao seu eximio trabalho. Finalmente esperando que Deus, pelo vosso ministerio e esforço e pelo dos outros Irmãos no Episcopado portuguez, ha de dar muitos e muitos incrementos a tão nobres estudos, concedemos muito affectuosamente a Benção Apostolica a Vós e ao dicto auctor do livro, bem como ao clero e povo confiado á vossa vigilancia.</p>",
+    "<p type=\"data-local\"><hi rend=\"it\">Datum Romae apud S. Petrum die XXIX Aprilis anno MDCCCXCIII, Pontificatus Nostri decimo sexto.</hi></p>",
+    "<p type=\"fecho\"><hi rend=\"it\">LEO PP. XIII.</hi></p>",
+    "<p type=\"data-local\">Dado em Roma, junto de S. Pedro, no dia 29 abril de 1893, anno decimo sexto do Nosso Pontificado.</p>",
+    "<p type=\"fecho\">LEÃO XIII, PAPA</p>"
+   ],
+   "pag_blocos": [
+    -3,
+    -3,
+    -3,
+    -3,
+    -3,
+    -3,
+    -3,
+    -3,
+    -2,
+    -2,
+    -2,
+    -2
+   ],
+   "paginas": [
+    -3,
+    -2
+   ]
+  },
+  {
+   "tipo": "carta",
+   "titulo": "CARTA DE BENTO XV",
+   "xml_id": "v1.pre-carta-2",
+   "blocos": [
+    "<p type=\"enderecamento\">VENERABILI FRATRI IACOBO EPISCOPO TIBERIENSI</p>",
+    "<p type=\"enderecamento\">S. CONGREGATIONIS SEMINARIIS ET UNIVERSITATIBUS STUDIORUM PROPOSITAE SECRETARIO</p>",
+    "<p type=\"enderecamento\">BENEDICTUS PP. XV</p>",
+    "<p type=\"saudacao\"><hi rend=\"it\">Venerabilis Frater,</hi></p>",
+    "<p type=\"saudacao\"><hi rend=\"it\">Salutem et Apostolicam Benedictionem.</hi></p>",
+    "<p><hi rend=\"it\">Diuturnae munus disciplinae laborisque multo diuturnioris, tuum de Elementis Philosophiae librum accepimus perlibenter, quarto nuper editum in lucem; qui quidem quum primum apparuisset, novimus quibus eum laudibus docti et sapientes viri sint prosecuti. Atque his laudibus magnum pondus accessit, ut meminimus, ex eis litteris, quas decessor Noster illustris, Leo XIII fel. rec. in commendationem operis tui dedit ad Episcopum Conimbricensem. Sane ei Pontifici, cui nulla fuit antiquior cura, quam ut Thomam Aquinatem apud scholas catholicas in praecipuum honorem restitueret, quum ex eius voluntate magisterium philosophiae in Conimbricensi Seminario tibi, utpote ad sapientiam Doctoris Angelici egregie exculto, esset demandatum, debuit pergratum accidere ut optimum, quod de te fecisset, iudicium tam bene re ipsa confirmaretur. Etenim haec duo volumina vehementer probari videmus intelli</hi><pb n=\"0\" facs=\"paginas/f015.png\"/><hi rend=\"it\">gentibus tum sincerae doctrinae copia, de Thomae hausta vel derivata fontibus, tum valida contra multiplices errores defensione veri, tum lucido rerum ordine scribendique perspicuitate. Quod postremum licet coniicere quanto constiterit tibi, qui quum Lusitane prorsus nescires, tamen assidua contentione id egeris, ut eam linguam ad quamlibet philosophiae subtilitatem inflecteres. Nec vero satis hic habes principia Thomistica usitatis in Schola illustrare tuerique rationibus; convincis praeterea nihil certi ex disciplinis naturalibus afferri quod cum iis non congruat. Itaque opus confecisti quod omnibus numeris in suo genere absolutum videtur, in primisque accomodatum clericis qui se ad ineundum sacrae theologiae studium comparant. Profecto qua parte tuus liber res divinas attingit, id spirat pietatis caritatisque ut mirum non sit, quod audimus, huius disciplinae alumnos, quorum manibus sit versatus, ex eo diligere et amare Jesum Dominum didicisse, eundemque et in Lusitania et per Brasiliam saluti animarum utilem fuisse. Quare gratulamur tibi ex animo, venerabilis Frater, et Sacratissimo Cordi Jesu, cui debentur suscepti a te in eius gloriam laboris tam uberes fructus, gratias tecum agimus, suisque te pergat, precamur, donis augere. Quorum auspicem et singularis benevolentiae nostrae testem, tibi tuisque apostolicam benedictionem amantissime impertimus.</hi></p>",
+    "<p type=\"enderecamento\">AO VENERAVEL IRMÃO THIAGO BISPO DE TIBERIADES</p>",
+    "<p type=\"enderecamento\">SEGRETARIO DA S. CONGREGAÇÃO DOS SEMINARIOS E DAS UNIVERSIDADES DOS ESTUDOS</p>",
+    "<p type=\"enderecamento\">BENTO XV, PAPA</p>",
+    "<p type=\"saudacao\">Veneravel Irmão,</p>",
+    "<p type=\"saudacao\">Saude e Benção Apostolica.</p>",
+    "<p>Com muito prazer recebemos o teu livro — <hi rend=\"it\">Elementos de Philosophia</hi> — agora publicado em quarta edição, que é fructo de diuturno ensino e de trabalho muito mais diuturno, e que, desde a sua primeira edição, mereceu, como sabemos, os elogios dos homens doutos e sabios. A estes elogios deu grande realce a carta, que o nosso illustre Predecessor Leão XIII, de feliz memoria, enviou ao Bispo de Coimbra em approvação da tua obra. Na verdade, devia ser muito agradavel áquelle Pontifice, cuja preoccupação constante foi repor S.ᵗᵒ Thomaz de Aquino no logar de honra, que lhe competia nas Escholas catholicas, o ver como se tivesse verificado o optimo conceito, que di ti fizera, quando, conhecendo-te optimamente versado na sapiencia do Angelico Doutor, determinou enviar-te a exercer o Magisterio de Philosophia no Seminario de Coimbra. Sabemos, na verdade, que estes dois volumes são muito apreciados pelos competentes pela abundancia e pureza de dou<pb n=\"0\" facs=\"paginas/f015.png\"/>trina, haurida ou derivada das fontes de S.to Thomaz, pela solidez da argumentação em defeza da verdade contra os multiplices erros, e pela ordem da materia, alliada á clareza da exposição... E quanto isto te tenha custado, pode bem avaliar-se, considerando que, sendo para ti completamente desconhecida a lingua portugueza, só á força de trabalho chegaste a possui-la de modo a poder amolda-la a todas as subtilezas da Philosophia. E não contente de illustrar e defender os principios thomisticos com os argumentos usados na Eschola, demonstras tambem que não ha contradicção entre elles e as conclusões certas das sciencias naturaes. Fizeste, pois, uma obra, que é no seu genero absolutamente perfeita, e sobretudo adaptada aos seminaristas, que se preparam para o estudo da Sagrada Theologia. Com effeito, sempre que se refere ás coisas divinas, respira tanta piedade e fervor, que não é para admirar que, segundo ouvimos, os estudantes d' esta sciencia, que do teu livro se servem, aprendam a amar ardentemente a N. S. Jesus Christo, e que elle tenha sido muito util para o bem das almas em Portugal e no Brazil. Por conseguinte, Veneravel Irmão, felicitamos-te do intimo da alma, e comtigo agradecemos ao Santissimo Coração de Jesus, a quem se devem estes tão copiosos fructos do teu trabalho, emprehendido para sua gloria, e rogamos-lhe que continue a enriquecer-te de seus dons. Penhor d'elles e testemunho da nossa singular benevolencia seja a Benção Apostolica, que a ti e aos teus concedemos com todo o affecto.</p>",
+    "<p><hi rend=\"it\">Datum Romae apud S. Petrum, die XV mensis februarii MCMXVII, Pontificatus Nostri anno tertio.</hi></p>",
+    "<p type=\"fecho\"><hi rend=\"it\">BENEDICTUS PP. XV.</hi></p>",
+    "<p>Dado em Roma, junto de S. Pedro, aos 15 de fevereiro de 1917, anno terceiro do Nosso Pontificado.</p>",
+    "<p type=\"fecho\">BENTO XV, PAPA</p>"
+   ],
+   "pag_blocos": [
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "paginas": [
+    -1,
+    0
+   ]
+  }
+ ],
+ "avisos": [],
+ "ate": 0,
+ "falhas": []
+}

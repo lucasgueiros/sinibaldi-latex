@@ -1,0 +1,13 @@
+{
+ "comentario": "Peças curadas à mão, juntadas por tools/revisa_pretextuais.py ao fim de vol2/pretextuais.json. A p. 5 abre com o anterrosto «METAPHYSICA» (título geral das três partes do vol. 2), que o OCR deixou colado à Approbatio; o resto da p. 5 já é corpo (PARTE TERCEIRA — ANTHROPOLOGIA).",
+ "pecas": [
+  {
+   "tipo": "outro",
+   "titulo": "METAPHYSICA (anterrosto das partes)",
+   "xml_id": "v2.pre-outro",
+   "paginas": [5],
+   "pag_blocos": [5],
+   "blocos": ["<p type=\"titulo-obra\">METAPHYSICA</p>"]
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "id": "0004",
+ "pagina": 4,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "O OCR lê «lacobo» e «1916» como «19106»; na imagem está «Iacobo» (I maiúsculo, grafia do impresso é «Iacobo» com I) e «1916». Carimbo e anotações a mão ignorados.",
+ "tentativas": [
+  {
+   "segundos": 8.2,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.03083,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "aprovacao",
+    "titulo": "APPROBATIO"
+   }
+  },
+  {
+   "rotulo": "0004.1",
+   "continua": "",
+   "xml": "<p>Nova mandetur typis editio philosophiae lusitano idiomate exaratae, cuius inscriptio est: <hi rend=\"it\">Elementos de philosophia,</hi> auctore Reverendissimo et Amplissimo Domino Iacobo Sinibaldi, episcopo Tiberiadis.</p>"
+  },
+  {
+   "rotulo": "0004.2",
+   "continua": "",
+   "xml": "<p type=\"data-local\"><hi rend=\"it\">Assisii, die 30 maii 1916.</hi></p>"
+  },
+  {
+   "rotulo": "0004.3",
+   "continua": "",
+   "xml": "<p type=\"fecho\">† <hi rend=\"sc\">Fr. Ambrosius Eps.</hi></p>"
+  },
+  {
+   "rotulo": "0004.4",
+   "continua": "",
+   "xml": "<p type=\"centro\">Assisi — Tipografia Metastasio — Assisi</p>"
+  }
+ ]
+}

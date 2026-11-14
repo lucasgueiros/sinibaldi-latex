@@ -1,0 +1,90 @@
+{
+ "id": "f014",
+ "pagina": -1,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "\"S.ᵗᵒ\" com o ordinal sobrescrito representado em Unicode, pois rend=\"sup\" não é aceito. A forma \"Segretario\" (sic) está como impressa. Na saudação latina a quebra de linha foi separada em dois blocos. O cabeçalho \"XV\" foi omitido.",
+ "tentativas": [
+  {
+   "segundos": 11.2,
+   "erros": [
+    "<p type=\"enderecamento\">VENERABILI FRATRI<br/>IACOBO EPISCOP…: Elemento <br> fora do vocabulário.",
+    "<p type=\"enderecamento\">AO VENERAVEL IRMÃO<br/>THIAGO BISPO …: Elemento <br> fora do vocabulário.",
+    "<p>Com muito prazer recebemos o teu livro — <hi rend=\"it\">El…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc)."
+   ]
+  },
+  {
+   "segundos": 15.8,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.093612,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "carta",
+    "titulo": "CARTA DE BENTO XV"
+   }
+  },
+  {
+   "rotulo": "f014.1",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">VENERABILI FRATRI IACOBO EPISCOPO TIBERIENSI</p>"
+  },
+  {
+   "rotulo": "f014.2",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">S. CONGREGATIONIS SEMINARIIS ET UNIVERSITATIBUS STUDIORUM PROPOSITAE SECRETARIO</p>"
+  },
+  {
+   "rotulo": "f014.3",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">BENEDICTUS PP. XV</p>"
+  },
+  {
+   "rotulo": "f014.4",
+   "continua": "",
+   "xml": "<p type=\"saudacao\"><hi rend=\"it\">Venerabilis Frater,</hi></p>"
+  },
+  {
+   "rotulo": "f014.5",
+   "continua": "",
+   "xml": "<p type=\"saudacao\"><hi rend=\"it\">Salutem et Apostolicam Benedictionem.</hi></p>"
+  },
+  {
+   "rotulo": "f014.6",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">Diuturnae munus disciplinae laborisque multo diuturnioris, tuum de Elementis Philosophiae librum accepimus perlibenter, quarto nuper editum in lucem; qui quidem quum primum apparuisset, novimus quibus eum laudibus docti et sapientes viri sint prosecuti. Atque his laudibus magnum pondus accessit, ut meminimus, ex eis litteris, quas decessor Noster illustris, Leo XIII fel. rec. in commendationem operis tui dedit ad Episcopum Conimbricensem. Sane ei Pontifici, cui nulla fuit antiquior cura, quam ut Thomam Aquinatem apud scholas catholicas in praecipuum honorem restitueret, quum ex eius voluntate magisterium philosophiae in Conimbricensi Seminario tibi, utpote ad sapientiam Doctoris Angelici egregie exculto, esset demandatum, debuit pergratum accidere ut optimum, quod de te fecisset, iudicium tam bene re ipsa confirmaretur. Etenim haec duo volumina vehementer probari videmus intelli-</hi></p>"
+  },
+  {
+   "rotulo": "f014.7",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">AO VENERAVEL IRMÃO THIAGO BISPO DE TIBERIADES</p>"
+  },
+  {
+   "rotulo": "f014.8",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">SEGRETARIO DA S. CONGREGAÇÃO DOS SEMINARIOS E DAS UNIVERSIDADES DOS ESTUDOS</p>"
+  },
+  {
+   "rotulo": "f014.9",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">BENTO XV, PAPA</p>"
+  },
+  {
+   "rotulo": "f014.10",
+   "continua": "",
+   "xml": "<p type=\"saudacao\">Veneravel Irmão,</p>"
+  },
+  {
+   "rotulo": "f014.11",
+   "continua": "",
+   "xml": "<p type=\"saudacao\">Saude e Benção Apostolica.</p>"
+  },
+  {
+   "rotulo": "f014.12",
+   "continua": "",
+   "xml": "<p>Com muito prazer recebemos o teu livro — <hi rend=\"it\">Elementos de Philosophia</hi> — agora publicado em quarta edição, que é fructo de diuturno ensino e de trabalho muito mais diuturno, e que, desde a sua primeira edição, mereceu, como sabemos, os elogios dos homens doutos e sabios. A estes elogios deu grande realce a carta, que o nosso illustre Predecessor Leão XIII, de feliz memoria, enviou ao Bispo de Coimbra em approvação da tua obra. Na verdade, devia ser muito agradavel áquelle Pontifice, cuja preoccupação constante foi repor S.ᵗᵒ Thomaz de Aquino no logar de honra, que lhe competia nas Escholas catholicas, o ver como se tivesse verificado o optimo conceito, que di ti fizera, quando, conhecendo-te optimamente versado na sapiencia do Angelico Doutor, determinou enviar-te a exercer o Magisterio de Philosophia no Seminario de Coimbra. Sabemos, na verdade, que estes dois volumes são muito apreciados pelos competentes pela abundancia e pureza de dou-</p>"
+  }
+ ]
+}

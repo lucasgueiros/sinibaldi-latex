@@ -64,7 +64,7 @@ def esquema_para_cliente():
         "rend": esquema.REND,
         "tipos_bloco": esquema.TIPOS_BLOCO,
         "tipos_citacao": esquema.TIPOS_CITACAO,
-        "prefixos_id": {"anexo": "anexo", "parte": "parte", "seccao": "sec", "capitulo": "cap", "artigo": "art", "tese": "t"},
+        "prefixos_id": {"pretextual": "pre", "anexo": "anexo", "parte": "parte", "seccao": "sec", "capitulo": "cap", "artigo": "art", "tese": "t"},
     }
 
 

@@ -1,0 +1,46 @@
+{
+ "id": "f013",
+ "pagina": -2,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Latim em itálico na imagem; «Fi-lius» e «at-que» juntados. Em «Lusitano episcopatu Fratrum» e «nobilibus hisce studiis» o OCR estava corrompido, li pela imagem. Data: «MDCCCXCIII» (1893), conforme o português «1893».",
+ "tentativas": [
+  {
+   "segundos": 10.0,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.041417999999999996,
+ "itens": [
+  {
+   "rotulo": "f013.1",
+   "continua": "f012.4",
+   "xml": "<p><hi rend=\"it\">erit solida scientia rerum maximarum ac facilior fiet errorum reiectio qui fidei sinceritatem corrumpunt ac depravant mores. Quoniam vero dilectus Filius, quem diximus, exemplar operis sui dono Nobis obtulit obsequiosis ornatum litteris, pergratum Nobis facies si eidem Nostro nomine significaveris magnopere Nos esse delectatos quum eius ingenio et doctrina, tum officio Nobis exhibito quod benevolo gratoque animo prosequimur. Hosce interea fructus eximio eius labori ominamur ut legentibus quamplurimis salutaris sit, ut debitam pariat auctori suo prudentium virorum existimationem et laudem, eosque qui pari praestant rerum scientia et ingenio, exemplo proposito, ad imitandum alliciat. Sperantes denique fore ut Deus, ministerio et ope tua aliorumque in Lusitano episcopatu Fratrum, nobilibus hisce studiis alia atque alia det incrementa, Tibi ac praedicto libri auctori, ceterisque e clero et populo tuae vigilantiae commisso, Apostolicam Benedictionem peramanter impertimus.</hi></p>"
+  },
+  {
+   "rotulo": "f013.2",
+   "continua": "",
+   "xml": "<p type=\"data-local\"><hi rend=\"it\">Datum Romae apud S. Petrum die XXIX Aprilis anno MDCCCXCIII, Pontificatus Nostri decimo sexto.</hi></p>"
+  },
+  {
+   "rotulo": "f013.3",
+   "continua": "",
+   "xml": "<p type=\"fecho\"><hi rend=\"it\">LEO PP. XIII.</hi></p>"
+  },
+  {
+   "rotulo": "f013.4",
+   "continua": "f012.8",
+   "xml": "<p>os thesouros da sã doutrina ensinada pelo eminente Santo Aquinatense, e mais profundamente assentarem nos animos dos que aprendem, tanto mais vulgarisada e recebida será a solida sciencia das grandes coisas, e mais facil se tornará a rejeição dos erros, que corrompem a sinceridade da Fé e depravam os costumes. E visto que o dilecto Filho, que nomeámos, Nos offereceu um exemplar da sua obra acompanhada de uma respeitosa carta, será para Nós muito agradavel se em Nosso nome lhe significardes que muita satisfação Nos causou não só o seu engenho e doutrina, mas tambem a demonstração do seu obsequio para com Nosco, o qual acceitamos com animo benevolo e grato. Entretando que seja a sua obra salutar ao maximo numero de leitores, que o seu auctor lucre por ella a devida estimação e louvor dos homens sensatos, e que o seu exemplo seja imitado por outros egualmente prestantes pelo engenho e sciencia das coisas: taes são os fructos que desejamos ao seu eximio trabalho. Finalmente esperando que Deus, pelo vosso ministerio e esforço e pelo dos outros Irmãos no Episcopado portuguez, ha de dar muitos e muitos incrementos a tão nobres estudos, concedemos muito affectuosamente a Benção Apostolica a Vós e ao dicto auctor do livro, bem como ao clero e povo confiado á vossa vigilancia.</p>"
+  },
+  {
+   "rotulo": "f013.5",
+   "continua": "",
+   "xml": "<p type=\"data-local\">Dado em Roma, junto de S. Pedro, no dia 29 abril de 1893, anno decimo sexto do Nosso Pontificado.</p>"
+  },
+  {
+   "rotulo": "f013.6",
+   "continua": "",
+   "xml": "<p type=\"fecho\">LEÃO XIII, PAPA</p>"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "id": "f006",
+ "pagina": -9,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "A peça aberta era dedicatoria, mas esta página abre o prefácio (AOS BENEVOLOS LEITORES). Expoentes («mo», «to») sem marcação própria, mantidos como texto em itálico. Na última linha do prefácio a pontuação final está depois da chamada de nota. O subtítulo «(da IV edição)» ficou como bloco centro, além de constar do título do abre.",
+ "tentativas": [
+  {
+   "segundos": 10.6,
+   "erros": [
+    "<p><hi rend=\"it\">No dia da festa do Sagrado Coração de <hi r…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc).",
+    "<p><hi rend=\"it\">No dia da festa do Sagrado Coração de <hi r…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc).",
+    "<p><hi rend=\"it\">Reconhecendo a vontade de Deus na vontade d…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc)."
+   ]
+  },
+  {
+   "segundos": 9.9,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.081948,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "prefacio",
+    "titulo": "AOS BENEVOLOS LEITORES (da IV edição)"
+   }
+  },
+  {
+   "rotulo": "f006.1",
+   "continua": "",
+   "xml": "<p type=\"centro\"><hi rend=\"it\">(da IV edição).</hi></p>"
+  },
+  {
+   "rotulo": "f006.2",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">No dia da festa do Sagrado Coração de </hi><hi rend=\"bold\">Jesus,</hi><hi rend=\"it\"> no anno de 1886, o Summo-Pontifice Leão XIII, de veneranda memoria, dignou-se destinar-nos a Professor de Philosophia thomista no Seminario de Coimbra, satisfazendo assim ao pedido do Exc.mo e Rev.mo Snr. Bispo-Conde, D. Manuel Correia de Bastos Pina. Conscios da nossa pouquidade e da importancia da missão, que circumstancias especiaes tornavam ainda mais difficil e delicada, pedimos que nos dispensassem do encargo; mas, não sendo attendidos os nossos votos, abandonamos, um mez depois, a nossa patria e, na vigilia da Natividade da Santissima Virgem, demos entrada no predicto Seminario, onde haviamos de permanecer pelo espaço de quatorze annos.</hi></p>"
+  },
+  {
+   "rotulo": "f006.3",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">Reconhecendo a vontade de Deus na vontade do seu augusto Vigario, entregámo-nos de alma e de coração ao comprimento dos nossos novos deveres, e concebemos immediatamente o designio de redigir um Compendio de Philosophia, baseado na doutrina de S.to Thomaz de Aquino. No mes de Maio de 1889, publicámos, pela Imprensa do Seminario, a primeira parte da Logica, escripta em lingua latina. E teriamos continuado a escrever nessa lingua, se pessoas auctorizadas e amigas não nos tivessem ponderado que, tendo nós recebido a missão de vulgarizar a doutrina thomista em Portugal, a nossa acção seria mais efficax e o fructo do nosso trabalho mais abundante, se o livro fosse escripto em lingua portugueza, não havendo no paiz um bom tratado, que traduzisse essa excellente doutrina na lingua de Camões</hi><note place=\"foot\" n=\"1\"><p>Não podemos deixar de recordar, e com immensa saudade e gratidão, um dedicadissimo Amigo, que Nosso Senhor nos deu, desde os primeiros dias da nossa chegada a Portugal, na pessoa do Doutor <hi rend=\"bold\">José Joaquim Lopes Praça,</hi> um dos mais illustrados Lentes cathedraticos da Faculdade de Direito na Universidade de Coimbra. Foi elle, quem nos deu a inspiração e o impulso para escrever, quem nos auxiliou com os seus sabios conselhos, quem elogiou e defendeu o nosso livro sempre e em toda a parte, e, sobretudo, perante o Conselho superior de Instrucção publica, e o adoptou como texto das suas lições ao malogrado Principe Real, D. Luiz Filippe. Nosso Senhor tenha aquella alma, tão boa e virtuosa, no seio da sua misericordia, e lhe dê a recompensa do muito bem, que nos quiz e nos fez!</p></note><hi rend=\"it\">.</hi></p>"
+  }
+ ]
+}

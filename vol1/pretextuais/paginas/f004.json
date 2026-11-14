@@ -1,0 +1,32 @@
+{
+ "id": "f004",
+ "pagina": -11,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "O carimbo circular da biblioteca no alto («Bibliotheca Monasterii…») foi omitido. A metade inferior está em branco.",
+ "tentativas": [
+  {
+   "segundos": 4.8,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.02665,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "dedicatoria",
+    "titulo": "DEDICATÓRIA"
+   }
+  },
+  {
+   "rotulo": "f004.1",
+   "continua": "",
+   "xml": "<p type=\"centro\">Sacratissimo</p>"
+  },
+  {
+   "rotulo": "f004.2",
+   "continua": "",
+   "xml": "<p type=\"centro\">CORDI JESU</p>"
+  }
+ ]
+}

@@ -42,8 +42,26 @@ NIVEIS = {  # do mais alto ao mais baixo
     "capitulo": "Capítulo",
     "artigo": "Artigo",
     "tese": "Tese",
+    # Peça pré-textual (folha de rosto, imprimatur, carta de aprovação, prefácio…). Não pertence à hierarquia
+    # da obra: fica por último só para que o marco não feche nem abra nenhum outro nó — a seguinte peça, ou a
+    # primeira parte, fecha a anterior, e nunca tem filhos.
+    "pretextual": "Pretextual",
 }
 NIVEIS_ORDEM = tuple(NIVEIS)
+
+# Tipos de peça pré-textual (sufixo do xml:id `vN.pre-<tipo>[-n]` do marco). Só os que têm texto impresso no
+# scan viram nó; capa e contracapa existem como componente, mas os scans não trazem capa impressa.
+PRETEXTUAIS = {
+    "capa": "Capa",
+    "contracapa": "Contracapa",
+    "rosto": "Folha de rosto",
+    "imprimatur": "Imprimatur",
+    "aprovacao": "Aprovação (approbatio)",
+    "dedicatoria": "Dedicatória",
+    "prefacio": "Prefácio",
+    "carta": "Carta de aprovação",
+    "outro": "Outra peça pré-textual",
+}
 
 TIPOS_PARAGRAFO = {
     "definicao": "Definição",
@@ -57,6 +75,13 @@ TIPOS_PARAGRAFO = {
     "observacao": "Observação",
     "anexo-titulo": "Título no anexo",   # divisão citada na Synopse/Índice (não é estrutura)
     "indice": "Entrada do índice",
+    # pré-textuais: o tipo diz a função tipográfica da linha (como o `type` de `anexo-titulo`)
+    "titulo-obra": "Título da obra",              # «ELEMENTOS DE PHILOSOPHIA» na folha de rosto
+    "centro": "Linha centrada",                   # autor, volume, edição, imprenta, dedicatória
+    "enderecamento": "Endereçamento da carta",    # «AO VENERAVEL IRMÃO / MANUEL BISPO DE COIMBRA»
+    "saudacao": "Saudação",                       # «Veneravel Irmão,» «Saude e Benção Apostolica.»
+    "data-local": "Data e lugar",                 # «Dado em Roma, junto de S. Pedro, …»
+    "fecho": "Fecho (assinatura)",                # «LEÃO XIII, PAPA» — à direita
 }
 
 REND = {"it": "Itálico", "bold": "Negrito", "sc": "Versalete"}

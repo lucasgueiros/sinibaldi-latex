@@ -1,0 +1,62 @@
+{
+ "id": "f012",
+ "pagina": -3,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "\"edíximus\" lido como «edíximus»/«edixímus» na imagem: transcrevi com acento por incerteza; provavelmente impresso «edíximus» sem acento (corrigir se necessário). Itálico no latim: «de Elementis philosophiae» aparece em romano na imagem. «LEO PP. XIII» e «LEÃO XIII, PAPA» em negrito/versal. Abri a peça «carta» sem fechar o prefácio (as linhas «+ THIAGO SINIBALDI / BISPO DE TIBERIADES» da página anterior encerraram o prefácio).",
+ "tentativas": [
+  {
+   "segundos": 11.9,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.040676000000000004,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "carta",
+    "titulo": "CARTA DE LEÃO XIII"
+   }
+  },
+  {
+   "rotulo": "f012.1",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">VENERABILI FRATRI<hi rend=\"sc\"/> EMMANUELI EPISCOPO CONIMBRICENSI</p>"
+  },
+  {
+   "rotulo": "f012.2",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">LEO PP. XIII</p>"
+  },
+  {
+   "rotulo": "f012.3",
+   "continua": "",
+   "xml": "<p type=\"saudacao\">Venerabilis Frater, Salutem et Apostolicam Benedictionem.</p>"
+  },
+  {
+   "rotulo": "f012.4",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">Satis novisti probari Nobis vehementer curam quam geris ut impense colantur in tua dioecesi philosophicae disciplinae iuxta rationem ac methodum divi Thomae explicatae. Hinc facile intelligis quo animo exceptum a Nobis sit novum eiusdem studii tui testimonium, quod litterae a Te die III Aprilis datae Nobis praebuere. Namque dum merita exornas laude, ac diligenter Nobis commendas opus a dilecto Filio Iacobo Sinibaldi conscriptum</hi> de Elementis philosophiae, <hi rend=\"it\">praeclare ostendis studium quo fereris ad eas disciplinas provehendas, quantique facias eorum industriam, qui illas novis illustrant luminibus operamque navant ut pronis alumnorum auribus animisque excipiantur. Quod quidem laboris genus opportunum ac frugiferum semper rati sumus ac palam edíximus ab ipsis Nostri Pontificatus exordiis. Nam quo latius thesauri effundantur sanae doctrinae a summo Viro Aquinate traditae animisque discentium penitius insederint, eo vulgatior ac receptior</hi></p>"
+  },
+  {
+   "rotulo": "f012.5",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">AO VENERAVEL IRMÃO MANUEL BISPO DE COIMBRA</p>"
+  },
+  {
+   "rotulo": "f012.6",
+   "continua": "",
+   "xml": "<p type=\"enderecamento\">LEÃO XIII, PAPA</p>"
+  },
+  {
+   "rotulo": "f012.7",
+   "continua": "",
+   "xml": "<p type=\"saudacao\">Veneravel Irmão, Saude e Benção Apostolica.</p>"
+  },
+  {
+   "rotulo": "f012.8",
+   "continua": "",
+   "xml": "<p>Bem sabeis que vivamente approvamos o vosso zelo pela profunda cultura que promoveis na vossa dioecese das doutrinas philosophicas, explicadas segundo a mente e o methodo de Santo Thomaz. Por isso facilmente deveis entender a satisfação com que recebemos o novo testemunho que a vossa carta de 3 de abril Nos dá da continuação dos vossos esforços. Por quanto, ao passo que realçaes com merecido louvor e Nos recommendaes encarecidamente a obra que o dilecto Filho Thiago Sinibaldi escreveu — <hi rend=\"it\">Elementos de philosophia,</hi> bem claramente demonstraes o empenho com que promoveis o estudo d'essas doutrinas, e o grande apreço em que tendes o trabalho dos que as illustram com luzes novas e se esforçam para que ellas sejam com facilidade aprendidas pelos seus alumnos. Em verdade sempre julgamos opportuno e fructifero este genero de trabalhos, e assim o manifestámos desde os primordios do Nosso Pontificado. Pois quanto mais largamente se diffundirem</p>"
+  }
+ ]
+}

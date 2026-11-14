@@ -1,0 +1,59 @@
+{
+ "id": "f011",
+ "pagina": -4,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Sem «sup»: «S.ta», «Rev.mo», «Exc.mo» transcritos em linha, sem sobrescrito. Nenhum bloco em aberto foi informado, então o 1º parágrafo não leva «continua». O texto no pé da página (depois do filete) é continuação de nota da página anterior e foi posto em nota-continua. «Sñr.» lido na imagem como «Sñr.»; pode ser «Sñr». Datação do ano «1923» com leitura incerta no scan («192?»).",
+ "tentativas": [
+  {
+   "segundos": 9.9,
+   "erros": [
+    "<p>a gloria de <hi rend=\"bold\">Deus</hi> e o bem das almas !…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc)."
+   ]
+  },
+  {
+   "segundos": 15.6,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.08809,
+ "itens": [
+  {
+   "rotulo": "f011.1",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">a gloria de </hi><hi rend=\"bold\">Deus</hi><hi rend=\"it\"> e o bem das almas !... Entrámos no Santuario das Apparições, e prostrado aos pés do Altar, diante da Urna de S.ta Margarida Maria, agradecemos ao divino Coração todas as graças, que nos tinha dispensado... </hi><hi rend=\"bold\">Jesus</hi><hi rend=\"it\"> quiz dar-nos outra prova do seu agrado, mais authentica e mais solemne, na Benção Apostolica, que nos concederam os Summos Pontifices Leão XIII e Bento XV. Essa benção nos deu a convicção de que </hi><hi rend=\"bold\">Deus</hi><hi rend=\"it\"> tinha abençoado as nossas intenções e os nossos esforços.</hi></p>"
+  },
+  {
+   "rotulo": "f011.2",
+   "continua": "",
+   "xml": "<p type=\"data-local\"><hi rend=\"it\">Roma, 18 de Julho de 1923, Sexto centenario da Canonização de S. Thomaz de Aquino.</hi></p>"
+  },
+  {
+   "rotulo": "f011.3",
+   "continua": "",
+   "xml": "<p type=\"fecho\">+ THIAGO SINIBALDI</p>"
+  },
+  {
+   "rotulo": "f011.4",
+   "continua": "",
+   "xml": "<p type=\"fecho\"><hi rend=\"sc\">BISPO DE TIBERIADES</hi></p>"
+  },
+  {
+   "rotulo": "f011.5",
+   "continua": "",
+   "xml": "<p><anchor type=\"asterisco\"/></p>"
+  },
+  {
+   "nota": [
+    {
+     "continua": true,
+     "xml": "<p>uma verdadeira idea das necessidades d' aquella illustre nação e das suas felizes disposições para tudo o que diz respeito á cultura intellectual, e intimamente se liga com a Fé Catholica, de que ella, por muitos seculos, foi além dos mares o palladio e a gloria ».</p>"
+    },
+    {
+     "continua": false,
+     "xml": "<p>O Rev.mo P. <hi rend=\"it\">Luiz Gonzaga Cabral</hi>, no seu <hi rend=\"it\">Vieira pregador</hi>, na pag. 377, do t. I, em nota, escreve: « Entre nós os estudos philosophicos, outr' ora tão florescentes, passaram para uma decadencia, cujas funestas consequencias são tão manifestas, que me parece inutil enumera-las. A philosophia Conimbricense foi outr' ora um titulo de gloria para Portugal... Felizmente parece ter chegado tambem para isto o momento do renascimento; e foi tambem de Coimbra, como outr' ora, que começou o impulso. Uma obra excellente, cheia de erudição e de solidez de doutrina, foi publicada ha poucos annos pelo Exc.mo e Rev.mo Sñr. Dr. Thiago Sinibaldi: <hi rend=\"it\">Elementos de Philosophia</hi> (Coimbra, Imprensa do Seminario, 2 vol.). Nestes dois preciosos volumes condensou o auctor com notavel clareza e brevidade os principios da verdadeira philosophia e discutiu com imparcialidade e vigor os diversos systemas e theorias das escholas modernas. Os <hi rend=\"it\">Elementos de Philosophia</hi> são um livro de grande alcance e ao mesmo tempo de muita actualidade. O clero particularmente encontrará nelles abundantes materiaes para a solução dos problemas philosophicos mais debatidos em nossos dias ».</p>"
+    }
+   ]
+  }
+ ]
+}

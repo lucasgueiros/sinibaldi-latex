@@ -10,3 +10,4 @@
 - [08-estrutura-e-trechos.md](08-estrutura-e-trechos.md) — `tools/titulos.py` (proposta de `estrutura.tsv` + alertas) e `tools/trecho.py` (trechos por id, tese ou página).
 - [09-revisao-llm.md](09-revisao-llm.md) — revisão final por LLM (Haiku) sobre o TEI, uma chamada por página (`tools/revisa_paginas.py`), corrigindo também a fronteira corpo/nota: método, validador, medição; e o bug de `trecho.py` que perdia a 1ª linha de cada página.
 - [10-citacoes.md](10-citacoes.md) — componente de citação (`<quote>`/`<bibl>`, direta/indireta/menção, citação interrompida), reconhecimento automático pelas aspas (`marcar_citacoes`), fichas e fontes (BibTeX) e a troca, na nova edição, das referências de Sinibaldi pelas precisas.
+- [11-pretextuais.md](11-pretextuais.md) — elementos pré-textuais (rosto, imprimatur, cartas de aprovação, prefácio): componente `pretextual` (nó + parágrafos tipados), revisão por LLM (`tools/revisa_pretextuais.py`) e `manage.py aplicar_pretextuais`.

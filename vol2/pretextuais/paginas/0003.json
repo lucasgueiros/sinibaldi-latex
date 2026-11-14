@@ -1,0 +1,92 @@
+{
+ "id": "0003",
+ "pagina": 3,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Carimbo da Bibliotheca Monasterii Sti. Benedicti Sti. Pauli ignorado; gravura do Sagrado Coração ignorada. Folha de rosto do vol. II, 4.ª edição (1916).",
+ "tentativas": [
+  {
+   "segundos": 7.9,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.03171,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "rosto",
+    "titulo": "FOLHA DE ROSTO"
+   }
+  },
+  {
+   "rotulo": "0003.1",
+   "continua": "",
+   "xml": "<p type=\"centro\">D. THIAGO SINIBALDI</p>"
+  },
+  {
+   "rotulo": "0003.2",
+   "continua": "",
+   "xml": "<p type=\"centro\">BISPO TITULAR DE TIBERIADES</p>"
+  },
+  {
+   "rotulo": "0003.3",
+   "continua": "",
+   "xml": "<p type=\"centro\">DOUTOR EM PHILOSOPHIA, THEOLOGIA E DIREITO CANONICO</p>"
+  },
+  {
+   "rotulo": "0003.4",
+   "continua": "",
+   "xml": "<p type=\"centro\">MEMBRO DA ACADEMIA ROMANA DE S. THOMAZ D'AQUINO</p>"
+  },
+  {
+   "rotulo": "0003.5",
+   "continua": "",
+   "xml": "<p type=\"centro\">SECRETARIO DA S. C. DOS SEMINARIOS E DAS UNIVERSIDADES DOS ESTUDOS</p>"
+  },
+  {
+   "rotulo": "0003.6",
+   "continua": "",
+   "xml": "<p type=\"titulo-obra\">ELEMENTOS</p>"
+  },
+  {
+   "rotulo": "0003.7",
+   "continua": "",
+   "xml": "<p type=\"titulo-obra\">DE</p>"
+  },
+  {
+   "rotulo": "0003.8",
+   "continua": "",
+   "xml": "<p type=\"titulo-obra\">PHILOSOPHIA</p>"
+  },
+  {
+   "rotulo": "0003.9",
+   "continua": "",
+   "xml": "<p type=\"centro\">VOLUME II</p>"
+  },
+  {
+   "rotulo": "0003.10",
+   "continua": "",
+   "xml": "<p type=\"centro\">ANTHROPOLOGIA - THEODICEA - MORAL</p>"
+  },
+  {
+   "rotulo": "0003.11",
+   "continua": "",
+   "xml": "<p type=\"centro\">QUARTA EDIÇÃO</p>"
+  },
+  {
+   "rotulo": "0003.12",
+   "continua": "",
+   "xml": "<p type=\"centro\">ROMA</p>"
+  },
+  {
+   "rotulo": "0003.13",
+   "continua": "",
+   "xml": "<p type=\"centro\">Via del Banco S. Spirito, 12</p>"
+  },
+  {
+   "rotulo": "0003.14",
+   "continua": "",
+   "xml": "<p type=\"centro\">1916</p>"
+  }
+ ]
+}

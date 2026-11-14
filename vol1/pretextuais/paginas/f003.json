@@ -1,0 +1,42 @@
+{
+ "id": "f003",
+ "pagina": -12,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Abreviatura «S.ᵗᵃᵉ» (Sanctae) lida na imagem; o OCR deu «Sec». Carimbo/etiqueta de biblioteca ignorados. Tratei o imprimatur como peça nova, separada da folha de rosto.",
+ "tentativas": [
+  {
+   "segundos": 8.5,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.034644,
+ "itens": [
+  {
+   "abre": {
+    "tipo": "imprimatur",
+    "titulo": "IMPRIMATUR"
+   }
+  },
+  {
+   "rotulo": "f003.1",
+   "continua": "",
+   "xml": "<p type=\"data-local\"><hi rend=\"it\">Sublaci ad S.ᵗᵃᵉ Scholasticae, die 15 Augusti anno 1927.</hi></p>"
+  },
+  {
+   "rotulo": "f003.2",
+   "continua": "",
+   "xml": "<p type=\"fecho\">† SIMON LAURENTIUS SALVI O. S. B.</p>"
+  },
+  {
+   "rotulo": "f003.3",
+   "continua": "",
+   "xml": "<p type=\"fecho\"><hi rend=\"sc\">ABBAS ET ORDINARIUS</hi></p>"
+  },
+  {
+   "rotulo": "f003.4",
+   "continua": "",
+   "xml": "<p type=\"centro\">Subiaco — Tipografia dei Monasteri</p>"
+  }
+ ]
+}
