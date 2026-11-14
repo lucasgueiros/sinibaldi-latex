@@ -1,0 +1,29 @@
+{
+ "pagina": 297,
+ "paginas": [
+  297,
+  298,
+  299
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (hao→hac, \"a. 8\"→\"a. 3\", Fnçamos, reflezao, a0, Dus, do-Verbo, Zantelligibilidade, differenca, \"á: nossa\"), ordinais (9.º→º, 1.ª/2.ª, 0)→c), 37º→37ª), hifenização juntada (\"ontolo- gica\"), \"|\" e \"A\" espúrios removidos, pontuação e itálicos/versalete (Deus, De Trin.).\nFronteira corpo/nota: nenhuma mudança estrutural; a nota 1 de p. 297 mantém-se, com continuações em p. 298 (inclusive \"Façamos… Rosmini\", em nota) e em p. 299 (até \"37ª… ontologismo\"), conforme o fragmento.\nDúvidas: \"Logo\" (p. 297) mantido em negrito sem certeza pela imagem; não tenho certeza se o trecho \"Façamos agora… Rosmini\" em p. 298 é nota ou corpo, mantive a estrutura do pipeline.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (hao→hac, \"a. 8\"→\"a. 3\", Fnçamos, reflezao, a0, Dus, do-Verbo, Zantelligibilidade, differenca, \"á: nossa\"), ordinais (9.º→º, 1.ª/2.ª, 0)→c), 37º→37ª), hifenização juntada (\"ontolo- gica\"), \"|\" e \"A\" espúrios removidos, pontuação e itálicos/versalete (Deus, De Trin.).\nFronteira corpo/nota: nenhuma mudança estrutural; a nota 1 de p. 297 mantém-se, com continuações em p. 298 (inclusive \"Façamos… Rosmini\", em nota) e em p. 299 (até \"37ª… ontologismo\"), conforme o fragmento.\nDúvidas: \"Logo\" (p. 297) mantido em negrito sem certeza pela imagem; não tenho certeza se o trecho \"Façamos agora… Rosmini\" em p. 298 é nota ou corpo, mantive a estrutura do pipeline.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.019033300000000003,
+ "duration_ms": 131326,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24778,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 33111
+ },
+ "reparo": false
+}

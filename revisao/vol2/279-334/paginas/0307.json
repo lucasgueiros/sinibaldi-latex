@@ -1,0 +1,30 @@
+{
+ "pagina": 307,
+ "paginas": [
+  307,
+  308,
+  309,
+  310
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (extrinseco, incircumscripto, intuições, empiricas, doze, modo, inexistencia, Thomaz, principiado, objectos, apprehensão, \"já\", \"começa\", \"só\", \"e do\"); \"&amp;\" por \"e/a\"; acentos \"á\"→\"é/a\"; \"o)\"→\"c)\" nas alíneas de Cousin; ordinais \"1.ª–4.ª\" nas listas de Kant e Cousin (conferir se a imagem é ª ou º); pontuação do 189 (\"falso. .\") e heading do 189 passou a `<label>` + negrito, como nas teses 190–191.\nFronteira corpo/nota: nenhuma mudança de estrutura. A nota 1 da p. 307 segue até a p. 309 (inclui \"a) Kant desenvolve…\" e a continuação nas pp. 308–309); a nota 1 da p. 309 vai até a p. 310; a nota 1 da p. 310 está correta. O trecho alto da área de notas da p. 307 não foi acrescentado, conforme a instrução.\nDúvidas: \"apenas\" em negrito (189 a) pode não ser negrito na imagem); \"na essencia da sujeito\" mantido como impresso; \"que nos se manifestaria\" mantido; a pontuação \"189.\" agora é `<label>`, o que pode divergir do padrão do pipeline.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (extrinseco, incircumscripto, intuições, empiricas, doze, modo, inexistencia, Thomaz, principiado, objectos, apprehensão, \"já\", \"começa\", \"só\", \"e do\"); \"&amp;\" por \"e/a\"; acentos \"á\"→\"é/a\"; \"o)\"→\"c)\" nas alíneas de Cousin; ordinais \"1.ª–4.ª\" nas listas de Kant e Cousin (conferir se a imagem é ª ou º); pontuação do 189 (\"falso. .\") e heading do 189 passou a `<label>` + negrito, como nas teses 190–191.\nFronteira corpo/nota: nenhuma mudança de estrutura. A nota 1 da p. 307 segue até a p. 309 (inclui \"a) Kant desenvolve…\" e a continuação nas pp. 308–309); a nota 1 da p. 309 vai até a p. 310; a nota 1 da p. 310 está correta. O trecho alto da área de notas da p. 307 não foi acrescentado, conforme a instrução.\nDúvidas: \"apenas\" em negrito (189 a) pode não ser negrito na imagem); \"na essencia da sujeito\" mantido como impresso; \"que nos se manifestaria\" mantido; a pontuação \"189.\" agora é `<label>`, o que pode divergir do padrão do pipeline.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0215967,
+ "duration_ms": 132472,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31807,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 36832
+ },
+ "reparo": false
+}

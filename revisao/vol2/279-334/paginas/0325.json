@@ -1,0 +1,32 @@
+{
+ "pagina": 325,
+ "paginas": [
+  325,
+  326,
+  327,
+  328,
+  329,
+  330
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (singulavidade, serium, differenca, dulcis, pAiantasma, plantasma, reflerão/reflevão, soilicet, adiumetionem, \"Of\"→Cf., \"a. 9\"→\"a. 3\", \"un\"→\"um\"), hífens de fim de linha, aspas e «» espúrios, \"á\"→\"a\" onde o impresso tem \"a\", itálicos excedentes, \"rá\" removido, \"&amp;\" → \"a\", ponto final faltante, \"Pergunta-so\"→\"Pergunta-se\".\nFronteira corpo/nota NÃO alterada: nota 1 (pág. 325) mantida do chamado \"indirecto\" até \"Concluimos…\" (pág. 330), com o corpo das págs. 326–329 (201 a/b) ainda após a nota. Dúvidas: no original o corpo da pág. 328 (título \"b)\") e 326–327 interrompem a nota 1 no alto de cada página; não reestruturei por ser uma nota longa. Não incluí o fim da nota anterior no alto da pág. 325 (trecho anterior).\nDúvidas restantes: se o \"Pergunta-se\" (pág. 325, letra mais grande) é mesmo início da nota 1 ou corpo; e se a nota 1 deveria ser dividida nas páginas 328–330.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (singulavidade, serium, differenca, dulcis, pAiantasma, plantasma, reflerão/reflevão, soilicet, adiumetionem, \"Of\"→Cf., \"a. 9\"→\"a. 3\", \"un\"→\"um\"), hífens de fim de linha, aspas e «» espúrios, \"á\"→\"a\" onde o impresso tem \"a\", itálicos excedentes, \"rá\" removido, \"&amp;\" → \"a\", ponto final faltante, \"Pergunta-so\"→\"Pergunta-se\".\nFronteira corpo/nota NÃO alterada: nota 1 (pág. 325) mantida do chamado \"indirecto\" até \"Concluimos…\" (pág. 330), com o corpo das págs. 326–329 (201 a/b) ainda após a nota. Dúvidas: no original o corpo da pág. 328 (título \"b)\") e 326–327 interrompem a nota 1 no alto de cada página; não reestruturei por ser uma nota longa. Não incluí o fim da nota anterior no alto da pág. 325 (trecho anterior).\nDúvidas restantes: se o \"Pergunta-se\" (pág. 325, letra mais grande) é mesmo início da nota 1 ou corpo; e se a nota 1 deveria ser dividida nas páginas 328–330.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.036391200000000005,
+ "duration_ms": 266192,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44442,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 63894
+ },
+ "reparo": false
+}

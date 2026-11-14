@@ -1,0 +1,38 @@
+>> haiku: 19 pedaço(s) de revisao/vol2/279-334/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 286 (2 pp.): ok  US$ 0.016  122s  ent 18280 saí 28821
+  p. 288 (1 pp.): ok  US$ 0.003  17s  ent 10884 saí 4671
+  p. 289 (2 pp.): ok  US$ 0.010  63s  ent 18328 saí 16959
+  p. 283 (3 pp.): ok (2ª tentativa)  US$ 0.043  283s  ent 52896 saí 76311
+  p. 291 (2 pp.): ok  US$ 0.012  80s  ent 17839 saí 21196
+  p. 296 (1 pp.): ok  US$ 0.005  28s  ent 10739 saí 7208
+  p. 279 (4 pp.): FALHOU: tirou texto demais das notas para o corpo (~8870 caracteres; notas 10590 → 1708, corpo 1530 → 10400; máximo 800). Notas longas têm vários parágrafos em letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo  US$ 0.052  371s  ent 63406 saí 92106
+  p. 293 (3 pp.): ok  US$ 0.018  116s  ent 25230 saí 30403
+  p. 297 (3 pp.): ok  US$ 0.019  131s  ent 24778 saí 33111
+  p. 302 (6 pp.): ok  US$ 0.023  143s  ent 44841 saí 37567
+  p. 307 (4 pp.): ok  US$ 0.022  132s  ent 31807 saí 36832
+  p. 313 (1 pp.): ok  US$ 0.005  27s  ent 10682 saí 6946
+  p. 299 (4 pp.): FALHOU: copiou ~357 palavras que já estão no trecho anterior (fim de nota que continua de lá e já foi transcrito)  US$ 0.041  251s  ent 62964 saí 69459
+  p. 311 (2 pp.): ok  US$ 0.011  69s  ent 17650 saí 18384
+  p. 320 (4 pp.): FALHOU: copiou ~25 palavras que já estão no trecho anterior (fim de nota que continua de lá e já foi transcrito)  US$ 0.047  311s  ent 62660 saí 81236
+  p. 323 (3 pp.): FALHOU: copiou ~49 palavras que já estão no trecho anterior (fim de nota que continua de lá e já foi transcrito)  US$ 0.047  331s  ent 47392 saí 83641
+  p. 314 (7 pp.): ok (2ª tentativa)  US$ 0.084  564s  ent 106282 saí 145861
+  p. 325 (6 pp.): ok  US$ 0.036  266s  ent 44442 saí 63894
+  p. 330 (5 pp.): ok  US$ 0.036  252s  ent 40333 saí 62988
+>> 19/19 pedaços, 4 falha(s), 0 com fronteira mudada, US$ 0.53, 59.3 min de chamadas; tokens {'input_tokens': 711433, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 917594}
+>> revisao/vol2/279-334/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 1 pedaço(s) de revisao/vol2/279-334/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 279 (4 pp.): ok  US$ 0.185  70s  ent 31593 saí 12155
+>> 19/19 pedaços, 3 falha(s), 0 com fronteira mudada, US$ 0.66, 54.3 min de chamadas; tokens {'input_tokens': 679620, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 837643}
+>> revisao/vol2/279-334/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 1 pedaço(s) de revisao/vol2/279-334/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 299 (4 pp.): ok  US$ 0.154  53s  ent 31376 saí 9112
+>> 19/19 pedaços, 2 falha(s), 0 com fronteira mudada, US$ 0.78, 51.0 min de chamadas; tokens {'input_tokens': 648032, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 777296}
+>> revisao/vol2/279-334/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 1 pedaço(s) de revisao/vol2/279-334/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 320 (4 pp.): FALHOU: copiou ~25 palavras que já estão no trecho anterior (fim de nota que continua de lá e já foi transcrito)  US$ 0.354  142s  ent 62622 saí 22916
+>> 19/19 pedaços, 2 falha(s), 0 com fronteira mudada, US$ 1.08, 48.2 min de chamadas; tokens {'input_tokens': 647994, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 718976}
+>> revisao/vol2/279-334/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 1 pedaço(s) de revisao/vol2/279-334/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 323 (3 pp.): FALHOU: copiou ~49 palavras que já estão no trecho anterior (fim de nota que continua de lá e já foi transcrito)  US$ 0.237  87s  ent 47354 saí 14205
+>> 19/19 pedaços, 2 falha(s), 0 com fronteira mudada, US$ 1.27, 44.1 min de chamadas; tokens {'input_tokens': 647956, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 649540}
+>> revisao/vol2/279-334/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

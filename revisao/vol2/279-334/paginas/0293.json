@@ -1,0 +1,29 @@
+{
+ "pagina": 293,
+ "paginas": [
+  293,
+  294,
+  295
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (exoelusivamente, ntwicüo, Gióberti, Bonneily, Densinger, creacüo, ewistente, seeundum, \"&amp;d\", pensarhentos), acentos e preposições (á/a, dá/á, d/á), numerações (opusc. 18→13, c. 02→52, 9-2 q. 178→2-2 q. 173, k)→b)), pontuação e um \"/\" espúrio; itálicos ajustados à imagem.\nFronteiras: nenhuma alteração. Conferi a nota 293-1 (rodapé de 293 e continuação em 294 até \"C. Gentes\"), a 294-1 (continua em 295) e a 295-1 — todas coerentes com a imagem; o texto \"b) De mais…\" até \"b) O tradicionalismo mitigado…\" fica na nota 293-1 por estar abaixo do filete, apesar de ter aspecto de letra maior — dúvida de tipo de letra, não alterei.\nDúvidas restantes: tipo de letra exato de \"b) De mais…\" (293 inferior) e da separação entre 293-1 e 294 no alto da página 294.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (exoelusivamente, ntwicüo, Gióberti, Bonneily, Densinger, creacüo, ewistente, seeundum, \"&amp;d\", pensarhentos), acentos e preposições (á/a, dá/á, d/á), numerações (opusc. 18→13, c. 02→52, 9-2 q. 178→2-2 q. 173, k)→b)), pontuação e um \"/\" espúrio; itálicos ajustados à imagem.\nFronteiras: nenhuma alteração. Conferi a nota 293-1 (rodapé de 293 e continuação em 294 até \"C. Gentes\"), a 294-1 (continua em 295) e a 295-1 — todas coerentes com a imagem; o texto \"b) De mais…\" até \"b) O tradicionalismo mitigado…\" fica na nota 293-1 por estar abaixo do filete, apesar de ter aspecto de letra maior — dúvida de tipo de letra, não alterei.\nDúvidas restantes: tipo de letra exato de \"b) De mais…\" (293 inferior) e da separação entre 293-1 e 294 no alto da página 294.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0177245,
+ "duration_ms": 115921,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25230,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 30403
+ },
+ "reparo": false
+}

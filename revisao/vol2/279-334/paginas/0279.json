@@ -1,0 +1,30 @@
+{
+ "pagina": 279,
+ "paginas": [
+  279,
+  280,
+  281,
+  282
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (letras trocadas, acentos, ordinais 1.º–5.º, «, itálicos, \"23 de julho\", etc.). Fronteira corpo/nota: mantida a nota 1 longa da p. 279, que atravessa as pp. 280–282 (letra pequena abaixo do filete em todas elas), e a nota 282-1; nenhuma mudança de fronteira. Nos pb internos da nota removi o atributo facs (ficam como <pb n=\"N\"/>); os pb do corpo ficaram intactos. Dúvida: \"opèra\" na p. 281 (grave ou agudo).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (letras trocadas, acentos, ordinais 1.º–5.º, «, itálicos, \"23 de julho\", etc.). Fronteira corpo/nota: mantida a nota 1 longa da p. 279, que atravessa as pp. 280–282 (letra pequena abaixo do filete em todas elas), e a nota 282-1; nenhuma mudança de fronteira. Nos pb internos da nota removi o atributo facs (ficam como <pb n=\"N\"/>); os pb do corpo ficaram intactos. Dúvida: \"opèra\" na p. 281 (grave ou agudo).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.184736,
+ "duration_ms": 69841,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31593,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12155
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 296,
+ "paginas": [
+  296
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções de OCR (ç/ã/é, \"émamediato\"→\"immediato\", \"ó\"→\"é\", \"Oucamos\"→\"Ouçamos\", \"Sieut\"→\"Sicut\", \"differenca\"→\"differença\", \"2 ordem\"→\"a ordem\", \"intelligenocia\"→\"intelligencia\", \"?\" espúrio removido), pontuação (vírgulas em \"natural, mas\", \"(intellectus creati),\", fecho \").\" em \"(De ver., q. 8, a. III)\") e itálico de \"immaterial na materia\".\nFronteira corpo/nota: conferida e mantida — a nota 1 começa após o filete (abaixo de \"c) …sentidos.\") e segue até \"ad videndum Deum.\" na metade inferior, incluindo os travessões; a chamada permanece no ponto de \"falso\", como no fragmento. Nenhuma mudança de fronteira.\nDúvida restante: nenhuma relevante; a metade inferior foi lida como continuação da nota 1 pela sequência do argumento e pela posição abaixo do filete.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções de OCR (ç/ã/é, \"émamediato\"→\"immediato\", \"ó\"→\"é\", \"Oucamos\"→\"Ouçamos\", \"Sieut\"→\"Sicut\", \"differenca\"→\"differença\", \"2 ordem\"→\"a ordem\", \"intelligenocia\"→\"intelligencia\", \"?\" espúrio removido), pontuação (vírgulas em \"natural, mas\", \"(intellectus creati),\", fecho \").\" em \"(De ver., q. 8, a. III)\") e itálico de \"immaterial na materia\".\nFronteira corpo/nota: conferida e mantida — a nota 1 começa após o filete (abaixo de \"c) …sentidos.\") e segue até \"ad videndum Deum.\" na metade inferior, incluindo os travessões; a chamada permanece no ponto de \"falso\", como no fragmento. Nenhuma mudança de fronteira.\nDúvida restante: nenhuma relevante; a metade inferior foi lida como continuação da nota 1 pela sequência do argumento e pela posição abaixo do filete.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046779000000000005,
+ "duration_ms": 28241,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10739,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7208
+ },
+ "reparo": false
+}

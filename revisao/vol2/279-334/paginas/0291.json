@@ -1,0 +1,28 @@
+{
+ "pagina": 291,
+ "paginas": [
+  291,
+  292
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: \"dição\" perdida no início de p. 291 e \"á/a\", \"£/i\", \"$/é\", \"mihil/nihil\", \"8/3\", \"19/12\", \"1.9/1.º\" e \"0)/c)\" (OCR), itálicos de \"cf. Summ, Theol.\" e \"e\", \"forga/força\", \"apolando/apoiando\", \"á nossa alma/a nossa alma\", além de hífens e acentos.\nFronteira corpo/nota: verifiquei todas as páginas (291–292) e não mudei nenhuma; o texto de 291 abaixo do filete e a continuação em 292 são nota, e \"(1) O tradicionalismo…\" em 292 é a nota de 189.\nDúvidas: o número da tese é \"182.\" na imagem, mas deixei `n=\"189\"` e `xml:id=\"t189\"` por regra de atributos (só o rótulo foi corrigido); \"183. O tradicionalismo é falso.\" parece todo em negrito, o que alterei; \"é\" vs \"è\" em \"é forma substancial\" e \"aspecies\" mantidos como lidos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: \"dição\" perdida no início de p. 291 e \"á/a\", \"£/i\", \"$/é\", \"mihil/nihil\", \"8/3\", \"19/12\", \"1.9/1.º\" e \"0)/c)\" (OCR), itálicos de \"cf. Summ, Theol.\" e \"e\", \"forga/força\", \"apolando/apoiando\", \"á nossa alma/a nossa alma\", além de hífens e acentos.\nFronteira corpo/nota: verifiquei todas as páginas (291–292) e não mudei nenhuma; o texto de 291 abaixo do filete e a continuação em 292 são nota, e \"(1) O tradicionalismo…\" em 292 é a nota de 189.\nDúvidas: o número da tese é \"182.\" na imagem, mas deixei `n=\"189\"` e `xml:id=\"t189\"` por regra de atributos (só o rótulo foi corrigido); \"183. O tradicionalismo é falso.\" parece todo em negrito, o que alterei; \"é\" vs \"è\" em \"é forma substancial\" e \"aspecies\" mantidos como lidos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0123819,
+ "duration_ms": 80027,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17839,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 21196
+ },
+ "reparo": false
+}

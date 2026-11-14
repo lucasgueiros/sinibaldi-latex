@@ -1,0 +1,32 @@
+{
+ "pagina": 302,
+ "paginas": [
+  302,
+  303,
+  304,
+  305,
+  306,
+  307
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (Loche→Locke, Be→Se, volígóes, ficlicio, gmiversalidade, subjeciido, éndissoluvelmente, acecumulação, immutayvel, £ranscendentalismo, tintelligencia, reflexdo, supposiõão, comtudo á, \"que á psychologia\", \"absurdos v.\", rodapé \"9)\"→\"º)\", \"o)\"→\"c)\" e \"8)\"/\"8.º)\"→g)/3.ª), numeração ª), crases \"a\"→\"á\", \"&amp;\"→\"a\"/\"é\", \"20 F ; Vor. II\" (rodapé de p.305) removido e a frase unida ao \"sensiveis\" da p.306, \"fim 9 á origem\"→\"fim e a origem\", \"sb\"→\"só\", \"na/wraes\"→\"naturaes\").\nFronteira corpo/nota: confirmada, sem alteração. A nota n302-1 começa em \"(1) Refutemos\" no pé da p.302 e termina em \"fatalmente.\" na p.307; o texto acima do filete na p.302 (fim de nota anterior) e a nota \"(1) O idealismo\" da p.307 ficam fora deste trecho. O alerta da p.306 (continuação) foi confirmado: a nota segue para 306 e 307.\nDúvidas: \"basêam\" (grafia do acento na imagem), \"quer. saber\" (ponto lido na imagem) e a numeração \"1.ª)\" a \"4.ª)\" (superíndice lido como ª).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (Loche→Locke, Be→Se, volígóes, ficlicio, gmiversalidade, subjeciido, éndissoluvelmente, acecumulação, immutayvel, £ranscendentalismo, tintelligencia, reflexdo, supposiõão, comtudo á, \"que á psychologia\", \"absurdos v.\", rodapé \"9)\"→\"º)\", \"o)\"→\"c)\" e \"8)\"/\"8.º)\"→g)/3.ª), numeração ª), crases \"a\"→\"á\", \"&amp;\"→\"a\"/\"é\", \"20 F ; Vor. II\" (rodapé de p.305) removido e a frase unida ao \"sensiveis\" da p.306, \"fim 9 á origem\"→\"fim e a origem\", \"sb\"→\"só\", \"na/wraes\"→\"naturaes\").\nFronteira corpo/nota: confirmada, sem alteração. A nota n302-1 começa em \"(1) Refutemos\" no pé da p.302 e termina em \"fatalmente.\" na p.307; o texto acima do filete na p.302 (fim de nota anterior) e a nota \"(1) O idealismo\" da p.307 ficam fora deste trecho. O alerta da p.306 (continuação) foi confirmado: a nota segue para 306 e 307.\nDúvidas: \"basêam\" (grafia do acento na imagem), \"quer. saber\" (ponto lido na imagem) e a numeração \"1.ª)\" a \"4.ª)\" (superíndice lido como ª).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.023267600000000003,
+ "duration_ms": 142560,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44841,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 37567
+ },
+ "reparo": false
+}
