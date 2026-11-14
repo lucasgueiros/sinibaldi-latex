@@ -1,0 +1,31 @@
+{
+ "pagina": 272,
+ "paginas": [
+  272,
+  273,
+  274,
+  275,
+  276
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (cinsenta→cinzenta, deyeria→deveria, vola→vela, obstaeulos, Mun→Munk, surdes→surdez, rai→raiz, \"wna\"→una, \"&\"→a/á, \"l. B\"→l. 3, lus→luz, cór→côr, ete.→etc., \"affiirmam\", \"parcepção\", \"distinecüo\", \"énsensivel\", \"communicagüo\", \"D)\"→\"b)\"); removidos \"|\" e \"A\" espúrios, o rodapé \"18 Vor. TL\" e o \"-\" em \"seja - consciente\"; pontuação final de \"intencional.\"; \"Dissemos\"/\"só\"/\"os\" etc. conforme a imagem.\nFronteira: nenhuma mudança de fronteira corpo/nota. A nota (1) da p. 272 vai até o início da p. 276 (\"o acto da visão…\"); o trecho \"Depois de termos tratado…\" (pp. 274–275) está abaixo do filete, em letra pequena, e é continuação da nota: o alerta \"vão nas notas\" é falso. Único ajuste estrutural: na p. 274 \"são os / centros\" estava quebrado em dois parágrafos por causa do rodapé; juntei-os num só <p>.\nDúvidas: se \"cegueira\"/\"surdez\" e \"Cf.\" estão em itálico no original; se \"tem\"/\"têm\" e \"côres\"/\"cores\" correspondem exatamente à impressão; se \"sentido;\" (p. 274) é itálico.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (cinsenta→cinzenta, deyeria→deveria, vola→vela, obstaeulos, Mun→Munk, surdes→surdez, rai→raiz, \"wna\"→una, \"&\"→a/á, \"l. B\"→l. 3, lus→luz, cór→côr, ete.→etc., \"affiirmam\", \"parcepção\", \"distinecüo\", \"énsensivel\", \"communicagüo\", \"D)\"→\"b)\"); removidos \"|\" e \"A\" espúrios, o rodapé \"18 Vor. TL\" e o \"-\" em \"seja - consciente\"; pontuação final de \"intencional.\"; \"Dissemos\"/\"só\"/\"os\" etc. conforme a imagem.\nFronteira: nenhuma mudança de fronteira corpo/nota. A nota (1) da p. 272 vai até o início da p. 276 (\"o acto da visão…\"); o trecho \"Depois de termos tratado…\" (pp. 274–275) está abaixo do filete, em letra pequena, e é continuação da nota: o alerta \"vão nas notas\" é falso. Único ajuste estrutural: na p. 274 \"são os / centros\" estava quebrado em dois parágrafos por causa do rodapé; juntei-os num só <p>.\nDúvidas: se \"cegueira\"/\"surdez\" e \"Cf.\" estão em itálico no original; se \"tem\"/\"têm\" e \"côres\"/\"cores\" correspondem exatamente à impressão; se \"sentido;\" (p. 274) é itálico.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.025959100000000002,
+ "duration_ms": 168239,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 36786,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 44561
+ },
+ "reparo": false
+}

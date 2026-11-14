@@ -1,0 +1,20 @@
+>> haiku: 17 pedaço(s) de revisao/vol2/229-278/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 228 (1 pp.): ok  US$ 0.001  6s  ent 9242 saí 951
+  p. 229 (1 pp.): ok  US$ 0.003  20s  ent 10236 saí 4846
+  p. 230 (4 pp.): ok  US$ 0.020  121s  ent 32466 saí 34067
+  p. 241 (1 pp.): ok  US$ 0.005  28s  ent 10980 saí 7042
+  p. 234 (4 pp.): ok  US$ 0.029  197s  ent 32374 saí 51248
+  p. 243 (1 pp.): ok  US$ 0.003  16s  ent 9460 saí 3411
+  p. 244 (3 pp.): ok  US$ 0.008  56s  ent 19646 saí 11941
+  p. 242 (6 pp.): ok  US$ 0.023  131s  ent 46390 saí 37355
+  p. 237 (4 pp.): ok (2ª tentativa)  US$ 0.046  291s  ent 65846 saí 78106
+  p. 257 (3 pp.): ok  US$ 0.013  76s  ent 23065 saí 21121
+  p. 247 (4 pp.): ok  US$ 0.018  112s  ent 29616 saí 30103
+  p. 250 (8 pp.): ok  US$ 0.037  235s  ent 59884 saí 62736
+  p. 259 (7 pp.): ok  US$ 0.038  251s  ent 54042 saí 65813
+  p. 270 (3 pp.): ok  US$ 0.023  159s  ent 23251 saí 40439
+  p. 276 (3 pp.): ok  US$ 0.014  77s  ent 25174 saí 22087
+  p. 272 (5 pp.): ok  US$ 0.026  168s  ent 36786 saí 44561
+  p. 265 (6 pp.): ok (2ª tentativa)  US$ 0.065  449s  ent 88694 saí 112850
+>> 17/17 pedaços, 0 falha(s), 0 com fronteira mudada, US$ 0.37, 39.9 min de chamadas; tokens {'input_tokens': 577152, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 628677}
+>> revisao/vol2/229-278/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

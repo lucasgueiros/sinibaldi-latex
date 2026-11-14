@@ -1,0 +1,27 @@
+{
+ "pagina": 228,
+ "paginas": [
+  228
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Nenhuma correção necessária: texto, itálicos e pontuação conferem com a imagem; o hífen de \"conside-/rado\" já está resolvido no fragmento. Não há nota nem fronteira corpo/nota neste trecho.\nDúvida: o fragmento termina no meio da frase; o restante da página 228 (corpo e notas \"a)\", \"b)\"…) pertence ao trecho seguinte e não foi transcrito.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Nenhuma correção necessária: texto, itálicos e pontuação conferem com a imagem; o hífen de \"conside-/rado\" já está resolvido no fragmento. Não há nota nem fronteira corpo/nota neste trecho.\nDúvida: o fragmento termina no meio da frase; o restante da página 228 (corpo e notas \"a)\", \"b)\"…) pertence ao trecho seguinte e não foi transcrito.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0013997,
+ "duration_ms": 5955,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9242,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 951
+ },
+ "reparo": false
+}
