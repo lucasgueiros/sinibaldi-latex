@@ -16,15 +16,17 @@ import * as cit from "./citacoes.js";
 import { postarJSON } from "./rede.js";
 
 const ESQUEMA_PADRAO = {
-  niveis: { anexo: "Anexo", parte: "Parte", seccao: "Secção", capitulo: "Capítulo", artigo: "Artigo", tese: "Tese" },
+  niveis: { anexo: "Anexo", parte: "Parte", seccao: "Secção", capitulo: "Capítulo", artigo: "Artigo", tese: "Tese", pretextual: "Pretextual" },
   tipos_paragrafo: {
     definicao: "Definição", divisao: "Divisão", enunciado: "Tese", argumento: "Argumento",
     objecao: "Objeção", resposta: "Resposta", escolio: "Escólio", corolario: "Corolário", observacao: "Observação",
     "anexo-titulo": "Título no anexo", indice: "Entrada do índice",
+    "titulo-obra": "Título da obra", centro: "Linha centrada", enderecamento: "Endereçamento da carta",
+    saudacao: "Saudação", "data-local": "Data e lugar", fecho: "Fecho (assinatura)",
   },
   rend: { it: "Itálico", bold: "Negrito", sc: "Versalete" },
   tipos_citacao: { direta: "Citação direta", indireta: "Citação indireta", mencao: "Menção (termo entre aspas)" },
-  prefixos_id: { anexo: "anexo", parte: "parte", seccao: "sec", capitulo: "cap", artigo: "art", tese: "t" },
+  prefixos_id: { pretextual: "pre", anexo: "anexo", parte: "parte", seccao: "sec", capitulo: "cap", artigo: "art", tese: "t" },
 };
 
 // ------------------------------------------------------------ utilidades

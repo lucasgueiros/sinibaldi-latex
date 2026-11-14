@@ -1,0 +1,83 @@
+{
+ "volume": 2,
+ "modelo": "sonnet",
+ "pecas": [
+  {
+   "tipo": "rosto",
+   "titulo": "FOLHA DE ROSTO",
+   "xml_id": "v2.pre-rosto",
+   "blocos": [
+    "<p type=\"centro\">D. THIAGO SINIBALDI</p>",
+    "<p type=\"centro\">BISPO TITULAR DE TIBERIADES</p>",
+    "<p type=\"centro\">DOUTOR EM PHILOSOPHIA, THEOLOGIA E DIREITO CANONICO</p>",
+    "<p type=\"centro\">MEMBRO DA ACADEMIA ROMANA DE S. THOMAZ D'AQUINO</p>",
+    "<p type=\"centro\">SECRETARIO DA S. C. DOS SEMINARIOS E DAS UNIVERSIDADES DOS ESTUDOS</p>",
+    "<p type=\"titulo-obra\">ELEMENTOS</p>",
+    "<p type=\"titulo-obra\">DE</p>",
+    "<p type=\"titulo-obra\">PHILOSOPHIA</p>",
+    "<p type=\"centro\">VOLUME II</p>",
+    "<p type=\"centro\">ANTHROPOLOGIA - THEODICEA - MORAL</p>",
+    "<p type=\"centro\">QUARTA EDIÇÃO</p>",
+    "<p type=\"centro\">ROMA</p>",
+    "<p type=\"centro\">Via del Banco S. Spirito, 12</p>",
+    "<p type=\"centro\">1916</p>"
+   ],
+   "pag_blocos": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "paginas": [
+    3
+   ]
+  },
+  {
+   "tipo": "aprovacao",
+   "titulo": "APPROBATIO",
+   "xml_id": "v2.pre-aprovacao",
+   "blocos": [
+    "<p>Nova mandetur typis editio philosophiae lusitano idiomate exaratae, cuius inscriptio est: <hi rend=\"it\">Elementos de philosophia,</hi> auctore Reverendissimo et Amplissimo Domino Iacobo Sinibaldi, episcopo Tiberiadis.</p>",
+    "<p type=\"data-local\"><hi rend=\"it\">Assisii, die 30 maii 1916.</hi></p>",
+    "<p type=\"fecho\">† <hi rend=\"sc\">Fr. Ambrosius Eps.</hi></p>",
+    "<p type=\"centro\">Assisi — Tipografia Metastasio — Assisi</p>"
+   ],
+   "pag_blocos": [
+    4,
+    4,
+    4,
+    4
+   ],
+   "paginas": [
+    4
+   ]
+  },
+  {
+   "tipo": "outro",
+   "titulo": "METAPHYSICA (anterrosto das partes)",
+   "xml_id": "v2.pre-outro",
+   "paginas": [
+    5
+   ],
+   "pag_blocos": [
+    5
+   ],
+   "blocos": [
+    "<p type=\"titulo-obra\">METAPHYSICA</p>"
+   ]
+  }
+ ],
+ "avisos": [],
+ "ate": 5,
+ "falhas": []
+}

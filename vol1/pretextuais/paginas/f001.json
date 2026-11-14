@@ -1,0 +1,19 @@
+{
+ "id": "f001",
+ "pagina": -14,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Página sem texto impresso: apenas ruído de digitalização, furos de encadernação e sombra da lombada.",
+ "tentativas": [
+  {
+   "segundos": 4.4,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.025750000000000002,
+ "itens": [
+  {
+   "vazia": "branco"
+  }
+ ]
+}

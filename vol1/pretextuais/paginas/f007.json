@@ -1,0 +1,39 @@
+{
+ "id": "f007",
+ "pagina": -8,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Sobrescritos de «S.ta», «S.to» e «M.a» transcritos em linha, sem marcação (o esquema não aceita sup). «Jesus» e «sua» aparecem em tipo romano (não itálico) na imagem; deixados fora do itálico. «d' Elle» com espaço, como impresso.",
+ "tentativas": [
+  {
+   "segundos": 10.0,
+   "erros": [
+    "<p>As razões adduzidas eram convincentes; mas as difficuldad…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc).",
+    "<p>As razões adduzidas eram convincentes; mas as difficuldad…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc).",
+    "<p>A doutrina, que professamos, é, como dissemos, a de S.<hi…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc)."
+   ]
+  },
+  {
+   "segundos": 12.5,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.083022,
+ "itens": [
+  {
+   "rotulo": "f007.1",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">As razões adduzidas eram convincentes ; mas as difficuldades para nós augmentavam ; não só porque deviamos escrever numa lingua, que só tarde estudamos e que os extrangeiros aprendem com difficuldade, mas tambem porque, segundo o testemunho de auctoridades competentes, não é sempre facil encontrar no vocabulario portuguez, aliás muito rico, os termos precisos para exprimir as ideas especulativas e abstractas da sciencia philosophica. Comtudo não desanimámos. Confiados na infinita bondade do Sagrado Coração, pedimos-lhe encarecidamente que, pelos merecimentos de S.ta Margarida M.a Alacoque, nos assistisse com a sua graça e nos concedesse luzes e forças, para levarmos ao termo tão arduo commettimento, para a gloria d' Elle e para o bem das almas.</hi></p>"
+  },
+  {
+   "rotulo": "f007.2",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">O Compendio viu a luz, pela primeira vez, em Março de 1893, ha mais de trinta annos. Recebido com muita benevolencia em Portugal e no Brazil, foi reimpresso, em segunda e terceira edição, sempre na cidade de Coimbra. Exgottada a terceira edição, quizemos curar a quarta aqui na Italia, sob os nossos olhos, para que assim podessemos completar algumas partes, refundir outras, e approveitar mais facilmente as obras dos philosophos e dos naturalistas, publicadas no ultimo trentennio. O trabalho tem sido muito intenso e muito longo, devendo, para isso, utilizar, durante uma duzia de annos, os retalhos do tempo, que nos deixavam livres as imprescindiveis occupações dos nossos cargos. Mas o desejo de agradarmos a</hi> Jesus <hi rend=\"it\">e de sermos util ao proximo nos tornou doce a fadiga e suave o cançaço.</hi></p>"
+  },
+  {
+   "rotulo": "f007.3",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">A doutrina, que professamos, é, como dissemos, a de S.to Thomaz de Aquino, — em harmonia com o actual progresso da sciencia. A Egreja fez</hi> sua <hi rend=\"it\">essa doutrina, e, durante sete seculos, nunca tem deixado de a recomendar e inculcar a seus filhos, como a unica capaz de defender as verdades, tanto da ordem natural como da sobrenatural, e de confutar os erros, que, contra essas verdades, se têm propalado com tanto prejuizo das almas e da sociedade. Essas recomendações e prescripções acham-se resumidas no Codigo de Direito Canonico por estas palavras : « Os estudos de Philosophia racional e de Theologia, para a formação dos alumnos nestas disciplinas, sejam absolutamente tratados pelos professores conforme o methodo, a doutrina e os principios do Angelico Doutor, e estes sejam religiosamente mantidos » (Can. 1366, § 2).</hi></p>"
+  }
+ ]
+}

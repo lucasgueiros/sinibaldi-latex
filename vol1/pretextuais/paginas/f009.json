@@ -1,0 +1,28 @@
+{
+ "id": "f009",
+ "pagina": -6,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Corrigido: sem 'sup'; «Exc.mos» e «Rev.mos» (sobrescrito no impresso) escritos em linha. Erro meu anterior: «apparecceram» com c duplo; o impresso traz «apparecceram»? Conferir: leio «appareceram» — ajustar se necessário. A nota de rodapé continua na página seguinte (termina em «o Auctor nada»). «Á bondade» no início do último parágrafo da nota: acento incerto (mancha).",
+ "tentativas": [
+  {
+   "segundos": 13.0,
+   "erros": [
+    "<p><hi rend=\"it\">nosso vivo e profundo agradecimento — aos E…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc).",
+    "<p><hi rend=\"it\">nosso vivo e profundo agradecimento — aos E…: Valor 'sup' inválido para rend em <hi> (aceitos: bold, it, sc)."
+   ]
+  },
+  {
+   "segundos": 27.9,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.12027600000000001,
+ "itens": [
+  {
+   "rotulo": "f009.1",
+   "continua": "f008.3",
+   "xml": "<p><hi rend=\"it\">nosso vivo e profundo agradecimento — aos Exc.mos e Rev.mos Bispos de Portugal e do Brazil, que logo acolheram com tanta benevolencia o nosso trabalho, — aos illustrados Professores, que o adoptaram como texto das suas lições, — aos bondosos Auctores das lisonjeiras apreciações, que apparecceram em revistas e jornaes, e a quantos nos confortaram com suas amaveis referencias</hi><note place=\"foot\" n=\"1\"><p>A <hi rend=\"it\">Civiltà Cattolica</hi>, no seu caderno 1043, de 2 de dezembro de 1893, publicou, ácerca do nosso trabalho, o seguinte artigo, devido á penna do P. Francisco Xavier Rondina, nome muito conhecido dos portuguezes.</p><p>« <hi rend=\"it\">Thiago Sinibaldi,</hi> Arcediago da Sé Cathedral de Coimbra e Professor no Seminario da mesma cidade — <hi rend=\"it\">Elementos de Philosophia</hi> — Coimbra, typographia das Instituições Christãs, 1891 e 1892.</p><p>« D' estes dois volumes um abrange a logica, a ontologia, e a cosmologia geral; o outro, a cosmologia especial, a psycologia e a theodicea.</p><p>« É pois, um curso completo de philosophia theorica, que encerra tudo o que se ensina nas melhores escholas e seminarios; e está escripto em portuguez, para facilitar aos mancebos d' aquella nação o estudo de materias por si arduas, que se tornariam ainda mais difficeis se não fossem expostas em lingua vulgar. Foi este o escopo que teve em vista o Auctor, empregando nos seus <hi rend=\"it\">Elementos de philosophia</hi> a lingua portugueza, ainda que extrangeira para elle, e um estylo conciso, facil, plano e despido de todo o ornamento superfluo e inutil. — A ordem e a distribuição das materias é a que o bom senso, a tradição escholastica e a propria experiencia suggeriram aos nossos antepassados. Por terem abandonado este caminho, muitos dos philosophos modernos por tal forma desordenaram o methodo de ensino que as suas obras constituem um montão de materias, sem ordem, sem precisão, sem estructura scientifica. Pelo contrario, na obra de Sinibaldi tudo está no seu logar, tudo procede com grande ordem e clareza, começando pela arte de bem raciocinar, ou pela logica; em seguida, passando da ordem logica para a ontologica, do subjectivo para o objectivo, dos conceitos mais simples para os mais compostos, dos abstractos para os concretos, dos universaes para os particulares, ou da metaphysica geral, chamada tambem <hi rend=\"it\">ontologia,</hi> para a metaphysica especial. E aqui o Auctor, seguindo a ordem natural dos nossos conhecimentos, sobe da consideração do mundo, ou da <hi rend=\"it\">cosmologia,</hi> ao estudo do homem, rei da creação, ou á <hi rend=\"it\">psychologia,</hi> e d' esta á contemplação de Deus, principio e fim de todas as creaturas, ou á <hi rend=\"it\">theodicea.</hi> Todos vêm que este <hi rend=\"it\">methodo synthetico,</hi> seguido pelo Sinibaldi, e em geral pelos professores de maior criterio e experiencia, é o mais facil e o mais accommodado á intelligencia dos jovens estudantes.</p><p>« Á bondade do methodo o Auctor une uma admiravel solidez e profundidade de doutrina, toda extrahida das puras fontes do Aquinate, e das obras de que, entre os modernos escriptores, melhor souberam interpretar e desenvolver as sabias theorias do Anjo das Escholas, — theorias que foram o fundamento sobre que foi já levantado, e hoje está sendo restaurado, o grandioso edificio da philosophia e theologia escholastica. E, como não basta affirmar a verdade, mas é preciso demonstra-la, o Auctor nada</p></note><hi rend=\"it\">. —</hi></p>"
+  }
+ ]
+}

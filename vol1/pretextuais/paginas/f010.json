@@ -1,0 +1,41 @@
+{
+ "id": "f010",
+ "pagina": -5,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "O parágrafo do corpo está todo em itálico; «Jesus» aparece em outro corte de letra (maior, vertical), mantido dentro do itálico. A nota de rodapé começa na página anterior; o último parágrafo dela fica em aberto. Pequenas correções do OCR conferidas pela imagem («sinibaldi» lido como «Sinibaldi», «cujos», «couraçados»).",
+ "tentativas": [
+  {
+   "segundos": 17.2,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.051966,
+ "itens": [
+  {
+   "rotulo": "f010.1",
+   "continua": "",
+   "xml": "<p><hi rend=\"it\">Mas seja-nos permittido referir dois factos, que nos encheram de consolação o espirito. Um Missionario Lazarista, Professor num dos mais acreditados Institutos do Brazil, escreveu-nos o seguinte: «Gosto muito do seu livro, como tambem gostam d'elle os meus discipulos, que, além de aprenderem a mais segura doutrina thomista, aprendem tambem a amar a Jesus, de quem V. fala com tanta veneração». Em Julho de 1900, em Paray-le-Monial, um bom leigo, que fazia parte de uma peregrinação brazileira, disse-nos estas precisas palavras: « V. não imagina o bem, que o seu livro tem feito ás almas em S. Paulo». — O nosso pobre trabalho tinha, pois, alcançado, ao menos em parte, o seu duplice escopo, que constituiu tambem o unico premio por nós desejado :</hi></p>"
+  },
+  {
+   "nota": [
+    {
+     "continua": true,
+     "xml": "<p>affirma que não prove com abundancia de razões. No que é tão feliz, que não poderia proceder melhor, quer quanto á escolha dos argumentos, quer quanto á concisão e clareza com que os expõe.</p>"
+    },
+    {
+     "continua": false,
+     "xml": "<p>« Nem isto é tudo; com bôas e fortes razões refuta tambem os argumentos dos adversarios, cujos systemas primeiramente expõe com brevidade e clareza, e depois aprecia com uma critica sã, a fim de pôr a descoberto os erros. O que elle consegue sobretudo nas copiosas notas, que acompanham o texto, para não distrahir d'este a attenção dos estudantes e para não produzir confusão nas suas intelligencias. Bom systema, que deveria servir de exemplo para quem escreve cursos de philosophia para principiantes.</p>"
+    },
+    {
+     "continua": false,
+     "xml": "<p>« A refutação dos falsos systemas comparados com as doutrinas escholasticas, fundada na razão e na experiencia, tem, na obra de Sinibaldi, o merecimento de encerrar o muito no pouco e de accrescentar ao velho o novo, isto é, é uma refutação quanto mais breve na forma, tanto mais ampla na materia, abrangendo os erroneos principios e as falsas theorias não só dos antigos, mas tambem do mais recentes philosophos idealistas, ontologistas e materialistas. Por isso os discipulos sahem da sua eschola bem couraçados contra os erros modernos, e capazes de confundir e reduzir ao silencio os espiritos presumpçosos e superficiaes.</p>"
+    },
+    {
+     "continua": false,
+     "xml": "<p>« Do que deixamos escripto julguem os nossos leitores quão vantajosa se ha de tornar, para os jovens clerigos, e em geral para a mocidade portugueza, a obra d'este douto e zeloso Professor, que, para corresponder aos santos designios do Summo Pontifice Leão XIII, insigne restaurador e promotor das disciplinas philosophicas, abandonou a patria, e foi viver em paiz extrangeiro; onde, para tornar o seu ministerio util a todos, se applicou com ardor a aprender a lingua de Camões, e a escrever n'ella uma obra, em que á difficuldade da materia se une a da forma, não tendo a lingua portugueza, aliás muito rica e bella, uma terminologia tão propria, como a latina, para o ensino da philosophia escholastica. Por isto lhe hão de ser agradecidos todos os que amam o verdadeiro progresso da religião e da sciencia, e principalmente os que, á semelhança de quem escreve estas paginas, vivendo muito tempo entre os portuguezes, poderam formar</p>"
+    }
+   ]
+  }
+ ]
+}

@@ -76,3 +76,6 @@ web/db.sqlite3
 web/node_modules/
 web/staticfiles/
 web/cache/
+
+# respostas brutas do LLM nos pre-textuais (o .json de cada pagina basta)
+vol*/pretextuais/paginas/*.resp*.txt

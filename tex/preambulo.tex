@@ -71,3 +71,11 @@
   \renewcommand\footnotemark[1][]{}%
   \renewcommand\footnotetext[2][]{}%
 \fi
+
+% peças pré-textuais (nó pretextual; p@type em web/obra/esquema.py)
+\newcommand{\preTituloObra}[1]{\par\vspace{1em}{\centering\Large\bfseries\scshape #1\par}\vspace{1em}}
+\newcommand{\preCentro}[1]{\par{\centering #1\par}}
+\newcommand{\preEnderecamento}[1]{\par\vspace{1em}{\centering\small\scshape #1\par}}
+\newcommand{\preSaudacao}[1]{\par\medskip\noindent #1\par}
+\newcommand{\preDataLocal}[1]{\par\medskip\noindent\emph{#1}\par}
+\newcommand{\preFecho}[1]{\par\smallskip{\raggedleft\scshape #1\par}}

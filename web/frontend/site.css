@@ -136,6 +136,20 @@
   .obra p[data-tei="p"][data-type="indice-artigo"] { @apply pl-12 text-[0.95em]; }
   .obra-edicao p[data-type="anexo-titulo"]::before { content: "Título no anexo"; @apply text-ink/50; }
   .obra-edicao p[data-type="indice"]::before { content: "Entrada do índice"; @apply text-ink/50; text-indent: 0; }
+  /* peças pré-textuais (nó pretextual): folha de rosto, imprimatur, cartas de aprovação, prefácio */
+  .obra p[data-tei="p"][data-type="titulo-obra"] { @apply my-6 border-0 pl-0 text-center font-display text-3xl tracking-[0.25em] text-crimson; text-indent: 0; }
+  .obra p[data-tei="p"][data-type="centro"] { @apply my-2 border-0 pl-0 text-center; text-indent: 0; }
+  .obra p[data-tei="p"][data-type="enderecamento"] { @apply mb-1 mt-6 border-0 pl-0 text-center font-display text-sm tracking-[0.1em]; text-indent: 0; }
+  .obra p[data-tei="p"][data-type="saudacao"] { @apply mt-4 border-0 pl-0 text-left; text-indent: 0; }
+  .obra p[data-tei="p"][data-type="data-local"] { @apply mt-4 border-0 pl-0 text-left italic; text-indent: 0; }
+  .obra p[data-tei="p"][data-type="fecho"] { @apply mt-3 border-0 pl-0 text-right font-display text-sm tracking-[0.08em]; text-indent: 0; }
+  .obra-edicao p[data-type="titulo-obra"]::before { content: "Título da obra"; @apply text-ink/50; }
+  .obra-edicao p[data-type="centro"]::before { content: "Linha centrada"; @apply text-ink/50; text-indent: 0; }
+  .obra-edicao p[data-type="enderecamento"]::before { content: "Endereçamento"; @apply text-ink/50; }
+  .obra-edicao p[data-type="saudacao"]::before { content: "Saudação"; @apply text-ink/50; }
+  .obra-edicao p[data-type="data-local"]::before { content: "Data e lugar"; @apply text-ink/50; }
+  .obra-edicao p[data-type="fecho"]::before { content: "Fecho"; @apply text-ink/50; }
+  .sumario a.item-pretextual { @apply font-display text-ink/70; }
   .sumario a.item-anexo { @apply font-display text-crimson/80; }
   .obra p[data-tei="fw"] { @apply hidden text-center font-display text-xs tracking-[0.1em] text-ink/45; text-indent: 0; }
   .obra-edicao p[data-tei="fw"] { @apply block; }

@@ -1,0 +1,31 @@
+{
+ "id": "f008",
+ "pagina": -7,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "Todo o texto está em itálico na imagem; não marquei `<hi rend=\"it\">` por ser o corpo inteiro do prefácio. O último parágrafo termina em aberto («consignar aqui o»). Na imagem lê-se «philsophicos» (omissão de «o» no impresso); normalizei para «philosophicos». Lido «ter» em «não devem ter» (OCR dava «ler»), «tratado» e «transigencias» conferidos. Em «transigencias» a imagem mostra «transigencias» com «g».",
+ "tentativas": [
+  {
+   "segundos": 9.8,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.038702,
+ "itens": [
+  {
+   "rotulo": "f008.1",
+   "continua": "",
+   "xml": "<p>A nossa obra sahiu volumosa, muito volumosa. Mas obedecemos ao proposito de fazer uma exposição clara, profunda e possivelmente completa das principaes questões philosophicas, de modo que o espirito dos leitores, no fim de cada tratado, ficasse esclarecido e plenamente satisfeito. Levado sempre pelo mesmo proposito e sinceramente convencido de que o espiritualismo e a Religião não devem ter e não têm medo da luz, nem receio de novos combates, encetamos a lucta, sem aspereza, mas tambem sem transigencias, acompanhando os falsos systemas nas suas mais recentes manifestações, atravez dos livros dos seus representantes mais famigerados. Para isso, estudamos attentamente as obras dos naturalistas mais modernos, mais imparciaes e acreditados, e pudemos verificar que os factos, citados pelos adversarios em defeza de seus erros, eram — ou imaginarios, — ou falsamente interpretados. — Nem deixamos, nos logares proprios, de indicar as relações entre as verdades philosophicas e as verdades theologicas, e de mostrar que entre a Razão e a Fé, não só não ha a mais leve sombra de contraste, mas reina a mais perfeita e admiravel harmonia, sendo ellas duas luzes, que emanam do mesmo Sol de verdade infinita.</p>"
+  },
+  {
+   "rotulo": "f008.2",
+   "continua": "",
+   "xml": "<p>Como, porém, não é possivel esgotar toda a materia, nem sequer no espaço de dois annos, tivemos o cuidado de expôr no texto os pontos principaes, as verdades fundamentaes, que constituem a sciencia philosophica, reservando para as notas o ulterior desenvolvimento da doutrina exarada no texto, a resposta ás principaes difficuldades, como tambem a exposição e a confutação dos systemas contrarios. D'este modo, o livro adquiriu uma certa elasticidade, e os Professores podem facilmente escolher o que melhor se adaptar á intelligencia dos discipulos e o que mais convier ao programma dos estudos. — O nosso voto é que este livro aproveite não só aos alumnos dos Seminarios ecclesiasticos, mas tambem aos dos Collegios seculares, aos leigos cultos, que se interessam pelas coisas da sciencia e da Religião, e, sobretudo, aos Sacerdotes, que, tendo feito seus estudos philosophicos em edade juvenil, precisam de um estudo mais reflexivo e aturado, a fim de adquirir a cultura indispensavel para o digno e decoroso exercicio do seu altissimo ministerio.</p>"
+  },
+  {
+   "rotulo": "f008.3",
+   "continua": "",
+   "xml": "<p>Não seria desculpavel que deixassemos de consignar aqui o</p>"
+  }
+ ]
+}

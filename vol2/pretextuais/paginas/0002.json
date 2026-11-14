@@ -1,0 +1,19 @@
+{
+ "id": "0002",
+ "pagina": 2,
+ "modelo": "sonnet",
+ "falha": null,
+ "notas": "",
+ "tentativas": [
+  {
+   "segundos": 6.3,
+   "erros": []
+  }
+ ],
+ "custo_usd": 0.02604,
+ "itens": [
+  {
+   "vazia": "guarda"
+  }
+ ]
+}

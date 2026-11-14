@@ -39,6 +39,7 @@ Utilitários e testes:
 .venv/bin/python manage.py exportar_tei --edicao 1916 --volume 2 -o /tmp/vol2.xml   # [--forcar]
 .venv/bin/python manage.py sincronizar_nova_edicao [--aplicar]                       # ver "Pendências"
 .venv/bin/python manage.py aplicar_componentes [--aplicar] [--edicao 1916|nova]   # ver "Componentes"
+.venv/bin/python manage.py aplicar_pretextuais [--aplicar]                # peças pré-textuais (rosto, imprimatur, cartas, prefácio); docs/11
 .venv/bin/python manage.py aplicar_asteriscos [--aplicar] [--lista x.tsv]        # ver "Asterisco"
 .venv/bin/python manage.py marcar_citacoes [--aplicar]                             # ver "Citações"
 .venv/bin/python manage.py corrigir_texto "isto 6" "isto é" --palavra [--aplicar]  # troca de texto (nunca em tags); 1916 + cópias + adaptados; [--regex] [--autor u] [--comentario c]
