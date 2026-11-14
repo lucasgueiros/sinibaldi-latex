@@ -41,6 +41,7 @@ Utilitários e testes:
 .venv/bin/python manage.py aplicar_componentes [--aplicar] [--edicao 1916|nova]   # ver "Componentes"
 .venv/bin/python manage.py aplicar_asteriscos [--aplicar] [--lista x.tsv]        # ver "Asterisco"
 .venv/bin/python manage.py marcar_citacoes [--aplicar]                             # ver "Citações"
+.venv/bin/python manage.py corrigir_texto "isto 6" "isto é" --palavra [--aplicar]  # troca de texto (nunca em tags); 1916 + cópias + adaptados; [--regex] [--autor u] [--comentario c]
 .venv/bin/python manage.py test obra
 ```
 
