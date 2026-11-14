@@ -1,24 +1,25 @@
 # Deploy na VM e CI/CD (GitHub Actions)
 
 Mesmo esquema do site da Academia Leão XIII (`academialeaoxiii.org.br/deploy/`), na **mesma VM** e no
-**mesmo banco** dele: VM Ubuntu 22.04 com nginx + gunicorn + systemd, sem containers, publicação
-automática pelo GitHub Actions.
+**mesmo banco** dele: VM Ubuntu 22.04 com nginx + gunicorn + worker Celery + Redis + systemd, sem
+containers, publicação automática pelo GitHub Actions.
 
 Endereço provisório: **https://sinibaldi.familiagueiros.com.br**
 Homologação: **https://hml.sinibaldi.familiagueiros.com.br** (branch `homolog`)
 
 ```
-PR / push ──► job "Testes" (runner do GitHub, ubuntu-22.04, Python 3.10; SQLite e PostgreSQL 14)
+PR / push ──► job "Testes" (runner do GitHub, ubuntu-22.04, Python 3.10; SQLite e PostgreSQL 14;
+                          worker Celery de verdade contra Redis)
 merge na master ──► job "Publicar na VM" (runner self-hosted DESTE repositório, na VM)
                     git archive <sha> web tools tex deploy | sudo -u sinibaldi /srv/sinibaldi/bin/release <sha>
 push na homolog ──► job "Publicar na homologação" (mesmo runner, mesma VM)
                     git archive <sha> web tools tex deploy | sudo -u sinibaldi-hml /srv/sinibaldi-hml/bin/release <sha>
 ```
 
-| Instância | Usuário | Banco (o do site) | Esquema / papel | Serviço e nginx |
+| Instância | Usuário | Banco (o do site) | Esquema / papel | Serviços (web, worker, Redis) e nginx |
 |---|---|---|---|---|
-| produção | `sinibaldi` | `academialeaoxiii` | `sinibaldi` / `sinibaldi` | `sinibaldi` |
-| homologação | `sinibaldi-hml` | `academialeaoxiii_hml` | `sinibaldi` / `sinibaldi_hml` | `sinibaldi-hml` |
+| produção | `sinibaldi` | `academialeaoxiii` | `sinibaldi` / `sinibaldi` | `sinibaldi`, `sinibaldi-worker`, `sinibaldi-redis` |
+| homologação | `sinibaldi-hml` | `academialeaoxiii_hml` | `sinibaldi` / `sinibaldi_hml` | `sinibaldi-hml`, `sinibaldi-hml-worker`, `sinibaldi-hml-redis` |
 
 ## O banco compartilhado
 
@@ -48,16 +49,47 @@ daqui, que devolve a posse (ou `deploy/sync-hml-from-prod.sh` daqui, que copia s
   enviados por `deploy/envia-dados.sh`
 - `/srv/sinibaldi/cache/`: `SINIBALDI_CACHE` (PDFs e LaTeX gerados, JPEG reduzidos), regenerável
 - `/srv/sinibaldi/{venv,static,backups}`
+- `/srv/sinibaldi/redis/`: instantâneo do Redis (a fila do Celery), regenerável
 - `/etc/sinibaldi/env`: segredos (chave do Django, senha do banco), gerados pelo bootstrap; ver `env.example`
+- `/etc/sinibaldi/redis.conf`: configuração do Redis da instância (`deploy/redis.conf`)
 - serviço systemd `sinibaldi` (gunicorn via socket unix), atrás do nginx
+- serviço `sinibaldi-worker` (Celery): gera PDFs, `.tex` do volume, fac-símiles e slides
+  (`web/obra/tarefas.py`)
+- serviço `sinibaldi-redis`: broker e resultados do Celery
 
-O gunicorn roda com **um processo e 8 threads** (`gunicorn.conf.py`): os PDFs grandes compilam numa
-thread em segundo plano e o andamento fica em memória, o que exige um processo só.
+### Worker Celery e Redis
+
+```
+navegador ──► nginx ──► gunicorn (sinibaldi) ──fila──► Redis (sinibaldi-redis) ──► worker (sinibaldi-worker)
+                              ▲                                 │                         │
+                              └──────── estado/resultado ───────┘     PDFs no cache ◄─────┘
+```
+
+- **Um Redis por instância**, rodando como o usuário dela, **só por socket unix**
+  (`/run/<instância>-redis/redis.sock`, modo 700, sem porta TCP e sem senha): produção e homologação
+  não se enxergam, e nada colide com um Redis que o site da Academia use. O `redis-server.service`
+  do pacote não é usado (o bootstrap o desliga se foi ele quem instalou o pacote).
+  `CELERY_BROKER_URL=redis+socket:///run/<instância>-redis/redis.sock` em `/etc/<instância>/env`
+  (o bootstrap acrescenta a linha em instâncias antigas); o resultado vai para o mesmo Redis.
+- **Worker**: `celery -A sinibaldi worker -c $CELERY_CONCURRENCY` (padrão 2), mesmo usuário, grupos
+  e `UMask` do gunicorn (os dois usam o mesmo `SINIBALDI_CACHE`). Compilações LaTeX simultâneas na
+  máquina inteira: `SINIBALDI_PDF_SIMULTANEOS` (padrão 2).
+- **Parada**: o systemd manda SIGQUIT; o worker dá `CELERY_WORKER_SOFT_SHUTDOWN_TIMEOUT` (60 s) às
+  tarefas em curso, depois as cancela e devolve à fila (`acks_late`), e o worker novo as retoma (as
+  tarefas são idempotentes). Uma publicação espera no máximo isso pelo worker.
+- **Versão do Redis**: o 22.04 traz o Redis 6.0, e o kombu 5.7 exige 6.2 (`ZRANGE … BYSCORE`): por
+  isso `web/requirements.txt` fixa `celery<5.7`/`kombu<5.7`. O job "Testes" sobe o `redis-server` do
+  22.04 com este `redis.conf` e roda um worker de verdade contra ele, então uma atualização
+  incompatível quebra o CI e não a VM.
+- **gunicorn**: `GUNICORN_WORKERS` processos (padrão 2) × `GUNICORN_THREADS` threads (padrão 8),
+  `gthread` — um pedido «Preparando…» segura a sua thread por até 20 s. Com o estado no Redis,
+  qualquer processo atende qualquer pedido.
 
 A cada publicação, `release.sh` extrai o código, instala as dependências e roda `collectstatic`,
-`check --deploy` e `migrate`. Depois troca o link `current`, reinicia o gunicorn e testa a página
-inicial. **Se o teste falhar, volta sozinho para a versão anterior** (migrações já aplicadas não são
-desfeitas).
+`check --deploy` e `migrate`. Depois troca o link `current`, reinicia o gunicorn **e o worker
+Celery** e testa os dois: a página inicial e uma tarefa `obra.ping` de ida e volta (web → Redis →
+worker novo → resultado). **Se um teste falhar, volta sozinho para a versão anterior** (web e worker;
+migrações já aplicadas não são desfeitas).
 
 ## 1. Preparação (uma única vez, na VM)
 
@@ -78,10 +110,11 @@ sudo LETSENCRYPT_EMAIL=seu-email@exemplo.com bash deploy/bootstrap-vm.sh
 
 O bootstrap é idempotente e:
 
-- instala o TeX (LuaLaTeX, `texlive-fonts-extra` com EB Garamond e Cinzel dos slides) e o `mutool`,
-  além do que o site já usa;
+- instala o TeX (LuaLaTeX, `texlive-fonts-extra` com EB Garamond e Cinzel dos slides), o `mutool`
+  e o `redis-server`, além do que o site já usa;
 - cria o usuário `sinibaldi`, o papel e o esquema no banco do site, as permissões e `/etc/sinibaldi/env`;
-- configura o systemd, o nginx (sem tocar no site da Academia) e o HTTPS;
+- configura o systemd (gunicorn, worker Celery, Redis da instância), o nginx (sem tocar no site da
+  Academia) e o HTTPS;
 - cria o backup diário do esquema (03:45);
 - dá ao usuário do runner permissão sudo **apenas** para `/srv/sinibaldi/bin/release`;
 - publica a primeira versão.
@@ -103,8 +136,10 @@ sudo -u sinibaldi /srv/sinibaldi/bin/manage createsuperuser
 ```
 
 Rode o bootstrap de novo quando mudar algo em `deploy/` que não seja `gunicorn.conf.py` ou `backup.sh`
-(por exemplo `release.sh`, o nginx ou o systemd). O workflow avisa quando o `release.sh` instalado
-estiver desatualizado.
+(por exemplo `release.sh`, o nginx, as unidades systemd ou `redis.conf`). O workflow avisa quando o
+`release.sh` ou as unidades instaladas estiverem desatualizados. **Instância criada antes do
+worker Celery**: rode o bootstrap uma vez (instala Redis, worker, a linha `CELERY_BROKER_URL` e o
+sudo para reiniciar o worker); a próxima publicação sobe o worker.
 
 ## 2. Atualização automática
 
@@ -133,6 +168,10 @@ sobrescreve esse arquivo) e a `url` do ambiente em `.github/workflows/ci-cd.yml`
 
 ```bash
 sudo journalctl -u sinibaldi -f
+sudo journalctl -u sinibaldi-worker -f                        # compilações (worker Celery)
+sudo -u sinibaldi bash -c 'cd /srv/sinibaldi/current/web && set -a && . /etc/sinibaldi/env && \
+    /srv/sinibaldi/venv/bin/celery -A sinibaldi inspect active'   # tarefas em curso
+sudo -u sinibaldi redis-cli -s /run/sinibaldi-redis/redis.sock llen celery   # tarefas na fila
 sudo -u sinibaldi /srv/sinibaldi/bin/manage <comando>          # ex.: aplicar_componentes, gerar_indice
 sudo -u sinibaldi /srv/sinibaldi/bin/manage preparar_downloads  # pré-gera os PDFs dos volumes no cache
 ls -t /srv/sinibaldi/releases
@@ -141,15 +180,15 @@ ls -t /srv/sinibaldi/releases
 Na homologação, troque `sinibaldi` por `sinibaldi-hml` (usuário e caminhos).
 
 Para voltar a uma versão anterior à mão, aponte o link `current` para outra pasta de `releases/` e
-reinicie o serviço.
+reinicie os serviços (`sudo systemctl restart sinibaldi sinibaldi-worker`).
 
 Restaurar o backup do editor (sem tocar no site):
 
 ```bash
-sudo systemctl stop sinibaldi
+sudo systemctl stop sinibaldi sinibaldi-worker
 sudo -u sinibaldi bash -c 'set -a; . /etc/sinibaldi/env; PGPASSWORD=$DB_PASSWORD pg_restore -h localhost \
     -U $DB_USER -d $DB_NAME --clean --if-exists -n $DB_SCHEMA /srv/sinibaldi/backups/db-AAAAMMDD-HHMM.dump'
-sudo systemctl start sinibaldi
+sudo systemctl start sinibaldi sinibaldi-worker
 ```
 
 ## Homologação (branch `homolog`)

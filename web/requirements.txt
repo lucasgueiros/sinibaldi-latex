@@ -1,7 +1,10 @@
 Django>=5.2,<6
 lxml>=5
 Pillow>=10
-celery[redis]>=5.4,<6   # worker que gera PDFs, fac-símiles e slides (obra/tarefas.py)
+celery[redis]>=5.4,<5.7   # worker que gera PDFs, fac-símiles e slides (obra/tarefas.py)
+# kombu 5.7 usa ZRANGE … BYSCORE (Redis >= 6.2) e a VM (Ubuntu 22.04) tem Redis 6.0: o worker cai
+# com "ERR syntax error". O CI testa o worker contra o redis-server do 22.04 (deploy/README.md).
+kombu<5.7
 # produção (deploy/): servidor WSGI e PostgreSQL
 gunicorn>=23.0
 psycopg[binary]>=3.2

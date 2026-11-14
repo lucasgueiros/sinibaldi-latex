@@ -32,5 +32,5 @@ ssh -t "$HOST" "set -e; U=\$(stat -c %U /srv/$INSTANCE); sudo install -o \$U -m 
   if [ \"\$n\" != 0 ]; then echo \"A instância já tem \$n blocos; nada foi carregado.\" >&2; sudo rm -f /srv/$INSTANCE/cache/carga.json.gz; exit 1; fi
   sudo -u \$U /srv/$INSTANCE/bin/manage loaddata /srv/$INSTANCE/cache/carga.json.gz
   sudo rm -f /srv/$INSTANCE/cache/carga.json.gz
-  sudo systemctl restart $INSTANCE
+  sudo systemctl restart $INSTANCE $INSTANCE-worker
   echo 'Banco carregado.'"

@@ -12,7 +12,7 @@ from django.urls import reverse
 
 from obra import exportacao, slides, tarefas
 
-from .base import fila_de_verdade
+from .base import define_eager, fila_de_verdade
 from .test_slides import CAP, PDF_MINIMO, SlidesBase
 
 
@@ -137,8 +137,8 @@ class SlidesPelaFilaTest(SlidesBase):
 class SemFilaTest(SlidesBase):
     def test_broker_fora_do_ar_vira_erro_amigavel(self):
         from sinibaldi.celery import app
-        app.conf.task_always_eager = False      # (patch.object em app.conf apagaria a chave ao restaurar)
-        self.addCleanup(setattr, app.conf, "task_always_eager", True)
+        define_eager(app, False)      # (patch.object em app.conf apagaria a chave ao restaurar)
+        self.addCleanup(define_eager, app, True)
         with mock.patch.object(tarefas.slides_pdf, "AsyncResult", side_effect=ConnectionError("sem redis")):
             r = self.client.get(reverse("obra:slides_pdf", args=["1916", CAP]))
         self.assertContains(r, "indisponível", status_code=503)

@@ -1,0 +1,40 @@
+# Modelo da unidade systemd do worker Celery (PDFs, fac-símiles e slides: web/obra/tarefas.py). O
+# bootstrap troca os marcadores e instala em /etc/systemd/system/<instância>-worker.service
+# (produção: sinibaldi-worker; homologação: sinibaldi-hml-worker). Reiniciado pelo release.sh a cada
+# publicação, junto com o gunicorn.
+[Unit]
+Description=Elementos de Philosophia (Sinibaldi) - __INSTANCE__ (worker Celery)
+After=network.target postgresql.service __INSTANCE__-redis.service
+Requires=__INSTANCE__-redis.service
+
+[Service]
+Type=simple
+User=__APP_USER__
+# mesmos grupos e UMask do gunicorn (sinibaldi.service): os dois gravam e leem o mesmo cache
+Group=www-data
+SupplementaryGroups=__APP_USER__
+WorkingDirectory=/srv/__INSTANCE__/current/web
+# padrão; /etc/<instância>/env pode redefinir (os arquivos de EnvironmentFile têm precedência)
+Environment=CELERY_CONCURRENCY=2
+EnvironmentFile=/etc/__INSTANCE__/env
+# cache de fontes do LuaTeX (luaotfload) em /srv/<instância>, gravável
+Environment=HOME=/srv/__INSTANCE__
+# Nome do nó = <instância>@<host> (%H do systemd): o release.sh o procura com "celery inspect ping".
+# Um worker só por instância: sem gossip/mingle (menos tráfego no broker, partida mais rápida).
+ExecStart=/srv/__INSTANCE__/venv/bin/celery -A sinibaldi worker -l info -c ${CELERY_CONCURRENCY} -n __INSTANCE__@%H --without-gossip --without-mingle
+# Parada "fria" (SIGQUIT): o worker dá CELERY_WORKER_SOFT_SHUTDOWN_TIMEOUT (padrão 60 s) às
+# compilações em curso, depois as cancela e as devolve à fila do Redis (acks_late), e o worker novo
+# as retoma — as tarefas são idempotentes. Assim a publicação não espera o PDF de um volume inteiro.
+KillSignal=SIGQUIT
+TimeoutStopSec=120
+KillMode=mixed
+Restart=always
+RestartSec=5
+UMask=0007
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/srv/__INSTANCE__
+
+[Install]
+WantedBy=multi-user.target

@@ -31,7 +31,7 @@ read -r -p "Substituir o esquema '$HML_SCHEMA' do banco '$HML_DB' e os dados da 
 [[ "$ok" =~ ^[sS]$ ]] || exit 1
 
 echo "==> Esquema $PROD_DB.$PROD_SCHEMA → $HML_DB.$HML_SCHEMA"
-systemctl stop "$HML"
+systemctl stop "$HML" "$HML-worker"
 DUMP="$(mktemp)"; trap 'rm -f "$DUMP"' EXIT
 chmod 644 "$DUMP"
 sudo -u postgres pg_dump -Fc -n "$PROD_SCHEMA" "$PROD_DB" > "$DUMP"
@@ -41,6 +41,10 @@ sudo -u postgres pg_restore --no-owner --no-acl --role="$HML_DB_USER" -d "$HML_D
 echo "==> Dados do scan"
 rsync -a --delete --chown="$HML_USER:$HML_USER" "/srv/$PROD/dados/" "/srv/$HML/dados/"
 rm -rf "/srv/$HML/cache/"*
+# os resultados de tarefas no Redis apontam para arquivos do cache que acabaram de sair
+if systemctl is-active --quiet "$HML-redis"; then
+    sudo -u "$HML_USER" redis-cli -s "/run/$HML-redis/redis.sock" FLUSHALL >/dev/null
+fi
 
 echo "==> Permissões"
 # o pg_restore com --role já deixa tudo com o papel da homologação; refaz o que o --no-acl e o
@@ -59,5 +63,5 @@ ACAD_HML_USER="$(env_get academialeaoxiii-hml DB_USER 2>/dev/null || true)"
 
 echo "==> Migrações da versão em homologação"
 sudo -u "$HML_USER" "/srv/$HML/bin/manage" migrate --noinput
-systemctl start "$HML"
+systemctl start "$HML" "$HML-worker"
 echo "Pronto."

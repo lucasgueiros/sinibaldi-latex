@@ -116,6 +116,10 @@ if TESTANDO:
     CELERY_TASK_ALWAYS_EAGER = True          # os testes de fila de verdade sobem um worker (tests/base.py)
 elif CELERY_BROKER_URL:
     CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", CELERY_BROKER_URL)
+    if CELERY_BROKER_URL.startswith(("redis", "rediss")):
+        # mensagem não confirmada volta à fila depois disso: tem de passar do maior tempo de tarefa
+        # (CELERY_TASK_TIME_LIMIT), senão um PDF longo seria entregue de novo enquanto ainda compila
+        CELERY_BROKER_TRANSPORT_OPTIONS = {"visibility_timeout": 3600 + 15 * 60}
 else:
     for _d in ("fila", "controle", "resultados"):
         (_DIR_CELERY / _d).mkdir(parents=True, exist_ok=True)
@@ -135,6 +139,9 @@ CELERY_WORKER_PREFETCH_MULTIPLIER = 1        # tarefas longas: não reservar out
 CELERY_RESULT_EXPIRES = 24 * 3600
 CELERY_TASK_TIME_LIMIT = 3600                # o PDF do volume leva minutos; nada legítimo passa de 1 h
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+# Parada do worker (systemd manda SIGQUIT, deploy/sinibaldi-worker.service): espera isso pelas
+# tarefas em curso, depois as cancela e devolve à fila, para o worker da versão nova retomá-las.
+CELERY_WORKER_SOFT_SHUTDOWN_TIMEOUT = float(os.environ.get("CELERY_WORKER_SOFT_SHUTDOWN_TIMEOUT", "60"))
 
 # Compilações LaTeX simultâneas na máquina inteira (todos os processos: worker, comandos). Ver
 # `exportacao.vaga_pdf`.

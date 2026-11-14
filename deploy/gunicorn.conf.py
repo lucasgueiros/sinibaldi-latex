@@ -1,20 +1,23 @@
 """Configuração do gunicorn (usada pelo systemd: deploy/sinibaldi.service).
 
-Um único processo com várias threads, de propósito: os PDFs grandes compilam numa thread em segundo
-plano e o andamento fica num registro em memória (obra/exportacao.py, obra/slides.py). Com vários
-processos, a requisição que consulta o andamento poderia cair num processo que não conhece a tarefa.
-Pelo mesmo motivo não há max_requests (reciclar o processo mataria a compilação em curso).
+O trabalho pesado (PDFs, fac-símiles, slides) vai para o worker Celery (deploy/sinibaldi-worker.service,
+web/obra/tarefas.py) e o estado dos pedidos fica no Redis: qualquer processo web enxerga qualquer
+pedido, então dá para ter vários processos. Threads (gthread) porque um pedido «Preparando…» segura
+a sua por até 20 s (exportacao.ESPERA_PADRAO).
 """
 
 import os
 
 # Cada instância (produção, homologação) tem seu socket; o serviço systemd define GUNICORN_BIND.
 bind = os.environ.get("GUNICORN_BIND", "unix:/run/sinibaldi/gunicorn.sock")
-workers = 1
+workers = int(os.environ.get("GUNICORN_WORKERS", 2))
 worker_class = "gthread"
 threads = int(os.environ.get("GUNICORN_THREADS", 8))
 timeout = 120
 graceful_timeout = 30
+# recicla os processos de vez em quando (as compilações não rodam mais aqui)
+max_requests = int(os.environ.get("GUNICORN_MAX_REQUESTS", 2000))
+max_requests_jitter = 200
 accesslog = "-"
 errorlog = "-"
 forwarded_allow_ips = "127.0.0.1"

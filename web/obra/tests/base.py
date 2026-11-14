@@ -54,6 +54,13 @@ class BaseBanco(TestCase):
         return list(Bloco.objects.filter(edicao=edicao or self.edicao).order_by("ordem"))
 
 
+def define_eager(app, valor):
+    """Liga/desliga o modo eager. As duas chaves: no Celery < 5.7, a chave com prefixo vinda do
+    settings (CELERY_TASK_ALWAYS_EAGER) prevalece sobre `app.conf.task_always_eager`."""
+    app.conf.task_always_eager = valor
+    app.conf["CELERY_TASK_ALWAYS_EAGER"] = valor
+
+
 @contextlib.contextmanager
 def fila_de_verdade():
     """Desliga o modo eager e sobe um worker Celery numa thread (broker e backend em memória): os
@@ -62,9 +69,9 @@ def fila_de_verdade():
     from celery.contrib.testing.worker import start_worker
     from sinibaldi.celery import app
     antes = app.conf.task_always_eager
-    app.conf.task_always_eager = False
+    define_eager(app, False)
     try:
         with start_worker(app, pool="solo", perform_ping_check=False, shutdown_timeout=10):
             yield app
     finally:
-        app.conf.task_always_eager = antes
+        define_eager(app, antes)

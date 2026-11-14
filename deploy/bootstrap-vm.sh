@@ -17,7 +17,8 @@
 #
 # Variáveis opcionais:
 #   INSTANCE           nome da instância (padrão: sinibaldi = produção). Define /srv/<INSTANCE>,
-#                      /etc/<INSTANCE>/env, o serviço <INSTANCE> e o site do nginx
+#                      /etc/<INSTANCE>/env, os serviços <INSTANCE> (gunicorn), <INSTANCE>-worker
+#                      (Celery) e <INSTANCE>-redis (broker do Celery, só socket unix) e o site do nginx
 #   APP_USER           usuário do sistema dono da instância (padrão: sinibaldi)
 #   ACADEMIA_INSTANCE  instância do site da Academia cujo banco é usado (padrão: academialeaoxiii);
 #                      o banco e o papel do site vêm de /etc/<ACADEMIA_INSTANCE>/env
@@ -85,17 +86,23 @@ log() { printf '\n\033[1;31m==>\033[0m [%s] %s\n' "$INSTANCE" "$*"; }
 log "Pacotes do sistema"
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -q
+# Redis: cada instância roda o seu (<INSTANCE>-redis.service). O redis-server.service do pacote não
+# é usado; se o pacote entrar agora, ele é desligado — se já estava instalado (o site da Academia
+# pode usá-lo), fica como está.
+REDIS_NOVO=0; dpkg -s redis-server >/dev/null 2>&1 || REDIS_NOVO=1
 # TeX (LuaLaTeX + EB Garamond/Cinzel dos slides) e mutool: PDFs, slides e fac-símile gerados pelo site
 apt-get install -y -q python3 python3-venv python3-dev build-essential libpq-dev \
     postgresql postgresql-client nginx certbot curl git rsync ca-certificates \
     mupdf-tools latexmk texlive-luatex texlive-latex-recommended texlive-latex-extra \
-    texlive-lang-portuguese texlive-fonts-extra fonts-dejavu-core
+    texlive-lang-portuguese texlive-fonts-extra fonts-dejavu-core redis-server
+if [[ "$REDIS_NOVO" == 1 ]]; then systemctl disable --now redis-server >/dev/null 2>&1 || true; fi
 
 log "Usuário $APP_USER e diretórios"
 id "$APP_USER" >/dev/null 2>&1 || adduser --system --group --home "$BASE" --shell /bin/bash "$APP_USER"
 usermod -aG www-data,systemd-journal "$APP_USER"
 install -d -o "$APP_USER" -g "$APP_USER" -m 755 "$BASE" "$BASE/releases" "$BASE/static" "$BASE/dados"
 install -d -o "$APP_USER" -g "$APP_USER" -m 750 "$BASE/backups" "$BASE/cache"
+install -d -o "$APP_USER" -g "$APP_USER" -m 700 "$BASE/redis"
 install -d -o root -g root -m 755 "$BASE/bin"
 
 log "Ambiente Python"
@@ -147,6 +154,9 @@ fi
 
 log "Variáveis de ambiente ($ENV_FILE)"
 install -d -o root -g "$APP_USER" -m 750 "$ENV_DIR"
+# Broker e resultados do Celery: o Redis da instância, pelo socket unix (sem senha: só o usuário
+# da instância abre o socket)
+BROKER_URL="redis+socket:///run/$INSTANCE-redis/redis.sock"
 if [[ ! -f "$ENV_FILE" ]]; then
     [[ -n "$NEW_DB_PASSWORD" ]] || { echo "O papel $DB_USER já existe mas $ENV_FILE não; recrie a senha manualmente." >&2; exit 1; }
     IP="$(hostname -I | awk '{print $1}')"
@@ -166,14 +176,23 @@ DB_SCHEMA=$DB_SCHEMA
 STATIC_ROOT=$BASE/static
 SINIBALDI_DADOS=$BASE/dados
 SINIBALDI_CACHE=$BASE/cache
+CELERY_BROKER_URL=$BROKER_URL
 EMAIL_HOST=localhost
 EMAIL_PORT=25
 EMAIL_USE_TLS=false
 DEFAULT_FROM_EMAIL=contato@$DOMAIN
 ENV
 fi
+# instâncias criadas antes do worker Celery: acrescenta o broker (sem tocar no resto do arquivo)
+grep -q '^CELERY_BROKER_URL=' "$ENV_FILE" \
+    || printf '\n# broker do Celery (Redis da instância)\nCELERY_BROKER_URL=%s\n' "$BROKER_URL" >> "$ENV_FILE"
 chown root:"$APP_USER" "$ENV_FILE"
 chmod 640 "$ENV_FILE"
+
+log "Redis da instância ($ENV_DIR/redis.conf)"
+sed "s/__INSTANCE__/$INSTANCE/g" "$SRC/deploy/redis.conf" > "$ENV_DIR/redis.conf"
+chown root:"$APP_USER" "$ENV_DIR/redis.conf"
+chmod 640 "$ENV_DIR/redis.conf"
 
 log "Scripts de publicação"
 install -o root -g root -m 755 "$SRC/deploy/release.sh" "$BASE/bin/release"
@@ -182,19 +201,34 @@ install -o root -g root -m 755 "$SRC/deploy/manage.sh" "$BASE/bin/manage"
 log "Permissões sudo (CI e reinício do serviço)"
 SUDOERS="/etc/sudoers.d/$INSTANCE"
 cat > "$SUDOERS" <<SUDO
-# O GitHub runner só pode publicar versões (como $APP_USER); $APP_USER só pode reiniciar o serviço.
+# O GitHub runner só pode publicar versões (como $APP_USER); $APP_USER só pode reiniciar os serviços.
 $RUNNER_USER ALL=($APP_USER) NOPASSWD: $BASE/bin/release
-$APP_USER ALL=(root) NOPASSWD: /usr/bin/systemctl restart $INSTANCE, /usr/bin/systemctl reload $INSTANCE
+$APP_USER ALL=(root) NOPASSWD: /usr/bin/systemctl restart $INSTANCE, /usr/bin/systemctl reload $INSTANCE, /usr/bin/systemctl restart $INSTANCE-worker
 SUDO
 chmod 440 "$SUDOERS"
 visudo -cf "$SUDOERS" >/dev/null
 
-log "Serviço systemd"
-sed "s/__INSTANCE__/$INSTANCE/g; s/__APP_USER__/$APP_USER/g" "$SRC/deploy/sinibaldi.service" \
-    > "/etc/systemd/system/$INSTANCE.service"
-chmod 644 "/etc/systemd/system/$INSTANCE.service"
+log "Serviços systemd (gunicorn, worker Celery, Redis)"
+install_unit() {   # install_unit <modelo em deploy/> <nome da unidade>
+    sed "s/__INSTANCE__/$INSTANCE/g; s/__APP_USER__/$APP_USER/g" "$SRC/deploy/$1" \
+        > "/etc/systemd/system/$2.service"
+    chmod 644 "/etc/systemd/system/$2.service"
+}
+install_unit sinibaldi.service "$INSTANCE"
+install_unit sinibaldi-worker.service "$INSTANCE-worker"
+install_unit sinibaldi-redis.service "$INSTANCE-redis"
 systemctl daemon-reload
-systemctl enable "$INSTANCE" >/dev/null
+systemctl enable "$INSTANCE" "$INSTANCE-worker" "$INSTANCE-redis" >/dev/null
+# o Redis sobe já (reiniciado, para ler um redis.conf novo); web e worker sobem na publicação
+systemctl restart "$INSTANCE-redis"
+if [[ -e "$BASE/current" ]]; then
+    # instância já publicada: o worker (talvez recém-instalado) e o web com o broker novo. Uma
+    # versão anterior ao Celery não tem o worker: ele sobe na próxima publicação (release.sh).
+    if [[ -f "$BASE/current/web/sinibaldi/celery.py" && -x "$BASE/venv/bin/celery" ]]; then
+        systemctl restart "$INSTANCE-worker"
+    fi
+    if systemctl is-active --quiet "$INSTANCE"; then systemctl restart "$INSTANCE"; fi
+fi
 
 log "nginx"
 # Instala o site sem tocar nos outros sites do servidor (o da Academia, inclusive). Se a configuração
@@ -261,6 +295,7 @@ log "Pronto"
 cat <<MSG
 Site: http$([[ -f "$CERT" ]] && echo s)://$DOMAIN  (ou http://$(hostname -I | awk '{print $1}'))
 Banco: $DB_NAME, esquema $DB_SCHEMA (papel $DB_USER)
+Serviços: $INSTANCE (gunicorn), $INSTANCE-worker (Celery), $INSTANCE-redis (broker, /run/$INSTANCE-redis/redis.sock)
 
 Próximos passos (deploy/README.md):
   1. da máquina de trabalho, envie os scans e o TEI:   deploy/envia-dados.sh <ssh-host> $INSTANCE

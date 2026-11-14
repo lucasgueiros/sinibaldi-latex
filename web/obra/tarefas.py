@@ -20,6 +20,12 @@ def _rodar(funcao, *args):
         return ["erro", str(e)]
 
 
+@shared_task(name="obra.ping")
+def ping():
+    """Verificação de saúde (deploy/release.sh, CI): ida e volta por broker, worker e resultados."""
+    return "pong"
+
+
 @shared_task(name="obra.pdf")
 def pdf(tex, limite):
     """PDF A5 padrão do .tex autônomo (nó ou volume)."""

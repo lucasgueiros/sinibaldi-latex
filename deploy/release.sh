@@ -10,11 +10,13 @@
 # ficam em SINIBALDI_DADOS (deploy/envia-dados.sh), fora das versões.
 #
 # A instância é deduzida do local onde o script está instalado (/srv/<instância>/bin/release):
-# serviço <instância>, variáveis em /etc/<instância>/env, socket em /run/<instância>/.
+# serviços <instância> (gunicorn) e <instância>-worker (Celery), variáveis em /etc/<instância>/env,
+# socket em /run/<instância>/.
 #
 # Passos: extrai o código em releases/<sha>, instala as dependências, roda check/migrate/collectstatic,
-# troca o link "current", reinicia o gunicorn e verifica a saúde. Se a verificação falhar,
-# volta para a versão anterior. (Migrações já aplicadas não são desfeitas.)
+# troca o link "current", reinicia o gunicorn e o worker Celery e verifica a saúde dos dois (a página
+# inicial e uma tarefa "obra.ping" de ida e volta pelo Redis). Se a verificação falhar, volta para a
+# versão anterior. (Migrações já aplicadas não são desfeitas.)
 set -euo pipefail
 
 SHA="${1:?uso: release <commit-sha>  (código em tar pela entrada padrão)}"
@@ -26,6 +28,7 @@ VENV="$BASE/venv"
 REL="$BASE/releases/$SHA"
 KEEP=5
 SERVICE="$INSTANCE"
+WORKER="$INSTANCE-worker"
 SOCKET="/run/$INSTANCE/gunicorn.sock"
 ENV_FILE="/etc/$INSTANCE/env"
 APP_USER="$(stat -c %U "$BASE")"
@@ -61,10 +64,20 @@ log "Verificações e migrações"
 
 PREV="$(readlink -f "$BASE/current" 2>/dev/null || true)"
 
+HAS_WORKER=0
+if [[ -f "/etc/systemd/system/$WORKER.service" ]]; then
+    HAS_WORKER=1
+else
+    echo "AVISO: $WORKER.service não instalado; rode 'sudo bash deploy/bootstrap-vm.sh' na VM." >&2
+fi
+
 switch_to() {
     ln -sfn "$1" "$BASE/current.new"
     mv -T "$BASE/current.new" "$BASE/current"
     sudo -n /usr/bin/systemctl restart "$SERVICE"
+    # Bloqueia até o worker antigo sair: ele dá até CELERY_WORKER_SOFT_SHUTDOWN_TIMEOUT às tarefas
+    # em curso e devolve o resto à fila, que o worker novo (código novo) retoma.
+    if [[ "$HAS_WORKER" == 1 ]]; then sudo -n /usr/bin/systemctl restart "$WORKER"; fi
 }
 
 healthy() {
@@ -79,14 +92,29 @@ healthy() {
     return 1
 }
 
+# Ida e volta completa: web → Redis → worker (código novo) → resultado no Redis.
+worker_healthy() {
+    [[ "$HAS_WORKER" == 1 ]] || return 0
+    if (cd "$BASE/current/web" && timeout 90 "$VENV/bin/python" -c '
+from sinibaldi.celery import app
+r = app.send_task("obra.ping").get(timeout=60)
+assert r == "pong", r
+'); then
+        return 0
+    fi
+    echo "Verificação do worker Celery falhou (obra.ping sem resposta)." >&2
+    return 1
+}
+
 log "Ativando a versão $SHA"
 switch_to "$REL"
-if ! healthy; then
+if ! { healthy && worker_healthy; }; then
     if [[ -n "$PREV" && -d "$PREV" && "$PREV" != "$REL" ]]; then
         log "Revertendo para $(basename "$PREV")"
         switch_to "$PREV"
     fi
     journalctl -u "$SERVICE" -n 50 --no-pager 2>/dev/null || true
+    [[ "$HAS_WORKER" == 1 ]] && { journalctl -u "$WORKER" -n 50 --no-pager 2>/dev/null || true; }
     exit 1
 fi
 

@@ -2,7 +2,9 @@
 # /etc/systemd/system/<instância>.service (produção: sinibaldi; homologação: sinibaldi-hml).
 [Unit]
 Description=Elementos de Philosophia (Sinibaldi) - __INSTANCE__ (gunicorn)
-After=network.target postgresql.service
+After=network.target postgresql.service __INSTANCE__-redis.service
+# o Redis da instância é o broker do Celery: sem ele os pedidos de PDF/slides não entram na fila
+Wants=__INSTANCE__-redis.service
 
 [Service]
 Type=notify

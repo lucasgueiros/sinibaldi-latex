@@ -1,0 +1,32 @@
+# Modelo da unidade systemd do Redis da instância (broker e resultados do Celery). O bootstrap troca
+# os marcadores e instala em /etc/systemd/system/<instância>-redis.service.
+#
+# Um Redis próprio por instância, rodando como o usuário dela, só por socket unix
+# (/run/<instância>-redis/redis.sock, modo 700) e sem porta TCP: produção e homologação não se
+# enxergam, e nada colide com um Redis que o site da Academia use (o redis-server.service do pacote).
+# Configuração: /etc/<instância>/redis.conf (deploy/redis.conf).
+[Unit]
+Description=Elementos de Philosophia (Sinibaldi) - __INSTANCE__ (Redis, broker do Celery)
+After=network.target
+
+[Service]
+Type=notify
+User=__APP_USER__
+Group=__APP_USER__
+ExecStart=/usr/bin/redis-server /etc/__INSTANCE__/redis.conf
+RuntimeDirectory=__INSTANCE__-redis
+RuntimeDirectoryMode=0700
+UMask=0077
+LimitNOFILE=10032
+TimeoutStopSec=30
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/srv/__INSTANCE__/redis
+
+[Install]
+WantedBy=multi-user.target
