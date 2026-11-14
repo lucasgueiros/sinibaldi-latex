@@ -1,0 +1,27 @@
+{
+ "pagina": 214,
+ "paginas": [
+  214
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"pAjysiologico\", \"pathologieo\", \"0 determinismo\" (O), \"ó\" → \"é\" na nota 1; itálicos ausentes em \"necessarios\" (139 a); pontuação final (\"desenvolvimento.\" e \"necessarios.\").\nFronteira corpo/nota: sem alterações; a nota 1 (p. 214) está completa nesta página, e o \".\" após o </note> pertence ao corpo, como na imagem.\nDúvida: \"Deus\" foi mantido em versalete (`rend=\"sc\"`), mas na imagem parece letra normal; conferir se a fonte distingue versalete.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"pAjysiologico\", \"pathologieo\", \"0 determinismo\" (O), \"ó\" → \"é\" na nota 1; itálicos ausentes em \"necessarios\" (139 a); pontuação final (\"desenvolvimento.\" e \"necessarios.\").\nFronteira corpo/nota: sem alterações; a nota 1 (p. 214) está completa nesta página, e o \".\" após o </note> pertence ao corpo, como na imagem.\nDúvida: \"Deus\" foi mantido em versalete (`rend=\"sc\"`), mas na imagem parece letra normal; conferir se a fonte distingue versalete.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0039732,
+ "duration_ms": 21999,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10552,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5836
+ },
+ "reparo": false
+}

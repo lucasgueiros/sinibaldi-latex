@@ -1,0 +1,31 @@
+{
+ "pagina": 188,
+ "paginas": [
+  188,
+  189,
+  190,
+  191,
+  192
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de letras (inexplieavel, eonstrangimento, deeretam, bans, afílicções, érresistivelmente, poz, accrescentar, existo→existe, dever/deter, Sum. Th./q. 83), hífens/acentos (Antes da operação, approvação, a mesma), junk removido (cabeçalho corrente e lixo \"E Tov aa…\" no início, \"D\", \":\" e \";\" espúrios), itálicos/negritos indevidos (testemunho, e, corpo) e \"a/á\" nos casos de preposição.\nFronteira corpo/nota: conferida em todas as páginas e mantida como estava (nota 188-1 vai de 188 até 190 \"a.2)\"; nota 190-1 em 190; nota 190-2 de 190 até o fim de 192 superior/inferior, com a continuação em 191 e 192 dentro dela); nenhuma mudança de fronteira feita.\nDúvidas: grafias \"póde/pode\" mantidas como no OCR; negrito de \"determinado\" (p.190) e \"suppõe\" (p.191) mantido sem certeza; o \"q. 83\" de Sum. Theol. foi lido na imagem, mas o OCR dizia \"q. 89\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de letras (inexplieavel, eonstrangimento, deeretam, bans, afílicções, érresistivelmente, poz, accrescentar, existo→existe, dever/deter, Sum. Th./q. 83), hífens/acentos (Antes da operação, approvação, a mesma), junk removido (cabeçalho corrente e lixo \"E Tov aa…\" no início, \"D\", \":\" e \";\" espúrios), itálicos/negritos indevidos (testemunho, e, corpo) e \"a/á\" nos casos de preposição.\nFronteira corpo/nota: conferida em todas as páginas e mantida como estava (nota 188-1 vai de 188 até 190 \"a.2)\"; nota 190-1 em 190; nota 190-2 de 190 até o fim de 192 superior/inferior, com a continuação em 191 e 192 dentro dela); nenhuma mudança de fronteira feita.\nDúvidas: grafias \"póde/pode\" mantidas como no OCR; negrito de \"determinado\" (p.190) e \"suppõe\" (p.191) mantido sem certeza; o \"q. 83\" de Sum. Theol. foi lido na imagem, mas o OCR dizia \"q. 89\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0295589,
+ "duration_ms": 202407,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 37359,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 51646
+ },
+ "reparo": false
+}

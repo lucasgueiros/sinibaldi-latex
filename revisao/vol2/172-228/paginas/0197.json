@@ -1,0 +1,31 @@
+{
+ "pagina": 197,
+ "paginas": [
+  197,
+  198,
+  199,
+  200,
+  201
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (Renouvier, Fonsegrive, ex/em necessitate, raiz, 1-2/1-9, q. 13/83, c. 73, «/&amp;, accentos, connexão etc.), itálicos e um negrito espúrio (impulso, homo). Fronteira corpo/nota: nenhuma alteração; a nota 197-1 atravessa as pp. 198–201 (letra pequena no pé), tal como estava, e a 201-1 está correta. Dúvida: \"Deus\" em versalete (pp. 200–201) mantido como veio; o fragmento termina em \"conclusão\" (palavra hifenizada \"con-clusão\"), mantido.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (Renouvier, Fonsegrive, ex/em necessitate, raiz, 1-2/1-9, q. 13/83, c. 73, «/&amp;, accentos, connexão etc.), itálicos e um negrito espúrio (impulso, homo). Fronteira corpo/nota: nenhuma alteração; a nota 197-1 atravessa as pp. 198–201 (letra pequena no pé), tal como estava, e a 201-1 está correta. Dúvida: \"Deus\" em versalete (pp. 200–201) mantido como veio; o fragmento termina em \"conclusão\" (palavra hifenizada \"con-clusão\"), mantido.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.210108,
+ "duration_ms": 75951,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38299,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 13351
+ },
+ "reparo": false
+}

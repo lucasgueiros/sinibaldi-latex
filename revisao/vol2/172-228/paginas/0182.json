@@ -1,0 +1,29 @@
+{
+ "pagina": 182,
+ "paginas": [
+  182,
+  183,
+  184
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (immateriaes, comprehendidas, intelligencia, funcção/função, côr, reproducção, natureza, conjunção, lembrança, apparente, \"6)\"→\"b)\", \"actua?\"→\"actual\", \"2intelligencia\", \"Thom,,\"), dígitos da citação (q. 79, q. 10 a. 3, q. 59), \"4\" espúrio e \"W'\"→\"E'\", hífen de \"intel-\" no fim do parágrafo 126, negritos e itálicos indevidos (“para”, “estes”, “A”).\nFronteiras corpo/nota: nenhuma alterada. Confirmei na imagem que “Pela mesma inclinação…” e “Diz S. Thomaz…” estão em letra pequena abaixo do filete de 183, por isso ficam em n183-1; a nota 2 de 182 continua em 183 até “Cf. Sum. Theol., 2-2, q. 49, a. 1).”\nDúvidas: “aperfeiçôa” (circunflexo lido com incerteza); no p. 126 dividi o parágrafo após “intelligencia.” (o pipeline o partira em dois; mantive os xml:id, sem fundir).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (immateriaes, comprehendidas, intelligencia, funcção/função, côr, reproducção, natureza, conjunção, lembrança, apparente, \"6)\"→\"b)\", \"actua?\"→\"actual\", \"2intelligencia\", \"Thom,,\"), dígitos da citação (q. 79, q. 10 a. 3, q. 59), \"4\" espúrio e \"W'\"→\"E'\", hífen de \"intel-\" no fim do parágrafo 126, negritos e itálicos indevidos (“para”, “estes”, “A”).\nFronteiras corpo/nota: nenhuma alterada. Confirmei na imagem que “Pela mesma inclinação…” e “Diz S. Thomaz…” estão em letra pequena abaixo do filete de 183, por isso ficam em n183-1; a nota 2 de 182 continua em 183 até “Cf. Sum. Theol., 2-2, q. 49, a. 1).”\nDúvidas: “aperfeiçôa” (circunflexo lido com incerteza); no p. 126 dividi o parágrafo após “intelligencia.” (o pipeline o partira em dois; mantive os xml:id, sem fundir).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0177098,
+ "duration_ms": 114034,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25673,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 30285
+ },
+ "reparo": false
+}

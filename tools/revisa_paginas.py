@@ -126,6 +126,30 @@ def ngramas(frag, k=NGRAMA):
     return collections.Counter(tuple(p[i:i + k]) for i in range(len(p) - k + 1))
 
 
+BLOCO_APAGADO = 60       # palavras seguidas de texto limpo que o modelo apagou sem pôr nada no lugar
+
+
+def bloco_apagado(texto, novo):
+    """Maior bloco de palavras "limpas" (minúsculas, ≥ 3 letras, como o texto do livro e ao contrário do lixo do
+    OCR) que existe na entrada e sumiu da resposta sem substituto.  O limite de tamanho total (4%) deixa passar
+    isso em pedaços grandes (vol. 2 p. 228: 900 car. do fim de uma nota apagados num pedaço de 31 mil)."""
+    a = re.findall(r"\w+", html.unescape(RE_TAG.sub(" ", texto)))
+    b = re.findall(r"\w+", html.unescape(RE_TAG.sub(" ", novo)))
+    pior = 0
+    gb = set(tuple(b[i:i + NGRAMA]) for i in range(len(b) - NGRAMA + 1))
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
+        if tag == "delete" and i2 - i1 >= BLOCO_APAGADO:
+            blk = a[i1:i2]
+            limpas = sum(1 for w in blk if re.fullmatch(r"[a-zà-ú]{3,}", w))
+            gblk = [tuple(blk[i:i + NGRAMA]) for i in range(len(blk) - NGRAMA + 1)]
+            movido = sum(1 for g in gblk if g in gb) >= 0.5 * max(1, len(gblk))   # só mudou de lugar
+            if limpas >= 0.6 * len(blk) and not movido:
+                pior = max(pior, i2 - i1)
+    # corpo→nota e vice-versa muda o bloco de lugar com correções (os n-gramas exatos não casam): só vale
+    # como perda se a resposta também ficou mais curta, mais ou menos o tamanho do bloco
+    return pior if len(a) - len(b) >= 0.6 * pior else 0
+
+
 def chars_texto(frag):
     a = analisa(frag)
     return a["corpo"] + a["notas"]
@@ -375,6 +399,10 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
     if copia_ant > COPIA_MAX:
         return (f"copiou ~{copia_ant + NGRAMA - 1} palavras que já estão no trecho anterior (fim de nota que "
                 "continua de lá e já foi transcrito)"), None
+    apag = bloco_apagado(texto, novo)
+    if apag:
+        return (f"apagou um bloco de ~{apag} palavras seguidas do texto (nada o substitui na resposta): "
+                "confira na imagem; se for texto do livro, ele fica"), None
     if dup > DUP_MAX:
         return f"texto duplicado dentro do trecho (~{dup + NGRAMA - 1} palavras repetidas)", None
     if copia > COPIA_MAX:

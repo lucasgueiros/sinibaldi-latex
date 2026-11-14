@@ -1,0 +1,33 @@
+{
+ "pagina": 219,
+ "paginas": [
+  219
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Nenhuma correção de texto: o parágrafo confere com a imagem. Nenhuma mudança de fronteira corpo/nota. As linhas em letra pequena sob o filete (de \"a sociedade se serve…\" até \"…excepções.\") são o fim da nota do trecho anterior, já transcritas, e não foram acrescentadas. O alerta \"vao-nas-notas\" refere-se ao retorno do corpo após o asterisco (\"E' principio assente…\"), que está fora deste fragmento e não foi transcrito.\nDúvida: não sei se o fragmento deveria incluir o corpo que segue o asterisco; segui a regra de que o trecho termina em \"Verdade.\".",
+ "tentativas": [
+  {
+   "falha": "o XML ficou mal formado: Opening and ending tag mismatch: p line 18 and div, line 18, column 809 (<string>, line 18)",
+   "fronteira": null,
+   "notas": "Corpo: acrescentada a continuação do corpo da p. 219 após o asterisco (E' principio assente… até \"por meio da intelligencia,\"), em itálico onde a imagem mostra; sem mudança de fronteira, pois o bloco em letra pequena acima do asterisco (de \"a sociedade…\" até \"excepções.\") é continuação de nota anterior e foi deixado de fora, como pedido.\nDúvidas: não há \"(1)\" nesta página, apesar da menção no enunciado; o asterisco foi transcrito como <p>*</p>; o último parágrafo ficou sem fechamento porque continua na p. 220.",
+   "resposta": "<xml>\n<pb n=\"219\" facs=\"paginas/0219.png\"/><p xml:id=\"t142.p2\">Todavia, se o exercicio da vontade presuppõe sempre o da intelligencia, o exercicio d'esta não presuppõe sempre o d'aquella faculdade (aliás admittir-se-hia um processo indefinido, o que é absurdo); mas a intelligencia é movida, em ultima analyse, pela Causa Primeira de todo o movimento, emquanto é a Verdade.</p>\n<p>*</p>\n<p>E' principio assente entre todos os criminalistas que o homem não é responsavel pelo acto que pratica, se este não fôr <hi rend=\"it\">voluntario</hi>. Um acto é <hi rend=\"it\">voluntario</hi>, se deriva da vontade deliberada com previo conhecimento da intelligencia. Por isso, como dizemos no texto, se a intelligencia, por qualquer causa ou accidente, fôr perturbada a ponto de não poder apreciar a bondade ou a malicia do acto, a vontade, por não receber as indicações da intelligencia, fica tambem perturbada no seu exercicio, não <hi rend=\"it\">delibera</hi> acerca da bondade ou malicia dos objectos, e por isso não póde regular nem reprimir as tendencias das outras faculdades, especialmente do <hi rend=\"it\">appetite sensitivo</hi>, e o acto d'ella não é <hi rend=\"it\">voluntario</hi>, e quem o praticou não é responsavel por elle.</p>\n<p>Mas poderá a intelligencia soffrer uma perturbação, sendo, como é, espiritual, independente da materia? Sim, certamente.</p>\n<p>A intelligencia é uma faculdade espiritual e independente da materia, mas está unida á materia. E' a intelligencia, e não o orgão material, que entende; mas ella não póde operar sem o concurso e o auxilio das faculdades sensitivas, e principalmente da imaginação. A intelligencia, pois, como provámos, depende das faculdades sensitivas e especialmente da <hi rend=\"it\">imaginação</hi>.</p>\n<p>D'onde se segue que, se as faculdades sensitivas, e especialmente a imaginação, soffrerem um desarranjo, uma anomalia, este desarranjo, esta anomalia reflectir-se-ha necessariamente na intelligencia, e, por meio da intelligencia,\n</xml>\n<notas>\nCorpo: acrescentada a continuação do corpo da p. 219 após o asterisco (E' principio assente… até \"por meio da intelligencia,\"), em itálico onde a imagem mostra; sem mudança de fronteira, pois o bloco em letra pequena acima do asterisco (de \"a sociedade…\" até \"excepções.\") é continuação de nota anterior e foi deixado de fora, como pedido.\nDúvidas: não há \"(1)\" nesta página, apesar da menção no enunciado; o asterisco foi transcrito como <p>*</p>; o último parágrafo ficou sem fechamento porque continua na p. 220.\n</notas>"
+  },
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Nenhuma correção de texto: o parágrafo confere com a imagem. Nenhuma mudança de fronteira corpo/nota. As linhas em letra pequena sob o filete (de \"a sociedade se serve…\" até \"…excepções.\") são o fim da nota do trecho anterior, já transcritas, e não foram acrescentadas. O alerta \"vao-nas-notas\" refere-se ao retorno do corpo após o asterisco (\"E' principio assente…\"), que está fora deste fragmento e não foi transcrito.\nDúvida: não sei se o fragmento deveria incluir o corpo que segue o asterisco; segui a regra de que o trecho termina em \"Verdade.\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.006011900000000001,
+ "duration_ms": 41630,
+ "num_turns": 2,
+ "usage": {
+  "input_tokens": 19039,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8216
+ },
+ "reparo": false
+}

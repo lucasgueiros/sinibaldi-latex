@@ -1,0 +1,27 @@
+{
+ "pagina": 229,
+ "paginas": [
+  229
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: palavra \"rado\" reposta no início da página 229 (faltava logo após o pb); \"A\" inicial de \"A razão é clara\" tirado do itálico; \"inteligencia\"/\"ha\"/\"Larochefowcauld\" corrigidos para \"intelligencia\"/\"na\"/\"Larochefoucauld\" conforme a imagem; pontuação em \"Sum. Theol.,\".\nFronteira corpo/nota: sem alterações; a nota (1) está inteiramente no pé da página 229, e a chamada \"(1)\" permanece no corpo.\nDúvida restante: formatação exata do itálico em \"Theol.,\" (a imagem sugere que a vírgula também está em itálico); mantida como está.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: palavra \"rado\" reposta no início da página 229 (faltava logo após o pb); \"A\" inicial de \"A razão é clara\" tirado do itálico; \"inteligencia\"/\"ha\"/\"Larochefowcauld\" corrigidos para \"intelligencia\"/\"na\"/\"Larochefoucauld\" conforme a imagem; pontuação em \"Sum. Theol.,\".\nFronteira corpo/nota: sem alterações; a nota (1) está inteiramente no pé da página 229, e a chamada \"(1)\" permanece no corpo.\nDúvida restante: formatação exata do itálico em \"Theol.,\" (a imagem sugere que a vírgula também está em itálico); mantida como está.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0031224,
+ "duration_ms": 16625,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10224,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4200
+ },
+ "reparo": false
+}

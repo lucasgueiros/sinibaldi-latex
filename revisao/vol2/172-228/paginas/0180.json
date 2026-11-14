@@ -1,0 +1,28 @@
+{
+ "pagina": 180,
+ "paginas": [
+  180,
+  181
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (distineta, iztellectuaes, veconhece, meanoria, cireumstancia, \"&\" por \"a\", \"sz\", \"tes\", \"Habito\", \"éntelligencia\"), acentos, pontuação, itálicos e negrito dos títulos \"a)\" e \"b)\", e \"19\"→\"79\" na nota 1 de p. 180; \"ao «cto\" restaurado como \"ao acto\"; \"sicut. est\" e \"o. acto\" corrigidos.\nFronteira corpo/nota: nenhuma alteração. Só reposicionei o `<pb n=\"181\"/>` dentro da nota 2 para dividir \"pro-|prio\" (p. 180→181), e removi o ponto solto após \"sensitiva\" antes da chamada (1) da p. 181. As notas 1 e 2 de p. 180 e a nota 1 de p. 181 continuam certas.\nDúvidas: \"funcção\" (grafia lida na imagem), \"Resposta.\" em negrito, \"Duas\" sem versalete, e o ponto de \"porque o.\" (p. 180, removido como provável artefato); conferir na imagem original.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (distineta, iztellectuaes, veconhece, meanoria, cireumstancia, \"&\" por \"a\", \"sz\", \"tes\", \"Habito\", \"éntelligencia\"), acentos, pontuação, itálicos e negrito dos títulos \"a)\" e \"b)\", e \"19\"→\"79\" na nota 1 de p. 180; \"ao «cto\" restaurado como \"ao acto\"; \"sicut. est\" e \"o. acto\" corrigidos.\nFronteira corpo/nota: nenhuma alteração. Só reposicionei o `<pb n=\"181\"/>` dentro da nota 2 para dividir \"pro-|prio\" (p. 180→181), e removi o ponto solto após \"sensitiva\" antes da chamada (1) da p. 181. As notas 1 e 2 de p. 180 e a nota 1 de p. 181 continuam certas.\nDúvidas: \"funcção\" (grafia lida na imagem), \"Resposta.\" em negrito, \"Duas\" sem versalete, e o ponto de \"porque o.\" (p. 180, removido como provável artefato); conferir na imagem original.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0207946,
+ "duration_ms": 136526,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18716,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 37846
+ },
+ "reparo": false
+}

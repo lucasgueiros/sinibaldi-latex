@@ -1,0 +1,30 @@
+{
+ "pagina": 202,
+ "paginas": [
+  202,
+  203,
+  204,
+  205
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR de palavras (todayia/moye, appcetibilibus, Helmoltz, palayra, d'este, physiologico/philosophico, d'aqui, Citamos, indifferenca, \"6\"→\"é\", \"OS\"→\"os\", \"Bi\"→\"a si\", \"ad wnwm\", \"ew\"→\"ex\", \"seryare\"→\"servare\", \"rasdo\"→\"razão\", \"Of.\"→\"Cf.\", \"q. 69/ad 8\"→\"q. 62/ad 3\", \"q. 92\"→\"q. 22\", \"1-9, a. 8\"→\"1-2, a. 3\" nas citações de Sum. Theol.), acentos (á→a onde a imagem tem \"a\"), \"&amp;\"→\"a\", hi indevidos (bold em \"mover-se\"/\"move\"/\"esses\"; itálico em \"e\"), \"«\" espúrios, pontuação e junções de palavras quebradas por pb (espaços em \"a <pb203/>move\" e \"in <pb204/>actum\").\nFronteira: estrutura corpo/nota mantida (nota 1 da p. 202 se estende pelo rodapé de 202–204; nota 1 da p. 204 continua na p. 205). Corrigido o número da nota da p. 205 (chamada (3), antes ligada à nota 8, agora n=\"3\", xml:id n205-3).\nDúvidas: \"nao poderia\" e \"libertadem\"/\"pertinot\" mantidos como impressos; \"Deus\" em versalete mantido sem certeza; a delimitação exata entre o rodapé de 203 e o corpo de 204 foi inferida pelo filete e pelo corpo de letra.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR de palavras (todayia/moye, appcetibilibus, Helmoltz, palayra, d'este, physiologico/philosophico, d'aqui, Citamos, indifferenca, \"6\"→\"é\", \"OS\"→\"os\", \"Bi\"→\"a si\", \"ad wnwm\", \"ew\"→\"ex\", \"seryare\"→\"servare\", \"rasdo\"→\"razão\", \"Of.\"→\"Cf.\", \"q. 69/ad 8\"→\"q. 62/ad 3\", \"q. 92\"→\"q. 22\", \"1-9, a. 8\"→\"1-2, a. 3\" nas citações de Sum. Theol.), acentos (á→a onde a imagem tem \"a\"), \"&amp;\"→\"a\", hi indevidos (bold em \"mover-se\"/\"move\"/\"esses\"; itálico em \"e\"), \"«\" espúrios, pontuação e junções de palavras quebradas por pb (espaços em \"a <pb203/>move\" e \"in <pb204/>actum\").\nFronteira: estrutura corpo/nota mantida (nota 1 da p. 202 se estende pelo rodapé de 202–204; nota 1 da p. 204 continua na p. 205). Corrigido o número da nota da p. 205 (chamada (3), antes ligada à nota 8, agora n=\"3\", xml:id n205-3).\nDúvidas: \"nao poderia\" e \"libertadem\"/\"pertinot\" mantidos como impressos; \"Deus\" em versalete mantido sem certeza; a delimitação exata entre o rodapé de 203 e o corpo de 204 foi inferida pelo filete e pelo corpo de letra.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0279762,
+ "duration_ms": 192644,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32357,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 49481
+ },
+ "reparo": false
+}

@@ -1,0 +1,31 @@
+{
+ "pagina": 209,
+ "paginas": [
+  209,
+  210,
+  211,
+  212,
+  213
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções principais: OCR (n&amp;o→não, 6→é, mechaniea→mechanica, Zr»→Hirn, Helmholts→Helmholtz, laco morale→laço moral e, \"5)\"/\"€)\"/\"E)\"→b)/c)/E'), hifenizações (des-|pertam, in-|tervenção) juntadas, espaços faltantes, \"14 Vol. II.\" removido e itálicos/acentos corrigidos.\nFronteira corpo/nota: não alterei. Verifiquei que n209-1 continua no rodapé de p. 210 e p. 211 (até \"contradicção manifesta\") e que n211-1 começa em p. 211 e continua em p. 212 e 213 (só a continuação); o pipeline estava certo. A palavra \"des-pertam\" ficou com <pb n=\"210\"/> no meio, pois a palavra atravessa a página.\nDúvidas: \"e por isso, se pode applicar-se\" (p. 212) pode ser \"só se\"; itálicos de \"motivo\" e \"razão sufficiente\" (p. 209) e a grafia \"actúam\"/\"actúa\" em p. 213 foram lidos com incerteza.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções principais: OCR (n&amp;o→não, 6→é, mechaniea→mechanica, Zr»→Hirn, Helmholts→Helmholtz, laco morale→laço moral e, \"5)\"/\"€)\"/\"E)\"→b)/c)/E'), hifenizações (des-|pertam, in-|tervenção) juntadas, espaços faltantes, \"14 Vol. II.\" removido e itálicos/acentos corrigidos.\nFronteira corpo/nota: não alterei. Verifiquei que n209-1 continua no rodapé de p. 210 e p. 211 (até \"contradicção manifesta\") e que n211-1 começa em p. 211 e continua em p. 212 e 213 (só a continuação); o pipeline estava certo. A palavra \"des-pertam\" ficou com <pb n=\"210\"/> no meio, pois a palavra atravessa a página.\nDúvidas: \"e por isso, se pode applicar-se\" (p. 212) pode ser \"só se\"; itálicos de \"motivo\" e \"razão sufficiente\" (p. 209) e a grafia \"actúam\"/\"actúa\" em p. 213 foram lidos com incerteza.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.029304900000000002,
+ "duration_ms": 185107,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38384,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 50933
+ },
+ "reparo": false
+}

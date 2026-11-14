@@ -1,0 +1,28 @@
+{
+ "pagina": 172,
+ "paginas": [
+  172,
+  173
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (vazão→razão, rasdo→razão, immutayel/immutayeis/mutayeis/mautavel, immovel, émomateriaes→immateriaes, $e→se, divisio→divisão, \"Sun.\"→\"Sum.\", \"q. 58\"→\"q. 53\", \"p. l\"→\"p. I\", \"q..\"→\"q.\"), pontuação e acentos (á→a onde a imagem tem \"a\", \"elevar-nos &amp;\"→\"á\", \"esta\"→\"está\", \"nos\"→\"nós\", \":\" espúrio, pontos e vírgulas faltantes, \"Deus\" em versalete), itálicos indevidos (o, e) e um \"Pedro deve respeitar Paulo\" que passou a itálico; \"Deus\" passou para `<hi rend=\"sc\">Deus</hi>`.\nFronteiras: nenhuma mudança. Confirmei que a nota (1) de p.172 segue no rodapé de p.173 até \"…é mutavel.\"; a continuação (\"da mesma faculdade…\") está corretamente ligada por `<pb n=\"173\"/>` dentro da nota; a nota (1) de p.173 (\"O argumento…\") está no rodapé correto e no ponto da chamada.\nDúvidas: \"E' necessario\" (lido com apóstrofo, como no original) e o itálico de \"Pedro deve respeitar Paulo\" e de \"o\" em \"Deve, portanto, o homem\" foram lidos a partir da imagem e podem exigir conferência.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (vazão→razão, rasdo→razão, immutayel/immutayeis/mutayeis/mautavel, immovel, émomateriaes→immateriaes, $e→se, divisio→divisão, \"Sun.\"→\"Sum.\", \"q. 58\"→\"q. 53\", \"p. l\"→\"p. I\", \"q..\"→\"q.\"), pontuação e acentos (á→a onde a imagem tem \"a\", \"elevar-nos &amp;\"→\"á\", \"esta\"→\"está\", \"nos\"→\"nós\", \":\" espúrio, pontos e vírgulas faltantes, \"Deus\" em versalete), itálicos indevidos (o, e) e um \"Pedro deve respeitar Paulo\" que passou a itálico; \"Deus\" passou para `<hi rend=\"sc\">Deus</hi>`.\nFronteiras: nenhuma mudança. Confirmei que a nota (1) de p.172 segue no rodapé de p.173 até \"…é mutavel.\"; a continuação (\"da mesma faculdade…\") está corretamente ligada por `<pb n=\"173\"/>` dentro da nota; a nota (1) de p.173 (\"O argumento…\") está no rodapé correto e no ponto da chamada.\nDúvidas: \"E' necessario\" (lido com apóstrofo, como no original) e o itálico de \"Pedro deve respeitar Paulo\" e de \"o\" em \"Deve, portanto, o homem\" foram lidos a partir da imagem e podem exigir conferência.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0110953,
+ "duration_ms": 65125,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18618,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18467
+ },
+ "reparo": false
+}

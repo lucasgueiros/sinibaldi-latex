@@ -1,0 +1,37 @@
+{
+ "pagina": 218,
+ "paginas": [
+  218,
+  219,
+  220,
+  221,
+  222,
+  223,
+  224,
+  225,
+  226,
+  227,
+  228
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de \"énvoluntariedade/incorrigibilidade\", \"eriminoso\", \"Aysterismo\", \"Dilioso\", hifenização e acentos, lixo (\"|\", \"15 Vol. II\", \"3\", \"n»\"), numeração das monomanias (1.ª–4.ª), valores de craneo (1,415/1,547c.c.), \"pag. 634\" e \"faziam ».\" Nenhuma mudança de fronteira corpo/nota foi feita.\nDúvidas: blocos com aspecto de corpo após \"*\" nas pp. 220 (\"Os facto principaes…\"), 224 (\"B) Aos actos…\") e 228 (\"Resumimos…\") foram mantidos dentro de n218-1 como estão no fragmento; não consegui confirmar se são corpo ou letra menor de nota. O corpo de pp. 219–228 (acima do filete) não foi transcrito, por pertencer ao trecho seguinte.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de \"énvoluntariedade/incorrigibilidade\", \"eriminoso\", \"Aysterismo\", \"Dilioso\", hifenização e acentos, lixo (\"|\", \"15 Vol. II\", \"3\", \"n»\"), numeração das monomanias (1.ª–4.ª), valores de craneo (1,415/1,547c.c.), \"pag. 634\" e \"faziam ».\" Nenhuma mudança de fronteira corpo/nota foi feita.\nDúvidas: blocos com aspecto de corpo após \"*\" nas pp. 220 (\"Os facto principaes…\"), 224 (\"B) Aos actos…\") e 228 (\"Resumimos…\") foram mantidos dentro de n218-1 como estão no fragmento; não consegui confirmar se são corpo ou letra menor de nota. O corpo de pp. 219–228 (acima do filete) não foi transcrito, por pertencer ao trecho seguinte.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.038817700000000004,
+ "duration_ms": 225389,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 78517,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 61932
+ },
+ "reparo": false
+}

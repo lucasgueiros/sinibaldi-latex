@@ -1,0 +1,27 @@
+{
+ "pagina": 220,
+ "paginas": [
+  220
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Nenhum erro de texto ou de fronteira encontrado no trecho; o fragmento confere com a imagem, sem alterações.\nNão acrescentei a continuação de nota no alto da área de rodapé da p. 220 (\"na vontade; não porque a intelligencia…\"), por ser continuação de nota anterior ao trecho (n218-1); nem o restante do corpo da p. 220, que está fora do trecho.\nDúvida restante: nenhuma relevante; o alerta \"vao-nas-notas\" não se aplica a este fragmento, que não contém nota.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Nenhum erro de texto ou de fronteira encontrado no trecho; o fragmento confere com a imagem, sem alterações.\nNão acrescentei a continuação de nota no alto da área de rodapé da p. 220 (\"na vontade; não porque a intelligencia…\"), por ser continuação de nota anterior ao trecho (n218-1); nem o restante do corpo da p. 220, que está fora do trecho.\nDúvida restante: nenhuma relevante; o alerta \"vao-nas-notas\" não se aplica a este fragmento, que não contém nota.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0020646,
+ "duration_ms": 10208,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9416,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 2246
+ },
+ "reparo": false
+}

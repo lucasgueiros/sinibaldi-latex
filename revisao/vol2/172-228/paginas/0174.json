@@ -1,0 +1,27 @@
+{
+ "pagina": 174,
+ "paginas": [
+  174
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (\"?mmediatamente\", \"discursa\", \"raciondes\", \"immoyel\", \"éntellecto\", \"sao\", \"distincegão\", \"&amp;\" por \"é a\"), palavras com \"á\" no lugar de \"a\", \"q. 719\" e \"p. L\" por \"q. 79\" e \"p. I\", pontuação (\"VII).\" e \"proposição”\"), itálicos faltantes (\"A intelligencia\", \"a razão\") e um espaço antes de \";\".\nFronteiras: nenhuma alteração. A nota 1 vai até \"S. Thomaz...\" porque todo o bloco abaixo do filete é nota (inclusive \"A opinião de Kant\", \"A intelligencia, pois...\" e os parágrafos seguintes), e o corpo (\"123. Consciencia...\") fica acima do filete.\nDúvidas: nenhuma relevante; a página 175 não está no trecho, e o fim do fragmento foi mantido sem fechamento.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (\"?mmediatamente\", \"discursa\", \"raciondes\", \"immoyel\", \"éntellecto\", \"sao\", \"distincegão\", \"&amp;\" por \"é a\"), palavras com \"á\" no lugar de \"a\", \"q. 719\" e \"p. L\" por \"q. 79\" e \"p. I\", pontuação (\"VII).\" e \"proposição”\"), itálicos faltantes (\"A intelligencia\", \"a razão\") e um espaço antes de \";\".\nFronteiras: nenhuma alteração. A nota 1 vai até \"S. Thomaz...\" porque todo o bloco abaixo do filete é nota (inclusive \"A opinião de Kant\", \"A intelligencia, pois...\" e os parágrafos seguintes), e o corpo (\"123. Consciencia...\") fica acima do filete.\nDúvidas: nenhuma relevante; a página 175 não está no trecho, e o fim do fragmento foi mantido sem fechamento.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0071741,
+ "duration_ms": 48938,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11301,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 12088
+ },
+ "reparo": false
+}
