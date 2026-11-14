@@ -63,6 +63,16 @@ Na nova, o aparato espalhado pela reordenação de partes é antes reunido no fi
 `copia` ligados à 1916; `aplicar_ordem_partes` passou a manter os anexos no fim. Leva ~2 min (cada
 gravação reconstrói a árvore).
 
+### Índice gerado dos títulos
+
+O «Indice das materias» do fim de cada volume (nó `v1.indice`/`v2.indice`) deixa de ser o do OCR: `manage.py
+gerar_indice [--aplicar] [--edicao e] [--volume n]` (`obra/indice.py`) o refaz da árvore de nós — uma entrada
+`<p type="indice-parte|seccao|capitulo|artigo">rótulo — título<label>pág.</label></p>` por parte/secção/capítulo/artigo,
+com a página impressa do original (na nova, a da edição de 1916). Limpa ruído de OCR dos títulos (numeral romano,
+«— 65», lixo solto) e descarta o nó que só repete o anterior. Idempotente, em todas as edições; **rode de novo após
+corrigir títulos** (sem `--aplicar` só relata). Pressupõe `aplicar_componentes` (que cria o nó `anexo`). A qualidade do
+índice é a dos títulos: artigos sem título viram só «Artigo III.».
+
 ### Componente asterisco (∗)
 
 O ∗ de divisão de assunto do original (centrado, entre parágrafos ou no meio de uma nota) é o
