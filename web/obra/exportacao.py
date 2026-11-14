@@ -531,6 +531,72 @@ def compilar_pdf(tex, timeout=PDF_TIMEOUT):
     return pdf
 
 
+# Formatos de diagramação do PDF (tex/formatos/formato-<nome>.tex): chave da URL -> (nome do mestre, rótulo, papel).
+FORMATOS_PDF = {
+    "sem-notas": ("sem-notas", "Sem notas", "livro 160×230 mm"),
+    "1col": ("notas-1col", "Notas de rodapé, 1 coluna", "livro 160×230 mm"),
+    "2col": ("notas-2col", "Notas de rodapé, 2 colunas", "A4"),
+    "corpo": ("notas-corpo", "Notas no corpo do texto", "livro 160×230 mm"),
+}
+_INICIO_TEXTO = "\n% ---- texto ----\n\\begin{document}\n"
+
+
+def _fragmento_do_tex(tex):
+    """Corpo do .tex autônomo (entre \\begin{document} e \\end{document}), sem o preâmbulo A5."""
+    t = Path(tex).read_text(encoding="utf-8")
+    i = t.index(_INICIO_TEXTO) + len(_INICIO_TEXTO)
+    return t[i:t.rindex("\\end{document}")]
+
+
+def pdf_pronto_formato(tex, formato):
+    pdf = Path(tex).with_suffix(f".{formato}.pdf")
+    if pdf.is_file() and pdf.stat().st_size and pdf.stat().st_mtime >= Path(tex).stat().st_mtime:
+        return pdf
+    return None
+
+
+def compilar_pdf_formato(tex, formato, titulo, timeout=PDF_TIMEOUT):
+    """PDF do .tex autônomo no formato `formato` (chave de FORMATOS_PDF), com a diagramação de
+    tex/formatos/ em vez do preâmbulo A5.  Cache ao lado do .tex.  Levanta ErroExportacao."""
+    if formato not in FORMATOS_PDF:
+        raise ErroExportacao("Formato de PDF desconhecido.")
+    mestre = FORMATOS_PDF[formato][0]
+    raiz = _raiz_repo()
+    if not (raiz / "tex" / "formatos" / f"formato-{mestre}.tex").is_file():
+        raise ErroExportacao("Este formato de PDF não está disponível nesta instalação.")
+    tex = Path(tex)
+    pdf = tex.with_suffix(f".{formato}.pdf")
+    with _Trava(tex.with_suffix(f".{formato}.pdflock")):
+        if pdf_pronto_formato(tex, formato):
+            return pdf
+        if not _semaforo_pdf.acquire(timeout=timeout):
+            raise ErroExportacao("O servidor está ocupado gerando outros PDFs. Tente novamente em instantes.")
+        try:
+            with tempfile.TemporaryDirectory(dir=dir_cache(), prefix="pdf-") as tmp:
+                job = f"{tex.stem}.{formato}"
+                frag = Path(tmp) / "frag.tex"
+                frag.write_text(_fragmento_do_tex(tex), encoding="utf-8")
+                titulo_corrente = re.sub(r"[^\w ·.,-]", "", titulo.lower()) or "elementos de philosophia"
+                pretex = f"\\def\\fragmento{{{frag.with_suffix('')}}}\\def\\titulocorrente{{{titulo_corrente}}}"
+                try:
+                    r = subprocess.run(
+                        ["latexmk", "-lualatex", "-interaction=nonstopmode", "-halt-on-error",
+                         f"-outdir={tmp}", f"-jobname={job}", f"-usepretex={pretex}",
+                         f"tex/formatos/formato-{mestre}.tex"],
+                        capture_output=True, text=True, timeout=timeout, cwd=str(raiz),
+                        env={**os.environ, "max_print_line": "200"})
+                except subprocess.TimeoutExpired:
+                    raise ErroExportacao("A geração do PDF passou do tempo limite. Baixe o TEI ou o LaTeX.")
+                saida = Path(tmp) / f"{job}.pdf"
+                if r.returncode != 0 or not saida.is_file() or saida.stat().st_size < 1000:
+                    raise ErroExportacao("A compilação do PDF falhou para este trecho (provável erro de leitura "
+                                         "do OCR). Tente outro formato, ou baixe o TEI ou o LaTeX.")
+                os.replace(saida, pdf)
+        finally:
+            _semaforo_pdf.release()
+    return pdf
+
+
 def pdf_do_no(no):
     """Caminho do PDF do nó (em cache), compilado na hora. Levanta ErroExportacao."""
     if not pdf_disponivel(no):

@@ -92,13 +92,16 @@ def _volumes_baixar(ed, volumes):
         fac = fac_simile.disponivel(v)
         if not (texto or fac):
             continue
-        linhas.append({
-            "volume": v,
-            "tei": reverse("obra:baixar_volume", args=[ed.slug, v.numero]) if texto else None,
-            "pdf": reverse("obra:baixar_volume_pdf", args=[ed.slug, v.numero]) if texto and pdf_ok else None,
-            "fac": reverse("obra:baixar_fac_simile_volume", args=[v.numero]) if fac else None,
-            "fac_mb": round((fac_simile.tamanho_aproximado(v) or 0) / 2**20) if fac else None,
-        })
+        itens = []
+        if texto:
+            itens.append({"formato": "xml", "nome": "TEI XML", "url": reverse("obra:baixar_volume", args=[ed.slug, v.numero])})
+        if texto and pdf_ok:
+            itens.append({"formato": "pdf", "nome": "PDF", "url": reverse("obra:baixar_volume_pdf", args=[ed.slug, v.numero])})
+        if fac:
+            mb = round((fac_simile.tamanho_aproximado(v) or 0) / 2**20)
+            itens.append({"formato": "fac-simile", "nome": f"Fac-símile (scan{f', ~{mb} MB' if mb else ''})",
+                          "url": reverse("obra:baixar_fac_simile_volume", args=[v.numero])})
+        linhas.append({"volume": v, "itens": itens})
     return linhas
 
 
@@ -272,6 +275,14 @@ def _entregar(request, chave, funcao, tipo, nome, rotulo, voltar, espera=None):
     return render(request, "publico/erro_baixar.html", {**ctx, "erro": valor}, status=503)
 
 
+def _formato_pdf(request):
+    """`?notas=sem-notas|1col|2col|corpo` escolhe a diagramação do PDF; sem ele, o PDF A5 padrão (None)."""
+    fmt = request.GET.get("notas", "")
+    if fmt and fmt not in exportacao.FORMATOS_PDF:
+        raise Http404("Formato de PDF desconhecido.")
+    return fmt or None
+
+
 def baixar(request, slug, xml_id, formato):
     if formato not in FORMATOS:
         raise Http404("Formato desconhecido.")
@@ -292,6 +303,12 @@ def baixar(request, slug, xml_id, formato):
                                                 "baixe o TEI ou o LaTeX.")
             tex = exportacao.latex_do_no(n)
             limite = exportacao.tempo_limite_pdf(exportacao.blocos_do_no(n).count())
+            fmt = _formato_pdf(request)
+            if fmt:
+                titulo = exportacao.titulo_do_no(n)
+                return _entregar(request, ("pdf", str(tex), fmt),
+                                 lambda: exportacao.compilar_pdf_formato(tex, fmt, titulo, limite), tipo,
+                                 nome[:-4] + f"-{fmt}.pdf", rotulo, _voltar_no(ed, n))
             return _entregar(request, ("pdf", str(tex)), lambda: exportacao.compilar_pdf(tex, limite), tipo, nome,
                              rotulo, _voltar_no(ed, n))
         caminho = exportacao.latex_do_no(n)
@@ -336,6 +353,12 @@ def baixar_volume_pdf(request, slug, numero):
         return render(request, "publico/erro_baixar.html", {"erro": str(e), "formato": rotulo,
                                                              "voltar": _voltar_sumario(ed)}, status=503)
     limite = exportacao.tempo_limite_pdf(blocos.count())
+    fmt = _formato_pdf(request)
+    if fmt:
+        titulo = f"{exportacao.TITULO_OBRA}, vol. {vol.numero}"
+        return _entregar(request, ("pdf", str(tex), fmt),
+                         lambda: exportacao.compilar_pdf_formato(tex, fmt, titulo, limite), FORMATOS["pdf"][1],
+                         f"sinibaldi-{ed.slug}-vol{vol.numero}-{fmt}.pdf", rotulo, _voltar_sumario(ed))
     return _entregar(request, ("pdf", str(tex)), lambda: exportacao.compilar_pdf(tex, limite), FORMATOS["pdf"][1],
                      f"sinibaldi-{ed.slug}-vol{vol.numero}.pdf", rotulo, _voltar_sumario(ed))
 

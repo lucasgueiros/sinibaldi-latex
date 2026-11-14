@@ -100,4 +100,27 @@
   });
   window.addEventListener("scroll", posicionar, true);
   window.addEventListener("resize", posicionar);
+  /* Painel «Baixar»: as opções de notas só valem para PDF; o botão segue o URL do formato escolhido
+     (PDF: com ?notas=…).  Sem JS o formulário já baixa o PDF por GET. */
+  document.querySelectorAll("form[data-baixar]").forEach(function (f) {
+    var notas = f.querySelector("[data-so-pdf]");
+    function atual() { return f.querySelector('input[name="formato"]:checked'); }
+    function sincroniza() {
+      var a = atual();
+      if (notas) notas.hidden = !a || a.value !== "pdf";
+    }
+    f.addEventListener("change", sincroniza);
+    sincroniza();
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var a = atual();
+      if (!a) return;
+      var url = a.dataset.url;
+      if (a.value === "pdf") {
+        var n = f.querySelector('input[name="notas"]:checked');
+        if (n) url += (url.indexOf("?") < 0 ? "?" : "&") + "notas=" + encodeURIComponent(n.value);
+      }
+      window.location.href = url;
+    });
+  });
 })();

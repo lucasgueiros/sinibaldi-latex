@@ -34,6 +34,26 @@ Sempre da **raiz do repositório**:
 Por baixo, o script chama `latexmk -lualatex` sobre `tex/_preview.tex` (mesmo preâmbulo do livro)
 passando `\def\fragmento{…}` e, conforme a opção, `\def\semnotas{}` ou `\def\notascorridas{}`.
 
+## Exportar a obra em PDF (4 formatos)
+
+```bash
+tools/exporta_pdf.sh vol2                        # os 4 formatos -> build/vol2-<formato>.pdf
+tools/exporta_pdf.sh vol1 vol2                   # os dois volumes
+tools/exporta_pdf.sh vol2 --formato notas-2col   # só um (repetível)
+tools/exporta_pdf.sh vol2/02_parte_theodicea/01_cap_existencia-de-deus.tex   # um capítulo
+```
+
+| Formato | Papel | Notas |
+|---|---|---|
+| `sem-notas` | livro 160×230 mm, 11 pt | suprimidas (chamada e conteúdo) |
+| `notas-1col` | livro 160×230 mm, 11 pt | rodapé, 1 coluna, 9 pt, numeração por página |
+| `notas-2col` | **A4**, 12 pt | rodapé, 2 colunas de alturas iguais, 8,5 pt |
+| `notas-corpo` | livro 160×230 mm, 12,5/16 pt | no corpo, depois do parágrafo que as chama |
+
+São os formatos escolhidos em `diagramacao/essencia-de-deus/` (ver o README de lá), generalizados
+em `tex/formatos/` (`comum.tex` + um mestre por formato) para receber qualquer fragmento do
+`tei2latex.py --puro`. Para `volN`, o `.tex` sai de `volN/volN.corrigido.xml` (refazer com `--regera`).
+
 ## Livro inteiro
 
 ```bash

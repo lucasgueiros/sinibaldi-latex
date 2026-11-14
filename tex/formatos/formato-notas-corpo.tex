@@ -1,0 +1,48 @@
+% Exportação — notas no corpo (Formato 3 do ensaio de diagramação): notas no corpo, livro padrão (160×230 mm).  O texto oficial vem em
+% destaque: corpo 12,5/16 pt, preto, recuado 8 mm dos dois lados.  Cada nota é solta
+% logo DEPOIS do parágrafo que a chama (não no meio da frase), na largura toda da
+% mancha, em 8,5/10,5 pt e cinza escuro — sem filete.
+\documentclass[12pt,twoside]{book}
+\usepackage[paperwidth=160mm,paperheight=230mm,inner=19mm,outer=22mm,top=17mm,
+            bottom=19mm,includehead,headsep=6mm,footskip=9mm,marginparwidth=14mm]{geometry}
+\input{tex/formatos/comum}
+\definecolor{nota}{gray}{0.30}
+\newcommand{\recuocorpo}{8mm}
+\newcommand{\fontecorpo}{\fontsize{12.5}{16}\selectfont}
+\newcommand{\fontenota}{\fontsize{8.5}{10.5}\selectfont}
+\AtBeginDocument{\fontecorpo\leftskip=\recuocorpo\rightskip=\recuocorpo}
+
+% \footnote{...}: chamada «(n)» no texto; o conteúdo entra numa fila esvaziada no
+% fim do parágrafo (hook para/after).  \ifemnota impede que os \par da própria nota
+% disparem de novo a fila.
+\newtoks\notasfila
+\newif\ifemnota
+\renewcommand\footnote[1]{%
+  \stepcounter{footnote}%
+  \hbox{\normalfont\,(\arabic{footnote})}%
+  \expandafter\enfileira\expandafter{\the\value{footnote}}{#1}}
+\newcommand\enfileira[2]{\global\notasfila\expandafter{\the\notasfila\umanota{#1}{#2}}}
+\newcommand\umanota[2]{%
+  \par\addvspace{.5\baselineskip}%
+  \begingroup
+    \fontenota\color{nota}\leftskip=0pt \rightskip=0pt \parindent=1em
+    \noindent{\scshape nota (#1).}\enspace #2\par
+  \endgroup
+  \addvspace{.8\baselineskip}}
+% Só na lista vertical principal: cabeçalho, margem e caixas também são "inner" e
+% disparam para/after (sem isto a fila era solta dentro da rotina de saída quando o
+% parágrafo da chamada quebrava de página, e a nota saía sobreposta).
+\newcommand\soltanotas{%
+  \ifinner\else\ifemnota\else
+    \edef\tmpfila{\the\notasfila}%
+    \ifx\tmpfila\empty\else
+      \emnotatrue
+      \begingroup\the\notasfila\endgroup
+      \global\notasfila{}%
+      \emnotafalse
+    \fi
+  \fi\fi}
+\AddToHook{para/after}{\soltanotas}
+\begin{document}
+\input{\fragmento}
+\end{document}

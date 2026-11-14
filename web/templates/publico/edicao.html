@@ -23,13 +23,11 @@
       {% for l in volumes_baixar %}
       <li class="flex flex-wrap items-center gap-2">
         <span class="font-semibold">Vol. {{ l.volume.numero }}</span>
-        {% if l.pdf %}<a class="btn btn-secundario btn-sm" href="{{ l.pdf }}" title="Texto desta edição composto em LaTeX">PDF</a>{% endif %}
-        {% if l.tei %}<a class="btn btn-secundario btn-sm" href="{{ l.tei }}" download>TEI XML</a>{% endif %}
-        {% if l.fac %}<a class="btn btn-secundario btn-sm" href="{{ l.fac }}" title="Páginas do livro original escaneado">Fac-símile (scan{% if l.fac_mb %}, ~{{ l.fac_mb }} MB{% endif %})</a>{% endif %}
+        {% include "publico/_baixar.html" with itens=l.itens %}
       </li>
       {% endfor %}
     </ul>
-    <p class="mt-2 text-xs text-ink/70">O PDF do volume inteiro é composto na primeira vez que alguém o pede e pode levar alguns minutos; depois sai na hora. Trechos (partes, capítulos) podem ser baixados pelo menu «Baixar» de cada item.</p>
+    <p class="mt-2 text-xs text-ink/70">O PDF do volume inteiro é composto na primeira vez que alguém o pede e pode levar alguns minutos; depois sai na hora. Em «Baixar» escolhem-se o formato e, no PDF, as notas (sem notas, rodapé em 1 ou 2 colunas, ou no corpo). Trechos (partes, capítulos) têm o mesmo menu em cada item.</p>
   </section>
   {% endif %}
 

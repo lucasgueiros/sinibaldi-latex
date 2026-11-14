@@ -1,0 +1,25 @@
+% Exportação — notas em 1 coluna (Formato 1 do ensaio de diagramação): livro padrão (160×230 mm): corpo 11 pt, notas de rodapé em corpo menor
+% (9 pt), numa coluna, numeradas por página «(1)» como no original.
+%
+% Corpo em toda página: neste capítulo as notas são ~5× maiores que o corpo, e sem
+% limite o TeX enche páginas inteiras só de nota.  \dimen\footins limita a área de notas;
+% o resto da nota passa para a página seguinte.  O valor foi ajustado para o corpo e as
+% notas acabarem juntos (ver README).
+\documentclass[11pt,twoside]{book}
+\usepackage[paperwidth=160mm,paperheight=230mm,inner=20mm,outer=22mm,top=17mm,
+            bottom=19mm,includehead,headsep=6mm,footskip=9mm,marginparwidth=14mm]{geometry}
+\input{tex/formatos/comum}
+\usepackage[perpage,bottom]{footmisc}
+\makeatletter
+\renewcommand\@makefnmark{\hbox{\normalfont\,(\@thefnmark)}}  % chamada «(1)» na linha
+\renewcommand\@makefntext[1]{\parindent=1em\noindent(\@thefnmark)\enspace#1}
+\makeatother
+\renewcommand\footnoterule{\vspace*{-3pt}\noindent\rule{.3\columnwidth}{.4pt}\vspace*{2.6pt}}
+\setlength{\footnotesep}{\baselineskip}
+\interfootnotelinepenalty=0
+\providecommand{\fracaonotas}{0.84}
+\dimen\footins=\fracaonotas\textheight
+\AtEndDocument{\par\global\dimen\footins=\maxdimen}  % sobras de nota saem no fim
+\begin{document}
+\input{\fragmento}
+\end{document}

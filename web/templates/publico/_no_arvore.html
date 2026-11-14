@@ -4,17 +4,7 @@
     <a href="{% url 'obra:no' edicao.slug no.xml_id %}" class="item-{{ no.nivel }}">{% if no.rotulo %}<span class="rotulo">{{ no.rotulo }}</span>{% endif %}{% if no.titulo %} <span class="titulo">{{ no.titulo }}</span>{% endif %}{% if not no.rotulo and not no.titulo %}{{ no.xml_id }}{% endif %}</a>
     {% if no.pag %}<span class="pag">{% if nova %}orig. {% endif %}p. {{ no.pag }}</span>{% endif %}
     {% if no.nivel == 'parte' or no.nivel == 'seccao' or no.nivel == 'capitulo' %}
-      <details class="baixar baixar-compacto">
-        <summary title="Baixar este trecho">Baixar</summary>
-        <ul class="baixar-lista">
-          <li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'xml' %}" download>TEI XML</a></li>
-          <li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'txt' %}" download>Texto puro</a></li>
-          <li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'html' %}" download>HTML</a></li>
-          <li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'tex' %}" download>LaTeX</a></li>
-          {% if pdf_ok %}<li><a href="{% url 'obra:baixar' edicao.slug no.xml_id 'pdf' %}">PDF (LaTeX)</a></li>{% endif %}
-          {% if no.volume_id in fac_vols %}<li><a href="{% url 'obra:baixar_fac_simile' edicao.slug no.xml_id %}">Fac-símile (PDF do scan)</a></li>{% endif %}
-        </ul>
-      </details>
+      {% load baixar %}{% itens_baixar_no edicao no pdf_ok fac_vols as itens_baixar %}{% include "publico/_baixar.html" with itens=itens_baixar compacto=True %}
     {% endif %}
   </span>
   {% if no.teses_lista %}
