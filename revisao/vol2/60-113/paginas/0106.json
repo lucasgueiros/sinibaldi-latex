@@ -1,0 +1,27 @@
+{
+ "pagina": 106,
+ "paginas": [
+  106
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR em \"suecedem\", \"distineção\", \"a0\", \"etc.\" (lido \"ete.\"), \"attencaão\", \"1.9)\", \"d'ella\" (lido \"della\"), \"Como se vê\", \"/im\" → \"fim\", \"q. 18\" → \"q. 13\" na citação do De Ver. e itálicos ajustados (\"positivistas\", \"De Ver.\", \"fim\").\nFronteira corpo/nota: conferida e mantida. A nota 1 (p. 106, rodapé superior e inferior) vai até \"nem estas da essencia.\" e a nota 2 começa em \"(2) Cf. S. Th.\"; nenhuma mudança de fronteira.\nDúvidas: \"não opéra\" mantido como impresso (acento possivelmente do original); o \"1.º)\" foi transcrito com o º sobrescrito como na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR em \"suecedem\", \"distineção\", \"a0\", \"etc.\" (lido \"ete.\"), \"attencaão\", \"1.9)\", \"d'ella\" (lido \"della\"), \"Como se vê\", \"/im\" → \"fim\", \"q. 18\" → \"q. 13\" na citação do De Ver. e itálicos ajustados (\"positivistas\", \"De Ver.\", \"fim\").\nFronteira corpo/nota: conferida e mantida. A nota 1 (p. 106, rodapé superior e inferior) vai até \"nem estas da essencia.\" e a nota 2 começa em \"(2) Cf. S. Th.\"; nenhuma mudança de fronteira.\nDúvidas: \"não opéra\" mantido como impresso (acento possivelmente do original); o \"1.º)\" foi transcrito com o º sobrescrito como na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.004302,
+ "duration_ms": 24665,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10720,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 6460
+ },
+ "reparo": false
+}

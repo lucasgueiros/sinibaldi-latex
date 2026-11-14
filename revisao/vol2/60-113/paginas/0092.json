@@ -1,0 +1,27 @@
+{
+ "pagina": 92,
+ "paginas": [
+  92
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções: erros de OCR (oceupem→occupem, circumseripto/circeumscripto→circumscripto, specificwm→specificum, essein/etin→esse in/et in, vivifieava/vivifiear→vivificava/vivificar, augmentando oudiminuindo→ou diminuindo, \"partes. que\"→\"partes que\"), remoção do traço espúrio \"-\" em \"em -todo\" (tese 57). Notas 1 e 2 permanecem inteiras nas suas posições (chamadas (1) e (2) corretas); nenhuma mudança de fronteira corpo/nota nesta página.\nDúvidas: \"Resposta.\" e \"Objectam:\" podem ter formatação diferente no impresso (mantive sem <hi>); \"não esta\" (sem acento) transcrito como impresso; o traço antes de \"todo\" no título da tese 57 pode ser mancha, removido por cautela.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções: erros de OCR (oceupem→occupem, circumseripto/circeumscripto→circumscripto, specificwm→specificum, essein/etin→esse in/et in, vivifieava/vivifiear→vivificava/vivificar, augmentando oudiminuindo→ou diminuindo, \"partes. que\"→\"partes que\"), remoção do traço espúrio \"-\" em \"em -todo\" (tese 57). Notas 1 e 2 permanecem inteiras nas suas posições (chamadas (1) e (2) corretas); nenhuma mudança de fronteira corpo/nota nesta página.\nDúvidas: \"Resposta.\" e \"Objectam:\" podem ter formatação diferente no impresso (mantive sem <hi>); \"não esta\" (sem acento) transcrito como impresso; o traço antes de \"todo\" no título da tese 57 pode ser mancha, removido por cautela.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0047084,
+ "duration_ms": 27174,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10839,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7249
+ },
+ "reparo": false
+}

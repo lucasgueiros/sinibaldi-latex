@@ -1,0 +1,29 @@
+{
+ "pagina": 270,
+ "paginas": [
+  270,
+  271,
+  272
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (ayeriguado, acerescentar, augmeníarmos, differenga, caleulo, divesamente, regoitaram→rejeitaram, facto→tacto, un→um, thernicas, Bvaunis, frações \"!/,\" → ¹/₃ etc.), numeração das teses (\"8)\"→\"a)\", \"1.9)\"→\"1.º)\", \"1.º pergunta\"→\"1.ª\"), \"é á\"→\"é a\", \"dór\"→\"dôr\", \"ete.\"→\"etc.\", hífen de \"tona-/lidade\" juntado (p5 e p6 fundidos num só parágrafo).\nFronteira corpo/nota: nenhuma alteração. A nota (1) de p. 270 começa após \"sensiente\", atravessa 270–271 (pb 271 dentro da nota) e termina em \"varia consideravelmente.\" na p. 272, antes da nota (1) da p. 272, que fica fora do trecho; o texto no alto da área de notas da p. 270 (até \"todo o phenomeno.\") não foi acrescentado.\nDúvidas: itálicos de \"Weber\" e \"tambem/também\" e a letra de \"a\" em \"irreductiveis a uma\" foram feitos pela leitura da imagem, mas podem não ser exatos; \"insoluvel\" está ilegível na imagem (mancha) e foi lido como no item 1.º.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (ayeriguado, acerescentar, augmeníarmos, differenga, caleulo, divesamente, regoitaram→rejeitaram, facto→tacto, un→um, thernicas, Bvaunis, frações \"!/,\" → ¹/₃ etc.), numeração das teses (\"8)\"→\"a)\", \"1.9)\"→\"1.º)\", \"1.º pergunta\"→\"1.ª\"), \"é á\"→\"é a\", \"dór\"→\"dôr\", \"ete.\"→\"etc.\", hífen de \"tona-/lidade\" juntado (p5 e p6 fundidos num só parágrafo).\nFronteira corpo/nota: nenhuma alteração. A nota (1) de p. 270 começa após \"sensiente\", atravessa 270–271 (pb 271 dentro da nota) e termina em \"varia consideravelmente.\" na p. 272, antes da nota (1) da p. 272, que fica fora do trecho; o texto no alto da área de notas da p. 270 (até \"todo o phenomeno.\") não foi acrescentado.\nDúvidas: itálicos de \"Weber\" e \"tambem/também\" e a letra de \"a\" em \"irreductiveis a uma\" foram feitos pela leitura da imagem, mas podem não ser exatos; \"insoluvel\" está ilegível na imagem (mancha) e foi lido como no item 1.º.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0225446,
+ "duration_ms": 159088,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23251,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 40439
+ },
+ "reparo": false
+}

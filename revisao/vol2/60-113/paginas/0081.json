@@ -1,0 +1,29 @@
+{
+ "pagina": 81,
+ "paginas": [
+  81,
+  82,
+  83
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (á/a, è/é, communiea, Ougamos, Acerescentam, 0→o/c, \"subtraecüo\", \"30 et 81\", \"q. 16\", \"Ant/mopologie\", \"pag. 195\"→135, \"prowimamente\", \"&amp;\"), acentos e itálicos/versalete (essas sem negrito, \"Summ. theol.\", \"La Vie\", citação de Chauffard), hifenização \"intellec-|tual\" joined across pb 82, e remoção de lixo (\"| |\", \"6\", \"VOL. II\", \":\" espúrio).\nFronteira corpo/nota: nenhuma mudança. Nota 1 (p. 81) e nota 2 (pp. 81–83) mantidas como estão, pois o texto em letra menor abaixo do filete nas pp. 82–83 foi lido como continuação da nota 2; o corpo do n. 53 (pp. 82–83, acima do filete) permanece após a nota, com os pb 82 e 83 do corpo intactos.\nDúvidas: \"Esta theoria…\", \"Examinemos…\", objeções/respostas (a–c) e \"De resto…\" estão em letra pequena abaixo do filete e foram mantidos na nota 2; se forem escólios de corpo, a fronteira precisa ser revista. Leitura de \"come dissemos\", \"Accrescentam\" e do fechamento de \"(Summ. theol., … a. 3)\" tomada como mais provável.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (á/a, è/é, communiea, Ougamos, Acerescentam, 0→o/c, \"subtraecüo\", \"30 et 81\", \"q. 16\", \"Ant/mopologie\", \"pag. 195\"→135, \"prowimamente\", \"&amp;\"), acentos e itálicos/versalete (essas sem negrito, \"Summ. theol.\", \"La Vie\", citação de Chauffard), hifenização \"intellec-|tual\" joined across pb 82, e remoção de lixo (\"| |\", \"6\", \"VOL. II\", \":\" espúrio).\nFronteira corpo/nota: nenhuma mudança. Nota 1 (p. 81) e nota 2 (pp. 81–83) mantidas como estão, pois o texto em letra menor abaixo do filete nas pp. 82–83 foi lido como continuação da nota 2; o corpo do n. 53 (pp. 82–83, acima do filete) permanece após a nota, com os pb 82 e 83 do corpo intactos.\nDúvidas: \"Esta theoria…\", \"Examinemos…\", objeções/respostas (a–c) e \"De resto…\" estão em letra pequena abaixo do filete e foram mantidos na nota 2; se forem escólios de corpo, a fronteira precisa ser revista. Leitura de \"come dissemos\", \"Accrescentam\" e do fechamento de \"(Summ. theol., … a. 3)\" tomada como mais provável.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0226371,
+ "duration_ms": 163196,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24231,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 40428
+ },
+ "reparo": false
+}

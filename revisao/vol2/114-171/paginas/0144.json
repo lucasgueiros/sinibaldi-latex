@@ -1,0 +1,32 @@
+{
+ "pagina": 144,
+ "paginas": [
+  144,
+  145,
+  146,
+  147,
+  148,
+  149
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (obstaeulos, OU, énstinctivo, Hitsig, pAarynge, collo-cada, expri-mam, Q' elle, o3, Summario, \"/óbo\", \"lê\"), hifenizações (physico-chimica, vi-brantes, evidencia), lixo (\">\", \"*\", \"s\", \": c)\", \"10 Vol. II\", \"2.2)\", \"1.º)\"→\"1.ª)\"), pontuação e itálicos; fragmentos de parágrafo unidos (112; resumo); \"ARTIGO I.\" reposto como <p>; citações e referências (p. II-II, Perihermenias lib. 1 lect. 3, Sum. Th. p. I q. 78) corrigidas.\nFronteira corpo/nota: nenhuma nota foi movida ou recortada. A nota 145-2 segue até o fim da p. 147 (\"c. V).\"), incluindo o texto abaixo do filete nas pp. 146 e 147; o \"111.\" (p. 146) permanece no corpo depois da nota, como na imagem. Nota 147-1 continua na p. 148 e nota 148-1 na p. 149, como estavam.\nDúvidas: não tenho certeza de que \"Advertimos tambem…\" até \"c)…\" (p. 146) seja letra de nota e não corpo (tamanho de letra próximo); mantive como nota pelo filete. \"Duas\" (109) foi tirado de versalete por aparecer em letra normal. O pb 145 fica entre \"evi-\" e \"dencia\", como no texto anterior.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (obstaeulos, OU, énstinctivo, Hitsig, pAarynge, collo-cada, expri-mam, Q' elle, o3, Summario, \"/óbo\", \"lê\"), hifenizações (physico-chimica, vi-brantes, evidencia), lixo (\">\", \"*\", \"s\", \": c)\", \"10 Vol. II\", \"2.2)\", \"1.º)\"→\"1.ª)\"), pontuação e itálicos; fragmentos de parágrafo unidos (112; resumo); \"ARTIGO I.\" reposto como <p>; citações e referências (p. II-II, Perihermenias lib. 1 lect. 3, Sum. Th. p. I q. 78) corrigidas.\nFronteira corpo/nota: nenhuma nota foi movida ou recortada. A nota 145-2 segue até o fim da p. 147 (\"c. V).\"), incluindo o texto abaixo do filete nas pp. 146 e 147; o \"111.\" (p. 146) permanece no corpo depois da nota, como na imagem. Nota 147-1 continua na p. 148 e nota 148-1 na p. 149, como estavam.\nDúvidas: não tenho certeza de que \"Advertimos tambem…\" até \"c)…\" (p. 146) seja letra de nota e não corpo (tamanho de letra próximo); mantive como nota pelo filete. \"Duas\" (109) foi tirado de versalete por aparecer em letra normal. O pb 145 fica entre \"evi-\" e \"dencia\", como no texto anterior.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0305832,
+ "duration_ms": 199248,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44632,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 52240
+ },
+ "reparo": false
+}

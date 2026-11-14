@@ -1,0 +1,27 @@
+{
+ "pagina": 27,
+ "paginas": [
+  27
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (menénges→meninges, suns→sua, salieneias→saliencias, metrieas→metricas, symetrieos→symetricos, cireumvolução→circumvolução, €/6/1→C/G/I, volugüo→volução, \"Ahemispherios\"→hemispherios, \"Hemispherios\"→hemispherios em minúscula); nota (1) fechada corretamente no ponto da chamada; sem mudanças de fronteira corpo/nota.\nDúvidas: a palavra \"sy-/metricas\" está partida pela legenda da figura, que o pipeline colocou entre as duas partes; o hífen foi removido, mas a legenda continua intercalada e \"ções do lóbo occipital.\" segue no mesmo <p> que o corpo \"metricas…\" (p9), sem separação estrutural.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (menénges→meninges, suns→sua, salieneias→saliencias, metrieas→metricas, symetrieos→symetricos, cireumvolução→circumvolução, €/6/1→C/G/I, volugüo→volução, \"Ahemispherios\"→hemispherios, \"Hemispherios\"→hemispherios em minúscula); nota (1) fechada corretamente no ponto da chamada; sem mudanças de fronteira corpo/nota.\nDúvidas: a palavra \"sy-/metricas\" está partida pela legenda da figura, que o pipeline colocou entre as duas partes; o hífen foi removido, mas a legenda continua intercalada e \"ções do lóbo occipital.\" segue no mesmo <p> que o corpo \"metricas…\" (p9), sem separação estrutural.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0051273,
+ "duration_ms": 33575,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10048,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8245
+ },
+ "reparo": false
+}

@@ -1,0 +1,28 @@
+{
+ "pagina": 175,
+ "paginas": [
+  175,
+  176
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos sobretudo erros de OCR (nias→mas, objecium→objectum, text. 58→53, a. 9→3, p. 81→87, praecoguoscuntur, commun→commum, differengas, \"&amp;\"→a, \"s\"→só, intimus→intimas, Eq.→q., C£→Cf., \"u\"→«, \"reflexão'\", acentos como constituído/não/á materia) e traços espúrios (\" - \" e \"-intelligencia\").\nFronteira corpo/nota: nenhuma mudança; a nota 1 (pp. 175–176) confere com as imagens, pois tudo abaixo do filete em ambas as páginas é nota, e o corpo \"Vamos indicar…\" da p. 176 está acima do filete.\nDúvida: o trecho termina em \"ope-\" na imagem (hífen de fim de linha, seguido do filete); mantive \"operações\" como no fragmento, sem saber se a continuação cabe a este trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos sobretudo erros de OCR (nias→mas, objecium→objectum, text. 58→53, a. 9→3, p. 81→87, praecoguoscuntur, commun→commum, differengas, \"&amp;\"→a, \"s\"→só, intimus→intimas, Eq.→q., C£→Cf., \"u\"→«, \"reflexão'\", acentos como constituído/não/á materia) e traços espúrios (\" - \" e \"-intelligencia\").\nFronteira corpo/nota: nenhuma mudança; a nota 1 (pp. 175–176) confere com as imagens, pois tudo abaixo do filete em ambas as páginas é nota, e o corpo \"Vamos indicar…\" da p. 176 está acima do filete.\nDúvida: o trecho termina em \"ope-\" na imagem (hífen de fim de linha, seguido do filete); mantive \"operações\" como no fragmento, sem saber se a continuação cabe a este trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0111415,
+ "duration_ms": 68764,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 18350,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 18613
+ },
+ "reparo": false
+}

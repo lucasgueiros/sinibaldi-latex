@@ -1,0 +1,29 @@
+{
+ "pagina": 244,
+ "paginas": [
+  244,
+  245,
+  246
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: linha inicial perdida na p. 244 (\"ferença\" reposta antes de \"e indeterminação\"); \"inexplieavel\" → \"inexplicavel\" (p. 246); vírgula trocada por ponto em \"percepção. Logo\" (p. 246).\nFronteira corpo/nota: não mudei nada. As linhas em letra menor abaixo do filete nas pp. 244, 245 e 246 não têm \"(n)\" e são continuações de notas de antes do trecho, por isso não entraram no fragmento.\nDúvida: na p. 245 a imagem mostra, depois do filete, corpo em letra normal (\"c) NATUREZA DA ESPECIE IMPRESSA\", \"a)\", \"b) Considerada entitativamente…\", até \"a forma é\"), que não está no fragmento e não encaixa na sequência \"Ora este phenomeno / seria inexplicavel\" da p. 246. Não inseri nada; convém conferir a ordem dessas páginas na digitalização.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: linha inicial perdida na p. 244 (\"ferença\" reposta antes de \"e indeterminação\"); \"inexplieavel\" → \"inexplicavel\" (p. 246); vírgula trocada por ponto em \"percepção. Logo\" (p. 246).\nFronteira corpo/nota: não mudei nada. As linhas em letra menor abaixo do filete nas pp. 244, 245 e 246 não têm \"(n)\" e são continuações de notas de antes do trecho, por isso não entraram no fragmento.\nDúvida: na p. 245 a imagem mostra, depois do filete, corpo em letra normal (\"c) NATUREZA DA ESPECIE IMPRESSA\", \"a)\", \"b) Considerada entitativamente…\", até \"a forma é\"), que não está no fragmento e não encaixa na sequência \"Ora este phenomeno / seria inexplicavel\" da p. 246. Não inseri nada; convém conferir a ordem dessas páginas na digitalização.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0079351,
+ "duration_ms": 56259,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 19646,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11941
+ },
+ "reparo": false
+}

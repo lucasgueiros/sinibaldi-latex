@@ -1,0 +1,32 @@
+{
+ "pagina": 69,
+ "paginas": [
+  69,
+  70,
+  71,
+  72,
+  73,
+  74
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (commu-/nica, !é, nao, comprineipio, Leibnits, mosíram, atzingido, desums, humano, Na verde, motore, esta→está, numerais \"5)\"/\"0)\"/\"€)\" trocados por letras), lixo (\"LE\", \"P\", \"1 A\", \"> * * *\", \"4 * J . = * pt\", \"—\" espúrio), acentos e um hífen de quebra de página (consti-/tuida) juntado; referência \"lib. 9, c. v, a. 8\" corrigida para \"lib. 2, c. v, a. 3\" e a letra \"c)\" em F) e \"0)\" restaurados; \"n\" espúrio antes de pb74 removido e \"sentido por\" unido à continuação sem novo parágrafo; negrito do título 47 estendido à frase toda.\nFronteira corpo/nota: nenhuma mudança estrutural. A nota 1 (p. 69) está fechada no ponto da chamada e contém as continuações das pp. 70–74 (pb 70–74 dentro da nota); o corpo das pp. 70–73 permanece fora da nota, na ordem da página. Não se copiou a nota que começa na p. 74 (“A these apoia-se…”) nem o corpo da p. 74.\nDúvidas: grafias \"Macke\", \"Storchenau\", \"esserção\", \"Basêa-se\", \"bóas\" e \"non podem\" tomadas como impressas, sem certeza absoluta; o \"*\" ornamental antes de \"Os philosophos\" foi mantido como parágrafo.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (commu-/nica, !é, nao, comprineipio, Leibnits, mosíram, atzingido, desums, humano, Na verde, motore, esta→está, numerais \"5)\"/\"0)\"/\"€)\" trocados por letras), lixo (\"LE\", \"P\", \"1 A\", \"> * * *\", \"4 * J . = * pt\", \"—\" espúrio), acentos e um hífen de quebra de página (consti-/tuida) juntado; referência \"lib. 9, c. v, a. 8\" corrigida para \"lib. 2, c. v, a. 3\" e a letra \"c)\" em F) e \"0)\" restaurados; \"n\" espúrio antes de pb74 removido e \"sentido por\" unido à continuação sem novo parágrafo; negrito do título 47 estendido à frase toda.\nFronteira corpo/nota: nenhuma mudança estrutural. A nota 1 (p. 69) está fechada no ponto da chamada e contém as continuações das pp. 70–74 (pb 70–74 dentro da nota); o corpo das pp. 70–73 permanece fora da nota, na ordem da página. Não se copiou a nota que começa na p. 74 (“A these apoia-se…”) nem o corpo da p. 74.\nDúvidas: grafias \"Macke\", \"Storchenau\", \"esserção\", \"Basêa-se\", \"bóas\" e \"non podem\" tomadas como impressas, sem certeza absoluta; o \"*\" ornamental antes de \"Os philosophos\" foi mantido como parágrafo.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0253669,
+ "duration_ms": 155919,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 44829,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 41768
+ },
+ "reparo": false
+}

@@ -1,0 +1,27 @@
+{
+ "pagina": 24,
+ "paginas": [
+  24
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções: OCR (\"á bigorna\"→\"a bigorna\"; \"communiea\"→\"communica\"; \"similhanca\"→\"similhança\"; \"6\"→\"C\" e \"G\"; \"eireulares\"→\"circulares\"; \"1\"→\"I\" na legenda), e removido o negrito indevido de \"tres\" no corpo. Nenhuma mudança de fronteira corpo/nota: a nota (1) na p. 24 já está corretamente no ponto da chamada e no rodapé.\nDúvidas: mantive \"A\" em itálico na legenda da figura e o espaçamento \"d' Eustachio\" como impressos; o trecho termina em \"em\", que continua na página seguinte.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções: OCR (\"á bigorna\"→\"a bigorna\"; \"communiea\"→\"communica\"; \"similhanca\"→\"similhança\"; \"6\"→\"C\" e \"G\"; \"eireulares\"→\"circulares\"; \"1\"→\"I\" na legenda), e removido o negrito indevido de \"tres\" no corpo. Nenhuma mudança de fronteira corpo/nota: a nota (1) na p. 24 já está corretamente no ponto da chamada e no rodapé.\nDúvidas: mantive \"A\" em itálico na legenda da figura e o espaçamento \"d' Eustachio\" como impressos; o trecho termina em \"em\", que continua na página seguinte.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0031634000000000002,
+ "duration_ms": 17372,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10144,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4298
+ },
+ "reparo": false
+}

@@ -1,0 +1,29 @@
+{
+ "pagina": 150,
+ "paginas": [
+  150,
+  151,
+  152
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de palavras (dZfferenciaes, e/feitos, proprium objectun, T7./TA./IT, \"2.9)\"/\"1.9)\"/\"8.9)\"→ \"º)\"/\"3.º)\", \"comprehensao\", \"a.intelligencia\", \"inlelligencia\", \"ó\"→\"é\"), acentos/cedilhas, e itálicos/romanos mal posicionados (p. ex. \"formal é adequado\", \"O adequado\", \"o\" em \"o mais intimo\", \"e\" em \"concreto, e não\"), além de \"d'essa\", \"emquanto\", \"se addiciona\", \"differença\" e pontuação.\nFronteira corpo/nota: conferida página a página e mantida como está. A nota 1 (chamada no fim de \"immaterial\") realmente começa em 150 e vai até \"da intelligencia.\" em 152 (ali termina, antes da nota \"(1) Desenvolvamos…\" que não pertence ao trecho); o corpo de 150 (\"O objecto adequado…\") e de 151 (\"b) Objecto proporcionado…\") estava correto em outra leitura, mas a imagem mostra essas passagens em letra menor no pé de página, por isso não foram movidas.\nDúvidas restantes: se \"ente\"/\"significação\" e \"e\" de \"e que por isso\" são itálico ou romano, e a grafia \"convêm/convém\", \"ha\", \"pelo effeitos\" foram transcritas como aparecem na imagem; leitura de algumas letras pequenas em 152 é aproximada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de palavras (dZfferenciaes, e/feitos, proprium objectun, T7./TA./IT, \"2.9)\"/\"1.9)\"/\"8.9)\"→ \"º)\"/\"3.º)\", \"comprehensao\", \"a.intelligencia\", \"inlelligencia\", \"ó\"→\"é\"), acentos/cedilhas, e itálicos/romanos mal posicionados (p. ex. \"formal é adequado\", \"O adequado\", \"o\" em \"o mais intimo\", \"e\" em \"concreto, e não\"), além de \"d'essa\", \"emquanto\", \"se addiciona\", \"differença\" e pontuação.\nFronteira corpo/nota: conferida página a página e mantida como está. A nota 1 (chamada no fim de \"immaterial\") realmente começa em 150 e vai até \"da intelligencia.\" em 152 (ali termina, antes da nota \"(1) Desenvolvamos…\" que não pertence ao trecho); o corpo de 150 (\"O objecto adequado…\") e de 151 (\"b) Objecto proporcionado…\") estava correto em outra leitura, mas a imagem mostra essas passagens em letra menor no pé de página, por isso não foram movidas.\nDúvidas restantes: se \"ente\"/\"significação\" e \"e\" de \"e que por isso\" são itálico ou romano, e a grafia \"convêm/convém\", \"ha\", \"pelo effeitos\" foram transcritas como aparecem na imagem; leitura de algumas letras pequenas em 152 é aproximada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.022989799999999998,
+ "duration_ms": 161621,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24333,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 41113
+ },
+ "reparo": false
+}

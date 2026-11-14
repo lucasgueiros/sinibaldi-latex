@@ -1,0 +1,28 @@
+{
+ "pagina": 156,
+ "paginas": [
+  156,
+  157
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: erros de OCR (intelligencia, \"Znmnaterial\", \"9.9)\", \"4)\", \"wniversalia\", \"q. 5, a. 8\", \"inorganieas\", \"differenca\", \"a uma faculdade\"), pontuação, paragrafação espúria (junção de \"a in-\"/\"telligencia\" e de \"imma-\"/\"terial\", com pb 157 mantido no meio da palavra) e lixo do OCR (\")1\", \"A\" solto em t115.p7, que ficou como <p> vazio).\nFronteira corpo/nota: nenhuma mudança. Não acrescentei o fim da nota anterior no alto da p. 156 (conforme instruído). As notas n156-1 (continua na p. 157) e n157-1 foram conferidas e mantidas.\nDúvidas: a palavra \"immaterial\" está partida pela quebra de página (p. 156/157), dentro da nota; deixei assim. Não reconstruí o \"<p>\" vazio t115.p7 para além de remover o \"A\".",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: erros de OCR (intelligencia, \"Znmnaterial\", \"9.9)\", \"4)\", \"wniversalia\", \"q. 5, a. 8\", \"inorganieas\", \"differenca\", \"a uma faculdade\"), pontuação, paragrafação espúria (junção de \"a in-\"/\"telligencia\" e de \"imma-\"/\"terial\", com pb 157 mantido no meio da palavra) e lixo do OCR (\")1\", \"A\" solto em t115.p7, que ficou como <p> vazio).\nFronteira corpo/nota: nenhuma mudança. Não acrescentei o fim da nota anterior no alto da p. 156 (conforme instruído). As notas n156-1 (continua na p. 157) e n157-1 foram conferidas e mantidas.\nDúvidas: a palavra \"immaterial\" está partida pela quebra de página (p. 156/157), dentro da nota; deixei assim. Não reconstruí o \"<p>\" vazio t115.p7 para além de remover o \"A\".",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0106509,
+ "duration_ms": 68414,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17094,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 17883
+ },
+ "reparo": false
+}

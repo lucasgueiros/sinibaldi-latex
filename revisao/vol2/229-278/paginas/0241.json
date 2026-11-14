@@ -1,0 +1,27 @@
+{
+ "pagina": 241,
+ "paginas": [
+  241
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (distinecüo, differenca, \"ó\" → \"não é\", \"e l\"/\"e i\", \"etc.\" sem vírgula, \"É\"/\"OS\" maiúsculos, \"pelo — qual\", vírgula em \"entes, sensiveis\"), \"|\" espúrios removidos e rodapé \"16 Vol. II\" (lixo) retirado da nota 2.\nFronteira: nenhuma mudança de corpo/nota; a chamada da tese 152 (p. 241) estava rotulada n=\"29\" e foi renumerada para n=\"2\" (xml:id n241-2), conforme o \"(2)\" impresso.\nDúvidas: acento de \"dôr\" (lido como \"dôr\") e \"á\"/\"a\" em \"á meras modificações\" (adotei \"a meras\"); a palavra final \"sentidos\" fica como está, pois o fragmento termina onde termina o trecho.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (distinecüo, differenca, \"ó\" → \"não é\", \"e l\"/\"e i\", \"etc.\" sem vírgula, \"É\"/\"OS\" maiúsculos, \"pelo — qual\", vírgula em \"entes, sensiveis\"), \"|\" espúrios removidos e rodapé \"16 Vol. II\" (lixo) retirado da nota 2.\nFronteira: nenhuma mudança de corpo/nota; a chamada da tese 152 (p. 241) estava rotulada n=\"29\" e foi renumerada para n=\"2\" (xml:id n241-2), conforme o \"(2)\" impresso.\nDúvidas: acento de \"dôr\" (lido como \"dôr\") e \"á\"/\"a\" em \"á meras modificações\" (adotei \"a meras\"); a palavra final \"sentidos\" fica como está, pois o fragmento termina onde termina o trecho.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.004619,
+ "duration_ms": 28361,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10980,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7042
+ },
+ "reparo": false
+}

@@ -1,0 +1,31 @@
+{
+ "pagina": 140,
+ "paginas": [
+  140,
+  141,
+  142,
+  143,
+  144
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (immateriaes, luctam, obstaculos, Luz e calor, despotico, imaginação, funda-se, musculo, pneumo-gastrico, sensitivo, \"1.ª/2.ª/3.ª\" etc.), acentos e pontuação, lixo do OCR removido (\" A\" após \"Objectam\", \"«\" espúrio, \"&amp;\" por \"á\", apóstrofo de \"'affectos\", \"“\" espúrio), itálicos corrigidos (uno, Luz e calor, appetite, é politico), hifenização de fim de linha (exer-cem, sen-/sitivo, contraeções) e a pontuação \"1.º\" → \"1.ª\".\nFronteiras corpo/nota: nenhuma alterada. Confirmado que nota 2 (p. 140) continua em 141 e 142 e termina em 142; nota 142-1 começa em 142, continua em 143 e 144 (texto em letra pequena) e termina em \"psychica.\"; corpo de 143 é só o cabeçalho da 108. Pb 141 e 142 de corpo mantidos.\nDúvidas: o \"sen-/sitivo\" entre as págs. 141–142 foi unido sem hífen (sen<pb/>sitivo); grafias \"sede\"/\"séde\", \"elecitivo\" e \"continúa\" transcritas conforme impresso, mas a leitura é incerta.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (immateriaes, luctam, obstaculos, Luz e calor, despotico, imaginação, funda-se, musculo, pneumo-gastrico, sensitivo, \"1.ª/2.ª/3.ª\" etc.), acentos e pontuação, lixo do OCR removido (\" A\" após \"Objectam\", \"«\" espúrio, \"&amp;\" por \"á\", apóstrofo de \"'affectos\", \"“\" espúrio), itálicos corrigidos (uno, Luz e calor, appetite, é politico), hifenização de fim de linha (exer-cem, sen-/sitivo, contraeções) e a pontuação \"1.º\" → \"1.ª\".\nFronteiras corpo/nota: nenhuma alterada. Confirmado que nota 2 (p. 140) continua em 141 e 142 e termina em 142; nota 142-1 começa em 142, continua em 143 e 144 (texto em letra pequena) e termina em \"psychica.\"; corpo de 143 é só o cabeçalho da 108. Pb 141 e 142 de corpo mantidos.\nDúvidas: o \"sen-/sitivo\" entre as págs. 141–142 foi unido sem hífen (sen<pb/>sitivo); grafias \"sede\"/\"séde\", \"elecitivo\" e \"continúa\" transcritas conforme impresso, mas a leitura é incerta.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0295083,
+ "duration_ms": 192222,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38393,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 51338
+ },
+ "reparo": false
+}

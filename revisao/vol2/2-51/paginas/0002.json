@@ -1,0 +1,27 @@
+{
+ "pagina": 2,
+ "paginas": [
+  2
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Removido o lixo de OCR (\"|\", \":\", \"*\", \"M. Pae wx\") e o texto da etiqueta de biblioteca colada na página (título \"Elementos de philosophia, Thiago\" e código BM002777), que não faz parte do livro impresso; a página 2 é em branco no original, então só o `<pb>` permanece.\nNenhuma mudança de fronteira corpo/nota nesta página; não há notas.\nSem dúvidas restantes.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Removido o lixo de OCR (\"|\", \":\", \"*\", \"M. Pae wx\") e o texto da etiqueta de biblioteca colada na página (título \"Elementos de philosophia, Thiago\" e código BM002777), que não faz parte do livro impresso; a página 2 é em branco no original, então só o `<pb>` permanece.\nNenhuma mudança de fronteira corpo/nota nesta página; não há notas.\nSem dúvidas restantes.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0014227,
+ "duration_ms": 6580,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9107,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 1024
+ },
+ "reparo": false
+}

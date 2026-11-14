@@ -126,6 +126,30 @@ def ngramas(frag, k=NGRAMA):
     return collections.Counter(tuple(p[i:i + k]) for i in range(len(p) - k + 1))
 
 
+BLOCO_APAGADO = 60       # palavras seguidas de texto limpo que o modelo apagou sem pôr nada no lugar
+
+
+def bloco_apagado(texto, novo):
+    """Maior bloco de palavras "limpas" (minúsculas, ≥ 3 letras, como o texto do livro e ao contrário do lixo do
+    OCR) que existe na entrada e sumiu da resposta sem substituto.  O limite de tamanho total (4%) deixa passar
+    isso em pedaços grandes (vol. 2 p. 228: 900 car. do fim de uma nota apagados num pedaço de 31 mil)."""
+    a = re.findall(r"\w+", html.unescape(RE_TAG.sub(" ", texto)))
+    b = re.findall(r"\w+", html.unescape(RE_TAG.sub(" ", novo)))
+    pior = 0
+    gb = set(tuple(b[i:i + NGRAMA]) for i in range(len(b) - NGRAMA + 1))
+    for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
+        if tag == "delete" and i2 - i1 >= BLOCO_APAGADO:
+            blk = a[i1:i2]
+            limpas = sum(1 for w in blk if re.fullmatch(r"[a-zà-ú]{3,}", w))
+            gblk = [tuple(blk[i:i + NGRAMA]) for i in range(len(blk) - NGRAMA + 1)]
+            movido = sum(1 for g in gblk if g in gb) >= 0.5 * max(1, len(gblk))   # só mudou de lugar
+            if limpas >= 0.6 * len(blk) and not movido:
+                pior = max(pior, i2 - i1)
+    # corpo→nota e vice-versa muda o bloco de lugar com correções (os n-gramas exatos não casam): só vale
+    # como perda se a resposta também ficou mais curta, mais ou menos o tamanho do bloco
+    return pior if len(a) - len(b) >= 0.6 * pior else 0
+
+
 def chars_texto(frag):
     a = analisa(frag)
     return a["corpo"] + a["notas"]
@@ -274,6 +298,31 @@ class Contexto:
         k = self.idx[n]
         return self.textos[k + 1] if k + 1 < len(self.textos) else ""
 
+    def anterior(self, n, dirp=None):
+        """Texto do pedaço anterior (já revisado, se houver)."""
+        k = self.idx[n]
+        if k == 0:
+            return ""
+        if dirp is not None:
+            n_ant = [m for m, i in self.idx.items() if i == k - 1][0]
+            rev = dirp / f"{n_ant:04d}.revisado.xml"
+            if rev.exists():
+                return rev.read_text(encoding="utf-8")
+        return self.textos[k - 1]
+
+    def dica_ja_transcrito(self, n, dirp):
+        """Uma nota do pedaço anterior que chega à página n (pb dentro de <note>): o fim dessa nota, no pé da
+        página n, JÁ está transcrito lá.  Sem este aviso o modelo vê a página inteira, não acha o texto no
+        fragmento e o "repõe" no corpo (vol. 2 p. 90: 2,7 mil car. duplicados)."""
+        ant = self.anterior(n, dirp)
+        ate = max([int(x) for nt in re.findall(r"<note\b.*?</note>", ant, flags=re.S)
+                   for x in re.findall(r'<pb n="(\d+)"', nt)] or [0])
+        if ate < n:
+            return ""
+        return (f"Atenção: uma nota do trecho anterior continua até a página {ate}. O fim dessa nota (letra pequena, no "
+                f"alto da área de notas da página {n}, antes da nota \"(1)\" desta página) JÁ foi transcrito no trecho "
+                "anterior: NÃO o acrescente a este fragmento, nem ao corpo nem a nota.")
+
     def documento(self, n, novo):
         k = self.idx[n]
         return self.prefixo + "".join(self.textos[:k]) + novo + "".join(self.textos[k + 1:]) + self.sufixo
@@ -345,6 +394,15 @@ def valida(n, texto, novo, pags, ctx, troca_max, nota_corpo_max=NOTA_CORPO_MAX):
     ga, gb, gs = ngramas(texto), ngramas(novo), ngramas(ctx.seguinte(n))
     dup = sum(1 for g, c in gb.items() if c > ga.get(g, 0) and ga.get(g, 0) > 0)
     copia = sum(1 for g in gb if g not in ga and g in gs)
+    ga_ant = ngramas(ctx.anterior(n))
+    copia_ant = sum(1 for g in gb if g not in ga and g in ga_ant)
+    if copia_ant > COPIA_MAX:
+        return (f"copiou ~{copia_ant + NGRAMA - 1} palavras que já estão no trecho anterior (fim de nota que "
+                "continua de lá e já foi transcrito)"), None
+    apag = bloco_apagado(texto, novo)
+    if apag:
+        return (f"apagou um bloco de ~{apag} palavras seguidas do texto (nada o substitui na resposta): "
+                "confira na imagem; se for texto do livro, ele fica"), None
     if dup > DUP_MAX:
         return f"texto duplicado dentro do trecho (~{dup + NGRAMA - 1} palavras repetidas)", None
     if copia > COPIA_MAX:
@@ -531,6 +589,9 @@ def mensagem(n, texto, pags, args, ctx, aviso=""):
     if n in ctx.limites:
         extra += " " + ctx.limites[n]
     dica = ctx.dica_continuacao(n, args.saida / "paginas")
+    if dica:
+        extra += " " + dica
+    dica = ctx.dica_ja_transcrito(n, args.saida / "paginas")
     if dica:
         extra += " " + dica
     alertas = [f"  p. {p}: {m}" for p in pags for m in args.alertas.get(p, [])]

@@ -1,0 +1,38 @@
+>> haiku: 23 pedaço(s) de revisao/vol2/60-113/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 62 (1 pp.): ok  US$ 0.006  35s  ent 10941 saí 8978
+  p. 60 (2 pp.): ok  US$ 0.012  77s  ent 17569 saí 20846
+  p. 67 (2 pp.): ok  US$ 0.014  87s  ent 17623 saí 24113
+  p. 63 (5 pp.): ok  US$ 0.024  148s  ent 37381 saí 41276
+  p. 74 (3 pp.): ok  US$ 0.016  96s  ent 24153 saí 26258
+  p. 69 (6 pp.): ok  US$ 0.025  156s  ent 44829 saí 41768
+  p. 77 (4 pp.): ok  US$ 0.018  107s  ent 31536 saí 30155
+  p. 84 (3 pp.): ok  US$ 0.016  109s  ent 24121 saí 27851
+  p. 81 (3 pp.): ok  US$ 0.023  163s  ent 24231 saí 40428
+  p. 92 (1 pp.): ok  US$ 0.005  27s  ent 10839 saí 7249
+  p. 90 (2 pp.): ok  US$ 0.013  88s  ent 16884 saí 22063
+  p. 93 (2 pp.): ok (2ª tentativa)  US$ 0.027  178s  ent 35555 saí 46711
+  p. 95 (3 pp.): ok (2ª tentativa)  US$ 0.030  191s  ent 49378 saí 50701
+  p. 102 (1 pp.): ok  US$ 0.005  31s  ent 10833 saí 8534
+  p. 103 (1 pp.): ok  US$ 0.004  20s  ent 11269 saí 5606
+  p. 104 (2 pp.): ok  US$ 0.008  42s  ent 17703 saí 11936
+  p. 98 (4 pp.): ok  US$ 0.022  142s  ent 31711 saí 38346
+  p. 106 (1 pp.): ok  US$ 0.004  25s  ent 10720 saí 6460
+  p. 107 (1 pp.): ok  US$ 0.006  36s  ent 11160 saí 9735
+  p. 108 (1 pp.): ok  US$ 0.004  23s  ent 10709 saí 5808
+  p. 114 (1 pp.): ok  US$ 0.003  15s  ent 9912 saí 3490
+  p. 86 (5 pp.): FALHOU: tirou texto demais das notas para o corpo (~11261 caracteres; notas 12776 → 947, corpo 595 → 11856; máximo 800). Notas longas têm vários parágrafos em letra pequena no pé da página: eles são nota, mesmo que no corpo venha depois um novo parágrafo  US$ 0.077  560s  ent 76206 saí 138014
+  p. 109 (5 pp.): ok  US$ 0.024  139s  ent 39648 saí 39594
+>> 23/23 pedaços, 1 falha(s), 0 com fronteira mudada, US$ 0.39, 41.6 min de chamadas; tokens {'input_tokens': 574911, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 655920}
+>> revisao/vol2/60-113/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 1 pedaço(s) de revisao/vol2/60-113/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 86 (5 pp.): ok  US$ 0.247  99s  ent 37991 saí 17145
+>> 23/23 pedaços, 0 falha(s), 0 com fronteira mudada, US$ 0.56, 33.9 min de chamadas; tokens {'input_tokens': 536696, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 535051}
+>> revisao/vol2/60-113/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> haiku: 1 pedaço(s) de revisao/vol2/60-113/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 90 (2 pp.): FALHOU: copiou ~310 palavras que já estão no trecho anterior (fim de nota que continua de lá e já foi transcrito)  US$ 0.029  198s  ent 34160 saí 51808
+>> 23/23 pedaços, 1 falha(s), 0 com fronteira mudada, US$ 0.57, 35.8 min de chamadas; tokens {'input_tokens': 553972, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 564796}
+>> revisao/vol2/60-113/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 1 pedaço(s) de revisao/vol2/60-113/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 90 (2 pp.): ok  US$ 0.073  24s  ent 16977 saí 3861
+>> 23/23 pedaços, 0 falha(s), 0 com fronteira mudada, US$ 0.62, 32.9 min de chamadas; tokens {'input_tokens': 536789, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 516849}
+>> revisao/vol2/60-113/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

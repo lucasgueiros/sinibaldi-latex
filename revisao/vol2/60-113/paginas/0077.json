@@ -1,0 +1,30 @@
+{
+ "pagina": 77,
+ "paginas": [
+  77,
+  78,
+  79,
+  80
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (nãd→não, ves→res, radivarentur→radicarentur, aZma→alma, Nu→Na, 6→é, Pp)→b), Oparações, partence→pertence, distinecüo→distincção, reproduccüo→reproducção, dígitos/citações como \"a. 8\"→\"a. 3\", \"LI p., q. 16\"→\"I p., q. 76\") e acentos (á→a onde a imagem tem artigo, \"ja\"→\"já\"); removidos \" :\" e \"!\" espúrios; hifenização \"con-clusão\" unida.\nFronteira corpo/nota: conferida em p. 77–80 e mantida como estava — nota 1 de p. 77, nota 2 (p. 77→78), nota 1 de p. 78 (p. 78→79→80, confirmando o alerta de continuação em p. 80; a nota só fecha no fim de p. 80) e o corpo de 51 (p. 79–80) estão corretos; nenhum texto foi movido entre corpo e nota.\nDúvidas: \"sobra nós mesmos\" (p. 78) transcrito como \"sobre\", a leitura mais provável; a letra \"d\" de \"d' ella\"/\"d' elles\" mantida como impressa; o fragmento termina aberto em \"Nem\", como recebido.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (nãd→não, ves→res, radivarentur→radicarentur, aZma→alma, Nu→Na, 6→é, Pp)→b), Oparações, partence→pertence, distinecüo→distincção, reproduccüo→reproducção, dígitos/citações como \"a. 8\"→\"a. 3\", \"LI p., q. 16\"→\"I p., q. 76\") e acentos (á→a onde a imagem tem artigo, \"ja\"→\"já\"); removidos \" :\" e \"!\" espúrios; hifenização \"con-clusão\" unida.\nFronteira corpo/nota: conferida em p. 77–80 e mantida como estava — nota 1 de p. 77, nota 2 (p. 77→78), nota 1 de p. 78 (p. 78→79→80, confirmando o alerta de continuação em p. 80; a nota só fecha no fim de p. 80) e o corpo de 51 (p. 79–80) estão corretos; nenhum texto foi movido entre corpo e nota.\nDúvidas: \"sobra nós mesmos\" (p. 78) transcrito como \"sobre\", a leitura mais provável; a letra \"d\" de \"d' ella\"/\"d' elles\" mantida como impressa; o fragmento termina aberto em \"Nem\", como recebido.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0182311,
+ "duration_ms": 107363,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31536,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 30155
+ },
+ "reparo": false
+}

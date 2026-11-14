@@ -1,0 +1,29 @@
+{
+ "pagina": 257,
+ "paginas": [
+  257,
+  258,
+  259
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos sobretudo erros de OCR (&amp;→a, \"in factu\"→\"in tactu\", \"ex\" e \"est\" em latim, \"1. 98\"→\"l. 23\", \"S. 'Th.\", \"á\"→\"a\", \"mmediatamente\", \"qualos\"→\"á qual\"), itálicos, quebras de palavra (imme-/diatamente) e o rodapé \"17 Vol. II\" (removido). Fronteira: a nota 1 (p. 257) foi mantida inteira, com continuação nas pp. 258 e 259 (até \"difficuldades.\"); o fim da nota do trecho anterior (\"os outros sentidos…\") não foi incluído; nenhuma mudança de corpo/nota. Parágrafo quebrado pela página na nota 1 (p. 257→258) foi unido.\nDúvidas: \"em ac\" (p. 257, nota 1) lido como \"em acto\", pois a palavra está cortada na imagem; \"qualidas\" (p. 258) mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos sobretudo erros de OCR (&amp;→a, \"in factu\"→\"in tactu\", \"ex\" e \"est\" em latim, \"1. 98\"→\"l. 23\", \"S. 'Th.\", \"á\"→\"a\", \"mmediatamente\", \"qualos\"→\"á qual\"), itálicos, quebras de palavra (imme-/diatamente) e o rodapé \"17 Vol. II\" (removido). Fronteira: a nota 1 (p. 257) foi mantida inteira, com continuação nas pp. 258 e 259 (até \"difficuldades.\"); o fim da nota do trecho anterior (\"os outros sentidos…\") não foi incluído; nenhuma mudança de corpo/nota. Parágrafo quebrado pela página na nota 1 (p. 257→258) foi unido.\nDúvidas: \"em ac\" (p. 257, nota 1) lido como \"em acto\", pois a palavra está cortada na imagem; \"qualidas\" (p. 258) mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.012867,
+ "duration_ms": 76173,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 23065,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 21121
+ },
+ "reparo": false
+}

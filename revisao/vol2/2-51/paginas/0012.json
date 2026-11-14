@@ -1,0 +1,27 @@
+{
+ "pagina": 12,
+ "paginas": [
+  12
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (funeção→função, saeeo→sacco, mazcillas→maxillas, 5occa→bocca, communiea→communica, cimá→cima, \"a.\" → \"a\" antes de pharinge) e pontuação/fim de nota (\"relação,\" → \"relação.\", \"exterior — Os\" → \"exterior. — Os\"); itálicos de \"veo palatino\" e negrito de \"Bocca.\"/\"Pharinge.\" ajustados à imagem.\nFronteira corpo/nota: nenhuma alteração; a nota (1) permanece inteira na página 12 e \"(1).\" continua no corpo.\nDúvidas: se o ponto após \"Bocca\" e \"Pharinge\" (negrito) está impresso mesmo; a pontuação \"canal. cylindrico\" foi mantida como aparece na imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (funeção→função, saeeo→sacco, mazcillas→maxillas, 5occa→bocca, communiea→communica, cimá→cima, \"a.\" → \"a\" antes de pharinge) e pontuação/fim de nota (\"relação,\" → \"relação.\", \"exterior — Os\" → \"exterior. — Os\"); itálicos de \"veo palatino\" e negrito de \"Bocca.\"/\"Pharinge.\" ajustados à imagem.\nFronteira corpo/nota: nenhuma alteração; a nota (1) permanece inteira na página 12 e \"(1).\" continua no corpo.\nDúvidas: se o ponto após \"Bocca\" e \"Pharinge\" (negrito) está impresso mesmo; a pontuação \"canal. cylindrico\" foi mantida como aparece na imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0046626,
+ "duration_ms": 26790,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10876,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 7150
+ },
+ "reparo": false
+}

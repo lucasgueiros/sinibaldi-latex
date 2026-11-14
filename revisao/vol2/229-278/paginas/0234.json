@@ -1,0 +1,30 @@
+{
+ "pagina": 234,
+ "paginas": [
+  234,
+  235,
+  236,
+  237
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR em palavras-chave (commum, quietação, abstractas, vizinhança, successão, \"a. 8\"→\"a. 3\", \"poda\"→\"pode\", \"quo\"→\"que\", \"djnamica\", \"aciuaram\", \"lus\"→\"luz\"), itálicos e artigos (\"á figura\"→\"a figura\", \"o numero\"), hifenizações (\"exten-são\", \"facul-dade\", \"necessaria-riamente\"), lixo removido (\"5)\"→\"b)\", \"1^ «7\", \"x\", \"4\", \"&amp;\"→\"a\", \"e&amp;c.\"→\"etc.\") e parágrafo quebrado no meio da frase na nota 2 (\"não é / percebido\") unido.\nFronteira corpo/nota: não alterei a abertura/fechamento de nenhuma nota (nota 1 em 234 e nota 2 em 234–237 conferem com as imagens; o texto de 235 e 236 após \"derivar\"/\"sim-\" é corpo, e os trechos \"S. Thomaz expõe…\", \"Como se vê…\", \"Esta divisão…\" são rodapé, pela letra menor). Só reposicionei os pb 236 e 237 dentro da nota 2 para o ponto exato em que as palavras hifenizadas continuam no rodapé (\"facul-|dade\", \"necessaria-|riamente\").\nDúvidas: deixei \"sendo sim-\" no fim, pois \"ples\" está na página 237 (fora do trecho); os itálicos de \"b)\" e \"c)\" no corpo e de alguns termos latinos na nota podem não estar exatos.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR em palavras-chave (commum, quietação, abstractas, vizinhança, successão, \"a. 8\"→\"a. 3\", \"poda\"→\"pode\", \"quo\"→\"que\", \"djnamica\", \"aciuaram\", \"lus\"→\"luz\"), itálicos e artigos (\"á figura\"→\"a figura\", \"o numero\"), hifenizações (\"exten-são\", \"facul-dade\", \"necessaria-riamente\"), lixo removido (\"5)\"→\"b)\", \"1^ «7\", \"x\", \"4\", \"&amp;\"→\"a\", \"e&amp;c.\"→\"etc.\") e parágrafo quebrado no meio da frase na nota 2 (\"não é / percebido\") unido.\nFronteira corpo/nota: não alterei a abertura/fechamento de nenhuma nota (nota 1 em 234 e nota 2 em 234–237 conferem com as imagens; o texto de 235 e 236 após \"derivar\"/\"sim-\" é corpo, e os trechos \"S. Thomaz expõe…\", \"Como se vê…\", \"Esta divisão…\" são rodapé, pela letra menor). Só reposicionei os pb 236 e 237 dentro da nota 2 para o ponto exato em que as palavras hifenizadas continuam no rodapé (\"facul-|dade\", \"necessaria-|riamente\").\nDúvidas: deixei \"sendo sim-\" no fim, pois \"ples\" está na página 237 (fora do trecho); os itálicos de \"b)\" e \"c)\" no corpo e de alguns termos latinos na nota podem não estar exatos.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.028861400000000002,
+ "duration_ms": 196614,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32374,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 51248
+ },
+ "reparo": false
+}

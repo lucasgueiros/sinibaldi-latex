@@ -1,0 +1,29 @@
+{
+ "pagina": 177,
+ "paginas": [
+  177,
+  178,
+  179
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (jatellectuaes, Vt→77, yóde→póde, veflexa, coneretisa, sensitiyas, sentido commam, \"distineta\", \"nfellectuaes\", \"Qonscieneia\", \"19)\"/\"2.9)\"→1º)/2.º), e negritos/itálicos indevidos); \"a\"/\"á\" e \"distincção/differença\" conforme a imagem; removido o cabeçalho \"12 | Vor. II.\" e \"(2)\"/\"(1)\" do texto das notas; \"intel-\"/\"ligencia\" unido na nota 177-2.\nFronteira corpo/nota: mantida como estava — nota 177-2 (chamada (2)) contém a continuação nas páginas 178 e 179 (com pb 178 e 179 dentro da nota) e fecha após \"povo.\"; nota 179-1 (chamada (1) da pág. 179) correta. O alerta da p. 178 ficou resolvido por essa estrutura; nenhum texto foi movido de corpo para nota ou vice-versa.\nDúvidas: \"maneria\" (p. 179) lido assim na imagem, mantido; a palavra \"proprias\" dividida entre as pp. 178/179 ficou com o pb 179 logo após a palavra inteira, posição que pode diferir da convenção do pipeline.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (jatellectuaes, Vt→77, yóde→póde, veflexa, coneretisa, sensitiyas, sentido commam, \"distineta\", \"nfellectuaes\", \"Qonscieneia\", \"19)\"/\"2.9)\"→1º)/2.º), e negritos/itálicos indevidos); \"a\"/\"á\" e \"distincção/differença\" conforme a imagem; removido o cabeçalho \"12 | Vor. II.\" e \"(2)\"/\"(1)\" do texto das notas; \"intel-\"/\"ligencia\" unido na nota 177-2.\nFronteira corpo/nota: mantida como estava — nota 177-2 (chamada (2)) contém a continuação nas páginas 178 e 179 (com pb 178 e 179 dentro da nota) e fecha após \"povo.\"; nota 179-1 (chamada (1) da pág. 179) correta. O alerta da p. 178 ficou resolvido por essa estrutura; nenhum texto foi movido de corpo para nota ou vice-versa.\nDúvidas: \"maneria\" (p. 179) lido assim na imagem, mantido; a palavra \"proprias\" dividida entre as pp. 178/179 ficou com o pb 179 logo após a palavra inteira, posição que pode diferir da convenção do pipeline.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.020342600000000002,
+ "duration_ms": 132552,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25896,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 35506
+ },
+ "reparo": false
+}

@@ -1,0 +1,30 @@
+{
+ "pagina": 230,
+ "paginas": [
+  230,
+  231,
+  232,
+  233
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos sobretudo erros de OCR (acentos, \"ã/a\", \"funccóes\", \"gotest\", \"proporttonatwm\", \"161\"→\"167\", \"a. 8\"→\"a. 3\", \"Thomas\"→\"Thomaz\", \"SuwwARIO\", \"Seecüo\", \"Artigo\"→\"ARTIGO\", hifenização \"sen-/sitiva\"), remoção de lixo (\"., ** \", \"A47\", \"<p>,</p>\", \"«\" espúrio) e reposição da linha \"CAPITULO PRIMEIRO\" na página 231. Fronteira corpo/nota: mantida como estava; nenhuma nota foi movida ou criada (as notas 230-1, 231-1, 231-2, 232-1 e 233-1 coincidem com as chamadas e os rodapés das imagens).\nDúvidas: a marca manuscrita \"Refer n° 11\" na p. 233 foi ignorada por não ser impressa; a itálica de alguns trechos curtos (p. ex. \"é intellectual\", \"é material\") foi mantida como no fragmento; o wrapper <entrada> do pedido não foi reproduzido no XML.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos sobretudo erros de OCR (acentos, \"ã/a\", \"funccóes\", \"gotest\", \"proporttonatwm\", \"161\"→\"167\", \"a. 8\"→\"a. 3\", \"Thomas\"→\"Thomaz\", \"SuwwARIO\", \"Seecüo\", \"Artigo\"→\"ARTIGO\", hifenização \"sen-/sitiva\"), remoção de lixo (\"., ** \", \"A47\", \"<p>,</p>\", \"«\" espúrio) e reposição da linha \"CAPITULO PRIMEIRO\" na página 231. Fronteira corpo/nota: mantida como estava; nenhuma nota foi movida ou criada (as notas 230-1, 231-1, 231-2, 232-1 e 233-1 coincidem com as chamadas e os rodapés das imagens).\nDúvidas: a marca manuscrita \"Refer n° 11\" na p. 233 foi ignorada por não ser impressa; a itálica de alguns trechos curtos (p. ex. \"é intellectual\", \"é material\") foi mantida como no fragmento; o wrapper <entrada> do pedido não foi reproduzido no XML.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.020280100000000002,
+ "duration_ms": 120802,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 32466,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 34067
+ },
+ "reparo": false
+}

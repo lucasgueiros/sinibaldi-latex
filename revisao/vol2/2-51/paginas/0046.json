@@ -1,0 +1,28 @@
+{
+ "pagina": 46,
+ "paginas": [
+  46,
+  47
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (coma→com, esti→está, destruir-seiam→destruir-se-iam, conbrarios→contrarios, cireular→circular, contradiecao→contradicção, AMolleschott→Molleschott, B/üchner→Büchner, matiére→matière), números de página das referências (892→322, 885→335), \"»\" no lugar de \"n\" na nota 1, \"o\" indevidamente itálico, \"não: é\" → \"não é\" no título da tese 40, \"e ente\" → \"o ente\" na nota 2, pontuação do título de Traité élément.\nFronteira corpo/nota: nenhuma alteração; notas 1 (p. 46) e 2 (p. 46–47, continuação em p. 47 até \"pag. 335)\") estão corretas. A nota \"(1) Os materialistas…\" da p. 47 pertence ao trecho seguinte e não foi copiada.\nDúvidas: o símbolo inicial de \"o ente não é o nada\" foi lido como \"o\" (pode ser um marcador tipográfico); mantive \"d' aqui\" conforme a imagem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (coma→com, esti→está, destruir-seiam→destruir-se-iam, conbrarios→contrarios, cireular→circular, contradiecao→contradicção, AMolleschott→Molleschott, B/üchner→Büchner, matiére→matière), números de página das referências (892→322, 885→335), \"»\" no lugar de \"n\" na nota 1, \"o\" indevidamente itálico, \"não: é\" → \"não é\" no título da tese 40, \"e ente\" → \"o ente\" na nota 2, pontuação do título de Traité élément.\nFronteira corpo/nota: nenhuma alteração; notas 1 (p. 46) e 2 (p. 46–47, continuação em p. 47 até \"pag. 335)\") estão corretas. A nota \"(1) Os materialistas…\" da p. 47 pertence ao trecho seguinte e não foi copiada.\nDúvidas: o símbolo inicial de \"o ente não é o nada\" foi lido como \"o\" (pode ser um marcador tipográfico); mantive \"d' aqui\" conforme a imagem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0065041000000000005,
+ "duration_ms": 35270,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16896,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 9629
+ },
+ "reparo": false
+}

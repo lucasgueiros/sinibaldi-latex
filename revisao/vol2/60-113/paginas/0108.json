@@ -1,0 +1,27 @@
+{
+ "pagina": 108,
+ "paginas": [
+  108
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (opezar→operar, Nào→Não, Labito/iabito→habito, attencüo→attenção, dispoe→dispõe), \"/\" espúrio removido, \"habito\" em itálico minúsculo no corpo e na nota 2 (estava \"Habito\"), e \"e\" fora do itálico na nota 1.\nFronteira corpo/nota: sem alterações; notas 1 e 2 (pág. 108) já estavam corretamente fechadas no pé da página.\nDúvida: não sei se \"Effeitos do habito.\" em c) deve ser negrito (run-in heading); mantive sem formatação.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (opezar→operar, Nào→Não, Labito/iabito→habito, attencüo→attenção, dispoe→dispõe), \"/\" espúrio removido, \"habito\" em itálico minúsculo no corpo e na nota 2 (estava \"Habito\"), e \"e\" fora do itálico na nota 1.\nFronteira corpo/nota: sem alterações; notas 1 e 2 (pág. 108) já estavam corretamente fechadas no pé da página.\nDúvida: não sei se \"Effeitos do habito.\" em c) deve ser negrito (run-in heading); mantive sem formatação.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0039749,
+ "duration_ms": 22935,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10709,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5808
+ },
+ "reparo": false
+}

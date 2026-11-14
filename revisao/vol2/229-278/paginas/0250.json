@@ -1,0 +1,34 @@
+{
+ "pagina": 250,
+ "paginas": [
+  250,
+  251,
+  252,
+  253,
+  254,
+  255,
+  256,
+  257
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (ut/uf, hoc/hoe, Spencer, \"p. 153\", \"d'isso\", \"a côr\", \"etc.\", \"Ib.\"/\"Id.\" e numeração de citações: \"II, 13\", \"III, c. 1\", \"l. 17\"), itálicos e hifenizações (apprehensio-nem, dis-tinguir, me-lhor), \"e\" por \"o\", \"diaphano\", \"corpusculos\", \"verazes\", \"sabores\". Fronteira corpo/nota: mantida como está — a nota (1) de p. 250 vai de \"A conclusão é certa\" até p. 257 (\"subjectivistas em tudo!\"), inclusive o \"Os escholasticos…\" e as seções \"a)/b)\" após o asterisco de p. 252, que estão em letra pequena abaixo do filete; o corpo de 158 a) retoma nas pp. 251–256 e a p. 257 não entrou. Nenhum `<pb>` de corpo foi alterado.\nDúvidas: o alerta de p. 252 (corpo retomado depois de nota) não se confirmou — o trecho após o asterisco tem entrelinha de letra pequena; \"ne analysarmos\" (p. 251) e \"um o o mesmo acto\" (p. 255) mantidos como impressos; \"cór\"/\"côr\" e \"ed os córes\" transcritos como aparecem.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (ut/uf, hoc/hoe, Spencer, \"p. 153\", \"d'isso\", \"a côr\", \"etc.\", \"Ib.\"/\"Id.\" e numeração de citações: \"II, 13\", \"III, c. 1\", \"l. 17\"), itálicos e hifenizações (apprehensio-nem, dis-tinguir, me-lhor), \"e\" por \"o\", \"diaphano\", \"corpusculos\", \"verazes\", \"sabores\". Fronteira corpo/nota: mantida como está — a nota (1) de p. 250 vai de \"A conclusão é certa\" até p. 257 (\"subjectivistas em tudo!\"), inclusive o \"Os escholasticos…\" e as seções \"a)/b)\" após o asterisco de p. 252, que estão em letra pequena abaixo do filete; o corpo de 158 a) retoma nas pp. 251–256 e a p. 257 não entrou. Nenhum `<pb>` de corpo foi alterado.\nDúvidas: o alerta de p. 252 (corpo retomado depois de nota) não se confirmou — o trecho após o asterisco tem entrelinha de letra pequena; \"ne analysarmos\" (p. 251) e \"um o o mesmo acto\" (p. 255) mantidos como impressos; \"cór\"/\"côr\" e \"ed os córes\" transcritos como aparecem.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0373564,
+ "duration_ms": 234943,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 59884,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 62736
+ },
+ "reparo": false
+}

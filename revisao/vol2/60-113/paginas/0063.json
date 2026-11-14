@@ -1,0 +1,31 @@
+{
+ "pagina": 63,
+ "paginas": [
+  63,
+  64,
+  65,
+  66,
+  67
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (conjunção, reaes, Cosmologia, q. 76, n'essa, mover, Pessoa do Unigenito, Logo a união, numeração \"c)\" e \"d)\", \"3 p.\", \"quatorze\", \"combinação\", \"na sua união\") e itálicos/negrito; removidos \"5 Vol. II\" (rodapé), \":\" espúrio e \"sb\"; \"e o corpo\" de p. 66 unido ao parágrafo anterior (sem quebra de parágrafo real).\nFronteira corpo/nota: nenhuma alteração. Confirmado que n64-1 continua nas pp. 64–66 (alerta procedente, já estava correto) e que n66-1 termina com a continuação em p. 67 (\"mover o corpo… materia prima\"); a nota \"(1) S. Thomaz expõe…\" da p. 67 não foi copiada.\nDúvidas: se a tese \"46.\" deve ser toda em negrito (assim fiz); \"Por quanto a alma\" (sem acento); \"cc. 56\" lido como \"cc.\"; \"uma só\" em itálico no corpo p. 64–65.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (conjunção, reaes, Cosmologia, q. 76, n'essa, mover, Pessoa do Unigenito, Logo a união, numeração \"c)\" e \"d)\", \"3 p.\", \"quatorze\", \"combinação\", \"na sua união\") e itálicos/negrito; removidos \"5 Vol. II\" (rodapé), \":\" espúrio e \"sb\"; \"e o corpo\" de p. 66 unido ao parágrafo anterior (sem quebra de parágrafo real).\nFronteira corpo/nota: nenhuma alteração. Confirmado que n64-1 continua nas pp. 64–66 (alerta procedente, já estava correto) e que n66-1 termina com a continuação em p. 67 (\"mover o corpo… materia prima\"); a nota \"(1) S. Thomaz expõe…\" da p. 67 não foi copiada.\nDúvidas: se a tese \"46.\" deve ser toda em negrito (assim fiz); \"Por quanto a alma\" (sem acento); \"cc. 56\" lido como \"cc.\"; \"uma só\" em itálico no corpo p. 64–65.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0243761,
+ "duration_ms": 148358,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 37381,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 41276
+ },
+ "reparo": false
+}

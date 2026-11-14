@@ -1,0 +1,28 @@
+{
+ "pagina": 3,
+ "paginas": [
+  3,
+  4
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: linha \"D. THIAGO SINIBALDI\" reposta (faltava no início); \"DE\" entre ELEMENTOS e PHILOSOPHIA reposto; \"| |\", \"| Ec cm\" e \"4\" removidos; \"EDICÁO\" → \"EDIÇÃO\"; \"8.\" → \"S.\" (Tiberiades/Thomaz/Secretario); \"SPrIRITO\" → \"SPIRITO\"; \"lacobo\" → \"Iacobo\"; \"19106\" → \"1916\"; \"EPs\" → \"Eps\"; \"T\" → \"†\"; aspas espúrias removidas.\nFronteira corpo/nota: nenhuma nota neste trecho, nada alterado. Sem `<note>` nas páginas 3–4.\nDúvidas: \"APPROBATIO\" marcado como negrito no XML, mas na imagem parece peso normal; mantido. Não houve linhas puladas detectadas além das já repostas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: linha \"D. THIAGO SINIBALDI\" reposta (faltava no início); \"DE\" entre ELEMENTOS e PHILOSOPHIA reposto; \"| |\", \"| Ec cm\" e \"4\" removidos; \"EDICÁO\" → \"EDIÇÃO\"; \"8.\" → \"S.\" (Tiberiades/Thomaz/Secretario); \"SPrIRITO\" → \"SPIRITO\"; \"lacobo\" → \"Iacobo\"; \"19106\" → \"1916\"; \"EPs\" → \"Eps\"; \"T\" → \"†\"; aspas espúrias removidas.\nFronteira corpo/nota: nenhuma nota neste trecho, nada alterado. Sem `<note>` nas páginas 3–4.\nDúvidas: \"APPROBATIO\" marcado como negrito no XML, mas na imagem parece peso normal; mantido. Não houve linhas puladas detectadas além das já repostas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0035632,
+ "duration_ms": 17569,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 14792,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4168
+ },
+ "reparo": false
+}

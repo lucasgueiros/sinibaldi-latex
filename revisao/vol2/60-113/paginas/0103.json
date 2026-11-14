@@ -1,0 +1,27 @@
+{
+ "pagina": 103,
+ "paginas": [
+  103
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções: OCR (o→c em \"c) Duas coisas\", \"q. 94\"→\"q. 54\", \"q. '(9\"→\"q. 79\", \"p. 1\"→\"p. I\", \"vé\"→\"vê\", \"diffieil\"→\"difficil\", \"A.\"→\"A\", \"distingue.realmente\"→\"distingue realmente\", \"jà\"→\"já\", \"Note se\"→\"Note-se\", \"pelo\" ajustes de pontuação e itálicos) e hifenização; nenhuma mudança de fronteira corpo/nota (nota 1 da p. 103 permanece íntegra no rodapé).\nDúvida restante: a itálico exato das referências entre parênteses (Sum. Theol., De spirit. creat., De anima) foi mantido como estava; na imagem a fronteira de itálico nas abreviaturas não está totalmente nítida.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções: OCR (o→c em \"c) Duas coisas\", \"q. 94\"→\"q. 54\", \"q. '(9\"→\"q. 79\", \"p. 1\"→\"p. I\", \"vé\"→\"vê\", \"diffieil\"→\"difficil\", \"A.\"→\"A\", \"distingue.realmente\"→\"distingue realmente\", \"jà\"→\"já\", \"Note se\"→\"Note-se\", \"pelo\" ajustes de pontuação e itálicos) e hifenização; nenhuma mudança de fronteira corpo/nota (nota 1 da p. 103 permanece íntegra no rodapé).\nDúvida restante: a itálico exato das referências entre parênteses (Sum. Theol., De spirit. creat., De anima) foi mantido como estava; na imagem a fronteira de itálico nas abreviaturas não está totalmente nítida.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0039299,
+ "duration_ms": 19792,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 11269,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5606
+ },
+ "reparo": false
+}

@@ -1,0 +1,29 @@
+{
+ "pagina": 84,
+ "paginas": [
+  84,
+  85,
+  86
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Erros corrigidos: OCR (\"aecrescenta\", \"anim»\", \"formarwum\", \"indiseutivel\", \"Esclarecamos\", \"Ihe\", \"3j\", \"8)\", \"q. 16, a. 8\", \"a. 8, ad 2\" → a. 3, \"á\"/\"à\" trocados por \"a\", \"p.l\"), acentos e espaços; removidos lixos \"á;\", \"z\", \"“\" e o ponto espúrio após \"de\"; desfeita a italização de \"o\" em \"E' o methodo\".\nFronteira corpo/nota: mantida como estava. Verifiquei na imagem que a nota (1) da p. 84 é de letra menor e continua até o fim de p. 85 e o início de p. 86 (letra menor, espaçamento de nota), sem texto de corpo dentro dela; a nota \"(1) Averroes\" da p. 86 começa fora do trecho e não foi copiada.\nDúvidas: a nota (1) é muito longa; confirmei pela imagem que é uma só nota. Não tive certeza sobre a grafia de \"passa geira\" e \"d'hai\", mantidas como impressas.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Erros corrigidos: OCR (\"aecrescenta\", \"anim»\", \"formarwum\", \"indiseutivel\", \"Esclarecamos\", \"Ihe\", \"3j\", \"8)\", \"q. 16, a. 8\", \"a. 8, ad 2\" → a. 3, \"á\"/\"à\" trocados por \"a\", \"p.l\"), acentos e espaços; removidos lixos \"á;\", \"z\", \"“\" e o ponto espúrio após \"de\"; desfeita a italização de \"o\" em \"E' o methodo\".\nFronteira corpo/nota: mantida como estava. Verifiquei na imagem que a nota (1) da p. 84 é de letra menor e continua até o fim de p. 85 e o início de p. 86 (letra menor, espaçamento de nota), sem texto de corpo dentro dela; a nota \"(1) Averroes\" da p. 86 começa fora do trecho e não foi copiada.\nDúvidas: a nota (1) é muito longa; confirmei pela imagem que é uma só nota. Não tive certeza sobre a grafia de \"passa geira\" e \"d'hai\", mantidas como impressas.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0163376,
+ "duration_ms": 109292,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24121,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 27851
+ },
+ "reparo": false
+}

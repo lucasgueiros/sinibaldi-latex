@@ -1,0 +1,28 @@
+{
+ "pagina": 43,
+ "paginas": [
+  43,
+  44
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: OCR (\"o)\"→\"c)\", \"Z\" espúrio removido, \"universues\", \"objeotivasse\", \"Ma\"→\"Mas\", \"ete.\", \"perfe: Co\", \"sujeitando- á\", \"bumana\", \"intelligenecia\", \"differenca\", acentos e vírgulas faltantes, \"suecedem\", \"vé\", \"on\"→\"ou\", \"á tornam\"→\"a tornam\"); o parágrafo vazio final com \"Z\" foi retirado.\nFronteira corpo/nota: conferida em p. 43 e 44 e mantida como está — nota 2 da p. 43 continua corretamente na p. 44 (com `<pb n=\"44\"/>` dentro da nota), e as notas 1 e 2 da p. 44 estão corretas.\nDúvidas: \"póde\" mantido como impresso; a primeira linha do trecho (\"é uma faculdade...\") começa após palavra hifenizada da p. 42, conforme as regras, e não foi acrescentada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: OCR (\"o)\"→\"c)\", \"Z\" espúrio removido, \"universues\", \"objeotivasse\", \"Ma\"→\"Mas\", \"ete.\", \"perfe: Co\", \"sujeitando- á\", \"bumana\", \"intelligenecia\", \"differenca\", acentos e vírgulas faltantes, \"suecedem\", \"vé\", \"on\"→\"ou\", \"á tornam\"→\"a tornam\"); o parágrafo vazio final com \"Z\" foi retirado.\nFronteira corpo/nota: conferida em p. 43 e 44 e mantida como está — nota 2 da p. 43 continua corretamente na p. 44 (com `<pb n=\"44\"/>` dentro da nota), e as notas 1 e 2 da p. 44 estão corretas.\nDúvidas: \"póde\" mantido como impresso; a primeira linha do trecho (\"é uma faculdade...\") começa após palavra hifenizada da p. 42, conforme as regras, e não foi acrescentada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.007260099999999999,
+ "duration_ms": 38053,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 17151,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 11090
+ },
+ "reparo": false
+}

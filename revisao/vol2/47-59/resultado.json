@@ -1,0 +1,18 @@
+{
+ "modelo": "sonnet",
+ "formato": "tei",
+ "pedacos": 2,
+ "feitos": 2,
+ "falhas": {},
+ "fronteira": {},
+ "total_cost_usd": 0.5066,
+ "num_turns": 2,
+ "duration_ms": 228584,
+ "usage": {
+  "input_tokens": 100541,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 39681
+ },
+ "is_error": false
+}

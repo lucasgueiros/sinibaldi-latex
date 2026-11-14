@@ -1,0 +1,67 @@
+2: 120 car. (58 corpo, 0 notas, 0 nota(s)), imagens [2]
+3: 1049 car. (601 corpo, 0 notas, 0 nota(s)), imagens [3, 4]
+5: 12000 car. (2314 corpo, 5067 notas, 3 nota(s)), imagens [5, 6, 7]  alertas: 1
+8: 7720 car. (637 corpo, 4622 notas, 1 nota(s)), imagens [8, 9]  alertas: 2
+10: 3157 car. (1003 corpo, 742 notas, 1 nota(s)), imagens [10]
+11: 4332 car. (1655 corpo, 423 notas, 1 nota(s)), imagens [11]
+12: 3823 car. (1883 corpo, 483 notas, 1 nota(s)), imagens [12]
+13: 9133 car. (2703 corpo, 2973 notas, 1 nota(s)), imagens [13, 14, 15]  alertas: 1
+16: 3581 car. (1667 corpo, 700 notas, 1 nota(s)), imagens [16]
+17: 8274 car. (1438 corpo, 4435 notas, 1 nota(s)), imagens [17, 18]  alertas: 1
+19: 1683 car. (1236 corpo, 0 notas, 0 nota(s)), imagens [19]
+20: 5982 car. (1704 corpo, 2193 notas, 1 nota(s)), imagens [20, 21]  alertas: 1
+22: 5826 car. (2825 corpo, 1133 notas, 1 nota(s)), imagens [22, 23]  alertas: 1
+24: 2195 car. (1123 corpo, 135 notas, 1 nota(s)), imagens [24]
+25: 3493 car. (1324 corpo, 1174 notas, 2 nota(s)), imagens [25]
+26: 3510 car. (923 corpo, 1333 notas, 2 nota(s)), imagens [26]
+27: 2110 car. (1035 corpo, 447 notas, 1 nota(s)), imagens [27]
+28: 3430 car. (866 corpo, 1773 notas, 1 nota(s)), imagens [28]
+29: 2447 car. (866 corpo, 960 notas, 2 nota(s)), imagens [29]
+30: 2428 car. (1367 corpo, 422 notas, 1 nota(s)), imagens [30]
+31: 4544 car. (1764 corpo, 709 notas, 2 nota(s)), imagens [31]
+32: 3742 car. (462 corpo, 2157 notas, 1 nota(s)), imagens [32]
+33: 19959 car. (4480 corpo, 9397 notas, 9 nota(s)), imagens [33, 34, 35, 36, 37]  alertas: 1
+38: 3757 car. (669 corpo, 1857 notas, 1 nota(s)), imagens [38]
+39: 4655 car. (237 corpo, 3080 notas, 1 nota(s)), imagens [39]
+40: 11886 car. (3245 corpo, 5388 notas, 3 nota(s)), imagens [40, 41, 42]
+43: 6957 car. (1997 corpo, 3645 notas, 4 nota(s)), imagens [43, 44]
+45: 3241 car. (1582 corpo, 827 notas, 2 nota(s)), imagens [45]
+46: 6056 car. (1169 corpo, 3817 notas, 2 nota(s)), imagens [46, 47]
+47: 44008 car. (1394 corpo, 35448 notas, 1 nota(s)), imagens [47, 48, 49, 50, 51, 52]  alertas: 3  fora do trecho: 44 n-gramas
+>> haiku: 30 pedaço(s) de revisao/vol2/2-51/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 2 (1 pp.): ok  US$ 0.001  7s  ent 9107 saí 1024
+  p. 3 (2 pp.): ok  US$ 0.004  18s  ent 14792 saí 4168
+  p. 10 (1 pp.): ok  US$ 0.004  26s  ent 10634 saí 6534
+  p. 11 (1 pp.): ok  US$ 0.004  20s  ent 11269 saí 5538
+  p. 8 (2 pp.): ok  US$ 0.013  87s  ent 17904 saí 21553
+  p. 12 (1 pp.): ok  US$ 0.005  27s  ent 10876 saí 7150
+  p. 16 (1 pp.): ok  US$ 0.004  26s  ent 10773 saí 6779
+  p. 5 (3 pp.): ok  US$ 0.019  129s  ent 25084 saí 33862
+  p. 19 (1 pp.): ok  US$ 0.004  25s  ent 10025 saí 5787
+  p. 13 (3 pp.): ok  US$ 0.017  125s  ent 23790 saí 29567
+  p. 20 (2 pp.): ok  US$ 0.011  69s  ent 17234 saí 18441
+  p. 24 (1 pp.): ok  US$ 0.003  17s  ent 10144 saí 4298
+  p. 17 (2 pp.): ok  US$ 0.018  133s  ent 18132 saí 31865
+  p. 25 (1 pp.): ok  US$ 0.005  27s  ent 10681 saí 7126
+  p. 26 (1 pp.): ok  US$ 0.004  23s  ent 10720 saí 5957
+  p. 27 (1 pp.): ok  US$ 0.005  34s  ent 10048 saí 8245
+  p. 28 (1 pp.): ok  US$ 0.004  23s  ent 10586 saí 6254
+  p. 22 (2 pp.): ok  fronteira: troca 500 car., notas [1, 1]  US$ 0.015  104s  ent 17007 saí 25620
+  p. 29 (1 pp.): ok  US$ 0.005  35s  ent 10163 saí 8843
+  p. 30 (1 pp.): ok  US$ 0.005  32s  ent 10230 saí 7774
+  p. 31 (1 pp.): ok  US$ 0.006  38s  ent 11398 saí 10172
+  p. 38 (1 pp.): ok  US$ 0.006  40s  ent 10773 saí 9810
+  p. 39 (1 pp.): ok  US$ 0.007  42s  ent 11140 saí 11266
+  p. 32 (1 pp.): ok (2ª tentativa)  US$ 0.015  105s  ent 21840 saí 25074
+  p. 43 (2 pp.): ok  US$ 0.007  38s  ent 17151 saí 11090
+  p. 33 (5 pp.): ok  US$ 0.023  135s  ent 38668 saí 37989
+  p. 45 (1 pp.): ok  US$ 0.003  18s  ent 10447 saí 4733
+  p. 46 (2 pp.): ok  US$ 0.007  35s  ent 16896 saí 9629
+  p. 40 (3 pp.): ok  US$ 0.020  132s  ent 24568 saí 34706
+  p. 47 (6 pp.): FALHOU: copiou ~40 palavras da página que ficam FORA do trecho (antes do começo ou depois do fim dele)  US$ 0.107  756s  ent 108813 saí 192001
+>> 30/30 pedaços, 1 falha(s), 1 com fronteira mudada, US$ 0.35, 38.7 min de chamadas; tokens {'input_tokens': 540893, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 592855}
+>> revisao/vol2/2-51/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)
+>> sonnet: 1 pedaço(s) de revisao/vol2/2-51/entrada.xml (imagens em /home/lucas/workspace/sinibaldi-latex/vol2/paginas)
+  p. 47 (6 pp.): FALHOU: copiou ~40 palavras da página que ficam FORA do trecho (antes do começo ou depois do fim dele)  US$ 0.814  347s  ent 108771 saí 59675
+>> 30/30 pedaços, 1 falha(s), 1 com fronteira mudada, US$ 1.06, 31.9 min de chamadas; tokens {'input_tokens': 540851, 'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'output_tokens': 460529}
+>> revisao/vol2/2-51/revisado.xml  (revisado.tex, wer.txt, relatorio.md, resultado.json)

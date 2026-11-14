@@ -1,0 +1,27 @@
+{
+ "pagina": 213,
+ "paginas": [
+  213
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: hifenização de fim de linha (\"in- consciente\" → \"inconsciente\") e pontuação final da nota 1 (vírgula trocada por ponto). Fronteira corpo/nota conferida e mantida: a nota (1) está no ponto certo da chamada.\nNão acrescentei \"tervenção\" no início (palavra hifenizada vinda da p. 212) nem o fim da nota anterior no alto da área de notas da p. 213 (letra pequena \"systemas materiaes… p. 449).\"), que já está no trecho anterior.\nSem dúvidas relevantes restantes.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: hifenização de fim de linha (\"in- consciente\" → \"inconsciente\") e pontuação final da nota 1 (vírgula trocada por ponto). Fronteira corpo/nota conferida e mantida: a nota (1) está no ponto certo da chamada.\nNão acrescentei \"tervenção\" no início (palavra hifenizada vinda da p. 212) nem o fim da nota anterior no alto da área de notas da p. 213 (letra pequena \"systemas materiaes… p. 449).\"), que já está no trecho anterior.\nSem dúvidas relevantes restantes.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0028781,
+ "duration_ms": 17525,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 9681,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 3820
+ },
+ "reparo": false
+}

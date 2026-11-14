@@ -1,0 +1,31 @@
+{
+ "pagina": 124,
+ "paginas": [
+  124,
+  125,
+  126,
+  127,
+  128
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (oiro, creadora, \"0%ro\", \"Iusistem\", \"nstincto\", \"séngulaves\", \"juízos\", \"distineta\", \"construeção\", \"Hespondemos\", \"cinsenta\", \"emispherios\" mantido, \"innumerayeis\", \"expressio\"→\"expressão\", \"&amp;\"→\"a\"/\"á\"), acentos e cedilhas, ordinais das alíneas (\"1.2)\", \"2.º)\", \"8.º)\", \"4 inimigo\" → \"1.ª)\", \"2.ª)\", \"3.ª)\", \"inimigo\"), lixo (\".\"/\",\" espúrios), hifenização (\"pois-que\"), itálicos e \"Deus\" em versalete.\nFronteira corpo/nota: nenhuma alteração; a nota 89-1 (p. 124–125) e as notas 90-1 (p. 125–126), 91-1 (p. 126), 92-2 (p. 126–127) e 93-1 (p. 127–128) já estavam corretas segundo as imagens; o fim da nota da página anterior não foi acrescentado. Só mesclei parágrafos que a imagem mostra contínuos (p. 125, \"n da nossa intelligencia\"; p. 127–128, \"inimigo\").\nDúvidas: \"se canca\" (p. 125) transcrito como \"cança\"; \"pois-que\" (p. 127) assumido como hífen real; \"conserva as imagem\" (p. 127) mantido como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (oiro, creadora, \"0%ro\", \"Iusistem\", \"nstincto\", \"séngulaves\", \"juízos\", \"distineta\", \"construeção\", \"Hespondemos\", \"cinsenta\", \"emispherios\" mantido, \"innumerayeis\", \"expressio\"→\"expressão\", \"&amp;\"→\"a\"/\"á\"), acentos e cedilhas, ordinais das alíneas (\"1.2)\", \"2.º)\", \"8.º)\", \"4 inimigo\" → \"1.ª)\", \"2.ª)\", \"3.ª)\", \"inimigo\"), lixo (\".\"/\",\" espúrios), hifenização (\"pois-que\"), itálicos e \"Deus\" em versalete.\nFronteira corpo/nota: nenhuma alteração; a nota 89-1 (p. 124–125) e as notas 90-1 (p. 125–126), 91-1 (p. 126), 92-2 (p. 126–127) e 93-1 (p. 127–128) já estavam corretas segundo as imagens; o fim da nota da página anterior não foi acrescentado. Só mesclei parágrafos que a imagem mostra contínuos (p. 125, \"n da nossa intelligencia\"; p. 127–128, \"inimigo\").\nDúvidas: \"se canca\" (p. 125) transcrito como \"cança\"; \"pois-que\" (p. 127) assumido como hífen real; \"conserva as imagem\" (p. 127) mantido como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0282611,
+ "duration_ms": 184206,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 38426,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 48837
+ },
+ "reparo": false
+}

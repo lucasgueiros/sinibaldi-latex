@@ -1,0 +1,27 @@
+{
+ "pagina": 26,
+ "paginas": [
+  26
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais correções: OCR (bocea→bocca, differenca→differença, ramifieações→ramificações, MzcHANISMO/MeECHANISMO→Mechanismo, \"ae passo\"→\"ao passo\", \"Oo\"→\"o\", \"á medulla\"→\"a medulla\"), \"dà\"→\"da\", \"tactil\" com \":\" espúrio removido, \"A.\" espúrio removido na nota 2 e espaço antes de vírgula em \"rachidiano\".\nNenhuma mudança de fronteira corpo/nota: nas páginas 26 (topo e rodapé) as notas 1 e 2 estão completas no pé da página e o corpo termina em \"encerrada na\", como na imagem.\nDúvidas: \"ou' saliva\" e \"pelle e' da mucosa\" mantidos como impressos; a forma de versalete de \"do gosto\"/\"do tacto\" foi uniformizada.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais correções: OCR (bocea→bocca, differenca→differença, ramifieações→ramificações, MzcHANISMO/MeECHANISMO→Mechanismo, \"ae passo\"→\"ao passo\", \"Oo\"→\"o\", \"á medulla\"→\"a medulla\"), \"dà\"→\"da\", \"tactil\" com \":\" espúrio removido, \"A.\" espúrio removido na nota 2 e espaço antes de vírgula em \"rachidiano\".\nNenhuma mudança de fronteira corpo/nota: nas páginas 26 (topo e rodapé) as notas 1 e 2 estão completas no pé da página e o corpo termina em \"encerrada na\", como na imagem.\nDúvidas: \"ou' saliva\" e \"pelle e' da mucosa\" mantidos como impressos; a forma de versalete de \"do gosto\"/\"do tacto\" foi uniformizada.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0040505,
+ "duration_ms": 22781,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10720,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 5957
+ },
+ "reparo": false
+}

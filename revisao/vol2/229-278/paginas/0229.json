@@ -1,0 +1,27 @@
+{
+ "pagina": 229,
+ "paginas": [
+  229
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos: \"A\" inicial de parágrafo sem itálico na imagem; \"materiaes\" (2º parágrafo da nota) sem itálico; \"Sum. Theol.,\" com itálico e pontuação conforme a imagem; OCR \"inteligencia\"→\"intelligencia\" (2x), \"ha nossa\"→\"na nossa\", \"Larochefowcauld\"→\"Larochefoucauld\". Fronteira corpo/nota: conferida, nenhuma alteração (nota 1 fechada no ponto certo, sem \"(1)\" no texto da nota).\nDúvida: a primeira linha da imagem começa com \"rado\", fim de \"considerado\" hifenizado da página 228; não foi acrescentado por pertencer a outra página (o fragmento começa em \"na sua\").",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos: \"A\" inicial de parágrafo sem itálico na imagem; \"materiaes\" (2º parágrafo da nota) sem itálico; \"Sum. Theol.,\" com itálico e pontuação conforme a imagem; OCR \"inteligencia\"→\"intelligencia\" (2x), \"ha nossa\"→\"na nossa\", \"Larochefowcauld\"→\"Larochefoucauld\". Fronteira corpo/nota: conferida, nenhuma alteração (nota 1 fechada no ponto certo, sem \"(1)\" no texto da nota).\nDúvida: a primeira linha da imagem começa com \"rado\", fim de \"considerado\" hifenizado da página 228; não foi acrescentado por pertencer a outra página (o fragmento começa em \"na sua\").",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0034466,
+ "duration_ms": 19694,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10236,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 4846
+ },
+ "reparo": false
+}

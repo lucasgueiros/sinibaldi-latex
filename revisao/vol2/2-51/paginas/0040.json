@@ -1,0 +1,29 @@
+{
+ "pagina": 40,
+ "paginas": [
+  40,
+  41,
+  42
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (segunde→segundo, Intrinseca, ausência de acentos e letras trocadas como á/a, \"d\" por \"á\", \"B/cAner\"→Büchner, \"Matiére\", \"Lecons sur Ühomme\", \"ewcperienciu\", \"pag. 922\", \"ntrinseca\", \"2mmaterial\", \"etc. ,\"), itálicos/versalete (Deus em sc; \"a\" fora do itálico), e um hífen espúrio (\"que-não\"); \"vegetativas\" dividida entre p. 40 e 41 agora corresponde à quebra impressa (\"vegeta\" / pb 41 / \"tivas\").\nFronteira corpo/nota: nenhuma mudança estrutural. Nota 2 (p. 40) continua na área de notas da p. 41 (pb 41 dentro da nota) e da p. 42 (pb 42 dentro da nota, \"póde retorquir\"); nota 1 da p. 42 (\"Este argumento…\") mantida. Corpo da p. 41 (\"35.\", \"a)\") e da p. 42 conferidos como corpo.\nDúvidas: \"na suas operações\" mantido como impresso; \"Wundt\" em itálico na citação (leitura incerta); \"l'homme\" lido com apóstrofo; \"35.\" mantido como texto em <p> sem novo <div>.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (segunde→segundo, Intrinseca, ausência de acentos e letras trocadas como á/a, \"d\" por \"á\", \"B/cAner\"→Büchner, \"Matiére\", \"Lecons sur Ühomme\", \"ewcperienciu\", \"pag. 922\", \"ntrinseca\", \"2mmaterial\", \"etc. ,\"), itálicos/versalete (Deus em sc; \"a\" fora do itálico), e um hífen espúrio (\"que-não\"); \"vegetativas\" dividida entre p. 40 e 41 agora corresponde à quebra impressa (\"vegeta\" / pb 41 / \"tivas\").\nFronteira corpo/nota: nenhuma mudança estrutural. Nota 2 (p. 40) continua na área de notas da p. 41 (pb 41 dentro da nota) e da p. 42 (pb 42 dentro da nota, \"póde retorquir\"); nota 1 da p. 42 (\"Este argumento…\") mantida. Corpo da p. 41 (\"35.\", \"a)\") e da p. 42 conferidos como corpo.\nDúvidas: \"na suas operações\" mantido como impresso; \"Wundt\" em itálico na citação (leitura incerta); \"l'homme\" lido com apóstrofo; \"35.\" mantido como texto em <p> sem novo <div>.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.019809800000000002,
+ "duration_ms": 131976,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 24568,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 34706
+ },
+ "reparo": false
+}

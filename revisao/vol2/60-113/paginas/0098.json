@@ -1,0 +1,30 @@
+{
+ "pagina": 98,
+ "paginas": [
+  98,
+  99,
+  100,
+  101
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR de palavras (especifieam, effeito, tnorganicas, eracües, applicagóes, fuculdade, Sum. Theol. com números errados como q. 7/q. V7/a. 189/a. 8), \"á\"/\"a\" e \"a\"/\"é\", pontuação, junção de palavra hifenizada (\"sua zvida\", \"necessaamente\"), \"|\" espúrio, letra solta \"A\" e \"a\" antes de \"67.\", e \"&amp;\" lidos como \"e\"/\"á\".\nFronteira corpo/nota: conferida em todas as páginas (98–101) e mantida como estava: as notas 98-1 (pp. 98–100), 100-1 (pp. 100–101) e 101-1 estão nos pontos corretos; nenhuma mudança de fronteira. Separei apenas o \"67.\" em novo parágrafo (<p>), já que a nota 101-1 o unia ao \"66.\".\nDúvidas: \"o vontade\" (p. 100) mantido por ser a leitura da imagem; \"composto\" (p. 101, fim do trecho) mantido em itálico como no XML, pois a palavra continua na p. 102 com hífen.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR de palavras (especifieam, effeito, tnorganicas, eracües, applicagóes, fuculdade, Sum. Theol. com números errados como q. 7/q. V7/a. 189/a. 8), \"á\"/\"a\" e \"a\"/\"é\", pontuação, junção de palavra hifenizada (\"sua zvida\", \"necessaamente\"), \"|\" espúrio, letra solta \"A\" e \"a\" antes de \"67.\", e \"&amp;\" lidos como \"e\"/\"á\".\nFronteira corpo/nota: conferida em todas as páginas (98–101) e mantida como estava: as notas 98-1 (pp. 98–100), 100-1 (pp. 100–101) e 101-1 estão nos pontos corretos; nenhuma mudança de fronteira. Separei apenas o \"67.\" em novo parágrafo (<p>), já que a nota 101-1 o unia ao \"66.\".\nDúvidas: \"o vontade\" (p. 100) mantido por ser a leitura da imagem; \"composto\" (p. 101, fim do trecho) mantido em itálico como no XML, pois a palavra continua na p. 102 com hífen.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0223441,
+ "duration_ms": 141760,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31711,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 38346
+ },
+ "reparo": false
+}

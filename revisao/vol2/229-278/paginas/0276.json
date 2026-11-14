@@ -1,0 +1,29 @@
+{
+ "pagina": 276,
+ "paginas": [
+  276,
+  277,
+  278
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (ecterna/emterna→externa, eo→e o, córes→côres, s2ntidos, obiecto, ses→ser, A.→A, \"á memoria\"→\"a memoria\", \"&amp;\"→\"a\", \"indifferenca\"/\"differenga\"/\"quê\"), pontuação, itálicos (A da nota 3 em romano; \"é\" fora do itálico em 278-1) e \"por.si\"→\"por si\"; a nota da p. 276 que estava marcada como (8) foi renumerada para (3) (xml:id n276-3), conforme a chamada \"(3)\" do corpo e a imagem. Nenhuma fronteira corpo/nota foi alterada; a continuação da nota 3 nas pp. 277 e a nota 1 de 277 com continuação em 278 já estavam corretas.\nDúvidas: manter \"obiecto\" (p. 277, nota 3) e \"côres\" como impressos, conforme leitura da imagem; a nota solta no alto da p. 276 (continuação de nota anterior) não foi incluída, como pedido.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (ecterna/emterna→externa, eo→e o, córes→côres, s2ntidos, obiecto, ses→ser, A.→A, \"á memoria\"→\"a memoria\", \"&amp;\"→\"a\", \"indifferenca\"/\"differenga\"/\"quê\"), pontuação, itálicos (A da nota 3 em romano; \"é\" fora do itálico em 278-1) e \"por.si\"→\"por si\"; a nota da p. 276 que estava marcada como (8) foi renumerada para (3) (xml:id n276-3), conforme a chamada \"(3)\" do corpo e a imagem. Nenhuma fronteira corpo/nota foi alterada; a continuação da nota 3 nas pp. 277 e a nota 1 de 277 com continuação em 278 já estavam corretas.\nDúvidas: manter \"obiecto\" (p. 277, nota 3) e \"côres\" como impressos, conforme leitura da imagem; a nota solta no alto da p. 276 (continuação de nota anterior) não foi incluída, como pedido.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.013560899999999999,
+ "duration_ms": 76642,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 25174,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 22087
+ },
+ "reparo": false
+}

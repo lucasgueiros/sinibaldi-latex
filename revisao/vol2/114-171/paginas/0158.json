@@ -1,0 +1,30 @@
+{
+ "pagina": 158,
+ "paginas": [
+  158,
+  159,
+  160,
+  161
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Principais erros corrigidos: OCR (Zmmateriaes, intelligeúcia, materiaães, cerehro, approawimativa, Cúm, \"&amp;\" por \"á\", \"sô\"), ordinais (1.9→1.º, 2.9→2.º, 4.9→4.º), citações (Sum. Theol. p. I q. 91 a. 8→a. 3; In 2 sent. a. 8→a. 3), itálicos/negritos indevidos (cançaço, orgão, e, exercicio), pontuação (\";\" e \",\" espúrios), ortografia de \"differença\", \"Consulte-se\", \"acerca\", \"côres\", \"« Necessarium\", \"Et propter hoc\". Removida a assinatura de caderno \"11 / Vol. II\" do rodapé da p. 161 (nota 118-1) e o \"1i Vor. IL\" dentro da nota.\nFronteiras corpo/nota: nenhuma alteração estrutural. Conferidos os rodapés das pp. 158–161 (notas 158-1, 158-2, 159-1, 160-1, 161-1) e as continuações via pb 159/160/161 dentro das notas; a área de notas da p. 159 começa após o filete e inclui \"a) … Só queremos…\" como no original.\nDúvidas: se \"externos\" e \"cançaço\" em 159/158 são itálicos na imagem (mantive o itálico do XML em \"externos\", retirei do \"cançaço\" e \"orgão\"); grafia \"póde\"/\"pôde\" em 158-2 (3.º); \"É/E'\" em \"Resposta\" (161) e \"E' neste sentido\" (161 corpo); letra \"a\" da alínea em 159-1 (mantida itálica).",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Principais erros corrigidos: OCR (Zmmateriaes, intelligeúcia, materiaães, cerehro, approawimativa, Cúm, \"&amp;\" por \"á\", \"sô\"), ordinais (1.9→1.º, 2.9→2.º, 4.9→4.º), citações (Sum. Theol. p. I q. 91 a. 8→a. 3; In 2 sent. a. 8→a. 3), itálicos/negritos indevidos (cançaço, orgão, e, exercicio), pontuação (\";\" e \",\" espúrios), ortografia de \"differença\", \"Consulte-se\", \"acerca\", \"côres\", \"« Necessarium\", \"Et propter hoc\". Removida a assinatura de caderno \"11 / Vol. II\" do rodapé da p. 161 (nota 118-1) e o \"1i Vor. IL\" dentro da nota.\nFronteiras corpo/nota: nenhuma alteração estrutural. Conferidos os rodapés das pp. 158–161 (notas 158-1, 158-2, 159-1, 160-1, 161-1) e as continuações via pb 159/160/161 dentro das notas; a área de notas da p. 159 começa após o filete e inclui \"a) … Só queremos…\" como no original.\nDúvidas: se \"externos\" e \"cançaço\" em 159/158 são itálicos na imagem (mantive o itálico do XML em \"externos\", retirei do \"cançaço\" e \"orgão\"); grafia \"póde\"/\"pôde\" em 158-2 (3.º); \"É/E'\" em \"Resposta\" (161) e \"E' neste sentido\" (161 corpo); letra \"a\" da alínea em 159-1 (mantida itálica).",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.017868500000000002,
+ "duration_ms": 105746,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 31225,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 29492
+ },
+ "reparo": false
+}

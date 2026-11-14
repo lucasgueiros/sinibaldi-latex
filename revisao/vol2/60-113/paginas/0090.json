@@ -1,0 +1,28 @@
+{
+ "pagina": 90,
+ "paginas": [
+  90,
+  91
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Correções de OCR no texto (ácerca, \"certa e\", p. I, c. 72, circumscriptivo, só, \"como a materia\", virtual/virtuaes, \"refere-re á\", \"està\", communicando-lhe, communica, ponto final antes de \"— De mais\"). Fronteira corpo/nota conferida nas págs. 90–91: a nota n90-1 é de fato longa e continua inteira no rodapé da p. 91; nenhuma alteração de fronteira.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Correções de OCR no texto (ácerca, \"certa e\", p. I, c. 72, circumscriptivo, só, \"como a materia\", virtual/virtuaes, \"refere-re á\", \"està\", communicando-lhe, communica, ponto final antes de \"— De mais\"). Fronteira corpo/nota conferida nas págs. 90–91: a nota n90-1 é de fato longa e continua inteira no rodapé da p. 91; nenhuma alteração de fronteira.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.07256399999999999,
+ "duration_ms": 24312,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 16977,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 3861
+ },
+ "reparo": false
+}

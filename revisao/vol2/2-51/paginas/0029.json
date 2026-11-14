@@ -1,0 +1,27 @@
+{
+ "pagina": 29,
+ "paginas": [
+  29
+ ],
+ "falha": null,
+ "fronteira": null,
+ "notas": "Corrigidos erros de OCR (producção, encephalica, pedunculos, rachidiano, mesmas, indispensaveis, protuberancia, \"€\"→C, \"6\"→G), hifenização \"cere-/bello\" unida, \":\" espúrio removido, \"FIGURA VIII.\" com ponto e \"A\" da legenda sem itálico. Sem mudanças de fronteira corpo/nota (nota 1 p.29 e nota 2 p.29 mantidas).\nDúvidas: \"pira\" lido como \"para\"; \"versal\" do início da p.29 não reposto (fim de palavra hifenizada da página anterior); \"b) Medulla espinal.\" pode ser negrito na imagem (não alterado); final \"a\" transcrito sem acento, como impresso.",
+ "tentativas": [
+  {
+   "falha": null,
+   "fronteira": null,
+   "notas": "Corrigidos erros de OCR (producção, encephalica, pedunculos, rachidiano, mesmas, indispensaveis, protuberancia, \"€\"→C, \"6\"→G), hifenização \"cere-/bello\" unida, \":\" espúrio removido, \"FIGURA VIII.\" com ponto e \"A\" da legenda sem itálico. Sem mudanças de fronteira corpo/nota (nota 1 p.29 e nota 2 p.29 mantidas).\nDúvidas: \"pira\" lido como \"para\"; \"versal\" do início da p.29 não reposto (fim de palavra hifenizada da página anterior); \"b) Medulla espinal.\" pode ser negrito na imagem (não alterado); final \"a\" transcrito sem acento, como impresso.",
+   "resposta": ""
+  }
+ ],
+ "total_cost_usd": 0.0054378000000000004,
+ "duration_ms": 35281,
+ "num_turns": 1,
+ "usage": {
+  "input_tokens": 10163,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 8843
+ },
+ "reparo": false
+}
