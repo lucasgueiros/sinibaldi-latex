@@ -95,6 +95,9 @@ def _volumes_baixar(ed, volumes):
         itens = []
         if texto:
             itens.append({"formato": "xml", "nome": "TEI XML", "url": reverse("obra:baixar_volume", args=[ed.slug, v.numero])})
+            for k, nome in (("txt", "Texto puro"), ("html", "HTML"), ("tex", "LaTeX")):
+                itens.append({"formato": k, "nome": nome,
+                              "url": reverse("obra:baixar_volume_formato", args=[ed.slug, v.numero, k])})
         if texto and pdf_ok:
             itens.append({"formato": "pdf", "nome": "PDF", "url": reverse("obra:baixar_volume_pdf", args=[ed.slug, v.numero])})
         if fac:
@@ -327,6 +330,30 @@ def baixar_volume(request, slug, numero):
         raise Http404("Volume sem texto nesta edição.")
     corpo = exportacao.tei_do_volume(ed, vol)
     return _resposta_arquivo(corpo, FORMATOS["xml"][1], f"sinibaldi-{ed.slug}-vol{vol.numero}.xml")
+
+
+def baixar_volume_formato(request, slug, numero, formato):
+    """TXT, HTML ou LaTeX do volume inteiro (o TEI e o PDF têm rotas próprias)."""
+    if formato not in ("txt", "html", "tex"):
+        raise Http404("Formato desconhecido.")
+    ed = _edicao(request, slug)
+    vol = get_object_or_404(Volume, numero=numero)
+    if not exportacao.blocos_do_volume(ed, vol).exists():
+        raise Http404("Volume sem texto nesta edição.")
+    rotulo, tipo, ext = FORMATOS[formato]
+    nome = f"sinibaldi-{ed.slug}-vol{vol.numero}.{ext}"
+    if formato == "txt":
+        return _resposta_arquivo(exportacao.texto_do_volume(ed, vol), tipo, nome)
+    if formato == "html":
+        return _resposta_arquivo(exportacao.html_do_volume(ed, vol), tipo, nome)
+    try:
+        caminho = exportacao.latex_do_volume(ed, vol)
+    except exportacao.ErroExportacao as e:
+        return render(request, "publico/erro_baixar.html", {"erro": str(e), "formato": rotulo,
+                                                             "voltar": _voltar_sumario(ed)}, status=503)
+    resp = FileResponse(open(caminho, "rb"), content_type=tipo)
+    resp["Content-Disposition"] = f'attachment; filename="{nome}"'
+    return resp
 
 
 def _voltar_no(ed, n):

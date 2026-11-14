@@ -13,6 +13,8 @@ urlpatterns = [
     path("edicao/<slug:slug>/busca/", v.busca, name="busca"),
     path("edicao/<slug:slug>/volume/<int:numero>/baixar/xml/", v.baixar_volume, name="baixar_volume"),
     path("edicao/<slug:slug>/volume/<int:numero>/baixar/pdf/", v.baixar_volume_pdf, name="baixar_volume_pdf"),
+    path("edicao/<slug:slug>/volume/<int:numero>/baixar/<str:formato>/", v.baixar_volume_formato,
+         name="baixar_volume_formato"),
     path("edicao/<slug:slug>/<str:xml_id>/", v.no, name="no"),
     path("edicao/<slug:slug>/<str:xml_id>/sugerir/", sg.sugerir, name="sugerir"),
     path("edicao/<slug:slug>/<str:xml_id>/citar/", ct.citar, name="citar"),

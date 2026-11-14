@@ -278,9 +278,8 @@ def _texto_inline(el, notas, impressa, dados=None, nova=False):
     return _ESP.sub(" ", "".join(partes)).strip()
 
 
-def _rodape_texto(no):
-    autores = leitura.contribuintes(no.edicao, no.ordem_ini, no.ordem_fim)
-    linhas = [f"Fonte: Thiago Sinibaldi, {TITULO_OBRA}. {no.edicao.titulo}. {PROJETO}.", AVISO_OCR]
+def _rodape_texto(edicao, autores):
+    linhas = [f"Fonte: Thiago Sinibaldi, {TITULO_OBRA}. {edicao.titulo}. {PROJETO}.", AVISO_OCR]
     if autores:
         linhas.append("Contribuíram: " + ", ".join(autores) + ".")
     linhas.append(f"Gerado em {date.today().isoformat()}.")
@@ -290,11 +289,22 @@ def _rodape_texto(no):
 def texto_do_no(no):
     """Texto puro do nó: blocos separados por linha em branco, notas no fim,
     `[pág. N]` (página impressa) a cada mudança de página."""
+    return _texto_de_blocos(no.edicao, blocos_do_no(no).iterator(chunk_size=500), titulo_do_no(no),
+                            leitura.contribuintes(no.edicao, no.ordem_ini, no.ordem_fim))
+
+
+def texto_do_volume(edicao, volume):
+    """Texto puro de um volume inteiro da edição."""
+    return _texto_de_blocos(edicao, blocos_do_volume(edicao, volume).order_by("ordem").iterator(chunk_size=500),
+                            f"{TITULO_OBRA}, vol. {volume.numero} ({volume.titulo})", leitura.contribuintes(edicao))
+
+
+def _texto_de_blocos(edicao, blocos, titulo, autores):
     mapa = leitura.impressas()
-    saida, notas = [titulo_do_no(no), no.edicao.titulo + "\n"], []
-    cache, nova = leitura.DadosCitacoes(), no.edicao.tipo == no.edicao.NOVA
+    saida, notas = [titulo, edicao.titulo + "\n"], []
+    cache, nova = leitura.DadosCitacoes(), edicao.tipo == edicao.NOVA
     atual = None
-    for b in blocos_do_no(no).iterator(chunk_size=500):
+    for b in blocos:
         if b.tipo == Bloco.CABECALHO or b.tipo == Bloco.MARCO:
             if b.tipo == Bloco.MARCO and b.pagina is not None:
                 pass
@@ -328,7 +338,7 @@ def texto_do_no(no):
             corpo = (" ".join(_texto_inline(p, [], str, d, nv) for p in n) if len(n)
                      else _texto_inline(n, [], str, d, nv))
             saida.append(f"[{i}] {corpo}")
-    saida.append("—\n" + _rodape_texto(no))
+    saida.append("—\n" + _rodape_texto(edicao, autores))
     return "\n\n".join(s for s in saida if s) + "\n"
 
 
@@ -349,21 +359,30 @@ sup a{text-decoration:none;color:#6b1414}.notas{font-size:.85rem;border-top:1px 
 
 def html_do_no(no):
     """HTML autônomo (str) do nó, com as notas no fim e CSS embutido."""
-    corpo, notas = leitura.renderizar(blocos_do_no(no).iterator(chunk_size=500), impressas_=leitura.impressas(),
-                                      modo="offline", citacoes=leitura.DadosCitacoes(),
-                                      nova=no.edicao.tipo == no.edicao.NOVA)
+    return _html_de_blocos(no.edicao, blocos_do_no(no).iterator(chunk_size=500), titulo_do_no(no),
+                           leitura.contribuintes(no.edicao, no.ordem_ini, no.ordem_fim))
+
+
+def html_do_volume(edicao, volume):
+    """HTML autônomo de um volume inteiro da edição."""
+    return _html_de_blocos(edicao, blocos_do_volume(edicao, volume).order_by("ordem").iterator(chunk_size=500),
+                           f"{TITULO_OBRA}, vol. {volume.numero} ({volume.titulo})", leitura.contribuintes(edicao))
+
+
+def _html_de_blocos(edicao, blocos, titulo, autores):
+    corpo, notas = leitura.renderizar(blocos, impressas_=leitura.impressas(), modo="offline",
+                                      citacoes=leitura.DadosCitacoes(), nova=edicao.tipo == edicao.NOVA)
     partes = [corpo]
     if notas:
         partes.append('<section class="notas"><h2>Notas</h2><ol>')
         for i, h in notas:
             partes.append(f'<li id="nota-{i}" value="{i}">{h}</li>')
         partes.append("</ol></section>")
-    autores = leitura.contribuintes(no.edicao, no.ordem_ini, no.ordem_fim)
-    rodape = (f"Fonte: Thiago Sinibaldi, {_html.escape(TITULO_OBRA)}. {_html.escape(no.edicao.titulo)}. "
+    rodape = (f"Fonte: Thiago Sinibaldi, {_html.escape(TITULO_OBRA)}. {_html.escape(edicao.titulo)}. "
               f"{_html.escape(PROJETO)}. {_html.escape(AVISO_OCR)}")
     if autores:
         rodape += " Contribuíram: " + _html.escape(", ".join(autores)) + "."
-    titulo = _html.escape(titulo_do_no(no))
+    titulo = _html.escape(titulo)
     return (f'<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">'
             f"<title>{titulo}</title><style>{_CSS}</style></head><body><h1>{titulo}</h1>\n"

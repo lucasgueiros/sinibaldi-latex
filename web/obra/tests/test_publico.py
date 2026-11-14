@@ -275,6 +275,8 @@ class DownloadTest(PublicoBase):
         self.assertContains(r, reverse("obra:baixar", args=["1916", "v1.cap-1", "pdf"]))
         self.assertContains(r, reverse("obra:baixar_volume_pdf", args=["1916", 1]))
         self.assertContains(r, reverse("obra:baixar_volume", args=["1916", 1]))
+        for fmt in ("txt", "html", "tex"):
+            self.assertContains(r, reverse("obra:baixar_volume_formato", args=["1916", 1, fmt]))
         self.assertNotContains(r, "Fac-símile (scan")    # sem o scan original nesta instalação
 
     def test_erros(self):
@@ -290,6 +292,18 @@ class DownloadTest(PublicoBase):
         raiz = etree.fromstring(r.content)
         self.assertEqual(len(raiz.findall(f".//{TEI_NS}div[@type='tese']")), 3)
         self.assertEqual(self.client.get(reverse("obra:baixar_volume", args=["1916", 7])).status_code, 404)
+
+    def test_volume_txt_html_tex(self):
+        for fmt, ext in (("txt", "txt"), ("html", "html"), ("tex", "tex")):
+            url = reverse("obra:baixar_volume_formato", args=["1916", 1, fmt])
+            r = self.client.get(url)
+            self.assertEqual(r.status_code, 200, fmt)
+            self.assertIn(f'filename="sinibaldi-1916-vol1.{ext}"', r["Content-Disposition"])
+            corpo = b"".join(r.streaming_content) if r.streaming else r.content
+            self.assertIn(b"IDEA", corpo)                        # parte 1…
+            self.assertIn(b"COSMOLOGIA", corpo)                  # …e parte 2
+        self.assertEqual(self.client.get(reverse("obra:baixar_volume_formato", args=["1916", 7, "txt"])).status_code, 404)
+        self.assertEqual(self.client.get(reverse("obra:baixar_volume_formato", args=["1916", 1, "zip"])).status_code, 404)
 
 
 class LeituraTest(PublicoBase):
